@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AudioSources\" />
+    <Folder Include="AudioSinks\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="MultimediaSources\" />
+    <Folder Include="OpenCLVideoFilters\" />
+    <Folder Include="VAAPIVideoFilters\" />
+    <Folder Include="VideoSinks\" />
+  </ItemGroup>
+
+</Project>
