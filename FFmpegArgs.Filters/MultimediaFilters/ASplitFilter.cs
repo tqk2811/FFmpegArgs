@@ -20,6 +20,12 @@ namespace FFmpegArgs.Filters.MultimediaFilters
 
   public static class ASplitFilterExtension
   {
+    /// <summary>
+    /// Split input into several identical outputs.
+    /// </summary>
+    /// <param name="audioMap"></param>
+    /// <param name="number">The filter accepts a single parameter which specifies the number of outputs. If unspecified, it defaults to 2.</param>
+    /// <returns></returns>
     public static ASplitFilter ASplit(this IAudioMap audioMap, int number)
     {
       return new ASplitFilter(number, audioMap ?? throw new ArgumentNullException(nameof(audioMap)));

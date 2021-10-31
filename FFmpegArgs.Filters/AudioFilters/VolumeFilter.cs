@@ -59,9 +59,29 @@ namespace FFmpegArgs.Filters.AudioFilters
     public VolumeFilter Eval(VolumeEval eval)
        => this.SetOption("eval", eval.ToString().ToLower());
 
+    /// <summary>
+    /// Pre-amplification gain in dB to apply to the selected replaygain gain.<br></br>
+    /// Default value for replaygain_preamp is 0.0.
+    /// </summary>
+    /// <param name="replaygain_preamp"></param>
+    /// <returns></returns>
+    public VolumeFilter ReplaygainPreamp(float replaygain_preamp)
+    {
+      //check??
+      return this.SetOption("replaygain_preamp", replaygain_preamp);
+    }
 
-    //replaygain_preamp
-    //replaygain_noclip
+    /// <summary>
+    /// Prevent clipping by limiting the gain applied.<br></Br>
+    /// Default value for replaygain_noclip is 1.
+    /// </summary>
+    /// <param name="replaygain_noclip"></param>
+    /// <returns></returns>
+    public VolumeFilter ReplaygainNoclip(float replaygain_noclip)
+    {
+      //check??
+      return this.SetOption("replaygain_noclip", replaygain_noclip);
+    }
   }
 
   public static class VolumeFilterExtension

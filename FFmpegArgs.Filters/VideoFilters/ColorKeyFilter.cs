@@ -26,6 +26,11 @@ namespace FFmpegArgs.Filters.VideoFilters
       return this.SetOption("similarity", similarity);
     }
 
+    /// <summary>
+    /// 0.0 makes pixels either fully transparent, or not transparent at all.
+    /// </summary>
+    /// <param name="blend"></param>
+    /// <returns></returns>
     public ColorKeyFilter Blend(float blend)
     {
       if (blend < 0 || blend > 1) throw new InvalidRangeException($"Only accept: 0 <= {nameof(blend)} <= 1");
@@ -35,6 +40,12 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class ColorKeyFilterExtension
   {
+    /// <summary>
+    /// RGB colorspace color keying.
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <param name="color"></param>
+    /// <returns></returns>
     public static ColorKeyFilter ColorKeyFilter(this IImageMap parent, Color color)
     {
       return new ColorKeyFilter(color, parent ?? throw new ArgumentNullException(nameof(parent)));

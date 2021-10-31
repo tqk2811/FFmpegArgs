@@ -34,10 +34,25 @@ namespace FFmpegArgs.Filters.MultimediaFilters
 
   public static class ASelectFilterExtension
   {
+    /// <summary>
+    /// Select frames to pass in output.
+    /// </summary>
+    /// <param name="audioMap"></param>
+    /// <param name="e">Set expression, which is evaluated for each input frame.</param>
+    /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation. Default value is 1.</param>
+    /// <returns></returns>
     public static ASelectFilter ASelectFilter(this IAudioMap audioMap, Action<Expression> e, int n)
     {
       return new ASelectFilter(e, n, audioMap);
     }
+
+    /// <summary>
+    /// Select frames to pass in output.
+    /// </summary>
+    /// <param name="audioMap"></param>
+    /// <param name="e">Set expression, which is evaluated for each input frame.</param>
+    /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation. Default value is 1.</param>
+    /// <returns></returns>
     public static ASelectFilter ASelectFilter(this IAudioMap audioMap, string e, int n)
     {
       return new ASelectFilter(e.Expression(), n, audioMap);

@@ -34,10 +34,25 @@ namespace FFmpegArgs.Filters.MultimediaFilters
 
   public static class SelectFilterExtension
   {
+    /// <summary>
+    /// Select frames to pass in output.
+    /// </summary>
+    /// <param name="imageMap"></param>
+    /// <param name="e">Set expression, which is evaluated for each input frame.</param>
+    /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation.</param>
+    /// <returns></returns>
     public static SelectFilter SelectFilter(this IImageMap imageMap, Action<Expression> e, int n = 1)
     {
       return new SelectFilter(e, n, imageMap);
     }
+
+    /// <summary>
+    /// Select frames to pass in output.
+    /// </summary>
+    /// <param name="imageMap"></param>
+    /// <param name="e">Set expression, which is evaluated for each input frame.</param>
+    /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation.</param>
+    /// <returns></returns>
     public static SelectFilter SelectFilter(this IImageMap imageMap, string e, int n = 1)
     {
       return new SelectFilter(e.Expression(), n, imageMap);

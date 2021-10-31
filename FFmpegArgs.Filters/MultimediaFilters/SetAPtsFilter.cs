@@ -41,11 +41,23 @@ namespace FFmpegArgs.Filters.MultimediaFilters
   }
   public static class SetAPtsFilterExtension
   {
+    /// <summary>
+    /// Change the PTS (presentation timestamp) of the input frames.
+    /// </summary>
+    /// <param name="audioMap"></param>
+    /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
+    /// <returns></returns>
     public static SetAPtsFilter SetAPtsFilter(this IAudioMap audioMap, Action<Expression> expr)
     {
       return new SetAPtsFilter(expr, audioMap);
     }
 
+    /// <summary>
+    /// Change the PTS (presentation timestamp) of the input frames.
+    /// </summary>
+    /// <param name="audioMap"></param>
+    /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
+    /// <returns></returns>
     public static SetAPtsFilter SetAPtsFilter(this IAudioMap audioMap, string expr)
     {
       return new SetAPtsFilter(expr.Expression(), audioMap);

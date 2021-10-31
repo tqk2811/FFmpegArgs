@@ -17,9 +17,20 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     public IEnumerable<IImageMap> ImageMapsOut { get { return _imageMapsOut; } }
     public IEnumerable<IAudioMap> AudioMapsOut { get { return _audioMapsOut; } }
 
+    /// <summary>
+    /// Concatenate audio and video streams, joining them together one after the other.<br>
+    /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
+    /// </summary>
+    /// <param name="concatGroups">input: n * (v + a) => output: (v + a)</param>
     public ConcatFilter(IEnumerable<ConcatGroup> concatGroups) : this(concatGroups.ToArray())
     {
     }
+
+    /// <summary>
+    /// Concatenate audio and video streams, joining them together one after the other.<br>
+    /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
+    /// </summary>
+    /// <param name="concatGroups">input: n * (v + a) => output: (v + a)</param>
     public ConcatFilter(params ConcatGroup[] concatGroups)
       : base("concat", concatGroups.SelectMany(x => x.AllMaps).ToArray())
     {
@@ -50,8 +61,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
       this.SetOption("v", concatGroups.First().ImageMaps.Count);
       this.SetOption("a", concatGroups.First().AudioMaps.Count);
     }
-
-
   }
 
   public class ConcatGroup

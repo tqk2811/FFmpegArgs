@@ -43,10 +43,23 @@ namespace FFmpegArgs.Filters.MultimediaFilters
 
   public static class SetPtsFilterExtension
   {
+    /// <summary>
+    /// Change the PTS (presentation timestamp) of the input frames.
+    /// </summary>
+    /// <param name="imageMap"></param>
+    /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
+    /// <returns></returns>
     public static SetPtsFilter SetPtsFilter(this IImageMap imageMap, Action<Expression> expr)
     {
       return new SetPtsFilter(expr, imageMap);
     }
+
+    /// <summary>
+    /// Change the PTS (presentation timestamp) of the input frames.
+    /// </summary>
+    /// <param name="imageMap"></param>
+    /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
+    /// <returns></returns>
     public static SetPtsFilter SetPtsFilter(this IImageMap imageMap, string expr)
     {
       return new SetPtsFilter(expr.Expression(), imageMap);

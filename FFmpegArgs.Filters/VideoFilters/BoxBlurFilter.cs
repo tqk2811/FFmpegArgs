@@ -57,6 +57,11 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class BoxBlurFilterExtension
   {
+    /// <summary>
+    /// Apply a boxblur algorithm to the input video.
+    /// </summary>
+    /// <param name="imageMap"></param>
+    /// <returns></returns>
     public static BoxBlurFilter BoxBlurFilter(this IImageMap imageMap)
     {
       return new BoxBlurFilter(imageMap);
