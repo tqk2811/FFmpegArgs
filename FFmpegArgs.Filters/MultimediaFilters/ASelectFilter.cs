@@ -23,35 +23,24 @@ namespace FFmpegArgs.Filters.MultimediaFilters
       "concatdec_select"
     };
     readonly Expression expression = new Expression(_variables);
-    internal ASelectFilter(Action<Expression> e, IAudioMap audioMap) : base($"aselect", audioMap)
+    internal ASelectFilter(Action<Expression> e, int n, IAudioMap audioMap) : base($"aselect", audioMap)
     {
-      _mapsOut.Add(new AudioMap(this.FilterGraph, $"f_{FilterIndex}"));
-      this.SetOption("e", e.Run(expression));
-    }
-
-    /// <summary>
-    /// Set the number of outputs. <br></br>
-    /// The output to which to send the selected frame is based on the result of the evaluation. <br></br>
-    /// Default value is 1.
-    /// </summary>
-    /// <param name="n"></param>
-    /// <returns></returns>
-    public ASelectFilter Output(int n)
-    {
-      if (n < 1) throw new InvalidRangeException($"{nameof(n)} < 1");
-      return this.SetOption("n", n);
+      if (n < 1) throw new InvalidRangeException(nameof(n));
+      AddMultiMapOut(n);
+      this.SetOption("e", e.Run(expression)); 
+      this.SetOption("n", n);
     }
   }
 
   public static class ASelectFilterExtension
   {
-    public static ASelectFilter ASelectFilter(this IAudioMap audioMap, Action<Expression> e)
+    public static ASelectFilter ASelectFilter(this IAudioMap audioMap, Action<Expression> e, int n)
     {
-      return new ASelectFilter(e, audioMap);
+      return new ASelectFilter(e, n, audioMap);
     }
-    public static ASelectFilter ASelectFilter(this IAudioMap audioMap, string e)
+    public static ASelectFilter ASelectFilter(this IAudioMap audioMap, string e, int n)
     {
-      return new ASelectFilter(e.Expression(), audioMap);
+      return new ASelectFilter(e.Expression(), n, audioMap);
     }
 
   }

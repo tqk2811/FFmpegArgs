@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     internal SelectFilter(Action<Expression> e, int n, IImageMap imageMap) : base("select", imageMap)
     {
       if (n < 1) throw new InvalidRangeException(nameof(n));
-      for (int i = 0; i < n; i++) _mapsOut.Add(new ImageMap(FilterGraph, $"f_{FilterIndex}_{i}"));
+      AddMultiMapOut(n);
       this.SetOption("e", e.Run(expression));
       this.SetOption("n", n);
     }

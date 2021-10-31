@@ -13,10 +13,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     internal SplitFilter(int number, IImageMap imageMap) : base("split", imageMap)
     {
       if (number <= 0) throw new InvalidRangeException($"{nameof(number)} <= 0");
-      for (int i = 0; i < number; i++)
-      {
-        _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}_{i}"));
-      }
+      AddMultiMapOut(number);
       this.SetOption("outputs", number);//libavfilter/split.c
     }
   }

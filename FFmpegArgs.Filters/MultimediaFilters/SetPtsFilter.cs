@@ -35,7 +35,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     readonly Expression expression = new Expression(_variables);
     internal SetPtsFilter(Action<Expression> expr, IImageMap imageMap) : base("setpts", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
       this.SetOption("expr", expr.Run(expression));
     }
   }

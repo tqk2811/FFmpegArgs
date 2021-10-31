@@ -29,26 +29,60 @@ namespace FFmpegArgs.Filters.AudioFilters
     readonly Expression expression = new Expression(_variables);
     internal VolumeFilter(Action<Expression> volume, IAudioMap audioMap) : base("volume", audioMap)
     {
-      _mapsOut.Add(new AudioMap(this.FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
       this.SetOption("volume", volume.Run(expression));
     }
 
+
+    /// <summary>
+    /// This parameter represents the mathematical precision.<br>
+    /// </br>It determines which input sample formats will be allowed, which affects the precision of the volume scaling.
+    /// </summary>
+    /// <param name="precision"></param>
+    /// <returns></returns>
     public VolumeFilter Precision(VolumeNumberPrecision precision)
       => this.SetOption("precision", precision.ToString().ToLower());
 
+    /// <summary>
+    /// Choose the behaviour on encountering ReplayGain side data in input frames.
+    /// </summary>
+    /// <param name="replayGain"></param>
+    /// <returns></returns>
     public VolumeFilter ReplayGain(VolumeReplayGain replayGain)
       => this.SetOption("replaygain", replayGain.ToString().ToLower());
 
+    /// <summary>
+    /// Set when the volume expression is evaluated.
+    /// </summary>
+    /// <param name="eval"></param>
+    /// <returns></returns>
     public VolumeFilter Eval(VolumeEval eval)
        => this.SetOption("eval", eval.ToString().ToLower());
+
+
+    //replaygain_preamp
+    //replaygain_noclip
   }
 
   public static class VolumeFilterExtension
   {
+    /// <summary>
+    /// Adjust the input audio volume.
+    /// </summary>
+    /// <param name="audioMap"></param>
+    /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
+    /// <returns></returns>
     public static VolumeFilter Volume(this IAudioMap audioMap, Action<Expression> volume)
     {
       return new VolumeFilter(volume, audioMap ?? throw new ArgumentNullException(nameof(audioMap)));
     }
+
+    /// <summary>
+    /// Adjust the input audio volume.
+    /// </summary>
+    /// <param name="audioMap"></param>
+    /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
+    /// <returns></returns>
     public static VolumeFilter Volume(this IAudioMap audioMap, string volume)
     {
       return new VolumeFilter(volume.Expression(), audioMap ?? throw new ArgumentNullException(nameof(audioMap)));
@@ -73,8 +107,19 @@ namespace FFmpegArgs.Filters.AudioFilters
   }
   public enum VolumeNumberPrecision
   {
+    /// <summary>
+    /// 8-bit fixed-point; this limits input sample format to U8, S16, and S32.
+    /// </summary>
     Fixed,
+
+    /// <summary>
+    /// 32-bit floating-point; this limits input sample format to FLT. (default)
+    /// </summary>
     Float,
+
+    /// <summary>
+    /// 64-bit floating-point; this limits input sample format to DBL.
+    /// </summary>
     Double
   }
   public enum VolumeReplayGain
