@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.VideoFilters
   {
     internal ColorKeyFilter(Color color, ImageMap imageMap) : base("colorkey", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
       this.SetOption("color", color.ToHexStringRGB());
     }
 

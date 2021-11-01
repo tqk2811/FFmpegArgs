@@ -36,7 +36,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     readonly Expression expression = new Expression(_variables);
     internal DrawTextFilter(string text, ImageMap imageMap) : base("drawtext", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
       this.SetOption("text", text.FiltergraphEscapingLv1().FiltergraphEscapingLv2());
     }
 

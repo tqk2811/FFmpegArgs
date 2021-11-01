@@ -11,7 +11,7 @@ namespace FFmpegArgs.Filters.VideoSources
   {
     internal ColorFilter(FilterGraph filterGraph, Color color, int width, int height) : base("color", filterGraph)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
       this.SetOption("c", color.ToHexStringRGBA());
       this.SetOption("s", $"{width}x{height}");
     }

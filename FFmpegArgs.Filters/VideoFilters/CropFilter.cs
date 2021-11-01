@@ -24,7 +24,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       this.SetOption("y", y.Run(expression));
       this.SetOption("w", w.Run(expression));
       this.SetOption("h", h.Run(expression));
-      _mapsOut.Add(new ImageMap(FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
     }
 
     public CropFilter KeepAspect(bool flag)

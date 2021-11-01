@@ -21,7 +21,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     readonly Expression expression = new Expression();
     internal SetDarFilter(Action<Expression> r, ImageMap imageMap) : base("setdar", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
       this.SetOption("r", r.Run(expression));
     }
 

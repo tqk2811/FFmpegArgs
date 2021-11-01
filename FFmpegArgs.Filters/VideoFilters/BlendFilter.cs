@@ -24,7 +24,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     readonly Expression expression = new Expression(_variables);
     internal BlendFilter(ImageMap top, ImageMap bottom) : base("blend", top, bottom)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
     }
 
     /// <summary>

@@ -30,7 +30,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
     internal RotateFilter(Action<Expression> angle, ImageMap imageMap) : base("rotate", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
       this.SetOption("a", angle.Run(expression));
     }
 

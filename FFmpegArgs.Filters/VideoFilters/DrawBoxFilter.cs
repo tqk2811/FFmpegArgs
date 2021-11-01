@@ -28,7 +28,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     internal DrawBoxFilter(Color color,
       Action<Expression> x, Action<Expression> y, Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("drawbox", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
       this.SetOption("x", x.Run(expression));
       this.SetOption("y", y.Run(expression));
       this.SetOption("w", w.Run(expression));
