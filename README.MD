@@ -36,9 +36,9 @@ public class PadFilter : ImageToImageFilter
         "hsub", "vsub"
     };
     readonly Expression expression = new Expression(_variables);
-    internal PadFilter(Action<Expression> w, Action<Expression> h, IImageMap imageMap) : base("pad", imageMap)
+    internal PadFilter(Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("pad", imageMap)
     {
-        _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
+        AddMapOut();
         this.SetOption("w", w.Run(expression));
         this.SetOption("h", h.Run(expression));
     }
@@ -58,7 +58,7 @@ public class PadFilter : ImageToImageFilter
 
 public static class PadFilterExtension
 {
-    public static PadFilter PadFilter(this IImageMap imageMap, Action<Expression> w, Action<Expression> h)
+    public static PadFilter PadFilter(this ImageMap imageMap, Action<Expression> w, Action<Expression> h)
     {
         return new PadFilter(w, h, imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }
@@ -70,9 +70,9 @@ public static T FrameRate<T>(this T output, int r) where T : BaseInput
     => output.SetOption("-r", r);
 
 //output
-public static T VSync<T>(this T output,int vsync) where T : BaseOutput, IImageOutput
+public static T VSync<T>(this T output,int vsync) where T : ImageOutput
     => output.SetOption("-vsync", vsync);
-public static T ASync<T>(this T output, int async) where T : BaseOutput, IAudioOutput
+public static T ASync<T>(this T output, int async) where T : AudioOutput
     => output.SetOption("-async", async);
 
 //global 
@@ -82,7 +82,8 @@ public static FilterGraph OverWriteOutput(this FilterGraph filterGraph)
 
 ffmpeg expression check
 ``` Csharp
-img.ScaleFilter("iw/3", "ih/3")//auto check with expression
+//auto check with expression
+img.ScaleFilter("iw/3", "ih/3")
 //or
 img.ScaleFilter(w => w.Check("iw/3"), h => h.Check("ih/3"))
 //if expression bropblem
