@@ -1,6 +1,6 @@
 ﻿namespace FFmpegArgs.Cores.Inputs
 {
-  public abstract class BaseInput : BaseOptionFlag, IMediaInput
+  public abstract class BaseInput : BaseOptionFlag
   {
 
   }

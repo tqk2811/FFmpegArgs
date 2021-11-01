@@ -6,7 +6,7 @@ using System.Linq;
 namespace FFmpegArgs.Inputs
 {
   //https://stackoverflow.com/a/11175851/5034139
-  public class ImageFilesConcatInput : BaseInput, IImageInput
+  public class ImageFilesConcatInput : ImageInput
   {
     /// <summary>
     /// Use this method with formats that support file-level concatenation (MPEG-1, MPEG-2 PS, DV).<br></br>

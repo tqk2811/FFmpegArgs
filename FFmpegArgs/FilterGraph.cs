@@ -11,11 +11,11 @@ namespace FFmpegArgs
 {
   public sealed class FilterGraph : BaseOptionFlag
   {
-    public IEnumerable<IMediaInput> Inputs { get { return _inputs; } }
+    public IEnumerable<BaseInput> Inputs { get { return _inputs; } }
     public IEnumerable<IMediaOutput> Outputs { get { return _outputs; } }
     public IEnumerable<IFilter> Filters { get { return _filters; } }
 
-    internal List<IMediaInput> _inputs { get; } = new List<IMediaInput>();
+    internal List<BaseInput> _inputs { get; } = new List<BaseInput>();
     internal List<IMediaOutput> _outputs { get; } = new List<IMediaOutput>();
     internal List<IFilter> _filters { get; } = new List<IFilter>();
 
@@ -31,7 +31,7 @@ namespace FFmpegArgs
     /// <param name="sound"></param>
     /// <param name="count"></param>
     /// <returns></returns>
-    public IEnumerable<AudioMap> AddAudiosInput(IAudioInput sound, int count)
+    public IEnumerable<AudioMap> AddAudiosInput(AudioInput sound, int count)
     {
       if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
       if (count <= 0) throw new InvalidRangeException($"{nameof(count)} <= 0");
@@ -44,14 +44,14 @@ namespace FFmpegArgs
       return results;
     }
 
-    public AudioMap AddAudioInput(IAudioInput sound)
+    public AudioMap AddAudioInput(AudioInput sound)
     {
       if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
       _inputs.Add(sound);
       return new AudioMap(this, $"{_inputs.IndexOf(sound)}") { IsInput = true };
     }
 
-    public IEnumerable<ImageMap> AddImagesInput(IImageInput image, int count)
+    public IEnumerable<ImageMap> AddImagesInput(ImageInput image, int count)
     {
       if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
       if (count <= 0) throw new InvalidRangeException($"{nameof(count)} <= 0");
@@ -64,14 +64,14 @@ namespace FFmpegArgs
       return results;
     }
 
-    public ImageMap AddImageInput(IImageInput image)
+    public ImageMap AddImageInput(ImageInput image)
     {
       if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
       _inputs.Add(image);
       return new ImageMap(this, $"{_inputs.IndexOf(image)}") { IsInput = true };
     }
 
-    public VideoMap AddVideoInput(IVideoInput video, int imageCount = 1, int audioCount = 1)
+    public VideoMap AddVideoInput(VideoInput video, int imageCount = 1, int audioCount = 1)
     {
       if (_inputs.Contains(video)) throw new InvalidOperationException("Video was add to input before");
       if (imageCount < 1 || audioCount < 1)

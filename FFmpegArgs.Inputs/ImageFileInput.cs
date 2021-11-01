@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FFmpegArgs.Inputs
 {
-  public class ImageFileInput : BaseInput, IImageInput
+  public class ImageFileInput : ImageInput
   {
     readonly string _filePath;
     public ImageFileInput(string filePath)
