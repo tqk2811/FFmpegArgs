@@ -23,7 +23,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
       "concatdec_select"
     };
     readonly Expression expression = new Expression(_variables);
-    internal SelectFilter(Action<Expression> e, int n, IImageMap imageMap) : base("select", imageMap)
+    internal SelectFilter(Action<Expression> e, int n, ImageMap imageMap) : base("select", imageMap)
     {
       if (n < 1) throw new InvalidRangeException(nameof(n));
       AddMultiMapOut(n);
@@ -41,7 +41,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     /// <param name="e">Set expression, which is evaluated for each input frame.</param>
     /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation.</param>
     /// <returns></returns>
-    public static SelectFilter SelectFilter(this IImageMap imageMap, Action<Expression> e, int n = 1)
+    public static SelectFilter SelectFilter(this ImageMap imageMap, Action<Expression> e, int n = 1)
     {
       return new SelectFilter(e, n, imageMap);
     }
@@ -53,7 +53,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     /// <param name="e">Set expression, which is evaluated for each input frame.</param>
     /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation.</param>
     /// <returns></returns>
-    public static SelectFilter SelectFilter(this IImageMap imageMap, string e, int n = 1)
+    public static SelectFilter SelectFilter(this ImageMap imageMap, string e, int n = 1)
     {
       return new SelectFilter(e.Expression(), n, imageMap);
     }

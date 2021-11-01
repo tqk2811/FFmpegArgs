@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AfadeFilter : AudioToAudioFilter, ITimelineSupport, ICommandSupport
   {
-    internal AfadeFilter(IAudioMap audioMap) : base("afade", audioMap)
+    internal AfadeFilter(AudioMap audioMap) : base("afade", audioMap)
     {
       AddMapOut();
     }
@@ -76,7 +76,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="audioMap"></param>
     /// <returns></returns>
-    public static AfadeFilter AfadeFilter(this IAudioMap audioMap)
+    public static AfadeFilter AfadeFilter(this AudioMap audioMap)
     {
       return new AfadeFilter(audioMap);
     }

@@ -9,7 +9,7 @@ namespace FFmpegArgs.Outputs
   public class VideoFileOutput : BaseOutput, IVideoOutput
   {
     readonly string _filePath;
-    public VideoFileOutput(string filePath, IImageMap imageMap, IAudioMap audioMap)
+    public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap)
     {
       if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
       this._filePath = filePath;
@@ -18,9 +18,9 @@ namespace FFmpegArgs.Outputs
       AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
     }
 
-    public IImageMap ImageMap { get; }
+    public ImageMap ImageMap { get; }
 
-    public IAudioMap AudioMap { get; }
+    public AudioMap AudioMap { get; }
 
 
     public override string ToString()

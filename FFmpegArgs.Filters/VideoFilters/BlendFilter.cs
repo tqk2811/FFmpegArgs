@@ -22,7 +22,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "BOTTOM", "B"
     };
     readonly Expression expression = new Expression(_variables);
-    internal BlendFilter(IImageMap top, IImageMap bottom) : base("blend", top, bottom)
+    internal BlendFilter(ImageMap top, ImageMap bottom) : base("blend", top, bottom)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
     }
@@ -186,7 +186,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// <param name="top"></param>
     /// <param name="bottom"></param>
     /// <returns></returns>
-    public static BlendFilter BlendFilterOn(this IImageMap top, IImageMap bottom)
+    public static BlendFilter BlendFilterOn(this ImageMap top, ImageMap bottom)
     {
       return new BlendFilter(top, bottom);
     }

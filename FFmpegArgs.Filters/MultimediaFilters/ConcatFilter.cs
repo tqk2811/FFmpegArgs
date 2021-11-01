@@ -14,8 +14,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     readonly List<ImageMap> _imageMapsOut = new List<ImageMap>();
     readonly List<AudioMap> _audioMapsOut = new List<AudioMap>();
 
-    public IEnumerable<IImageMap> ImageMapsOut { get { return _imageMapsOut; } }
-    public IEnumerable<IAudioMap> AudioMapsOut { get { return _audioMapsOut; } }
+    public IEnumerable<ImageMap> ImageMapsOut { get { return _imageMapsOut; } }
+    public IEnumerable<AudioMap> AudioMapsOut { get { return _audioMapsOut; } }
 
     /// <summary>
     /// Concatenate audio and video streams, joining them together one after the other.<br>
@@ -66,27 +66,27 @@ namespace FFmpegArgs.Filters.MultimediaFilters
   public class ConcatGroup
   {
     public ConcatGroup() { }
-    public ConcatGroup(IEnumerable<IImageMap> imageMaps, IEnumerable<IAudioMap> audioMaps)
+    public ConcatGroup(IEnumerable<ImageMap> imageMaps, IEnumerable<AudioMap> audioMaps)
     {
       ImageMaps.AddRange(imageMaps ?? throw new ArgumentNullException(nameof(imageMaps)));
       AudioMaps.AddRange(audioMaps ?? throw new ArgumentNullException(nameof(audioMaps)));
     }
-    public ConcatGroup(IImageMap imageMap, IAudioMap audioMap)
+    public ConcatGroup(ImageMap imageMap, AudioMap audioMap)
     {
       ImageMaps.Add(imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
       AudioMaps.Add(audioMap ?? throw new ArgumentNullException(nameof(audioMap)));
     }
-    public ConcatGroup(params IImageMap[] imageMaps)
+    public ConcatGroup(params ImageMap[] imageMaps)
     {
       ImageMaps.AddRange(imageMaps ?? throw new ArgumentNullException(nameof(imageMaps)));
     }
-    public ConcatGroup(params IAudioMap[] audioMaps)
+    public ConcatGroup(params AudioMap[] audioMaps)
     {
       AudioMaps.AddRange(audioMaps ?? throw new ArgumentNullException(nameof(audioMaps)));
     }
 
-    public List<IImageMap> ImageMaps { get; } = new List<IImageMap>();
-    public List<IAudioMap> AudioMaps { get; } = new List<IAudioMap>();
-    internal IEnumerable<IBaseMap> AllMaps { get { return ImageMaps.Cast<IBaseMap>().Concat(AudioMaps); } }
+    public List<ImageMap> ImageMaps { get; } = new List<ImageMap>();
+    public List<AudioMap> AudioMaps { get; } = new List<AudioMap>();
+    internal IEnumerable<BaseMap> AllMaps { get { return ImageMaps.Cast<BaseMap>().Concat(AudioMaps); } }
   }
 }

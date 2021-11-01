@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "hsub", "vsub"
     };
     readonly Expression expression = new Expression(_variables);
-    internal PadFilter(Action<Expression> w, Action<Expression> h, IImageMap imageMap) : base("pad", imageMap)
+    internal PadFilter(Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("pad", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
       this.SetOption("w", w.Run(expression));
@@ -42,11 +42,11 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class PadFilterExtension
   {
-    public static PadFilter PadFilter(this IImageMap imageMap, Action<Expression> w, Action<Expression> h)
+    public static PadFilter PadFilter(this ImageMap imageMap, Action<Expression> w, Action<Expression> h)
     {
       return new PadFilter(w, h, imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }
-    public static PadFilter PadFilter(this IImageMap imageMap, string w, string h)
+    public static PadFilter PadFilter(this ImageMap imageMap, string w, string h)
     {
       return new PadFilter(w.Expression(), h.Expression(), imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }

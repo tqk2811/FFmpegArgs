@@ -9,13 +9,13 @@ namespace FFmpegArgs.Outputs
   public class ImageFileOutput : BaseOutput, IImageOutput
   {
     readonly string _filePath;
-    public ImageFileOutput(string filePath, IImageMap imageMap)
+    public ImageFileOutput(string filePath, ImageMap imageMap)
     {
       if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
       this._filePath = filePath;
       this.ImageMap = imageMap ?? throw new ArgumentNullException(nameof(imageMap));
     }
-    public IImageMap ImageMap { get; }
+    public ImageMap ImageMap { get; }
 
 
 

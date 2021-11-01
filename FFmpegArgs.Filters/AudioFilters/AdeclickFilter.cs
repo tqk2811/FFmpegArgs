@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AdeclickFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading
   {
-    internal AdeclickFilter(IAudioMap audioMap) : base("adeclick", audioMap)
+    internal AdeclickFilter(AudioMap audioMap) : base("adeclick", audioMap)
     {
       AddMapOut();
     }
@@ -97,7 +97,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="audioMap"></param>
     /// <returns></returns>
-    public static AdeclickFilter AdeclickFilter(this IAudioMap audioMap)
+    public static AdeclickFilter AdeclickFilter(this AudioMap audioMap)
     {
       return new AdeclickFilter(audioMap);
     }

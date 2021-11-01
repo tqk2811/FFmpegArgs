@@ -11,7 +11,7 @@ namespace FFmpegArgs.Filters.VideoFilters
   /// </summary>
   public class ColorKeyFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
   {
-    internal ColorKeyFilter(Color color, IImageMap imageMap) : base("colorkey", imageMap)
+    internal ColorKeyFilter(Color color, ImageMap imageMap) : base("colorkey", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
       this.SetOption("color", color.ToHexStringRGB());
@@ -46,7 +46,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// <param name="parent"></param>
     /// <param name="color"></param>
     /// <returns></returns>
-    public static ColorKeyFilter ColorKeyFilter(this IImageMap parent, Color color)
+    public static ColorKeyFilter ColorKeyFilter(this ImageMap parent, Color color)
     {
       return new ColorKeyFilter(color, parent ?? throw new ArgumentNullException(nameof(parent)));
     }

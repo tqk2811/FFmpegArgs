@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
     readonly Expression expression = new Expression(_variables);
     internal DrawBoxFilter(Color color,
-      Action<Expression> x, Action<Expression> y, Action<Expression> w, Action<Expression> h, IImageMap imageMap) : base("drawbox", imageMap)
+      Action<Expression> x, Action<Expression> y, Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("drawbox", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
       this.SetOption("x", x.Run(expression));
@@ -51,13 +51,13 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class DrawBoxFilterExtension
   {
-    public static DrawBoxFilter DrawBoxFilter(this IImageMap imageMap, Color color,
+    public static DrawBoxFilter DrawBoxFilter(this ImageMap imageMap, Color color,
       Action<Expression> x, Action<Expression> y, Action<Expression> w, Action<Expression> h)
     {
       return new DrawBoxFilter(color, x, y, w, h, imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }
 
-    public static DrawBoxFilter DrawBoxFilter(this IImageMap imageMap, Color color,
+    public static DrawBoxFilter DrawBoxFilter(this ImageMap imageMap, Color color,
      string x, string y, string w, string h)
     {
       return new DrawBoxFilter(color, x.Expression(), y.Expression(), w.Expression(), h.Expression(), imageMap ?? throw new ArgumentNullException(nameof(imageMap)));

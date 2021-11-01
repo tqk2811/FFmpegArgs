@@ -27,7 +27,7 @@ namespace FFmpegArgs.Filters.AudioFilters
       "volume"
     };
     readonly Expression expression = new Expression(_variables);
-    internal VolumeFilter(Action<Expression> volume, IAudioMap audioMap) : base("volume", audioMap)
+    internal VolumeFilter(Action<Expression> volume, AudioMap audioMap) : base("volume", audioMap)
     {
       AddMapOut();
       this.SetOption("volume", volume.Run(expression));
@@ -92,7 +92,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="audioMap"></param>
     /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
     /// <returns></returns>
-    public static VolumeFilter Volume(this IAudioMap audioMap, Action<Expression> volume)
+    public static VolumeFilter Volume(this AudioMap audioMap, Action<Expression> volume)
     {
       return new VolumeFilter(volume, audioMap ?? throw new ArgumentNullException(nameof(audioMap)));
     }
@@ -103,7 +103,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="audioMap"></param>
     /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
     /// <returns></returns>
-    public static VolumeFilter Volume(this IAudioMap audioMap, string volume)
+    public static VolumeFilter Volume(this AudioMap audioMap, string volume)
     {
       return new VolumeFilter(volume.Expression(), audioMap ?? throw new ArgumentNullException(nameof(audioMap)));
     }

@@ -3,7 +3,7 @@ using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters
 {
-  public abstract class SourceImageFilter : BaseFilter<IBaseMap, IImageMap>
+  public abstract class SourceImageFilter : BaseFilter<BaseMap, ImageMap>
   {
     internal SourceImageFilter(string filterName, FilterGraph filterGraph)
       : base(filterName, new ImageMap(filterGraph, string.Empty))

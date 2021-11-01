@@ -9,14 +9,14 @@ namespace FFmpegArgs.Outputs
   public class AudioFileOutput : BaseOutput, IAudioOutput
   {
     readonly string _filePath;
-    public AudioFileOutput(string filePath, IAudioMap audioMap)
+    public AudioFileOutput(string filePath, AudioMap audioMap)
     {
       if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
       this._filePath = filePath;
 
       AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
     }
-    public IAudioMap AudioMap { get; }
+    public AudioMap AudioMap { get; }
 
     public override string ToString()
     {

@@ -16,7 +16,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "n", "pos", "t"
     };
     readonly Expression expression = new Expression(_variables);
-    internal CropFilter(IImageMap imageMap,
+    internal CropFilter(ImageMap imageMap,
       Action<Expression> x, Action<Expression> y,
        Action<Expression> w, Action<Expression> h) : base("crop", imageMap)
     {
@@ -35,14 +35,14 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class CropFilterExtension
   {
-    public static CropFilter CropFilter(this IImageMap imageMap,
+    public static CropFilter CropFilter(this ImageMap imageMap,
       Action<Expression> x, Action<Expression> y,
        Action<Expression> w, Action<Expression> h)
     {
       return new CropFilter(imageMap, x, y, w, h);
     }
 
-    public static CropFilter CropFilter(this IImageMap imageMap,
+    public static CropFilter CropFilter(this ImageMap imageMap,
       string x, string y,
        string w, string h)
     {

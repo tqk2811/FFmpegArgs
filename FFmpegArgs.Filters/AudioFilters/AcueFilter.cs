@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AcueFilter : AudioToAudioFilter
   {
-    internal AcueFilter(IAudioMap audioMap):base("acue", audioMap)
+    internal AcueFilter(AudioMap audioMap):base("acue", audioMap)
     {
       AddMapOut();
     }
@@ -50,7 +50,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="audioMap"></param>
     /// <returns></returns>
-    public static AcueFilter AcueFilter(this IAudioMap audioMap)
+    public static AcueFilter AcueFilter(this AudioMap audioMap)
     {
       return new AcueFilter(audioMap);
     }

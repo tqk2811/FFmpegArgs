@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AcrossfadeFilter : AudioToAudioFilter
   {
-    internal AcrossfadeFilter(params IAudioMap[] audioMaps) : base("acrossfade", audioMaps)
+    internal AcrossfadeFilter(params AudioMap[] audioMaps) : base("acrossfade", audioMaps)
     {
       AddMapOut();
     }
@@ -70,7 +70,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </br> The cross fade is applied for specified duration near the end of first stream.
     /// </summary>
     /// <returns></returns>
-    public static AcrossfadeFilter AcrossfadeFilter(this IAudioMap audioMap, IAudioMap audioMap1)
+    public static AcrossfadeFilter AcrossfadeFilter(this AudioMap audioMap, AudioMap audioMap1)
     {
       return new AcrossfadeFilter(audioMap, audioMap1);
     }

@@ -3,9 +3,9 @@ using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters
 {
-  public abstract class AudioToAudioFilter : BaseFilter<IAudioMap, IAudioMap>
+  public abstract class AudioToAudioFilter : BaseFilter<AudioMap, AudioMap>
   {
-    internal AudioToAudioFilter(string filterName, params IAudioMap[] mapsIn) : base(filterName, mapsIn)
+    internal AudioToAudioFilter(string filterName, params AudioMap[] mapsIn) : base(filterName, mapsIn)
     {
 
     }

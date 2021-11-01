@@ -7,10 +7,10 @@ namespace FFmpegArgs.Template
 {
   public static class BlurredBackgroundTemplate
   {
-    public static IImageMap MakeBlurredBackgroundTemplate(this IImageMap image,
+    public static ImageMap MakeBlurredBackgroundTemplate(this ImageMap image,
       string width, string height, string lumaRadius = "100")
     {
-      List<IImageMap> inputs = new List<IImageMap>();
+      List<ImageMap> inputs = new List<ImageMap>();
       if (image.IsInput)
       {
         inputs.Add(image);

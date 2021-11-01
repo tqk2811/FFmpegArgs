@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AcompressorFilter : AudioToAudioFilter , ICommandSupport
   {
-    internal AcompressorFilter(IAudioMap audioMap) : base("acompressor", audioMap)
+    internal AcompressorFilter(AudioMap audioMap) : base("acompressor", audioMap)
     {
       AddMapOut();
     }
@@ -153,7 +153,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="audioMap"></param>
     /// <returns></returns>
-    public static AcompressorFilter AcompressorFilter(this IAudioMap audioMap)
+    public static AcompressorFilter AcompressorFilter(this AudioMap audioMap)
     {
       return new AcompressorFilter(audioMap);
     }

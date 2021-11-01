@@ -42,7 +42,7 @@ namespace FFmpegArgs.Test
       var images_inputmap = files.Select(x => filterGraph.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
 
       //PREPARE BLURRED INPUTS
-      List<IImageMap> blureds = new List<IImageMap>();
+      List<ImageMap> blureds = new List<ImageMap>();
       foreach (var image in images_inputmap)
       {
         blureds.Add(image
@@ -54,7 +54,7 @@ namespace FFmpegArgs.Test
       }
 
       //PREPARE INPUTS
-      List<IImageMap> inputs = new List<IImageMap>();
+      List<ImageMap> inputs = new List<ImageMap>();
       foreach (var image in images_inputmap)
       {
         inputs.Add(image
@@ -65,7 +65,7 @@ namespace FFmpegArgs.Test
       }
 
       //OVERLAY BLURRED AND SCALED INPUTS
-      List<IEnumerable<IImageMap>> overlays = new List<IEnumerable<IImageMap>>();
+      List<IEnumerable<ImageMap>> overlays = new List<IEnumerable<ImageMap>>();
       for (int i = 0; i < blureds.Count; i++)
       {
         overlays.Add(inputs[i]
@@ -76,7 +76,7 @@ namespace FFmpegArgs.Test
       }
 
       //APPLY PADDING
-      List<IImageMap> overlaids = new List<IImageMap>();
+      List<ImageMap> overlaids = new List<ImageMap>();
       for (int i = 0; i < overlays.Count; i++)
       {
         overlaids.Add(overlays[i].First()
@@ -85,8 +85,8 @@ namespace FFmpegArgs.Test
           .SelectFilter($"lte(n,{IMAGE_FRAME_COUNT})").MapOut);
       }
 
-      List<IImageMap> startings = new List<IImageMap>();
-      List<IImageMap> endings = new List<IImageMap>();
+      List<ImageMap> startings = new List<ImageMap>();
+      List<ImageMap> endings = new List<ImageMap>();
       for (int i = 0; i < overlays.Count; i++)
       {
         //first create ed only (if only 1 image -> create ed)
@@ -119,7 +119,7 @@ namespace FFmpegArgs.Test
 
 
       //CREATE TRANSITION FRAMES
-      List<IImageMap> blendeds = new List<IImageMap>();
+      List<ImageMap> blendeds = new List<ImageMap>();
 
       for (int i = 0; i < startings.Count; i++)
       {

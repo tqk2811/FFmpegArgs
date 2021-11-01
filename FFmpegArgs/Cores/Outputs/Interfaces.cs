@@ -9,12 +9,12 @@ namespace FFmpegArgs.Cores.Outputs
 
   public interface IAudioOutput : IMediaOutput
   {
-    IAudioMap AudioMap { get; }
+    AudioMap AudioMap { get; }
   }
 
   public interface IImageOutput : IMediaOutput
   {
-    IImageMap ImageMap { get; }
+    ImageMap ImageMap { get; }
   }
 
   public interface IVideoOutput : IImageOutput, IAudioOutput

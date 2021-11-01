@@ -3,9 +3,9 @@ using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters
 {
-  public abstract class VideoToVideoFilter : BaseFilter<IBaseMap, IBaseMap>
+  public abstract class VideoToVideoFilter : BaseFilter<BaseMap, BaseMap>
   {
-    internal VideoToVideoFilter(string filterName, params IBaseMap[] baseMaps) : base(filterName, baseMaps)
+    internal VideoToVideoFilter(string filterName, params BaseMap[] baseMaps) : base(filterName, baseMaps)
     {
 
     }

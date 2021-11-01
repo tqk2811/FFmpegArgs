@@ -18,7 +18,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "hsub", "vsub"
     };
     readonly Expression expression = new Expression(_variables);
-    internal BoxBlurFilter(IImageMap imageMap) : base("boxblur", imageMap)
+    internal BoxBlurFilter(ImageMap imageMap) : base("boxblur", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
     }
@@ -62,7 +62,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     /// <param name="imageMap"></param>
     /// <returns></returns>
-    public static BoxBlurFilter BoxBlurFilter(this IImageMap imageMap)
+    public static BoxBlurFilter BoxBlurFilter(this ImageMap imageMap)
     {
       return new BoxBlurFilter(imageMap);
     }

@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "pos"
     };
 
-    internal ScaleFilter(Action<Expression> w, Action<Expression> h, IImageMap imageMap) : base("scale", imageMap)
+    internal ScaleFilter(Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("scale", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
 
@@ -59,11 +59,11 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class ScaleFilterExtension
   {
-    public static ScaleFilter ScaleFilter(this IImageMap imageMap, Action<Expression> w, Action<Expression> h)
+    public static ScaleFilter ScaleFilter(this ImageMap imageMap, Action<Expression> w, Action<Expression> h)
     {
       return new ScaleFilter(w, h, imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }
-    public static ScaleFilter ScaleFilter(this IImageMap imageMap, string w, string h)
+    public static ScaleFilter ScaleFilter(this ImageMap imageMap, string w, string h)
     {
       return new ScaleFilter(w.Expression(), h.Expression(), imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }

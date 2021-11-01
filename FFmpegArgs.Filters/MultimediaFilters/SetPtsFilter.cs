@@ -33,7 +33,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
       "TB"
     };
     readonly Expression expression = new Expression(_variables);
-    internal SetPtsFilter(Action<Expression> expr, IImageMap imageMap) : base("setpts", imageMap)
+    internal SetPtsFilter(Action<Expression> expr, ImageMap imageMap) : base("setpts", imageMap)
     {
       AddMapOut();
       this.SetOption("expr", expr.Run(expression));
@@ -49,7 +49,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     /// <param name="imageMap"></param>
     /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
     /// <returns></returns>
-    public static SetPtsFilter SetPtsFilter(this IImageMap imageMap, Action<Expression> expr)
+    public static SetPtsFilter SetPtsFilter(this ImageMap imageMap, Action<Expression> expr)
     {
       return new SetPtsFilter(expr, imageMap);
     }
@@ -60,7 +60,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     /// <param name="imageMap"></param>
     /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
     /// <returns></returns>
-    public static SetPtsFilter SetPtsFilter(this IImageMap imageMap, string expr)
+    public static SetPtsFilter SetPtsFilter(this ImageMap imageMap, string expr)
     {
       return new SetPtsFilter(expr.Expression(), imageMap);
     }

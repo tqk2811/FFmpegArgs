@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AcrossoverFilter : AudioToAudioFilter
   {
-    internal AcrossoverFilter(int[] hzSplit, IAudioMap audioMap) : base("acrossover", audioMap)
+    internal AcrossoverFilter(int[] hzSplit, AudioMap audioMap) : base("acrossover", audioMap)
     {
       this.SetOption("split", string.Join(" ", hzSplit));
       AddMultiMapOut(hzSplit.Length + 1);
@@ -57,7 +57,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="audioMap"></param>
     /// <param name="hzSplit">Set split frequencies. Those must be positive and increasing.</param>
     /// <returns></returns>
-    public static AcrossoverFilter AcrossoverFilter(this IAudioMap audioMap, params int[] hzSplit)
+    public static AcrossoverFilter AcrossoverFilter(this AudioMap audioMap, params int[] hzSplit)
     {
       if (hzSplit.Length == 0) throw new ArgumentNullException(nameof(hzSplit));
       return new AcrossoverFilter(hzSplit, audioMap);

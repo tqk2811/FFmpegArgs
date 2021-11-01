@@ -33,7 +33,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
       "TB"
     };
     readonly Expression expression = new Expression(_variables);
-    internal SetAPtsFilter(Action<Expression> expr, IAudioMap audioMap) : base("setapts", audioMap)
+    internal SetAPtsFilter(Action<Expression> expr, AudioMap audioMap) : base("setapts", audioMap)
     {
       AddMapOut();
       this.SetOption("expr", expr.Run(expression));
@@ -47,7 +47,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     /// <param name="audioMap"></param>
     /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
     /// <returns></returns>
-    public static SetAPtsFilter SetAPtsFilter(this IAudioMap audioMap, Action<Expression> expr)
+    public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, Action<Expression> expr)
     {
       return new SetAPtsFilter(expr, audioMap);
     }
@@ -58,7 +58,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     /// <param name="audioMap"></param>
     /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
     /// <returns></returns>
-    public static SetAPtsFilter SetAPtsFilter(this IAudioMap audioMap, string expr)
+    public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, string expr)
     {
       return new SetAPtsFilter(expr.Expression(), audioMap);
     }

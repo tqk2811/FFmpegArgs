@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "ntsc_film"
     };
     readonly Expression expression = new Expression(_consts);
-    internal FpsFilter(Action<Expression> fps, IImageMap imageMap) : base("fps", imageMap)
+    internal FpsFilter(Action<Expression> fps, ImageMap imageMap) : base("fps", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
       this.SetOption("fps", fps.Run(expression));
@@ -38,11 +38,11 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class FpsFilterExtension
   {
-    public static FpsFilter FpsFilter(this IImageMap imageMap, Action<Expression> fps)
+    public static FpsFilter FpsFilter(this ImageMap imageMap, Action<Expression> fps)
     {
       return new FpsFilter(fps, imageMap);
     }
-    public static FpsFilter FpsFilter(this IImageMap imageMap, string fps)
+    public static FpsFilter FpsFilter(this ImageMap imageMap, string fps)
     {
       return new FpsFilter(fps.Expression(), imageMap);
     }

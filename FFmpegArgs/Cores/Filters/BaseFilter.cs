@@ -6,11 +6,11 @@ using System.Linq;
 namespace FFmpegArgs.Cores.Filters
 {
   public abstract class BaseFilter<TIn, TOut> : BaseOption, IFilter
-    where TIn : IBaseMap
-    where TOut : IBaseMap
+    where TIn : BaseMap
+    where TOut : BaseMap
   {
-    protected readonly List<TIn> _mapsIn = new List<TIn>();
-    protected readonly List<TOut> _mapsOut = new List<TOut>();
+    private List<TIn> _mapsIn { get; } = new List<TIn>();
+    protected List<TOut> _mapsOut { get; } = new List<TOut>();
 
     readonly string FilterName;
     protected int FilterIndex { get; private set; }
@@ -36,7 +36,7 @@ namespace FFmpegArgs.Cores.Filters
       if (string.IsNullOrEmpty(FilterName)) throw new NullReferenceException(nameof(FilterName));
       string inputs = string.Join("", _mapsIn
         .Where(x => !string.IsNullOrWhiteSpace(x.MapName))
-        .Select(x => x.IsInput ? $"[{x.MapName}:{(x is IImageMap ? "v" : "a")}:{x.InputIndex}]" : $"[{x.MapName}]"));
+        .Select(x => x.IsInput ? $"[{x.MapName}:{(x is ImageMap ? "v" : "a")}:{x.InputIndex}]" : $"[{x.MapName}]"));
       string outputs = string.Join("", _mapsOut.Select(x => $"[{x.MapName}]"));
       string options = string.Join(":", _options.Select(x => $"{x.Key}={x.Value}"));
       if (string.IsNullOrEmpty(options)) options = string.Empty;

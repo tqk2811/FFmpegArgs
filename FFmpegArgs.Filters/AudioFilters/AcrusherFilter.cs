@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AcrusherFilter : AudioToAudioFilter
   {
-    internal AcrusherFilter(IAudioMap audioMap) : base("acrusher", audioMap)
+    internal AcrusherFilter(AudioMap audioMap) : base("acrusher", audioMap)
     {
       AddMapOut();
     }
@@ -115,7 +115,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="audioMap"></param>
     /// <returns></returns>
-    public static AcrusherFilter AcrusherFilter(this IAudioMap audioMap)
+    public static AcrusherFilter AcrusherFilter(this AudioMap audioMap)
     {
       return new AcrusherFilter(audioMap);
     }

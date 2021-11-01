@@ -34,7 +34,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     };
 
     readonly Expression expression = new Expression(_variables);
-    internal DrawTextFilter(string text, IImageMap imageMap) : base("drawtext", imageMap)
+    internal DrawTextFilter(string text, ImageMap imageMap) : base("drawtext", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
       this.SetOption("text", text.FiltergraphEscapingLv1().FiltergraphEscapingLv2());
@@ -64,7 +64,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class DrawTextFilterExtension
   {
-    public static DrawTextFilter DrawTextFilter(this IImageMap imageMap, string text)
+    public static DrawTextFilter DrawTextFilter(this ImageMap imageMap, string text)
     {
       return new DrawTextFilter(text, imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }

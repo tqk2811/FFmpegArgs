@@ -19,7 +19,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "hsub", "vsub"
     };
     readonly Expression expression = new Expression();
-    internal SetDarFilter(Action<Expression> r, IImageMap imageMap) : base("setdar", imageMap)
+    internal SetDarFilter(Action<Expression> r, ImageMap imageMap) : base("setdar", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
       this.SetOption("r", r.Run(expression));
@@ -31,11 +31,11 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class SetDarFilterExtension
   {
-    public static SetDarFilter SetDarFilter(this IImageMap imageMap, Action<Expression> r)
+    public static SetDarFilter SetDarFilter(this ImageMap imageMap, Action<Expression> r)
     {
       return new SetDarFilter(r, imageMap);
     }
-    public static SetDarFilter SetDarFilter(this IImageMap imageMap, string r)
+    public static SetDarFilter SetDarFilter(this ImageMap imageMap, string r)
     {
       return new SetDarFilter(r.Expression(), imageMap);
     }

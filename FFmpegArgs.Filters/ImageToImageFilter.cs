@@ -3,9 +3,9 @@ using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters
 {
-  public abstract class ImageToImageFilter : BaseFilter<IImageMap, IImageMap>
+  public abstract class ImageToImageFilter : BaseFilter<ImageMap, ImageMap>
   {
-    internal ImageToImageFilter(string filterName, params IImageMap[] mapsIn) : base(filterName, mapsIn)
+    internal ImageToImageFilter(string filterName, params ImageMap[] mapsIn) : base(filterName, mapsIn)
     {
 
     }

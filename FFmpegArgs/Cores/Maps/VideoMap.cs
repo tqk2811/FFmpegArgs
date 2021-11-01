@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 namespace FFmpegArgs.Cores.Maps
 {
-  public class VideoMap : IVideoMap
+  public class VideoMap
   {
-    public IEnumerable<IAudioMap> AudioMaps => _audioMaps;
+    public IEnumerable<AudioMap> AudioMaps => _audioMaps;
 
-    public IEnumerable<IImageMap> ImageMaps => _imageMaps;
+    public IEnumerable<ImageMap> ImageMaps => _imageMaps;
 
 
-    readonly List<IAudioMap> _audioMaps = new List<IAudioMap>();
-    readonly List<IImageMap> _imageMaps = new List<IImageMap>();
-    internal VideoMap(IEnumerable<IImageMap> imageMaps, IEnumerable<IAudioMap> audioMaps)
+    readonly List<AudioMap> _audioMaps = new List<AudioMap>();
+    readonly List<ImageMap> _imageMaps = new List<ImageMap>();
+    internal VideoMap(IEnumerable<ImageMap> imageMaps, IEnumerable<AudioMap> audioMaps)
     {
       _imageMaps.AddRange(imageMaps);
       _audioMaps.AddRange(audioMaps);

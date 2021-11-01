@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.VideoFilters
   /// </summary>
   public class TrimFilter : ImageToImageFilter
   {
-    internal TrimFilter(IImageMap imageMap) : base("trim", imageMap)
+    internal TrimFilter(ImageMap imageMap) : base("trim", imageMap)
     {
       _mapsOut.Add(new ImageMap(FilterGraph, $"f_{FilterIndex}"));
     }
@@ -37,7 +37,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class TrimFilterExtension
   {
-    public static TrimFilter TrimFilter(this IImageMap imageMap)
+    public static TrimFilter TrimFilter(this ImageMap imageMap)
     {
       return new TrimFilter(imageMap);
     }

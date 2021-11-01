@@ -28,7 +28,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     };
     readonly Expression expression = new Expression(_variables, _func);
 
-    internal RotateFilter(Action<Expression> angle, IImageMap imageMap) : base("rotate", imageMap)
+    internal RotateFilter(Action<Expression> angle, ImageMap imageMap) : base("rotate", imageMap)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
       this.SetOption("a", angle.Run(expression));
@@ -46,11 +46,11 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class RotateFilterExtension
   {
-    public static RotateFilter RotateFilter(this IImageMap imageMap, Action<Expression> angle)
+    public static RotateFilter RotateFilter(this ImageMap imageMap, Action<Expression> angle)
     {
       return new RotateFilter(angle, imageMap);
     }
-    public static RotateFilter RotateFilter(this IImageMap imageMap, string angle)
+    public static RotateFilter RotateFilter(this ImageMap imageMap, string angle)
     {
       return new RotateFilter(angle.Expression(), imageMap);
     }

@@ -11,7 +11,7 @@ namespace FFmpegArgs.Filters.VideoFilters
   /// </summary>
   public class FormatFilter : ImageToImageFilter
   {
-    internal FormatFilter(IEnumerable<string> pixFmts, IImageMap imageMap) : base("format", imageMap)
+    internal FormatFilter(IEnumerable<string> pixFmts, ImageMap imageMap) : base("format", imageMap)
     {
       if (pixFmts.Count() == 0) throw new InvalidRangeException(nameof(pixFmts));
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
@@ -21,12 +21,12 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class FormatFilterExtension
   {
-    public static FormatFilter FormatFilter(this IImageMap imageMap, params FormatPixFmt[] pixFmts)
+    public static FormatFilter FormatFilter(this ImageMap imageMap, params FormatPixFmt[] pixFmts)
     {
       return new FormatFilter(pixFmts.Select(x => x.ToString()), imageMap);
     }
 
-    public static FormatFilter FormatFilter(this IImageMap imageMap, params string[] pixFmts)
+    public static FormatFilter FormatFilter(this ImageMap imageMap, params string[] pixFmts)
     {
       return new FormatFilter(pixFmts, imageMap);
     }

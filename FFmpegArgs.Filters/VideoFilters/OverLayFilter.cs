@@ -24,7 +24,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
     readonly Expression expression = new Expression(_variables);
 
-    internal OverlayFilter(Action<Expression> x, Action<Expression> y, IImageMap bottom, IImageMap top) : base("overlay", bottom, top)
+    internal OverlayFilter(Action<Expression> x, Action<Expression> y, ImageMap bottom, ImageMap top) : base("overlay", bottom, top)
     {
       _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
       this.SetOption("x", x.Run(expression));
@@ -43,7 +43,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
   public static class OverlayFilterExtension
   {
-    public static OverlayFilter OverlayFilterOn(this IImageMap top, IImageMap bottom, Action<Expression> x, Action<Expression> y)
+    public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, Action<Expression> x, Action<Expression> y)
     {
       return new OverlayFilter(
         x, y,
@@ -52,7 +52,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         );
     }
 
-    public static OverlayFilter OverlayFilterOn(this IImageMap top, IImageMap bottom, string x, string y)
+    public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, string x, string y)
     {
       return new OverlayFilter(
         x.Expression(),

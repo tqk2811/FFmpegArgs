@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AcopyFilter : AudioToAudioFilter
   {
-    internal AcopyFilter(IAudioMap audioMap) : base("acopy", audioMap)
+    internal AcopyFilter(AudioMap audioMap) : base("acopy", audioMap)
     {
       AddMapOut();
     }
@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="audioMap"></param>
     /// <returns></returns>
-    public static AcopyFilter AcopyFilter(this IAudioMap audioMap)
+    public static AcopyFilter AcopyFilter(this AudioMap audioMap)
     {
       return new AcopyFilter(audioMap);
     }
