@@ -12,11 +12,11 @@ namespace FFmpegArgs
   public sealed class FilterGraph : BaseOptionFlag
   {
     public IEnumerable<BaseInput> Inputs { get { return _inputs; } }
-    public IEnumerable<IMediaOutput> Outputs { get { return _outputs; } }
+    public IEnumerable<BaseOutput> Outputs { get { return _outputs; } }
     public IEnumerable<IFilter> Filters { get { return _filters; } }
 
     internal List<BaseInput> _inputs { get; } = new List<BaseInput>();
-    internal List<IMediaOutput> _outputs { get; } = new List<IMediaOutput>();
+    internal List<BaseOutput> _outputs { get; } = new List<BaseOutput>();
     internal List<IFilter> _filters { get; } = new List<IFilter>();
 
 
@@ -90,7 +90,7 @@ namespace FFmpegArgs
       return new VideoMap(imageMaps, audioMaps);
     }
 
-    public void AddOutput(IMediaOutput output)
+    public void AddOutput(BaseOutput output)
     {
       if (_outputs.Contains(output)) throw new InvalidOperationException("Sound was add to input before");
       _outputs.Add(output);

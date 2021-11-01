@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace FFmpegArgs.Outputs
 {
-  public class VideoFileOutput : BaseOutput, IVideoOutput
+  public class VideoFileOutput : VideoOutput
   {
     readonly string _filePath;
     public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap)
@@ -17,11 +17,6 @@ namespace FFmpegArgs.Outputs
       ImageMap = imageMap ?? throw new ArgumentNullException(nameof(imageMap));
       AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
     }
-
-    public ImageMap ImageMap { get; }
-
-    public AudioMap AudioMap { get; }
-
 
     public override string ToString()
     {

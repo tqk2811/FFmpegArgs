@@ -1,7 +1,8 @@
 ﻿namespace FFmpegArgs.Cores.Outputs
 {
-  public abstract class BaseOutput : BaseOptionFlag, IMediaOutput
+  public abstract class BaseOutput : BaseOptionFlag
   {
-    public virtual string OutPath { get; }
+    internal BaseOutput() { }
+    public string OutPath { get; protected set; }
   }
 }
