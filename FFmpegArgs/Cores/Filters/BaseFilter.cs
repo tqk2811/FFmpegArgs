@@ -21,6 +21,8 @@ namespace FFmpegArgs.Cores.Filters
     protected BaseFilter(string filterName, params TIn[] mapsIn)
     {
       if (string.IsNullOrWhiteSpace(filterName)) throw new ArgumentNullException(nameof(filterName));
+      if(mapsIn.Any(x => !x.IsInput && x.IsMapped)) 
+        throw new InvalidOperationException("Map is only \"one to one\", except input");
       var filters = mapsIn.GroupBy(x => x.FilterGraph);
       if (filters.Count() != 1) throw new InvalidOperationException("mapsIn are empty or not same FilterGraph");
       this.FilterGraph = filters.First().Key;
@@ -29,6 +31,7 @@ namespace FFmpegArgs.Cores.Filters
 
       FilterIndex = this.FilterGraph._filters.IndexOf(this);
       _mapsIn.AddRange(mapsIn);
+      _mapsIn.ForEach(x => x.IsMapped = true);
     }
 
     public override string ToString()
