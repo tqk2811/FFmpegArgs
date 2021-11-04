@@ -31,16 +31,18 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="start_sample"></param>
     /// <returns></returns>
-    public AfadeFilter StartSample(int start_sample)
-       => this.SetOption("ss", start_sample);
+    public AfadeFilter StartSample(long start_sample)
+      => this.SetOptionRange("ss", start_sample, 0, long.MaxValue);
 
     /// <summary>
-    /// Specify the number of samples for which the fade effect has to last. At the end of the fade-in effect the output audio will have the same volume as the input audio, at the end of the fade-out transition the output audio will be silence. Default is 44100.
+    /// Specify the number of samples for which the fade effect has to last.<br>
+    /// </br> At the end of the fade-in effect the output audio will have the same volume as the input audio, at the end of the fade-out transition the output audio will be silence.<br>
+    /// </br> Default is 44100.
     /// </summary>
     /// <param name="nb_samples"></param>
     /// <returns></returns>
     public AfadeFilter NbSamples(int nb_samples)
-       => this.SetOption("ns", nb_samples);
+      => this.SetOptionRange("ns", nb_samples, 1, int.MaxValue);
 
     /// <summary>
     /// Specify the start time of the fade effect. Default is 0. The value must be specified as a time duration.<br>
@@ -49,15 +51,17 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="st"></param>
     /// <returns></returns>
     public AfadeFilter StartTime(double st)
-       => this.SetOption("st", st);
+      => this.SetOptionRange("st", st, 1, double.MaxValue);
 
     /// <summary>
-    /// Specify the duration of the fade effect. At the end of the fade-in effect the output audio will have the same volume as the input audio, at the end of the fade-out transition the output audio will be silence. By default the duration is determined by nb_samples. If set this option is used instead of nb_samples.
+    /// Specify the duration of the fade effect.<br>
+    /// </br> At the end of the fade-in effect the output audio will have the same volume as the input audio, at the end of the fade-out transition the output audio will be silence.<br>
+    /// </br> By default the duration is determined by nb_samples. If set this option is used instead of nb_samples.
     /// </summary>
     /// <param name="duration"></param>
     /// <returns></returns>
     public AfadeFilter Duration(double duration)
-     => this.SetOption("d", duration);
+     => this.SetOptionRange("d", duration, 1, double.MaxValue);
 
     /// <summary>
     /// Set curve for fade transition.

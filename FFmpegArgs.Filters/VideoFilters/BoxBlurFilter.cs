@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     readonly Expression expression = new Expression(_variables);
     internal BoxBlurFilter(ImageMap imageMap) : base("boxblur", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
     }
 
     public BoxBlurFilter LumaRadius(Action<Expression> lr)

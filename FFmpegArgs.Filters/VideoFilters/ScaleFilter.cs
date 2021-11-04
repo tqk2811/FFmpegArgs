@@ -28,7 +28,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
     internal ScaleFilter(Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("scale", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
 
       Expression expression = new Expression(_scalevariables);
       this.SetOption("w", w.Run(expression));

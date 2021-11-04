@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.VideoFilters
   {
     internal TrimFilter(ImageMap imageMap) : base("trim", imageMap)
     {
-      _mapsOut.Add(new ImageMap(FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
     }
 
     public TrimFilter Start(double val)

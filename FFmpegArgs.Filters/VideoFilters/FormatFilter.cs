@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     internal FormatFilter(IEnumerable<string> pixFmts, ImageMap imageMap) : base("format", imageMap)
     {
       if (pixFmts.Count() == 0) throw new InvalidRangeException(nameof(pixFmts));
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
       this.SetOption("pix_fmts", string.Join("|", pixFmts));
     }
   }

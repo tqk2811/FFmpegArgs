@@ -144,7 +144,8 @@ namespace FFmpegArgs.Utils
     {
       "PI",
       "E",
-      "PHI"
+      "PHI",
+      "INT_MAX"
     };
 
     string _expression;

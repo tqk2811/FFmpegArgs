@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.VideoFilters
 
     internal OverlayFilter(Action<Expression> x, Action<Expression> y, ImageMap bottom, ImageMap top) : base("overlay", bottom, top)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
       this.SetOption("x", x.Run(expression));
       this.SetOption("y", y.Run(expression));
     }

@@ -22,7 +22,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     readonly Expression expression = new Expression(_variables);
     internal PadFilter(Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("pad", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{FilterIndex}"));
+      AddMapOut();
       this.SetOption("w", w.Run(expression));
       this.SetOption("h", h.Run(expression));
     }

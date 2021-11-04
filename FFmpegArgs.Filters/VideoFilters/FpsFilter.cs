@@ -22,7 +22,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     readonly Expression expression = new Expression(_consts);
     internal FpsFilter(Action<Expression> fps, ImageMap imageMap) : base("fps", imageMap)
     {
-      _mapsOut.Add(new ImageMap(this.FilterGraph, $"f_{this.FilterIndex}"));
+      AddMapOut();
       this.SetOption("fps", fps.Run(expression));
     }
 

@@ -26,10 +26,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="window"></param>
     /// <returns></returns>
     public AdeclickFilter Window(float window)
-    {
-      if (window < 10 || window > 100) throw new InvalidRangeException($"10 <= {nameof(window)} <= 100");
-      return this.SetOption("w", window);
-    }
+      => this.SetOptionRange("w", window, 10, 100);
 
     /// <summary>
     /// Set window overlap, in percentage of window size. Allowed range is from 50 to 95. Default value is 75 percent.<br>
@@ -38,10 +35,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="overlap"></param>
     /// <returns></returns>
     public AdeclickFilter Overlap(float overlap)
-    {
-      if (overlap < 50 || overlap > 95) throw new InvalidRangeException($"50 <= {nameof(overlap)} <= 95");
-      return this.SetOption("o", overlap);
-    }
+      => this.SetOptionRange("o", overlap, 50, 95);
 
     /// <summary>
     /// Set autoregression order, in percentage of window size.<br>
@@ -51,10 +45,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="arorder"></param>
     /// <returns></returns>
     public AdeclickFilter ArOrder(float arorder)
-    {
-      if (arorder < 0 || arorder > 25) throw new InvalidRangeException($"0 <= {nameof(arorder)} <= 25");
-      return this.SetOption("a", arorder);
-    }
+      => this.SetOptionRange("a", arorder, 0, 25);
 
     /// <summary>
     /// Set threshold value. Allowed range is from 1 to 100. <br>
@@ -64,10 +55,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="threshold"></param>
     /// <returns></returns>
     public AdeclickFilter Threshold(float threshold)
-    {
-      if (threshold < 1 || threshold > 100) throw new InvalidRangeException($"1 <= {nameof(threshold)} <= 100");
-      return this.SetOption("t", threshold);
-    }
+      => this.SetOptionRange("t", threshold, 1, 100);
 
     /// <summary>
     /// Set burst fusion, in percentage of window size. Allowed range is 0 to 10.  Default value is 2.<br>
@@ -76,10 +64,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="burst"></param>
     /// <returns></returns>
     public AdeclickFilter Burst(float burst)
-    {
-      if (burst < 0 || burst > 10) throw new InvalidRangeException($"0 <= {nameof(burst)} <= 10");
-      return this.SetOption("b", burst);
-    }
+      => this.SetOptionRange("b", burst, 0, 10);
 
     /// <summary>
     /// Set overlap method.

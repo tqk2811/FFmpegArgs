@@ -16,8 +16,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   {
     internal AcontrastFilter(float contrast, AudioMap audioMap) : base("acontrast", audioMap)
     {
-      if (contrast < 0 || contrast > 100) throw new InvalidRangeException($"0 <= level_in <= 100");
-      this.SetOption("contrast", contrast);
+      this.SetOptionRange("contrast", contrast,0,100);
       AddMapOut();
     }
   }
