@@ -25,10 +25,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="level_in"></param>
     /// <returns></returns>
     public AcompressorFilter LevelIn(float level_in)
-    {
-      if (level_in < 0.015625f || level_in > 64) throw new InvalidRangeException($"0.015625 <= {nameof(level_in)} <= 64");
-      return this.SetOption("level_in", level_in);
-    }
+      => this.SetOptionRange("level_in", level_in, 0.015625f, 64);
 
     /// <summary>
     /// Set mode of compressor operation
@@ -45,10 +42,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="threshold"></param>
     /// <returns></returns>
     public AcompressorFilter Threshold(float threshold)
-    {
-      if (threshold < 0.00097563f || threshold > 1) throw new InvalidRangeException($"0.00097563 <= {nameof(threshold)} <= 1");
-      return this.SetOption("threshold", threshold);
-    }
+      => this.SetOptionRange("threshold", threshold, 0.00097563f, 1);
 
     /// <summary>
     /// Set a ratio by which the signal is reduced. 1:2 means that if the level rose 4dB above the threshold,<br></br> 
@@ -58,10 +52,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="ratio"></param>
     /// <returns></returns>
     public AcompressorFilter Ratio(float ratio)
-    {
-      if (ratio < 1 || ratio > 20) throw new InvalidRangeException($"1 <= {nameof(ratio)} <= 20");
-      return this.SetOption("ratio", ratio);
-    }
+      => this.SetOptionRange("ratio", ratio, 1, 20);
 
 
     /// <summary>
@@ -71,10 +62,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="attack"></param>
     /// <returns></returns>
     public AcompressorFilter Attack(float attack)
-    {
-      if (attack < 0.01f || attack > 2000) throw new InvalidRangeException($"0.01 <= {nameof(attack)} <= 2000");
-      return this.SetOption("attack", attack);
-    }
+      => this.SetOptionRange("attack", attack, 0.01f, 2000);
 
     /// <summary>
     /// Amount of milliseconds the signal has to fall below the threshold before reduction is decreased again.<br>
@@ -83,10 +71,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="release"></param>
     /// <returns></returns>
     public AcompressorFilter Release(float release)
-    {
-      if (release < 0.01f || release > 9000) throw new InvalidRangeException($"0.01 <= {nameof(release)} <= 9000");
-      return this.SetOption("release", release);
-    }
+      => this.SetOptionRange("release", release, 0.01f, 9000);
 
     /// <summary>
     /// Set the amount by how much signal will be amplified after processing.<br>
@@ -95,10 +80,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="makeup"></param>
     /// <returns></returns>
     public AcompressorFilter Makeup(float makeup)
-    {
-      if (makeup < 1 || makeup > 64) throw new InvalidRangeException($"1 <= {nameof(makeup)} <= 64");
-      return this.SetOption("makeup", makeup);
-    }
+      => this.SetOptionRange("makeup", makeup, 1, 64);
 
     /// <summary>
     /// Curve the sharp knee around the threshold to enter gain reduction more softly.<br>
@@ -107,10 +89,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="knee"></param>
     /// <returns></returns>
     public AcompressorFilter Knee(float knee)
-    {
-      if (knee < 1 || knee > 8) throw new InvalidRangeException($"1 <= {nameof(knee)} <= 8");
-      return this.SetOption("knee", knee);
-    }
+      => this.SetOptionRange("knee", knee, 1, 8);
 
     /// <summary>
     /// Choose if the average level between all channels of input stream <br>
@@ -138,10 +117,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="mix"></param>
     /// <returns></returns>
     public AcompressorFilter Mix(float mix)
-    {
-      if (mix < 0 || mix > 1) throw new InvalidRangeException($"0 <= {nameof(mix)} <= 1");
-      return this.SetOption("mix", mix);
-    }
+      => this.SetOptionRange("mix", mix, 0, 1);
   }
 
 

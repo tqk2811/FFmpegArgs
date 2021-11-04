@@ -34,18 +34,15 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="level"></param>
     /// <returns></returns>
     public AcrossoverFilter Level(float level)
-    {
-      if (level < 0 || level > 1) throw new InvalidRangeException($"0 <= {nameof(level)} <= 1");
-      return this.SetOption("level", level);
-    }
+      => this.SetOptionRange("level", level, 0, 1);
 
     /// <summary>
     /// Set output gain for each band. Default value is 1 for all bands.
     /// </summary>
     /// <param name="gains"></param>
     /// <returns></returns>
-    public AcrossoverFilter Gains(string gains)
-      => this.SetOption("gains", gains);
+    public AcrossoverFilter Gains(int gains)
+       => this.SetOptionRange("gains", gains, 0, int.MaxValue);
   }
 
   public static class AcrossoverFilterExtension

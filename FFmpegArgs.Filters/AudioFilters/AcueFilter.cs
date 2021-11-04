@@ -24,7 +24,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="cue"></param>
     /// <returns></returns>
     public AcueFilter Cue(long cue)
-      => this.SetOption("cue", cue);
+      => this.SetOptionRange("cue", cue, 0, long.MaxValue);
 
     /// <summary>
     /// The duration of content to pass on as preroll expressed in seconds. Default is 0.
@@ -32,7 +32,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="preroll"></param>
     /// <returns></returns>
     public AcueFilter Preroll(int preroll)
-      => this.SetOption("preroll", preroll);
+      => this.SetOptionRange("preroll", preroll, 0, long.MaxValue);
 
     /// <summary>
     /// The maximum duration of content to buffer before waiting for the cue expressed in seconds. Default is 0.
@@ -40,7 +40,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="buffer"></param>
     /// <returns></returns>
     public AcueFilter Buffer(long buffer)
-      => this.SetOption("buffer", buffer);
+      => this.SetOptionRange("buffer", buffer, 0, long.MaxValue);
   }
 
   public static class AcueFilterExtension

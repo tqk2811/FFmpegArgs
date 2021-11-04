@@ -17,7 +17,7 @@ namespace FFmpegArgs.Filters
 
     public static Expression Run(this Action<Expression> action, Expression expression)
     {
-      action.Invoke(expression);
+      action?.Invoke(expression);
       return expression;
     }
 

@@ -1,5 +1,8 @@
 ﻿namespace FFmpegArgs.Filters.Enums
 {
+  /// <summary>
+  /// https://ffmpeg.org/ffmpeg-utils.html#Video-rate
+  /// </summary>
   public enum VideoRate
   {
     /// <summary>

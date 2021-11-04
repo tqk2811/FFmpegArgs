@@ -25,10 +25,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="nr"></param>
     /// <returns></returns>
     public AfftdnFilter NR(float nr)
-    {
-      if (nr < 0.01f || nr > 97) throw new InvalidRangeException($"0.01 <= {nameof(nr)} <= 97");
-      return this.SetOption("nr", nr);
-    }
+      => this.SetOptionRange("nr", nr, 0.01f, 97);
 
     /// <summary>
     /// Set the noise floor in dB, allowed range is -80 to -20. Default value is -50 dB.
@@ -36,10 +33,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="nf"></param>
     /// <returns></returns>
     public AfftdnFilter NF(float nf)
-    {
-      if (nf < -80 || nf > -20) throw new InvalidRangeException($"-80 <= {nameof(nf)} <= -20");
-      return this.SetOption("nf", nf);
-    }
+      => this.SetOptionRange("nf", nf, -80, -20);
 
     public AfftdnFilter NT(AfftdnNoiseType nt)
       => this.SetOption("nt", nt);
@@ -58,10 +52,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// <param name="rf"></param>
     /// <returns></returns>
     public AfftdnFilter RF(float rf)
-    {
-      if (rf < -80 || rf > -20) throw new InvalidRangeException($"-80 <= {nameof(rf)} <= -20");
-      return this.SetOption("rf", rf);
-    }
+      => this.SetOptionRange("rf", rf, -80, -20);
 
     /// <summary>
     /// Enable noise tracking. By default is disabled. With this enabled, noise floor is automatically adjusted.
