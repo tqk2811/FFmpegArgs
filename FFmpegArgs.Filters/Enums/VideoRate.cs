@@ -8,37 +8,41 @@
     /// <summary>
     /// 30000/1001
     /// </summary>
-    ntsc,
+    [Name("ntsc")] ntsc,
 
     /// <summary>
     /// 25/1
     /// </summary>
-    pal,
+    [Name("pal")] pal,
 
     /// <summary>
     /// 30000/1001
     /// </summary>
-    qntsc,
+    [Name("qntsc")] qntsc,
 
     /// <summary>
     /// 25/1
     /// </summary>
-    qpal,
+    [Name("qpal")] qpal,
 
     /// <summary>
     /// 30000/1001
     /// </summary>
-    sntsc,
+    [Name("sntsc")] sntsc,
 
     /// <summary>
     /// 25/1
     /// </summary>
-    spal,
+    [Name("spal")] spal,
 
     /// <summary>
     /// 24/1
     /// </summary>
-    film,
-    //ntsc-film
+    [Name("film")] film,
+
+    /// <summary>
+    /// 24000/1001
+    /// </summary>
+    [Name("ntsc-film")] NtscFilm
   }
 }
