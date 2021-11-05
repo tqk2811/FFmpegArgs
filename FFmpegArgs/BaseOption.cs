@@ -36,14 +36,14 @@ namespace FFmpegArgs
     public static T SetOptionRange<T>(this T baseOption, string key, float val, float min, float max) where T : BaseOption
     {
       if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-      if (val < min || val > max) throw new ArgumentOutOfRangeException($"Range Required: {min} <= {key} <= {max}");
+      if (float.IsNaN(val) || val < min || val > max) throw new ArgumentOutOfRangeException($"Range Required: {min} <= {key} <= {max}");
       baseOption._options[key] = val.ToString();
       return baseOption;
     }
     public static T SetOptionRange<T>(this T baseOption, string key, double val, double min, double max) where T : BaseOption
     {
       if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-      if (val < min || val > max) throw new ArgumentOutOfRangeException($"Range Required: {min} <= {key} <= {max}");
+      if (double.IsNaN(val) || val < min || val > max) throw new ArgumentOutOfRangeException($"Range Required: {min} <= {key} <= {max}");
       baseOption._options[key] = val.ToString();
       return baseOption;
     }
@@ -59,6 +59,13 @@ namespace FFmpegArgs
       if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
       if (val < min || val > max) throw new ArgumentOutOfRangeException($"Range Required: {min} <= {key} <= {max}");
       baseOption._options[key] = val.ToString();
+      return baseOption;
+    }
+    public static T SetOptionRange<T>(this T baseOption, string key, TimeSpan val, TimeSpan min, TimeSpan max) where T : BaseOption
+    {
+      if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
+      if (val < min || val > max) throw new ArgumentOutOfRangeException($"Range Required: {min:hh\\:mm\\:ss\\.fff} <= {key:hh\\:mm\\:ss\\.fff} <= {max:hh\\:mm\\:ss\\.fff}");
+      baseOption._options[key] = val.TotalSeconds.ToString();
       return baseOption;
     }
   }

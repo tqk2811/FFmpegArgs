@@ -10,7 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AudioSources\" />
     <Folder Include="AudioSinks\" />
     <Folder Include="Exceptions\" />
     <Folder Include="MultimediaSources\" />

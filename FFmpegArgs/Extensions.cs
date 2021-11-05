@@ -10,7 +10,7 @@
     /// <returns></returns>
     public static string FiltergraphEscapingLv1(this string input)
     {
-      return input.Replace(@"'", @"\'").Replace(@":", @"\:");
+      return input?.Replace(@"'", @"\'").Replace(@":", @"\:");
     }
 
     /// <summary>
@@ -20,7 +20,7 @@
     /// <returns></returns>
     public static string FiltergraphEscapingLv2(this string input)
     {
-      return input
+      return input?
         .Replace(@"\", @"\\")
         .Replace(@"'", @"\'")
         .Replace(@"[", @"\[")
@@ -36,7 +36,7 @@
     /// <returns></returns>
     public static string FiltergraphEscapingLv3(this string input)
     {
-      return input.Replace(@"\", @"\\");
+      return input?.Replace(@"\", @"\\");
     }
 
 

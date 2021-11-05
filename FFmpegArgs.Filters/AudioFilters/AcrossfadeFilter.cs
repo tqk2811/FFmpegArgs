@@ -33,10 +33,10 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </br> By default the duration is determined by nb_samples.<br>
     /// </br> If set this option is used instead of nb_samples.
     /// </summary>
-    /// <param name="duration">total seconds</param>
+    /// <param name="d">total seconds</param>
     /// <returns></returns>
-    public AcrossfadeFilter Duration(double duration)
-      => this.SetOption("d", duration);
+    public AcrossfadeFilter Duration(TimeSpan d)
+      => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
 
     /// <summary>
     /// Should first stream end overlap with second stream start. Default is enabled.

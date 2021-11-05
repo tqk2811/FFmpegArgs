@@ -1,6 +1,7 @@
 ﻿using FFmpegArgs.Utils;
 using System;
 using System.Drawing;
+using System.Linq;
 
 namespace FFmpegArgs.Filters
 {
@@ -23,5 +24,12 @@ namespace FFmpegArgs.Filters
 
     public static Action<Expression> Expression(this string str)
       => new Action<Expression>(_e => _e.Check(str));
+
+    public static TAttribute GetAttribute<TAttribute>(this Enum value) where TAttribute : Attribute
+    {
+      var enumType = value.GetType();
+      var name = Enum.GetName(enumType, value);
+      return enumType.GetField(name)?.GetCustomAttributes(false).OfType<TAttribute>().SingleOrDefault();
+    }
   }
 }

@@ -14,6 +14,7 @@ namespace FFmpegArgs.Cores.Filters
 
     readonly string FilterName;
     protected int FilterIndex { get; private set; }
+    protected bool IsAllowEmptyOption { get; set; } = false;
     public FilterGraph FilterGraph { get; }
     public IEnumerable<TOut> MapsOut { get { return _mapsOut; } }
     public TOut MapOut { get { return MapsOut.FirstOrDefault(); } }
@@ -37,12 +38,17 @@ namespace FFmpegArgs.Cores.Filters
     public override string ToString()
     {
       if (string.IsNullOrEmpty(FilterName)) throw new NullReferenceException(nameof(FilterName));
+      if(_mapsOut.Count == 0) throw new NullReferenceException($"{FilterName} is empty output");
       string inputs = string.Join("", _mapsIn
         .Where(x => !string.IsNullOrWhiteSpace(x.MapName))
         .Select(x => x.IsInput ? $"[{x.MapName}:{(x is ImageMap ? "v" : "a")}:{x.InputIndex}]" : $"[{x.MapName}]"));
       string outputs = string.Join("", _mapsOut.Select(x => $"[{x.MapName}]"));
       string options = string.Join(":", _options.Select(x => $"{x.Key}={x.Value}"));
-      if (string.IsNullOrEmpty(options)) options = string.Empty;
+      if (string.IsNullOrEmpty(options))
+      {
+        if (IsAllowEmptyOption) options = string.Empty;
+        else throw new NullReferenceException($"{FilterName} is empty option");
+      }
       else options = "=" + options;
       return $"{inputs}{FilterName}{options}{outputs}";
     }
