@@ -7,6 +7,11 @@ namespace FFmpegArgs.Filters
 {
   public static class FilterExtensions
   {
+    public static int IsOdd(this int input)
+    {
+      if (input % 2 == 0) throw new InvalidOperationException("required input odd");
+      return input;
+    }
     public static string ToHexStringRGB(this Color color)
     {
       return $"0x{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}";

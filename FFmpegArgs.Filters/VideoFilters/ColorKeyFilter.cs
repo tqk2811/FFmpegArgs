@@ -21,10 +21,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOption("color", color.ToHexStringRGB());
 
     public ColorKeyFilter Similarity(float similarity)
-    {
-      if (similarity < 0 || similarity > 1) throw new InvalidRangeException($"Only accept: 0 <= {nameof(similarity)} <= 1");
-      return this.SetOption("similarity", similarity);
-    }
+      => this.SetOptionRange("similarity", similarity, 0, 1);
 
     /// <summary>
     /// 0.0 makes pixels either fully transparent, or not transparent at all.
@@ -32,10 +29,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// <param name="blend"></param>
     /// <returns></returns>
     public ColorKeyFilter Blend(float blend)
-    {
-      if (blend < 0 || blend > 1) throw new InvalidRangeException($"Only accept: 0 <= {nameof(blend)} <= 1");
-      return this.SetOption("blend", blend);
-    }
+      => this.SetOptionRange("blend", blend, 0, 1);
   }
 
   public static class ColorKeyFilterExtension
@@ -47,8 +41,6 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// <param name="color"></param>
     /// <returns></returns>
     public static ColorKeyFilter ColorKeyFilter(this ImageMap parent, Color color)
-    {
-      return new ColorKeyFilter(color, parent ?? throw new ArgumentNullException(nameof(parent)));
-    }
+      => new ColorKeyFilter(color, parent);
   }
 }

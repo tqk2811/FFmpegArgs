@@ -2,7 +2,6 @@
 using FFmpegArgs.Utils;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -58,7 +57,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="imag"></param>
     /// <returns></returns>
-    public AfftfiltFilter Imag([NotNull] Action<Expression> imag)
+    public AfftfiltFilter Imag(Action<Expression> imag)
       => this.SetOption("imag", imag.Run(expression));
 
     /// <summary>

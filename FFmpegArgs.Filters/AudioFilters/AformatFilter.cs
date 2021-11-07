@@ -12,6 +12,7 @@ namespace FFmpegArgs.Filters.AudioFilters
       AddMapOut();
     }
 
+#warning Need more info
     /// <summary>
     /// A ’|’-separated list of requested sample formats.
     /// </summary>
@@ -28,6 +29,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     public AformatFilter SampleRates(params int[] r)
       => this.SetOption("r", string.Join("|", r));
 
+#warning Need more info
     /// <summary>
     /// A ’|’-separated list of requested channel layouts.<br>
     /// </br>https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax

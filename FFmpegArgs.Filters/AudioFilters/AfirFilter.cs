@@ -13,6 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
       AddMapOut();
     }
 
+#warning Need more info
     //dry
     //  Set dry gain.This sets input gain.
 
