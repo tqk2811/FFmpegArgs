@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -12,7 +8,7 @@ namespace FFmpegArgs.Filters.VideoSources
   /// </summary>
   public class MptestsrcFilter : SourceImageFilter
   {
-    internal MptestsrcFilter(FilterGraph filterGraph) : base("mptestsrc",filterGraph)
+    internal MptestsrcFilter(FilterGraph filterGraph) : base("mptestsrc", filterGraph)
     {
       AddMapOut();
     }

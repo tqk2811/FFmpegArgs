@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FFmpegArgs.Cores.Filters
 {
-  public abstract class BaseFilter<TIn, TOut> : BaseOption, IFilter
+  public abstract class BaseFilter<TIn, TOut> : BaseFilterOption
     where TIn : BaseMap
     where TOut : BaseMap
   {
@@ -22,7 +22,7 @@ namespace FFmpegArgs.Cores.Filters
     protected BaseFilter(string filterName, params TIn[] mapsIn)
     {
       if (string.IsNullOrWhiteSpace(filterName)) throw new ArgumentNullException(nameof(filterName));
-      if(mapsIn.Any(x => !x.IsInput && x.IsMapped)) 
+      if (mapsIn.Any(x => !x.IsInput && x.IsMapped))
         throw new InvalidOperationException("Map is only \"one to one\", except input");
       var filters = mapsIn.GroupBy(x => x.FilterGraph);
       if (filters.Count() != 1) throw new InvalidOperationException("mapsIn are empty or not same FilterGraph");
@@ -38,7 +38,7 @@ namespace FFmpegArgs.Cores.Filters
     public override string ToString()
     {
       if (string.IsNullOrEmpty(FilterName)) throw new NullReferenceException(nameof(FilterName));
-      if(_mapsOut.Count == 0) throw new NullReferenceException($"{FilterName} is empty output");
+      if (_mapsOut.Count == 0) throw new NullReferenceException($"{FilterName} is empty output");
       string inputs = string.Join("", _mapsIn
         .Where(x => !string.IsNullOrWhiteSpace(x.MapName))
         .Select(x => x.IsInput ? $"[{x.MapName}:{(x is ImageMap ? "v" : "a")}:{x.InputIndex}]" : $"[{x.MapName}]"));

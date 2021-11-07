@@ -1,11 +1,7 @@
 ﻿using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Utils;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -16,7 +12,7 @@ namespace FFmpegArgs.Filters.VideoSources
   public class LifeFilter : SourceImageFilter
   {
     readonly Expression expression = new Expression();
-    internal LifeFilter(FilterGraph filterGraph) : base("life",filterGraph)
+    internal LifeFilter(FilterGraph filterGraph) : base("life", filterGraph)
     {
       AddMapOut();
     }
@@ -120,7 +116,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="mold"></param>
     /// <returns></returns>
     public LifeFilter Mold(int mold)
-      => this.SetOptionRange("mold",mold, 0, 255);
+      => this.SetOptionRange("mold", mold, 0, 255);
 
     /// <summary>
     /// Set the color of living (or new born) cells.

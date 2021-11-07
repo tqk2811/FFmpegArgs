@@ -1,9 +1,6 @@
 ﻿using FFmpegArgs.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioSources
 {
@@ -18,7 +15,7 @@ namespace FFmpegArgs.Filters.AudioSources
       "n", "pts", "t", "TB"
     };
     readonly Expression expression = new Expression(_variables);
-    internal SineFilter(FilterGraph filterGraph) : base("sine",filterGraph)
+    internal SineFilter(FilterGraph filterGraph) : base("sine", filterGraph)
     {
       AddMapOut();
     }

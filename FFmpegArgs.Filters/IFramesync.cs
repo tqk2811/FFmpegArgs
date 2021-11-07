@@ -15,13 +15,13 @@ namespace FFmpegArgs.Filters
     /// <param name="filter"></param>
     /// <param name="action"></param>
     /// <returns></returns>
-    public static T EofAction<T>(this T filter, EofAction action) where T : BaseOption, IFramesync
+    public static T EofAction<T>(this T filter, EofAction action) where T : BaseFilterOption, IFramesync
       => filter.SetOption("eof_action", action.ToString().ToLower());
 
-    public static T Shortest<T>(this T filter, bool flag) where T : BaseOption, IFramesync
+    public static T Shortest<T>(this T filter, bool flag) where T : BaseFilterOption, IFramesync
       => filter.SetOption("shortest", flag.ToFFmpegFlag());
 
-    public static T Repeatlast<T>(this T filter, bool flag) where T : BaseOption, IFramesync
+    public static T Repeatlast<T>(this T filter, bool flag) where T : BaseFilterOption, IFramesync
       => filter.SetOption("repeatlast", flag.ToFFmpegFlag());
   }
 

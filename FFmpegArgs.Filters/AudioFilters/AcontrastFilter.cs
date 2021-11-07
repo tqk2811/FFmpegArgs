@@ -1,10 +1,4 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -16,7 +10,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   {
     internal AcontrastFilter(float contrast, AudioMap audioMap) : base("acontrast", audioMap)
     {
-      this.SetOptionRange("contrast", contrast,0,100);
+      this.SetOptionRange("contrast", contrast, 0, 100);
       AddMapOut();
     }
   }

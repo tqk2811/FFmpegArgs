@@ -1,10 +1,6 @@
 ﻿using FFmpegArgs.Filters.Enums;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -12,9 +8,9 @@ namespace FFmpegArgs.Filters.VideoSources
   /// .S. gradients         |->V       Draw a gradients.<br></br>
   /// https://ffmpeg.org/ffmpeg-filters.html#gradients
   /// </summary>
-  public class GradientsFilter : SourceImageFilter , ISliceThreading
+  public class GradientsFilter : SourceImageFilter, ISliceThreading
   {
-    internal GradientsFilter(FilterGraph filterGraph) : base("gradients", filterGraph) 
+    internal GradientsFilter(FilterGraph filterGraph) : base("gradients", filterGraph)
     {
       AddMapOut();
     }
@@ -26,7 +22,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="s"></param>
     /// <returns></returns>
     public GradientsFilter Size(VideoSizeUtils s)
-      => this.SetOption("s",s.GetAttribute<NameAttribute>().Name);
+      => this.SetOption("s", s.GetAttribute<NameAttribute>().Name);
 
     /// <summary>
     /// Set frame size. <br></br>
@@ -35,7 +31,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="s"></param>
     /// <returns></returns>
     public GradientsFilter Size(Size s)
-      => this.SetOption("s",$"{s.Width}x{s.Height}");
+      => this.SetOption("s", $"{s.Width}x{s.Height}");
 
     /// <summary>
     /// Set frame rate, expressed as number of frames per second. Default value is "25".
@@ -60,8 +56,8 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="gradientsPoint"></param>
     /// <param name="val"></param>
     /// <returns></returns>
-    public GradientsFilter Points(GradientsPoint gradientsPoint,int val)
-      => this.SetOptionRange(gradientsPoint.ToString(), val,0,int.MaxValue);
+    public GradientsFilter Points(GradientsPoint gradientsPoint, int val)
+      => this.SetOptionRange(gradientsPoint.ToString(), val, 0, int.MaxValue);
 
     /// <summary>
     /// Set number of colors to use at once. Allowed range is from 2 to 8. Default value is 2.
@@ -94,7 +90,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="speed"></param>
     /// <returns></returns>
     public GradientsFilter Speed(float speed)
-      => this.SetOptionRange("speed",speed,float.MinValue,float.MaxValue);
+      => this.SetOptionRange("speed", speed, float.MinValue, float.MaxValue);
   }
 
   public static class GradientsFilterExtensions

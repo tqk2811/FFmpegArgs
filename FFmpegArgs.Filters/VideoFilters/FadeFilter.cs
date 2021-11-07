@@ -1,10 +1,6 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -44,7 +40,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// <param name="alpha"></param>
     /// <returns></returns>
     public FadeFilter Alpha(float alpha)
-      => this.SetOptionRange("alpha",alpha, 0, 1);
+      => this.SetOptionRange("alpha", alpha, 0, 1);
 
     /// <summary>
     /// Specify the timestamp (in seconds) of the frame to start to apply the fade effect.<br>

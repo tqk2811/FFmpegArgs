@@ -2,10 +2,6 @@
 using FFmpegArgs.Filters.VideoFilters;
 using FFmpegArgs.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -67,7 +63,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="frame_rate"></param>
     /// <returns></returns>
     public BufferFilter FrameRate(float frame_rate)
-      => this.SetOptionRange("frame_rate", frame_rate,0, float.MaxValue);
+      => this.SetOptionRange("frame_rate", frame_rate, 0, float.MaxValue);
 
     /// <summary>
     /// The sample (pixel) aspect ratio of the input video.

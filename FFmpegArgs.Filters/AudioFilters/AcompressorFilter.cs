@@ -1,10 +1,4 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -12,7 +6,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// ..C acompressor       A->A       Audio compressor.<br>
   /// </br>https://ffmpeg.org/ffmpeg-filters.html#acompressor
   /// </summary>
-  public class AcompressorFilter : AudioToAudioFilter , ICommandSupport
+  public class AcompressorFilter : AudioToAudioFilter, ICommandSupport
   {
     internal AcompressorFilter(AudioMap audioMap) : base("acompressor", audioMap)
     {

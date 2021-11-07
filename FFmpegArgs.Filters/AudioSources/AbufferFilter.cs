@@ -1,9 +1,4 @@
 ﻿using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioSources
 {
@@ -41,7 +36,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// <param name="sample_fmt"></param>
     /// <returns></returns>
     public AbufferFilter SampleFmt(AVSampleFormat sample_fmt)
-      => this.SetOption("sample_fmt", sample_fmt.ToString().Replace("AV_SAMPLE_FMT_","").ToLower());
+      => this.SetOption("sample_fmt", sample_fmt.ToString().Replace("AV_SAMPLE_FMT_", "").ToLower());
 
     /// <summary>
     /// The channel layout of the incoming audio buffers.<br>
@@ -58,7 +53,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// <param name="channels"></param>
     /// <returns></returns>
     public AbufferFilter Channels(int channels)
-      => this.SetOptionRange("channels",channels,0,int.MaxValue);
+      => this.SetOptionRange("channels", channels, 0, int.MaxValue);
   }
 
   public static class AbufferFilterExtensions

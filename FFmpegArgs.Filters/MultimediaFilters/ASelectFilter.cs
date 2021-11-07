@@ -27,7 +27,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     {
       if (n < 1) throw new InvalidRangeException(nameof(n));
       AddMultiMapOut(n);
-      this.SetOption("e", e.Run(expression)); 
+      this.SetOption("e", e.Run(expression));
       this.SetOption("n", n);
     }
   }

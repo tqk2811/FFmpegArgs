@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FFmpegArgs.Filters.AudioFilters;
+﻿using FFmpegArgs.Filters.AudioFilters;
 namespace FFmpegArgs.Filters.AudioSources
 {
   /// <summary>
@@ -12,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioSources
   /// </summary>
   public class HilbertFilter : SourceAudioFilter
   {
-    internal HilbertFilter(FilterGraph filterGraph): base("hilbert",filterGraph)
+    internal HilbertFilter(FilterGraph filterGraph) : base("hilbert", filterGraph)
     {
       AddMapOut();
     }

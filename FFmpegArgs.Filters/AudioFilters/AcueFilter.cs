@@ -1,9 +1,4 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -13,7 +8,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   /// </summary>
   public class AcueFilter : AudioToAudioFilter
   {
-    internal AcueFilter(AudioMap audioMap):base("acue", audioMap)
+    internal AcueFilter(AudioMap audioMap) : base("acue", audioMap)
     {
       AddMapOut();
     }

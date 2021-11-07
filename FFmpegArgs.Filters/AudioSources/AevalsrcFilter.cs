@@ -1,9 +1,6 @@
 ﻿using FFmpegArgs.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioSources
 {
@@ -18,7 +15,7 @@ namespace FFmpegArgs.Filters.AudioSources
       "n","t","s"
     };
     readonly Expression expression = new Expression(_variables);
-    internal AevalsrcFilter(FilterGraph filterGraph,Action<Expression> exprs) : base("aevalsrc", filterGraph)
+    internal AevalsrcFilter(FilterGraph filterGraph, Action<Expression> exprs) : base("aevalsrc", filterGraph)
     {
       this.SetOption("exprs", exprs.Run(expression));
       AddMapOut();
@@ -48,7 +45,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// <param name="n"></param>
     /// <returns></returns>
     public AevalsrcFilter NbSamples(int n)
-      => this.SetOptionRange("n",n,0, int.MaxValue);
+      => this.SetOptionRange("n", n, 0, int.MaxValue);
 
     /// <summary>
     /// Specify the sample rate, default to 44100.
@@ -56,7 +53,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// <param name="s"></param>
     /// <returns></returns>
     public AevalsrcFilter SampleRate(int s)
-      => this.SetOptionRange("s",s, 0, int.MaxValue);
+      => this.SetOptionRange("s", s, 0, int.MaxValue);
   }
 
   public static class AevalsrcFilterExtensions
@@ -70,7 +67,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </br> In case the channel_layout option is not specified, the selected channel layout depends on the number of provided expressions.<br>
     /// </br> Otherwise the last specified expression is applied to the remaining output channels.</param>
     /// <returns></returns>
-    public static AevalsrcFilter AevalsrcFilter(this FilterGraph filterGraph,string exprs)
+    public static AevalsrcFilter AevalsrcFilter(this FilterGraph filterGraph, string exprs)
       => new AevalsrcFilter(filterGraph, exprs.Expression());
 
     /// <summary>

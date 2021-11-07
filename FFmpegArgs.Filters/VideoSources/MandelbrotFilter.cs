@@ -1,10 +1,5 @@
 ﻿using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -14,7 +9,7 @@ namespace FFmpegArgs.Filters.VideoSources
   /// </summary>
   public class MandelbrotFilter : SourceImageFilter
   {
-    internal MandelbrotFilter(FilterGraph filterGraph) : base("mandelbrot",filterGraph)
+    internal MandelbrotFilter(FilterGraph filterGraph) : base("mandelbrot", filterGraph)
     {
       AddMapOut();
     }

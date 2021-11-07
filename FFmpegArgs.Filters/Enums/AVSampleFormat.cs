@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FFmpegArgs.Filters.Enums
+﻿namespace FFmpegArgs.Filters.Enums
 {
   /// <summary>
   /// https://github.com/FFmpeg/FFmpeg/blob/f6ab103bb5c2dd494620f7a28ae232efe497a4d1/libavutil/samplefmt.h#L58

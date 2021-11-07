@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FFmpegArgs.Filters.AudioFilters;
+﻿using FFmpegArgs.Filters.AudioFilters;
 namespace FFmpegArgs.Filters.AudioSources
 {
   /// <summary>
@@ -42,7 +37,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// <param name="p"></param>
     /// <returns></returns>
     public AfirsrcFilter Phase(params int[] p)
-     => this.SetOption("p", string.Join(" ",p));
+     => this.SetOption("p", string.Join(" ", p));
 
     /// <summary>
     /// Set sample rate, default is 44100.

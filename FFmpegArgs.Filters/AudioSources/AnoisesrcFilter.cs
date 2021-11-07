@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioSources
 {
@@ -82,8 +77,8 @@ namespace FFmpegArgs.Filters.AudioSources
   {
     white,
     pink,
-    brown, 
-    blue, 
+    brown,
+    blue,
     violet,
     velvet
   }

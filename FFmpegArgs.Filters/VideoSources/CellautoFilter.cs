@@ -1,9 +1,5 @@
 ﻿using FFmpegArgs.Filters.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -51,7 +47,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="ratio"></param>
     /// <returns></returns>
     public CellautoFilter RandomFillRatio(float ratio)
-      => this.SetOptionRange("ratio",ratio, 0.0f, 1.0f);
+      => this.SetOptionRange("ratio", ratio, 0.0f, 1.0f);
 
     /// <summary>
     /// Set the seed for filling randomly the initial row, must be an integer included between 0 and UINT32_MAX.<br>
@@ -104,7 +100,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// <param name="flag"></param>
     /// <returns></returns>
     public CellautoFilter StartFull(bool flag)
-      => this.SetOption("full",flag.ToFFmpegFlag());
+      => this.SetOption("full", flag.ToFFmpegFlag());
 
     /// <summary>
     /// If set to 1, stitch the left and right row edges together. This is the default behavior, for disabling set the value to 0.
