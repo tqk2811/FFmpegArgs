@@ -16,7 +16,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     internal AlphaextractFilter(ImageMap imageMap) : base("alphaextract", imageMap)
     {
       AddMapOut();
-      base.IsAllowEmptyOption = true;
+      IsAllowEmptyOption = true;
     }
   }
 

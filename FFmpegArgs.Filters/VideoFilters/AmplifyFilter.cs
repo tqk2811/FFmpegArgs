@@ -16,6 +16,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     internal AmplifyFilter(ImageMap imageMap) : base("amplify", imageMap)
     {
       AddMapOut();
+      IsAllowEmptyOption = true;
     }
 
     /// <summary>

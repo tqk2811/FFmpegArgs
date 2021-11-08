@@ -16,6 +16,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     internal AtadenoiseFilter(ImageMap imageMap) : base("atadenoise", imageMap)
     {
       AddMapOut();
+      IsAllowEmptyOption = true;
     }
 
     public AtadenoiseFilter ThressholdA(AtadenoiseThresholdA a, float val)

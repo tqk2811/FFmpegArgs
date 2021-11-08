@@ -16,7 +16,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     internal AlphamergeFilter(params ImageMap[] imageMap): base("alphamerge",imageMap)
     {
       AddMapOut();
-      base.IsAllowEmptyOption = true;
+      IsAllowEmptyOption = true;
     }
   }
 
