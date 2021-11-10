@@ -1,9 +1,4 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -18,6 +13,8 @@ namespace FFmpegArgs.Filters.AudioFilters
       AddMapOut();
     }
 
+#warning Need more info
+        // #NeedMoreInfo
     //dry
     //  Set dry gain.This sets input gain.
 

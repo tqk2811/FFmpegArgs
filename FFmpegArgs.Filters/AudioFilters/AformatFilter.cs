@@ -1,9 +1,4 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -17,6 +12,8 @@ namespace FFmpegArgs.Filters.AudioFilters
       AddMapOut();
     }
 
+#warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// A ’|’-separated list of requested sample formats.
     /// </summary>
@@ -33,6 +30,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public AformatFilter SampleRates(params int[] r)
       => this.SetOption("r", string.Join("|", r));
 
+#warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// A ’|’-separated list of requested channel layouts.<br>
     /// </br>https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax

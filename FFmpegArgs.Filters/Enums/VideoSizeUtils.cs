@@ -3,241 +3,271 @@
   /// <summary>
   /// https://ffmpeg.org/ffmpeg-utils.html#video-size-syntax
   /// </summary>
-  public enum VideoSize
+  public enum VideoSizeUtils
   {
     /// <summary>
     /// 720x480
     /// </summary>
-    ntsc,
+    [Name("ntsc")] ntsc,
 
     /// <summary>
     /// 720x576
     /// </summary>
-    pal,
+    [Name("pal")] pal,
 
     /// <summary>
     /// 352x240
     /// </summary>
-    qntsc,
+    [Name("qntsc")] qntsc,
 
     /// <summary>
     /// 352x288
     /// </summary>
-    qpal,
+    [Name("qpal")] qpal,
 
     /// <summary>
     /// 640x480
     /// </summary>
-    sntsc,
+    [Name("sntsc")] sntsc,
 
     /// <summary>
     /// 768x576
     /// </summary>
-    spal,
+    [Name("spal")] spal,
 
     /// <summary>
     /// 352x240
     /// </summary>
-    film,
+    [Name("film")] film,
 
     ///// <summary>
     ///// 352x240
     ///// </summary>
-    //ntsc-film,
+    [Name("ntsc-film")] NtscFilm,
 
     /// <summary>
     /// 128x96
     /// </summary>
-    sqcif,
+    [Name("sqcif")] sqcif,
 
     /// <summary>
     /// 176x144
     /// </summary>
-    qcif,
+    [Name("qcif")] qcif,
 
     /// <summary>
     /// 352x288
     /// </summary>
-    cif,
+    [Name("cif")] cif,
 
     ///// <summary>
     ///// 704x576
     ///// </summary>
-    //4cif,
+    [Name("4cif")] _4cif,
 
     ///// <summary>
     ///// 1408x1152
     ///// </summary>
-    //16cif,
+    [Name("16cif")] _16cif,
 
     /// <summary>
     /// 160x120
     /// </summary>
-    qqvga,
+    [Name("qqvga")] qqvga,
 
     /// <summary>
     /// 320x240
     /// </summary>
-    qvga,
+    [Name("qvga")] qvga,
 
     /// <summary>
     /// 640x480
     /// </summary>
-    vga,
+    [Name("vga")] vga,
 
     /// <summary>
     /// 800x600
     /// </summary>
-    svga,
+    [Name("svga")] svga,
 
     /// <summary>
     /// 1024x768
     /// </summary>
-    xga,
+    [Name("xga")] xga,
 
     /// <summary>
     /// 1600x1200
     /// </summary>
-    uxga,
+    [Name("uxga")] uxga,
 
     /// <summary>
     /// 2048x1536
     /// </summary>
-    qxga,
+    [Name("qxga")] qxga,
 
     /// <summary>
     /// 1280x1024
     /// </summary>
-    sxga,
+    [Name("sxga")] sxga,
 
     /// <summary>
     /// 2560x2048
     /// </summary>
-    qsxga,
+    [Name("qsxga")] qsxga,
 
     /// <summary>
     /// 5120x4096
     /// </summary>
-    hsxga,
+    [Name("hsxga")] hsxga,
 
     /// <summary>
     /// 852x480
     /// </summary>
-    wvga,
+    [Name("wvga")] wvga,
 
     /// <summary>
     /// 1366x768
     /// </summary>
-    wxga,
+    [Name("wxga")] wxga,
 
     /// <summary>
     /// 1600x1024
     /// </summary>
-    wsxga,
+    [Name("wsxga")] wsxga,
 
     /// <summary>
     /// 1920x1200
     /// </summary>
-    wuxga,
+    [Name("wuxga")] wuxga,
 
     /// <summary>
     /// 2560x1600
     /// </summary>
-    woxga,
+    [Name("woxga")] woxga,
 
     /// <summary>
     /// 3200x2048
     /// </summary>
-    wqsxga,
+    [Name("wqsxga")] wqsxga,
 
     /// <summary>
     /// 3840x2400
     /// </summary>
-    wquxga,
+    [Name("wquxga")] wquxga,
 
     /// <summary>
     /// 6400x4096
     /// </summary>
-    whsxga,
+    [Name("whsxga")] whsxga,
 
     /// <summary>
     /// 7680x4800
     /// </summary>
-    whuxga,
+    [Name("whuxga")] whuxga,
 
     /// <summary>
     /// 320x200
     /// </summary>
-    cga,
+    [Name("cga")] cga,
 
     /// <summary>
     /// 640x350
     /// </summary>
-    ega,
+    [Name("ega")] ega,
 
     /// <summary>
     /// 852x480
     /// </summary>
-    hd480,
+    [Name("hd480")] hd480,
 
     /// <summary>
     /// 1280x720
     /// </summary>
-    hd720,
+    [Name("hd720")] hd720,
 
     /// <summary>
     /// 1920x1080
     /// </summary>
-    hd1080,
+    [Name("hd1080")] hd1080,
 
-    //2k,
-    //2kflat,
-    //2kscope,
-    //4k,
-    //4kflat,
-    //4kscope
+    /// <summary>
+    /// 2048x1080
+    /// </summary>
+    [Name("2k")] _2k,
+
+    /// <summary>
+    /// 1998x1080
+    /// </summary>
+    [Name("2kflat")] _2kflat,
+
+    /// <summary>
+    /// 2048x858
+    /// </summary>
+    [Name("2kscope")] _2kscope,
+
+    /// <summary>
+    /// 4096x2160
+    /// </summary>
+    [Name("4k")] _4k,
+
+    /// <summary>
+    /// 3996x2160
+    /// </summary>
+    [Name("4kflat")] _4kflat,
+
+    /// <summary>
+    /// 4096x1716
+    /// </summary>
+    [Name("4kscope")] _4kscope,
 
     /// <summary>
     /// 640x360
     /// </summary>
-    nhd,
+    [Name("nhd")] nhd,
 
     /// <summary>
     /// 240x160
     /// </summary>
-    hqvga,
+    [Name("hqvga")] hqvga,
 
     /// <summary>
     /// 400x240
     /// </summary>
-    wqvga,
+    [Name("wqvga")] wqvga,
 
     /// <summary>
     /// 432x240
     /// </summary>
-    fwqvga,
+    [Name("fwqvga")] fwqvga,
 
     /// <summary>
     /// 480x320
     /// </summary>
-    hvga,
+    [Name("hvga")] hvga,
 
     /// <summary>
     /// 960x540
     /// </summary>
-    qhd,
+    [Name("qhd")] qhd,
 
-    //2kdci,
-    //4kdci,
+    /// <summary>
+    /// 2048x1080
+    /// </summary>
+    [Name("2kdci")] _2kdci,
+
+    /// <summary>
+    /// 4096x2160
+    /// </summary>
+    [Name("4kdci")] _4kdci,
 
     /// <summary>
     /// 3840x2160
     /// </summary>
-    uhd2160,
+    [Name("uhd2160")] uhd2160,
 
     /// <summary>
     /// 7680x4320
     /// </summary>
-    uhd4320
+    [Name("uhd4320")] uhd4320
   }
 }

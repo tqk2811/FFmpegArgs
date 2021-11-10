@@ -44,8 +44,8 @@ namespace FFmpegArgs.Filters.VideoFilters
     public ScaleFilter Flags(SwsFlags flag)
       => this.SetOption("flags", flag.ToString());
 
-    public ScaleFilter Size(VideoSize videoSize)
-      => this.SetOption("s", videoSize);
+    public ScaleFilter Size(VideoSizeUtils videoSize)
+      => this.SetOption("s", videoSize.GetAttribute<NameAttribute>().Name);
 
     public ScaleFilter InColorMatrix(ScaleColorMatrix colorMatrix)
       => this.SetOption("in_color_matrix", colorMatrix);

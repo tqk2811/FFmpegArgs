@@ -1,4 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
+using System;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -13,26 +14,61 @@ namespace FFmpegArgs.Filters.VideoFilters
       AddMapOut();
     }
 
-    public TrimFilter Start(double val)
-      => this.SetOption("start", val);
+    /// <summary>
+    /// Specify the time of the start of the kept section, i.e. the frame with the timestamp start will be the first frame in the output.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public TrimFilter Start(long val)
+      => this.SetOptionRange("start", val, 0, long.MaxValue);
 
+    /// <summary>
+    /// Specify the time of the first frame that will be dropped, i.e. the frame immediately preceding the one with the timestamp end will be the last frame in the output.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
     public TrimFilter End(double val)
-     => this.SetOption("end", val);
+      => this.SetOptionRange("end", val, 0, long.MaxValue);
 
-    public TrimFilter StartPts(double val)
-     => this.SetOption("start_pts", val);
+    /// <summary>
+    /// This is the same as start, except this option sets the start timestamp in timebase units instead of seconds.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public TrimFilter StartPts(long val)
+      => this.SetOptionRange("start_pts", val, 0, long.MaxValue);
 
-    public TrimFilter EndPts(double val)
-     => this.SetOption("end_pts", val);
+    /// <summary>
+    /// This is the same as end, except this option sets the end timestamp in timebase units instead of seconds.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public TrimFilter EndPts(long val)
+      => this.SetOptionRange("end_pts", val, 0, long.MaxValue);
 
-    public TrimFilter Duration(double val)
-     => this.SetOption("duration", val);
+    /// <summary>
+    /// The maximum duration of the output in seconds.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public TrimFilter Duration(TimeSpan val)
+      => this.SetOptionRange("duration", val, TimeSpan.Zero, TimeSpan.MaxValue);
 
-    public TrimFilter StartFrame(double val)
-     => this.SetOption("start_frame", val);
+    /// <summary>
+    /// The number of the first frame that should be passed to the output.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public TrimFilter StartFrame(long val)
+      => this.SetOptionRange("start_frame", val, 0, long.MaxValue);
 
-    public TrimFilter EndFrame(double val)
-    => this.SetOption("end_frame", val);
+    /// <summary>
+    /// The number of the first frame that should be dropped.
+    /// </summary>
+    /// <param name="val"></param>
+    /// <returns></returns>
+    public TrimFilter EndFrame(long val)
+      => this.SetOptionRange("end_frame", val, 0, long.MaxValue);
   }
 
   public static class TrimFilterExtension

@@ -1,9 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -60,8 +56,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="duration"></param>
     /// <returns></returns>
-    public AfadeFilter Duration(double duration)
-     => this.SetOptionRange("d", duration, 1, double.MaxValue);
+    public AfadeFilter Duration(TimeSpan duration)
+     => this.SetOptionRange("d", duration, TimeSpan.Zero, TimeSpan.MaxValue);
 
     /// <summary>
     /// Set curve for fade transition.

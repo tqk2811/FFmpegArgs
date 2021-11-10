@@ -1,10 +1,6 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -15,7 +11,7 @@ namespace FFmpegArgs.Filters.AudioFilters
   public class AfreqshiftFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
   {
     readonly Expression expression = new Expression();
-    internal AfreqshiftFilter(AudioMap audioMap):base("afreqshift", audioMap)
+    internal AfreqshiftFilter(AudioMap audioMap) : base("afreqshift", audioMap)
     {
 
     }

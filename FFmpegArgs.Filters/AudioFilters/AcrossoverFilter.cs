@@ -1,10 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {

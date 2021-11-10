@@ -17,25 +17,24 @@ namespace FFmpegArgs.Filters.VideoFilters
       this.SetOption("color", color.ToHexStringRGB());
     }
 
-    public ColorKeyFilter Color(Color color)
-      => this.SetOption("color", color.ToHexStringRGB());
-
+    /// <summary>
+    /// Similarity percentage with the key color.<br></br>
+    /// 0.01 matches only the exact key color, while 1.0 matches everything.
+    /// </summary>
+    /// <param name="similarity"></param>
+    /// <returns></returns>
     public ColorKeyFilter Similarity(float similarity)
-    {
-      if (similarity < 0 || similarity > 1) throw new InvalidRangeException($"Only accept: 0 <= {nameof(similarity)} <= 1");
-      return this.SetOption("similarity", similarity);
-    }
+      => this.SetOptionRange("similarity", similarity, 0, 1);
 
     /// <summary>
-    /// 0.0 makes pixels either fully transparent, or not transparent at all.
+    /// Blend percentage.<br>
+    /// </br>0.0 makes pixels either fully transparent, or not transparent at all.<br>
+    /// </br>Higher values result in semi-transparent pixels, with a higher transparency the more similar the pixels color is to the key color.
     /// </summary>
     /// <param name="blend"></param>
     /// <returns></returns>
     public ColorKeyFilter Blend(float blend)
-    {
-      if (blend < 0 || blend > 1) throw new InvalidRangeException($"Only accept: 0 <= {nameof(blend)} <= 1");
-      return this.SetOption("blend", blend);
-    }
+      => this.SetOptionRange("blend", blend, 0, 1);
   }
 
   public static class ColorKeyFilterExtension
@@ -44,11 +43,9 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// RGB colorspace color keying.
     /// </summary>
     /// <param name="parent"></param>
-    /// <param name="color"></param>
+    /// <param name="color">The color which will be replaced with transparency.</param>
     /// <returns></returns>
     public static ColorKeyFilter ColorKeyFilter(this ImageMap parent, Color color)
-    {
-      return new ColorKeyFilter(color, parent ?? throw new ArgumentNullException(nameof(parent)));
-    }
+      => new ColorKeyFilter(color, parent);
   }
 }

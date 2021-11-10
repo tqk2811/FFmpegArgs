@@ -1,12 +1,7 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
 using FFmpegArgs.Utils;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -62,7 +57,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     /// <param name="imag"></param>
     /// <returns></returns>
-    public AfftfiltFilter Imag([NotNull] Action<Expression> imag)
+    public AfftfiltFilter Imag(Action<Expression> imag)
       => this.SetOption("imag", imag.Run(expression));
 
     /// <summary>

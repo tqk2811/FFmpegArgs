@@ -10,12 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AudioSources\" />
-    <Folder Include="AudioSinks\" />
     <Folder Include="Exceptions\" />
     <Folder Include="MultimediaSources\" />
     <Folder Include="OpenCLVideoFilters\" />
-    <Folder Include="VAAPIVideoFilters\" />
     <Folder Include="VideoSinks\" />
   </ItemGroup>
 
