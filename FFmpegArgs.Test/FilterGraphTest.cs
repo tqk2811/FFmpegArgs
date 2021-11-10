@@ -48,7 +48,9 @@ namespace FFmpegArgs.Test
       FilterGraph filterGraph = new FilterGraph();
       filterGraph.OverWriteOutput();
 
-      var background = filterGraph.Color(Color.FromArgb(00, 100, 00), out_w, out_h);
+      var background = filterGraph.Color()
+        .Color(Color.FromArgb(00, 100, 00))
+        .Size(new Size(out_w,out_h));
 
       var images = ImageFilesConcatInput.FromFilesSearch(@"D:\temp\ffmpeg_encode_test\ImgsTest\img%d.jpg");
       images.SetOption("-r", 1 / (imageDuration + animationDuration));
