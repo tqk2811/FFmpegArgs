@@ -14,6 +14,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     }
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set level in. 
     /// </summary>
@@ -23,6 +24,7 @@ namespace FFmpegArgs.Filters.AudioFilters
       => this.SetOption("level_in", level_in);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set level out.
     /// </summary>
@@ -32,6 +34,7 @@ namespace FFmpegArgs.Filters.AudioFilters
      => this.SetOption("level_out", level_out);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set bit reduction.
     /// </summary>
@@ -41,6 +44,7 @@ namespace FFmpegArgs.Filters.AudioFilters
       => this.SetOption("bits", bits);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set mixing amount.
     /// </summary>
@@ -58,6 +62,7 @@ namespace FFmpegArgs.Filters.AudioFilters
       => this.SetOption("mode", mode);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set DC.
     /// </summary>
@@ -67,6 +72,7 @@ namespace FFmpegArgs.Filters.AudioFilters
      => this.SetOption("dc", dc);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set anti-aliasing.
     /// </summary>
@@ -76,6 +82,7 @@ namespace FFmpegArgs.Filters.AudioFilters
      => this.SetOption("aa", aa);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set sample reduction.
     /// </summary>
@@ -93,6 +100,7 @@ namespace FFmpegArgs.Filters.AudioFilters
      => this.SetOption("lfo", lfo.ToFFmpegFlag());
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set LFO range.
     /// </summary>
@@ -102,6 +110,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     => this.SetOption("lforange", lforange);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set LFO rate.
     /// </summary>

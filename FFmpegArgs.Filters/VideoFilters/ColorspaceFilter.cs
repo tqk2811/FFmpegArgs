@@ -138,7 +138,8 @@ namespace FFmpegArgs.Filters.VideoFilters
   public static class ColorspaceFilterExtensions
   {
     /// <summary>
-    /// Convert colorspace, transfer characteristics or color primaries. Input video needs to have an even size.
+    /// Convert colorspace, transfer characteristics or color primaries. Input video needs to have an even size.<br></br>
+    /// The filter converts the transfer characteristics, color space and color primaries to the specified user values. The output value, if not specified, is set to a default value based on the "all" property. If that property is also not specified, the filter will log an error. The output color range and format default to the same value as the input color range and format. The input transfer characteristics, color space, color primaries and color range should be set on the input data. If any of these are missing, the filter will log an error and no conversion will take place.
     /// </summary>
     public static ColorspaceFilter ColorspaceFilter(this ImageMap imageMap)
       => new ColorspaceFilter(imageMap);

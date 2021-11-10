@@ -35,6 +35,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOptionRange("s", s.IsOdd(), 5, 129);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set what planes of frame filter will use for averaging. Default is all.
     /// </summary>
@@ -44,6 +45,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOption("p", planes);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set what variant of algorithm filter will use for averaging. Default is p parallel. Alternatively can be set to s serial.<br></br>
     /// Parallel can be faster then serial, while other way around is never true. Parallel will abort early on first change being greater then thresholds, while serial will continue processing other side of frames if they are equal or below thresholds.

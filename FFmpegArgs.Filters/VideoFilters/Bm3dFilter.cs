@@ -31,6 +31,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOptionRange("sigma", sigma, 0, 999.9f);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set local patch size. This sets dimensions in 2D.
     /// </summary>
@@ -82,6 +83,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOptionRange("thmse", thmse, 0, int.MaxValue);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set thresholding parameter for hard thresholding in 3D transformed domain.<br>
     /// </br> Larger values results in stronger hard-thresholding filtering in frequency domain.

@@ -54,6 +54,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOptionRange("s", s, 0, int.MaxValue);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set intensity used to map input pixel values to CIE diagram.
     /// </summary>
@@ -63,6 +64,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOption("i", i);
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set contrast used to draw tongue colors that are out of active color system gamut.
     /// </summary>
@@ -88,6 +90,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       => this.SetOption("showwhite", showwhite.ToFFmpegFlag());
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// Set input gamma. Used only with XYZ input color space.
     /// </summary>

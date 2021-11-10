@@ -13,6 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     }
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// A ’|’-separated list of requested sample formats.
     /// </summary>
@@ -30,6 +31,7 @@ namespace FFmpegArgs.Filters.AudioFilters
       => this.SetOption("r", string.Join("|", r));
 
 #warning Need more info
+        // #NeedMoreInfo
     /// <summary>
     /// A ’|’-separated list of requested channel layouts.<br>
     /// </br>https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax
