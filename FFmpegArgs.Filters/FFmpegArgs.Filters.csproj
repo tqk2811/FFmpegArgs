@@ -6,14 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
+    <Compile Remove="Exceptions\**" />
+    <EmbeddedResource Remove="Exceptions\**" />
+    <None Remove="Exceptions\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
-    <Folder Include="MultimediaSources\" />
-    <Folder Include="OpenCLVideoFilters\" />
-    <Folder Include="VideoSinks\" />
+    <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
   </ItemGroup>
 
 </Project>
