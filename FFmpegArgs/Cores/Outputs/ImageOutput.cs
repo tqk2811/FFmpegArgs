@@ -2,8 +2,8 @@
 
 namespace FFmpegArgs.Cores.Outputs
 {
-  public abstract class ImageOutput : BaseOutput
-  {
-    public ImageMap ImageMap { get; protected set; }
-  }
+    public abstract class ImageOutput : BaseOutput
+    {
+        public ImageMap ImageMap { get; protected set; }
+    }
 }

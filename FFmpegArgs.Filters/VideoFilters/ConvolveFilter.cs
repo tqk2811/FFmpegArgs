@@ -1,12 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -38,7 +30,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Apply 2D convolution of video stream in frequency domain using second stream as impulse.
         /// </summary>
         /// <param name="plane">Set which planes to process.</param>
-        public static ConvolveFilter ConvolveFilter(this ImageMap imageMap,int plane)
+        public static ConvolveFilter ConvolveFilter(this ImageMap imageMap, int plane)
           => new ConvolveFilter(plane, imageMap);
     }
 

@@ -1,6 +1,6 @@
 ﻿namespace FFmpegArgs.Cores.Inputs
 {
-  public abstract class VideoInput : BaseInput
-  {
-  }
+    public abstract class VideoInput : BaseInput
+    {
+    }
 }

@@ -1,66 +1,66 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Utils;
+using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
 
 namespace FFmpegArgs.Filters.MultimediaFilters
 {
-  /// <summary>
-  /// ... setapts            V->V       Set PTS for the output audio frame.<br></br>
-  /// https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts
-  /// </summary>
-  public class SetAPtsFilter : AudioToAudioFilter
-  {
-    static readonly IEnumerable<string> _variables = new List<string>()
-    {
-      "FRAME_RATE","FR",
-      "PTS",
-      "N",
-      "NB_CONSUMED_SAMPLES",
-      "NB_SAMPLES", "S",
-      "SAMPLE_RATE", "SR",
-      "STARTPTS",
-      "STARTT",
-      "INTERLACED",
-      "T",
-      "POS",
-      "PREV_INPTS",
-      "PREV_INT",
-      "PREV_OUTPTS",
-      "PREV_OUTT",
-      "RTCTIME",
-      "RTCSTART",
-      "TB"
-    };
-    readonly Expression expression = new Expression(_variables);
-    internal SetAPtsFilter(Action<Expression> expr, AudioMap audioMap) : base("setapts", audioMap)
-    {
-      AddMapOut();
-      this.SetOption("expr", expr.Run(expression));
-    }
-  }
-  public static class SetAPtsFilterExtension
-  {
     /// <summary>
-    /// Change the PTS (presentation timestamp) of the input frames.
+    /// ... setapts            V->V       Set PTS for the output audio frame.<br></br>
+    /// https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts
     /// </summary>
-    /// <param name="audioMap"></param>
-    /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
-    /// <returns></returns>
-    public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, Action<Expression> expr)
+    public class SetAPtsFilter : AudioToAudioFilter
     {
-      return new SetAPtsFilter(expr, audioMap);
+        static readonly IEnumerable<string> _variables = new List<string>()
+        {
+            "FRAME_RATE","FR",
+            "PTS",
+            "N",
+            "NB_CONSUMED_SAMPLES",
+            "NB_SAMPLES", "S",
+            "SAMPLE_RATE", "SR",
+            "STARTPTS",
+            "STARTT",
+            "INTERLACED",
+            "T",
+            "POS",
+            "PREV_INPTS",
+            "PREV_INT",
+            "PREV_OUTPTS",
+            "PREV_OUTT",
+            "RTCTIME",
+            "RTCSTART",
+            "TB"
+        };
+        readonly Expression expression = new Expression(_variables);
+        internal SetAPtsFilter(Action<Expression> expr, AudioMap audioMap) : base("setapts", audioMap)
+        {
+            AddMapOut();
+            this.SetOption("expr", expr.Run(expression));
+        }
     }
+    public static class SetAPtsFilterExtension
+    {
+        /// <summary>
+        /// Change the PTS (presentation timestamp) of the input frames.
+        /// </summary>
+        /// <param name="audioMap"></param>
+        /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
+        /// <returns></returns>
+        public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, Action<Expression> expr)
+        {
+            return new SetAPtsFilter(expr, audioMap);
+        }
 
-    /// <summary>
-    /// Change the PTS (presentation timestamp) of the input frames.
-    /// </summary>
-    /// <param name="audioMap"></param>
-    /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
-    /// <returns></returns>
-    public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, string expr)
-    {
-      return new SetAPtsFilter(expr.Expression(), audioMap);
+        /// <summary>
+        /// Change the PTS (presentation timestamp) of the input frames.
+        /// </summary>
+        /// <param name="audioMap"></param>
+        /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
+        /// <returns></returns>
+        public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, string expr)
+        {
+            return new SetAPtsFilter(expr.Expression(), audioMap);
+        }
     }
-  }
 }

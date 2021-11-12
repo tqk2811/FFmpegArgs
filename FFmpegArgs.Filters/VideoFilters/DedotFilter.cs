@@ -1,12 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {

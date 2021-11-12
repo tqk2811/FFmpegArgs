@@ -1,5 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Utils;
+using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
 
@@ -23,7 +23,6 @@ namespace FFmpegArgs.Filters.VideoFilters
 
         internal CropFilter(ImageMap imageMap) : base("crop", imageMap)
         {
-            IsAllowEmptyOption = true;
             AddMapOut();
         }
 
@@ -76,7 +75,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="x">The horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame.</param>
         /// <param name="y">The vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame.</param>
         /// <returns></returns>
-        public CropFilter XY(Action<Expression> x, Action<Expression> y) => X(x).Y(y); 
+        public CropFilter XY(Action<Expression> x, Action<Expression> y) => X(x).Y(y);
 
 
         /// <summary>
@@ -128,7 +127,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="w">The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.</param>
         /// <param name="h">The height of the output video. It defaults to ih. This expression is evaluated only once during the filter configuration, or when the ‘h’ or ‘out_h’ command is sent.</param>
         /// <returns></returns>
-        public CropFilter XYWH(string x,string y, string w, string h) => X(x).Y(y).W(w).H(h);
+        public CropFilter XYWH(string x, string y, string w, string h) => X(x).Y(y).W(w).H(h);
         /// <summary>
         /// 
         /// </summary>
@@ -162,7 +161,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="imageMap"></param>
         /// <returns></returns>
-        public static CropFilter CropFilter(this ImageMap imageMap) 
+        public static CropFilter CropFilter(this ImageMap imageMap)
             => new CropFilter(imageMap);
 
         /// <summary>

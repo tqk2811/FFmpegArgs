@@ -1,101 +1,200 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Utils;
+using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
-  /// <summary>
-  /// TSC overlay           VV->V      Overlay a video source on top of the input.<br></br>
-  /// https://ffmpeg.org/ffmpeg-filters.html#overlay-1 
-  /// </summary>
-  public class OverlayFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport, IFramesync
-  {
-    static readonly IEnumerable<string> _variables = new List<string>()
-    {
-      "main_w","W",
-      "main_h","H",
-      "overlay_w", "w",
-      "overlay_h", "h",
-      "x", "y",
-      "hsub", "vsub",
-      "n", "pos","t"
-    };
-
-    readonly Expression expression = new Expression(_variables);
-
-    internal OverlayFilter(Action<Expression> x, Action<Expression> y, ImageMap bottom, ImageMap top) : base("overlay", bottom, top)
-    {
-      AddMapOut();
-      this.SetOption("x", x.Run(expression));
-      this.SetOption("y", y.Run(expression));
-    }
-
-    public OverlayFilter Eval(OverlayEval eval)
-      => this.SetOption("eval", eval.ToString().ToLower());
-
-    public OverlayFilter Format(OverlayPixFmt format)
-       => this.SetOption("format", format.ToString());
-
-    public OverlayFilter Alpha(OverlayAlpha alpha)
-      => this.SetOption("alpha", alpha.ToString().ToLower());
-  }
-
-  public static class OverlayFilterExtension
-  {
-    public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, Action<Expression> x, Action<Expression> y)
-    {
-      return new OverlayFilter(
-        x, y,
-        bottom ?? throw new ArgumentNullException(nameof(bottom)),
-        top ?? throw new ArgumentNullException(nameof(top))
-        );
-    }
-
-    public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, string x, string y)
-    {
-      return new OverlayFilter(
-        x.Expression(),
-        y.Expression(),
-        bottom ?? throw new ArgumentNullException(nameof(bottom)),
-        top ?? throw new ArgumentNullException(nameof(top))
-        );
-    }
-  }
-
-
-  public enum OverlayAlpha
-  {
-    Straight,
-    Premultiplied
-  }
-
-  public enum OverlayPixFmt
-  {
-    yuv420,
-    yuv420p10,
-    yuv422,
-    yuv422p10,
-    yuv444,
-    rgb,
-    gbrp,
-    auto
-  }
-
-  /// <summary>
-  /// Set when the expressions for x, and y are evaluated.
-  /// </summary>
-  public enum OverlayEval
-  {
     /// <summary>
-    /// only evaluate expressions once during the filter initialization or when a command is processed
+    /// TSC overlay           VV->V      Overlay a video source on top of the input.<br></br>
+    /// https://ffmpeg.org/ffmpeg-filters.html#overlay-1 
     /// </summary>
-    Init,
+    public class OverlayFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport, IFramesync
+    {
+        static readonly IEnumerable<string> _variables = new List<string>()
+        {
+            "main_w","W",
+            "main_h","H",
+            "overlay_w", "w",
+            "overlay_h", "h",
+            "x", "y",
+            "hsub", "vsub",
+            "n", "pos","t"
+        };
+
+        readonly Expression expression = new Expression(_variables);
+
+        internal OverlayFilter(ImageMap bottom, ImageMap top) : base("overlay", bottom, top)
+        {
+            AddMapOut();
+        }
+        /// <summary>
+        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public OverlayFilter X(string x)
+            => this.X(x.Expression());
+        /// <summary>
+        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
+        public OverlayFilter X(Action<Expression> x)
+            => this.SetOption("x", x.Run(expression));
+        /// <summary>
+        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
+        /// </summary>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public OverlayFilter Y(string y)
+            => this.Y(y.Expression());
+        /// <summary>
+        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
+        /// </summary>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public OverlayFilter Y(Action<Expression> y)
+            => this.SetOption("y", y.Run(expression));
+        /// <summary>
+        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public OverlayFilter XY(string x, string y)
+            => this.X(x.Expression()).Y(y.Expression());
+
+        /// <summary>
+        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public OverlayFilter XY(Action<Expression> x, Action<Expression> y)
+            => this.X(x).Y(y);
+
+
+        /// <summary>
+        /// Set when the expressions for x, and y are evaluated.
+        /// </summary>
+        /// <param name="eval"></param>
+        /// <returns></returns>
+        public OverlayFilter Eval(OverlayEval eval)
+          => this.SetOption("eval", eval.ToString().ToLower());
+
+        /// <summary>
+        /// Set the format for the output video.
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        public OverlayFilter Format(OverlayPixFmt format)
+           => this.SetOption("format", format.ToString());
+
+        /// <summary>
+        /// Set format of alpha of the overlaid video, it can be straight or premultiplied. Default is straight.
+        /// </summary>
+        /// <param name="alpha"></param>
+        /// <returns></returns>
+        public OverlayFilter Alpha(OverlayAlpha alpha)
+          => this.SetOption("alpha", alpha.ToString().ToLower());
+    }
+
+    public static class OverlayFilterExtension
+    {
+        /// <summary>
+        /// Overlay one video on top of another.<br>
+        /// </br>It takes two inputs and has one output.The first input is the "main" video on which the second input is overlaid.
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="bottom"></param>
+        /// <returns></returns>
+        public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom)
+            => new OverlayFilter(bottom, top);
+
+        /// <summary>
+        /// Overlay one video on top of another.<br>
+        /// </br>It takes two inputs and has one output.The first input is the "main" video on which the second input is overlaid.
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="bottom"></param>
+        /// <param name="x">Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).</param>
+        /// <param name="y">Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).</param>
+        /// <returns></returns>
+        public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, Action<Expression> x, Action<Expression> y)
+            => new OverlayFilter(bottom, top).X(x).Y(y);
+
+        /// <summary>
+        /// Overlay one video on top of another.<br>
+        /// </br>It takes two inputs and has one output.The first input is the "main" video on which the second input is overlaid.
+        /// </summary>
+        /// <param name="top"></param>
+        /// <param name="bottom"></param>
+        /// <param name="x">Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).</param>
+        /// <param name="y">Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).</param>
+        /// <returns></returns>
+
+        public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, string x, string y)
+            => new OverlayFilter(bottom, top).X(x).Y(y);
+    }
+
+
+    public enum OverlayAlpha
+    {
+        Straight,
+        Premultiplied
+    }
+
+    public enum OverlayPixFmt
+    {
+        /// <summary>
+        /// force YUV420 output
+        /// </summary>
+        yuv420,
+        /// <summary>
+        /// force YUV420p10 output
+        /// </summary>
+        yuv420p10,
+        /// <summary>
+        /// force YUV422 output
+        /// </summary>
+        yuv422,
+        /// <summary>
+        /// force YUV422p10 output
+        /// </summary>
+        yuv422p10,
+        /// <summary>
+        /// force YUV444 output
+        /// </summary>
+        yuv444,
+        /// <summary>
+        /// force packed RGB output
+        /// </summary>
+        rgb,
+        /// <summary>
+        /// force planar RGB output
+        /// </summary>
+        gbrp,
+        /// <summary>
+        /// automatically pick format
+        /// </summary>
+        auto
+    }
 
     /// <summary>
-    /// evaluate expressions for each incoming frame
+    /// Set when the expressions for x, and y are evaluated.
     /// </summary>
-    Frame
-  }
+    public enum OverlayEval
+    {
+        /// <summary>
+        /// only evaluate expressions once during the filter initialization or when a command is processed
+        /// </summary>
+        Init,
+
+        /// <summary>
+        /// evaluate expressions for each incoming frame
+        /// </summary>
+        Frame
+    }
 
 }

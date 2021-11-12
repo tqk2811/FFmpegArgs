@@ -1,12 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -89,7 +81,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="psfile"></param>
         /// <returns></returns>
         public CurvesFilter PsFile(string psfile)
-            => this.SetOption("psfile", psfile.FiltergraphEscapingLv1().FiltergraphEscapingLv2());
+            => this.SetOption("psfile", psfile);
 
         /// <summary>
         /// Save Gnuplot script of the curves in specified file.
@@ -97,7 +89,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="file"></param>
         /// <returns></returns>
         public CurvesFilter Plot(string file)
-            => this.SetOption("plot",file.FiltergraphEscapingLv1().FiltergraphEscapingLv2());
+            => this.SetOption("plot", file);
     }
 
     public static class CurvesFilterExtensions

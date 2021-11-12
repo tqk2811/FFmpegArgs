@@ -1,12 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -19,7 +11,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         internal Cover_rectFilter(string filePathOrName, ImageMap imageMap) : base("cover_rect", imageMap)
         {
             AddMapOut();
-            this.SetOption("cover", filePathOrName.FiltergraphEscapingLv1().FiltergraphEscapingLv2());
+            this.SetOption("cover", filePathOrName);
         }
 
         /// <summary>
@@ -38,7 +30,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Cover a rectangular object
         /// </summary>
         /// <param name="filePathOrName">Filepath of the optional cover image, needs to be in yuv420.</param>
-        public static Cover_rectFilter Cover_rectFilter(this ImageMap imageMap,string filePathOrName)
+        public static Cover_rectFilter Cover_rectFilter(this ImageMap imageMap, string filePathOrName)
           => new Cover_rectFilter(filePathOrName, imageMap);
     }
 

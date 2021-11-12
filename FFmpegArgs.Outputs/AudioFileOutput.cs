@@ -6,27 +6,27 @@ using System.Linq;
 
 namespace FFmpegArgs.Outputs
 {
-  public class AudioFileOutput : AudioOutput
-  {
-    readonly string _filePath;
-    public AudioFileOutput(string filePath, AudioMap audioMap)
+    public class AudioFileOutput : AudioOutput
     {
-      if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
-      this._filePath = filePath;
+        readonly string _filePath;
+        public AudioFileOutput(string filePath, AudioMap audioMap)
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
 
-      AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
-    }
+            AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
+        }
 
-    public override string ToString()
-    {
-      List<string> args = new List<string>()
+        public override string ToString()
+        {
+            List<string> args = new List<string>()
       {
         GetArgs(),
         "-map",
         AudioMap.IsInput ? $"\"{AudioMap.MapName}:a:{AudioMap.InputIndex}\"" : $"\"[{AudioMap.MapName}\"]",
         _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
       };
-      return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+        }
     }
-  }
 }

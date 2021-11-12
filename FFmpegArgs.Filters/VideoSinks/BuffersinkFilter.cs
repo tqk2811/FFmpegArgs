@@ -1,14 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-
-namespace FFmpegArgs.Filters.VideoSinks
+﻿namespace FFmpegArgs.Filters.VideoSinks
 {
     ///// <summary>
     ///// ... buffersink        V->|       Buffer video frames, and make them available to the end of the filter graph.<br></br>

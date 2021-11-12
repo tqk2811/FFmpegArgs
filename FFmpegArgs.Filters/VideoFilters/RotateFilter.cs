@@ -1,5 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Utils;
+using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -13,19 +13,19 @@ namespace FFmpegArgs.Filters.VideoFilters
     public class RotateFilter : ImageToImageFilter, ICommandSupport, ITimelineSupport, ISliceThreading
     {
         static readonly IEnumerable<string> _variables = new List<string>()
-    {
-      "n", "t",
-      "hsub","vsub",
-      "in_w", "iw",
-      "in_h","ih",
-      "out_w", "ow",
-      "out_h", "oh"
-    };
+        {
+            "n", "t",
+            "hsub","vsub",
+            "in_w", "iw",
+            "in_h","ih",
+            "out_w", "ow",
+            "out_h", "oh"
+        };
         static readonly IEnumerable<ShuntingYardFunction> _func = new List<ShuntingYardFunction>()
-    {
-      new ShuntingYardFunction("rotw","rotw_1"),
-      new ShuntingYardFunction("roth","roth_1"),
-    };
+        {
+            new ShuntingYardFunction("rotw","rotw_1"),
+            new ShuntingYardFunction("roth","roth_1"),
+        };
         readonly Expression expression = new Expression(_variables, _func);
 
         internal RotateFilter(Action<Expression> angle, ImageMap imageMap) : base("rotate", imageMap)

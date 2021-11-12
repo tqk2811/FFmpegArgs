@@ -1,12 +1,6 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
+﻿using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Expressions;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -19,7 +13,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         readonly Expression expression = new Expression();
         internal DebandFilter(ImageMap imageMap) : base("deband", imageMap)
         {
-            IsAllowEmptyOption = true;
             AddMapOut();
         }
 

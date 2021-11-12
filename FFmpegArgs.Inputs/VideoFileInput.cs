@@ -5,29 +5,29 @@ using System.Linq;
 
 namespace FFmpegArgs.Inputs
 {
-  public class VideoFileInput : VideoInput
-  {
-    readonly string _filePath;
-    public VideoFileInput(string filePath)
+    public class VideoFileInput : VideoInput
     {
-      if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
-      this._filePath = filePath;
-    }
+        readonly string _filePath;
+        public VideoFileInput(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
+        }
 
-    public override string ToString()
-    {
-      List<string> args = new List<string>()
+        public override string ToString()
+        {
+            List<string> args = new List<string>()
       {
         GetArgs(),
         _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
       };
-      return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+            return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+        }
     }
-  }
 
 
-  public static class VideoFileInputExtension
-  {
+    public static class VideoFileInputExtension
+    {
 
-  }
+    }
 }

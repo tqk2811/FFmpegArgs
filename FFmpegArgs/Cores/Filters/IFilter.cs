@@ -1,6 +1,6 @@
 ﻿namespace FFmpegArgs.Cores.Filters
 {
-  public interface IFilter
-  {
-  }
+    public interface IFilter
+    {
+    }
 }

@@ -6,21 +6,21 @@ using System.Linq;
 
 namespace FFmpegArgs.Outputs
 {
-  public class VideoFileOutput : VideoOutput
-  {
-    readonly string _filePath;
-    public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap)
+    public class VideoFileOutput : VideoOutput
     {
-      if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
-      this._filePath = filePath;
+        readonly string _filePath;
+        public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap)
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
 
-      ImageMap = imageMap ?? throw new ArgumentNullException(nameof(imageMap));
-      AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
-    }
+            ImageMap = imageMap ?? throw new ArgumentNullException(nameof(imageMap));
+            AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
+        }
 
-    public override string ToString()
-    {
-      List<string> args = new List<string>()
+        public override string ToString()
+        {
+            List<string> args = new List<string>()
       {
         GetArgs(),
         "-map",
@@ -29,7 +29,7 @@ namespace FFmpegArgs.Outputs
         AudioMap.IsInput ? $"\"{AudioMap.MapName}:a:{ImageMap.InputIndex}\"" :  $"\"[{AudioMap.MapName}\"]",
         _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
       };
-      return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+        }
     }
-  }
 }

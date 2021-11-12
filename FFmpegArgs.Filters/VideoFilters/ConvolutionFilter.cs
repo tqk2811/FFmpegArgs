@@ -1,12 +1,5 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Expressions;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -29,7 +22,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="val"></param>
         /// <returns></returns>
         public ConvolutionFilter Matrix(ConvolutionPlane plane, params int[] vals)
-            => this.SetOption($"{plane.ToString().Substring(1)}m", string.Join(" ",vals));
+            => this.SetOption($"{plane.ToString().Substring(1)}m", string.Join(" ", vals));
 
         /// <summary>
         /// Set multiplier for calculated value for each plane. If unset or 0, it will be sum of all matrix elements.

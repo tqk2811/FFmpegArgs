@@ -1,12 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -28,7 +20,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="impulse"></param>
         /// <returns></returns>
         public DeconvolveFilter Impulse(int impulse)
-            => this.SetOptionRange("impulse",impulse,0, int.MaxValue);
+            => this.SetOptionRange("impulse", impulse, 0, int.MaxValue);
 
         /// <summary>
         /// Set noise when doing divisions. Default is 0.0000001. Useful when width and height are not same and not power of 2 or if stream prior to convolving had noise.

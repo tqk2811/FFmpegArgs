@@ -2,13 +2,13 @@
 
 namespace FFmpegArgs.Filters
 {
-  public interface ICommandSupport : IFilter
-  {
+    public interface ICommandSupport : IFilter
+    {
 
-  }
+    }
 
-  public static class CommandSupportExtension
-  {
+    public static class CommandSupportExtension
+    {
 
-  }
+    }
 }

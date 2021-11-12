@@ -1,12 +1,5 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Utils;
-using System;
-using System.Collections.Generic;
+﻿using FFmpegArgs.Cores.Maps;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -16,7 +9,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class DatascopeFilter : ImageToImageFilter, ISliceThreading, ICommandSupport
     {
-        internal DatascopeFilter(ImageMap imageMap,Size size, int x,int y) : base("datascope", imageMap)
+        internal DatascopeFilter(ImageMap imageMap, Size size, int x, int y) : base("datascope", imageMap)
         {
             AddMapOut();
             this.SetOption("s", $"{size.Width}x{size.Height}");

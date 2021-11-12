@@ -2,30 +2,34 @@
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
-  /// <summary>
-  ///  ... acontrast         A->A       Simple audio dynamic range compression/expansion filter.<br></br>
-  ///  https://ffmpeg.org/ffmpeg-filters.html#acontrast
-  /// </summary>
-  public class AcontrastFilter : AudioToAudioFilter
-  {
-    internal AcontrastFilter(float contrast, AudioMap audioMap) : base("acontrast", audioMap)
-    {
-      this.SetOptionRange("contrast", contrast, 0, 100);
-      AddMapOut();
-    }
-  }
-
-  public static class AcontrastFilterExtension
-  {
     /// <summary>
-    /// Simple audio dynamic range compression/expansion filter.
+    ///  ... acontrast         A->A       Simple audio dynamic range compression/expansion filter.<br></br>
+    ///  https://ffmpeg.org/ffmpeg-filters.html#acontrast
     /// </summary>
-    /// <param name="audioMap"></param>
-    /// <param name="contrast">Set contrast. Default is 33. Allowed range is between 0 and 100.</param>
-    /// <returns></returns>
-    public static AcontrastFilter AcontrastFilter(this AudioMap audioMap, float contrast)
+    public class AcontrastFilter : AudioToAudioFilter
     {
-      return new AcontrastFilter(contrast, audioMap);
+        internal AcontrastFilter(AudioMap audioMap) : base("acontrast", audioMap)
+        {
+            AddMapOut();
+        }
+
+        /// <summary>
+        /// Set contrast. Default is 33. Allowed range is between 0 and 100.
+        /// </summary>
+        /// <param name="contrast"></param>
+        /// <returns></returns>
+        public AcontrastFilter Contrast(int contrast)
+            => this.SetOptionRange("contrast", contrast, 0, 100);
     }
-  }
+
+    public static class AcontrastFilterExtension
+    {
+        /// <summary>
+        /// Simple audio dynamic range compression/expansion filter.
+        /// </summary>
+        /// <param name="audioMap"></param>
+        /// <returns></returns>
+        public static AcontrastFilter AcontrastFilter(this AudioMap audioMap)
+            => new AcontrastFilter(audioMap);
+    }
 }

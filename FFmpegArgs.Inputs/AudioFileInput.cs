@@ -5,23 +5,23 @@ using System.Linq;
 
 namespace FFmpegArgs.Inputs
 {
-  public class AudioFileInput : AudioInput
-  {
-    readonly string _filePath;
-    public AudioFileInput(string filePath)
+    public class AudioFileInput : AudioInput
     {
-      if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
-      this._filePath = filePath;
-    }
+        readonly string _filePath;
+        public AudioFileInput(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
+        }
 
-    public override string ToString()
-    {
-      List<string> args = new List<string>()
+        public override string ToString()
+        {
+            List<string> args = new List<string>()
       {
         GetArgs(),
         _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
       };
-      return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+            return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+        }
     }
-  }
 }

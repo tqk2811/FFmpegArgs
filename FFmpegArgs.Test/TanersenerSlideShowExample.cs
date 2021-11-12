@@ -173,7 +173,7 @@ namespace FFmpegArgs.Test
             int TRANSITION_DURATION = 1;
             int IMAGE_DURATION = 2;
             int MAX_IMAGE_ANGLE = 25;
-            Color BACKGROUND_COLOR = Color.FromArgb(0,0,0,0);
+            Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
 
             DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
             var files = directoryInfo.GetFiles("*.jpg");
@@ -195,7 +195,7 @@ namespace FFmpegArgs.Test
 
             var lastOverLay = background;
 
-            images_inputmap.ForEach(x => 
+            images_inputmap.ForEach(x =>
             {
                 var c = images_inputmap.IndexOf(x);
                 var start = (TRANSITION_DURATION + IMAGE_DURATION) * c;
@@ -212,10 +212,10 @@ namespace FFmpegArgs.Test
                     .PadFilter($"{WIDTH * 4}", $"{HEIGHT}").Position($"({WIDTH * 4}-iw)/2", $"({HEIGHT}-ih)/2").Color(BACKGROUND_COLOR).MapOut
                     .TrimFilter().Duration(TimeSpan.FromSeconds((c + 1) * (TRANSITION_DURATION + IMAGE_DURATION))).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
-                    .RotateFilter($"if(between(t,{start},{end}),"+
-                                        $"2*PI*t+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*PI/180,"+
+                    .RotateFilter($"if(between(t,{start},{end})," +
+                                        $"2*PI*t+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*PI/180," +
                                         $"if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*PI/180)")
-                        .OW($"{WIDTH*4}").FillColor(BACKGROUND_COLOR).MapOut
+                        .OW($"{WIDTH * 4}").FillColor(BACKGROUND_COLOR).MapOut
                     .OverlayFilterOn(lastOverLay,
                         $"if(gt(t,{start})," +
                             $"if(lt(t,{end})," +
@@ -228,7 +228,7 @@ namespace FFmpegArgs.Test
             var output = lastOverLay.FormatFilter(FormatPixFmt.yuv420p).MapOut;
 
             var videoOut = new ImageFileOutput("PhotoCollection.mp4", output);
-            videoOut.VSync(2).SetOption("-rc-lookahead",0).SetOption("-g",0).SetOption("-c:v","libx264").FrameRate(FPS);
+            videoOut.VSync(2).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").FrameRate(FPS);
 
             filterGraph.AddOutput(videoOut);
 

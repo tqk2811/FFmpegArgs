@@ -2,13 +2,13 @@
 
 namespace FFmpegArgs.Filters
 {
-  public interface ISliceThreading : IFilter
-  {
+    public interface ISliceThreading : IFilter
+    {
 
-  }
+    }
 
-  public static class SliceThreadingExtension
-  {
+    public static class SliceThreadingExtension
+    {
 
-  }
+    }
 }
