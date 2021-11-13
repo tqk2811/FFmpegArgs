@@ -17,7 +17,7 @@ namespace FFmpegArgs.Filters
         {
             TimelineEditingExpression timelineEditingExpression = new TimelineEditingExpression();
             timelineExpression?.Invoke(timelineEditingExpression);
-            return timelineSupport.SetOption("enable", $"'{timelineEditingExpression}'");
+            return timelineSupport.SetOption("enable", $"{timelineEditingExpression}");
         }
 
         public static T Enable<T>(this T timelineSupport, string timelineExpression) where T : BaseFilterOption, ITimelineSupport
