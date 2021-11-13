@@ -40,6 +40,6 @@ public static class KerndeintFilterGenExtensions
 /// <summary>
 /// Apply kernel deinterlacing to the input.
 /// </summary>
-public static KerndeintFilterGen KerndeintFilterGen(this ImageMap input) => new KerndeintFilterGen(input);
+public static KerndeintFilterGen KerndeintFilterGen(this ImageMap input0) => new KerndeintFilterGen(input0);
 }
 }

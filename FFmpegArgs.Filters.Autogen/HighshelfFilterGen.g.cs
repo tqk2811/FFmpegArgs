@@ -100,7 +100,7 @@ public static class HighshelfFilterGenExtensions
 /// <summary>
 /// Apply a high shelf filter.
 /// </summary>
-public static HighshelfFilterGen HighshelfFilterGen(this AudioMap input) => new HighshelfFilterGen(input);
+public static HighshelfFilterGen HighshelfFilterGen(this AudioMap input0) => new HighshelfFilterGen(input0);
 }
 public enum HighshelfFilterGenWidth_type
 {

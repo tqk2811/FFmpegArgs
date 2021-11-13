@@ -24,6 +24,6 @@ public static class FormatFilterGenExtensions
 /// <summary>
 /// Convert the input video to one of the specified pixel formats.
 /// </summary>
-public static FormatFilterGen FormatFilterGen(this ImageMap input) => new FormatFilterGen(input);
+public static FormatFilterGen FormatFilterGen(this ImageMap input0) => new FormatFilterGen(input0);
 }
 }

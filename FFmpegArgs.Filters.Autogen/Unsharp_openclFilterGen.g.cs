@@ -68,6 +68,6 @@ public static class Unsharp_openclFilterGenExtensions
 /// <summary>
 /// Apply unsharp mask to input video
 /// </summary>
-public static Unsharp_openclFilterGen Unsharp_openclFilterGen(this ImageMap input) => new Unsharp_openclFilterGen(input);
+public static Unsharp_openclFilterGen Unsharp_openclFilterGen(this ImageMap input0) => new Unsharp_openclFilterGen(input0);
 }
 }

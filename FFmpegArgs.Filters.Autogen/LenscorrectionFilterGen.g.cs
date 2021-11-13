@@ -44,7 +44,7 @@ public static class LenscorrectionFilterGenExtensions
 /// <summary>
 /// Rectify the image by correcting for lens distortion.
 /// </summary>
-public static LenscorrectionFilterGen LenscorrectionFilterGen(this ImageMap input) => new LenscorrectionFilterGen(input);
+public static LenscorrectionFilterGen LenscorrectionFilterGen(this ImageMap input0) => new LenscorrectionFilterGen(input0);
 }
 public enum LenscorrectionFilterGenI
 {

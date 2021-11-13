@@ -32,6 +32,6 @@ public static class ArnndnFilterGenExtensions
 /// <summary>
 /// Reduce noise from speech using Recurrent Neural Networks.
 /// </summary>
-public static ArnndnFilterGen ArnndnFilterGen(this AudioMap input) => new ArnndnFilterGen(input);
+public static ArnndnFilterGen ArnndnFilterGen(this AudioMap input0) => new ArnndnFilterGen(input0);
 }
 }

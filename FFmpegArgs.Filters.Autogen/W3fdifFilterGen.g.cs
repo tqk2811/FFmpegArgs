@@ -36,7 +36,7 @@ public static class W3fdifFilterGenExtensions
 /// <summary>
 /// Apply Martin Weston three field deinterlace.
 /// </summary>
-public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input) => new W3fdifFilterGen(input);
+public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input0) => new W3fdifFilterGen(input0);
 }
 public enum W3fdifFilterGenFilter
 {

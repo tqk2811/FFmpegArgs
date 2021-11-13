@@ -36,6 +36,6 @@ public static class DeflateFilterGenExtensions
 /// <summary>
 /// Apply deflate effect.
 /// </summary>
-public static DeflateFilterGen DeflateFilterGen(this ImageMap input) => new DeflateFilterGen(input);
+public static DeflateFilterGen DeflateFilterGen(this ImageMap input0) => new DeflateFilterGen(input0);
 }
 }

@@ -36,6 +36,6 @@ public static class ScdetFilterGenExtensions
 /// <summary>
 /// Detect video scene change
 /// </summary>
-public static ScdetFilterGen ScdetFilterGen(this ImageMap input) => new ScdetFilterGen(input);
+public static ScdetFilterGen ScdetFilterGen(this ImageMap input0) => new ScdetFilterGen(input0);
 }
 }

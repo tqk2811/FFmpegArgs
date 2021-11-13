@@ -100,6 +100,6 @@ public static class DynaudnormFilterGenExtensions
 /// <summary>
 /// Dynamic Audio Normalizer.
 /// </summary>
-public static DynaudnormFilterGen DynaudnormFilterGen(this AudioMap input) => new DynaudnormFilterGen(input);
+public static DynaudnormFilterGen DynaudnormFilterGen(this AudioMap input0) => new DynaudnormFilterGen(input0);
 }
 }

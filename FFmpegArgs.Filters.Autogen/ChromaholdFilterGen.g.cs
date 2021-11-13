@@ -36,6 +36,6 @@ public static class ChromaholdFilterGenExtensions
 /// <summary>
 /// Turns a certain color range into gray.
 /// </summary>
-public static ChromaholdFilterGen ChromaholdFilterGen(this ImageMap input) => new ChromaholdFilterGen(input);
+public static ChromaholdFilterGen ChromaholdFilterGen(this ImageMap input0) => new ChromaholdFilterGen(input0);
 }
 }

@@ -32,6 +32,6 @@ public static class GreyedgeFilterGenExtensions
 /// <summary>
 /// Estimates scene illumination by grey edge assumption.
 /// </summary>
-public static GreyedgeFilterGen GreyedgeFilterGen(this ImageMap input) => new GreyedgeFilterGen(input);
+public static GreyedgeFilterGen GreyedgeFilterGen(this ImageMap input0) => new GreyedgeFilterGen(input0);
 }
 }

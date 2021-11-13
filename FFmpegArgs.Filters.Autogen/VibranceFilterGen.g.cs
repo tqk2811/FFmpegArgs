@@ -52,6 +52,6 @@ public static class VibranceFilterGenExtensions
 /// <summary>
 /// Boost or alter saturation.
 /// </summary>
-public static VibranceFilterGen VibranceFilterGen(this ImageMap input) => new VibranceFilterGen(input);
+public static VibranceFilterGen VibranceFilterGen(this ImageMap input0) => new VibranceFilterGen(input0);
 }
 }

@@ -68,7 +68,7 @@ public static class AdeclipFilterGenExtensions
 /// <summary>
 /// Remove clipping from input audio.
 /// </summary>
-public static AdeclipFilterGen AdeclipFilterGen(this AudioMap input) => new AdeclipFilterGen(input);
+public static AdeclipFilterGen AdeclipFilterGen(this AudioMap input0) => new AdeclipFilterGen(input0);
 }
 public enum AdeclipFilterGenMethod
 {

@@ -28,6 +28,6 @@ public static class RandomFilterGenExtensions
 /// <summary>
 /// Return random frames.
 /// </summary>
-public static RandomFilterGen RandomFilterGen(this ImageMap input) => new RandomFilterGen(input);
+public static RandomFilterGen RandomFilterGen(this ImageMap input0) => new RandomFilterGen(input0);
 }
 }

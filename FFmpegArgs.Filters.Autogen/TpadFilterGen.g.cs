@@ -48,7 +48,7 @@ public static class TpadFilterGenExtensions
 /// <summary>
 /// Temporarily pad video frames.
 /// </summary>
-public static TpadFilterGen TpadFilterGen(this ImageMap input) => new TpadFilterGen(input);
+public static TpadFilterGen TpadFilterGen(this ImageMap input0) => new TpadFilterGen(input0);
 }
 public enum TpadFilterGenStart_mode
 {

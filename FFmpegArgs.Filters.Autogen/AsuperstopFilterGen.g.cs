@@ -36,6 +36,6 @@ public static class AsuperstopFilterGenExtensions
 /// <summary>
 /// Apply high order Butterworth band-stop filter.
 /// </summary>
-public static AsuperstopFilterGen AsuperstopFilterGen(this AudioMap input) => new AsuperstopFilterGen(input);
+public static AsuperstopFilterGen AsuperstopFilterGen(this AudioMap input0) => new AsuperstopFilterGen(input0);
 }
 }

@@ -72,6 +72,6 @@ public static class UnsharpFilterGenExtensions
 /// <summary>
 /// Sharpen or blur the input video.
 /// </summary>
-public static UnsharpFilterGen UnsharpFilterGen(this ImageMap input) => new UnsharpFilterGen(input);
+public static UnsharpFilterGen UnsharpFilterGen(this ImageMap input0) => new UnsharpFilterGen(input0);
 }
 }

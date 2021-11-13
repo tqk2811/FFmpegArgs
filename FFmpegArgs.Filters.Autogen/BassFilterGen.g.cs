@@ -100,7 +100,7 @@ public static class BassFilterGenExtensions
 /// <summary>
 /// Boost or cut lower frequencies.
 /// </summary>
-public static BassFilterGen BassFilterGen(this AudioMap input) => new BassFilterGen(input);
+public static BassFilterGen BassFilterGen(this AudioMap input0) => new BassFilterGen(input0);
 }
 public enum BassFilterGenWidth_type
 {

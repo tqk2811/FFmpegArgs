@@ -40,7 +40,7 @@ public static class AsoftclipFilterGenExtensions
 /// <summary>
 /// Audio Soft Clipper.
 /// </summary>
-public static AsoftclipFilterGen AsoftclipFilterGen(this AudioMap input) => new AsoftclipFilterGen(input);
+public static AsoftclipFilterGen AsoftclipFilterGen(this AudioMap input0) => new AsoftclipFilterGen(input0);
 }
 public enum AsoftclipFilterGenType
 {

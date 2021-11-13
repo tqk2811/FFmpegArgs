@@ -72,7 +72,7 @@ public static class HaasFilterGenExtensions
 /// <summary>
 /// Apply Haas Stereo Enhancer.
 /// </summary>
-public static HaasFilterGen HaasFilterGen(this AudioMap input) => new HaasFilterGen(input);
+public static HaasFilterGen HaasFilterGen(this AudioMap input0) => new HaasFilterGen(input0);
 }
 public enum HaasFilterGenMiddle_source
 {

@@ -100,7 +100,7 @@ public static class TrebleFilterGenExtensions
 /// <summary>
 /// Boost or cut upper frequencies.
 /// </summary>
-public static TrebleFilterGen TrebleFilterGen(this AudioMap input) => new TrebleFilterGen(input);
+public static TrebleFilterGen TrebleFilterGen(this AudioMap input0) => new TrebleFilterGen(input0);
 }
 public enum TrebleFilterGenWidth_type
 {

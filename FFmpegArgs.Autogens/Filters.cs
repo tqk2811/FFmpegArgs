@@ -13,7 +13,7 @@ namespace FFmpegArgs.Autogens
     {
         static readonly IEnumerable<string> _skip = new string[]
         {
-            "concat"
+            //"concat"
         };
         static readonly IEnumerable<string> _NameRule = new string[]
         {
@@ -300,7 +300,14 @@ namespace FFmpegArgs.Autogens
                     streamWriter.WriteLine("{");
                     streamWriter.WriteLine($"public class {className} : {string.Join(",", interfaces)}");
                     streamWriter.WriteLine("{");
-                    streamWriter.WriteLine($"internal {className}({typeName.Input} input) : base(\"{name}\",input) {{ AddMapOut(); }}");
+                    if (typeName.InputCount == 1)
+                    {
+                        streamWriter.WriteLine($"internal {className}({typeName.Input} input) : base(\"{name}\",input) {{ AddMapOut(); }}");
+                    }
+                    else
+                    {
+                        streamWriter.WriteLine($"internal {className}(params {typeName.Input}[] inputs) : base(\"{name}\",inputs) {{ AddMapOut(); }}");
+                    }
                     List<string> enumDatas = new List<string>();
                     foreach (var func in docLine.ChildLines)
                     {
@@ -310,10 +317,18 @@ namespace FFmpegArgs.Autogens
                     streamWriter.WriteLine("}");
 
                     //Extensions
+                    List<string> inputs = new List<string>();
+                    List<string> paramsInput = new List<string>();
+                    for (int i = 0; i < typeName.InputCount; i++)
+                    {
+                        inputs.Add($"{typeName.Input} input{i}");
+                        paramsInput.Add($"input{i}");
+                    }
+
                     streamWriter.WriteLine($"public static class {className}Extensions");
                     streamWriter.WriteLine("{");
                     streamWriter.WriteSummary(description);
-                    streamWriter.WriteLine($"public static {className} {className}(this {typeName.Input} input) => new {className}(input);");
+                    streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)}) => new {className}({string.Join(", ", paramsInput)});");
                     streamWriter.WriteLine("}");
 
                     //enum
@@ -335,23 +350,51 @@ namespace FFmpegArgs.Autogens
             if (type.Equals("V->V")) return new TypeName()
             {
                 Inheritance = nameof(ImageToImageFilter),
-                Input = nameof(ImageMap)
+                Input = nameof(ImageMap),
             };
-            if (type.Equals("A->A")) return new TypeName()
+            if (type.Equals("VV->V")) return new TypeName()
             {
-                Inheritance = nameof(AudioToAudioFilter),
-                Input = nameof(AudioMap)
+                Inheritance = nameof(ImageToImageFilter),
+                Input = nameof(ImageMap),
+                InputCount = 2,
+            };
+            if (type.Equals("VVV->V")) return new TypeName()
+            {
+                Inheritance = nameof(ImageToImageFilter),
+                Input = nameof(ImageMap),
+                InputCount = 3,
+            };
+            if (type.Equals("VVVV->V")) return new TypeName()
+            {
+                Inheritance = nameof(ImageToImageFilter),
+                Input = nameof(ImageMap),
+                InputCount = 4,
             };
             if (type.Equals("|->V")) return new TypeName()
             {
                 Inheritance = nameof(SourceImageFilter),
                 Input = nameof(FilterGraph)
             };
+
+
+            if (type.Equals("A->A")) return new TypeName()
+            {
+                Inheritance = nameof(AudioToAudioFilter),
+                Input = nameof(AudioMap)
+            };
+            if (type.Equals("AA->A")) return new TypeName()
+            {
+                Inheritance = nameof(AudioToAudioFilter),
+                Input = nameof(AudioMap),
+                InputCount = 2,
+            };
             if (type.Equals("|->A")) return new TypeName()
             {
                 Inheritance = nameof(SourceAudioFilter),
                 Input = nameof(FilterGraph)
             };
+
+
             //skip N->? , ?->N 
             return null;
         }
@@ -368,6 +411,8 @@ namespace FFmpegArgs.Autogens
 
     class TypeName
     {
+        public int InputCount { get; set; } = 1;
+        public int OutputCount { get; set; } = 1;
         public string Inheritance { get; set; }
         public string Input { get; set; }
     }

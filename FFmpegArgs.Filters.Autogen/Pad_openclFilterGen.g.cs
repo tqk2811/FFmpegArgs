@@ -52,6 +52,6 @@ public static class Pad_openclFilterGenExtensions
 /// <summary>
 /// Pad the input video.
 /// </summary>
-public static Pad_openclFilterGen Pad_openclFilterGen(this ImageMap input) => new Pad_openclFilterGen(input);
+public static Pad_openclFilterGen Pad_openclFilterGen(this ImageMap input0) => new Pad_openclFilterGen(input0);
 }
 }

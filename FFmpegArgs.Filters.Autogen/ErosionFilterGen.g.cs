@@ -40,6 +40,6 @@ public static class ErosionFilterGenExtensions
 /// <summary>
 /// Apply erosion effect.
 /// </summary>
-public static ErosionFilterGen ErosionFilterGen(this ImageMap input) => new ErosionFilterGen(input);
+public static ErosionFilterGen ErosionFilterGen(this ImageMap input0) => new ErosionFilterGen(input0);
 }
 }

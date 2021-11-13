@@ -36,6 +36,6 @@ public static class Hqdn3dFilterGenExtensions
 /// <summary>
 /// Apply a High Quality 3D Denoiser.
 /// </summary>
-public static Hqdn3dFilterGen Hqdn3dFilterGen(this ImageMap input) => new Hqdn3dFilterGen(input);
+public static Hqdn3dFilterGen Hqdn3dFilterGen(this ImageMap input0) => new Hqdn3dFilterGen(input0);
 }
 }

@@ -28,7 +28,7 @@ public static class Lut1dFilterGenExtensions
 /// <summary>
 /// Adjust colors using a 1D LUT.
 /// </summary>
-public static Lut1dFilterGen Lut1dFilterGen(this ImageMap input) => new Lut1dFilterGen(input);
+public static Lut1dFilterGen Lut1dFilterGen(this ImageMap input0) => new Lut1dFilterGen(input0);
 }
 public enum Lut1dFilterGenInterp
 {

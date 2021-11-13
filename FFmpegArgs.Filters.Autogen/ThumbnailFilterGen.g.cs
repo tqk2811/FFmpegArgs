@@ -24,6 +24,6 @@ public static class ThumbnailFilterGenExtensions
 /// <summary>
 /// Select the most representative frame in a given sequence of consecutive frames.
 /// </summary>
-public static ThumbnailFilterGen ThumbnailFilterGen(this ImageMap input) => new ThumbnailFilterGen(input);
+public static ThumbnailFilterGen ThumbnailFilterGen(this ImageMap input0) => new ThumbnailFilterGen(input0);
 }
 }

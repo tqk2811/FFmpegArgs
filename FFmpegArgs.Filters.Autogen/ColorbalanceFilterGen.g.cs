@@ -60,6 +60,6 @@ public static class ColorbalanceFilterGenExtensions
 /// <summary>
 /// Adjust the color balance.
 /// </summary>
-public static ColorbalanceFilterGen ColorbalanceFilterGen(this ImageMap input) => new ColorbalanceFilterGen(input);
+public static ColorbalanceFilterGen ColorbalanceFilterGen(this ImageMap input0) => new ColorbalanceFilterGen(input0);
 }
 }

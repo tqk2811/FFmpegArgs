@@ -28,6 +28,6 @@ public static class SettbFilterGenExtensions
 /// <summary>
 /// Set timebase for the video output link.
 /// </summary>
-public static SettbFilterGen SettbFilterGen(this ImageMap input) => new SettbFilterGen(input);
+public static SettbFilterGen SettbFilterGen(this ImageMap input0) => new SettbFilterGen(input0);
 }
 }

@@ -56,7 +56,7 @@ public static class NnediFilterGenExtensions
 /// <summary>
 /// Apply neural network edge directed interpolation intra-only deinterlacer.
 /// </summary>
-public static NnediFilterGen NnediFilterGen(this ImageMap input) => new NnediFilterGen(input);
+public static NnediFilterGen NnediFilterGen(this ImageMap input0) => new NnediFilterGen(input0);
 }
 public enum NnediFilterGenDeint
 {

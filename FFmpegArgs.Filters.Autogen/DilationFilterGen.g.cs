@@ -40,6 +40,6 @@ public static class DilationFilterGenExtensions
 /// <summary>
 /// Apply dilation effect.
 /// </summary>
-public static DilationFilterGen DilationFilterGen(this ImageMap input) => new DilationFilterGen(input);
+public static DilationFilterGen DilationFilterGen(this ImageMap input0) => new DilationFilterGen(input0);
 }
 }

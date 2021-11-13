@@ -36,6 +36,6 @@ public static class StereowidenFilterGenExtensions
 /// <summary>
 /// Apply stereo widening effect.
 /// </summary>
-public static StereowidenFilterGen StereowidenFilterGen(this AudioMap input) => new StereowidenFilterGen(input);
+public static StereowidenFilterGen StereowidenFilterGen(this AudioMap input0) => new StereowidenFilterGen(input0);
 }
 }

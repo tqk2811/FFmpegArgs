@@ -24,6 +24,6 @@ public static class UntileFilterGenExtensions
 /// <summary>
 /// Untile a frame into a sequence of frames.
 /// </summary>
-public static UntileFilterGen UntileFilterGen(this ImageMap input) => new UntileFilterGen(input);
+public static UntileFilterGen UntileFilterGen(this ImageMap input0) => new UntileFilterGen(input0);
 }
 }

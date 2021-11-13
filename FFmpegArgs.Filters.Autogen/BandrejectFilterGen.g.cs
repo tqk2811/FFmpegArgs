@@ -84,7 +84,7 @@ public static class BandrejectFilterGenExtensions
 /// <summary>
 /// Apply a two-pole Butterworth band-reject filter.
 /// </summary>
-public static BandrejectFilterGen BandrejectFilterGen(this AudioMap input) => new BandrejectFilterGen(input);
+public static BandrejectFilterGen BandrejectFilterGen(this AudioMap input0) => new BandrejectFilterGen(input0);
 }
 public enum BandrejectFilterGenWidth_type
 {

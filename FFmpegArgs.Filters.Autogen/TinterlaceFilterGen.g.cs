@@ -24,7 +24,7 @@ public static class TinterlaceFilterGenExtensions
 /// <summary>
 /// Perform temporal field interlacing.
 /// </summary>
-public static TinterlaceFilterGen TinterlaceFilterGen(this ImageMap input) => new TinterlaceFilterGen(input);
+public static TinterlaceFilterGen TinterlaceFilterGen(this ImageMap input0) => new TinterlaceFilterGen(input0);
 }
 public enum TinterlaceFilterGenMode
 {

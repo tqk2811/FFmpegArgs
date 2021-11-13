@@ -32,6 +32,6 @@ public static class CueFilterGenExtensions
 /// <summary>
 /// Delay filtering to match a cue.
 /// </summary>
-public static CueFilterGen CueFilterGen(this ImageMap input) => new CueFilterGen(input);
+public static CueFilterGen CueFilterGen(this ImageMap input0) => new CueFilterGen(input0);
 }
 }

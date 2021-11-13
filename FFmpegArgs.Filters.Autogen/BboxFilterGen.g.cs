@@ -24,6 +24,6 @@ public static class BboxFilterGenExtensions
 /// <summary>
 /// Compute bounding box for each frame.
 /// </summary>
-public static BboxFilterGen BboxFilterGen(this ImageMap input) => new BboxFilterGen(input);
+public static BboxFilterGen BboxFilterGen(this ImageMap input0) => new BboxFilterGen(input0);
 }
 }

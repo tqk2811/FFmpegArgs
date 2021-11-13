@@ -36,7 +36,7 @@ public static class SppFilterGenExtensions
 /// <summary>
 /// Apply a simple post processing filter.
 /// </summary>
-public static SppFilterGen SppFilterGen(this ImageMap input) => new SppFilterGen(input);
+public static SppFilterGen SppFilterGen(this ImageMap input0) => new SppFilterGen(input0);
 }
 public enum SppFilterGenMode
 {

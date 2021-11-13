@@ -56,7 +56,7 @@ public static class SierpinskiFilterGenExtensions
 /// <summary>
 /// Render a Sierpinski fractal.
 /// </summary>
-public static SierpinskiFilterGen SierpinskiFilterGen(this FilterGraph input) => new SierpinskiFilterGen(input);
+public static SierpinskiFilterGen SierpinskiFilterGen(this FilterGraph input0) => new SierpinskiFilterGen(input0);
 }
 public enum SierpinskiFilterGenType
 {

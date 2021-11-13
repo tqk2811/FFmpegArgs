@@ -36,6 +36,6 @@ public static class HueFilterGenExtensions
 /// <summary>
 /// Adjust the hue and saturation of the input video.
 /// </summary>
-public static HueFilterGen HueFilterGen(this ImageMap input) => new HueFilterGen(input);
+public static HueFilterGen HueFilterGen(this ImageMap input0) => new HueFilterGen(input0);
 }
 }

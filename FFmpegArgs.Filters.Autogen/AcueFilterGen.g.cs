@@ -32,6 +32,6 @@ public static class AcueFilterGenExtensions
 /// <summary>
 /// Delay filtering to match a cue.
 /// </summary>
-public static AcueFilterGen AcueFilterGen(this AudioMap input) => new AcueFilterGen(input);
+public static AcueFilterGen AcueFilterGen(this AudioMap input0) => new AcueFilterGen(input0);
 }
 }

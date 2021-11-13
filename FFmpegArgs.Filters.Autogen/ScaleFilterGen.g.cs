@@ -100,7 +100,7 @@ public static class ScaleFilterGenExtensions
 /// <summary>
 /// Scale the input video size and/or convert the image format.
 /// </summary>
-public static ScaleFilterGen ScaleFilterGen(this ImageMap input) => new ScaleFilterGen(input);
+public static ScaleFilterGen ScaleFilterGen(this ImageMap input0) => new ScaleFilterGen(input0);
 }
 public enum ScaleFilterGenIn_range
 {

@@ -28,6 +28,6 @@ public static class VibratoFilterGenExtensions
 /// <summary>
 /// Apply vibrato effect.
 /// </summary>
-public static VibratoFilterGen VibratoFilterGen(this AudioMap input) => new VibratoFilterGen(input);
+public static VibratoFilterGen VibratoFilterGen(this AudioMap input0) => new VibratoFilterGen(input0);
 }
 }

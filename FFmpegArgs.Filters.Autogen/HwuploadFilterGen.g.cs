@@ -24,6 +24,6 @@ public static class HwuploadFilterGenExtensions
 /// <summary>
 /// Upload a normal frame to a hardware frame
 /// </summary>
-public static HwuploadFilterGen HwuploadFilterGen(this ImageMap input) => new HwuploadFilterGen(input);
+public static HwuploadFilterGen HwuploadFilterGen(this ImageMap input0) => new HwuploadFilterGen(input0);
 }
 }

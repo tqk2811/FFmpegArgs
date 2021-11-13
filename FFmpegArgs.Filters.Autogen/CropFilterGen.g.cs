@@ -52,6 +52,6 @@ public static class CropFilterGenExtensions
 /// <summary>
 /// Crop the input video.
 /// </summary>
-public static CropFilterGen CropFilterGen(this ImageMap input) => new CropFilterGen(input);
+public static CropFilterGen CropFilterGen(this ImageMap input0) => new CropFilterGen(input0);
 }
 }

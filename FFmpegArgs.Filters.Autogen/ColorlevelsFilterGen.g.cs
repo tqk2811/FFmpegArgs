@@ -84,6 +84,6 @@ public static class ColorlevelsFilterGenExtensions
 /// <summary>
 /// Adjust the color levels.
 /// </summary>
-public static ColorlevelsFilterGen ColorlevelsFilterGen(this ImageMap input) => new ColorlevelsFilterGen(input);
+public static ColorlevelsFilterGen ColorlevelsFilterGen(this ImageMap input0) => new ColorlevelsFilterGen(input0);
 }
 }

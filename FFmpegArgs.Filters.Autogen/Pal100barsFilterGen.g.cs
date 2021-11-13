@@ -56,6 +56,6 @@ public static class Pal100barsFilterGenExtensions
 /// <summary>
 /// Generate PAL 100% color bars.
 /// </summary>
-public static Pal100barsFilterGen Pal100barsFilterGen(this FilterGraph input) => new Pal100barsFilterGen(input);
+public static Pal100barsFilterGen Pal100barsFilterGen(this FilterGraph input0) => new Pal100barsFilterGen(input0);
 }
 }

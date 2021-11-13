@@ -52,6 +52,6 @@ public static class AlimiterFilterGenExtensions
 /// <summary>
 /// Audio lookahead limiter.
 /// </summary>
-public static AlimiterFilterGen AlimiterFilterGen(this AudioMap input) => new AlimiterFilterGen(input);
+public static AlimiterFilterGen AlimiterFilterGen(this AudioMap input0) => new AlimiterFilterGen(input0);
 }
 }

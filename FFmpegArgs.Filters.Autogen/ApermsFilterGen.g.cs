@@ -28,7 +28,7 @@ public static class ApermsFilterGenExtensions
 /// <summary>
 /// Set permissions for the output audio frame.
 /// </summary>
-public static ApermsFilterGen ApermsFilterGen(this AudioMap input) => new ApermsFilterGen(input);
+public static ApermsFilterGen ApermsFilterGen(this AudioMap input0) => new ApermsFilterGen(input0);
 }
 public enum ApermsFilterGenMode
 {

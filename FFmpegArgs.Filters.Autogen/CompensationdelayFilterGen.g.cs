@@ -44,6 +44,6 @@ public static class CompensationdelayFilterGenExtensions
 /// <summary>
 /// Audio Compensation Delay Line.
 /// </summary>
-public static CompensationdelayFilterGen CompensationdelayFilterGen(this AudioMap input) => new CompensationdelayFilterGen(input);
+public static CompensationdelayFilterGen CompensationdelayFilterGen(this AudioMap input0) => new CompensationdelayFilterGen(input0);
 }
 }

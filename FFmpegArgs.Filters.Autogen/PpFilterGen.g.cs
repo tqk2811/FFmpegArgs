@@ -24,6 +24,6 @@ public static class PpFilterGenExtensions
 /// <summary>
 /// Filter video using libpostproc.
 /// </summary>
-public static PpFilterGen PpFilterGen(this ImageMap input) => new PpFilterGen(input);
+public static PpFilterGen PpFilterGen(this ImageMap input0) => new PpFilterGen(input0);
 }
 }

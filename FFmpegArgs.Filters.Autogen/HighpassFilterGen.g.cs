@@ -92,7 +92,7 @@ public static class HighpassFilterGenExtensions
 /// <summary>
 /// Apply a high-pass filter with 3dB point frequency.
 /// </summary>
-public static HighpassFilterGen HighpassFilterGen(this AudioMap input) => new HighpassFilterGen(input);
+public static HighpassFilterGen HighpassFilterGen(this AudioMap input0) => new HighpassFilterGen(input0);
 }
 public enum HighpassFilterGenWidth_type
 {

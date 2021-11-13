@@ -48,6 +48,6 @@ public static class AsubboostFilterGenExtensions
 /// <summary>
 /// Boost subwoofer frequencies.
 /// </summary>
-public static AsubboostFilterGen AsubboostFilterGen(this AudioMap input) => new AsubboostFilterGen(input);
+public static AsubboostFilterGen AsubboostFilterGen(this AudioMap input0) => new AsubboostFilterGen(input0);
 }
 }

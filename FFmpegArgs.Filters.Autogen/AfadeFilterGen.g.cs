@@ -68,7 +68,7 @@ public static class AfadeFilterGenExtensions
 /// <summary>
 /// Fade in/out input audio.
 /// </summary>
-public static AfadeFilterGen AfadeFilterGen(this AudioMap input) => new AfadeFilterGen(input);
+public static AfadeFilterGen AfadeFilterGen(this AudioMap input0) => new AfadeFilterGen(input0);
 }
 public enum AfadeFilterGenType
 {

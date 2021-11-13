@@ -36,7 +36,7 @@ public static class Scale_qsvFilterGenExtensions
 /// <summary>
 /// QuickSync video scaling and format conversion
 /// </summary>
-public static Scale_qsvFilterGen Scale_qsvFilterGen(this ImageMap input) => new Scale_qsvFilterGen(input);
+public static Scale_qsvFilterGen Scale_qsvFilterGen(this ImageMap input0) => new Scale_qsvFilterGen(input0);
 }
 public enum Scale_qsvFilterGenMode
 {

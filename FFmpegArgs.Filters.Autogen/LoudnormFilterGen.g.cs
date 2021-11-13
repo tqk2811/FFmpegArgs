@@ -88,7 +88,7 @@ public static class LoudnormFilterGenExtensions
 /// <summary>
 /// EBU R128 loudness normalization
 /// </summary>
-public static LoudnormFilterGen LoudnormFilterGen(this AudioMap input) => new LoudnormFilterGen(input);
+public static LoudnormFilterGen LoudnormFilterGen(this AudioMap input0) => new LoudnormFilterGen(input0);
 }
 public enum LoudnormFilterGenPrint_format
 {

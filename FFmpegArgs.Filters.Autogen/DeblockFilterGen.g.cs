@@ -48,7 +48,7 @@ public static class DeblockFilterGenExtensions
 /// <summary>
 /// Deblock video.
 /// </summary>
-public static DeblockFilterGen DeblockFilterGen(this ImageMap input) => new DeblockFilterGen(input);
+public static DeblockFilterGen DeblockFilterGen(this ImageMap input0) => new DeblockFilterGen(input0);
 }
 public enum DeblockFilterGenFilter
 {

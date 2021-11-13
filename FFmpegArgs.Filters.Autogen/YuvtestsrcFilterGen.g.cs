@@ -56,6 +56,6 @@ public static class YuvtestsrcFilterGenExtensions
 /// <summary>
 /// Generate YUV test pattern.
 /// </summary>
-public static YuvtestsrcFilterGen YuvtestsrcFilterGen(this FilterGraph input) => new YuvtestsrcFilterGen(input);
+public static YuvtestsrcFilterGen YuvtestsrcFilterGen(this FilterGraph input0) => new YuvtestsrcFilterGen(input0);
 }
 }

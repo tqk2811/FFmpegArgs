@@ -40,6 +40,6 @@ public static class Nlmeans_openclFilterGenExtensions
 /// <summary>
 /// Non-local means denoiser through OpenCL
 /// </summary>
-public static Nlmeans_openclFilterGen Nlmeans_openclFilterGen(this ImageMap input) => new Nlmeans_openclFilterGen(input);
+public static Nlmeans_openclFilterGen Nlmeans_openclFilterGen(this ImageMap input0) => new Nlmeans_openclFilterGen(input0);
 }
 }

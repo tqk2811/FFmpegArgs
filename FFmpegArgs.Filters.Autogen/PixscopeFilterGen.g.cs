@@ -48,6 +48,6 @@ public static class PixscopeFilterGenExtensions
 /// <summary>
 /// Pixel data analysis.
 /// </summary>
-public static PixscopeFilterGen PixscopeFilterGen(this ImageMap input) => new PixscopeFilterGen(input);
+public static PixscopeFilterGen PixscopeFilterGen(this ImageMap input0) => new PixscopeFilterGen(input0);
 }
 }

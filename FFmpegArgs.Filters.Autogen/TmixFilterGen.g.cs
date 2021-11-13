@@ -32,6 +32,6 @@ public static class TmixFilterGenExtensions
 /// <summary>
 /// Mix successive video frames.
 /// </summary>
-public static TmixFilterGen TmixFilterGen(this ImageMap input) => new TmixFilterGen(input);
+public static TmixFilterGen TmixFilterGen(this ImageMap input0) => new TmixFilterGen(input0);
 }
 }

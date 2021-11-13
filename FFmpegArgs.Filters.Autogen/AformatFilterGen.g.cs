@@ -44,6 +44,6 @@ public static class AformatFilterGenExtensions
 /// <summary>
 /// Convert the input audio to one of the specified formats.
 /// </summary>
-public static AformatFilterGen AformatFilterGen(this AudioMap input) => new AformatFilterGen(input);
+public static AformatFilterGen AformatFilterGen(this AudioMap input0) => new AformatFilterGen(input0);
 }
 }

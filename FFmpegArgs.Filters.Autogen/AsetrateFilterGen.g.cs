@@ -28,6 +28,6 @@ public static class AsetrateFilterGenExtensions
 /// <summary>
 /// Change the sample rate without altering the data.
 /// </summary>
-public static AsetrateFilterGen AsetrateFilterGen(this AudioMap input) => new AsetrateFilterGen(input);
+public static AsetrateFilterGen AsetrateFilterGen(this AudioMap input0) => new AsetrateFilterGen(input0);
 }
 }

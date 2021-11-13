@@ -28,7 +28,7 @@ public static class Transpose_openclFilterGenExtensions
 /// <summary>
 /// Transpose input video
 /// </summary>
-public static Transpose_openclFilterGen Transpose_openclFilterGen(this ImageMap input) => new Transpose_openclFilterGen(input);
+public static Transpose_openclFilterGen Transpose_openclFilterGen(this ImageMap input0) => new Transpose_openclFilterGen(input0);
 }
 public enum Transpose_openclFilterGenDir
 {

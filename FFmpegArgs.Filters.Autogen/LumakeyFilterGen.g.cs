@@ -32,6 +32,6 @@ public static class LumakeyFilterGenExtensions
 /// <summary>
 /// Turns a certain luma into transparency.
 /// </summary>
-public static LumakeyFilterGen LumakeyFilterGen(this ImageMap input) => new LumakeyFilterGen(input);
+public static LumakeyFilterGen LumakeyFilterGen(this ImageMap input0) => new LumakeyFilterGen(input0);
 }
 }

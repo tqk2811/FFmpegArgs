@@ -40,7 +40,7 @@ public static class SrFilterGenExtensions
 /// <summary>
 /// Apply DNN-based image super resolution to the input.
 /// </summary>
-public static SrFilterGen SrFilterGen(this ImageMap input) => new SrFilterGen(input);
+public static SrFilterGen SrFilterGen(this ImageMap input0) => new SrFilterGen(input0);
 }
 public enum SrFilterGenDnn_backend
 {

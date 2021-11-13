@@ -32,6 +32,6 @@ public static class Roberts_openclFilterGenExtensions
 /// <summary>
 /// Apply roberts operator
 /// </summary>
-public static Roberts_openclFilterGen Roberts_openclFilterGen(this ImageMap input) => new Roberts_openclFilterGen(input);
+public static Roberts_openclFilterGen Roberts_openclFilterGen(this ImageMap input0) => new Roberts_openclFilterGen(input0);
 }
 }

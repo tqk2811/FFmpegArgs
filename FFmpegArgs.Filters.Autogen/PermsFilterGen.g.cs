@@ -28,7 +28,7 @@ public static class PermsFilterGenExtensions
 /// <summary>
 /// Set permissions for the output video frame.
 /// </summary>
-public static PermsFilterGen PermsFilterGen(this ImageMap input) => new PermsFilterGen(input);
+public static PermsFilterGen PermsFilterGen(this ImageMap input0) => new PermsFilterGen(input0);
 }
 public enum PermsFilterGenMode
 {

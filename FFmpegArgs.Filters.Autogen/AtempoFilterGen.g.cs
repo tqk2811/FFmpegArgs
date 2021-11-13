@@ -24,6 +24,6 @@ public static class AtempoFilterGenExtensions
 /// <summary>
 /// Adjust audio tempo.
 /// </summary>
-public static AtempoFilterGen AtempoFilterGen(this AudioMap input) => new AtempoFilterGen(input);
+public static AtempoFilterGen AtempoFilterGen(this AudioMap input0) => new AtempoFilterGen(input0);
 }
 }

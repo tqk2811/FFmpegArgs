@@ -64,7 +64,7 @@ public static class CiescopeFilterGenExtensions
 /// <summary>
 /// Video CIE scope.
 /// </summary>
-public static CiescopeFilterGen CiescopeFilterGen(this ImageMap input) => new CiescopeFilterGen(input);
+public static CiescopeFilterGen CiescopeFilterGen(this ImageMap input0) => new CiescopeFilterGen(input0);
 }
 public enum CiescopeFilterGenSystem
 {

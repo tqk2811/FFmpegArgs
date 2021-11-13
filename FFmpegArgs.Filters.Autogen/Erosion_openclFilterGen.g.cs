@@ -40,6 +40,6 @@ public static class Erosion_openclFilterGenExtensions
 /// <summary>
 /// Apply erosion effect
 /// </summary>
-public static Erosion_openclFilterGen Erosion_openclFilterGen(this ImageMap input) => new Erosion_openclFilterGen(input);
+public static Erosion_openclFilterGen Erosion_openclFilterGen(this ImageMap input0) => new Erosion_openclFilterGen(input0);
 }
 }

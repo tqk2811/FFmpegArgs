@@ -28,6 +28,6 @@ public static class BitplanenoiseFilterGenExtensions
 /// <summary>
 /// Measure bit plane noise.
 /// </summary>
-public static BitplanenoiseFilterGen BitplanenoiseFilterGen(this ImageMap input) => new BitplanenoiseFilterGen(input);
+public static BitplanenoiseFilterGen BitplanenoiseFilterGen(this ImageMap input0) => new BitplanenoiseFilterGen(input0);
 }
 }

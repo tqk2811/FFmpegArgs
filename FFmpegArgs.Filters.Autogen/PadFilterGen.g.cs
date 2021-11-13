@@ -56,7 +56,7 @@ public static class PadFilterGenExtensions
 /// <summary>
 /// Pad the input video.
 /// </summary>
-public static PadFilterGen PadFilterGen(this ImageMap input) => new PadFilterGen(input);
+public static PadFilterGen PadFilterGen(this ImageMap input0) => new PadFilterGen(input0);
 }
 public enum PadFilterGenEval
 {

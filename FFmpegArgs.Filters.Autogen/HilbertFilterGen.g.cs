@@ -52,7 +52,7 @@ public static class HilbertFilterGenExtensions
 /// <summary>
 /// Generate a Hilbert transform FIR coefficients.
 /// </summary>
-public static HilbertFilterGen HilbertFilterGen(this FilterGraph input) => new HilbertFilterGen(input);
+public static HilbertFilterGen HilbertFilterGen(this FilterGraph input0) => new HilbertFilterGen(input0);
 }
 public enum HilbertFilterGenWin_func
 {

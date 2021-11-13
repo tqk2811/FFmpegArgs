@@ -28,6 +28,6 @@ public static class AdelayFilterGenExtensions
 /// <summary>
 /// Delay one or more audio channels.
 /// </summary>
-public static AdelayFilterGen AdelayFilterGen(this AudioMap input) => new AdelayFilterGen(input);
+public static AdelayFilterGen AdelayFilterGen(this AudioMap input0) => new AdelayFilterGen(input0);
 }
 }

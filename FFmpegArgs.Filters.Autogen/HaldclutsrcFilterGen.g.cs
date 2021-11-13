@@ -52,6 +52,6 @@ public static class HaldclutsrcFilterGenExtensions
 /// <summary>
 /// Provide an identity Hald CLUT.
 /// </summary>
-public static HaldclutsrcFilterGen HaldclutsrcFilterGen(this FilterGraph input) => new HaldclutsrcFilterGen(input);
+public static HaldclutsrcFilterGen HaldclutsrcFilterGen(this FilterGraph input0) => new HaldclutsrcFilterGen(input0);
 }
 }

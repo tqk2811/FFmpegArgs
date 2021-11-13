@@ -44,7 +44,7 @@ public static class PullupFilterGenExtensions
 /// <summary>
 /// Pullup from field sequence to frames.
 /// </summary>
-public static PullupFilterGen PullupFilterGen(this ImageMap input) => new PullupFilterGen(input);
+public static PullupFilterGen PullupFilterGen(this ImageMap input0) => new PullupFilterGen(input0);
 }
 public enum PullupFilterGenMp
 {

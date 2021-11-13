@@ -40,6 +40,6 @@ public static class OwdenoiseFilterGenExtensions
 /// <summary>
 /// Denoise using wavelets.
 /// </summary>
-public static OwdenoiseFilterGen OwdenoiseFilterGen(this ImageMap input) => new OwdenoiseFilterGen(input);
+public static OwdenoiseFilterGen OwdenoiseFilterGen(this ImageMap input0) => new OwdenoiseFilterGen(input0);
 }
 }

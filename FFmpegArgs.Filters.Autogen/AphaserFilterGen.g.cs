@@ -44,7 +44,7 @@ public static class AphaserFilterGenExtensions
 /// <summary>
 /// Add a phasing effect to the audio.
 /// </summary>
-public static AphaserFilterGen AphaserFilterGen(this AudioMap input) => new AphaserFilterGen(input);
+public static AphaserFilterGen AphaserFilterGen(this AudioMap input0) => new AphaserFilterGen(input0);
 }
 public enum AphaserFilterGenType
 {

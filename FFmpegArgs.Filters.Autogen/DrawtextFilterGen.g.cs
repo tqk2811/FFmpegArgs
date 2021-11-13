@@ -148,7 +148,7 @@ public static class DrawtextFilterGenExtensions
 /// <summary>
 /// Draw text on top of video frames using libfreetype library.
 /// </summary>
-public static DrawtextFilterGen DrawtextFilterGen(this ImageMap input) => new DrawtextFilterGen(input);
+public static DrawtextFilterGen DrawtextFilterGen(this ImageMap input0) => new DrawtextFilterGen(input0);
 }
 public enum DrawtextFilterGenExpansion
 {

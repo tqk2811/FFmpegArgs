@@ -48,6 +48,6 @@ public static class TileFilterGenExtensions
 /// <summary>
 /// Tile several successive frames together.
 /// </summary>
-public static TileFilterGen TileFilterGen(this ImageMap input) => new TileFilterGen(input);
+public static TileFilterGen TileFilterGen(this ImageMap input0) => new TileFilterGen(input0);
 }
 }

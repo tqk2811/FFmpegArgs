@@ -28,6 +28,6 @@ public static class DcshiftFilterGenExtensions
 /// <summary>
 /// Apply a DC shift to the audio.
 /// </summary>
-public static DcshiftFilterGen DcshiftFilterGen(this AudioMap input) => new DcshiftFilterGen(input);
+public static DcshiftFilterGen DcshiftFilterGen(this AudioMap input0) => new DcshiftFilterGen(input0);
 }
 }

@@ -88,7 +88,7 @@ public static class BandpassFilterGenExtensions
 /// <summary>
 /// Apply a two-pole Butterworth band-pass filter.
 /// </summary>
-public static BandpassFilterGen BandpassFilterGen(this AudioMap input) => new BandpassFilterGen(input);
+public static BandpassFilterGen BandpassFilterGen(this AudioMap input0) => new BandpassFilterGen(input0);
 }
 public enum BandpassFilterGenWidth_type
 {

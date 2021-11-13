@@ -24,7 +24,7 @@ public static class SetfieldFilterGenExtensions
 /// <summary>
 /// Force field for the output video frame.
 /// </summary>
-public static SetfieldFilterGen SetfieldFilterGen(this ImageMap input) => new SetfieldFilterGen(input);
+public static SetfieldFilterGen SetfieldFilterGen(this ImageMap input0) => new SetfieldFilterGen(input0);
 }
 public enum SetfieldFilterGenMode
 {

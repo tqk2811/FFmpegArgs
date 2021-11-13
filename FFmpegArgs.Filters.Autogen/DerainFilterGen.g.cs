@@ -40,7 +40,7 @@ public static class DerainFilterGenExtensions
 /// <summary>
 /// Apply derain filter to the input.
 /// </summary>
-public static DerainFilterGen DerainFilterGen(this ImageMap input) => new DerainFilterGen(input);
+public static DerainFilterGen DerainFilterGen(this ImageMap input0) => new DerainFilterGen(input0);
 }
 public enum DerainFilterGenFilter_type
 {

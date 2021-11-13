@@ -40,6 +40,6 @@ public static class ApadFilterGenExtensions
 /// <summary>
 /// Pad audio with silence.
 /// </summary>
-public static ApadFilterGen ApadFilterGen(this AudioMap input) => new ApadFilterGen(input);
+public static ApadFilterGen ApadFilterGen(this AudioMap input0) => new ApadFilterGen(input0);
 }
 }

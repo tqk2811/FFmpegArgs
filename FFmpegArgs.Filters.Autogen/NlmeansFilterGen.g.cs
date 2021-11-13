@@ -40,6 +40,6 @@ public static class NlmeansFilterGenExtensions
 /// <summary>
 /// Non-local means denoiser.
 /// </summary>
-public static NlmeansFilterGen NlmeansFilterGen(this ImageMap input) => new NlmeansFilterGen(input);
+public static NlmeansFilterGen NlmeansFilterGen(this ImageMap input0) => new NlmeansFilterGen(input0);
 }
 }

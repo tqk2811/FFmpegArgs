@@ -68,7 +68,7 @@ public static class CurvesFilterGenExtensions
 /// <summary>
 /// Adjust components curves.
 /// </summary>
-public static CurvesFilterGen CurvesFilterGen(this ImageMap input) => new CurvesFilterGen(input);
+public static CurvesFilterGen CurvesFilterGen(this ImageMap input0) => new CurvesFilterGen(input0);
 }
 public enum CurvesFilterGenPreset
 {

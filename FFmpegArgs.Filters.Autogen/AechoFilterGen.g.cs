@@ -36,6 +36,6 @@ public static class AechoFilterGenExtensions
 /// <summary>
 /// Add echoing to the audio.
 /// </summary>
-public static AechoFilterGen AechoFilterGen(this AudioMap input) => new AechoFilterGen(input);
+public static AechoFilterGen AechoFilterGen(this AudioMap input0) => new AechoFilterGen(input0);
 }
 }

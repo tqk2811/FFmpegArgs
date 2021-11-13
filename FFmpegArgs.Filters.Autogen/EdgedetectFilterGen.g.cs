@@ -36,7 +36,7 @@ public static class EdgedetectFilterGenExtensions
 /// <summary>
 /// Detect and draw edge.
 /// </summary>
-public static EdgedetectFilterGen EdgedetectFilterGen(this ImageMap input) => new EdgedetectFilterGen(input);
+public static EdgedetectFilterGen EdgedetectFilterGen(this ImageMap input0) => new EdgedetectFilterGen(input0);
 }
 public enum EdgedetectFilterGenMode
 {

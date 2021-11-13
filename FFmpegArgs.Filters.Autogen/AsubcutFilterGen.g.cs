@@ -32,6 +32,6 @@ public static class AsubcutFilterGenExtensions
 /// <summary>
 /// Cut subwoofer frequencies.
 /// </summary>
-public static AsubcutFilterGen AsubcutFilterGen(this AudioMap input) => new AsubcutFilterGen(input);
+public static AsubcutFilterGen AsubcutFilterGen(this AudioMap input0) => new AsubcutFilterGen(input0);
 }
 }

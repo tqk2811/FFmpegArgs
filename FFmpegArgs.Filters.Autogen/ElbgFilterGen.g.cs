@@ -48,6 +48,6 @@ public static class ElbgFilterGenExtensions
 /// <summary>
 /// Apply posterize effect, using the ELBG algorithm.
 /// </summary>
-public static ElbgFilterGen ElbgFilterGen(this ImageMap input) => new ElbgFilterGen(input);
+public static ElbgFilterGen ElbgFilterGen(this ImageMap input0) => new ElbgFilterGen(input0);
 }
 }

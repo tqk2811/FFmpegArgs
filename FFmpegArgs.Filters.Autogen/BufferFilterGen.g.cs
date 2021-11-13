@@ -56,6 +56,6 @@ public static class BufferFilterGenExtensions
 /// <summary>
 /// Buffer video frames, and make them accessible to the filterchain.
 /// </summary>
-public static BufferFilterGen BufferFilterGen(this FilterGraph input) => new BufferFilterGen(input);
+public static BufferFilterGen BufferFilterGen(this FilterGraph input0) => new BufferFilterGen(input0);
 }
 }

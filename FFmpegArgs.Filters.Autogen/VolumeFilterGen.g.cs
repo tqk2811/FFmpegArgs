@@ -44,7 +44,7 @@ public static class VolumeFilterGenExtensions
 /// <summary>
 /// Change input volume.
 /// </summary>
-public static VolumeFilterGen VolumeFilterGen(this AudioMap input) => new VolumeFilterGen(input);
+public static VolumeFilterGen VolumeFilterGen(this AudioMap input0) => new VolumeFilterGen(input0);
 }
 public enum VolumeFilterGenPrecision
 {

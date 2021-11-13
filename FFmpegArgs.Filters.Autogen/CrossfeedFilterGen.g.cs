@@ -40,6 +40,6 @@ public static class CrossfeedFilterGenExtensions
 /// <summary>
 /// Apply headphone crossfeed filter.
 /// </summary>
-public static CrossfeedFilterGen CrossfeedFilterGen(this AudioMap input) => new CrossfeedFilterGen(input);
+public static CrossfeedFilterGen CrossfeedFilterGen(this AudioMap input0) => new CrossfeedFilterGen(input0);
 }
 }

@@ -40,7 +40,7 @@ public static class ChromashiftFilterGenExtensions
 /// <summary>
 /// Shift chroma.
 /// </summary>
-public static ChromashiftFilterGen ChromashiftFilterGen(this ImageMap input) => new ChromashiftFilterGen(input);
+public static ChromashiftFilterGen ChromashiftFilterGen(this ImageMap input0) => new ChromashiftFilterGen(input0);
 }
 public enum ChromashiftFilterGenEdge
 {

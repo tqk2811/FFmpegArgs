@@ -36,6 +36,6 @@ public static class InflateFilterGenExtensions
 /// <summary>
 /// Apply inflate effect.
 /// </summary>
-public static InflateFilterGen InflateFilterGen(this ImageMap input) => new InflateFilterGen(input);
+public static InflateFilterGen InflateFilterGen(this ImageMap input0) => new InflateFilterGen(input0);
 }
 }

@@ -68,6 +68,6 @@ public static class BoxblurFilterGenExtensions
 /// <summary>
 /// Blur the input.
 /// </summary>
-public static BoxblurFilterGen BoxblurFilterGen(this ImageMap input) => new BoxblurFilterGen(input);
+public static BoxblurFilterGen BoxblurFilterGen(this ImageMap input0) => new BoxblurFilterGen(input0);
 }
 }

@@ -40,6 +40,6 @@ public static class IdetFilterGenExtensions
 /// <summary>
 /// Interlace detect Filter.
 /// </summary>
-public static IdetFilterGen IdetFilterGen(this ImageMap input) => new IdetFilterGen(input);
+public static IdetFilterGen IdetFilterGen(this ImageMap input0) => new IdetFilterGen(input0);
 }
 }

@@ -44,6 +44,6 @@ public static class ChorusFilterGenExtensions
 /// <summary>
 /// Add a chorus effect to the audio.
 /// </summary>
-public static ChorusFilterGen ChorusFilterGen(this AudioMap input) => new ChorusFilterGen(input);
+public static ChorusFilterGen ChorusFilterGen(this AudioMap input0) => new ChorusFilterGen(input0);
 }
 }

@@ -36,7 +36,7 @@ public static class TonemapFilterGenExtensions
 /// <summary>
 /// Conversion to/from different dynamic ranges.
 /// </summary>
-public static TonemapFilterGen TonemapFilterGen(this ImageMap input) => new TonemapFilterGen(input);
+public static TonemapFilterGen TonemapFilterGen(this ImageMap input0) => new TonemapFilterGen(input0);
 }
 public enum TonemapFilterGenTonemap
 {

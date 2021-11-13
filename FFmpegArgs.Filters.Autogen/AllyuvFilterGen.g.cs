@@ -48,6 +48,6 @@ public static class AllyuvFilterGenExtensions
 /// <summary>
 /// Generate all yuv colors.
 /// </summary>
-public static AllyuvFilterGen AllyuvFilterGen(this FilterGraph input) => new AllyuvFilterGen(input);
+public static AllyuvFilterGen AllyuvFilterGen(this FilterGraph input0) => new AllyuvFilterGen(input0);
 }
 }

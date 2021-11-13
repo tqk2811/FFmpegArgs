@@ -44,7 +44,7 @@ public static class VaguedenoiserFilterGenExtensions
 /// <summary>
 /// Apply a Wavelet based Denoiser.
 /// </summary>
-public static VaguedenoiserFilterGen VaguedenoiserFilterGen(this ImageMap input) => new VaguedenoiserFilterGen(input);
+public static VaguedenoiserFilterGen VaguedenoiserFilterGen(this ImageMap input0) => new VaguedenoiserFilterGen(input0);
 }
 public enum VaguedenoiserFilterGenMethod
 {

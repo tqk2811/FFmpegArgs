@@ -28,7 +28,7 @@ public static class Pp7FilterGenExtensions
 /// <summary>
 /// Apply Postprocessing 7 filter.
 /// </summary>
-public static Pp7FilterGen Pp7FilterGen(this ImageMap input) => new Pp7FilterGen(input);
+public static Pp7FilterGen Pp7FilterGen(this ImageMap input0) => new Pp7FilterGen(input0);
 }
 public enum Pp7FilterGenMode
 {

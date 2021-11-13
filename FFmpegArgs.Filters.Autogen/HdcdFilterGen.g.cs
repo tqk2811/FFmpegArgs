@@ -44,7 +44,7 @@ public static class HdcdFilterGenExtensions
 /// <summary>
 /// Apply High Definition Compatible Digital (HDCD) decoding.
 /// </summary>
-public static HdcdFilterGen HdcdFilterGen(this AudioMap input) => new HdcdFilterGen(input);
+public static HdcdFilterGen HdcdFilterGen(this AudioMap input0) => new HdcdFilterGen(input0);
 }
 public enum HdcdFilterGenAnalyze_mode
 {

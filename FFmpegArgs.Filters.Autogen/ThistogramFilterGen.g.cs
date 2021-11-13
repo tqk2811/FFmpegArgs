@@ -80,7 +80,7 @@ public static class ThistogramFilterGenExtensions
 /// <summary>
 /// Compute and draw a temporal histogram.
 /// </summary>
-public static ThistogramFilterGen ThistogramFilterGen(this ImageMap input) => new ThistogramFilterGen(input);
+public static ThistogramFilterGen ThistogramFilterGen(this ImageMap input0) => new ThistogramFilterGen(input0);
 }
 public enum ThistogramFilterGenDisplay_mode
 {

@@ -40,6 +40,6 @@ public static class AbufferFilterGenExtensions
 /// <summary>
 /// Buffer audio frames, and make them accessible to the filterchain.
 /// </summary>
-public static AbufferFilterGen AbufferFilterGen(this FilterGraph input) => new AbufferFilterGen(input);
+public static AbufferFilterGen AbufferFilterGen(this FilterGraph input0) => new AbufferFilterGen(input0);
 }
 }

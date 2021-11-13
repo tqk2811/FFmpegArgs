@@ -24,6 +24,6 @@ public static class EpxFilterGenExtensions
 /// <summary>
 /// Scale the input using EPX algorithm.
 /// </summary>
-public static EpxFilterGen EpxFilterGen(this ImageMap input) => new EpxFilterGen(input);
+public static EpxFilterGen EpxFilterGen(this ImageMap input0) => new EpxFilterGen(input0);
 }
 }

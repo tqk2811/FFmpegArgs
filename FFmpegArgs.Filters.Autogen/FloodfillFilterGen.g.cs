@@ -60,6 +60,6 @@ public static class FloodfillFilterGenExtensions
 /// <summary>
 /// Fill area with same color with another color.
 /// </summary>
-public static FloodfillFilterGen FloodfillFilterGen(this ImageMap input) => new FloodfillFilterGen(input);
+public static FloodfillFilterGen FloodfillFilterGen(this ImageMap input0) => new FloodfillFilterGen(input0);
 }
 }

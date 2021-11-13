@@ -44,6 +44,6 @@ public static class DctdnoizFilterGenExtensions
 /// <summary>
 /// Denoise frames using 2D DCT.
 /// </summary>
-public static DctdnoizFilterGen DctdnoizFilterGen(this ImageMap input) => new DctdnoizFilterGen(input);
+public static DctdnoizFilterGen DctdnoizFilterGen(this ImageMap input0) => new DctdnoizFilterGen(input0);
 }
 }

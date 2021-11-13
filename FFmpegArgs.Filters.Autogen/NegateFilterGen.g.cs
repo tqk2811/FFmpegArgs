@@ -24,6 +24,6 @@ public static class NegateFilterGenExtensions
 /// <summary>
 /// Negate input video.
 /// </summary>
-public static NegateFilterGen NegateFilterGen(this ImageMap input) => new NegateFilterGen(input);
+public static NegateFilterGen NegateFilterGen(this ImageMap input0) => new NegateFilterGen(input0);
 }
 }

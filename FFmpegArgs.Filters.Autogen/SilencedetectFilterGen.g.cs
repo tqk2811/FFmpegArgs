@@ -44,6 +44,6 @@ public static class SilencedetectFilterGenExtensions
 /// <summary>
 /// Detect silence.
 /// </summary>
-public static SilencedetectFilterGen SilencedetectFilterGen(this AudioMap input) => new SilencedetectFilterGen(input);
+public static SilencedetectFilterGen SilencedetectFilterGen(this AudioMap input0) => new SilencedetectFilterGen(input0);
 }
 }

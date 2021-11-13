@@ -56,6 +56,6 @@ public static class SubtitlesFilterGenExtensions
 /// <summary>
 /// Render text subtitles onto input video using the libass library.
 /// </summary>
-public static SubtitlesFilterGen SubtitlesFilterGen(this ImageMap input) => new SubtitlesFilterGen(input);
+public static SubtitlesFilterGen SubtitlesFilterGen(this ImageMap input0) => new SubtitlesFilterGen(input0);
 }
 }

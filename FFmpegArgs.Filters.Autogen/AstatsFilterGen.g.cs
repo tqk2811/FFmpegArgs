@@ -40,7 +40,7 @@ public static class AstatsFilterGenExtensions
 /// <summary>
 /// Show time domain statistics about audio frames.
 /// </summary>
-public static AstatsFilterGen AstatsFilterGen(this AudioMap input) => new AstatsFilterGen(input);
+public static AstatsFilterGen AstatsFilterGen(this AudioMap input0) => new AstatsFilterGen(input0);
 }
 public enum AstatsFilterGenMeasure_perchannel
 {

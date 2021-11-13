@@ -56,6 +56,6 @@ public static class RotateFilterGenExtensions
 /// <summary>
 /// Rotate the input image.
 /// </summary>
-public static RotateFilterGen RotateFilterGen(this ImageMap input) => new RotateFilterGen(input);
+public static RotateFilterGen RotateFilterGen(this ImageMap input0) => new RotateFilterGen(input0);
 }
 }

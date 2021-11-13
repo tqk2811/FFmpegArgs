@@ -32,7 +32,7 @@ public static class HwmapFilterGenExtensions
 /// <summary>
 /// Map hardware frames
 /// </summary>
-public static HwmapFilterGen HwmapFilterGen(this ImageMap input) => new HwmapFilterGen(input);
+public static HwmapFilterGen HwmapFilterGen(this ImageMap input0) => new HwmapFilterGen(input0);
 }
 public enum HwmapFilterGenMode
 {

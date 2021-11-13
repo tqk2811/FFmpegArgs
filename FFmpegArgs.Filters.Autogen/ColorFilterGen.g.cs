@@ -64,6 +64,6 @@ public static class ColorFilterGenExtensions
 /// <summary>
 /// Provide an uniformly colored input.
 /// </summary>
-public static ColorFilterGen ColorFilterGen(this FilterGraph input) => new ColorFilterGen(input);
+public static ColorFilterGen ColorFilterGen(this FilterGraph input0) => new ColorFilterGen(input0);
 }
 }

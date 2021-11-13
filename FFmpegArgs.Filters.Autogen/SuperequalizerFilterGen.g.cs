@@ -92,6 +92,6 @@ public static class SuperequalizerFilterGenExtensions
 /// <summary>
 /// Apply 18 band equalization filter.
 /// </summary>
-public static SuperequalizerFilterGen SuperequalizerFilterGen(this AudioMap input) => new SuperequalizerFilterGen(input);
+public static SuperequalizerFilterGen SuperequalizerFilterGen(this AudioMap input0) => new SuperequalizerFilterGen(input0);
 }
 }

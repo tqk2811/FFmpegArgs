@@ -80,7 +80,7 @@ public static class TblendFilterGenExtensions
 /// <summary>
 /// Blend successive frames.
 /// </summary>
-public static TblendFilterGen TblendFilterGen(this ImageMap input) => new TblendFilterGen(input);
+public static TblendFilterGen TblendFilterGen(this ImageMap input0) => new TblendFilterGen(input0);
 }
 public enum TblendFilterGenC0_mode
 {

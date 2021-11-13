@@ -40,7 +40,7 @@ public static class AnlmdnFilterGenExtensions
 /// <summary>
 /// Reduce broadband noise from stream using Non-Local Means.
 /// </summary>
-public static AnlmdnFilterGen AnlmdnFilterGen(this AudioMap input) => new AnlmdnFilterGen(input);
+public static AnlmdnFilterGen AnlmdnFilterGen(this AudioMap input0) => new AnlmdnFilterGen(input0);
 }
 public enum AnlmdnFilterGenO
 {

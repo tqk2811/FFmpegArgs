@@ -48,7 +48,7 @@ public static class AmetadataFilterGenExtensions
 /// <summary>
 /// Manipulate audio frame metadata.
 /// </summary>
-public static AmetadataFilterGen AmetadataFilterGen(this AudioMap input) => new AmetadataFilterGen(input);
+public static AmetadataFilterGen AmetadataFilterGen(this AudioMap input0) => new AmetadataFilterGen(input0);
 }
 public enum AmetadataFilterGenMode
 {

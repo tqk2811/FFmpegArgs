@@ -64,7 +64,7 @@ public static class PerspectiveFilterGenExtensions
 /// <summary>
 /// Correct the perspective of video.
 /// </summary>
-public static PerspectiveFilterGen PerspectiveFilterGen(this ImageMap input) => new PerspectiveFilterGen(input);
+public static PerspectiveFilterGen PerspectiveFilterGen(this ImageMap input0) => new PerspectiveFilterGen(input0);
 }
 public enum PerspectiveFilterGenInterpolation
 {

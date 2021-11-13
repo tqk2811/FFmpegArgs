@@ -32,6 +32,6 @@ public static class ReadvitcFilterGenExtensions
 /// <summary>
 /// Read vertical interval timecode and write it to frame metadata.
 /// </summary>
-public static ReadvitcFilterGen ReadvitcFilterGen(this ImageMap input) => new ReadvitcFilterGen(input);
+public static ReadvitcFilterGen ReadvitcFilterGen(this ImageMap input0) => new ReadvitcFilterGen(input0);
 }
 }

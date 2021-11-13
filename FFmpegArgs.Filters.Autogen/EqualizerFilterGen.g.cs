@@ -92,7 +92,7 @@ public static class EqualizerFilterGenExtensions
 /// <summary>
 /// Apply two-pole peaking equalization (EQ) filter.
 /// </summary>
-public static EqualizerFilterGen EqualizerFilterGen(this AudioMap input) => new EqualizerFilterGen(input);
+public static EqualizerFilterGen EqualizerFilterGen(this AudioMap input0) => new EqualizerFilterGen(input0);
 }
 public enum EqualizerFilterGenWidth_type
 {

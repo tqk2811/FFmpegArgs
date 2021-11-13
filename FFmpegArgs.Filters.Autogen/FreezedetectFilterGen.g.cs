@@ -36,6 +36,6 @@ public static class FreezedetectFilterGenExtensions
 /// <summary>
 /// Detects frozen video input.
 /// </summary>
-public static FreezedetectFilterGen FreezedetectFilterGen(this ImageMap input) => new FreezedetectFilterGen(input);
+public static FreezedetectFilterGen FreezedetectFilterGen(this ImageMap input0) => new FreezedetectFilterGen(input0);
 }
 }

@@ -56,6 +56,6 @@ public static class SmptehdbarsFilterGenExtensions
 /// <summary>
 /// Generate SMPTE HD color bars.
 /// </summary>
-public static SmptehdbarsFilterGen SmptehdbarsFilterGen(this FilterGraph input) => new SmptehdbarsFilterGen(input);
+public static SmptehdbarsFilterGen SmptehdbarsFilterGen(this FilterGraph input0) => new SmptehdbarsFilterGen(input0);
 }
 }

@@ -40,7 +40,7 @@ public static class Scale_vulkanFilterGenExtensions
 /// <summary>
 /// Scale Vulkan frames
 /// </summary>
-public static Scale_vulkanFilterGen Scale_vulkanFilterGen(this ImageMap input) => new Scale_vulkanFilterGen(input);
+public static Scale_vulkanFilterGen Scale_vulkanFilterGen(this ImageMap input0) => new Scale_vulkanFilterGen(input0);
 }
 public enum Scale_vulkanFilterGenScaler
 {

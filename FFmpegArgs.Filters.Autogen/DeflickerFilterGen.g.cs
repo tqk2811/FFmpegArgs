@@ -40,7 +40,7 @@ public static class DeflickerFilterGenExtensions
 /// <summary>
 /// Remove temporal frame luminance variations.
 /// </summary>
-public static DeflickerFilterGen DeflickerFilterGen(this ImageMap input) => new DeflickerFilterGen(input);
+public static DeflickerFilterGen DeflickerFilterGen(this ImageMap input0) => new DeflickerFilterGen(input0);
 }
 public enum DeflickerFilterGenMode
 {

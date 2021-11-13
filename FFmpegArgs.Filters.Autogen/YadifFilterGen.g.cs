@@ -32,7 +32,7 @@ public static class YadifFilterGenExtensions
 /// <summary>
 /// Deinterlace the input image.
 /// </summary>
-public static YadifFilterGen YadifFilterGen(this ImageMap input) => new YadifFilterGen(input);
+public static YadifFilterGen YadifFilterGen(this ImageMap input0) => new YadifFilterGen(input0);
 }
 public enum YadifFilterGenMode
 {

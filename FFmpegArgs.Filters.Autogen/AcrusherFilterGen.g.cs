@@ -64,7 +64,7 @@ public static class AcrusherFilterGenExtensions
 /// <summary>
 /// Reduce audio bit resolution.
 /// </summary>
-public static AcrusherFilterGen AcrusherFilterGen(this AudioMap input) => new AcrusherFilterGen(input);
+public static AcrusherFilterGen AcrusherFilterGen(this AudioMap input0) => new AcrusherFilterGen(input0);
 }
 public enum AcrusherFilterGenMode
 {

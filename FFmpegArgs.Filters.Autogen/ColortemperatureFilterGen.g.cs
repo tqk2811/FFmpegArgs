@@ -32,6 +32,6 @@ public static class ColortemperatureFilterGenExtensions
 /// <summary>
 /// Adjust color temperature of video.
 /// </summary>
-public static ColortemperatureFilterGen ColortemperatureFilterGen(this ImageMap input) => new ColortemperatureFilterGen(input);
+public static ColortemperatureFilterGen ColortemperatureFilterGen(this ImageMap input0) => new ColortemperatureFilterGen(input0);
 }
 }

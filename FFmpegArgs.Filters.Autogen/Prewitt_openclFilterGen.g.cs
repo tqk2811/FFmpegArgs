@@ -32,6 +32,6 @@ public static class Prewitt_openclFilterGenExtensions
 /// <summary>
 /// Apply prewitt operator
 /// </summary>
-public static Prewitt_openclFilterGen Prewitt_openclFilterGen(this ImageMap input) => new Prewitt_openclFilterGen(input);
+public static Prewitt_openclFilterGen Prewitt_openclFilterGen(this ImageMap input0) => new Prewitt_openclFilterGen(input0);
 }
 }

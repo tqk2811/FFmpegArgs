@@ -100,7 +100,7 @@ public static class LowshelfFilterGenExtensions
 /// <summary>
 /// Apply a low shelf filter.
 /// </summary>
-public static LowshelfFilterGen LowshelfFilterGen(this AudioMap input) => new LowshelfFilterGen(input);
+public static LowshelfFilterGen LowshelfFilterGen(this AudioMap input0) => new LowshelfFilterGen(input0);
 }
 public enum LowshelfFilterGenWidth_type
 {

@@ -48,7 +48,7 @@ public static class MetadataFilterGenExtensions
 /// <summary>
 /// Manipulate video frame metadata.
 /// </summary>
-public static MetadataFilterGen MetadataFilterGen(this ImageMap input) => new MetadataFilterGen(input);
+public static MetadataFilterGen MetadataFilterGen(this ImageMap input0) => new MetadataFilterGen(input0);
 }
 public enum MetadataFilterGenMode
 {

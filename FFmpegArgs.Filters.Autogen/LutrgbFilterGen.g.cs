@@ -64,6 +64,6 @@ public static class LutrgbFilterGenExtensions
 /// <summary>
 /// Compute and apply a lookup table to the RGB input video.
 /// </summary>
-public static LutrgbFilterGen LutrgbFilterGen(this ImageMap input) => new LutrgbFilterGen(input);
+public static LutrgbFilterGen LutrgbFilterGen(this ImageMap input0) => new LutrgbFilterGen(input0);
 }
 }

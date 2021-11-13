@@ -32,6 +32,6 @@ public static class SobelFilterGenExtensions
 /// <summary>
 /// Apply sobel operator.
 /// </summary>
-public static SobelFilterGen SobelFilterGen(this ImageMap input) => new SobelFilterGen(input);
+public static SobelFilterGen SobelFilterGen(this ImageMap input0) => new SobelFilterGen(input0);
 }
 }

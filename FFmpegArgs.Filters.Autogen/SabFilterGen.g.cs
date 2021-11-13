@@ -68,6 +68,6 @@ public static class SabFilterGenExtensions
 /// <summary>
 /// Apply shape adaptive blur.
 /// </summary>
-public static SabFilterGen SabFilterGen(this ImageMap input) => new SabFilterGen(input);
+public static SabFilterGen SabFilterGen(this ImageMap input0) => new SabFilterGen(input0);
 }
 }

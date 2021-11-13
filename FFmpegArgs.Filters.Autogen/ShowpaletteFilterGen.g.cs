@@ -24,6 +24,6 @@ public static class ShowpaletteFilterGenExtensions
 /// <summary>
 /// Display frame palette.
 /// </summary>
-public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input) => new ShowpaletteFilterGen(input);
+public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input0) => new ShowpaletteFilterGen(input0);
 }
 }

@@ -56,7 +56,7 @@ public static class EqFilterGenExtensions
 /// <summary>
 /// Adjust brightness, contrast, gamma, and saturation.
 /// </summary>
-public static EqFilterGen EqFilterGen(this ImageMap input) => new EqFilterGen(input);
+public static EqFilterGen EqFilterGen(this ImageMap input0) => new EqFilterGen(input0);
 }
 public enum EqFilterGenEval
 {

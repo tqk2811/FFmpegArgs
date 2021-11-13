@@ -24,7 +24,7 @@ public static class DoubleweaveFilterGenExtensions
 /// <summary>
 /// Weave input video fields into double number of frames.
 /// </summary>
-public static DoubleweaveFilterGen DoubleweaveFilterGen(this ImageMap input) => new DoubleweaveFilterGen(input);
+public static DoubleweaveFilterGen DoubleweaveFilterGen(this ImageMap input0) => new DoubleweaveFilterGen(input0);
 }
 public enum DoubleweaveFilterGenFirst_field
 {

@@ -36,6 +36,6 @@ public static class ColorizeFilterGenExtensions
 /// <summary>
 /// Overlay a solid color on the video stream.
 /// </summary>
-public static ColorizeFilterGen ColorizeFilterGen(this ImageMap input) => new ColorizeFilterGen(input);
+public static ColorizeFilterGen ColorizeFilterGen(this ImageMap input0) => new ColorizeFilterGen(input0);
 }
 }

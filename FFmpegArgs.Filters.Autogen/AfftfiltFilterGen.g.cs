@@ -40,7 +40,7 @@ public static class AfftfiltFilterGenExtensions
 /// <summary>
 /// Apply arbitrary expressions to samples in frequency domain.
 /// </summary>
-public static AfftfiltFilterGen AfftfiltFilterGen(this AudioMap input) => new AfftfiltFilterGen(input);
+public static AfftfiltFilterGen AfftfiltFilterGen(this AudioMap input0) => new AfftfiltFilterGen(input0);
 }
 public enum AfftfiltFilterGenWin_func
 {

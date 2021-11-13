@@ -32,7 +32,7 @@ public static class DetelecineFilterGenExtensions
 /// <summary>
 /// Apply an inverse telecine pattern.
 /// </summary>
-public static DetelecineFilterGen DetelecineFilterGen(this ImageMap input) => new DetelecineFilterGen(input);
+public static DetelecineFilterGen DetelecineFilterGen(this ImageMap input0) => new DetelecineFilterGen(input0);
 }
 public enum DetelecineFilterGenFirst_field
 {

@@ -68,7 +68,7 @@ public static class AcompressorFilterGenExtensions
 /// <summary>
 /// Audio compressor.
 /// </summary>
-public static AcompressorFilterGen AcompressorFilterGen(this AudioMap input) => new AcompressorFilterGen(input);
+public static AcompressorFilterGen AcompressorFilterGen(this AudioMap input0) => new AcompressorFilterGen(input0);
 }
 public enum AcompressorFilterGenMode
 {

@@ -24,7 +24,7 @@ public static class WeaveFilterGenExtensions
 /// <summary>
 /// Weave input video fields into frames.
 /// </summary>
-public static WeaveFilterGen WeaveFilterGen(this ImageMap input) => new WeaveFilterGen(input);
+public static WeaveFilterGen WeaveFilterGen(this ImageMap input0) => new WeaveFilterGen(input0);
 }
 public enum WeaveFilterGenFirst_field
 {

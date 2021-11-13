@@ -44,6 +44,6 @@ public static class YaepblurFilterGenExtensions
 /// <summary>
 /// Yet another edge preserving blur filter.
 /// </summary>
-public static YaepblurFilterGen YaepblurFilterGen(this ImageMap input) => new YaepblurFilterGen(input);
+public static YaepblurFilterGen YaepblurFilterGen(this ImageMap input0) => new YaepblurFilterGen(input0);
 }
 }

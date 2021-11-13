@@ -24,6 +24,6 @@ public static class XbrFilterGenExtensions
 /// <summary>
 /// Scale the input using xBR algorithm.
 /// </summary>
-public static XbrFilterGen XbrFilterGen(this ImageMap input) => new XbrFilterGen(input);
+public static XbrFilterGen XbrFilterGen(this ImageMap input0) => new XbrFilterGen(input0);
 }
 }

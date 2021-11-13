@@ -32,6 +32,6 @@ public static class ColorholdFilterGenExtensions
 /// <summary>
 /// Turns a certain color range into gray. Operates on RGB colors.
 /// </summary>
-public static ColorholdFilterGen ColorholdFilterGen(this ImageMap input) => new ColorholdFilterGen(input);
+public static ColorholdFilterGen ColorholdFilterGen(this ImageMap input0) => new ColorholdFilterGen(input0);
 }
 }

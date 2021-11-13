@@ -24,6 +24,6 @@ public static class QpFilterGenExtensions
 /// <summary>
 /// Change video quantization parameters.
 /// </summary>
-public static QpFilterGen QpFilterGen(this ImageMap input) => new QpFilterGen(input);
+public static QpFilterGen QpFilterGen(this ImageMap input0) => new QpFilterGen(input0);
 }
 }

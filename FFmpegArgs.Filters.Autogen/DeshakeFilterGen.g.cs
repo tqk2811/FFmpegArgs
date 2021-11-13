@@ -68,7 +68,7 @@ public static class DeshakeFilterGenExtensions
 /// <summary>
 /// Stabilize shaky video.
 /// </summary>
-public static DeshakeFilterGen DeshakeFilterGen(this ImageMap input) => new DeshakeFilterGen(input);
+public static DeshakeFilterGen DeshakeFilterGen(this ImageMap input0) => new DeshakeFilterGen(input0);
 }
 public enum DeshakeFilterGenEdge
 {

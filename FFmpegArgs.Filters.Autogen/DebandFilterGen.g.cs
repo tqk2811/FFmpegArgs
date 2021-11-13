@@ -68,6 +68,6 @@ public static class DebandFilterGenExtensions
 /// <summary>
 /// Debands video.
 /// </summary>
-public static DebandFilterGen DebandFilterGen(this ImageMap input) => new DebandFilterGen(input);
+public static DebandFilterGen DebandFilterGen(this ImageMap input0) => new DebandFilterGen(input0);
 }
 }

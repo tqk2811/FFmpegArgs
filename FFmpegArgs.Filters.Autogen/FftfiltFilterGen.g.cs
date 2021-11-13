@@ -48,7 +48,7 @@ public static class FftfiltFilterGenExtensions
 /// <summary>
 /// Apply arbitrary expressions to pixels in frequency domain.
 /// </summary>
-public static FftfiltFilterGen FftfiltFilterGen(this ImageMap input) => new FftfiltFilterGen(input);
+public static FftfiltFilterGen FftfiltFilterGen(this ImageMap input0) => new FftfiltFilterGen(input0);
 }
 public enum FftfiltFilterGenEval
 {

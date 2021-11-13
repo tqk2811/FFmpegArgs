@@ -88,6 +88,6 @@ public static class ColorchannelmixerFilterGenExtensions
 /// <summary>
 /// Adjust colors by mixing color channels.
 /// </summary>
-public static ColorchannelmixerFilterGen ColorchannelmixerFilterGen(this ImageMap input) => new ColorchannelmixerFilterGen(input);
+public static ColorchannelmixerFilterGen ColorchannelmixerFilterGen(this ImageMap input0) => new ColorchannelmixerFilterGen(input0);
 }
 }

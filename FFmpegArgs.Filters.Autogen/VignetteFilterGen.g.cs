@@ -52,7 +52,7 @@ public static class VignetteFilterGenExtensions
 /// <summary>
 /// Make or reverse a vignette effect.
 /// </summary>
-public static VignetteFilterGen VignetteFilterGen(this ImageMap input) => new VignetteFilterGen(input);
+public static VignetteFilterGen VignetteFilterGen(this ImageMap input0) => new VignetteFilterGen(input0);
 }
 public enum VignetteFilterGenMode
 {

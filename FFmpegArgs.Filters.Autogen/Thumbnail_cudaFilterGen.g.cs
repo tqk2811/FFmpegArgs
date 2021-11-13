@@ -24,6 +24,6 @@ public static class Thumbnail_cudaFilterGenExtensions
 /// <summary>
 /// Select the most representative frame in a given sequence of consecutive frames.
 /// </summary>
-public static Thumbnail_cudaFilterGen Thumbnail_cudaFilterGen(this ImageMap input) => new Thumbnail_cudaFilterGen(input);
+public static Thumbnail_cudaFilterGen Thumbnail_cudaFilterGen(this ImageMap input0) => new Thumbnail_cudaFilterGen(input0);
 }
 }

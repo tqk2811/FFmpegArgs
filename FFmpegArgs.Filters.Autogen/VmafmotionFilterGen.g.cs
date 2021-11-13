@@ -24,6 +24,6 @@ public static class VmafmotionFilterGenExtensions
 /// <summary>
 /// Calculate the VMAF Motion score.
 /// </summary>
-public static VmafmotionFilterGen VmafmotionFilterGen(this ImageMap input) => new VmafmotionFilterGen(input);
+public static VmafmotionFilterGen VmafmotionFilterGen(this ImageMap input0) => new VmafmotionFilterGen(input0);
 }
 }

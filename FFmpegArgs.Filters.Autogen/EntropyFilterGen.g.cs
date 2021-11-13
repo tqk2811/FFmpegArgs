@@ -24,7 +24,7 @@ public static class EntropyFilterGenExtensions
 /// <summary>
 /// Measure video frames entropy.
 /// </summary>
-public static EntropyFilterGen EntropyFilterGen(this ImageMap input) => new EntropyFilterGen(input);
+public static EntropyFilterGen EntropyFilterGen(this ImageMap input0) => new EntropyFilterGen(input0);
 }
 public enum EntropyFilterGenMode
 {

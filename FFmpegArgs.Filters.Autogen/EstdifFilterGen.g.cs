@@ -44,7 +44,7 @@ public static class EstdifFilterGenExtensions
 /// <summary>
 /// Apply Edge Slope Tracing deinterlace.
 /// </summary>
-public static EstdifFilterGen EstdifFilterGen(this ImageMap input) => new EstdifFilterGen(input);
+public static EstdifFilterGen EstdifFilterGen(this ImageMap input0) => new EstdifFilterGen(input0);
 }
 public enum EstdifFilterGenMode
 {

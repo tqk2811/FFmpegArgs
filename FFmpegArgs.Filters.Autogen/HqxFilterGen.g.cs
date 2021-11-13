@@ -24,6 +24,6 @@ public static class HqxFilterGenExtensions
 /// <summary>
 /// Scale the input by 2, 3 or 4 using the hq*x magnification algorithm.
 /// </summary>
-public static HqxFilterGen HqxFilterGen(this ImageMap input) => new HqxFilterGen(input);
+public static HqxFilterGen HqxFilterGen(this ImageMap input0) => new HqxFilterGen(input0);
 }
 }

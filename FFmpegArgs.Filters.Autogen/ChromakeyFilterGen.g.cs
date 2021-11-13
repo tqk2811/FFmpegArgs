@@ -36,6 +36,6 @@ public static class ChromakeyFilterGenExtensions
 /// <summary>
 /// Turns a certain color into transparency. Operates on YUV colors.
 /// </summary>
-public static ChromakeyFilterGen ChromakeyFilterGen(this ImageMap input) => new ChromakeyFilterGen(input);
+public static ChromakeyFilterGen ChromakeyFilterGen(this ImageMap input0) => new ChromakeyFilterGen(input0);
 }
 }

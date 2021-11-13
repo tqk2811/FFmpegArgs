@@ -36,6 +36,6 @@ public static class AsuperpassFilterGenExtensions
 /// <summary>
 /// Apply high order Butterworth band-pass filter.
 /// </summary>
-public static AsuperpassFilterGen AsuperpassFilterGen(this AudioMap input) => new AsuperpassFilterGen(input);
+public static AsuperpassFilterGen AsuperpassFilterGen(this AudioMap input0) => new AsuperpassFilterGen(input0);
 }
 }

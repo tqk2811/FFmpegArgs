@@ -124,7 +124,7 @@ public static class VectorscopeFilterGenExtensions
 /// <summary>
 /// Video vectorscope.
 /// </summary>
-public static VectorscopeFilterGen VectorscopeFilterGen(this ImageMap input) => new VectorscopeFilterGen(input);
+public static VectorscopeFilterGen VectorscopeFilterGen(this ImageMap input0) => new VectorscopeFilterGen(input0);
 }
 public enum VectorscopeFilterGenMode
 {

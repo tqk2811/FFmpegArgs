@@ -28,6 +28,6 @@ public static class ChannelmapFilterGenExtensions
 /// <summary>
 /// Remap audio channels.
 /// </summary>
-public static ChannelmapFilterGen ChannelmapFilterGen(this AudioMap input) => new ChannelmapFilterGen(input);
+public static ChannelmapFilterGen ChannelmapFilterGen(this AudioMap input0) => new ChannelmapFilterGen(input0);
 }
 }

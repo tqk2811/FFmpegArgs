@@ -32,6 +32,6 @@ public static class LimiterFilterGenExtensions
 /// <summary>
 /// Limit pixels components to the specified range.
 /// </summary>
-public static LimiterFilterGen LimiterFilterGen(this ImageMap input) => new LimiterFilterGen(input);
+public static LimiterFilterGen LimiterFilterGen(this ImageMap input0) => new LimiterFilterGen(input0);
 }
 }

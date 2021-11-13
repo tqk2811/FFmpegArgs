@@ -44,6 +44,6 @@ public static class CropdetectFilterGenExtensions
 /// <summary>
 /// Auto-detect crop size.
 /// </summary>
-public static CropdetectFilterGen CropdetectFilterGen(this ImageMap input) => new CropdetectFilterGen(input);
+public static CropdetectFilterGen CropdetectFilterGen(this ImageMap input0) => new CropdetectFilterGen(input0);
 }
 }

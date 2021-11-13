@@ -36,6 +36,6 @@ public static class MedianFilterGenExtensions
 /// <summary>
 /// Apply Median filter.
 /// </summary>
-public static MedianFilterGen MedianFilterGen(this ImageMap input) => new MedianFilterGen(input);
+public static MedianFilterGen MedianFilterGen(this ImageMap input0) => new MedianFilterGen(input0);
 }
 }

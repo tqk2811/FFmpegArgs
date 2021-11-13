@@ -52,6 +52,6 @@ public static class AexciterFilterGenExtensions
 /// <summary>
 /// Enhance high frequency part of audio.
 /// </summary>
-public static AexciterFilterGen AexciterFilterGen(this AudioMap input) => new AexciterFilterGen(input);
+public static AexciterFilterGen AexciterFilterGen(this AudioMap input0) => new AexciterFilterGen(input0);
 }
 }

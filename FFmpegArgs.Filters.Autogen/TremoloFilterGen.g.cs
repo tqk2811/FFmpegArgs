@@ -28,6 +28,6 @@ public static class TremoloFilterGenExtensions
 /// <summary>
 /// Apply tremolo effect.
 /// </summary>
-public static TremoloFilterGen TremoloFilterGen(this AudioMap input) => new TremoloFilterGen(input);
+public static TremoloFilterGen TremoloFilterGen(this AudioMap input0) => new TremoloFilterGen(input0);
 }
 }

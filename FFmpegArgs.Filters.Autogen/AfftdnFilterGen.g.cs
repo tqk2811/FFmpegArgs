@@ -52,7 +52,7 @@ public static class AfftdnFilterGenExtensions
 /// <summary>
 /// Denoise audio samples using FFT.
 /// </summary>
-public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input) => new AfftdnFilterGen(input);
+public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input0) => new AfftdnFilterGen(input0);
 }
 public enum AfftdnFilterGenNt
 {

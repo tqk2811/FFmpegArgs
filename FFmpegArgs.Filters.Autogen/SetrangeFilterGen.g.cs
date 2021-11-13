@@ -24,7 +24,7 @@ public static class SetrangeFilterGenExtensions
 /// <summary>
 /// Force color range for the output video frame.
 /// </summary>
-public static SetrangeFilterGen SetrangeFilterGen(this ImageMap input) => new SetrangeFilterGen(input);
+public static SetrangeFilterGen SetrangeFilterGen(this ImageMap input0) => new SetrangeFilterGen(input0);
 }
 public enum SetrangeFilterGenRange
 {

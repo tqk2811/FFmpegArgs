@@ -24,6 +24,6 @@ public static class AcontrastFilterGenExtensions
 /// <summary>
 /// Simple audio dynamic range compression/expansion filter.
 /// </summary>
-public static AcontrastFilterGen AcontrastFilterGen(this AudioMap input) => new AcontrastFilterGen(input);
+public static AcontrastFilterGen AcontrastFilterGen(this AudioMap input0) => new AcontrastFilterGen(input0);
 }
 }

@@ -68,7 +68,7 @@ public static class IlFilterGenExtensions
 /// <summary>
 /// Deinterleave or interleave fields.
 /// </summary>
-public static IlFilterGen IlFilterGen(this ImageMap input) => new IlFilterGen(input);
+public static IlFilterGen IlFilterGen(this ImageMap input0) => new IlFilterGen(input0);
 }
 public enum IlFilterGenLuma_mode
 {

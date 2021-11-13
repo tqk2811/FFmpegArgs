@@ -36,7 +36,7 @@ public static class AemphasisFilterGenExtensions
 /// <summary>
 /// Audio emphasis.
 /// </summary>
-public static AemphasisFilterGen AemphasisFilterGen(this AudioMap input) => new AemphasisFilterGen(input);
+public static AemphasisFilterGen AemphasisFilterGen(this AudioMap input0) => new AemphasisFilterGen(input0);
 }
 public enum AemphasisFilterGenMode
 {

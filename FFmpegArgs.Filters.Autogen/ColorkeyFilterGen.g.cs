@@ -32,6 +32,6 @@ public static class ColorkeyFilterGenExtensions
 /// <summary>
 /// Turns a certain color into transparency. Operates on RGB colors.
 /// </summary>
-public static ColorkeyFilterGen ColorkeyFilterGen(this ImageMap input) => new ColorkeyFilterGen(input);
+public static ColorkeyFilterGen ColorkeyFilterGen(this ImageMap input0) => new ColorkeyFilterGen(input0);
 }
 }

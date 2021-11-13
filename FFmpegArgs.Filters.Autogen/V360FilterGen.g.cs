@@ -152,7 +152,7 @@ public static class V360FilterGenExtensions
 /// <summary>
 /// Convert 360 projection of video.
 /// </summary>
-public static V360FilterGen V360FilterGen(this ImageMap input) => new V360FilterGen(input);
+public static V360FilterGen V360FilterGen(this ImageMap input0) => new V360FilterGen(input0);
 }
 public enum V360FilterGenInput
 {

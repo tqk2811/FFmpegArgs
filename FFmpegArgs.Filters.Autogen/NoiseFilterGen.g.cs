@@ -120,7 +120,7 @@ public static class NoiseFilterGenExtensions
 /// <summary>
 /// Add noise.
 /// </summary>
-public static NoiseFilterGen NoiseFilterGen(this ImageMap input) => new NoiseFilterGen(input);
+public static NoiseFilterGen NoiseFilterGen(this ImageMap input0) => new NoiseFilterGen(input0);
 }
 public enum NoiseFilterGenAll_flags
 {

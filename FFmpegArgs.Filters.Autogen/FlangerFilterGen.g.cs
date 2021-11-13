@@ -52,7 +52,7 @@ public static class FlangerFilterGenExtensions
 /// <summary>
 /// Apply a flanging effect to the audio.
 /// </summary>
-public static FlangerFilterGen FlangerFilterGen(this AudioMap input) => new FlangerFilterGen(input);
+public static FlangerFilterGen FlangerFilterGen(this AudioMap input0) => new FlangerFilterGen(input0);
 }
 public enum FlangerFilterGenShape
 {

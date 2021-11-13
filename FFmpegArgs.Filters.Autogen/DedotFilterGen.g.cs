@@ -40,7 +40,7 @@ public static class DedotFilterGenExtensions
 /// <summary>
 /// Reduce cross-luminance and cross-color.
 /// </summary>
-public static DedotFilterGen DedotFilterGen(this ImageMap input) => new DedotFilterGen(input);
+public static DedotFilterGen DedotFilterGen(this ImageMap input0) => new DedotFilterGen(input0);
 }
 public enum DedotFilterGenM
 {

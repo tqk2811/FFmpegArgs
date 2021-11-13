@@ -44,7 +44,7 @@ public static class FramerateFilterGenExtensions
 /// <summary>
 /// Upsamples or downsamples progressive source between specified frame rates.
 /// </summary>
-public static FramerateFilterGen FramerateFilterGen(this ImageMap input) => new FramerateFilterGen(input);
+public static FramerateFilterGen FramerateFilterGen(this ImageMap input0) => new FramerateFilterGen(input0);
 }
 public enum FramerateFilterGenFlags
 {

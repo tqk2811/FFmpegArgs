@@ -212,7 +212,7 @@ public static class SurroundFilterGenExtensions
 /// <summary>
 /// Apply audio surround upmix filter.
 /// </summary>
-public static SurroundFilterGen SurroundFilterGen(this AudioMap input) => new SurroundFilterGen(input);
+public static SurroundFilterGen SurroundFilterGen(this AudioMap input0) => new SurroundFilterGen(input0);
 }
 public enum SurroundFilterGenLfe_mode
 {

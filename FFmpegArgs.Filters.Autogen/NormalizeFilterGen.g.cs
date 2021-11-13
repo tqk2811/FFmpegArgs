@@ -40,6 +40,6 @@ public static class NormalizeFilterGenExtensions
 /// <summary>
 /// Normalize RGB video.
 /// </summary>
-public static NormalizeFilterGen NormalizeFilterGen(this ImageMap input) => new NormalizeFilterGen(input);
+public static NormalizeFilterGen NormalizeFilterGen(this ImageMap input0) => new NormalizeFilterGen(input0);
 }
 }

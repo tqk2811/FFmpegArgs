@@ -48,7 +48,7 @@ public static class Dnn_processingFilterGenExtensions
 /// <summary>
 /// Apply DNN processing filter to the input.
 /// </summary>
-public static Dnn_processingFilterGen Dnn_processingFilterGen(this ImageMap input) => new Dnn_processingFilterGen(input);
+public static Dnn_processingFilterGen Dnn_processingFilterGen(this ImageMap input0) => new Dnn_processingFilterGen(input0);
 }
 public enum Dnn_processingFilterGenDnn_backend
 {

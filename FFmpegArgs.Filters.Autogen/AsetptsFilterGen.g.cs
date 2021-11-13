@@ -24,6 +24,6 @@ public static class AsetptsFilterGenExtensions
 /// <summary>
 /// Set PTS for the output audio frame.
 /// </summary>
-public static AsetptsFilterGen AsetptsFilterGen(this AudioMap input) => new AsetptsFilterGen(input);
+public static AsetptsFilterGen AsetptsFilterGen(this AudioMap input0) => new AsetptsFilterGen(input0);
 }
 }

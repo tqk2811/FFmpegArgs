@@ -28,7 +28,7 @@ public static class SidedataFilterGenExtensions
 /// <summary>
 /// Manipulate video frame side data.
 /// </summary>
-public static SidedataFilterGen SidedataFilterGen(this ImageMap input) => new SidedataFilterGen(input);
+public static SidedataFilterGen SidedataFilterGen(this ImageMap input0) => new SidedataFilterGen(input0);
 }
 public enum SidedataFilterGenMode
 {

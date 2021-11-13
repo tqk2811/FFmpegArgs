@@ -32,6 +32,6 @@ public static class UsppFilterGenExtensions
 /// <summary>
 /// Apply Ultra Simple / Slow Post-processing filter.
 /// </summary>
-public static UsppFilterGen UsppFilterGen(this ImageMap input) => new UsppFilterGen(input);
+public static UsppFilterGen UsppFilterGen(this ImageMap input0) => new UsppFilterGen(input0);
 }
 }

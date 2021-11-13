@@ -48,6 +48,6 @@ public static class FftdnoizFilterGenExtensions
 /// <summary>
 /// Denoise frames using 3D FFT.
 /// </summary>
-public static FftdnoizFilterGen FftdnoizFilterGen(this ImageMap input) => new FftdnoizFilterGen(input);
+public static FftdnoizFilterGen FftdnoizFilterGen(this ImageMap input0) => new FftdnoizFilterGen(input0);
 }
 }

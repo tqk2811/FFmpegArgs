@@ -68,7 +68,7 @@ public static class SilenceremoveFilterGenExtensions
 /// <summary>
 /// Remove silence.
 /// </summary>
-public static SilenceremoveFilterGen SilenceremoveFilterGen(this AudioMap input) => new SilenceremoveFilterGen(input);
+public static SilenceremoveFilterGen SilenceremoveFilterGen(this AudioMap input0) => new SilenceremoveFilterGen(input0);
 }
 public enum SilenceremoveFilterGenStart_mode
 {

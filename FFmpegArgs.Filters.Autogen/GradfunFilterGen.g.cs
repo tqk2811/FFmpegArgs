@@ -28,6 +28,6 @@ public static class GradfunFilterGenExtensions
 /// <summary>
 /// Debands video quickly using gradients.
 /// </summary>
-public static GradfunFilterGen GradfunFilterGen(this ImageMap input) => new GradfunFilterGen(input);
+public static GradfunFilterGen GradfunFilterGen(this ImageMap input0) => new GradfunFilterGen(input0);
 }
 }

@@ -56,6 +56,6 @@ public static class SineFilterGenExtensions
 /// <summary>
 /// Generate sine wave audio signal.
 /// </summary>
-public static SineFilterGen SineFilterGen(this FilterGraph input) => new SineFilterGen(input);
+public static SineFilterGen SineFilterGen(this FilterGraph input0) => new SineFilterGen(input0);
 }
 }

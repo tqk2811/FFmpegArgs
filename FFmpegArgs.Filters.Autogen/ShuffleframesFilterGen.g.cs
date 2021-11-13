@@ -24,6 +24,6 @@ public static class ShuffleframesFilterGenExtensions
 /// <summary>
 /// Shuffle video frames.
 /// </summary>
-public static ShuffleframesFilterGen ShuffleframesFilterGen(this ImageMap input) => new ShuffleframesFilterGen(input);
+public static ShuffleframesFilterGen ShuffleframesFilterGen(this ImageMap input0) => new ShuffleframesFilterGen(input0);
 }
 }

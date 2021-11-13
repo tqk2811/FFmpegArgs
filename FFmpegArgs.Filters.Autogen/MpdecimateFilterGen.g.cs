@@ -36,6 +36,6 @@ public static class MpdecimateFilterGenExtensions
 /// <summary>
 /// Remove near-duplicate frames.
 /// </summary>
-public static MpdecimateFilterGen MpdecimateFilterGen(this ImageMap input) => new MpdecimateFilterGen(input);
+public static MpdecimateFilterGen MpdecimateFilterGen(this ImageMap input0) => new MpdecimateFilterGen(input0);
 }
 }

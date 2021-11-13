@@ -48,6 +48,6 @@ public static class AllrgbFilterGenExtensions
 /// <summary>
 /// Generate all RGB colors.
 /// </summary>
-public static AllrgbFilterGen AllrgbFilterGen(this FilterGraph input) => new AllrgbFilterGen(input);
+public static AllrgbFilterGen AllrgbFilterGen(this FilterGraph input0) => new AllrgbFilterGen(input0);
 }
 }

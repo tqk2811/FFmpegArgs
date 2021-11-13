@@ -92,7 +92,7 @@ public static class MandelbrotFilterGenExtensions
 /// <summary>
 /// Render a Mandelbrot fractal.
 /// </summary>
-public static MandelbrotFilterGen MandelbrotFilterGen(this FilterGraph input) => new MandelbrotFilterGen(input);
+public static MandelbrotFilterGen MandelbrotFilterGen(this FilterGraph input0) => new MandelbrotFilterGen(input0);
 }
 public enum MandelbrotFilterGenOuter
 {

@@ -24,7 +24,7 @@ public static class Deinterlace_qsvFilterGenExtensions
 /// <summary>
 /// QuickSync video deinterlacing
 /// </summary>
-public static Deinterlace_qsvFilterGen Deinterlace_qsvFilterGen(this ImageMap input) => new Deinterlace_qsvFilterGen(input);
+public static Deinterlace_qsvFilterGen Deinterlace_qsvFilterGen(this ImageMap input0) => new Deinterlace_qsvFilterGen(input0);
 }
 public enum Deinterlace_qsvFilterGenMode
 {

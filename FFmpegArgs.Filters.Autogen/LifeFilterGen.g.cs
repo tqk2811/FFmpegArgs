@@ -92,6 +92,6 @@ public static class LifeFilterGenExtensions
 /// <summary>
 /// Create life.
 /// </summary>
-public static LifeFilterGen LifeFilterGen(this FilterGraph input) => new LifeFilterGen(input);
+public static LifeFilterGen LifeFilterGen(this FilterGraph input0) => new LifeFilterGen(input0);
 }
 }

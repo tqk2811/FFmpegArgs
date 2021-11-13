@@ -24,7 +24,7 @@ public static class FieldorderFilterGenExtensions
 /// <summary>
 /// Set the field order.
 /// </summary>
-public static FieldorderFilterGen FieldorderFilterGen(this ImageMap input) => new FieldorderFilterGen(input);
+public static FieldorderFilterGen FieldorderFilterGen(this ImageMap input0) => new FieldorderFilterGen(input0);
 }
 public enum FieldorderFilterGenOrder
 {

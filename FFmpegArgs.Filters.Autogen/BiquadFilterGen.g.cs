@@ -84,7 +84,7 @@ public static class BiquadFilterGenExtensions
 /// <summary>
 /// Apply a biquad IIR filter with the given coefficients.
 /// </summary>
-public static BiquadFilterGen BiquadFilterGen(this AudioMap input) => new BiquadFilterGen(input);
+public static BiquadFilterGen BiquadFilterGen(this AudioMap input0) => new BiquadFilterGen(input0);
 }
 public enum BiquadFilterGenTransform
 {

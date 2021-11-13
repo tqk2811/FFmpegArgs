@@ -64,6 +64,6 @@ public static class LutFilterGenExtensions
 /// <summary>
 /// Compute and apply a lookup table to the RGB/YUV input video.
 /// </summary>
-public static LutFilterGen LutFilterGen(this ImageMap input) => new LutFilterGen(input);
+public static LutFilterGen LutFilterGen(this ImageMap input0) => new LutFilterGen(input0);
 }
 }

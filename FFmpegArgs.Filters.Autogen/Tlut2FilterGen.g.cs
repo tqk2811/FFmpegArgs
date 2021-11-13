@@ -36,6 +36,6 @@ public static class Tlut2FilterGenExtensions
 /// <summary>
 /// Compute and apply a lookup table from two successive frames.
 /// </summary>
-public static Tlut2FilterGen Tlut2FilterGen(this ImageMap input) => new Tlut2FilterGen(input);
+public static Tlut2FilterGen Tlut2FilterGen(this ImageMap input0) => new Tlut2FilterGen(input0);
 }
 }

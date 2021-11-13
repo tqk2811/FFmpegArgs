@@ -24,7 +24,7 @@ public static class PhaseFilterGenExtensions
 /// <summary>
 /// Phase shift fields.
 /// </summary>
-public static PhaseFilterGen PhaseFilterGen(this ImageMap input) => new PhaseFilterGen(input);
+public static PhaseFilterGen PhaseFilterGen(this ImageMap input0) => new PhaseFilterGen(input0);
 }
 public enum PhaseFilterGenMode
 {

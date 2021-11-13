@@ -44,6 +44,6 @@ public static class Deshake_openclFilterGenExtensions
 /// <summary>
 /// Feature-point based video stabilization filter
 /// </summary>
-public static Deshake_openclFilterGen Deshake_openclFilterGen(this ImageMap input) => new Deshake_openclFilterGen(input);
+public static Deshake_openclFilterGen Deshake_openclFilterGen(this ImageMap input0) => new Deshake_openclFilterGen(input0);
 }
 }

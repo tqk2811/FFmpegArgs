@@ -48,6 +48,6 @@ public static class ColorcontrastFilterGenExtensions
 /// <summary>
 /// Adjust color contrast between RGB components.
 /// </summary>
-public static ColorcontrastFilterGen ColorcontrastFilterGen(this ImageMap input) => new ColorcontrastFilterGen(input);
+public static ColorcontrastFilterGen ColorcontrastFilterGen(this ImageMap input0) => new ColorcontrastFilterGen(input0);
 }
 }

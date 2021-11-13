@@ -32,6 +32,6 @@ public static class LoopFilterGenExtensions
 /// <summary>
 /// Loop video frames.
 /// </summary>
-public static LoopFilterGen LoopFilterGen(this ImageMap input) => new LoopFilterGen(input);
+public static LoopFilterGen LoopFilterGen(this ImageMap input0) => new LoopFilterGen(input0);
 }
 }

@@ -40,6 +40,6 @@ public static class MaskfunFilterGenExtensions
 /// <summary>
 /// Create Mask.
 /// </summary>
-public static MaskfunFilterGen MaskfunFilterGen(this ImageMap input) => new MaskfunFilterGen(input);
+public static MaskfunFilterGen MaskfunFilterGen(this ImageMap input0) => new MaskfunFilterGen(input0);
 }
 }

@@ -96,7 +96,7 @@ public static class Vpp_qsvFilterGenExtensions
 /// <summary>
 /// Quick Sync Video VPP.
 /// </summary>
-public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input) => new Vpp_qsvFilterGen(input);
+public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input0) => new Vpp_qsvFilterGen(input0);
 }
 public enum Vpp_qsvFilterGenDeinterlace
 {

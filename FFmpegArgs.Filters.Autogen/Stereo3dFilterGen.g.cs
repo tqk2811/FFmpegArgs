@@ -28,7 +28,7 @@ public static class Stereo3dFilterGenExtensions
 /// <summary>
 /// Convert video stereoscopic 3D view.
 /// </summary>
-public static Stereo3dFilterGen Stereo3dFilterGen(this ImageMap input) => new Stereo3dFilterGen(input);
+public static Stereo3dFilterGen Stereo3dFilterGen(this ImageMap input0) => new Stereo3dFilterGen(input0);
 }
 public enum Stereo3dFilterGenIn
 {

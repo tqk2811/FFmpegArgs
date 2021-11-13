@@ -24,7 +24,7 @@ public static class BenchFilterGenExtensions
 /// <summary>
 /// Benchmark part of a filtergraph.
 /// </summary>
-public static BenchFilterGen BenchFilterGen(this ImageMap input) => new BenchFilterGen(input);
+public static BenchFilterGen BenchFilterGen(this ImageMap input0) => new BenchFilterGen(input0);
 }
 public enum BenchFilterGenAction
 {

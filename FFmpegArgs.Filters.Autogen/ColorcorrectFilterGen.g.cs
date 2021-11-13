@@ -40,6 +40,6 @@ public static class ColorcorrectFilterGenExtensions
 /// <summary>
 /// Adjust color white balance selectively for blacks and whites.
 /// </summary>
-public static ColorcorrectFilterGen ColorcorrectFilterGen(this ImageMap input) => new ColorcorrectFilterGen(input);
+public static ColorcorrectFilterGen ColorcorrectFilterGen(this ImageMap input0) => new ColorcorrectFilterGen(input0);
 }
 }

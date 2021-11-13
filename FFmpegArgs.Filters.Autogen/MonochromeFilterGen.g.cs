@@ -36,6 +36,6 @@ public static class MonochromeFilterGenExtensions
 /// <summary>
 /// Convert video to gray using custom color filter.
 /// </summary>
-public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input) => new MonochromeFilterGen(input);
+public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input0) => new MonochromeFilterGen(input0);
 }
 }

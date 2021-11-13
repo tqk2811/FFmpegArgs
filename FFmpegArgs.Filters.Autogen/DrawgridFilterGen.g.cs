@@ -64,6 +64,6 @@ public static class DrawgridFilterGenExtensions
 /// <summary>
 /// Draw a colored grid on the input video.
 /// </summary>
-public static DrawgridFilterGen DrawgridFilterGen(this ImageMap input) => new DrawgridFilterGen(input);
+public static DrawgridFilterGen DrawgridFilterGen(this ImageMap input0) => new DrawgridFilterGen(input0);
 }
 }

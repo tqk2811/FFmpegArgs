@@ -28,7 +28,7 @@ public static class TelecineFilterGenExtensions
 /// <summary>
 /// Apply a telecine pattern.
 /// </summary>
-public static TelecineFilterGen TelecineFilterGen(this ImageMap input) => new TelecineFilterGen(input);
+public static TelecineFilterGen TelecineFilterGen(this ImageMap input0) => new TelecineFilterGen(input0);
 }
 public enum TelecineFilterGenFirst_field
 {

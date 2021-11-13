@@ -132,7 +132,7 @@ public static class WaveformFilterGenExtensions
 /// <summary>
 /// Video waveform monitor.
 /// </summary>
-public static WaveformFilterGen WaveformFilterGen(this ImageMap input) => new WaveformFilterGen(input);
+public static WaveformFilterGen WaveformFilterGen(this ImageMap input0) => new WaveformFilterGen(input0);
 }
 public enum WaveformFilterGenMode
 {

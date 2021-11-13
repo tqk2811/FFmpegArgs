@@ -28,6 +28,6 @@ public static class ExposureFilterGenExtensions
 /// <summary>
 /// Adjust exposure of the video stream.
 /// </summary>
-public static ExposureFilterGen ExposureFilterGen(this ImageMap input) => new ExposureFilterGen(input);
+public static ExposureFilterGen ExposureFilterGen(this ImageMap input0) => new ExposureFilterGen(input0);
 }
 }

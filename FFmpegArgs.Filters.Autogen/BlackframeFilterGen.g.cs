@@ -32,6 +32,6 @@ public static class BlackframeFilterGenExtensions
 /// <summary>
 /// Detect frames that are (almost) black.
 /// </summary>
-public static BlackframeFilterGen BlackframeFilterGen(this ImageMap input) => new BlackframeFilterGen(input);
+public static BlackframeFilterGen BlackframeFilterGen(this ImageMap input0) => new BlackframeFilterGen(input0);
 }
 }

@@ -64,7 +64,7 @@ public static class MinterpolateFilterGenExtensions
 /// <summary>
 /// Frame rate conversion using Motion Interpolation.
 /// </summary>
-public static MinterpolateFilterGen MinterpolateFilterGen(this ImageMap input) => new MinterpolateFilterGen(input);
+public static MinterpolateFilterGen MinterpolateFilterGen(this ImageMap input0) => new MinterpolateFilterGen(input0);
 }
 public enum MinterpolateFilterGenMi_mode
 {

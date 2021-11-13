@@ -60,7 +60,7 @@ public static class ShufflepixelsFilterGenExtensions
 /// <summary>
 /// Shuffle video pixels.
 /// </summary>
-public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input) => new ShufflepixelsFilterGen(input);
+public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input0) => new ShufflepixelsFilterGen(input0);
 }
 public enum ShufflepixelsFilterGenDirection
 {

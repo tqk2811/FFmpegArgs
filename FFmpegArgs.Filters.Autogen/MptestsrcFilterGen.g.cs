@@ -60,7 +60,7 @@ public static class MptestsrcFilterGenExtensions
 /// <summary>
 /// Generate various test pattern.
 /// </summary>
-public static MptestsrcFilterGen MptestsrcFilterGen(this FilterGraph input) => new MptestsrcFilterGen(input);
+public static MptestsrcFilterGen MptestsrcFilterGen(this FilterGraph input0) => new MptestsrcFilterGen(input0);
 }
 public enum MptestsrcFilterGenTest
 {

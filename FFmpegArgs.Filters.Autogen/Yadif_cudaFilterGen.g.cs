@@ -32,7 +32,7 @@ public static class Yadif_cudaFilterGenExtensions
 /// <summary>
 /// Deinterlace CUDA frames
 /// </summary>
-public static Yadif_cudaFilterGen Yadif_cudaFilterGen(this ImageMap input) => new Yadif_cudaFilterGen(input);
+public static Yadif_cudaFilterGen Yadif_cudaFilterGen(this ImageMap input0) => new Yadif_cudaFilterGen(input0);
 }
 public enum Yadif_cudaFilterGenMode
 {

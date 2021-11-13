@@ -68,6 +68,6 @@ public static class Boxblur_openclFilterGenExtensions
 /// <summary>
 /// Apply boxblur filter to input video
 /// </summary>
-public static Boxblur_openclFilterGen Boxblur_openclFilterGen(this ImageMap input) => new Boxblur_openclFilterGen(input);
+public static Boxblur_openclFilterGen Boxblur_openclFilterGen(this ImageMap input0) => new Boxblur_openclFilterGen(input0);
 }
 }

@@ -28,7 +28,7 @@ public static class FieldhintFilterGenExtensions
 /// <summary>
 /// Field matching using hints.
 /// </summary>
-public static FieldhintFilterGen FieldhintFilterGen(this ImageMap input) => new FieldhintFilterGen(input);
+public static FieldhintFilterGen FieldhintFilterGen(this ImageMap input0) => new FieldhintFilterGen(input0);
 }
 public enum FieldhintFilterGenMode
 {

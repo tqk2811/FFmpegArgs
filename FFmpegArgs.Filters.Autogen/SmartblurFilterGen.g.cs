@@ -68,6 +68,6 @@ public static class SmartblurFilterGenExtensions
 /// <summary>
 /// Blur the input video without impacting the outlines.
 /// </summary>
-public static SmartblurFilterGen SmartblurFilterGen(this ImageMap input) => new SmartblurFilterGen(input);
+public static SmartblurFilterGen SmartblurFilterGen(this ImageMap input0) => new SmartblurFilterGen(input0);
 }
 }

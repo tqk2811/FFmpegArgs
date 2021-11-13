@@ -28,6 +28,6 @@ public static class CrystalizerFilterGenExtensions
 /// <summary>
 /// Simple audio noise sharpening filter.
 /// </summary>
-public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input) => new CrystalizerFilterGen(input);
+public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input0) => new CrystalizerFilterGen(input0);
 }
 }

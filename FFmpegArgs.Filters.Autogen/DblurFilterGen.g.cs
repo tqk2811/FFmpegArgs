@@ -32,6 +32,6 @@ public static class DblurFilterGenExtensions
 /// <summary>
 /// Apply Directional Blur filter.
 /// </summary>
-public static DblurFilterGen DblurFilterGen(this ImageMap input) => new DblurFilterGen(input);
+public static DblurFilterGen DblurFilterGen(this ImageMap input0) => new DblurFilterGen(input0);
 }
 }

@@ -32,6 +32,6 @@ public static class KirschFilterGenExtensions
 /// <summary>
 /// Apply kirsch operator.
 /// </summary>
-public static KirschFilterGen KirschFilterGen(this ImageMap input) => new KirschFilterGen(input);
+public static KirschFilterGen KirschFilterGen(this ImageMap input0) => new KirschFilterGen(input0);
 }
 }

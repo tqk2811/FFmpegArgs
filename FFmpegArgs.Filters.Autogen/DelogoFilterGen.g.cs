@@ -40,6 +40,6 @@ public static class DelogoFilterGenExtensions
 /// <summary>
 /// Remove logo from input video.
 /// </summary>
-public static DelogoFilterGen DelogoFilterGen(this ImageMap input) => new DelogoFilterGen(input);
+public static DelogoFilterGen DelogoFilterGen(this ImageMap input0) => new DelogoFilterGen(input0);
 }
 }

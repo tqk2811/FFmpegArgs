@@ -32,7 +32,7 @@ public static class HisteqFilterGenExtensions
 /// <summary>
 /// Apply global color histogram equalization.
 /// </summary>
-public static HisteqFilterGen HisteqFilterGen(this ImageMap input) => new HisteqFilterGen(input);
+public static HisteqFilterGen HisteqFilterGen(this ImageMap input0) => new HisteqFilterGen(input0);
 }
 public enum HisteqFilterGenAntibanding
 {

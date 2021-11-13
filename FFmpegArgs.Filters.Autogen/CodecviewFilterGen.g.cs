@@ -44,7 +44,7 @@ public static class CodecviewFilterGenExtensions
 /// <summary>
 /// Visualize information about some codecs.
 /// </summary>
-public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input) => new CodecviewFilterGen(input);
+public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input0) => new CodecviewFilterGen(input0);
 }
 public enum CodecviewFilterGenMv
 {

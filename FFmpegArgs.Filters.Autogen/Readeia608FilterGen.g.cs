@@ -40,6 +40,6 @@ public static class Readeia608FilterGenExtensions
 /// <summary>
 /// Read EIA-608 Closed Caption codes from input video and write them to frame metadata.
 /// </summary>
-public static Readeia608FilterGen Readeia608FilterGen(this ImageMap input) => new Readeia608FilterGen(input);
+public static Readeia608FilterGen Readeia608FilterGen(this ImageMap input0) => new Readeia608FilterGen(input0);
 }
 }

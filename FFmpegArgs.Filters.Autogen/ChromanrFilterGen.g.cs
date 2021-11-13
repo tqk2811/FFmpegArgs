@@ -52,6 +52,6 @@ public static class ChromanrFilterGenExtensions
 /// <summary>
 /// Reduce chrominance noise.
 /// </summary>
-public static ChromanrFilterGen ChromanrFilterGen(this ImageMap input) => new ChromanrFilterGen(input);
+public static ChromanrFilterGen ChromanrFilterGen(this ImageMap input0) => new ChromanrFilterGen(input0);
 }
 }

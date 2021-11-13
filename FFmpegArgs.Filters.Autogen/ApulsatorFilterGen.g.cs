@@ -64,7 +64,7 @@ public static class ApulsatorFilterGenExtensions
 /// <summary>
 /// Audio pulsator.
 /// </summary>
-public static ApulsatorFilterGen ApulsatorFilterGen(this AudioMap input) => new ApulsatorFilterGen(input);
+public static ApulsatorFilterGen ApulsatorFilterGen(this AudioMap input0) => new ApulsatorFilterGen(input0);
 }
 public enum ApulsatorFilterGenMode
 {

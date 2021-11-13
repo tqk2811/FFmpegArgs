@@ -92,7 +92,7 @@ public static class AllpassFilterGenExtensions
 /// <summary>
 /// Apply a two-pole all-pass filter.
 /// </summary>
-public static AllpassFilterGen AllpassFilterGen(this AudioMap input) => new AllpassFilterGen(input);
+public static AllpassFilterGen AllpassFilterGen(this AudioMap input0) => new AllpassFilterGen(input0);
 }
 public enum AllpassFilterGenWidth_type
 {

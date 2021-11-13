@@ -64,7 +64,7 @@ public static class SelectivecolorFilterGenExtensions
 /// <summary>
 /// Apply CMYK adjustments to specific color ranges.
 /// </summary>
-public static SelectivecolorFilterGen SelectivecolorFilterGen(this ImageMap input) => new SelectivecolorFilterGen(input);
+public static SelectivecolorFilterGen SelectivecolorFilterGen(this ImageMap input0) => new SelectivecolorFilterGen(input0);
 }
 public enum SelectivecolorFilterGenCorrection_method
 {

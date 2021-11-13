@@ -36,7 +36,7 @@ public static class SignalstatsFilterGenExtensions
 /// <summary>
 /// Generate statistics from video analysis.
 /// </summary>
-public static SignalstatsFilterGen SignalstatsFilterGen(this ImageMap input) => new SignalstatsFilterGen(input);
+public static SignalstatsFilterGen SignalstatsFilterGen(this ImageMap input0) => new SignalstatsFilterGen(input0);
 }
 public enum SignalstatsFilterGenStat
 {

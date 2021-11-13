@@ -24,6 +24,6 @@ public static class AresampleFilterGenExtensions
 /// <summary>
 /// Resample audio data.
 /// </summary>
-public static AresampleFilterGen AresampleFilterGen(this AudioMap input) => new AresampleFilterGen(input);
+public static AresampleFilterGen AresampleFilterGen(this AudioMap input0) => new AresampleFilterGen(input0);
 }
 }

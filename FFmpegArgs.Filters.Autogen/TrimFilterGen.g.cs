@@ -60,6 +60,6 @@ public static class TrimFilterGenExtensions
 /// <summary>
 /// Pick one continuous section from the input, drop the rest.
 /// </summary>
-public static TrimFilterGen TrimFilterGen(this ImageMap input) => new TrimFilterGen(input);
+public static TrimFilterGen TrimFilterGen(this ImageMap input0) => new TrimFilterGen(input0);
 }
 }

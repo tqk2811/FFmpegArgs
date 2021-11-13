@@ -24,6 +24,6 @@ public static class ShowinfoFilterGenExtensions
 /// <summary>
 /// Show textual information for each video frame.
 /// </summary>
-public static ShowinfoFilterGen ShowinfoFilterGen(this ImageMap input) => new ShowinfoFilterGen(input);
+public static ShowinfoFilterGen ShowinfoFilterGen(this ImageMap input0) => new ShowinfoFilterGen(input0);
 }
 }

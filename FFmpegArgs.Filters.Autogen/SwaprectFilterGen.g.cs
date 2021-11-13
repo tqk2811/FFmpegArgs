@@ -44,6 +44,6 @@ public static class SwaprectFilterGenExtensions
 /// <summary>
 /// Swap 2 rectangular objects in video.
 /// </summary>
-public static SwaprectFilterGen SwaprectFilterGen(this ImageMap input) => new SwaprectFilterGen(input);
+public static SwaprectFilterGen SwaprectFilterGen(this ImageMap input0) => new SwaprectFilterGen(input0);
 }
 }

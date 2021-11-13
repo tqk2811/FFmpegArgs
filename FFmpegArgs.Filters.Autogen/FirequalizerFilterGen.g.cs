@@ -72,7 +72,7 @@ public static class FirequalizerFilterGenExtensions
 /// <summary>
 /// Finite Impulse Response Equalizer.
 /// </summary>
-public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input) => new FirequalizerFilterGen(input);
+public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input0) => new FirequalizerFilterGen(input0);
 }
 public enum FirequalizerFilterGenWfunc
 {

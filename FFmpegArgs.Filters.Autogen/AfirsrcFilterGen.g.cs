@@ -76,7 +76,7 @@ public static class AfirsrcFilterGenExtensions
 /// <summary>
 /// Generate a FIR coefficients audio stream.
 /// </summary>
-public static AfirsrcFilterGen AfirsrcFilterGen(this FilterGraph input) => new AfirsrcFilterGen(input);
+public static AfirsrcFilterGen AfirsrcFilterGen(this FilterGraph input0) => new AfirsrcFilterGen(input0);
 }
 public enum AfirsrcFilterGenWin_func
 {

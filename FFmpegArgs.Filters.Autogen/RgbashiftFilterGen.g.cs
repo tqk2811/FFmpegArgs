@@ -56,7 +56,7 @@ public static class RgbashiftFilterGenExtensions
 /// <summary>
 /// Shift RGBA.
 /// </summary>
-public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input) => new RgbashiftFilterGen(input);
+public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input0) => new RgbashiftFilterGen(input0);
 }
 public enum RgbashiftFilterGenEdge
 {

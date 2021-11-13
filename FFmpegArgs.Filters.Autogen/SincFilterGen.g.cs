@@ -68,6 +68,6 @@ public static class SincFilterGenExtensions
 /// <summary>
 /// Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients.
 /// </summary>
-public static SincFilterGen SincFilterGen(this FilterGraph input) => new SincFilterGen(input);
+public static SincFilterGen SincFilterGen(this FilterGraph input0) => new SincFilterGen(input0);
 }
 }

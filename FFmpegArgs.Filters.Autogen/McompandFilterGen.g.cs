@@ -24,6 +24,6 @@ public static class McompandFilterGenExtensions
 /// <summary>
 /// Multiband Compress or expand audio dynamic range.
 /// </summary>
-public static McompandFilterGen McompandFilterGen(this AudioMap input) => new McompandFilterGen(input);
+public static McompandFilterGen McompandFilterGen(this AudioMap input0) => new McompandFilterGen(input0);
 }
 }

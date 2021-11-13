@@ -24,6 +24,6 @@ public static class FramestepFilterGenExtensions
 /// <summary>
 /// Select one frame every N frames.
 /// </summary>
-public static FramestepFilterGen FramestepFilterGen(this ImageMap input) => new FramestepFilterGen(input);
+public static FramestepFilterGen FramestepFilterGen(this ImageMap input0) => new FramestepFilterGen(input0);
 }
 }

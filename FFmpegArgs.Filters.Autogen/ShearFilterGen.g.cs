@@ -40,7 +40,7 @@ public static class ShearFilterGenExtensions
 /// <summary>
 /// Shear transform the input image.
 /// </summary>
-public static ShearFilterGen ShearFilterGen(this ImageMap input) => new ShearFilterGen(input);
+public static ShearFilterGen ShearFilterGen(this ImageMap input0) => new ShearFilterGen(input0);
 }
 public enum ShearFilterGenInterp
 {

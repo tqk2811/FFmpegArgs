@@ -68,6 +68,6 @@ public static class Convolution_openclFilterGenExtensions
 /// <summary>
 /// Apply convolution mask to input video
 /// </summary>
-public static Convolution_openclFilterGen Convolution_openclFilterGen(this ImageMap input) => new Convolution_openclFilterGen(input);
+public static Convolution_openclFilterGen Convolution_openclFilterGen(this ImageMap input0) => new Convolution_openclFilterGen(input0);
 }
 }

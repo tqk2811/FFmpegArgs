@@ -28,7 +28,7 @@ public static class Lut3dFilterGenExtensions
 /// <summary>
 /// Adjust colors using a 3D LUT.
 /// </summary>
-public static Lut3dFilterGen Lut3dFilterGen(this ImageMap input) => new Lut3dFilterGen(input);
+public static Lut3dFilterGen Lut3dFilterGen(this ImageMap input0) => new Lut3dFilterGen(input0);
 }
 public enum Lut3dFilterGenInterp
 {

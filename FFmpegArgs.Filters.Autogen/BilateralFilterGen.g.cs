@@ -32,6 +32,6 @@ public static class BilateralFilterGenExtensions
 /// <summary>
 /// Apply Bilateral filter.
 /// </summary>
-public static BilateralFilterGen BilateralFilterGen(this ImageMap input) => new BilateralFilterGen(input);
+public static BilateralFilterGen BilateralFilterGen(this ImageMap input0) => new BilateralFilterGen(input0);
 }
 }

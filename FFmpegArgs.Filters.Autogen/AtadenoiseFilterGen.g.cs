@@ -68,7 +68,7 @@ public static class AtadenoiseFilterGenExtensions
 /// <summary>
 /// Apply an Adaptive Temporal Averaging Denoiser.
 /// </summary>
-public static AtadenoiseFilterGen AtadenoiseFilterGen(this ImageMap input) => new AtadenoiseFilterGen(input);
+public static AtadenoiseFilterGen AtadenoiseFilterGen(this ImageMap input0) => new AtadenoiseFilterGen(input0);
 }
 public enum AtadenoiseFilterGenP
 {

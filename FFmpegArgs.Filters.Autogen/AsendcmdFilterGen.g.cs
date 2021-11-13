@@ -36,6 +36,6 @@ public static class AsendcmdFilterGenExtensions
 /// <summary>
 /// Send commands to filters.
 /// </summary>
-public static AsendcmdFilterGen AsendcmdFilterGen(this AudioMap input) => new AsendcmdFilterGen(input);
+public static AsendcmdFilterGen AsendcmdFilterGen(this AudioMap input0) => new AsendcmdFilterGen(input0);
 }
 }

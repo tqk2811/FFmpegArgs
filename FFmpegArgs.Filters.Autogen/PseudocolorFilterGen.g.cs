@@ -56,7 +56,7 @@ public static class PseudocolorFilterGenExtensions
 /// <summary>
 /// Make pseudocolored video frames.
 /// </summary>
-public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input) => new PseudocolorFilterGen(input);
+public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input0) => new PseudocolorFilterGen(input0);
 }
 public enum PseudocolorFilterGenPreset
 {

@@ -36,6 +36,6 @@ public static class SendcmdFilterGenExtensions
 /// <summary>
 /// Send commands to filters.
 /// </summary>
-public static SendcmdFilterGen SendcmdFilterGen(this ImageMap input) => new SendcmdFilterGen(input);
+public static SendcmdFilterGen SendcmdFilterGen(this ImageMap input0) => new SendcmdFilterGen(input0);
 }
 }

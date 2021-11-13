@@ -64,6 +64,6 @@ public static class LutyuvFilterGenExtensions
 /// <summary>
 /// Compute and apply a lookup table to the YUV input video.
 /// </summary>
-public static LutyuvFilterGen LutyuvFilterGen(this ImageMap input) => new LutyuvFilterGen(input);
+public static LutyuvFilterGen LutyuvFilterGen(this ImageMap input0) => new LutyuvFilterGen(input0);
 }
 }

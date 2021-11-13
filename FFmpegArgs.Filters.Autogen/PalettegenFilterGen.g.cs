@@ -36,7 +36,7 @@ public static class PalettegenFilterGenExtensions
 /// <summary>
 /// Find the optimal palette for a given stream.
 /// </summary>
-public static PalettegenFilterGen PalettegenFilterGen(this ImageMap input) => new PalettegenFilterGen(input);
+public static PalettegenFilterGen PalettegenFilterGen(this ImageMap input0) => new PalettegenFilterGen(input0);
 }
 public enum PalettegenFilterGenStats_mode
 {

@@ -28,6 +28,6 @@ public static class AfreqshiftFilterGenExtensions
 /// <summary>
 /// Apply frequency shifting to input audio.
 /// </summary>
-public static AfreqshiftFilterGen AfreqshiftFilterGen(this AudioMap input) => new AfreqshiftFilterGen(input);
+public static AfreqshiftFilterGen AfreqshiftFilterGen(this AudioMap input0) => new AfreqshiftFilterGen(input0);
 }
 }

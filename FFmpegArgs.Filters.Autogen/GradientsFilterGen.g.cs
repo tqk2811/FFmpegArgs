@@ -116,6 +116,6 @@ public static class GradientsFilterGenExtensions
 /// <summary>
 /// Draw a gradients.
 /// </summary>
-public static GradientsFilterGen GradientsFilterGen(this FilterGraph input) => new GradientsFilterGen(input);
+public static GradientsFilterGen GradientsFilterGen(this FilterGraph input0) => new GradientsFilterGen(input0);
 }
 }

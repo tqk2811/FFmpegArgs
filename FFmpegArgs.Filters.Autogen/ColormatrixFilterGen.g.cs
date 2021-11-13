@@ -28,7 +28,7 @@ public static class ColormatrixFilterGenExtensions
 /// <summary>
 /// Convert color matrix.
 /// </summary>
-public static ColormatrixFilterGen ColormatrixFilterGen(this ImageMap input) => new ColormatrixFilterGen(input);
+public static ColormatrixFilterGen ColormatrixFilterGen(this ImageMap input0) => new ColormatrixFilterGen(input0);
 }
 public enum ColormatrixFilterGenSrc
 {

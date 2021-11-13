@@ -32,6 +32,6 @@ public static class Avgblur_vulkanFilterGenExtensions
 /// <summary>
 /// Apply avgblur mask to input video
 /// </summary>
-public static Avgblur_vulkanFilterGen Avgblur_vulkanFilterGen(this ImageMap input) => new Avgblur_vulkanFilterGen(input);
+public static Avgblur_vulkanFilterGen Avgblur_vulkanFilterGen(this ImageMap input0) => new Avgblur_vulkanFilterGen(input0);
 }
 }

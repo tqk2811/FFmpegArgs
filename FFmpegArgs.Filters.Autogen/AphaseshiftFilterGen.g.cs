@@ -28,6 +28,6 @@ public static class AphaseshiftFilterGenExtensions
 /// <summary>
 /// Apply phase shifting to input audio.
 /// </summary>
-public static AphaseshiftFilterGen AphaseshiftFilterGen(this AudioMap input) => new AphaseshiftFilterGen(input);
+public static AphaseshiftFilterGen AphaseshiftFilterGen(this AudioMap input0) => new AphaseshiftFilterGen(input0);
 }
 }

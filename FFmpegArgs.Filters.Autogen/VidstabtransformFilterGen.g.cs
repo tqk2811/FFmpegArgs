@@ -76,7 +76,7 @@ public static class VidstabtransformFilterGenExtensions
 /// <summary>
 /// Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).
 /// </summary>
-public static VidstabtransformFilterGen VidstabtransformFilterGen(this ImageMap input) => new VidstabtransformFilterGen(input);
+public static VidstabtransformFilterGen VidstabtransformFilterGen(this ImageMap input0) => new VidstabtransformFilterGen(input0);
 }
 public enum VidstabtransformFilterGenOptalgo
 {

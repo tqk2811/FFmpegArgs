@@ -64,6 +64,6 @@ public static class TestsrcFilterGenExtensions
 /// <summary>
 /// Generate test pattern.
 /// </summary>
-public static TestsrcFilterGen TestsrcFilterGen(this FilterGraph input) => new TestsrcFilterGen(input);
+public static TestsrcFilterGen TestsrcFilterGen(this FilterGraph input0) => new TestsrcFilterGen(input0);
 }
 }

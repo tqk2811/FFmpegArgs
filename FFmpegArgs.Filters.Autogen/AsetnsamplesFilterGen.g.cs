@@ -36,6 +36,6 @@ public static class AsetnsamplesFilterGenExtensions
 /// <summary>
 /// Set the number of samples for each output audio frames.
 /// </summary>
-public static AsetnsamplesFilterGen AsetnsamplesFilterGen(this AudioMap input) => new AsetnsamplesFilterGen(input);
+public static AsetnsamplesFilterGen AsetnsamplesFilterGen(this AudioMap input0) => new AsetnsamplesFilterGen(input0);
 }
 }

@@ -56,7 +56,7 @@ public static class DatascopeFilterGenExtensions
 /// <summary>
 /// Video data analysis.
 /// </summary>
-public static DatascopeFilterGen DatascopeFilterGen(this ImageMap input) => new DatascopeFilterGen(input);
+public static DatascopeFilterGen DatascopeFilterGen(this ImageMap input0) => new DatascopeFilterGen(input0);
 }
 public enum DatascopeFilterGenMode
 {

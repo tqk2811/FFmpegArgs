@@ -28,7 +28,7 @@ public static class Cover_rectFilterGenExtensions
 /// <summary>
 /// Find and cover a user specified object.
 /// </summary>
-public static Cover_rectFilterGen Cover_rectFilterGen(this ImageMap input) => new Cover_rectFilterGen(input);
+public static Cover_rectFilterGen Cover_rectFilterGen(this ImageMap input0) => new Cover_rectFilterGen(input0);
 }
 public enum Cover_rectFilterGenMode
 {

@@ -96,7 +96,7 @@ public static class DrawgraphFilterGenExtensions
 /// <summary>
 /// Draw a graph using input video metadata.
 /// </summary>
-public static DrawgraphFilterGen DrawgraphFilterGen(this ImageMap input) => new DrawgraphFilterGen(input);
+public static DrawgraphFilterGen DrawgraphFilterGen(this ImageMap input0) => new DrawgraphFilterGen(input0);
 }
 public enum DrawgraphFilterGenMode
 {

@@ -40,7 +40,7 @@ public static class SetparamsFilterGenExtensions
 /// <summary>
 /// Force field, or color property for the output video frame.
 /// </summary>
-public static SetparamsFilterGen SetparamsFilterGen(this ImageMap input) => new SetparamsFilterGen(input);
+public static SetparamsFilterGen SetparamsFilterGen(this ImageMap input0) => new SetparamsFilterGen(input0);
 }
 public enum SetparamsFilterGenField_mode
 {

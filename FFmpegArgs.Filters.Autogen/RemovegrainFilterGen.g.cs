@@ -36,6 +36,6 @@ public static class RemovegrainFilterGenExtensions
 /// <summary>
 /// Remove grain.
 /// </summary>
-public static RemovegrainFilterGen RemovegrainFilterGen(this ImageMap input) => new RemovegrainFilterGen(input);
+public static RemovegrainFilterGen RemovegrainFilterGen(this ImageMap input0) => new RemovegrainFilterGen(input0);
 }
 }

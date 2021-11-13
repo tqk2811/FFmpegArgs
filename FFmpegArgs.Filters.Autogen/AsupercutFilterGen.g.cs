@@ -32,6 +32,6 @@ public static class AsupercutFilterGenExtensions
 /// <summary>
 /// Cut super frequencies.
 /// </summary>
-public static AsupercutFilterGen AsupercutFilterGen(this AudioMap input) => new AsupercutFilterGen(input);
+public static AsupercutFilterGen AsupercutFilterGen(this AudioMap input0) => new AsupercutFilterGen(input0);
 }
 }

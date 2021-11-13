@@ -52,6 +52,6 @@ public static class ZoompanFilterGenExtensions
 /// <summary>
 /// Apply Zoom & Pan effect.
 /// </summary>
-public static ZoompanFilterGen ZoompanFilterGen(this ImageMap input) => new ZoompanFilterGen(input);
+public static ZoompanFilterGen ZoompanFilterGen(this ImageMap input0) => new ZoompanFilterGen(input0);
 }
 }

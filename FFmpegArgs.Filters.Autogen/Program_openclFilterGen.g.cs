@@ -40,6 +40,6 @@ public static class Program_openclFilterGenExtensions
 /// <summary>
 /// Filter video using an OpenCL program
 /// </summary>
-public static Program_openclFilterGen Program_openclFilterGen(this FilterGraph input) => new Program_openclFilterGen(input);
+public static Program_openclFilterGen Program_openclFilterGen(this FilterGraph input0) => new Program_openclFilterGen(input0);
 }
 }

@@ -52,6 +52,6 @@ public static class AnullsrcFilterGenExtensions
 /// <summary>
 /// Null audio source, return empty audio frames.
 /// </summary>
-public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input) => new AnullsrcFilterGen(input);
+public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input0) => new AnullsrcFilterGen(input0);
 }
 }

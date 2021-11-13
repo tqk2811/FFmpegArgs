@@ -60,7 +60,7 @@ public static class RubberbandFilterGenExtensions
 /// <summary>
 /// Apply time-stretching and pitch-shifting.
 /// </summary>
-public static RubberbandFilterGen RubberbandFilterGen(this AudioMap input) => new RubberbandFilterGen(input);
+public static RubberbandFilterGen RubberbandFilterGen(this AudioMap input0) => new RubberbandFilterGen(input0);
 }
 public enum RubberbandFilterGenTransients
 {

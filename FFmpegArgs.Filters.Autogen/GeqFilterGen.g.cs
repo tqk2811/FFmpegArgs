@@ -84,7 +84,7 @@ public static class GeqFilterGenExtensions
 /// <summary>
 /// Apply generic equation to each pixel.
 /// </summary>
-public static GeqFilterGen GeqFilterGen(this ImageMap input) => new GeqFilterGen(input);
+public static GeqFilterGen GeqFilterGen(this ImageMap input0) => new GeqFilterGen(input0);
 }
 public enum GeqFilterGenInterpolation
 {

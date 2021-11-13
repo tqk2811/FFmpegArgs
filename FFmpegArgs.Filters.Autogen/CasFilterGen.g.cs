@@ -28,7 +28,7 @@ public static class CasFilterGenExtensions
 /// <summary>
 /// Contrast Adaptive Sharpen.
 /// </summary>
-public static CasFilterGen CasFilterGen(this ImageMap input) => new CasFilterGen(input);
+public static CasFilterGen CasFilterGen(this ImageMap input0) => new CasFilterGen(input0);
 }
 public enum CasFilterGenPlanes
 {

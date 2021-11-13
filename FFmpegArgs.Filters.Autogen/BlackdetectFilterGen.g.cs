@@ -44,6 +44,6 @@ public static class BlackdetectFilterGenExtensions
 /// <summary>
 /// Detect video intervals that are (almost) black.
 /// </summary>
-public static BlackdetectFilterGen BlackdetectFilterGen(this ImageMap input) => new BlackdetectFilterGen(input);
+public static BlackdetectFilterGen BlackdetectFilterGen(this ImageMap input0) => new BlackdetectFilterGen(input0);
 }
 }

@@ -44,6 +44,6 @@ public static class ScrollFilterGenExtensions
 /// <summary>
 /// Scroll input video.
 /// </summary>
-public static ScrollFilterGen ScrollFilterGen(this ImageMap input) => new ScrollFilterGen(input);
+public static ScrollFilterGen ScrollFilterGen(this ImageMap input0) => new ScrollFilterGen(input0);
 }
 }

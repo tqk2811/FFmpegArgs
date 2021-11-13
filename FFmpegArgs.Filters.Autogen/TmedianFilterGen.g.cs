@@ -32,6 +32,6 @@ public static class TmedianFilterGenExtensions
 /// <summary>
 /// Pick median pixels from successive frames.
 /// </summary>
-public static TmedianFilterGen TmedianFilterGen(this ImageMap input) => new TmedianFilterGen(input);
+public static TmedianFilterGen TmedianFilterGen(this ImageMap input0) => new TmedianFilterGen(input0);
 }
 }

@@ -28,6 +28,6 @@ public static class ExtrastereoFilterGenExtensions
 /// <summary>
 /// Increase difference between stereo audio channels.
 /// </summary>
-public static ExtrastereoFilterGen ExtrastereoFilterGen(this AudioMap input) => new ExtrastereoFilterGen(input);
+public static ExtrastereoFilterGen ExtrastereoFilterGen(this AudioMap input0) => new ExtrastereoFilterGen(input0);
 }
 }

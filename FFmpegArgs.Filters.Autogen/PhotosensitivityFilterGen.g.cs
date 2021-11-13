@@ -44,6 +44,6 @@ public static class PhotosensitivityFilterGenExtensions
 /// <summary>
 /// Filter out photosensitive epilepsy seizure-inducing flashes.
 /// </summary>
-public static PhotosensitivityFilterGen PhotosensitivityFilterGen(this ImageMap input) => new PhotosensitivityFilterGen(input);
+public static PhotosensitivityFilterGen PhotosensitivityFilterGen(this ImageMap input0) => new PhotosensitivityFilterGen(input0);
 }
 }

@@ -92,7 +92,7 @@ public static class LowpassFilterGenExtensions
 /// <summary>
 /// Apply a low-pass filter with 3dB point frequency.
 /// </summary>
-public static LowpassFilterGen LowpassFilterGen(this AudioMap input) => new LowpassFilterGen(input);
+public static LowpassFilterGen LowpassFilterGen(this AudioMap input0) => new LowpassFilterGen(input0);
 }
 public enum LowpassFilterGenWidth_type
 {

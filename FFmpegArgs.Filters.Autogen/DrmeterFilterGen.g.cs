@@ -24,6 +24,6 @@ public static class DrmeterFilterGenExtensions
 /// <summary>
 /// Measure audio dynamic range.
 /// </summary>
-public static DrmeterFilterGen DrmeterFilterGen(this AudioMap input) => new DrmeterFilterGen(input);
+public static DrmeterFilterGen DrmeterFilterGen(this AudioMap input0) => new DrmeterFilterGen(input0);
 }
 }

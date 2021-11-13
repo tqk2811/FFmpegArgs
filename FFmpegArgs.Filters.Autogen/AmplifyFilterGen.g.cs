@@ -48,7 +48,7 @@ public static class AmplifyFilterGenExtensions
 /// <summary>
 /// Amplify changes between successive video frames.
 /// </summary>
-public static AmplifyFilterGen AmplifyFilterGen(this ImageMap input) => new AmplifyFilterGen(input);
+public static AmplifyFilterGen AmplifyFilterGen(this ImageMap input0) => new AmplifyFilterGen(input0);
 }
 public enum AmplifyFilterGenPlanes
 {

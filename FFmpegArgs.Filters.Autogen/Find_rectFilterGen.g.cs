@@ -48,6 +48,6 @@ public static class Find_rectFilterGenExtensions
 /// <summary>
 /// Find a user specified object.
 /// </summary>
-public static Find_rectFilterGen Find_rectFilterGen(this ImageMap input) => new Find_rectFilterGen(input);
+public static Find_rectFilterGen Find_rectFilterGen(this ImageMap input0) => new Find_rectFilterGen(input0);
 }
 }

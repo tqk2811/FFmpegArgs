@@ -28,7 +28,7 @@ public static class TransposeFilterGenExtensions
 /// <summary>
 /// Transpose input video.
 /// </summary>
-public static TransposeFilterGen TransposeFilterGen(this ImageMap input) => new TransposeFilterGen(input);
+public static TransposeFilterGen TransposeFilterGen(this ImageMap input0) => new TransposeFilterGen(input0);
 }
 public enum TransposeFilterGenDir
 {

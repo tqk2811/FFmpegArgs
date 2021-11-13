@@ -32,7 +32,7 @@ public static class BwdifFilterGenExtensions
 /// <summary>
 /// Deinterlace the input image.
 /// </summary>
-public static BwdifFilterGen BwdifFilterGen(this ImageMap input) => new BwdifFilterGen(input);
+public static BwdifFilterGen BwdifFilterGen(this ImageMap input0) => new BwdifFilterGen(input0);
 }
 public enum BwdifFilterGenMode
 {

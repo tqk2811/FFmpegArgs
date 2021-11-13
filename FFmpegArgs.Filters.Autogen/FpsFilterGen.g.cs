@@ -40,7 +40,7 @@ public static class FpsFilterGenExtensions
 /// <summary>
 /// Force constant framerate.
 /// </summary>
-public static FpsFilterGen FpsFilterGen(this ImageMap input) => new FpsFilterGen(input);
+public static FpsFilterGen FpsFilterGen(this ImageMap input0) => new FpsFilterGen(input0);
 }
 public enum FpsFilterGenRound
 {

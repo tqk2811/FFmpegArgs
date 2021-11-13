@@ -56,6 +56,6 @@ public static class NullsrcFilterGenExtensions
 /// <summary>
 /// Null video source, return unprocessed video frames.
 /// </summary>
-public static NullsrcFilterGen NullsrcFilterGen(this FilterGraph input) => new NullsrcFilterGen(input);
+public static NullsrcFilterGen NullsrcFilterGen(this FilterGraph input0) => new NullsrcFilterGen(input0);
 }
 }

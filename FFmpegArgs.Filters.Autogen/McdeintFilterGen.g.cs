@@ -32,7 +32,7 @@ public static class McdeintFilterGenExtensions
 /// <summary>
 /// Apply motion compensating deinterlacing.
 /// </summary>
-public static McdeintFilterGen McdeintFilterGen(this ImageMap input) => new McdeintFilterGen(input);
+public static McdeintFilterGen McdeintFilterGen(this ImageMap input0) => new McdeintFilterGen(input0);
 }
 public enum McdeintFilterGenMode
 {

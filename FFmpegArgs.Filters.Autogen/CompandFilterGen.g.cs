@@ -48,6 +48,6 @@ public static class CompandFilterGenExtensions
 /// <summary>
 /// Compress or expand audio dynamic range.
 /// </summary>
-public static CompandFilterGen CompandFilterGen(this AudioMap input) => new CompandFilterGen(input);
+public static CompandFilterGen CompandFilterGen(this AudioMap input0) => new CompandFilterGen(input0);
 }
 }

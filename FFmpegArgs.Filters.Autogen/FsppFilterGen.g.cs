@@ -36,6 +36,6 @@ public static class FsppFilterGenExtensions
 /// <summary>
 /// Apply Fast Simple Post-processing filter.
 /// </summary>
-public static FsppFilterGen FsppFilterGen(this ImageMap input) => new FsppFilterGen(input);
+public static FsppFilterGen FsppFilterGen(this ImageMap input0) => new FsppFilterGen(input0);
 }
 }

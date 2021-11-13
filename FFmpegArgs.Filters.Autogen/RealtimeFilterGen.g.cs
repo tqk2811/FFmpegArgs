@@ -28,6 +28,6 @@ public static class RealtimeFilterGenExtensions
 /// <summary>
 /// Slow down filtering to match realtime.
 /// </summary>
-public static RealtimeFilterGen RealtimeFilterGen(this ImageMap input) => new RealtimeFilterGen(input);
+public static RealtimeFilterGen RealtimeFilterGen(this ImageMap input0) => new RealtimeFilterGen(input0);
 }
 }

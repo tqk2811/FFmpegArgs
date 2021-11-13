@@ -72,6 +72,6 @@ public static class OscilloscopeFilterGenExtensions
 /// <summary>
 /// 2D Video Oscilloscope.
 /// </summary>
-public static OscilloscopeFilterGen OscilloscopeFilterGen(this ImageMap input) => new OscilloscopeFilterGen(input);
+public static OscilloscopeFilterGen OscilloscopeFilterGen(this ImageMap input0) => new OscilloscopeFilterGen(input0);
 }
 }

@@ -36,6 +36,6 @@ public static class SetdarFilterGenExtensions
 /// <summary>
 /// Set the frame display aspect ratio.
 /// </summary>
-public static SetdarFilterGen SetdarFilterGen(this ImageMap input) => new SetdarFilterGen(input);
+public static SetdarFilterGen SetdarFilterGen(this ImageMap input0) => new SetdarFilterGen(input0);
 }
 }

@@ -32,6 +32,6 @@ public static class AevalFilterGenExtensions
 /// <summary>
 /// Filter audio signal according to a specified expression.
 /// </summary>
-public static AevalFilterGen AevalFilterGen(this AudioMap input) => new AevalFilterGen(input);
+public static AevalFilterGen AevalFilterGen(this AudioMap input0) => new AevalFilterGen(input0);
 }
 }

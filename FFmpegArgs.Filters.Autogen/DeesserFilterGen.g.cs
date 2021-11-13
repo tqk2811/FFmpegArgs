@@ -36,7 +36,7 @@ public static class DeesserFilterGenExtensions
 /// <summary>
 /// Apply de-essing to the audio.
 /// </summary>
-public static DeesserFilterGen DeesserFilterGen(this AudioMap input) => new DeesserFilterGen(input);
+public static DeesserFilterGen DeesserFilterGen(this AudioMap input0) => new DeesserFilterGen(input0);
 }
 public enum DeesserFilterGenS
 {

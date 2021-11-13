@@ -68,7 +68,7 @@ public static class AdeclickFilterGenExtensions
 /// <summary>
 /// Remove impulsive noise from input audio.
 /// </summary>
-public static AdeclickFilterGen AdeclickFilterGen(this AudioMap input) => new AdeclickFilterGen(input);
+public static AdeclickFilterGen AdeclickFilterGen(this AudioMap input0) => new AdeclickFilterGen(input0);
 }
 public enum AdeclickFilterGenMethod
 {

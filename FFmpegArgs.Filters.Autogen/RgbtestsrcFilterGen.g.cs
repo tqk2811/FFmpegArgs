@@ -64,6 +64,6 @@ public static class RgbtestsrcFilterGenExtensions
 /// <summary>
 /// Generate RGB test pattern.
 /// </summary>
-public static RgbtestsrcFilterGen RgbtestsrcFilterGen(this FilterGraph input) => new RgbtestsrcFilterGen(input);
+public static RgbtestsrcFilterGen RgbtestsrcFilterGen(this FilterGraph input0) => new RgbtestsrcFilterGen(input0);
 }
 }

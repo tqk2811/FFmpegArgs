@@ -44,6 +44,6 @@ public static class AddroiFilterGenExtensions
 /// <summary>
 /// Add region of interest to frame.
 /// </summary>
-public static AddroiFilterGen AddroiFilterGen(this ImageMap input) => new AddroiFilterGen(input);
+public static AddroiFilterGen AddroiFilterGen(this ImageMap input0) => new AddroiFilterGen(input0);
 }
 }

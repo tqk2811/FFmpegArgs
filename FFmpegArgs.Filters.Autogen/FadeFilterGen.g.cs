@@ -72,7 +72,7 @@ public static class FadeFilterGenExtensions
 /// <summary>
 /// Fade in/out input video.
 /// </summary>
-public static FadeFilterGen FadeFilterGen(this ImageMap input) => new FadeFilterGen(input);
+public static FadeFilterGen FadeFilterGen(this ImageMap input0) => new FadeFilterGen(input0);
 }
 public enum FadeFilterGenType
 {

@@ -84,7 +84,7 @@ public static class ConvolutionFilterGenExtensions
 /// <summary>
 /// Apply convolution filter.
 /// </summary>
-public static ConvolutionFilterGen ConvolutionFilterGen(this ImageMap input) => new ConvolutionFilterGen(input);
+public static ConvolutionFilterGen ConvolutionFilterGen(this ImageMap input0) => new ConvolutionFilterGen(input0);
 }
 public enum ConvolutionFilterGen_0mode
 {

@@ -40,6 +40,6 @@ public static class Dilation_openclFilterGenExtensions
 /// <summary>
 /// Apply dilation effect
 /// </summary>
-public static Dilation_openclFilterGen Dilation_openclFilterGen(this ImageMap input) => new Dilation_openclFilterGen(input);
+public static Dilation_openclFilterGen Dilation_openclFilterGen(this ImageMap input0) => new Dilation_openclFilterGen(input0);
 }
 }

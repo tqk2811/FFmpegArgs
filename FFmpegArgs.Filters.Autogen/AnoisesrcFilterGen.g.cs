@@ -72,7 +72,7 @@ public static class AnoisesrcFilterGenExtensions
 /// <summary>
 /// Generate a noise audio signal.
 /// </summary>
-public static AnoisesrcFilterGen AnoisesrcFilterGen(this FilterGraph input) => new AnoisesrcFilterGen(input);
+public static AnoisesrcFilterGen AnoisesrcFilterGen(this FilterGraph input0) => new AnoisesrcFilterGen(input0);
 }
 public enum AnoisesrcFilterGenColor
 {

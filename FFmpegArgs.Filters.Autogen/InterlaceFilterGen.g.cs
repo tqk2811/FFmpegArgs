@@ -28,7 +28,7 @@ public static class InterlaceFilterGenExtensions
 /// <summary>
 /// Convert progressive video into interlaced.
 /// </summary>
-public static InterlaceFilterGen InterlaceFilterGen(this ImageMap input) => new InterlaceFilterGen(input);
+public static InterlaceFilterGen InterlaceFilterGen(this ImageMap input0) => new InterlaceFilterGen(input0);
 }
 public enum InterlaceFilterGenScan
 {

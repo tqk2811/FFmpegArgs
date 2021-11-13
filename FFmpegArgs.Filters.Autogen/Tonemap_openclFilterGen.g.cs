@@ -76,7 +76,7 @@ public static class Tonemap_openclFilterGenExtensions
 /// <summary>
 /// Perform HDR to SDR conversion with tonemapping.
 /// </summary>
-public static Tonemap_openclFilterGen Tonemap_openclFilterGen(this ImageMap input) => new Tonemap_openclFilterGen(input);
+public static Tonemap_openclFilterGen Tonemap_openclFilterGen(this ImageMap input0) => new Tonemap_openclFilterGen(input0);
 }
 public enum Tonemap_openclFilterGenTonemap
 {

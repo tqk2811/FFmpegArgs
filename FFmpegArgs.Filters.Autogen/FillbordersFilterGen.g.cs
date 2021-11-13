@@ -44,7 +44,7 @@ public static class FillbordersFilterGenExtensions
 /// <summary>
 /// Fill borders of the input video.
 /// </summary>
-public static FillbordersFilterGen FillbordersFilterGen(this ImageMap input) => new FillbordersFilterGen(input);
+public static FillbordersFilterGen FillbordersFilterGen(this ImageMap input0) => new FillbordersFilterGen(input0);
 }
 public enum FillbordersFilterGenMode
 {

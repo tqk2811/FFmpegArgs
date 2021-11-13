@@ -28,6 +28,6 @@ public static class ArealtimeFilterGenExtensions
 /// <summary>
 /// Slow down filtering to match realtime.
 /// </summary>
-public static ArealtimeFilterGen ArealtimeFilterGen(this AudioMap input) => new ArealtimeFilterGen(input);
+public static ArealtimeFilterGen ArealtimeFilterGen(this AudioMap input0) => new ArealtimeFilterGen(input0);
 }
 }

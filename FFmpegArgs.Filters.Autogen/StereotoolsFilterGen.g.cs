@@ -100,7 +100,7 @@ public static class StereotoolsFilterGenExtensions
 /// <summary>
 /// Apply various stereo tools.
 /// </summary>
-public static StereotoolsFilterGen StereotoolsFilterGen(this AudioMap input) => new StereotoolsFilterGen(input);
+public static StereotoolsFilterGen StereotoolsFilterGen(this AudioMap input0) => new StereotoolsFilterGen(input0);
 }
 public enum StereotoolsFilterGenMode
 {

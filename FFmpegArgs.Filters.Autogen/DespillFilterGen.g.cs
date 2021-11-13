@@ -52,7 +52,7 @@ public static class DespillFilterGenExtensions
 /// <summary>
 /// Despill video.
 /// </summary>
-public static DespillFilterGen DespillFilterGen(this ImageMap input) => new DespillFilterGen(input);
+public static DespillFilterGen DespillFilterGen(this ImageMap input0) => new DespillFilterGen(input0);
 }
 public enum DespillFilterGenType
 {

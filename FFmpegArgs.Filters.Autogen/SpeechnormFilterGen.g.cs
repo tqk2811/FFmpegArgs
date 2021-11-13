@@ -92,6 +92,6 @@ public static class SpeechnormFilterGenExtensions
 /// <summary>
 /// Speech Normalizer.
 /// </summary>
-public static SpeechnormFilterGen SpeechnormFilterGen(this AudioMap input) => new SpeechnormFilterGen(input);
+public static SpeechnormFilterGen SpeechnormFilterGen(this AudioMap input0) => new SpeechnormFilterGen(input0);
 }
 }

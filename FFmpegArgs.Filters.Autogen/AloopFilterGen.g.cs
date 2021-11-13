@@ -32,6 +32,6 @@ public static class AloopFilterGenExtensions
 /// <summary>
 /// Loop audio samples.
 /// </summary>
-public static AloopFilterGen AloopFilterGen(this AudioMap input) => new AloopFilterGen(input);
+public static AloopFilterGen AloopFilterGen(this AudioMap input0) => new AloopFilterGen(input0);
 }
 }

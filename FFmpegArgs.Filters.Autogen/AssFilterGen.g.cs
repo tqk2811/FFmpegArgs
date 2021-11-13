@@ -44,7 +44,7 @@ public static class AssFilterGenExtensions
 /// <summary>
 /// Render ASS subtitles onto input video using the libass library.
 /// </summary>
-public static AssFilterGen AssFilterGen(this ImageMap input) => new AssFilterGen(input);
+public static AssFilterGen AssFilterGen(this ImageMap input0) => new AssFilterGen(input0);
 }
 public enum AssFilterGenShaping
 {

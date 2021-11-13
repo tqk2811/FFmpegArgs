@@ -28,7 +28,7 @@ public static class LagfunFilterGenExtensions
 /// <summary>
 /// Slowly update darker pixels.
 /// </summary>
-public static LagfunFilterGen LagfunFilterGen(this ImageMap input) => new LagfunFilterGen(input);
+public static LagfunFilterGen LagfunFilterGen(this ImageMap input0) => new LagfunFilterGen(input0);
 }
 public enum LagfunFilterGenPlanes
 {

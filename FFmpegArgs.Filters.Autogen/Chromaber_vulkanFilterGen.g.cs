@@ -28,6 +28,6 @@ public static class Chromaber_vulkanFilterGenExtensions
 /// <summary>
 /// Offset chroma of input video (chromatic aberration)
 /// </summary>
-public static Chromaber_vulkanFilterGen Chromaber_vulkanFilterGen(this ImageMap input) => new Chromaber_vulkanFilterGen(input);
+public static Chromaber_vulkanFilterGen Chromaber_vulkanFilterGen(this ImageMap input0) => new Chromaber_vulkanFilterGen(input0);
 }
 }

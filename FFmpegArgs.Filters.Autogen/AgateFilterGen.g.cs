@@ -68,7 +68,7 @@ public static class AgateFilterGenExtensions
 /// <summary>
 /// Audio gate.
 /// </summary>
-public static AgateFilterGen AgateFilterGen(this AudioMap input) => new AgateFilterGen(input);
+public static AgateFilterGen AgateFilterGen(this AudioMap input0) => new AgateFilterGen(input0);
 }
 public enum AgateFilterGenMode
 {

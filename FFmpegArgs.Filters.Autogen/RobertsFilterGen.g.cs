@@ -32,6 +32,6 @@ public static class RobertsFilterGenExtensions
 /// <summary>
 /// Apply roberts cross operator.
 /// </summary>
-public static RobertsFilterGen RobertsFilterGen(this ImageMap input) => new RobertsFilterGen(input);
+public static RobertsFilterGen RobertsFilterGen(this ImageMap input0) => new RobertsFilterGen(input0);
 }
 }

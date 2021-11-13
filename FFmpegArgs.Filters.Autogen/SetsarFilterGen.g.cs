@@ -36,6 +36,6 @@ public static class SetsarFilterGenExtensions
 /// <summary>
 /// Set the pixel sample aspect ratio.
 /// </summary>
-public static SetsarFilterGen SetsarFilterGen(this ImageMap input) => new SetsarFilterGen(input);
+public static SetsarFilterGen SetsarFilterGen(this ImageMap input0) => new SetsarFilterGen(input0);
 }
 }

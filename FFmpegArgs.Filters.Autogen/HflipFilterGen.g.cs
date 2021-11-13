@@ -20,6 +20,6 @@ public static class HflipFilterGenExtensions
 /// <summary>
 /// Horizontally flip the input video.
 /// </summary>
-public static HflipFilterGen HflipFilterGen(this ImageMap input) => new HflipFilterGen(input);
+public static HflipFilterGen HflipFilterGen(this ImageMap input0) => new HflipFilterGen(input0);
 }
 }

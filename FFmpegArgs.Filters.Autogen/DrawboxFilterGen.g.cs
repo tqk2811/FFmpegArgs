@@ -64,6 +64,6 @@ public static class DrawboxFilterGenExtensions
 /// <summary>
 /// Draw a colored box on the input video.
 /// </summary>
-public static DrawboxFilterGen DrawboxFilterGen(this ImageMap input) => new DrawboxFilterGen(input);
+public static DrawboxFilterGen DrawboxFilterGen(this ImageMap input0) => new DrawboxFilterGen(input0);
 }
 }

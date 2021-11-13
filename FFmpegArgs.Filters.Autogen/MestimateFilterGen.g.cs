@@ -32,7 +32,7 @@ public static class MestimateFilterGenExtensions
 /// <summary>
 /// Generate motion vectors.
 /// </summary>
-public static MestimateFilterGen MestimateFilterGen(this ImageMap input) => new MestimateFilterGen(input);
+public static MestimateFilterGen MestimateFilterGen(this ImageMap input0) => new MestimateFilterGen(input0);
 }
 public enum MestimateFilterGenMethod
 {

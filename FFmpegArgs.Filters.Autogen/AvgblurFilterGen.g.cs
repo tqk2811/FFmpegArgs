@@ -32,6 +32,6 @@ public static class AvgblurFilterGenExtensions
 /// <summary>
 /// Apply Average Blur filter.
 /// </summary>
-public static AvgblurFilterGen AvgblurFilterGen(this ImageMap input) => new AvgblurFilterGen(input);
+public static AvgblurFilterGen AvgblurFilterGen(this ImageMap input0) => new AvgblurFilterGen(input0);
 }
 }

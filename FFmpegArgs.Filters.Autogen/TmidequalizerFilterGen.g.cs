@@ -32,6 +32,6 @@ public static class TmidequalizerFilterGenExtensions
 /// <summary>
 /// Apply Temporal Midway Equalization.
 /// </summary>
-public static TmidequalizerFilterGen TmidequalizerFilterGen(this ImageMap input) => new TmidequalizerFilterGen(input);
+public static TmidequalizerFilterGen TmidequalizerFilterGen(this ImageMap input0) => new TmidequalizerFilterGen(input0);
 }
 }

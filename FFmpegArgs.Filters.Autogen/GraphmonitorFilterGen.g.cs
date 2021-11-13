@@ -68,7 +68,7 @@ public static class GraphmonitorFilterGenExtensions
 /// <summary>
 /// Show various filtergraph stats.
 /// </summary>
-public static GraphmonitorFilterGen GraphmonitorFilterGen(this ImageMap input) => new GraphmonitorFilterGen(input);
+public static GraphmonitorFilterGen GraphmonitorFilterGen(this ImageMap input0) => new GraphmonitorFilterGen(input0);
 }
 public enum GraphmonitorFilterGenMode
 {

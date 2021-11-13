@@ -76,7 +76,7 @@ public static class ColorspaceFilterGenExtensions
 /// <summary>
 /// Convert between colorspaces.
 /// </summary>
-public static ColorspaceFilterGen ColorspaceFilterGen(this ImageMap input) => new ColorspaceFilterGen(input);
+public static ColorspaceFilterGen ColorspaceFilterGen(this ImageMap input0) => new ColorspaceFilterGen(input0);
 }
 public enum ColorspaceFilterGenAll
 {

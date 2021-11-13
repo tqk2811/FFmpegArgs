@@ -164,7 +164,7 @@ public static class ZscaleFilterGenExtensions
 /// <summary>
 /// Apply resizing, colorspace and bit depth conversion.
 /// </summary>
-public static ZscaleFilterGen ZscaleFilterGen(this ImageMap input) => new ZscaleFilterGen(input);
+public static ZscaleFilterGen ZscaleFilterGen(this ImageMap input0) => new ZscaleFilterGen(input0);
 }
 public enum ZscaleFilterGenDither
 {

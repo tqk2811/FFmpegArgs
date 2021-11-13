@@ -24,6 +24,6 @@ public static class DejudderFilterGenExtensions
 /// <summary>
 /// Remove judder produced by pullup.
 /// </summary>
-public static DejudderFilterGen DejudderFilterGen(this ImageMap input) => new DejudderFilterGen(input);
+public static DejudderFilterGen DejudderFilterGen(this ImageMap input0) => new DejudderFilterGen(input0);
 }
 }

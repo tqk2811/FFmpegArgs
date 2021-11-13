@@ -36,6 +36,6 @@ public static class GblurFilterGenExtensions
 /// <summary>
 /// Apply Gaussian Blur filter.
 /// </summary>
-public static GblurFilterGen GblurFilterGen(this ImageMap input) => new GblurFilterGen(input);
+public static GblurFilterGen GblurFilterGen(this ImageMap input0) => new GblurFilterGen(input0);
 }
 }

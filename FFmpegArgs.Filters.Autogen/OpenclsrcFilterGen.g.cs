@@ -56,6 +56,6 @@ public static class OpenclsrcFilterGenExtensions
 /// <summary>
 /// Generate video using an OpenCL program
 /// </summary>
-public static OpenclsrcFilterGen OpenclsrcFilterGen(this FilterGraph input) => new OpenclsrcFilterGen(input);
+public static OpenclsrcFilterGen OpenclsrcFilterGen(this FilterGraph input0) => new OpenclsrcFilterGen(input0);
 }
 }

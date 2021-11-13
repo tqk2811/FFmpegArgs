@@ -24,7 +24,7 @@ public static class AbenchFilterGenExtensions
 /// <summary>
 /// Benchmark part of a filtergraph.
 /// </summary>
-public static AbenchFilterGen AbenchFilterGen(this AudioMap input) => new AbenchFilterGen(input);
+public static AbenchFilterGen AbenchFilterGen(this AudioMap input0) => new AbenchFilterGen(input0);
 }
 public enum AbenchFilterGenAction
 {

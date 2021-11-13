@@ -60,6 +60,6 @@ public static class AtrimFilterGenExtensions
 /// <summary>
 /// Pick one continuous section from the input, drop the rest.
 /// </summary>
-public static AtrimFilterGen AtrimFilterGen(this AudioMap input) => new AtrimFilterGen(input);
+public static AtrimFilterGen AtrimFilterGen(this AudioMap input0) => new AtrimFilterGen(input0);
 }
 }

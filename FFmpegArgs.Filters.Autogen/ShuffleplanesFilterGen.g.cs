@@ -36,6 +36,6 @@ public static class ShuffleplanesFilterGenExtensions
 /// <summary>
 /// Shuffle video planes.
 /// </summary>
-public static ShuffleplanesFilterGen ShuffleplanesFilterGen(this ImageMap input) => new ShuffleplanesFilterGen(input);
+public static ShuffleplanesFilterGen ShuffleplanesFilterGen(this ImageMap input0) => new ShuffleplanesFilterGen(input0);
 }
 }

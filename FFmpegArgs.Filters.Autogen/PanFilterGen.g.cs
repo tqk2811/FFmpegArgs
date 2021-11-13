@@ -24,6 +24,6 @@ public static class PanFilterGenExtensions
 /// <summary>
 /// Remix channels with coefficients (panning).
 /// </summary>
-public static PanFilterGen PanFilterGen(this AudioMap input) => new PanFilterGen(input);
+public static PanFilterGen PanFilterGen(this AudioMap input0) => new PanFilterGen(input0);
 }
 }

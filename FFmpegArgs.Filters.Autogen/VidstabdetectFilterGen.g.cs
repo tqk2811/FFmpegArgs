@@ -48,6 +48,6 @@ public static class VidstabdetectFilterGenExtensions
 /// <summary>
 /// Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).
 /// </summary>
-public static VidstabdetectFilterGen VidstabdetectFilterGen(this ImageMap input) => new VidstabdetectFilterGen(input);
+public static VidstabdetectFilterGen VidstabdetectFilterGen(this ImageMap input0) => new VidstabdetectFilterGen(input0);
 }
 }

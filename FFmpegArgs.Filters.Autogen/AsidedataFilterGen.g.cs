@@ -28,7 +28,7 @@ public static class AsidedataFilterGenExtensions
 /// <summary>
 /// Manipulate audio frame side data.
 /// </summary>
-public static AsidedataFilterGen AsidedataFilterGen(this AudioMap input) => new AsidedataFilterGen(input);
+public static AsidedataFilterGen AsidedataFilterGen(this AudioMap input0) => new AsidedataFilterGen(input0);
 }
 public enum AsidedataFilterGenMode
 {

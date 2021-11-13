@@ -68,7 +68,7 @@ public static class HistogramFilterGenExtensions
 /// <summary>
 /// Compute and draw a histogram.
 /// </summary>
-public static HistogramFilterGen HistogramFilterGen(this ImageMap input) => new HistogramFilterGen(input);
+public static HistogramFilterGen HistogramFilterGen(this ImageMap input0) => new HistogramFilterGen(input0);
 }
 public enum HistogramFilterGenDisplay_mode
 {
