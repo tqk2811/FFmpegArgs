@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Inputs;
-using FFmpegArgs.Cores.Maps;
-using System;
-
-namespace FFmpegArgs.Inputs
+﻿namespace FFmpegArgs.Inputs
 {
     //public class ImageFilterInput<TFilter, TIn, TOut> : ImageInput
     //    where TIn : BaseMap

@@ -1,6 +1,5 @@
 ﻿using FFmpegArgs.Expressions;
 using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.VideoFilters;
 using System;
 
 namespace FFmpegArgs.Filters.VideoSources

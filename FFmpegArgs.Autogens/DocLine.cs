@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Autogens
 {
@@ -19,22 +17,22 @@ namespace FFmpegArgs.Autogens
         public static List<DocLine> GetDocLine(List<string> lines)
         {
             List<DocLine> docLines = new List<DocLine>();
-            foreach(var line in lines.Where(x => !string.IsNullOrWhiteSpace(x)))
+            foreach (var line in lines.Where(x => !string.IsNullOrWhiteSpace(x)))
             {
-                if(line.StartsWith("     "))                
+                if (line.StartsWith("     "))
                 {
                     docLines.LastOrDefault()
                         ?.ChildLines?.LastOrDefault()
                         ?.ChildLines?.Add(new DocLine() { LineData = line.Trim() });
                 }
-                else if(line.StartsWith("  "))
+                else if (line.StartsWith("  "))
                 {
                     docLines.LastOrDefault()
                         ?.ChildLines?.Add(new DocLine() { LineData = line.Trim() });
                 }
                 else
                 {
-                    if(line.StartsWith(" ")) Console.WriteLine($"Error line: {line}");
+                    if (line.StartsWith(" ")) Console.WriteLine($"Error line: {line}");
                     else docLines.Add(new DocLine() { LineData = line.Trim() });
                 }
             }

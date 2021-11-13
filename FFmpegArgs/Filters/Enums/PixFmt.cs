@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FFmpegArgs.Filters.Enums
+﻿namespace FFmpegArgs.Filters.Enums
 {
     /// <summary>
     /// ffmpeg -pix_fmts

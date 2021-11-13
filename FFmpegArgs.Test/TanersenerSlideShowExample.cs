@@ -1,8 +1,9 @@
 ﻿using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Filters;
+using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
 using FFmpegArgs.Filters.VideoFilters;
 using FFmpegArgs.Filters.VideoSources;
-using FFmpegArgs.Filters;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
 using FFmpegArgs.Template;
@@ -12,7 +13,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using FFmpegArgs.Filters.Enums;
 
 namespace FFmpegArgs.Test
 {
@@ -251,8 +251,8 @@ namespace FFmpegArgs.Test
             double FPS = 24;
             double TRANSITION_DURATION = 2;
             ScreenMode screenMode = ScreenMode.Blur;///# 1=CENTER, 2=CROP, 3=SCALE, 4=BLUR
-            Color BACKGROUND_COLOR = Color.FromArgb(0,0,0,0);
-            HorizontalDirection direction  = HorizontalDirection.LeftToRight;//1=LEFT TO RIGHT, 2=RIGHT TO LEFT
+            Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
+            HorizontalDirection direction = HorizontalDirection.LeftToRight;//1=LEFT TO RIGHT, 2=RIGHT TO LEFT
 
             DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
             var files = directoryInfo.GetFiles("*.jpg");
@@ -271,11 +271,11 @@ namespace FFmpegArgs.Test
                 .Color()
                     .Color(BACKGROUND_COLOR)
                     .Size(new Size(WIDTH, HEIGHT))
-                    .Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut                
+                    .Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
                 .FpsFilter($"{FPS}").MapOut;
 
             List<ImageMap> images_Prepare = new List<ImageMap>();
-            for(int i = 0; i < files.Length; i++)
+            for (int i = 0; i < files.Length; i++)
             {
                 switch (screenMode)
                 {
@@ -305,9 +305,9 @@ namespace FFmpegArgs.Test
 
                     case ScreenMode.Scale:
                         {
-                             images_Prepare.Add(images_inputmap[i]
-                                 .ScaleFilter($"{WIDTH}",$"{HEIGHT}").MapOut
-                                 .SetSarFilter("1/1").MapOut);
+                            images_Prepare.Add(images_inputmap[i]
+                                .ScaleFilter($"{WIDTH}", $"{HEIGHT}").MapOut
+                                .SetSarFilter("1/1").MapOut);
                             break;
                         }
 

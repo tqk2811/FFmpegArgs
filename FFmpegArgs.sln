@@ -9,6 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters", "FFmpe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11F588CA-D063-48B8-8421-51AD13D9B7E5}"
 	ProjectSection(SolutionItems) = preProject
+		NotAutoGen.txt = NotAutoGen.txt
 		README.MD = README.MD
 	EndProjectSection
 EndProject
@@ -20,9 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Outputs", "FFmpe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Template", "FFmpegArgs.Template\FFmpegArgs.Template.csproj", "{128E8B9E-C812-4DD4-9C5E-EEC020A55610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.Autogen", "FFmpegArgs.Filters.Autogen\FFmpegArgs.Filters.Autogen.csproj", "{95229EC5-1AE4-4FD8-A403-2974C5684778}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Autogen", "FFmpegArgs.Filters.Autogen\FFmpegArgs.Filters.Autogen.csproj", "{95229EC5-1AE4-4FD8-A403-2974C5684778}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Autogens", "FFmpegArgs.Autogens\FFmpegArgs.Autogens.csproj", "{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Autogens", "FFmpegArgs.Autogens\FFmpegArgs.Autogens.csproj", "{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Autogens
 {
@@ -18,7 +17,7 @@ namespace FFmpegArgs.Autogens
         };
         static readonly IEnumerable<string> _NameRule = new string[]
         {
-            "float", "double", "short", "long", "int", 
+            "float", "double", "short", "long", "int",
             "object", "out", "in", "base", "fixed",  "as", "new", "string", "if", "default"
         };
         static Regex regex_filter = new Regex("^([TSC.]{3}) +([a-z0-9_]+) +([AVN|]{1,}->[AVN|]{1,}) +(.+)$");
@@ -29,8 +28,8 @@ namespace FFmpegArgs.Autogens
 
         static string UpperFirst(this string input)
         {
-            if(string.IsNullOrWhiteSpace(input)) return input;
-            if(int.TryParse(input.First().ToString(), out int r)) return $"_{input}";
+            if (string.IsNullOrWhiteSpace(input)) return input;
+            if (int.TryParse(input.First().ToString(), out int r)) return $"_{input}";
             return input.First().ToString().ToUpper() + input.Substring(1);
         }
         static string FixNameRule(this string input)
@@ -41,9 +40,9 @@ namespace FFmpegArgs.Autogens
                 .Replace("(", "_")
                 .Replace(")", "_")
                 .Replace(".", "Dot")
-                .Replace("+","Plus")
-                .Replace("<","LessThan")
-                .Replace(">","GreaterThan");
+                .Replace("+", "Plus")
+                .Replace("<", "LessThan")
+                .Replace(">", "GreaterThan");
             if (int.TryParse(input.First().ToString(), out int r)) return $"_{input}";
             if (_NameRule.Contains(input)) return $"_{input}";
             return input;
@@ -66,12 +65,12 @@ namespace FFmpegArgs.Autogens
         }
         static StreamWriter WriteNameSpace(this StreamWriter streamWriter, string child = null)
         {
-            if(string.IsNullOrWhiteSpace(child)) streamWriter.WriteLine($"namespace FFmpegArgs.Filters.Autogens");
+            if (string.IsNullOrWhiteSpace(child)) streamWriter.WriteLine($"namespace FFmpegArgs.Filters.Autogens");
             else streamWriter.WriteLine($"namespace FFmpegArgs.Filters.Autogens.{child}");
             return streamWriter;
         }
 
-        static StreamWriter WriteFunction(this StreamWriter streamWriter,DocLine function, string className,out string enumData)
+        static StreamWriter WriteFunction(this StreamWriter streamWriter, DocLine function, string className, out string enumData)
         {
             enumData = null;
             Match match_method = regex_DocLineMethod.Match(function.LineData);
@@ -88,7 +87,7 @@ namespace FFmpegArgs.Autogens
 
                 string param = string.Empty;
                 string body = string.Empty;
-                switch(type)
+                switch (type)
                 {
                     case "<double>":
                         param = $"double {name.FixNameRule()}";
@@ -96,7 +95,7 @@ namespace FFmpegArgs.Autogens
                         break;
 
                     case "<int>":
-                        if(function.ChildLines.Count == 0)
+                        if (function.ChildLines.Count == 0)
                         {
                             param = $"int {name.FixNameRule()}";
                             body = $"=> this.SetOptionRange(\"{name}\", {name.FixNameRule()},{match_fromto.Groups[1].Value},{match_fromto.Groups[2].Value});";
@@ -242,10 +241,10 @@ namespace FFmpegArgs.Autogens
             return streamWriter;
         }
 
-        static StreamWriter WriteSummary(this StreamWriter streamWriter,params string[] summarys)
+        static StreamWriter WriteSummary(this StreamWriter streamWriter, params string[] summarys)
         {
             streamWriter.WriteLine("/// <summary>");
-            foreach(var summary in summarys)  streamWriter.WriteLine($"/// {summary}");
+            foreach (var summary in summarys) streamWriter.WriteLine($"/// {summary}");
             streamWriter.WriteLine("/// </summary>");
             return streamWriter;
         }
@@ -261,10 +260,10 @@ namespace FFmpegArgs.Autogens
 
         public static void Gen(List<string> filters, List<DocLine> docLines)
         {
-            foreach(var filter in filters)
+            foreach (var filter in filters)
             {
                 Match match = regex_filter.Match(filter);
-                if(match.Success)
+                if (match.Success)
                 {
                     string support = match.Groups[1].Value;
                     string name = match.Groups[2].Value;
@@ -272,20 +271,20 @@ namespace FFmpegArgs.Autogens
                     string description = match.Groups[4].Value;
                     DocLine docLine = docLines.FirstOrDefault(x => x.LineData.StartsWith($"{name} AVOptions:"));
 
-                    if(docLine == null)
+                    if (docLine == null)
                     {
                         Console.WriteLine($"Filters.Gen not found ({name}):{filter}");
                         continue;
                     }
 
-                    if(_skip.Contains(name))
+                    if (_skip.Contains(name))
                     {
                         Console.WriteLine($"Filters.Gen skip ({name}):{filter}");
                         continue;
                     }
 
                     TypeName typeName = GetFilterInheritance(type);
-                    if(typeName == null)
+                    if (typeName == null)
                     {
                         Console.WriteLine($"Filters.Gen skip ({type}):{filter}");
                         continue;
@@ -299,13 +298,13 @@ namespace FFmpegArgs.Autogens
                     streamWriter.WriteUsing();
                     streamWriter.WriteNameSpace();
                     streamWriter.WriteLine("{");
-                    streamWriter.WriteLine($"public class {className} : {string.Join(",",interfaces)}");
+                    streamWriter.WriteLine($"public class {className} : {string.Join(",", interfaces)}");
                     streamWriter.WriteLine("{");
                     streamWriter.WriteLine($"internal {className}({typeName.Input} input) : base(\"{name}\",input) {{ AddMapOut(); }}");
                     List<string> enumDatas = new List<string>();
                     foreach (var func in docLine.ChildLines)
                     {
-                        streamWriter.WriteFunction(func,className,out string enumData);
+                        streamWriter.WriteFunction(func, className, out string enumData);
                         if (!string.IsNullOrWhiteSpace(enumData)) enumDatas.Add(enumData);
                     }
                     streamWriter.WriteLine("}");
@@ -342,17 +341,17 @@ namespace FFmpegArgs.Autogens
             {
                 Inheritance = nameof(AudioToAudioFilter),
                 Input = nameof(AudioMap)
-            }; 
+            };
             if (type.Equals("|->V")) return new TypeName()
             {
                 Inheritance = nameof(SourceImageFilter),
                 Input = nameof(FilterGraph)
-            }; 
+            };
             if (type.Equals("|->A")) return new TypeName()
             {
                 Inheritance = nameof(SourceAudioFilter),
                 Input = nameof(FilterGraph)
-            }; 
+            };
             //skip N->? , ?->N 
             return null;
         }
