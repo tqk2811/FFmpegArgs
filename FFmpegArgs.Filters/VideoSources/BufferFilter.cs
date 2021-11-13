@@ -46,7 +46,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="pix_fmt"></param>
         /// <returns></returns>
-        public BufferFilter PixFmt(FormatPixFmt pix_fmt)
+        public BufferFilter PixFmt(PixFmt pix_fmt)
           => this.SetOption("pix_fmt", pix_fmt);
 
         /// <summary>

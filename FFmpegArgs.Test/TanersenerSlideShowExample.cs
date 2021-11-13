@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using FFmpegArgs.Filters.Enums;
 
 namespace FFmpegArgs.Test
 {
@@ -53,7 +54,7 @@ namespace FFmpegArgs.Test
                 blureds.Add(image
                   .ScaleFilter($"{WIDTH}", $"{HEIGHT}").MapOut
                   .SetSarFilter("1/1").MapOut
-                  .FormatFilter(FormatPixFmt.rgba).MapOut.BoxBlurFilter().LumaRadius($"{100}").MapOut
+                  .FormatFilter(PixFmt.rgba).MapOut.BoxBlurFilter().LumaRadius($"{100}").MapOut
                   .SetSarFilter("1/1").MapOut
                   .FpsFilter($"{FPS}").MapOut);
             }
@@ -66,7 +67,7 @@ namespace FFmpegArgs.Test
                   .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)", $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
                   .ScaleFilter($"trunc(iw/2)*2", $"trunc(ih/2)*2").MapOut
                   .SetSarFilter("1/1").MapOut
-                  .FormatFilter(FormatPixFmt.rgba).MapOut);
+                  .FormatFilter(PixFmt.rgba).MapOut);
             }
 
             //OVERLAY BLURRED AND SCALED INPUTS
@@ -75,7 +76,7 @@ namespace FFmpegArgs.Test
             {
                 overlays.Add(inputs[i]
                   .OverlayFilterOn(blureds[i], "(main_w - overlay_w)/2", "(main_h-overlay_h)/2").MapOut
-                  .FormatFilter(FormatPixFmt.rgba).MapOut
+                  .FormatFilter(PixFmt.rgba).MapOut
                   .SetPtsFilter("PTS-STARTPTS").MapOut
                   .SplitFilter(2).MapsOut);
             }
@@ -144,7 +145,7 @@ namespace FFmpegArgs.Test
             }
             ConcatFilter concatFilter = new ConcatFilter(concatGroups);
             var out_map = concatFilter.ImageMapsOut.First()
-              .FormatFilter(FormatPixFmt.yuv420p).MapOut;
+              .FormatFilter(PixFmt.yuv420p).MapOut;
 
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(@"out.mp4", out_map);
@@ -210,7 +211,7 @@ namespace FFmpegArgs.Test
                     .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
                     .SetSarFilter("1/1").MapOut
                     .FpsFilter($"{FPS}").MapOut
-                    .FormatFilter(FormatPixFmt.rgba).MapOut
+                    .FormatFilter(PixFmt.rgba).MapOut
                     .PadFilter($"{WIDTH * 4}", $"{HEIGHT}").Position($"({WIDTH * 4}-iw)/2", $"({HEIGHT}-ih)/2").Color(BACKGROUND_COLOR).MapOut
                     .TrimFilter().Duration(TimeSpan.FromSeconds((c + 1) * (TRANSITION_DURATION + IMAGE_DURATION))).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
@@ -227,7 +228,7 @@ namespace FFmpegArgs.Test
                         "(main_h-overlay_h)/2").MapOut;
             });
 
-            var output = lastOverLay.FormatFilter(FormatPixFmt.yuv420p).MapOut;
+            var output = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
 
             var videoOut = new ImageFileOutput("PhotoCollection.mp4", output);
             videoOut.VSync(2).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").FrameRate(FPS);
@@ -314,7 +315,7 @@ namespace FFmpegArgs.Test
                         {
                             images_Prepare.Add(images_inputmap[i]
                                 .MakeBlurredBackgroundTemplate($"{WIDTH}", $"{HEIGHT}", "100")
-                                .FormatFilter(FormatPixFmt.rgba).MapOut
+                                .FormatFilter(PixFmt.rgba).MapOut
                                 .BoxBlurFilter().LumaRadius($"100").MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
@@ -367,7 +368,7 @@ namespace FFmpegArgs.Test
             var output = lastOverLay
                 .TrimFilter().Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
                 .FpsFilter($"{FPS}").MapOut
-                .FormatFilter(FormatPixFmt.yuv420p).MapOut;
+                .FormatFilter(PixFmt.yuv420p).MapOut;
             var videoOut = new ImageFileOutput($"PushHorizontalFilm-{screenMode}-{direction}.mp4", output);
             videoOut.VSync(2).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").FrameRate((int)FPS);
 

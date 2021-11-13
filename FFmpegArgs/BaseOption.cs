@@ -6,6 +6,15 @@ namespace FFmpegArgs
     public abstract class BaseOption
     {
         internal readonly Dictionary<string, string> _options = new Dictionary<string, string>();
+        protected const float FLT_MIN = 0;
+        protected const float FLT_MAX = float.MaxValue;
+        protected const int INT_MAX = int.MaxValue;
+        protected const int INT_MIN = int.MinValue;
+        protected const long I64_MAX = long.MaxValue;
+        protected const long I64_MIN = long.MinValue;
+        protected const long UINT32_MAX = long.MaxValue;
+        protected const double DBL_MAX = double.MaxValue;
+        protected const double DBL_MIN = double.MinValue;
     }
 
     public static class BaseOptionExtension

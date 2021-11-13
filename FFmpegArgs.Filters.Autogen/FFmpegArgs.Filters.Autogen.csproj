@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FFmpegArgs.Filters\FFmpegArgs.Filters.csproj" />
+    <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
+  </ItemGroup>
+
+</Project>

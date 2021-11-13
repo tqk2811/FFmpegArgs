@@ -1,4 +1,5 @@
 ﻿using FFmpegArgs.Filters;
+using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.VideoFilters;
 using FFmpegArgs.Filters.VideoSources;
 using FFmpegArgs.Inputs;
@@ -56,7 +57,7 @@ namespace FFmpegArgs.Test
             images.SetOption("-r", 1 / (imageDuration + animationDuration));
             var images_map = filterGraph.AddImageInput(images);
             var pad = images_map.PadFilter("ceil(iw/2)*2", "ceil(ih/2)*2");//fix image size not % 2 = 0
-            var format = pad.MapOut.FormatFilter(FormatPixFmt.rgba);
+            var format = pad.MapOut.FormatFilter(PixFmt.rgba);
             var scale = format.MapOut.ScaleFilter($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)", $"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
 
             //rotate {animationDuration} sec and stop rotate {imageDuration} sec

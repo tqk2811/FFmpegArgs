@@ -1,4 +1,5 @@
-﻿using FFmpegArgs.Filters.VideoFilters;
+﻿using FFmpegArgs.Filters.Enums;
+using FFmpegArgs.Filters.VideoFilters;
 using System.Drawing;
 
 namespace FFmpegArgs.Filters.VideoSources
@@ -9,7 +10,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// </summary>
     public class OpenclsrcFilter : SourceImageFilter
     {
-        internal OpenclsrcFilter(Size size, FormatPixFmt format, FilterGraph filterGraph) : base("openclsrc", filterGraph)
+        internal OpenclsrcFilter(Size size, PixFmt format, FilterGraph filterGraph) : base("openclsrc", filterGraph)
         {
             AddMapOut();
             this.SetOption("s", $"{size.Width}x{size.Height}");
@@ -50,7 +51,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <param name="size">Size of frames to generate. This must be set.</param>
         /// <param name="format">Pixel format to use for the generated frames. This must be set.</param>
         /// <returns></returns>
-        public static OpenclsrcFilter OpenclsrcFilter(this FilterGraph filterGraph, Size size, FormatPixFmt format)
+        public static OpenclsrcFilter OpenclsrcFilter(this FilterGraph filterGraph, Size size, PixFmt format)
           => new OpenclsrcFilter(size, format, filterGraph);
     }
 }

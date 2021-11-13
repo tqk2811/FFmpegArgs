@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FFmpegArgs.Autogens": {
+      "commandName": "Project",
+      "workingDirectory": "$(SolutionDir)"
+    }
+  }
+}

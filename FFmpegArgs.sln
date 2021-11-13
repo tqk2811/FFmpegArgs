@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31727.386
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs", "FFmpegArgs\FFmpegArgs.csproj", "{EE9D823B-2B73-442D-8322-F3DD225E201C}"
 EndProject
@@ -19,6 +19,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Outputs", "FFmpegArgs.Outputs\FFmpegArgs.Outputs.csproj", "{4CF85209-92D2-436F-AA1B-B8CA55F912E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Template", "FFmpegArgs.Template\FFmpegArgs.Template.csproj", "{128E8B9E-C812-4DD4-9C5E-EEC020A55610}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.Autogen", "FFmpegArgs.Filters.Autogen\FFmpegArgs.Filters.Autogen.csproj", "{95229EC5-1AE4-4FD8-A403-2974C5684778}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Autogens", "FFmpegArgs.Autogens\FFmpegArgs.Autogens.csproj", "{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +54,14 @@ Global
 		{128E8B9E-C812-4DD4-9C5E-EEC020A55610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{128E8B9E-C812-4DD4-9C5E-EEC020A55610}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{128E8B9E-C812-4DD4-9C5E-EEC020A55610}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

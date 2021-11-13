@@ -1,4 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
 using FFmpegArgs.Filters.VideoFilters;
 using System;
@@ -84,7 +85,7 @@ namespace FFmpegArgs.Template
             }
             ConcatFilter concatFilter = new ConcatFilter(concatGroups);
             return concatFilter.ImageMapsOut.First()
-              .FormatFilter(FormatPixFmt.yuv420p).MapOut;
+              .FormatFilter(PixFmt.yuv420p).MapOut;
         }
     }
 }
