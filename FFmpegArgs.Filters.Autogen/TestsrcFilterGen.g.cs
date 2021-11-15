@@ -49,7 +49,7 @@ public TestsrcFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>
-public TestsrcFilterGen sar(string sar) => this.SetOption("sar",sar);
+public TestsrcFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,INT_MAX));
 /// <summary>
 ///  set number of decimals to show (from 0 to 17) (default 0)
 /// </summary>

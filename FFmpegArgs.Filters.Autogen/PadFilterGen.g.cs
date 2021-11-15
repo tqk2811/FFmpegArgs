@@ -49,7 +49,7 @@ public PadFilterGen eval(PadFilterGenEval eval) => this.SetOption("eval", eval.G
 /// <summary>
 ///  pad to fit an aspect instead of a resolution (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
-public PadFilterGen aspect(string aspect) => this.SetOption("aspect",aspect);
+public PadFilterGen aspect(Rational aspect) => this.SetOption("aspect",aspect.Check(0,DBL_MAX));
 }
 public static class PadFilterGenExtensions
 {

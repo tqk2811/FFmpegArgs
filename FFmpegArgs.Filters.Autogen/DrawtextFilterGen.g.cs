@@ -109,15 +109,15 @@ public DrawtextFilterGen tc24hmax(bool flag) => this.SetOption("tc24hmax",flag.T
 /// <summary>
 ///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
 /// </summary>
-public DrawtextFilterGen timecode_rate(string timecode_rate) => this.SetOption("timecode_rate",timecode_rate);
+public DrawtextFilterGen timecode_rate(Rational timecode_rate) => this.SetOption("timecode_rate",timecode_rate.Check(0,INT_MAX));
 /// <summary>
 ///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
 /// </summary>
-public DrawtextFilterGen r(string r) => this.SetOption("r",r);
+public DrawtextFilterGen r(Rational r) => this.SetOption("r",r.Check(0,INT_MAX));
 /// <summary>
 ///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
 /// </summary>
-public DrawtextFilterGen rate(string rate) => this.SetOption("rate",rate);
+public DrawtextFilterGen rate(Rational rate) => this.SetOption("rate",rate.Check(0,INT_MAX));
 /// <summary>
 ///  reload text file for each frame (default false)
 /// </summary>

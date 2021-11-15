@@ -49,7 +49,7 @@ public Testsrc2FilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zer
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>
-public Testsrc2FilterGen sar(string sar) => this.SetOption("sar",sar);
+public Testsrc2FilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,INT_MAX));
 /// <summary>
 ///  set global alpha (opacity) (from 0 to 255) (default 255)
 /// </summary>

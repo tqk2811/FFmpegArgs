@@ -33,19 +33,19 @@ public BufferFilterGen pix_fmt(PixFmt pix_fmt) => this.SetOption("pix_fmt",pix_f
 /// <summary>
 ///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
-public BufferFilterGen sar(string sar) => this.SetOption("sar",sar);
+public BufferFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,DBL_MAX));
 /// <summary>
 ///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
-public BufferFilterGen pixel_aspect(string pixel_aspect) => this.SetOption("pixel_aspect",pixel_aspect);
+public BufferFilterGen pixel_aspect(Rational pixel_aspect) => this.SetOption("pixel_aspect",pixel_aspect.Check(0,DBL_MAX));
 /// <summary>
 ///  (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
-public BufferFilterGen time_base(string time_base) => this.SetOption("time_base",time_base);
+public BufferFilterGen time_base(Rational time_base) => this.SetOption("time_base",time_base.Check(0,DBL_MAX));
 /// <summary>
 ///  (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
-public BufferFilterGen frame_rate(string frame_rate) => this.SetOption("frame_rate",frame_rate);
+public BufferFilterGen frame_rate(Rational frame_rate) => this.SetOption("frame_rate",frame_rate.Check(0,DBL_MAX));
 /// <summary>
 /// 
 /// </summary>

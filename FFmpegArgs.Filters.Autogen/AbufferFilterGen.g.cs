@@ -17,7 +17,7 @@ internal AbufferFilterGen(FilterGraph input) : base("abuffer",input) { AddMapOut
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0/1)
 /// </summary>
-public AbufferFilterGen time_base(string time_base) => this.SetOption("time_base",time_base);
+public AbufferFilterGen time_base(Rational time_base) => this.SetOption("time_base",time_base.Check(0,INT_MAX));
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>

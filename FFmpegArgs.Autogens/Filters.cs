@@ -125,7 +125,7 @@ namespace FFmpegArgs.Autogens
                             enumData = stringBuilder.ToString();
 
                             param = $"{className}{name.UpperFirst()} {name.FixNameRule()}";
-                            body = $"=> this.SetOption(\"{name}\", {name.FixNameRule()}.GetAttribute<NameAttribute>().Name);";
+                            body = $"=> this.SetOption(\"{name}\", {name.FixNameRule()}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         }
                         break;
 
@@ -141,7 +141,7 @@ namespace FFmpegArgs.Autogens
 
                     case "<boolean>":
                         param = $"bool flag";
-                        body = $"=> this.SetOption(\"{name}\",flag.ToFFmpegFlag());";
+                        body = $"=> this.SetOption(\"{name}\",flag.{nameof(Extensions.ToFFmpegFlag)}());";
                         break;
 
                     case "<string>":
@@ -174,7 +174,7 @@ namespace FFmpegArgs.Autogens
 
                     case "<color>":
                         param = $"Color {name.FixNameRule()}";
-                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.ToHexStringRGBA());";
+                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.{nameof(FilterExtensions.ToHexStringRGBA)}());";
                         break;
 
                     case "<pix_fmt>":
@@ -183,8 +183,8 @@ namespace FFmpegArgs.Autogens
                         break;
 
                     case "<rational>":
-                        param = $"string {name.FixNameRule()}";
-                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()});";
+                        param = $"{nameof(Rational)} {name.FixNameRule()}";
+                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.{nameof(Rational.Check)}({match_fromto.Groups[1].Value},{match_fromto.Groups[2].Value}));";
                         break;
 
                     case "<flags>":

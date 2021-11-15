@@ -29,7 +29,7 @@ public Vpp_qsvFilterGen detail(int detail) => this.SetOptionRange("detail", deta
 /// <summary>
 ///  output framerate (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
-public Vpp_qsvFilterGen framerate(string framerate) => this.SetOption("framerate",framerate);
+public Vpp_qsvFilterGen framerate(Rational framerate) => this.SetOption("framerate",framerate.Check(0,DBL_MAX));
 /// <summary>
 ///  Enable ProcAmp (from 0 to 1) (default 0)
 /// </summary>

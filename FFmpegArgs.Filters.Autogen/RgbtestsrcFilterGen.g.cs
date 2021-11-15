@@ -49,7 +49,7 @@ public RgbtestsrcFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Z
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>
-public RgbtestsrcFilterGen sar(string sar) => this.SetOption("sar",sar);
+public RgbtestsrcFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,INT_MAX));
 /// <summary>
 ///  set complement colors (default false)
 /// </summary>

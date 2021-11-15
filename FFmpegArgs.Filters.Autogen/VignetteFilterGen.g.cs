@@ -45,7 +45,7 @@ public VignetteFilterGen dither(bool flag) => this.SetOption("dither",flag.ToFFm
 /// <summary>
 ///  set aspect ratio (from 0 to DBL_MAX) (default 1/1)
 /// </summary>
-public VignetteFilterGen aspect(string aspect) => this.SetOption("aspect",aspect);
+public VignetteFilterGen aspect(Rational aspect) => this.SetOption("aspect",aspect.Check(0,DBL_MAX));
 }
 public static class VignetteFilterGenExtensions
 {

@@ -45,7 +45,7 @@ public Pad_openclFilterGen color(Color color) => this.SetOption("color",color.To
 /// <summary>
 ///  pad to fit an aspect instead of a resolution (from 0 to 32767) (default 0/1)
 /// </summary>
-public Pad_openclFilterGen aspect(string aspect) => this.SetOption("aspect",aspect);
+public Pad_openclFilterGen aspect(Rational aspect) => this.SetOption("aspect",aspect.Check(0,32767));
 }
 public static class Pad_openclFilterGenExtensions
 {

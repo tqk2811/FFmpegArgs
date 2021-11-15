@@ -49,7 +49,7 @@ public SmptehdbarsFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>
-public SmptehdbarsFilterGen sar(string sar) => this.SetOption("sar",sar);
+public SmptehdbarsFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,INT_MAX));
 }
 public static class SmptehdbarsFilterGenExtensions
 {

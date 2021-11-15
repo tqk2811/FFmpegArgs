@@ -33,7 +33,7 @@ public AddroiFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  Quantisation offset to apply in the region. (from -1 to 1) (default -1/10)
 /// </summary>
-public AddroiFilterGen qoffset(string qoffset) => this.SetOption("qoffset",qoffset);
+public AddroiFilterGen qoffset(Rational qoffset) => this.SetOption("qoffset",qoffset.Check(-1,1));
 /// <summary>
 ///  Remove any existing regions of interest before adding the new one. (default false)
 /// </summary>
