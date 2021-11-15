@@ -53,8 +53,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static T FontsDir<T>(this T t, string fontsdir) where T : BaseSubtitlesFilter
          => t.SetOption("fontsdir", fontsdir);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Process alpha channel, by default alpha channel is untouched.
         /// </summary>
@@ -62,8 +60,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="t"></param>
         /// <param name="alpha"></param>
         /// <returns></returns>
-        public static T Alpha<T>(this T t, string alpha) where T : BaseSubtitlesFilter
-          => t.SetOption("alpha", alpha);
+        public static T Alpha<T>(this T t, bool alpha) where T : BaseSubtitlesFilter
+          => t.SetOption("alpha", alpha.ToFFmpegFlag());
 
         /// <summary>
         /// Override default style or script info parameters of the subtitles.<br>

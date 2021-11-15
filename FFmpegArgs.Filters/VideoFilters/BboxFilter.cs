@@ -14,12 +14,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Set the minimal luminance value. Default is 16.
+        /// Set the minimal luminance value. (from 0 to 65535) Default is 16.
         /// </summary>
         /// <param name="min_val"></param>
         /// <returns></returns>
-        public BboxFilter MinVal(float min_val)
-          => this.SetOptionRange("min_val", min_val, 0, float.MaxValue);
+        public BboxFilter MinVal(int min_val)
+          => this.SetOptionRange("min_val", min_val, 0, 65535);
     }
 
     public static class BboxFilterExtensions

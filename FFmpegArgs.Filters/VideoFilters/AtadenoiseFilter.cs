@@ -13,9 +13,21 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
 
+        /// <summary>
+        /// Set threshold A for 1,2,3 plane. Default is 0.02. Valid range is 0 to 0.3.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
         public AtadenoiseFilter ThressholdA(AtadenoiseThresholdA a, float val)
           => this.SetOptionRange(a.ToString().Substring(1), val, 0, 0.3);
 
+        /// <summary>
+        /// Set threshold B for 1,2,3 plane. Default is 0.04. Valid range is 0 to 5.
+        /// </summary>
+        /// <param name="b"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
         public AtadenoiseFilter ThressholdB(AtadenoiseThresholdB b, float val)
           => this.SetOptionRange(b.ToString().Substring(1), val, 0, 5);
 
@@ -28,26 +40,22 @@ namespace FFmpegArgs.Filters.VideoFilters
         public AtadenoiseFilter NumberOfFrames(int s)
           => this.SetOptionRange("s", s.IsOdd(), 5, 129);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Set what planes of frame filter will use for averaging. Default is all.
         /// </summary>
-        /// <param name="planes"></param>
+        /// <param name="planes">flags      ..FV.....T. set what planes to filter (default 7)</param>
         /// <returns></returns>
         public AtadenoiseFilter Planes(string planes)
           => this.SetOption("p", planes);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Set what variant of algorithm filter will use for averaging. Default is p parallel. Alternatively can be set to s serial.<br></br>
         /// Parallel can be faster then serial, while other way around is never true. Parallel will abort early on first change being greater then thresholds, while serial will continue processing other side of frames if they are equal or below thresholds.
         /// </summary>
         /// <param name="a"></param>
         /// <returns></returns>
-        public AtadenoiseFilter VariantOfAlgorithm(string a)
-          => this.SetOption("a", a);
+        public AtadenoiseFilter VariantOfAlgorithm(AtadenoiseVariantOfAlgorithm voa)
+          => this.SetOption("a", voa.ToString());
 
 
         /// <summary>
@@ -104,5 +112,17 @@ namespace FFmpegArgs.Filters.VideoFilters
         _0s,
         _1s,
         _2s
+    }
+
+    public enum AtadenoiseVariantOfAlgorithm
+    {
+        /// <summary>
+        /// parallel (default)
+        /// </summary>
+        p,
+        /// <summary>
+        /// serial
+        /// </summary>
+        s
     }
 }

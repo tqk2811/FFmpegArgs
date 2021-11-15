@@ -21,7 +21,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="similarity"></param>
         /// <returns></returns>
         public ChromaholdFilter Similarity(float similarity)
-          => this.SetOptionRange("similarity", similarity, 0, 1);
+          => this.SetOptionRange("similarity", similarity, 0.01f, 1);
 
         /// <summary>
         /// Blend percentage. 0.0 makes pixels either fully gray, or not gray at all. Higher values result in more preserved color.
@@ -37,8 +37,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="yuv"></param>
         /// <returns></returns>
-        public ChromaholdFilter YUV(string yuv)
-          => this.SetOption("yuv", yuv);
+        public ChromaholdFilter YUV(bool yuv)
+          => this.SetOption("yuv", yuv.ToFFmpegFlag());
     }
 
     public static class ChromaholdFilterExtensions

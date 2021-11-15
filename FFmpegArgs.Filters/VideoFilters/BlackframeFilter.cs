@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class BlackframeFilter : ImageToImageFilter
     {
-        internal BlackframeFilter(ImageMap imageMap) : base("", imageMap)
+        internal BlackframeFilter(ImageMap imageMap) : base("blackframe", imageMap)
         {
             AddMapOut();
         }
@@ -18,7 +18,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public BlackframeFilter Amount(float amount)
+        public BlackframeFilter Amount(int amount)
           => this.SetOptionRange("amount", amount, 0, 100);
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="thresh"></param>
         /// <returns></returns>
         public BlackframeFilter Threshold(int thresh)
-          => this.SetOptionRange("thresh", thresh, 0, int.MaxValue);
+          => this.SetOptionRange("thresh", thresh, 0, 255);
     }
 
     public static class BlackframeFilterExtensions

@@ -58,7 +58,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         public static DrawBoxFilter DrawBoxFilter(this ImageMap imageMap, Color color,
-         string x, string y, string w, string h)
+         string x = "0", string y = "0", string w = "0", string h = "0")
         {
             return new DrawBoxFilter(color, x.Expression(), y.Expression(), w.Expression(), h.Expression(), imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
         }

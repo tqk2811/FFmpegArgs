@@ -14,12 +14,13 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Set which plane to analyze. Default is 1.
+        /// Set which plane to analyze. Default is 1.<br>
+        /// </br>..FV....... set bit plane to use for measuring noise (from 1 to 16) (default 1)
         /// </summary>
         /// <param name="bitplane"></param>
         /// <returns></returns>
         public BitplanenoiseFilter Bitplane(int bitplane)
-          => this.SetOptionRange("bitplane", bitplane, 0, int.MaxValue);
+          => this.SetOptionRange("bitplane", bitplane, 0, 16);
 
         /// <summary>
         /// Filter out noisy pixels from bitplane set above. Default is disabled.

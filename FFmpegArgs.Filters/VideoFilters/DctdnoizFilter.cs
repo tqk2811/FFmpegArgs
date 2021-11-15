@@ -20,22 +20,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Set the noise sigma constant.<br>
         /// </br>This sigma defines a hard threshold of 3 * sigma; every DCT coefficient(absolute value) below this threshold with be dropped.<br>
         /// </br>If you need a more advanced filtering, see <see cref="Expr"/>.<br>
-        /// </br>Default is 0.
+        /// </br>(from 0 to 999) (default 0)
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public DctdnoizFilter Sigma(string s)
-            => Sigma(s.Expression());
-        /// <summary>
-        /// Set the noise sigma constant.<br>
-        /// </br>This sigma defines a hard threshold of 3 * sigma; every DCT coefficient(absolute value) below this threshold with be dropped.<br>
-        /// </br>If you need a more advanced filtering, see <see cref="Expr"/>.<br>
-        /// </br>Default is 0.
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public DctdnoizFilter Sigma(Action<Expression> s)
-            => this.SetOption("s", s.Run(expression));
+        public DctdnoizFilter Sigma(float s)
+            => this.SetOptionRange("s", s, 0, 999);
 
         /// <summary>
         /// Set number overlapping pixels for each block. Since the filter can be slow, you may want to reduce this value, at the cost of a less effective filter and the risk of various artefacts.<br>
@@ -45,7 +35,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="overlap"></param>
         /// <returns></returns>
         public DctdnoizFilter Overlap(int overlap)
-            => this.SetOptionRange("overlap", overlap, 0, int.MaxValue);
+            => this.SetOptionRange("overlap", overlap, -1, 15);
 
 
         /// <summary>
@@ -72,12 +62,13 @@ namespace FFmpegArgs.Filters.VideoFilters
 
         /// <summary>
         /// Set the blocksize using the number of bits. 1&lt;&lt;n defines the blocksize, which is the width and height of the processed blocks.<br>
-        /// </br>The default value is 3 (8x8) and can be raised to 4 for a blocksize of 16x16.Note that changing this setting has huge consequences on the speed processing. Also, a larger block size does not necessarily means a better de-noising.
+        /// </br>The default value is 3 (8x8) and can be raised to 4 for a blocksize of 16x16.Note that changing this setting has huge consequences on the speed processing. Also, a larger block size does not necessarily means a better de-noising.<br>
+        /// </br>(from 3 to 4) (default 3)
         /// </summary>
-        /// <param name="n"></param>
+        /// <param name="n">(from 3 to 4) (default 3)</param>
         /// <returns></returns>
         public DctdnoizFilter Blocksize(int n)
-            => this.SetOptionRange("n", n, 0, int.MaxValue);
+            => this.SetOptionRange("n", n, 3, 4);
 
     }
 

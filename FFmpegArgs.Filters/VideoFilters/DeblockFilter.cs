@@ -39,12 +39,12 @@ namespace FFmpegArgs.Filters.VideoFilters
             => this.SetOptionRange(name.ToString(), val, 0, 1);
 
         /// <summary>
-        /// Set planes to filter. Default is to filter all available planes.
+        /// Set planes to filter. Default is to filter all available planes. (from 0 to 15) (default 15)
         /// </summary>
         /// <param name="planes"></param>
         /// <returns></returns>
         public DeblockFilter Planes(int planes)
-            => this.SetOptionRange("planes", planes, 0, int.MaxValue);
+            => this.SetOptionRange("planes", planes, 0, 15);
     }
 
     public static class DeblockFilterExtensions

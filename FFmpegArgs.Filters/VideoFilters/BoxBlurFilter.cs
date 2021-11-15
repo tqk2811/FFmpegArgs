@@ -83,30 +83,33 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Specify how many times the boxblur filter is applied to the corresponding plane.<br></br>
         /// Default value for luma_power is 2. If not specified, chroma_power and alpha_power default to the corresponding value set for luma_power.<br></br>
-        /// A value of 0 will disable the effect.
+        /// A value of 0 will disable the effect.<br>
+        /// </br>(from 0 to INT_MAX) (default 2)
         /// </summary>
         /// <param name="lp"></param>
         /// <returns></returns>
-        public BoxBlurFilter LumaPower(double lp)
-          => this.SetOption("lp", lp);
+        public BoxBlurFilter LumaPower(int lp)
+          => this.SetOptionRange("lp", lp, 0, int.MaxValue);
         /// <summary>
         /// Specify how many times the boxblur filter is applied to the corresponding plane.<br></br>
         /// Default value for luma_power is 2. If not specified, chroma_power and alpha_power default to the corresponding value set for luma_power.<br></br>
-        /// A value of 0 will disable the effect.
+        /// A value of 0 will disable the effect.<br>
+        /// </br>(from -1 to INT_MAX) (default-1)
         /// </summary>
         /// <param name="lp"></param>
         /// <returns></returns>
-        public BoxBlurFilter ChromaPower(double cp)
-          => this.SetOption("cp", cp);
+        public BoxBlurFilter ChromaPower(int cp)
+          => this.SetOptionRange("cp", cp, -1, int.MaxValue);
         /// <summary>
         /// Specify how many times the boxblur filter is applied to the corresponding plane.<br></br>
         /// Default value for luma_power is 2. If not specified, chroma_power and alpha_power default to the corresponding value set for luma_power.<br></br>
-        /// A value of 0 will disable the effect.
+        /// A value of 0 will disable the effect.<br>
+        /// </br>(from -1 to INT_MAX) (default-1)
         /// </summary>
         /// <param name="lp"></param>
         /// <returns></returns>
-        public BoxBlurFilter AlphaPower(double ap)
-          => this.SetOption("ap", ap);
+        public BoxBlurFilter AlphaPower(int ap)
+          => this.SetOptionRange("ap", ap, -1, int.MaxValue);
 
     }
 

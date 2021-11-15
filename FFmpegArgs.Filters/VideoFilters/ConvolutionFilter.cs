@@ -16,7 +16,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Set matrix for each plane. Matrix is sequence of 9, 25 or 49 signed integers in square mode, and from 1 to 49 odd number of signed integers in row mode.
+        /// Set matrix for each plane. Matrix is sequence of 9, 25 or 49 signed integers in square mode, and from 1 to 49 odd number of signed integers in row mode.<br>
+        /// </br>(default "0 0 0 0 1 0 0 0 0")
         /// </summary>
         /// <param name="plane"></param>
         /// <param name="val"></param>
@@ -30,8 +31,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="plane"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public ConvolutionFilter Multiplier(ConvolutionPlane plane, string val)
-            => this.SetOption($"{plane.ToString().Substring(1)}rdiv", val.Expression().Run(expression));
+        public ConvolutionFilter Multiplier(ConvolutionPlane plane, float val)
+            => this.SetOptionRange($"{plane.ToString().Substring(1)}rdiv", val, 0, int.MaxValue);
 
         /// <summary>
         /// Set bias for each plane. This value is added to the result of the multiplication. Useful for making the overall image brighter or darker.<br>
@@ -40,8 +41,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="plane"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public ConvolutionFilter Bias(ConvolutionPlane plane, double val)
-           => this.SetOptionRange($"{plane.ToString().Substring(1)}bias", val, double.MinValue, double.MaxValue);
+        public ConvolutionFilter Bias(ConvolutionPlane plane, float val)
+           => this.SetOptionRange($"{plane.ToString().Substring(1)}bias", val, 0, int.MaxValue);
 
         /// <summary>
         /// Set matrix mode for each plane. Can be square, row or column. Default is square.

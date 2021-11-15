@@ -27,24 +27,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="cue"></param>
         /// <returns></returns>
-        public CueFilter Preroll(double preroll)
-            => this.SetOptionRange("preroll", preroll, 0, double.MaxValue);
-
-        /// <summary>
-        /// The duration of content to pass on as preroll expressed in seconds. Default is 0.
-        /// </summary>
-        /// <param name="cue"></param>
-        /// <returns></returns>
         public CueFilter Preroll(TimeSpan preroll)
             => this.SetOptionRange("preroll", preroll, TimeSpan.Zero, TimeSpan.MaxValue);
-
-        /// <summary>
-        /// The maximum duration of content to buffer before waiting for the cue expressed in seconds. Default is 0.
-        /// </summary>
-        /// <param name="buffer"></param>
-        /// <returns></returns>
-        public CueFilter Buffer(double buffer)
-            => this.SetOptionRange("buffer", buffer, 0, long.MaxValue);
 
         /// <summary>
         /// The maximum duration of content to buffer before waiting for the cue expressed in seconds. Default is 0.

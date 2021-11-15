@@ -47,12 +47,12 @@ namespace FFmpegArgs.Filters.VideoSources
           => this.SetOption("test", test);
 
         /// <summary>
-        /// Set the maximum number of frames generated for each test, default value is 30.
+        /// Set the maximum number of frames generated for each test, (from 1 to I64_MAX) (default 30)
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public MptestsrcFilter MaxFrames(int m)
-          => this.SetOptionRange("m", m, 0, int.MaxValue);
+        public MptestsrcFilter MaxFrames(long m)
+          => this.SetOptionRange("m", m, 1, int.MaxValue);
     }
 
     public static class MptestsrcFilterExtensions

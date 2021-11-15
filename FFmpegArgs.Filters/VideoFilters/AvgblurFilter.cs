@@ -14,29 +14,32 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Set horizontal radius size.
+        /// Set horizontal radius size.<br>
+        /// </br>(from 1 to 1024) (default 1)
         /// </summary>
         /// <param name="sizeX"></param>
         /// <returns></returns>
-        public AvgblurFilter SizeX(double sizeX)
-          => this.SetOptionRange("sizeX", sizeX, 0, double.MaxValue);
+        public AvgblurFilter SizeX(int sizeX)
+          => this.SetOptionRange("sizeX", sizeX, 1, 1024);
 
         /// <summary>
-        /// Set which planes to filter. By default all planes are filtered.
+        /// Set which planes to filter. By default all planes are filtered.<br>
+        /// </br>(from 0 to 15) (default 15)
         /// </summary>
         /// <param name="planes"></param>
         /// <returns></returns>
         public AvgblurFilter Planes(int planes)
-          => this.SetOptionRange("planes", planes, 0, int.MaxValue);
+          => this.SetOptionRange("planes", planes, 0, 15);
 
 
         /// <summary>
-        /// Set vertical radius size, if zero it will be same as sizeX. Default is 0.
+        /// Set vertical radius size, if zero it will be same as sizeX.<br>
+        /// </br> (from 0 to 1024) (default 0)
         /// </summary>
         /// <param name="sizeY"></param>
         /// <returns></returns>
-        public AvgblurFilter SizeY(double sizeY)
-         => this.SetOptionRange("sizeY", sizeY, 0, double.MaxValue);
+        public AvgblurFilter SizeY(int sizeY)
+         => this.SetOptionRange("sizeY", sizeY, 0, 1024);
     }
 
     public static class AvgblurFilterExtensions

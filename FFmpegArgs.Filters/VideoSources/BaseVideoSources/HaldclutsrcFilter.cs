@@ -14,12 +14,12 @@
         /// <summary>
         /// Specify the level of the Hald CLUT, only available in the haldclutsrc source.<br>
         /// </br> A level of N generates a picture of N*N*N by N*N*N pixels to be used as identity matrix for 3D lookup tables.<br>
-        /// </br> Each component is coded on a 1/(N*N) scale.
+        /// </br> Each component is coded on a 1/(N*N) scale. (from 2 to 16) (default 6)
         /// </summary>
         /// <param name="level"></param>
         /// <returns></returns>
         public HaldclutsrcFilter Level(int level)
-          => this.SetOptionRange("level", level, 1, int.MaxValue);
+          => this.SetOptionRange("level", level, 2, 16);
     }
 
     public static class HaldclutsrcFilterExtensions

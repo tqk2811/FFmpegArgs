@@ -51,13 +51,13 @@ namespace FFmpegArgs.Filters.VideoSources
           => this.SetOption(colorIndex.ToString(), color.ToHexStringRGBA());
 
         /// <summary>
-        /// Set gradient line source and destination points. If negative or out of range, random ones are picked.
+        /// Set gradient line source and destination points. If negative or out of range, random ones are picked. (from -1 to INT_MAX) (default -1)
         /// </summary>
         /// <param name="gradientsPoint"></param>
         /// <param name="val"></param>
         /// <returns></returns>
         public GradientsFilter Points(GradientsPoint gradientsPoint, int val)
-          => this.SetOptionRange(gradientsPoint.ToString(), val, 0, int.MaxValue);
+          => this.SetOptionRange(gradientsPoint.ToString(), val, -1, int.MaxValue);
 
         /// <summary>
         /// Set number of colors to use at once. Allowed range is from 2 to 8. Default value is 2.
@@ -68,12 +68,12 @@ namespace FFmpegArgs.Filters.VideoSources
           => this.SetOptionRange("n", n, 2, 8);
 
         /// <summary>
-        /// Set seed for picking gradient line points.
+        /// Set seed for picking gradient line points. (from -1 to UINT32_MAX) (default -1)
         /// </summary>
         /// <param name="seed"></param>
         /// <returns></returns>
         public GradientsFilter Seed(uint seed)
-          => this.SetOptionRange("seed", seed, 0, long.MaxValue);
+          => this.SetOptionRange("seed", seed, -1, long.MaxValue);
 
         /// <summary>
         /// Set the duration of the sourced video<br></br>
@@ -85,12 +85,12 @@ namespace FFmpegArgs.Filters.VideoSources
           => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
 
         /// <summary>
-        /// Set speed of gradients rotation.
+        /// Set speed of gradients rotation. (from 1e-05 to 1) (default 0.01)
         /// </summary>
         /// <param name="speed"></param>
         /// <returns></returns>
         public GradientsFilter Speed(float speed)
-          => this.SetOptionRange("speed", speed, float.MinValue, float.MaxValue);
+          => this.SetOptionRange("speed", speed, 1e-05f, 1);
     }
 
     public static class GradientsFilterExtensions

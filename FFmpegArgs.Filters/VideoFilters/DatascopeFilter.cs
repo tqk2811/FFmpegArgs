@@ -13,8 +13,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
             this.SetOption("s", $"{size.Width}x{size.Height}");
-            this.SetOption("x", x);
-            this.SetOption("y", y);
+            this.SetOptionRange("x", x, 0, int.MaxValue);
+            this.SetOptionRange("y", y, 0, int.MaxValue);
         }
 
         /// <summary>
@@ -26,15 +26,13 @@ namespace FFmpegArgs.Filters.VideoFilters
             => this.SetOption("mode", mode);
 
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Draw rows and columns numbers on left and top of video.
         /// </summary>
         /// <param name="axis"></param>
         /// <returns></returns>
-        public DatascopeFilter axis(string axis)
-            => this.SetOption("axis", axis);
+        public DatascopeFilter Axis(bool axis)
+            => this.SetOption("axis", axis.ToFFmpegFlag());
 
         /// <summary>
         /// Set background opacity.
@@ -52,15 +50,14 @@ namespace FFmpegArgs.Filters.VideoFilters
         public DatascopeFilter Format(DatascopeFormat format)
             => this.SetOption("format", format);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set pixel components to display. By default all pixel components are displayed.
+        /// Set pixel components to display. By default all pixel components are displayed.<br>
+        /// </br>set components to display (from 1 to 15) (default 15)
         /// </summary>
         /// <param name="components"></param>
         /// <returns></returns>
-        public DatascopeFilter Components(string components)
-             => this.SetOption("components", components);
+        public DatascopeFilter Components(int components)
+             => this.SetOptionRange("components", components, 1, 15);
     }
 
     public static class DatascopeFilterExtensions
@@ -70,8 +67,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// This filter shows hexadecimal pixel values of part of video.
         /// </summary>
         /// <param name="size">Set output video size.</param>
-        /// <param name="x">Set x offset from where to pick pixels.</param>
-        /// <param name="y">Set y offset from where to pick pixels.</param>
+        /// <param name="x">Set x offset from where to pick pixels.(from 0 to INT_MAX) (default 0)</param>
+        /// <param name="y">Set y offset from where to pick pixels.(from 0 to INT_MAX) (default 0)</param>
         /// <returns></returns>
         public static DatascopeFilter DatascopeFilter(this ImageMap imageMap, Size size, int x, int y)
           => new DatascopeFilter(imageMap, size, x, y);
