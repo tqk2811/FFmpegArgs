@@ -29,7 +29,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="pic_th"></param>
         /// <returns></returns>
-        public BlackdetectFilter PictureBlackRatioTh(float pic_th)
+        public BlackdetectFilter PictureBlackRatioTh(double pic_th)
           => this.SetOptionRange("pic_th", pic_th, 0, 1);
 
         /// <summary>
@@ -41,8 +41,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="pix_th"></param>
         /// <returns></returns>
-        public BlackdetectFilter PixelBlackTh(float pix_th)
-          => this.SetOptionRange("pic_th", pix_th, 0, 1);
+        public BlackdetectFilter PixelBlackTh(double pix_th)
+          => this.SetOptionRange("pix_th", pix_th, 0, 1);
     }
 
     public static class BlackdetectFilterExtensions

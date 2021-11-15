@@ -1,5 +1,6 @@
 ﻿using FFmpegArgs.Filters.Enums;
 using System;
+using System.Drawing;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -46,7 +47,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="ratio"></param>
         /// <returns></returns>
-        public CellautoFilter RandomFillRatio(float ratio)
+        public CellautoFilter RandomFillRatio(double ratio)
           => this.SetOptionRange("ratio", ratio, 0.0f, 1.0f);
 
         /// <summary>
@@ -55,7 +56,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="seed"></param>
         /// <returns></returns>
-        public CellautoFilter RandomSeed(uint seed)
+        public CellautoFilter RandomSeed(long seed)
           => this.SetOptionRange("seed", seed, -1, uint.MaxValue);
 
         /// <summary>
@@ -77,12 +78,15 @@ namespace FFmpegArgs.Filters.VideoSources
         public CellautoFilter Size(VideoSizeUtils videoSize)
           => this.SetOption("s", videoSize.GetAttribute<NameAttribute>().Name);
 
-        public CellautoFilter Size(int width, int height)
-        {
-            if (width <= 0) throw new ArgumentOutOfRangeException($"{nameof(width)} need > 0");
-            if (height <= 0) throw new ArgumentOutOfRangeException($"{nameof(height)} need > 0");
-            return this.SetOption("s", $"{width}x{height}");
-        }
+        /// <summary>
+        /// Set the size of the output video. For the syntax of this option.<br></br>
+        /// If filename or pattern is specified, the size is set by default to the width of the specified initial state row, and the height is set to width* PHI.<br></br>
+        /// If size is set, it must contain the width of the specified pattern string, and the specified pattern will be centered in the larger row.<br></br>
+        /// If a filename or a pattern string is not specified, the size value defaults to "320x518" (used for a randomly generated initial state).<br></br>
+        /// </summary>
+        /// <returns></returns>
+        public CellautoFilter Size(Size size)
+            => this.SetOption("s", $"{size.Width}x{size.Height}");
 
         /// <summary>
         /// If set to 1, scroll the output upward when all the rows in the output have been already filled.<br>
@@ -109,6 +113,14 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public CellautoFilter Stitch(bool flag)
           => this.SetOption("stitch", flag.ToFFmpegFlag());
+
+        /// <summary>
+        /// start filling the whole video (default true)
+        /// </summary>
+        /// <param name="flag"></param>
+        /// <returns></returns>
+        public CellautoFilter Full(bool flag)
+          => this.SetOption("full", flag.ToFFmpegFlag());
     }
 
     public static class CellautoFilterExtensions

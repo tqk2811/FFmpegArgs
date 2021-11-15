@@ -36,30 +36,6 @@ namespace FFmpegArgs.Filters.VideoSources
          => t.SetOptionRange("r", r, 1, int.MaxValue);
 
         /// <summary>
-        /// Specify the frame rate of the sourced video, as the number of frames generated per second.<br>
-        /// </br> It has to be a string in the format frame_rate_num/frame_rate_den, an integer number, a floating point number or a valid video frame rate abbreviation.<br>
-        /// </br> The default value is "25".
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="r"></param>
-        /// <returns></returns>
-        public static T Rate<T>(this T t, string r) where T : BaseVideoSource
-          => t.SetOption("r", r.Expression().Run(expression));
-
-        /// <summary>
-        /// Specify the frame rate of the sourced video, as the number of frames generated per second.<br>
-        /// </br> It has to be a string in the format frame_rate_num/frame_rate_den, an integer number, a floating point number or a valid video frame rate abbreviation.<br>
-        /// </br> The default value is "25".
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="r"></param>
-        /// <returns></returns>
-        public static T Rate<T>(this T t, Action<Expression> r) where T : BaseVideoSource
-          => t.SetOption("r", r.Run(expression));
-
-        /// <summary>
         /// If not specified, or the expressed duration is negative, the video is supposed to be generated forever.<br></br>
         /// Since the frame rate is used as time base, all frames including the last one will have their full duration.<br>
         /// </br>If the specified duration is not a multiple of the frame duration, it will be rounded up.

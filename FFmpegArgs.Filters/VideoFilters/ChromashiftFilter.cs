@@ -13,33 +13,37 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
         /// <summary>
-        /// Set amount to shift chroma-blue horizontally.
+        /// Set amount to shift chroma-blue horizontally.<br>
+        /// </br>(from -255 to 255) (default 0)
         /// </summary>
         /// <param name="cbh"></param>
         /// <returns></returns>
         public ChromashiftFilter Cbh(int cbh)
-          => this.SetOptionRange("cbh", cbh, 0, int.MaxValue);
+          => this.SetOptionRange("cbh", cbh, -255, 255);
         /// <summary>
-        /// Set amount to shift chroma-blue vertically.
+        /// Set amount to shift chroma-blue vertically.<br>
+        /// </br>(from -255 to 255) (default 0)
         /// </summary>
         /// <param name="cbv"></param>
         /// <returns></returns>
         public ChromashiftFilter Cbv(int cbv)
-          => this.SetOptionRange("cbv", cbv, 0, int.MaxValue);
+          => this.SetOptionRange("cbv", cbv,  -255, 255);
         /// <summary>
-        /// Set amount to shift chroma-red horizontally.
+        /// Set amount to shift chroma-red horizontally.<br>
+        /// </br>(from -255 to 255) (default 0)
         /// </summary>
         /// <param name="crh"></param>
         /// <returns></returns>
         public ChromashiftFilter Crh(int crh)
-          => this.SetOptionRange("crh", crh, 0, int.MaxValue);
+          => this.SetOptionRange("crh", crh, -255, 255);
         /// <summary>
-        /// Set amount to shift chroma-red vertically.
+        /// Set amount to shift chroma-red vertically.<br>
+        /// </br>(from -255 to 255) (default 0)
         /// </summary>
         /// <param name="crv"></param>
         /// <returns></returns>
         public ChromashiftFilter Crv(int crv)
-          => this.SetOptionRange("crv", crv, 0, int.MaxValue);
+          => this.SetOptionRange("crv", crv, -255, 255);
 
         /// <summary>
         /// Set edge mode, can be smear, default, or warp.

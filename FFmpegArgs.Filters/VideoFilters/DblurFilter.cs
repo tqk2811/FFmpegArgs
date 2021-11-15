@@ -14,28 +14,28 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Set angle of directional blur. Default is 45.
+        /// Set angle of directional blur (from 0 to 360) (default 45)
         /// </summary>
         /// <param name="angle"></param>
         /// <returns></returns>
-        public DblurFilter Angle(int angle)
-            => this.SetOptionRange("angle", angle, int.MinValue, int.MaxValue);
+        public DblurFilter Angle(float angle)
+            => this.SetOptionRange("angle", angle, 0, 360);
 
         /// <summary>
-        /// Set radius of directional blur. Default is 5.
+        /// Set radius of directional blur (from 1 to 8192) (default 5)
         /// </summary>
         /// <param name="radius"></param>
         /// <returns></returns>
-        public DblurFilter Radius(int radius)
-           => this.SetOptionRange("radius", radius, int.MinValue, int.MaxValue);
+        public DblurFilter Radius(float radius)
+           => this.SetOptionRange("radius", radius, 1, 8192);
 
         /// <summary>
-        /// Set which planes to filter. By default all planes are filtered.
+        /// Set which planes to filter. By default all planes are filtered. (from 0 to 15) (default 15)
         /// </summary>
         /// <param name="planes"></param>
         /// <returns></returns>
         public DblurFilter Planes(int planes)
-           => this.SetOptionRange("planes", planes, int.MinValue, int.MaxValue);
+           => this.SetOptionRange("planes", planes, 0, 15);
 
     }
 

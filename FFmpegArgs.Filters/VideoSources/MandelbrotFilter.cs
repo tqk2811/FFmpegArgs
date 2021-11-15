@@ -19,16 +19,16 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="end_pts"></param>
         /// <returns></returns>
-        public MandelbrotFilter EndPts(long end_pts)
-          => this.SetOptionRange("end_pts", end_pts, 0, long.MaxValue);
+        public MandelbrotFilter EndPts(double end_pts)
+          => this.SetOptionRange("end_pts", end_pts, 0, I64_MAX);
 
         /// <summary>
         /// Set the terminal scale value. Must be a floating point value. Default value is 0.3.
         /// </summary>
         /// <param name="end_scale"></param>
         /// <returns></returns>
-        public MandelbrotFilter EndScale(float end_scale)
-          => this.SetOptionRange("end_scale", end_scale, float.MinValue, float.MaxValue);
+        public MandelbrotFilter EndScale(double end_scale)
+          => this.SetOptionRange("end_scale", end_scale,0, I64_MAX);
 
         /// <summary>
         /// Set the inner coloring mode, that is the algorithm used to draw the Mandelbrot fractal internal region.
@@ -39,20 +39,20 @@ namespace FFmpegArgs.Filters.VideoSources
           => this.SetOption("inner", colorMode);
 
         /// <summary>
-        /// Set the bailout value. Default value is 10.0.
+        /// Set the bailout value. (from 0 to FLT_MAX) (default 10)
         /// </summary>
         /// <param name="bailout"></param>
         /// <returns></returns>
         public MandelbrotFilter Bailout(double bailout)
-          => this.SetOptionRange("bailout", bailout, double.MinValue, double.MaxValue);
+          => this.SetOptionRange("bailout", bailout, 0, FLT_MAX);
 
         /// <summary>
-        /// Set the maximum of iterations performed by the rendering algorithm. Default value is 7189.
+        /// Set the maximum of iterations performed by the rendering algorithm. (from 1 to INT_MAX) (default 7189)
         /// </summary>
         /// <param name="maxiter"></param>
         /// <returns></returns>
         public MandelbrotFilter Maxiter(int maxiter)
-         => this.SetOptionRange("maxiter", maxiter, int.MinValue, int.MaxValue);
+         => this.SetOptionRange("maxiter", maxiter, 1, int.MaxValue);
 
         /// <summary>
         /// Set outer coloring mode
@@ -89,12 +89,12 @@ namespace FFmpegArgs.Filters.VideoSources
           => this.SetOption("s", $"{s.Width}x{s.Height}");
 
         /// <summary>
-        /// Set the initial scale value. Default value is 3.0.
+        /// Set the initial scale value. from 0 to FLT_MAX) (default 3)
         /// </summary>
         /// <param name="start_scale"></param>
         /// <returns></returns>
         public MandelbrotFilter StartScale(double start_scale)
-          => this.SetOptionRange("start_scale", start_scale, double.MinValue, double.MaxValue);
+          => this.SetOptionRange("start_scale", start_scale, 0, FLT_MAX);
 
         /// <summary>
         /// Set the initial x position. Must be a floating point value between -100 and 100.<br>
@@ -113,6 +113,23 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter StartY(decimal y)
           => this.SetOptionRange("start_y", y, -100, 100);
+
+
+        /// <summary>
+        /// set morph x frequency (from -FLT_MAX to FLT_MAX) (default 0.01)
+        /// </summary>
+        /// <param name="morphxf"></param>
+        /// <returns></returns>
+        public MandelbrotFilter morphxf(double morphxf)
+            => this.SetOptionRange("morphxf", morphxf, double.MinValue, double.MaxValue);
+
+        /// <summary>
+        /// set morph y frequency (from -FLT_MAX to FLT_MAX) (default 0.0123)
+        /// </summary>
+        /// <param name="morphyf"></param>
+        /// <returns></returns>
+        public MandelbrotFilter Morphyf(double morphyf)
+            => this.SetOptionRange("morphyf", morphyf, double.MinValue, double.MaxValue);
     }
 
     public static class MandelbrotFilterExtensions

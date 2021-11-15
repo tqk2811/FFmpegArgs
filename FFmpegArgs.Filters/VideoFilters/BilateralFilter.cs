@@ -30,12 +30,13 @@ namespace FFmpegArgs.Filters.VideoFilters
           => this.SetOptionRange("sigmaR", sigmaR, 0, 1);
 
         /// <summary>
-        /// Set planes to filter. Default is first only.
+        /// Set planes to filter. Default is first only.<br></br>
+        /// ..FV.....T. set planes to filter (from 0 to 15) (default 1)
         /// </summary>
         /// <param name="planes"></param>
         /// <returns></returns>
         public BilateralFilter Planes(int planes)
-          => this.SetOptionRange("planes", planes, 0, int.MaxValue);
+          => this.SetOptionRange("planes", planes, 0, 15);
     }
 
     public static class BilateralFilterExtensions

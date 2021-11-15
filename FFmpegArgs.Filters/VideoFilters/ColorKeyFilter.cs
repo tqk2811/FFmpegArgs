@@ -17,12 +17,12 @@ namespace FFmpegArgs.Filters.VideoFilters
 
         /// <summary>
         /// Similarity percentage with the key color.<br></br>
-        /// 0.01 matches only the exact key color, while 1.0 matches everything.
+        /// 0.01 matches only the exact key color, while 1.0 matches everything. (from 0.01 to 1) (default 0.01)
         /// </summary>
         /// <param name="similarity"></param>
         /// <returns></returns>
         public ColorKeyFilter Similarity(float similarity)
-          => this.SetOptionRange("similarity", similarity, 0, 1);
+          => this.SetOptionRange("similarity", similarity, 0.01, 1);
 
         /// <summary>
         /// Blend percentage.<br>

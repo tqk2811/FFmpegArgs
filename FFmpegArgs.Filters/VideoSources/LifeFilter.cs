@@ -40,26 +40,8 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="ratio"></param>
         /// <returns></returns>
-        public LifeFilter RandomFillRatio(float ratio)
+        public LifeFilter RandomFillRatio(double ratio)
           => this.SetOptionRange("ratio", ratio, 0, 1);
-
-        /// <summary>
-        /// Set the random fill ratio for the initial random grid. It is a floating point number value ranging from 0 to 1, defaults to 1/PHI.<br>
-        /// </br> It is ignored when a file is specified.
-        /// </summary>
-        /// <param name="ratio"></param>
-        /// <returns></returns>
-        public LifeFilter RandomFillRatio(string ratio)
-          => this.SetOption("ratio", ratio.Expression().Run(expression));
-
-        /// <summary>
-        /// Set the random fill ratio for the initial random grid. It is a floating point number value ranging from 0 to 1, defaults to 1/PHI.<br>
-        /// </br> It is ignored when a file is specified.
-        /// </summary>
-        /// <param name="ratio"></param>
-        /// <returns></returns>
-        public LifeFilter RandomFillRatio(Action<Expression> ratio)
-         => this.SetOption("ratio", ratio.Run(expression));
 
         /// <summary>
         /// Set the seed for filling the initial random grid, must be an integer included between 0 and UINT32_MAX.<br>
@@ -106,8 +88,8 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="stitch"></param>
         /// <returns></returns>
-        public LifeFilter Stitch(float stitch)
-          => this.SetOption("stitch", stitch);
+        public LifeFilter Stitch(bool stitch)
+          => this.SetOption("stitch", stitch.ToFFmpegFlag());
 
         /// <summary>
         /// Set cell mold speed.<br></br>

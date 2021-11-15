@@ -18,7 +18,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="hue"></param>
         /// <returns></returns>
-        public ColorizeFilter Hue(int hue)
+        public ColorizeFilter Hue(float hue)
           => this.SetOptionRange("hue", hue, 0, 360);
 
         /// <summary>

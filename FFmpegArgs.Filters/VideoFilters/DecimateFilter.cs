@@ -14,28 +14,28 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Set the number of frames from which one will be dropped. Setting this to N means one frame in every batch of N frames will be dropped. Default is 5.
+        /// Set the number of frames from which one will be dropped. Setting this to N means one frame in every batch of N frames will be dropped. (from 2 to 25) (default 5)
         /// </summary>
         /// <param name="cycle"></param>
         /// <returns></returns>
         public DecimateFilter Cycle(int cycle)
-            => this.SetOptionRange("cycle", cycle, 0, int.MaxValue);
+            => this.SetOptionRange("cycle", cycle, 2, 25);
 
         /// <summary>
-        /// Set the threshold for duplicate detection. If the difference metric for a frame is less than or equal to this value, then it is declared as duplicate. Default is 1.1
+        /// Set the threshold for duplicate detection. If the difference metric for a frame is less than or equal to this value, then it is declared as duplicate. (from 0 to 100) (default 1.1)
         /// </summary>
         /// <param name="dupthresh"></param>
         /// <returns></returns>
         public DecimateFilter Dupthresh(double dupthresh)
-            => this.SetOptionRange("dupthresh", dupthresh, 0, double.MaxValue);
+            => this.SetOptionRange("dupthresh", dupthresh, 0, 100);
 
         /// <summary>
-        /// Set scene change threshold. Default is 15.
+        /// Set scene change threshold. (from 0 to 100) (default 1.1)
         /// </summary>
         /// <param name="scthresh"></param>
         /// <returns></returns>
-        public DecimateFilter Scthresh(int scthresh)
-            => this.SetOptionRange("scthresh", scthresh, 0, int.MaxValue);
+        public DecimateFilter Scthresh(double scthresh)
+            => this.SetOptionRange("scthresh", scthresh, 0, 100);
 
         /// <summary>
         /// Set the size of the x and y-axis blocks used during metric calculations. Larger blocks give better noise suppression, but also give worse detection of small movements. Must be a power of two. Default is 32.
@@ -58,16 +58,16 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="ppsrc"></param>
         /// <returns></returns>
-        public DecimateFilter Ppsrc(double ppsrc)
-            => this.SetOptionRange("ppsrc", ppsrc, double.MinValue, double.MaxValue);
+        public DecimateFilter Ppsrc(bool ppsrc)
+            => this.SetOption("ppsrc", ppsrc.ToFFmpegFlag());
 
         /// <summary>
         /// Set whether or not chroma is considered in the metric calculations. Default is 1.
         /// </summary>
         /// <param name="chroma"></param>
         /// <returns></returns>
-        public DecimateFilter Chroma(double chroma)
-            => this.SetOptionRange("chroma", chroma, double.MinValue, double.MaxValue);
+        public DecimateFilter Chroma(bool chroma)
+            => this.SetOption("chroma", chroma.ToFFmpegFlag());
     }
 
     public static class DecimateFilterExtensions

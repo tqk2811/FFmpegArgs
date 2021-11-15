@@ -34,36 +34,32 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="system"></param>
         /// <returns></returns>
-        public CiescopeFilter Gamuts(CiescopeColorSystem system)
-          => this.SetOption("system", system.ToString().Substring(1));
+        public CiescopeFilter Gamuts(CiescopeColorSystem gamuts)
+          => this.SetOption("gamuts", gamuts.ToString().Substring(1));
 
         /// <summary>
-        /// Set ciescope size, by default set to 512.
+        /// Set ciescope size, by default set to 512. (from 256 to 8192) (default 512)
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
         public CiescopeFilter Size(int s)
-          => this.SetOptionRange("s", s, 0, int.MaxValue);
+          => this.SetOptionRange("s", s, 256, 8192);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set intensity used to map input pixel values to CIE diagram.
+        /// Set intensity used to map input pixel values to CIE diagram. (from 0 to 1) (default 0.001)
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public CiescopeFilter Intensity(string i)
-          => this.SetOption("i", i);
+        public CiescopeFilter Intensity(float i)
+          => this.SetOptionRange("i", i, 0, 1);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set contrast used to draw tongue colors that are out of active color system gamut.
+        /// Set contrast used to draw tongue colors that are out of active color system gamut. (from 0 to 1) (default 0.75)
         /// </summary>
         /// <param name="contrast"></param>
         /// <returns></returns>
-        public CiescopeFilter Contrast(string contrast)
-          => this.SetOption("contrast", contrast);
+        public CiescopeFilter Contrast(float contrast)
+          => this.SetOptionRange("contrast", contrast, 0, 1);
 
         /// <summary>
         /// Correct gamma displayed on scope, by default enabled.
@@ -81,15 +77,13 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CiescopeFilter Showwhite(bool showwhite)
           => this.SetOption("showwhite", showwhite.ToFFmpegFlag());
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set input gamma. Used only with XYZ input color space.
+        /// Set input gamma. Used only with XYZ input color space. (from 0.1 to 6) (default 2.6)
         /// </summary>
         /// <param name="gamma"></param>
         /// <returns></returns>
-        public CiescopeFilter Gamma(string gamma)
-          => this.SetOption("gamma", gamma);
+        public CiescopeFilter Gamma(double gamma)
+          => this.SetOptionRange("gamma", gamma, 0.1, 6);
     }
 
     public static class CiescopeFilterExtensions

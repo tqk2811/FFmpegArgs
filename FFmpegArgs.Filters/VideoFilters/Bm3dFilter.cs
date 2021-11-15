@@ -22,15 +22,14 @@ namespace FFmpegArgs.Filters.VideoFilters
         public Bm3dFilter Sigma(float sigma)
           => this.SetOptionRange("sigma", sigma, 0, 999.9f);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set local patch size. This sets dimensions in 2D.
+        /// Set local patch size. This sets dimensions in 2D.<br>
+        /// </br>..FV....... set log2(size) of local patch (from 4 to 6) (default 4)
         /// </summary>
         /// <param name="block"></param>
         /// <returns></returns>
-        public Bm3dFilter Block(string block)
-          => this.SetOption("block", block);
+        public Bm3dFilter Block(int block)
+          => this.SetOptionRange("block", block,4,6);
 
         /// <summary>
         /// Set sliding step for processing blocks. Default value is 4. Allowed range is from 1 to 64.<br>
@@ -71,19 +70,17 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="thmse"></param>
         /// <returns></returns>
-        public Bm3dFilter Thmse(int thmse)
+        public Bm3dFilter Thmse(float thmse)
           => this.SetOptionRange("thmse", thmse, 0, int.MaxValue);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Set thresholding parameter for hard thresholding in 3D transformed domain.<br>
         /// </br> Larger values results in stronger hard-thresholding filtering in frequency domain.
         /// </summary>
         /// <param name="hdthr"></param>
         /// <returns></returns>
-        public Bm3dFilter HdThr(string hdthr)
-          => this.SetOption("hdthr", hdthr);
+        public Bm3dFilter HdThr(float hdthr)
+          => this.SetOptionRange("hdthr", hdthr, 0, int.MaxValue);
 
         /// <summary>
         /// Set filtering estimation mode. Can be basic or final. Default is basic.
@@ -103,7 +100,8 @@ namespace FFmpegArgs.Filters.VideoFilters
           => this.SetOption("ref", flag.ToFFmpegFlag());
 
         /// <summary>
-        /// Set planes to filter. Default is all available except alpha.
+        /// Set planes to filter. Default is all available except alpha.<br>
+        /// </br>..FV....... set planes to filter (from 0 to 15) (default 7)
         /// </summary>
         /// <param name="planes"></param>
         /// <returns></returns>

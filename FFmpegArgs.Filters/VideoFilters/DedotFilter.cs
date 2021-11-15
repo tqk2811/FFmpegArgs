@@ -18,40 +18,40 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public DedotFilter M(string mode)
+        public DedotFilter M(DedotFilteringMode mode)
             => this.SetOption("m", mode);
 
         /// <summary>
-        /// Set spatial luma threshold. Lower values increases reduction of cross-luminance.
+        /// Set spatial luma threshold. Lower values increases reduction of cross-luminance. (from 0 to 1) (default 0.079)
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public DedotFilter Lt(string mode)
-           => this.SetOption("lt", mode);
+        public DedotFilter Lt(float val)
+           => this.SetOptionRange("lt", val, 0,1);
 
         /// <summary>
-        /// Set tolerance for temporal luma.Higher values increases reduction of cross-luminance.
+        /// Set tolerance for temporal luma.Higher values increases reduction of cross-luminance. (from 0 to 1) (default 0.079)
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public DedotFilter Tl(string mode)
-           => this.SetOption("tl", mode);
+        public DedotFilter Tl(float val)
+           => this.SetOptionRange("tl",  val, 0,1);
 
         /// <summary>
-        /// Set tolerance for chroma temporal variation. Higher values increases reduction of cross-color.
+        /// Set tolerance for chroma temporal variation. Higher values increases reduction of cross-color. (from 0 to 1) (default 0.058)
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public DedotFilter Tc(string mode)
-           => this.SetOption("tc", mode);
+        public DedotFilter Tc(float val)
+           => this.SetOptionRange("tc", val, 0,1);
 
         /// <summary>
-        /// Set temporal chroma threshold. Lower values increases reduction of cross-color.
+        /// Set temporal chroma threshold. Lower values increases reduction of cross-color. (from 0 to 1) (default 0.019)
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public DedotFilter Ct(string mode)
-           => this.SetOption("ct", mode);
+        public DedotFilter Ct(float val)
+           => this.SetOptionRange("ct", val, 0, 1);
 
     }
 
@@ -62,5 +62,11 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         public static DedotFilter DedotFilter(this ImageMap imageMap)
           => new DedotFilter(imageMap);
+    }
+
+    public enum DedotFilteringMode
+    {
+        dotcrawl,
+        rainbows
     }
 }

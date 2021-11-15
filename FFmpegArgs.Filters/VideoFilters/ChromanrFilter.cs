@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="thres"></param>
         /// <returns></returns>
-        public ChromanrFilter Thres(int thres)
+        public ChromanrFilter Thres(float thres)
           => this.SetOptionRange("thres", thres, 1, 200);
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="threy"></param>
         /// <returns></returns>
-        public ChromanrFilter ThreY(int threy)
+        public ChromanrFilter ThreY(float threy)
           => this.SetOptionRange("threy", threy, 1, 200);
         /// <summary>
         /// Set U threshold for averaging chrominance values.<br>
@@ -67,7 +67,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="threu"></param>
         /// <returns></returns>
-        public ChromanrFilter ThreU(int threu)
+        public ChromanrFilter ThreU(float threu)
           => this.SetOptionRange("threu", threu, 1, 200);
         /// <summary>
         /// Set V threshold for averaging chrominance values.<br>
@@ -76,7 +76,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="threv"></param>
         /// <returns></returns>
-        public ChromanrFilter ThreV(int threv)
+        public ChromanrFilter ThreV(float threv)
           => this.SetOptionRange("threv", threv, 1, 200);
 
         /// <summary>

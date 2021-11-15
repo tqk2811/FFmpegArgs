@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     {
         internal SubtitlesFilter(string fileName, ImageMap imageMap) : base(fileName, "subtitles", imageMap)
         {
-
+            
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="si"></param>
         /// <returns></returns>
         public SubtitlesFilter StreamIndex(int si)
-          => this.SetOptionRange("si", si, 0, int.MaxValue);
+          => this.SetOptionRange("si", si, -1, int.MaxValue);
     }
 
     public static class SubtitlesFilterExtensions

@@ -19,8 +19,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="contribution"></param>
         /// <param name="val"></param>
         /// <returns></returns>
-        public ColorchannelmixerFilter AdjustContribution(ColorchannelmixerContribution contribution, float val)
-          => this.SetOptionRange(contribution.ToString(), val, -2.0f, 2.0f);
+        public ColorchannelmixerFilter AdjustContribution(ColorchannelmixerContribution contribution, double val)
+          => this.SetOptionRange(contribution.ToString(), val, -2.0, 2.0);
 
         /// <summary>
         /// Set preserve color mode.

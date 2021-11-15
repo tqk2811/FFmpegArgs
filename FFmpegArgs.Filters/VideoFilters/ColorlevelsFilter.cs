@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
 
-        public ColorlevelsFilter Adjust(ColorlevelsAdjustName adjust, float val)
+        public ColorlevelsFilter Adjust(ColorlevelsAdjustName adjust, double val)
         {
             FloatRangeAttribute range = adjust.GetAttribute<FloatRangeAttribute>();
             return this.SetOptionRange(adjust.ToString(), val, range.Min, range.Max);

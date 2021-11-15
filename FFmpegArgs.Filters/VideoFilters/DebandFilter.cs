@@ -31,23 +31,15 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="range"></param>
         /// <returns></returns>
         public DebandFilter Range(int range)
-            => this.SetOptionRange("range", range, 0, int.MaxValue);
+            => this.SetOptionRange("range", range, int.MinValue, int.MaxValue);
 
         /// <summary>
         /// Set direction in radians from which four pixel will be compared. If positive, random direction from 0 to set direction will be picked. If negative, exact of absolute value will be picked. For example direction 0, -PI or -2*PI radians will pick only pixels on same row and -PI/2 will pick only pixels on same column.
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
-        public DebandFilter Direction(Action<Expression> d)
-            => this.SetOption("d", d.Run(expression));
-
-        /// <summary>
-        /// Set direction in radians from which four pixel will be compared. If positive, random direction from 0 to set direction will be picked. If negative, exact of absolute value will be picked. For example direction 0, -PI or -2*PI radians will pick only pixels on same row and -PI/2 will pick only pixels on same column.
-        /// </summary>
-        /// <param name="d"></param>
-        /// <returns></returns>
-        public DebandFilter Direction(string d)
-            => Direction(d.Expression());
+        public DebandFilter Direction(float d)
+            => this.SetOptionRange("d", d, -6.28319, 6.28319);
 
         /// <summary>
         /// If enabled, current pixel is compared with average value of all four surrounding pixels. The default is enabled. If disabled current pixel is compared with all four surrounding pixels. The pixel is considered banded if only all four differences with surrounding pixels are less than threshold.

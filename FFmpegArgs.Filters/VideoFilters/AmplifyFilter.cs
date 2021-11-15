@@ -67,12 +67,13 @@ namespace FFmpegArgs.Filters.VideoFilters
           => this.SetOptionRange("high", high, 0, 65535);
 
         /// <summary>
-        /// Set which planes to filter. Default is all. Allowed range is from 0 to 15.
+        /// Set which planes to filter. Default is all. Allowed range is from 0 to 15.<br>
+        /// </br>flags      ..FV.....T. set what planes to filter (default 7)
         /// </summary>
         /// <param name="planes"></param>
         /// <returns></returns>
-        public AmplifyFilter Planes(int planes)
-          => this.SetOptionRange("planes", planes, 0, 15);
+        public AmplifyFilter Planes(string planes)
+          => this.SetOption("planes", planes);
     }
 
     public static class AmplifyFilterExtensions

@@ -17,30 +17,30 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Specify the number of the frame to start applying the fade effect at. Default is 0.
+        /// Specify the number of the frame to start applying the fade effect at. (from 0 to INT_MAX) (default 0)
         /// </summary>
         /// <param name="frame"></param>
         /// <returns></returns>
-        public FadeFilter StartFrame(long frame)
-          => this.SetOptionRange("s", frame, 0, long.MaxValue);
+        public FadeFilter StartFrame(int frame)
+          => this.SetOptionRange("s", frame, 0, int.MaxValue);
 
         /// <summary>
         /// The number of frames that the fade effect lasts. At the end of the fade-in effect, the output video will have the same intensity as the input video.<br>
         /// </br> At the end of the fade-out transition, the output video will be filled with the selected color.<br>
-        /// </br> Default is 25.
+        /// </br> (from 1 to INT_MAX) (default 25)
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
         public FadeFilter NbFrames(int n)
-          => this.SetOptionRange("n", n, 0, int.MaxValue);
+          => this.SetOptionRange("n", n, 1, int.MaxValue);
 
         /// <summary>
         /// If set to 1, fade only alpha channel, if one exists on the input. Default value is 0.
         /// </summary>
         /// <param name="alpha"></param>
         /// <returns></returns>
-        public FadeFilter Alpha(float alpha)
-          => this.SetOptionRange("alpha", alpha, 0, 1);
+        public FadeFilter Alpha(bool alpha)
+          => this.SetOption("alpha", alpha.ToFFmpegFlag());
 
         /// <summary>
         /// Specify the timestamp (in seconds) of the frame to start to apply the fade effect.<br>
@@ -48,8 +48,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="st"></param>
         /// <returns></returns>
-        public FadeFilter StartTime(double st)
-          => this.SetOptionRange("st", st, 0, double.MaxValue);
+        public FadeFilter StartTime(TimeSpan st)
+          => this.SetOptionRange("st", st, TimeSpan.Zero, TimeSpan.MaxValue);
 
         /// <summary>
         /// The number of seconds for which the fade effect has to last.<br>

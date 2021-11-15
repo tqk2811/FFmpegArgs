@@ -18,7 +18,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="temperature"></param>
         /// <returns></returns>
-        public ColortemperatureFilter Temperature(int temperature)
+        public ColortemperatureFilter Temperature(float temperature)
             => this.SetOptionRange("temperature", temperature, 1000, 40000);
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="mix"></param>
         /// <returns></returns>
-        public ColortemperatureFilter Mix(int mix)
+        public ColortemperatureFilter Mix(float mix)
           => this.SetOptionRange("mix", mix, 0, 1);
 
         /// <summary>

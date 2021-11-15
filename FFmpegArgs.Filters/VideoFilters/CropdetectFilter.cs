@@ -14,22 +14,14 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
 
         /// <summary>
-        /// Set higher black value threshold, which can be optionally specified from nothing (0) to everything (255 for 8-bit based formats). An intensity value greater to the set value is considered non-black.<br>
-        /// </br> It defaults to 24. 
-        /// </summary>
-        /// <param name="limit"></param>
-        /// <returns></returns>
-        public CropdetectFilter Limit(int limit)
-            => this.SetOptionRange("limit", limit, 0, 255);
-
-        /// <summary>
         /// Set higher black value threshold,  An intensity value greater to the set value is considered non-black<br></br>
-        /// You can also specify a value between 0.0 and 1.0 which will be scaled depending on the bitdepth of the pixel format.
+        /// You can also specify a value between 0.0 and 1.0 which will be scaled depending on the bitdepth of the pixel format.<br>
+        /// </br>(from 0 to 65535) (default 0.0941176)
         /// </summary>
         /// <param name="limit"></param>
         /// <returns></returns>
         public CropdetectFilter Limit(float limit)
-            => this.SetOptionRange("limit", limit, 0, 1);
+            => this.SetOptionRange("limit", limit, 0, 65535);
 
         /// <summary>
         /// The value which the width/height should be divisible by. It defaults to 16. The offset is automatically adjusted to center the video.<br>
@@ -39,6 +31,15 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CropdetectFilter Round(int round)
             => this.SetOptionRange("round", round, 0, int.MaxValue);
+
+        /// <summary>
+        /// Recalculate the crop area after this many frames (from 0 to INT_MAX) (default 0)
+        /// </summary>
+        /// <param name="reset"></param>
+        /// <returns></returns>
+        public CropdetectFilter Reset(int reset)
+            => this.SetOptionRange("reset", reset, 0, int.MaxValue);
+
 
         /// <summary>
         /// Set the number of initial frames for which evaluation is skipped. Default is 2. Range is 0 to INT_MAX.

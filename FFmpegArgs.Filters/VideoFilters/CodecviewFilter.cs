@@ -31,15 +31,13 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CodecviewFilter MV(CodecviewMotionVector motionVector)
           => this.SetOption("mf", motionVector);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Display quantization parameters using the chroma planes.
+        /// Display quantization parameters using the chroma planes.(default false)
         /// </summary>
         /// <param name="qp"></param>
         /// <returns></returns>
-        public CodecviewFilter QP(string qp)
-          => this.SetOption("qp", qp);
+        public CodecviewFilter QP(bool qp)
+          => this.SetOption("qp", qp.ToFFmpegFlag());
 
         /// <summary>
         /// Set motion vectors type to visualize. Includes MVs from all frames unless specified by frame_type option.
