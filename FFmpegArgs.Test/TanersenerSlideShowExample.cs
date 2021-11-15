@@ -248,8 +248,8 @@ namespace FFmpegArgs.Test
         {
             int WIDTH = 1280;
             int HEIGHT = 720;
-            double FPS = 24;
-            double TRANSITION_DURATION = 2;
+            double FPS = 60;
+            double TRANSITION_DURATION = 3;
             ScreenMode screenMode = ScreenMode.Blur;///# 1=CENTER, 2=CROP, 3=SCALE, 4=BLUR
             Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
             HorizontalDirection direction = HorizontalDirection.LeftToRight;//1=LEFT TO RIGHT, 2=RIGHT TO LEFT
@@ -314,9 +314,8 @@ namespace FFmpegArgs.Test
                     case ScreenMode.Blur:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .MakeBlurredBackgroundTemplate($"{WIDTH}", $"{HEIGHT}", "100")
+                                .MakeBlurredBackgroundTemplate(WIDTH, HEIGHT, "100")
                                 .FormatFilter(PixFmt.rgba).MapOut
-                                .BoxBlurFilter().LumaRadius($"100").MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
                         }
@@ -370,7 +369,13 @@ namespace FFmpegArgs.Test
                 .FpsFilter($"{FPS}").MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
             var videoOut = new ImageFileOutput($"PushHorizontalFilm-{screenMode}-{direction}.mp4", output);
-            videoOut.VSync(2).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").FrameRate((int)FPS);
+            videoOut
+                .VSync(2)
+                .SetOption("-rc-lookahead", 0)
+                .SetOption("-g", 0)
+                .SetOption("-c:v", "libx264")
+                //.SetOption("-b:v", "3000")
+                .FrameRate((int)FPS);
 
             filterGraph.AddOutput(videoOut);
 
