@@ -1,18 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net5.0</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net462;net5.0;net6.0</TargetFrameworks>
+		<LangVersion>8.0</LangVersion>
+		<PackageProjectUrl>https://github.com/tqk2811/FFmpegArgs</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/tqk2811/FFmpegArgs</RepositoryUrl>
+		<PackageTags>ffmpeg ffmpeg-command ffmpeg-script</PackageTags>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Exceptions\**" />
-    <EmbeddedResource Remove="Exceptions\**" />
-    <None Remove="Exceptions\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Exceptions\**" />
+		<EmbeddedResource Remove="Exceptions\**" />
+		<None Remove="Exceptions\**" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
+	</ItemGroup>
 
 </Project>
