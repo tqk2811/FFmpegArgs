@@ -32,8 +32,8 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <param name="t"></param>
         /// <param name="r"></param>
         /// <returns></returns>
-        public static T Rate<T>(this T t, int r) where T : BaseVideoSource
-         => t.SetOptionRange("r", r, 1, int.MaxValue);
+        public static T Rate<T>(this T t, Rational r) where T : BaseVideoSource
+         => t.SetOption("r", r);
 
         /// <summary>
         /// If not specified, or the expressed duration is negative, the video is supposed to be generated forever.<br></br>

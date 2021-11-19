@@ -25,19 +25,11 @@ public GradientsFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{siz
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
-public GradientsFilterGen Rate(string r) => this.SetOption("rate", r);
+public GradientsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
-public GradientsFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public GradientsFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public GradientsFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public GradientsFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set 1st color (default "random")
 /// </summary>

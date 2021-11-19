@@ -25,19 +25,11 @@ public SmptebarsFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{siz
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public SmptebarsFilterGen Rate(string r) => this.SetOption("rate", r);
+public SmptebarsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public SmptebarsFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public SmptebarsFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public SmptebarsFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public SmptebarsFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>

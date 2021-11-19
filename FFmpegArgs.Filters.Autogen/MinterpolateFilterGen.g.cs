@@ -17,11 +17,7 @@ internal MinterpolateFilterGen(ImageMap input) : base("minterpolate",input) { Ad
 /// <summary>
 ///  output's frame rate (default "60")
 /// </summary>
-public MinterpolateFilterGen Fps(string r) => this.SetOption("fps", r);
-/// <summary>
-///  output's frame rate (default "60")
-/// </summary>
-public MinterpolateFilterGen fps(int r) => this.SetOptionRange("fps", r, 1, int.MaxValue);
+public MinterpolateFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 /// <summary>
 ///  motion interpolation mode (from 0 to 2) (default mci)
 /// </summary>

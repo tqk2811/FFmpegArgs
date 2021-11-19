@@ -33,19 +33,11 @@ public LifeFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Hei
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public LifeFilterGen Rate(string r) => this.SetOption("rate", r);
+public LifeFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public LifeFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public LifeFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public LifeFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public LifeFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set rule (default "B3/S23")
 /// </summary>

@@ -18,15 +18,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
-        public MptestsrcFilter Rate(float r)
-          => this.SetOptionRange("r", r, 0, float.MaxValue);
-
-        /// <summary>
-        /// Specify the frame rate of the sourced video, as the number of frames generated per second. It has to be a string in the format frame_rate_num/frame_rate_den, an integer number, a floating point number or a valid video frame rate abbreviation.<br></br> The default value is "25".
-        /// </summary>
-        /// <param name="r"></param>
-        /// <returns></returns>
-        public MptestsrcFilter Rate(string r)
+        public MptestsrcFilter Rate(Rational r)
           => this.SetOption("r", r);
 
         /// <summary>

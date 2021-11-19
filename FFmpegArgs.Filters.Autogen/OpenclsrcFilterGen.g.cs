@@ -37,19 +37,11 @@ public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format",forma
 /// <summary>
 ///  Video frame rate (default "25")
 /// </summary>
-public OpenclsrcFilterGen Rate(string r) => this.SetOption("rate", r);
+public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  Video frame rate (default "25")
 /// </summary>
-public OpenclsrcFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  Video frame rate (default "25")
-/// </summary>
-public OpenclsrcFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  Video frame rate (default "25")
-/// </summary>
-public OpenclsrcFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public OpenclsrcFilterGen r(Rational r) => this.SetOption("r",r);
 }
 public static class OpenclsrcFilterGenExtensions
 {

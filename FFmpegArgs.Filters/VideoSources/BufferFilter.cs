@@ -1,6 +1,7 @@
 ﻿using FFmpegArgs.Expressions;
 using FFmpegArgs.Filters.Enums;
 using System;
+using System.Drawing;
 
 namespace FFmpegArgs.Filters.VideoSources
 {
@@ -23,6 +24,14 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter VideoSize(VideoSizeUtils videoSize)
           => this.SetOption("video_size", videoSize.GetAttribute<NameAttribute>().Name);
+
+        /// <summary>
+        /// Specify the size (width and height) of the buffered video frames.
+        /// </summary>
+        /// <param name="videoSize"></param>
+        /// <returns></returns>
+        public BufferFilter VideoSize(Size videoSize)
+          => this.SetOption("video_size", $"{videoSize.Width}x{videoSize.Height}");
 
         /// <summary>
         /// The input video width.
@@ -49,43 +58,36 @@ namespace FFmpegArgs.Filters.VideoSources
           => this.SetOption("pix_fmt", pix_fmt);
 
         /// <summary>
-        /// Specify the timebase assumed by the timestamps of the buffered frames.
+        /// Specify the timebase assumed by the timestamps of the buffered frames.<br></br>(from 0 to DBL_MAX) (default 0/1)
         /// </summary>
         /// <param name="time_base"></param>
         /// <returns></returns>
-        public BufferFilter TimeBase(TimeSpan time_base)
-          => this.SetOptionRange("time_base", time_base, TimeSpan.Zero, TimeSpan.MaxValue);
+        public BufferFilter TimeBase(Rational time_base)
+          => this.SetOption("time_base", time_base.Check(0, INT_MAX));
 
         /// <summary>
-        /// Specify the frame rate expected for the video stream.
+        /// Specify the frame rate expected for the video stream.<br></br>(from 0 to DBL_MAX) (default 0/1)
         /// </summary>
         /// <param name="frame_rate"></param>
         /// <returns></returns>
-        public BufferFilter FrameRate(float frame_rate)
-          => this.SetOptionRange("frame_rate", frame_rate, 0, float.MaxValue);
+        public BufferFilter FrameRate(Rational frame_rate)
+          => this.SetOption("frame_rate", frame_rate.Check(0, DBL_MAX));
 
         /// <summary>
-        /// The sample (pixel) aspect ratio of the input video.
+        /// (pixel_aspect) The sample (pixel) aspect ratio of the input video.<br>
+        /// </br>sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
         /// </summary>
         /// <param name="sar"></param>
         /// <returns></returns>
-        public BufferFilter Sar(string sar)
-          => this.SetOption("sar", sar.Expression().Run(expression));
+        public BufferFilter Sar(Rational sar)
+          => this.SetOption("sar", sar.Check(0, DBL_MAX));
 
         /// <summary>
-        /// The sample (pixel) aspect ratio of the input video.
+        /// 
         /// </summary>
-        /// <param name="sar"></param>
         /// <returns></returns>
-        public BufferFilter Sar(Action<Expression> sar)
-          => this.SetOption("sar", sar.Run(expression));
-
-        ///// <summary>
-        ///// When using a hardware pixel format, this should be a reference to an AVHWFramesContext describing input frames.
-        ///// </summary>
-        ///// <returns></returns>
-        //public BufferFilter HwFramesCtx(hw_frames_ctx)
-        //  => this.SetOption("hw_frames_ctx", hw_frames_ctx);
+        public BufferFilter SwsParam(string sws_param)
+          => this.SetOption("sws_param", sws_param);
     }
 
     public static class BufferFilterExtensions

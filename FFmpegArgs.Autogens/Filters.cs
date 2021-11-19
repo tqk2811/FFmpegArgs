@@ -1,5 +1,6 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Filters;
+using FFmpegArgs.Filters.Enums;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -100,33 +101,7 @@ namespace FFmpegArgs.Autogens
                             param = $"int {name.FixNameRule()}";
                             body = $"=> this.SetOptionRange(\"{name}\", {name.FixNameRule()},{match_fromto.Groups[1].Value},{match_fromto.Groups[2].Value});";
                         }
-                        else
-                        {
-                            Dictionary<string, string> pairs = new Dictionary<string, string>();
-                            foreach (var item in function.ChildLines)
-                            {
-                                Match match_enum = regex_DocLineMethod.Match(item.LineData);
-                                if (match_enum.Success)
-                                {
-                                    string enumName = match_enum.Groups[1].Value;
-                                    pairs[enumName.FixNameRule()] = enumName;
-                                    //stringBuilder.AppendLine($"[Name(\"{enumName}\")] {enumName.FixNameRule()},");
-                                }
-                                else Console.WriteLine($"enum {className}{name.UpperFirst()} error: {item.LineData}");
-                            }
-
-                            StringBuilder stringBuilder = new StringBuilder();
-                            stringBuilder.AppendLine($"public enum {className}{name.UpperFirst()}\r\n{{");
-                            foreach (var item in pairs)
-                            {
-                                stringBuilder.AppendLine($"[Name(\"{item.Value}\")] {item.Key},");
-                            }
-                            stringBuilder.AppendLine($"}}");
-                            enumData = stringBuilder.ToString();
-
-                            param = $"{className}{name.UpperFirst()} {name.FixNameRule()}";
-                            body = $"=> this.SetOption(\"{name}\", {name.FixNameRule()}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
-                        }
+                        else WriteFunctionWithEnum(function, name, className, out param, out body, out enumData);
                         break;
 
                     case "<int64>":
@@ -149,19 +124,6 @@ namespace FFmpegArgs.Autogens
                         body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()});";
                         break;
 
-                    case "<video_rate>"://string and int
-                        //string
-                        param = $"string r";
-                        body = $"=> this.SetOption(\"{name}\", r);";
-
-                        streamWriter.WriteSummary(description);
-                        streamWriter.WriteLine($"public {className} {name.UpperFirst()}({param}) {body}");
-
-                        //int
-                        param = $"int r";
-                        body = $"=> this.SetOptionRange(\"{name}\", r, 1, int.MaxValue);";
-                        break;
-
                     case "<image_size>":
                         param = $"Size size";
                         body = $"=> this.SetOption(\"{name}\",$\"{{size.Width}}x{{size.Height}}\");";
@@ -178,8 +140,13 @@ namespace FFmpegArgs.Autogens
                         break;
 
                     case "<pix_fmt>":
-                        param = $"PixFmt {name.FixNameRule()}";
+                        param = $"{nameof(PixFmt)} {name.FixNameRule()}";
                         body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.ToString());";
+                        break;
+
+                    case "<video_rate>":
+                        param = $"{nameof(Rational)} {name.FixNameRule()}";
+                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()});";
                         break;
 
                     case "<rational>":
@@ -188,44 +155,19 @@ namespace FFmpegArgs.Autogens
                         break;
 
                     case "<flags>":
-                        {
-                            Dictionary<string, string> pairs = new Dictionary<string, string>();
-                            foreach (var item in function.ChildLines)
-                            {
-                                Match match_enum = regex_DocLineMethod.Match(item.LineData);
-                                if (match_enum.Success)
-                                {
-                                    string enumName = match_enum.Groups[1].Value;
-                                    pairs[enumName.FixNameRule()] = enumName;
-                                }
-                                else Console.WriteLine($"enum {className}{name.UpperFirst()} error: {item.LineData}");
-                            }
-
-                            StringBuilder stringBuilder = new StringBuilder();
-                            stringBuilder.AppendLine($"public enum {className}{name.UpperFirst()}\r\n{{");
-                            foreach (var item in pairs)
-                            {
-                                stringBuilder.AppendLine($"[Name(\"{item.Value}\")] {item.Key},");
-                            }
-                            stringBuilder.AppendLine($"}}");
-                            enumData = stringBuilder.ToString();
-
-                            param = $"{className}{name.UpperFirst()} {name.FixNameRule()}";
-                            body = $"=> this.SetOption(\"{name}\", {name.FixNameRule()}.GetAttribute<NameAttribute>().Name);";
-                        }
+                        WriteFunctionWithEnum(function, name, className, out param, out body, out enumData);
                         break;
 
                     case "<channel_layout>":
-                        param = $"AV_CH_LAYOUT {name.FixNameRule()}";
-                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.GetAttribute<NameAttribute>().Name);";
+                        param = $"{nameof(AV_CH_LAYOUT)} {name.FixNameRule()}";
+                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         break;
 
                     case "<sample_fmt>":
-                        param = $"AVSampleFormat {name.FixNameRule()}";
-                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.GetAttribute<NameAttribute>().Name);";
+                        param = $"{nameof(AVSampleFormat)} {name.FixNameRule()}";
+                        body = $"=> this.SetOption(\"{name}\",{name.FixNameRule()}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         break;
 
-                    //flags
                     //dictionary
                     //binary
                     default:
@@ -240,6 +182,34 @@ namespace FFmpegArgs.Autogens
             else Console.WriteLine($"{className}: function error: {function.LineData}");
             return streamWriter;
         }
+
+        static void WriteFunctionWithEnum(DocLine function,string name, string className,out string param, out string body, out string enumData)
+        {
+            Dictionary<string, string> pairs = new Dictionary<string, string>();
+            foreach (var item in function.ChildLines)
+            {
+                Match match_enum = regex_DocLineMethod.Match(item.LineData);
+                if (match_enum.Success)
+                {
+                    string enumName = match_enum.Groups[1].Value;
+                    pairs[enumName.FixNameRule()] = enumName;
+                }
+                else Console.WriteLine($"enum {className}{name.UpperFirst()} error: {item.LineData}");
+            }
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.AppendLine($"public enum {className}{name.UpperFirst()}\r\n{{");
+            foreach (var item in pairs)
+            {
+                stringBuilder.AppendLine($"[Name(\"{item.Value}\")] {item.Key},");
+            }
+            stringBuilder.AppendLine($"}}");
+            enumData = stringBuilder.ToString();
+
+            param = $"{className}{name.UpperFirst()} {name.FixNameRule()}";
+            body = $"=> this.SetOption(\"{name}\", {name.FixNameRule()}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
+        }
+
 
         static StreamWriter WriteSummary(this StreamWriter streamWriter, params string[] summarys)
         {

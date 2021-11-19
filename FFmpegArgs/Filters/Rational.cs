@@ -9,30 +9,43 @@ namespace FFmpegArgs.Filters
 {
     public class Rational
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        public int Numerator { get; set; }
+        public int Denominator { get; set; }
 
         public Rational() { }
-        public Rational(int x,int y)
+        public Rational(int num, int den)
         {
-            this.X = x;
-            this.Y = y;
+            this.Numerator = num;
+            this.Denominator = den;
         }
 
-        public static Rational Create(int x, int y)
-            => new Rational(x,y);
+        /// <summary>
+        /// Create with den = 1
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        public static Rational Create(int num)
+           => new Rational(num, 1);
+        public static Rational Create(int num, int den)
+            => new Rational(num,den);
 
-        public Rational Check(double min,double max)
+        public Rational Check(double min, double max)
         {
-            double rate = (double)X / Y;
+            double rate = (double)Numerator / Denominator;
             if (double.IsNaN(rate) || double.IsInfinity(rate) || rate < min || rate > max) 
-                throw new InvalidRangeException($"Rational rate InvalidRangeException, required {min} <= {X}/{Y} <= {max}");
+                throw new InvalidRangeException($"Rational rate InvalidRangeException, required {min} <= {Numerator}/{Denominator} <= {max}");
             return this;
         }
 
         public override string ToString()
         {
-            return $"{X}/{Y}";
+            return $"{Numerator}/{Denominator}";
         }
+
+        public static implicit operator Rational(int num) => Create(num);
+        public static implicit operator Rational(long num) => Create((int)num);
+        public static implicit operator Rational(float num) => Create((int)num);
+        public static implicit operator Rational(double num) => Create((int)num);
+        public static implicit operator Rational(decimal num) => Create((int)num);
     }
 }

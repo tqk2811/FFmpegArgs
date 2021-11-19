@@ -21,19 +21,11 @@ public HaldclutsrcFilterGen level(int level) => this.SetOptionRange("level", lev
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public HaldclutsrcFilterGen Rate(string r) => this.SetOption("rate", r);
+public HaldclutsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public HaldclutsrcFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public HaldclutsrcFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public HaldclutsrcFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public HaldclutsrcFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>

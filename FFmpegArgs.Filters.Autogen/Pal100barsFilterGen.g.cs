@@ -25,19 +25,11 @@ public Pal100barsFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{si
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public Pal100barsFilterGen Rate(string r) => this.SetOption("rate", r);
+public Pal100barsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public Pal100barsFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Pal100barsFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Pal100barsFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public Pal100barsFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>

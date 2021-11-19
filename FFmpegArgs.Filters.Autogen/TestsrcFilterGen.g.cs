@@ -25,19 +25,11 @@ public TestsrcFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public TestsrcFilterGen Rate(string r) => this.SetOption("rate", r);
+public TestsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public TestsrcFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public TestsrcFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public TestsrcFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public TestsrcFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>

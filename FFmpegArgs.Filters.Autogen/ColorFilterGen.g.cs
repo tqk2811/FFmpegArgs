@@ -33,19 +33,11 @@ public ColorFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.He
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public ColorFilterGen Rate(string r) => this.SetOption("rate", r);
+public ColorFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public ColorFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public ColorFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public ColorFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public ColorFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>

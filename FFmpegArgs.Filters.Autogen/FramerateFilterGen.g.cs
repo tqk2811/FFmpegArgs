@@ -17,11 +17,7 @@ internal FramerateFilterGen(ImageMap input) : base("framerate",input) { AddMapOu
 /// <summary>
 ///  required output frames per second rate (default "50")
 /// </summary>
-public FramerateFilterGen Fps(string r) => this.SetOption("fps", r);
-/// <summary>
-///  required output frames per second rate (default "50")
-/// </summary>
-public FramerateFilterGen fps(int r) => this.SetOptionRange("fps", r, 1, int.MaxValue);
+public FramerateFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 /// <summary>
 ///  point to start linear interpolation (from 0 to 255) (default 15)
 /// </summary>

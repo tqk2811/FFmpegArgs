@@ -17,19 +17,11 @@ internal AllyuvFilterGen(FilterGraph input) : base("allyuv",input) { AddMapOut()
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public AllyuvFilterGen Rate(string r) => this.SetOption("rate", r);
+public AllyuvFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public AllyuvFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public AllyuvFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public AllyuvFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public AllyuvFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>

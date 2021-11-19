@@ -18,8 +18,8 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="time_base"></param>
         /// <returns></returns>
-        public AbufferFilter TimeBase(double time_base)
-          => this.SetOptionRange("time_base", time_base, 0, double.MaxValue);
+        public AbufferFilter TimeBase(Rational time_base)
+          => this.SetOption("time_base", time_base.Check(0,INT_MAX));
 
         /// <summary>
         /// The sample rate of the incoming audio buffers.
@@ -36,7 +36,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <param name="sample_fmt"></param>
         /// <returns></returns>
         public AbufferFilter SampleFmt(AVSampleFormat sample_fmt)
-          => this.SetOption("sample_fmt", sample_fmt.ToString().Replace("AV_SAMPLE_FMT_", "").ToLower());
+          => this.SetOption("sample_fmt", sample_fmt.GetAttribute<NameAttribute>().Name);
 
         /// <summary>
         /// The channel layout of the incoming audio buffers.<br>

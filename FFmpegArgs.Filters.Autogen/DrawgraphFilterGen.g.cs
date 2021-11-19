@@ -77,19 +77,11 @@ public DrawgraphFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{siz
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public DrawgraphFilterGen Rate(string r) => this.SetOption("rate", r);
+public DrawgraphFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public DrawgraphFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public DrawgraphFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public DrawgraphFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public DrawgraphFilterGen r(Rational r) => this.SetOption("r",r);
 }
 public static class DrawgraphFilterGenExtensions
 {

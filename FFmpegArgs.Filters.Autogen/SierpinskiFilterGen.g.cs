@@ -25,19 +25,11 @@ public SierpinskiFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{si
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
-public SierpinskiFilterGen Rate(string r) => this.SetOption("rate", r);
+public SierpinskiFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
-public SierpinskiFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public SierpinskiFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public SierpinskiFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public SierpinskiFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set the seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>

@@ -25,19 +25,11 @@ public MandelbrotFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{si
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
-public MandelbrotFilterGen Rate(string r) => this.SetOption("rate", r);
+public MandelbrotFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
-public MandelbrotFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public MandelbrotFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public MandelbrotFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public MandelbrotFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set max iterations number (from 1 to INT_MAX) (default 7189)
 /// </summary>

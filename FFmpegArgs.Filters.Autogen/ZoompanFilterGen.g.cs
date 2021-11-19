@@ -41,11 +41,7 @@ public ZoompanFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.
 /// <summary>
 ///  set the output framerate (default "25")
 /// </summary>
-public ZoompanFilterGen Fps(string r) => this.SetOption("fps", r);
-/// <summary>
-///  set the output framerate (default "25")
-/// </summary>
-public ZoompanFilterGen fps(int r) => this.SetOptionRange("fps", r, 1, int.MaxValue);
+public ZoompanFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 }
 public static class ZoompanFilterGenExtensions
 {

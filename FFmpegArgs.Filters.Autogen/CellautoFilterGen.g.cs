@@ -33,19 +33,11 @@ public CellautoFilterGen p(string p) => this.SetOption("p",p);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public CellautoFilterGen Rate(string r) => this.SetOption("rate", r);
+public CellautoFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public CellautoFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public CellautoFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public CellautoFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public CellautoFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set video size
 /// </summary>

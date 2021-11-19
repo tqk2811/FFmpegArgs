@@ -49,19 +49,11 @@ public GraphmonitorFilterGen f(GraphmonitorFilterGenF f) => this.SetOption("f", 
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public GraphmonitorFilterGen Rate(string r) => this.SetOption("rate", r);
+public GraphmonitorFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
-public GraphmonitorFilterGen rate(int r) => this.SetOptionRange("rate", r, 1, int.MaxValue);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public GraphmonitorFilterGen R(string r) => this.SetOption("r", r);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public GraphmonitorFilterGen r(int r) => this.SetOptionRange("r", r, 1, int.MaxValue);
+public GraphmonitorFilterGen r(Rational r) => this.SetOption("r",r);
 }
 public static class GraphmonitorFilterGenExtensions
 {
