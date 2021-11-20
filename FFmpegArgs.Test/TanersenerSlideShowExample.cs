@@ -150,9 +150,9 @@ namespace FFmpegArgs.Test
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(@"out.mp4", out_map);
             imageFileOutput
-              .VSync(2)
+              .VSync(VSyncMethod.vfr)
               .SetOption("-c:v", "libx264")
-              .FrameRate(FPS)
+              .Fps(FPS)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
 
@@ -231,7 +231,7 @@ namespace FFmpegArgs.Test
             var output = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
 
             var videoOut = new ImageFileOutput("PhotoCollection.mp4", output);
-            videoOut.VSync(2).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").FrameRate(FPS);
+            videoOut.VSync(VSyncMethod.vfr).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").Fps(FPS);
 
             filterGraph.AddOutput(videoOut);
 
@@ -368,14 +368,14 @@ namespace FFmpegArgs.Test
                 .TrimFilter().Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
                 .FpsFilter($"{FPS}").MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
-            var videoOut = new ImageFileOutput($"PushHorizontalFilm-{screenMode}-{direction}.mp4", output);
-            videoOut
-                .VSync(2)
+
+            var videoOut = new ImageFileOutput($"PushHorizontalFilm-{screenMode}-{direction}.mp4", output)
+                .VSync(VSyncMethod.vfr)
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
                 .SetOption("-c:v", "libx264")
                 //.SetOption("-b:v", "3000")
-                .FrameRate((int)FPS);
+                .Fps((int)FPS);
 
             filterGraph.AddOutput(videoOut);
 

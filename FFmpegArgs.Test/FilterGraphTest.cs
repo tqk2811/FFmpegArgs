@@ -73,7 +73,7 @@ namespace FFmpegArgs.Test
             var overlay = rotate.MapOut.OverlayFilterOn(background.MapOut, $"if({_whenMove},{_move},{_stopMove})", $"main_h/2");
             overlay.EofAction(EofAction.EndAll);
             var videout = new ImageFileOutput(@"D:\temp\ffmpeg_encode_test\ImgsTest\test.mp4", overlay.MapOut);
-            videout.FrameRate(24);
+            videout.Fps(24);
             filterGraph.AddOutput(videout);
 
             var args = filterGraph.GetFullCommandline();
