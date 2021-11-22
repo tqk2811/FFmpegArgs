@@ -183,7 +183,7 @@ namespace FFmpegArgs.Autogens
             return streamWriter;
         }
 
-        static void WriteFunctionWithEnum(DocLine function,string name, string className,out string param, out string body, out string enumData)
+        static void WriteFunctionWithEnum(DocLine function, string name, string className, out string param, out string body, out string enumData)
         {
             Dictionary<string, string> pairs = new Dictionary<string, string>();
             foreach (var item in function.ChildLines)

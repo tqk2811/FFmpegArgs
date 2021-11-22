@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     {
         internal SubtitlesFilter(string fileName, ImageMap imageMap) : base(fileName, "subtitles", imageMap)
         {
-            
+
         }
 
         /// <summary>

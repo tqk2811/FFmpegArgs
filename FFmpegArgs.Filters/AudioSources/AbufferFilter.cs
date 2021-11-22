@@ -19,7 +19,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <param name="time_base"></param>
         /// <returns></returns>
         public AbufferFilter TimeBase(Rational time_base)
-          => this.SetOption("time_base", time_base.Check(0,INT_MAX));
+          => this.SetOption("time_base", time_base.Check(0, INT_MAX));
 
         /// <summary>
         /// The sample rate of the incoming audio buffers.

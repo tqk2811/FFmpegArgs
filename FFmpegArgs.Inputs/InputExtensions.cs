@@ -1,6 +1,5 @@
 ﻿using FFmpegArgs.Cores.Inputs;
 using FFmpegArgs.Exceptions;
-using System;
 
 namespace FFmpegArgs.Inputs
 {

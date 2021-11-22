@@ -1,11 +1,5 @@
 ﻿using FFmpegArgs.Cores;
-using FFmpegArgs.Filters.Enums;
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs
 {

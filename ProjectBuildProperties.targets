@@ -1,0 +1,10 @@
+<Project>
+	<PropertyGroup>
+		<TargetFrameworks>net462;netstandard2.0;net5.0;net6.0</TargetFrameworks>
+		<LangVersion>8.0</LangVersion>
+		<PreserveCompilationContext>false</PreserveCompilationContext>
+		<GenerateDependencyFile>false</GenerateDependencyFile>
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
+	</PropertyGroup>
+</Project>

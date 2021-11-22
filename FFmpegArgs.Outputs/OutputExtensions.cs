@@ -67,7 +67,7 @@ namespace FFmpegArgs.Outputs
                 output.SetOptionRange($"-frames:{stream_specifier.Value}", framecount, 0, long.MaxValue);
             }
             return output;
-            
+
         }
 
         /// <summary>

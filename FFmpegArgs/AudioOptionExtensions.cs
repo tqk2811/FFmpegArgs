@@ -56,6 +56,6 @@ namespace FFmpegArgs
             => t.SetFlag("-an");
 
         public static T ACodec<T>(this T t, string acodec) where T : BaseInputOutput, IAudio
-           => t.SetOption("-acodec",acodec);
+           => t.SetOption("-acodec", acodec);
     }
 }

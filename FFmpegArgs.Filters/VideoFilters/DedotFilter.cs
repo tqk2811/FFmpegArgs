@@ -27,7 +27,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="mode"></param>
         /// <returns></returns>
         public DedotFilter Lt(float val)
-           => this.SetOptionRange("lt", val, 0,1);
+           => this.SetOptionRange("lt", val, 0, 1);
 
         /// <summary>
         /// Set tolerance for temporal luma.Higher values increases reduction of cross-luminance. (from 0 to 1) (default 0.079)
@@ -35,7 +35,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="mode"></param>
         /// <returns></returns>
         public DedotFilter Tl(float val)
-           => this.SetOptionRange("tl",  val, 0,1);
+           => this.SetOptionRange("tl", val, 0, 1);
 
         /// <summary>
         /// Set tolerance for chroma temporal variation. Higher values increases reduction of cross-color. (from 0 to 1) (default 0.058)
@@ -43,7 +43,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="mode"></param>
         /// <returns></returns>
         public DedotFilter Tc(float val)
-           => this.SetOptionRange("tc", val, 0,1);
+           => this.SetOptionRange("tc", val, 0, 1);
 
         /// <summary>
         /// Set temporal chroma threshold. Lower values increases reduction of cross-color. (from 0 to 1) (default 0.019)

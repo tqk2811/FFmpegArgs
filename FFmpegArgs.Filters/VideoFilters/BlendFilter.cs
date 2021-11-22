@@ -71,7 +71,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="opacity"></param>
         /// <returns></returns>
         public BlendFilter C0_Opacity(double opacity)
-          => this.SetOptionRange("c0_opacity", opacity,0,1);
+          => this.SetOptionRange("c0_opacity", opacity, 0, 1);
         /// <summary>
         /// Set blend opacity for specific pixel component or all pixel components in case of all_opacity. Only used in combination with pixel component blend modes.
         /// <br></br>(from 0 to 1) (default 1)
@@ -79,7 +79,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="opacity"></param>
         /// <returns></returns>
         public BlendFilter C1_Opacity(double opacity)
-          => this.SetOptionRange("c1_opacity", opacity,0,1);
+          => this.SetOptionRange("c1_opacity", opacity, 0, 1);
         /// <summary>
         /// Set blend opacity for specific pixel component or all pixel components in case of all_opacity. Only used in combination with pixel component blend modes.
         /// <br></br>(from 0 to 1) (default 1)
@@ -87,7 +87,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="opacity"></param>
         /// <returns></returns>
         public BlendFilter C2_Opacity(double opacity)
-          => this.SetOptionRange("c2_opacity", opacity,0,1);
+          => this.SetOptionRange("c2_opacity", opacity, 0, 1);
         /// <summary>
         /// Set blend opacity for specific pixel component or all pixel components in case of all_opacity. Only used in combination with pixel component blend modes.
         /// <br></br>(from 0 to 1) (default 1)
@@ -95,7 +95,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="opacity"></param>
         /// <returns></returns>
         public BlendFilter C3_Opacity(double opacity)
-          => this.SetOptionRange("c3_opacity", opacity,0,1);
+          => this.SetOptionRange("c3_opacity", opacity, 0, 1);
         /// <summary>
         /// Set blend opacity for specific pixel component or all pixel components in case of all_opacity. Only used in combination with pixel component blend modes.
         /// <br></br>(from 0 to 1) (default 1)
@@ -103,7 +103,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="opacity"></param>
         /// <returns></returns>
         public BlendFilter All_Opacity(double opacity)
-          => this.SetOptionRange("all_opacity", opacity,0,1);
+          => this.SetOptionRange("all_opacity", opacity, 0, 1);
 
 
         /// <summary>

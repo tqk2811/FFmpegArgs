@@ -27,7 +27,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="cbv"></param>
         /// <returns></returns>
         public ChromashiftFilter Cbv(int cbv)
-          => this.SetOptionRange("cbv", cbv,  -255, 255);
+          => this.SetOptionRange("cbv", cbv, -255, 255);
         /// <summary>
         /// Set amount to shift chroma-red horizontally.<br>
         /// </br>(from -255 to 255) (default 0)

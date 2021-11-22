@@ -1,5 +1,4 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
 using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
@@ -70,7 +69,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="line_spacing"></param>
         /// <returns></returns>
         public DrawTextFilter LineSpacing(int line_spacing)
-            => this.SetOption("line_spacing",line_spacing);
+            => this.SetOption("line_spacing", line_spacing);
 
         /// <summary>
         /// Set the width of the border to be drawn around the text using bordercolor. (from INT_MIN to INT_MAX) (default 0)
@@ -103,7 +102,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="basetime"></param>
         /// <returns></returns>
         public DrawTextFilter Basetime(long basetime)
-            => this.SetOptionRange("basetime", basetime, long.MinValue,long.MaxValue);
+            => this.SetOptionRange("basetime", basetime, long.MinValue, long.MaxValue);
 
         /// <summary>
         /// If true, check and fix text coords to avoid clipping.
@@ -175,7 +174,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="flag"></param>
         /// <returns></returns>
         public DrawTextFilter TextShaping(bool flag)
-            => this.SetOption("text_shaping",flag.ToFFmpegFlag());
+            => this.SetOption("text_shaping", flag.ToFFmpegFlag());
 
         /// <summary>
         /// The flags to be used for loading the fonts.<br>

@@ -1,5 +1,4 @@
 ﻿using FFmpegArgs.Filters.Enums;
-using System;
 using System.Drawing;
 
 namespace FFmpegArgs.Filters.VideoSources

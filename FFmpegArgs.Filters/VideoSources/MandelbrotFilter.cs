@@ -28,7 +28,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <param name="end_scale"></param>
         /// <returns></returns>
         public MandelbrotFilter EndScale(double end_scale)
-          => this.SetOptionRange("end_scale", end_scale,0, I64_MAX);
+          => this.SetOptionRange("end_scale", end_scale, 0, I64_MAX);
 
         /// <summary>
         /// Set the inner coloring mode, that is the algorithm used to draw the Mandelbrot fractal internal region.

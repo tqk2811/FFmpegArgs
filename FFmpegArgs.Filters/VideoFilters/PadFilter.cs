@@ -34,7 +34,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="h"></param>
         /// <returns></returns>
         public PadFilter Size(string w, string h)
-          => Size(w.Expression(),h.Expression());
+          => Size(w.Expression(), h.Expression());
 
         /// <summary>
         /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br></br>

@@ -1,20 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net462;net5.0;net6.0</TargetFrameworks>
-    <LangVersion>8.0</LangVersion>
-    <PackageReadmeFile>README.MD</PackageReadmeFile>
-    <PackageProjectUrl>https://github.com/tqk2811/FFmpegArgs</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/tqk2811/FFmpegArgs</RepositoryUrl>
-    <PackageTags>ffmpeg ffmpeg-command ffmpeg-script</PackageTags>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\README.MD">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+	<Import Project="..\ProjectBuildProperties.targets" />
+	<PropertyGroup>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+	</PropertyGroup>
 
 </Project>

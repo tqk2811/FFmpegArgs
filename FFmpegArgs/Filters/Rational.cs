@@ -1,9 +1,4 @@
 ﻿using FFmpegArgs.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters
 {
@@ -27,12 +22,12 @@ namespace FFmpegArgs.Filters
         public static Rational Create(int num)
            => new Rational(num, 1);
         public static Rational Create(int num, int den)
-            => new Rational(num,den);
+            => new Rational(num, den);
 
         public Rational Check(double min, double max)
         {
             double rate = (double)Numerator / Denominator;
-            if (double.IsNaN(rate) || double.IsInfinity(rate) || rate < min || rate > max) 
+            if (double.IsNaN(rate) || double.IsInfinity(rate) || rate < min || rate > max)
                 throw new InvalidRangeException($"Rational rate InvalidRangeException, required {min} <= {Numerator}/{Denominator} <= {max}");
             return this;
         }

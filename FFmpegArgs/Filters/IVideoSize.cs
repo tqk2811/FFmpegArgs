@@ -1,11 +1,6 @@
 ﻿using FFmpegArgs.Cores.Filters;
 using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters
 {
@@ -22,7 +17,7 @@ namespace FFmpegArgs.Filters
         /// <param name="t"></param>
         /// <param name="videoSize"></param>
         /// <returns></returns>
-        public static T Size<T>(this T t,VideoSizeUtils videoSize) where T : BaseFilterOption, IVideoSize
+        public static T Size<T>(this T t, VideoSizeUtils videoSize) where T : BaseFilterOption, IVideoSize
           => t.SetOption("s", videoSize.GetAttribute<NameAttribute>().Name);
 
         /// <summary>

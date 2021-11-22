@@ -1,6 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Expressions;
-using System;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {

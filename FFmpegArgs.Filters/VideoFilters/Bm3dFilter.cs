@@ -29,7 +29,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="block"></param>
         /// <returns></returns>
         public Bm3dFilter Block(int block)
-          => this.SetOptionRange("block", block,4,6);
+          => this.SetOptionRange("block", block, 4, 6);
 
         /// <summary>
         /// Set sliding step for processing blocks. Default value is 4. Allowed range is from 1 to 64.<br>

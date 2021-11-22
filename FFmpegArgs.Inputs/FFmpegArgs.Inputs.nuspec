@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<!--https://docs.microsoft.com/en-us/nuget/reference/nuspec-->
+	<metadata>
+		<id>$id$</id>
+		<version>1.0.0-alpha</version>
+		<description>Generate arguments for ffmpeg executable</description>
+		<authors>tqk2811</authors>
+		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
+		<tags>ffmpeg ffmpeg-command ffmpeg-script</tags>
+		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git" branch="$branch$" commit="$commit$"/>
+	</metadata>
+	<files>
+		<file src="bin\Release\**\$id$.dll" target="lib\" />
+		<file src="bin\Release\**\$id$.pdb" target="lib\" />
+	</files>
+</package>

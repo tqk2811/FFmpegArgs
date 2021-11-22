@@ -69,7 +69,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="qoffset"></param>
         /// <returns></returns>
         public AddroiFilter Qoffset(Rational qoffset)
-          => this.SetOption("qoffset", qoffset.Check(-1,1));
+          => this.SetOption("qoffset", qoffset.Check(-1, 1));
 
         /// <summary>
         /// If set to true, remove any existing regions of interest marked on the frame before adding the new one.

@@ -57,7 +57,7 @@ namespace FFmpegArgs.Test
             var video = new ImageFileInput(@"FadeInTwoTemplate.mp4");
             var video_map = filterGraph.AddImageInput(video);
             var blurred = video_map//.CropFilter("iw/2-iw/4", "0", "iw/2", "ih").MapOut
-              .MakeBlurredBackgroundTemplate(1366,768);
+              .MakeBlurredBackgroundTemplate(1366, 768);
 
             var output = new ImageFileOutput("BlurredBackground_of_FadeInTwoTemplate.mp4", blurred);
             filterGraph.AddOutput(output);
