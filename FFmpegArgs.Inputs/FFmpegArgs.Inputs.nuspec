@@ -10,7 +10,7 @@
 		<tags>ffmpeg ffmpeg-command ffmpeg-script</tags>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git" branch="$branch$" commit="$commit$"/>
 		<dependencies>
-			<dependency id="FFmpegArgs"/>
+			<dependency id="FFmpegArgs" version="1.0"/>
 		</dependencies>
 	</metadata>
 	<files>
