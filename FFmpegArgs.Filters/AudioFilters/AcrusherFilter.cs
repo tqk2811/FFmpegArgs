@@ -13,45 +13,37 @@ namespace FFmpegArgs.Filters.AudioFilters
             AddMapOut();
         }
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set level in. 
+        /// Set level in. (from 0.015625 to 64) (default 1)
         /// </summary>
         /// <param name="level_in"></param>
         /// <returns></returns>
-        public AcrusherFilter LevelIn(string level_in)
-          => this.SetOption("level_in", level_in);
+        public AcrusherFilter LevelIn(double level_in)
+          => this.SetOptionRange("level_in", level_in, 0.015625, 64);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set level out.
+        /// Set level out. (from 0.015625 to 64) (default 1)
         /// </summary>
         /// <param name="level_out"></param>
         /// <returns></returns>
-        public AcrusherFilter LevelOut(string level_out)
-         => this.SetOption("level_out", level_out);
+        public AcrusherFilter LevelOut(double level_out)
+         => this.SetOptionRange("level_out", level_out, 0.015625, 64);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set bit reduction.
+        /// Set bit reduction. (from 1 to 64) (default 8)
         /// </summary>
         /// <param name="bits"></param>
         /// <returns></returns>
-        public AcrusherFilter Bits(string bits)
-          => this.SetOption("bits", bits);
+        public AcrusherFilter Bits(double bits)
+          => this.SetOptionRange("bits", bits, 1, 64);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set mixing amount.
+        /// Set mixing amount. (from 0 to 1) (default 0.5)
         /// </summary>
         /// <param name="mix"></param>
         /// <returns></returns>
-        public AcrusherFilter Mix(string mix)
-          => this.SetOption("mix", mix);
+        public AcrusherFilter Mix(double mix)
+          => this.SetOptionRange("mix", mix, 0, 1);
 
         /// <summary>
         /// Can be linear: lin or logarithmic: log.
@@ -61,35 +53,29 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AcrusherFilter Mode(AcrusherMode mode)
           => this.SetOption("mode", mode);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set DC.
+        /// Set DC. (from 0.25 to 4) (default 1)
         /// </summary>
         /// <param name="dc"></param>
         /// <returns></returns>
-        public AcrusherFilter DC(string dc)
-         => this.SetOption("dc", dc);
+        public AcrusherFilter DC(double dc)
+         => this.SetOptionRange("dc", dc, 0.25, 4);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set anti-aliasing.
+        /// Set anti-aliasing. (from 0 to 1) (default 0.5)
         /// </summary>
         /// <param name="aa"></param>
         /// <returns></returns>
-        public AcrusherFilter AA(string aa)
-         => this.SetOption("aa", aa);
+        public AcrusherFilter AA(double aa)
+         => this.SetOptionRange("aa", aa, 0, 1);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set sample reduction.
+        /// Set sample reduction. (from 1 to 250) (default 1)
         /// </summary>
         /// <param name="lforange"></param>
         /// <returns></returns>
-        public AcrusherFilter Samples(string lforange)
-         => this.SetOption("samples", lforange);
+        public AcrusherFilter Samples(double lforange)
+         => this.SetOptionRange("samples", lforange, 1, 250);
 
         /// <summary>
         /// Enable LFO. By default disabled.
@@ -99,25 +85,21 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AcrusherFilter Lfo(bool lfo)
          => this.SetOption("lfo", lfo.ToFFmpegFlag());
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
-        /// Set LFO range.
+        /// Set LFO depth. (from 1 to 250) (default 20)
         /// </summary>
         /// <param name="lforange"></param>
         /// <returns></returns>
-        public AcrusherFilter LfoRange(string lforange)
-        => this.SetOption("lforange", lforange);
+        public AcrusherFilter LfoRange(double lforange)
+        => this.SetOptionRange("lforange", lforange, 1, 250);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Set LFO rate.
         /// </summary>
         /// <param name="lforate"></param>
         /// <returns></returns>
-        public AcrusherFilter LfoRate(string lforate)
-        => this.SetOption("lforate", lforate);
+        public AcrusherFilter LfoRate(double lforate)
+        => this.SetOptionRange("lforate", lforate, 0.01, 200);
     }
 
     public static class AcrusherFilterExtension
@@ -135,7 +117,13 @@ namespace FFmpegArgs.Filters.AudioFilters
 
     public enum AcrusherMode
     {
+        /// <summary>
+        /// linear
+        /// </summary>
         lin,
+        /// <summary>
+        /// logarithmic
+        /// </summary>
         log
     }
 }
