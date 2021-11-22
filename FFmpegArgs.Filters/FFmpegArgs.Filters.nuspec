@@ -9,6 +9,9 @@
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
 		<tags>ffmpeg ffmpeg-command ffmpeg-script</tags>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git" branch="$branch$" commit="$commit$"/>
+		<dependencies>
+			<dependency id="FFmpegArgs"/>
+		</dependencies>
 	</metadata>
 	<files>
 		<file src="bin\Release\**\$id$.dll" target="lib\" />
