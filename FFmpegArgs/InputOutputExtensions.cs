@@ -27,16 +27,40 @@ namespace FFmpegArgs
         /// <param name="stream_specifier"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static T Codec<T>(this T t, string codec, int? stream_specifier = null) where T : BaseInputOutput
+        public static T VCodec<T>(this T t, string codec, int? stream_specifier = null) where T : BaseInputOutput, IImage
         {
             if (stream_specifier == null)
             {
-                t.SetOption($"-c", codec);
+                t.SetOption($"-c:v", codec);
             }
             else
             {
                 if (stream_specifier.Value < 0) throw new ArgumentOutOfRangeException($"Range Required: {0} <= {stream_specifier}");
-                t.SetOption($"-c:{stream_specifier.Value}", codec);
+                t.SetOption($"-c:v:{stream_specifier.Value}", codec);
+            }
+            return t;
+        }
+
+
+        /// <summary>
+        /// Select an encoder (when used before an output file) or a decoder (when used before an input file) for one or more streams. codec is the name of a decoder/encoder or a special value copy (output only) to indicate that the stream is not to be re-encoded.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="codec"></param>
+        /// <param name="stream_specifier"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
+        public static T ACodec<T>(this T t, string codec, int? stream_specifier = null) where T : BaseInputOutput, IAudio
+        {
+            if (stream_specifier == null)
+            {
+                t.SetOption($"-c:a", codec);
+            }
+            else
+            {
+                if (stream_specifier.Value < 0) throw new ArgumentOutOfRangeException($"Range Required: {0} <= {stream_specifier}");
+                t.SetOption($"-c:a:{stream_specifier.Value}", codec);
             }
             return t;
         }
