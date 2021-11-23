@@ -8,9 +8,11 @@
 		<authors>tqk2811</authors>
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
 		<tags>ffmpeg ffmpeg-command ffmpeg-script</tags>
+		<readme>docs\README.md</readme>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git" branch="$branch$" commit="$commit$"/>
 	</metadata>
 	<files>
+		<file src="..\README.MD" target="docs\" />
 		<file src="bin\Release\**\$id$.dll" target="lib\" />
 		<file src="bin\Release\**\$id$.pdb" target="lib\" />
 	</files>
