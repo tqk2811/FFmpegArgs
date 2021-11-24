@@ -9,23 +9,22 @@ namespace FFmpegArgs.Outputs
     public class ImageFileOutput : ImageOutput
     {
         readonly string _filePath;
-        public ImageFileOutput(string filePath, ImageMap imageMap)
+        public ImageFileOutput(string filePath, ImageMap imageMap) : base(imageMap)
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
-            this.ImageMap = imageMap ?? throw new ArgumentNullException(nameof(imageMap));
         }
 
 
         public override string ToString()
         {
             List<string> args = new List<string>()
-      {
-        GetArgs(),
-        "-map",
-        ImageMap.IsInput ? $"\"{ImageMap.MapName}:v:{ImageMap.InputIndex}\"" : $"\"[{ImageMap.MapName}]\"",
-        _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
-      };
+            {
+                GetArgs(),
+                "-map",
+                ImageMap.GetMapOut(),
+                _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
+            };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
     }

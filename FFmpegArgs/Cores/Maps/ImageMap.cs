@@ -6,5 +6,10 @@
         {
 
         }
+
+        public override string GetMapOut()
+        {
+            return IsInput ? $"\"{MapName}:v:{InputIndex}\"" : $"\"[{MapName}]\"";
+        }
     }
 }

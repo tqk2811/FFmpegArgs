@@ -9,12 +9,10 @@ namespace FFmpegArgs.Outputs
     public class AudioFileOutput : AudioOutput
     {
         readonly string _filePath;
-        public AudioFileOutput(string filePath, AudioMap audioMap)
+        public AudioFileOutput(string filePath, AudioMap audioMap) : base(audioMap)
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
-
-            AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
         }
 
         public override string ToString()
@@ -23,7 +21,7 @@ namespace FFmpegArgs.Outputs
             {
                 GetArgs(),
                 "-map",
-                AudioMap.IsInput ? $"\"{AudioMap.MapName}:a:{AudioMap.InputIndex}\"" : $"\"[{AudioMap.MapName}]\"",
+                AudioMap.GetMapOut(),
                 _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

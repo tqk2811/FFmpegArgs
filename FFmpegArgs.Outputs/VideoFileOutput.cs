@@ -9,13 +9,10 @@ namespace FFmpegArgs.Outputs
     public class VideoFileOutput : VideoOutput
     {
         readonly string _filePath;
-        public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap)
+        public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap) : base(imageMap, audioMap)
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
-
-            ImageMap = imageMap ?? throw new ArgumentNullException(nameof(imageMap));
-            AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
         }
 
         public override string ToString()
@@ -24,9 +21,9 @@ namespace FFmpegArgs.Outputs
             {
                 GetArgs(),
                 "-map",
-                ImageMap.IsInput ? $"\"{ImageMap.MapName}:v:{ImageMap.InputIndex}\"" :  $"\"[{ImageMap.MapName}]\"",
+                ImageMap.GetMapOut(),
                 "-map",
-                AudioMap.IsInput ? $"\"{AudioMap.MapName}:a:{ImageMap.InputIndex}\"" :  $"\"[{AudioMap.MapName}]\"",
+                AudioMap.GetMapOut(),
                 _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

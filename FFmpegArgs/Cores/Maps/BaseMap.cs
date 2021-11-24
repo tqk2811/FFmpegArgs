@@ -24,5 +24,7 @@
             this.FilterGraph = filterGraph;
             this.MapName = name;
         }
+
+        public abstract string GetMapOut();
     }
 }
