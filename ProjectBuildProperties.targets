@@ -6,6 +6,5 @@
 		<GenerateDependencyFile>false</GenerateDependencyFile>
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
-		<AssemblyOriginatorKeyFile>..\Key.pfx</AssemblyOriginatorKeyFile>
 	</PropertyGroup>
 </Project>
