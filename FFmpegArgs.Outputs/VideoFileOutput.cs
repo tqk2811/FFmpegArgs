@@ -21,14 +21,14 @@ namespace FFmpegArgs.Outputs
         public override string ToString()
         {
             List<string> args = new List<string>()
-      {
-        GetArgs(),
-        "-map",
-        ImageMap.IsInput ? $"\"{ImageMap.MapName}:v:{ImageMap.InputIndex}\"" :  $"\"[{ImageMap.MapName}\"]",
-        "-map",
-        AudioMap.IsInput ? $"\"{AudioMap.MapName}:a:{ImageMap.InputIndex}\"" :  $"\"[{AudioMap.MapName}\"]",
-        _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
-      };
+            {
+                GetArgs(),
+                "-map",
+                ImageMap.IsInput ? $"\"{ImageMap.MapName}:v:{ImageMap.InputIndex}\"" :  $"\"[{ImageMap.MapName}]\"",
+                "-map",
+                AudioMap.IsInput ? $"\"{AudioMap.MapName}:a:{ImageMap.InputIndex}\"" :  $"\"[{AudioMap.MapName}]\"",
+                _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
+            };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
     }
