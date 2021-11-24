@@ -11,7 +11,7 @@
 		<readme>docs\README.MD</readme>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git" branch="$branch$" commit="$commit$"/>
 		<dependencies>
-			<dependency id="FFmpegArgs" version="1.0"/>
+			<dependency id="FFmpegArgs" version="[1.0,2.0)"/>
 		</dependencies>
 	</metadata>
 	<files>
