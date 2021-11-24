@@ -7,7 +7,7 @@ using FFmpegArgs.Outputs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Drawing;
 using System.Linq;
-
+using System;
 namespace FFmpegArgs.Test
 {
     [TestClass]
@@ -16,21 +16,26 @@ namespace FFmpegArgs.Test
         [TestMethod]
         public void Test1()
         {
-            FilterGraph filterGraph = new FilterGraph();
-            filterGraph.OverWriteOutput();
+            FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
 
-            var video_filter_green = filterGraph.AddVideoInput(new VideoFileInput(@"D:\temp\ffmpeg_encode_test\chromakey.mp4"));
-            var video_filter_base = filterGraph.AddVideoInput(new VideoFileInput(@"D:\temp\ffmpeg_encode_test\in_out_tro.mp4"));
+            var green_video = filterGraph.AddVideoInput(new VideoFileInput(@"chromakey.mp4")
+                .SsPosition(TimeSpan.FromSeconds(0.5)));
+            var background_video = filterGraph.AddVideoInput(new VideoFileInput(@"background.mp4")
+                .SsPosition(TimeSpan.FromSeconds(1))
+                .ToPosition(TimeSpan.FromSeconds(10)));
 
-            var video_filter_green_colorKey = video_filter_green.ImageMaps.First().ColorKeyFilter(Color.FromArgb(101, 220, 8)).Similarity(0.25f);
-            video_filter_green_colorKey.Enable("between(t,0,10)");
+            var color_keys = green_video.ImageMaps.First()
+                .ColorKeyFilter(Color.FromArgb(101, 220, 8)).Similarity(0.25f)//ColorKey
+                    .Enable("between(t,0,10)").MapOut//ITimelineSupport
+                .ScaleFilter("iw/3", "ih/3").MapOut
+                .SplitFilter(2).MapsOut;//Scale
 
-            var video_green_scale = video_filter_green_colorKey.MapOut.ScaleFilter("iw/3", "ih/3");
+            var overlay = color_keys.First()
+                //overlay color_key on-center background_video
+                .OverlayFilterOn(background_video.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
 
-            var overlay = video_green_scale.MapOut.OverlayFilterOn(video_filter_base.ImageMaps.First(), "0", "0");
-
-            var videoOutput = new VideoFileOutput(@"D:\temp\ffmpeg_encode_test\out.mp4", overlay.MapOut, video_filter_base.AudioMaps.First());
-            filterGraph.AddOutput(videoOutput);
+            filterGraph.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
+            filterGraph.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
 
             var args = filterGraph.GetFullCommandline();
         }

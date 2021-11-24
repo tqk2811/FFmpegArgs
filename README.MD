@@ -2,26 +2,32 @@
 
 Easy to use
 ``` Csharp
-FilterGraph filterGraph = new FilterGraph();
-filterGraph.OverWriteOutput();
+FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
 
-var green_video = filterGraph.AddVideoInput(new VideoFileInput(@"chromakey.mp4"));
-var background_video = filterGraph.AddVideoInput(new VideoFileInput(@"background.mp4"));
+var green_video = filterGraph.AddVideoInput(new VideoFileInput(@"chromakey.mp4")
+    .SsPosition(TimeSpan.FromSeconds(0.5)));
+var background_video = filterGraph.AddVideoInput(new VideoFileInput(@"background.mp4")
+    .SsPosition(TimeSpan.FromSeconds(1))
+    .ToPosition(TimeSpan.FromSeconds(10)));
 
-var green_fix = green_video.ImageMaps.First()
-	.ColorKeyFilter(Color.FromArgb(101, 220, 8)).Similarity(0.25f)//ColorKey
-	.Enable("between(t,0,10)").MapOut//ITimelineSupport
-	.ScaleFilter("iw/3", "ih/3").MapOut;//Scale
+var color_keys = green_video.ImageMaps.First()
+    .ColorKeyFilter(Color.FromArgb(101, 220, 8)).Similarity(0.25f)//ColorKey
+        .Enable("between(t,0,10)").MapOut//ITimelineSupport
+    .ScaleFilter("iw/3", "ih/3").MapOut
+    .SplitFilter(2).MapsOut;//Scale
 
-var overlay = green_fix
-	.OverlayFilterOn(background_video.ImageMaps.First(), "0", "0").MapOut;//overlay at x=0 and y=0
+var overlay = color_keys.First()
+    //overlay color_key on-center background_video
+    .OverlayFilterOn(background_video.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
 
-var videoOutput = new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First());
-filterGraph.AddOutput(videoOutput);
+filterGraph.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
+filterGraph.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
 
 var args = filterGraph.GetFullCommandline();
 ```
+For more example, see `FFmpegArgs.Test`  
 
+________________________________________
 Easy extend
 
 ``` Csharp
