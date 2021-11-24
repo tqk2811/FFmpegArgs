@@ -6,5 +6,6 @@
 		<GenerateDependencyFile>false</GenerateDependencyFile>
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
+		<AssemblyVersion>1.0</AssemblyVersion>
 	</PropertyGroup>
 </Project>
