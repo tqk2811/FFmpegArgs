@@ -1,5 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Executable;
+using FFmpegArgs.Executes;
 using FFmpegArgs.Filters;
 using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;

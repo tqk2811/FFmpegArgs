@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		NotAutoGen.txt = NotAutoGen.txt
 		ProjectBuildProperties.targets = ProjectBuildProperties.targets
 		README.MD = README.MD
+		Nuget.ps1 = Nuget.ps1
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Inputs", "FFmpegArgs.Inputs\FFmpegArgs.Inputs.csproj", "{DC932A5B-5E40-4994-A32D-66DB7B0B16E2}"
@@ -26,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Autogen"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Autogens", "FFmpegArgs.Autogens\FFmpegArgs.Autogens.csproj", "{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Executable", "FFmpegArgs.Executable\FFmpegArgs.Executable.csproj", "{AA51A707-006C-4C35-BA66-080DD805E3A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Executes", "FFmpegArgs.Executes\FFmpegArgs.Executes.csproj", "{AA51A707-006C-4C35-BA66-080DD805E3A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

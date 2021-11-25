@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace FFmpegArgs.Executable
+namespace FFmpegArgs.Executes
 {
     public class FFmpegBuildConfig
     {

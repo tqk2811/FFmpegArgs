@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FFmpegArgs.Executable
+namespace FFmpegArgs.Executes
 {
     public static class FFmpegBuildExtension
     {

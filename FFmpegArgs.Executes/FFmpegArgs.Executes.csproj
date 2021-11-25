@@ -4,7 +4,6 @@
 	<PropertyGroup>
 		<FileVersion>1.0.0.0</FileVersion>
 	</PropertyGroup>
-	
 	<ItemGroup>
 	  <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
 	</ItemGroup>

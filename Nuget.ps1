@@ -42,11 +42,23 @@ function NugetPack
     return 1 
 }
 
+function NugetPush
+{
+    $numOfArgs = $args.Length
+    for ($i=0; $i -lt $numOfArgs; $i++)
+    {
+        Write-Host "NugetPush $($args[$i])"
+
+        dotnet nuget push $args[$i]\bin\Release\*.nupkg --api-key $key --source https://api.nuget.org/v3/index.json
+    }
+}
+
 $result = NugetPack "FFmpegArgs" `
                     "FFmpegArgs.Filters" `
                     "FFmpegArgs.Filters.Autogen" `
                     "FFmpegArgs.Inputs" `
-                    "FFmpegArgs.Outputs"
+                    "FFmpegArgs.Outputs" `
+                    "FFmpegArgs.Executes"
 if($result)
 {
     if([string]::IsNullOrEmpty($key))
@@ -60,11 +72,12 @@ if($result)
         Write-Host "enter to confirm"
         pause
 
-        dotnet nuget push FFmpegArgs\bin\Release\*.nupkg --api-key $key --source https://api.nuget.org/v3/index.json
-        dotnet nuget push FFmpegArgs.Inputs\bin\Release\*.nupkg --api-key $key --source https://api.nuget.org/v3/index.json
-        dotnet nuget push FFmpegArgs.Outputs\bin\Release\*.nupkg --api-key $key --source https://api.nuget.org/v3/index.json
-        dotnet nuget push FFmpegArgs.Filters\bin\Release\*.nupkg --api-key $key --source https://api.nuget.org/v3/index.json
-        dotnet nuget push FFmpegArgs.Filters.Autogen\bin\Release\*.nupkg --api-key $key --source https://api.nuget.org/v3/index.json
+        NugetPush   "FFmpegArgs" `
+                    "FFmpegArgs.Filters" `
+                    "FFmpegArgs.Filters.Autogen" `
+                    "FFmpegArgs.Inputs" `
+                    "FFmpegArgs.Outputs" `
+                    "FFmpegArgs.Executes"
     }
 }
 else

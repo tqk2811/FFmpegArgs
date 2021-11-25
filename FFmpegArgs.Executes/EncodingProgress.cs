@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace FFmpegArgs.Executable
+namespace FFmpegArgs.Executes
 {
     public class EncodingProgress
     {
