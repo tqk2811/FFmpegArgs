@@ -49,7 +49,7 @@ function NugetPush
     {
         Write-Host "NugetPush $($args[$i])"
 
-        dotnet nuget push $args[$i]\bin\Release\*.nupkg --api-key $key --source https://api.nuget.org/v3/index.json
+        iex "dotnet nuget push $($args[$i])\bin\Release\*.nupkg --api-key $($key) --source https://api.nuget.org/v3/index.json"
     }
 }
 
