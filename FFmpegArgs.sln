@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Autogen"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Autogens", "FFmpegArgs.Autogens\FFmpegArgs.Autogens.csproj", "{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Executable", "FFmpegArgs.Executable\FFmpegArgs.Executable.csproj", "{AA51A707-006C-4C35-BA66-080DD805E3A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3452C0B-40DA-4B0D-81B0-0D0BBC192D33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

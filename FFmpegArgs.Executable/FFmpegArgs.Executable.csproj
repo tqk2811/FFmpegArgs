@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\ProjectBuildProperties.targets" />
+	<PropertyGroup>
+		<FileVersion>1.0.0.0</FileVersion>
+	</PropertyGroup>
+	
+	<ItemGroup>
+	  <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
+	</ItemGroup>
+
+</Project>
