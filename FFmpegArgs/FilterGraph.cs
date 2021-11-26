@@ -110,8 +110,10 @@ namespace FFmpegArgs
         }
         public string GetFiltersArgs(bool withNewLine = false)
         {
-            if (Filters.Any(x => x.MapsOut.Any(y => !y.IsMapped)))
-                throw new FilterException("Not all mapout bind");
+            var filter_not_bind = Filters.FirstOrDefault(x => x.MapsOut.Any(y => !y.IsMapped));
+            if (filter_not_bind != null)
+                throw new FilterException($"Have Map in filter {filter_not_bind.FilterName} are not bind");
+
             if (withNewLine) return string.Join(";\r\n", _filters);
             else return string.Join(";", _filters);
         }

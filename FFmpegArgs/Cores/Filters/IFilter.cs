@@ -7,8 +7,10 @@ namespace FFmpegArgs.Cores.Filters
         where TIn : IMap
         where TOut : IMap
     {
-        bool IsInput { get; }
         FilterGraph FilterGraph { get; }
+        int FilterIndex { get; }
+        string FilterName { get; }
+        bool IsInput { get; }
 
         IEnumerable<TOut> MapsOut { get; }
         IEnumerable<TIn> MapsIn { get; }

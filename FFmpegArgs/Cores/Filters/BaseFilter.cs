@@ -16,10 +16,8 @@ namespace FFmpegArgs.Cores.Filters
         private List<TIn> _mapsIn { get; } = new List<TIn>();
         protected List<TOut> _mapsOut { get; } = new List<TOut>();
 
-        readonly string FilterName;
-        protected int FilterIndex { get; private set; }
-
-
+        public int FilterIndex { get; }
+        public string FilterName { get; }
         public bool IsInput { get; protected set; }
         public FilterGraph FilterGraph { get; }
         public IEnumerable<TOut> MapsOut { get { return _mapsOut; } }
