@@ -5,9 +5,9 @@ using FFmpegArgs.Filters.VideoSources;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Drawing;
 using System.Linq;
-using System;
 namespace FFmpegArgs.Test
 {
     [TestClass]

@@ -1,5 +1,4 @@
 ﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Executes;
 using FFmpegArgs.Filters;
 using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
@@ -161,7 +160,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string args = filterGraph.GetFullCommandlineWithFilterScript("filter_script.txt");
 
 
-            Assert.IsTrue(filterGraph.Build(b => b.WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")).Execute());
+            //Assert.IsTrue(filterGraph.Build(b => b.WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")).Execute());
         }
     }
 }

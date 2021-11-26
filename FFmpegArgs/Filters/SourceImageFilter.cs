@@ -5,8 +5,8 @@ namespace FFmpegArgs.Filters
 {
     public abstract class SourceImageFilter : BaseFilter<BaseMap, ImageMap>
     {
-        protected SourceImageFilter(string filterName, FilterGraph filterGraph)
-          : base(filterName, new ImageMap(filterGraph, string.Empty))
+        protected SourceImageFilter(string filterName, FilterGraph filterGraph, bool isInput = false)
+          : base(filterName, isInput, new ImageMap(filterGraph, string.Empty))
         {
 
         }

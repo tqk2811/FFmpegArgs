@@ -1,5 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Expressions;
+﻿using FFmpegArgs.Expressions;
 using FFmpegArgs.Filters.Enums;
 using System;
 using System.Drawing;
@@ -15,7 +14,7 @@ namespace FFmpegArgs.Filters.VideoSources
 
 
     }
-    public interface IBaseVideoSourceSize : IFilter
+    public interface IBaseVideoSourceSize// : IFilter
     {
 
     }

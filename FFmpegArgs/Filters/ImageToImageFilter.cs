@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters
 {
     public abstract class ImageToImageFilter : BaseFilter<ImageMap, ImageMap>
     {
-        protected ImageToImageFilter(string filterName, params ImageMap[] mapsIn) : base(filterName, mapsIn)
+        protected ImageToImageFilter(string filterName, params ImageMap[] mapsIn) : base(filterName, false, mapsIn)
         {
 
         }

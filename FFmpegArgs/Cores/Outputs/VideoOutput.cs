@@ -11,12 +11,12 @@ namespace FFmpegArgs.Cores.Outputs
         /// <param name="audioMap"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        protected VideoOutput(ImageMap imageMap,AudioMap audioMap)
+        protected VideoOutput(ImageMap imageMap, AudioMap audioMap)
         {
             this.ImageMap = imageMap ?? throw new ArgumentNullException(nameof(imageMap));
             this.AudioMap = audioMap ?? throw new ArgumentNullException(nameof(audioMap));
             if (ImageMap.FilterGraph != AudioMap.FilterGraph) throw new InvalidOperationException("Two map are not same FilterGraph");
-            if(!this.ImageMap.IsInput)
+            if (!this.ImageMap.IsInput)
             {
                 if (this.ImageMap.IsMapped) throw new InvalidOperationException($"{nameof(imageMap)} was mapped, map only one-to-one");
                 else this.ImageMap.IsMapped = true;

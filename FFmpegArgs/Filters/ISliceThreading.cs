@@ -1,8 +1,6 @@
-﻿using FFmpegArgs.Cores.Filters;
-
-namespace FFmpegArgs.Filters
+﻿namespace FFmpegArgs.Filters
 {
-    public interface ISliceThreading : IFilter
+    public interface ISliceThreading
     {
 
     }

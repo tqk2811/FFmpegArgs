@@ -41,7 +41,7 @@ namespace FFmpegArgs.Executes
 
         public static Task<bool> ExecuteAsync(this FFmpegBuild build, Action<EncodingProgress> onEncodingProgress, CancellationToken token = default)
            => Task.Run(() => build.Execute(onEncodingProgress, token));
-        public static Task<bool> ExecuteAsync(this FFmpegBuild build, CancellationToken token = default) 
+        public static Task<bool> ExecuteAsync(this FFmpegBuild build, CancellationToken token = default)
             => Task.Run(() => build.Execute(token));
 
     }

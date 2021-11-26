@@ -1,7 +1,6 @@
 ﻿namespace FFmpegArgs.Cores.Maps
 {
-
-    public abstract class BaseMap
+    public abstract class BaseMap : IMap
     {
         public FilterGraph FilterGraph { get; }
 

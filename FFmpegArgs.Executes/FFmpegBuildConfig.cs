@@ -51,7 +51,7 @@ namespace FFmpegArgs.Executes
         public string WorkingDirectory { get; set; }
 #if DEBUG
         = "D:\\temp\\ffmpeg_encode_test";
-        #else
+#else
         = Directory.GetCurrentDirectory();
 #endif
 

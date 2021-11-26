@@ -1,15 +1,11 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
+﻿using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
 using FFmpegArgs.Filters.VideoFilters;
 using FFmpegArgs.Filters.VideoSources;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
-using FFmpegArgs.Template;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;

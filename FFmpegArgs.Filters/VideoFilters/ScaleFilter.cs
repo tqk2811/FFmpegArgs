@@ -3,6 +3,7 @@ using FFmpegArgs.Expressions;
 using FFmpegArgs.Filters.Enums;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -10,7 +11,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// ..C scale             V->V       Scale the input video size and/or convert the image format.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#scale-1 
     /// </summary>
-    public class ScaleFilter : ImageToImageFilter, ICommandSupport, IVideoSize
+    public class ScaleFilter : ImageToImageFilter, ICommandSupport
     {
         static readonly IEnumerable<string> _scalevariables = new List<string>()
     {
@@ -34,6 +35,27 @@ namespace FFmpegArgs.Filters.VideoFilters
             this.SetOption("w", w.Run(expression));
             this.SetOption("h", h.Run(expression));
         }
+
+
+        /// <summary>
+        /// Set the video size
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="videoSize"></param>
+        /// <returns></returns>
+        public ScaleFilter Size(VideoSizeUtils videoSize)
+          => this.SetOption("s", videoSize.GetAttribute<NameAttribute>().Name);
+
+        /// <summary>
+        /// Set the video size
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="videoSize"></param>
+        /// <returns></returns>
+        public ScaleFilter Size(Size videoSize)
+          => this.SetOption("s", $"{videoSize.Width}x{videoSize.Height}");
 
         /// <summary>
         /// Specify when to evaluate width and height expression.

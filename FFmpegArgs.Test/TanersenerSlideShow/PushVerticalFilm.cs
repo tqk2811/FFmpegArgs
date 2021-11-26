@@ -126,7 +126,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case VerticalDirection.TopToBottom:
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
-                               .OverlayFilterOn(lastOverLay,"0", $"-{HEIGHT}+(t-{start})/{TRANSITION_DURATION}*{HEIGHT}")//from -HEIGHT to +HEIGHT
+                               .OverlayFilterOn(lastOverLay, "0", $"-{HEIGHT}+(t-{start})/{TRANSITION_DURATION}*{HEIGHT}")//from -HEIGHT to +HEIGHT
                                    .Enable($"between(t,{start},{end})").MapOut;
                             break;
                         }
@@ -134,7 +134,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case VerticalDirection.BottomToTop:
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
-                                .OverlayFilterOn(lastOverLay,"0", $"{HEIGHT}-(t-{start})/{TRANSITION_DURATION}*{HEIGHT}")//from +HEIGHT to -HEIGHT
+                                .OverlayFilterOn(lastOverLay, "0", $"{HEIGHT}-(t-{start})/{TRANSITION_DURATION}*{HEIGHT}")//from +HEIGHT to -HEIGHT
                                     .Enable($"between(t,{start},{end})").MapOut;
                             break;
                         }

@@ -1,8 +1,9 @@
 ﻿using FFmpegArgs.Cores.Filters;
+using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters
 {
-    public interface IFramesync : IFilter
+    public interface IFramesync
     {
     }
 
@@ -15,13 +16,16 @@ namespace FFmpegArgs.Filters
         /// <param name="filter"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static T EofAction<T>(this T filter, EofAction action) where T : BaseFilterOption, IFramesync
+        public static T EofAction<T>(this T filter, EofAction action)
+            where T : BaseOption, IFilter<IMap, IMap>, IFramesync
           => filter.SetOption("eof_action", action.ToString().ToLower());
 
-        public static T Shortest<T>(this T filter, bool flag) where T : BaseFilterOption, IFramesync
+        public static T Shortest<T>(this T filter, bool flag)
+             where T : BaseOption, IFilter<IMap, IMap>, IFramesync
           => filter.SetOption("shortest", flag.ToFFmpegFlag());
 
-        public static T Repeatlast<T>(this T filter, bool flag) where T : BaseFilterOption, IFramesync
+        public static T Repeatlast<T>(this T filter, bool flag)
+             where T : BaseOption, IFilter<IMap, IMap>, IFramesync
           => filter.SetOption("repeatlast", flag.ToFFmpegFlag());
     }
 

@@ -13,11 +13,11 @@ namespace FFmpegArgs
     {
         public IEnumerable<BaseInput> Inputs { get { return _inputs; } }
         public IEnumerable<BaseOutput> Outputs { get { return _outputs; } }
-        public IEnumerable<IFilter> Filters { get { return _filters; } }
+        public IEnumerable<IFilter<IMap, IMap>> Filters { get { return _filters; } }
 
         internal List<BaseInput> _inputs { get; } = new List<BaseInput>();
         internal List<BaseOutput> _outputs { get; } = new List<BaseOutput>();
-        internal List<IFilter> _filters { get; } = new List<IFilter>();
+        internal List<IFilter<IMap, IMap>> _filters { get; } = new List<IFilter<IMap, IMap>>();
 
 
         public FilterGraph()
@@ -110,6 +110,8 @@ namespace FFmpegArgs
         }
         public string GetFiltersArgs(bool withNewLine = false)
         {
+            if (Filters.Any(x => x.MapsOut.Any(y => !y.IsMapped)))
+                throw new FilterException("Not all mapout bind");
             if (withNewLine) return string.Join(";\r\n", _filters);
             else return string.Join(";", _filters);
         }
@@ -117,24 +119,24 @@ namespace FFmpegArgs
         public string GetFullCommandline()
         {
             List<string> args = new List<string>()
-      {
-        GetGlobalArgs(),
-        GetInputsArgs(),
-        $"-filter_complex \"{GetFiltersArgs()}\"",
-        GetOutputsArgs()
-      };
+            {
+                GetGlobalArgs(),
+                GetInputsArgs(),
+                $"-filter_complex \"{GetFiltersArgs()}\"",
+                GetOutputsArgs()
+            };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
 
         public string GetFullCommandlineWithFilterScript(string script_name_or_path)
         {
             List<string> args = new List<string>()
-      {
-        GetGlobalArgs(),
-        GetInputsArgs(),
-        $"-filter_complex_script \"{script_name_or_path}\"",
-        GetOutputsArgs()
-      };
+            {
+                GetGlobalArgs(),
+                GetInputsArgs(),
+                $"-filter_complex_script \"{script_name_or_path}\"",
+                GetOutputsArgs()
+            };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
     }
