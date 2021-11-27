@@ -48,7 +48,7 @@ namespace FFmpegArgs
         {
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
             _inputs.Add(sound);
-            return new AudioMap(this, $"{_inputs.IndexOf(sound)}") { IsInput = true };
+            return new AudioMap(this, $"{_inputs.IndexOf(sound)}") { IsInput = true , InputIndex = _inputs.IndexOf(sound) };
         }
 
         public IEnumerable<ImageMap> AddImagesInput(ImageInput image, int count)
@@ -68,7 +68,7 @@ namespace FFmpegArgs
         {
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
             _inputs.Add(image);
-            return new ImageMap(this, $"{_inputs.IndexOf(image)}") { IsInput = true };
+            return new ImageMap(this, $"{_inputs.IndexOf(image)}") { IsInput = true, InputIndex = _inputs.IndexOf(image) };
         }
 
         public VideoMap AddVideoInput(VideoInput video, int imageCount = 1, int audioCount = 1)
@@ -92,7 +92,7 @@ namespace FFmpegArgs
 
         public void AddOutput(BaseOutput output)
         {
-            if (_outputs.Contains(output)) throw new InvalidOperationException("Sound was add to input before");
+            if (_outputs.Contains(output)) throw new InvalidOperationException("This output was add before");
             _outputs.Add(output);
         }
 
