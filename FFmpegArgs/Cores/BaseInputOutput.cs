@@ -1,6 +1,10 @@
 ﻿namespace FFmpegArgs.Cores
 {
-    public class BaseInputOutput : BaseOptionFlag
+    public abstract class BaseInputOutput : BaseOptionFlag
     {
+        internal BaseInputOutput()
+        {
+
+        }
     }
 }

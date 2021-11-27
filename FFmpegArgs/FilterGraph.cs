@@ -75,7 +75,7 @@ namespace FFmpegArgs
         {
             if (_inputs.Contains(video)) throw new InvalidOperationException("Video was add to input before");
             if (imageCount < 1 || audioCount < 1)
-                throw new InvalidRangeException($"imageCount or audioCount < 1\r\nFor non audio, use IImageInput instead");
+                throw new InvalidRangeException($"imageCount or audioCount < 1\r\nFor non audio, use {nameof(ImageInput)} instead");
 
             _inputs.Add(video);
             int inputIndex = _inputs.IndexOf(video);

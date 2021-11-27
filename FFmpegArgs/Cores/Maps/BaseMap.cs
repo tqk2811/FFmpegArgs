@@ -11,7 +11,7 @@
 
         public bool IsInput { get; internal set; } = false;
 
-        public int InputIndex { get; internal set; } = 0;
+        public int InputIndex { get; internal set; } = -1;
 
         /// <summary>
         /// For non input, if IsMapped and map again -> throw exception

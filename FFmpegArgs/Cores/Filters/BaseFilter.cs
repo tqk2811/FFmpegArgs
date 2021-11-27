@@ -18,28 +18,39 @@ namespace FFmpegArgs.Cores.Filters
 
         public int FilterIndex { get; }
         public string FilterName { get; }
-        public bool IsInput { get; protected set; }
+        public bool IsInput { get; } = false;
         public FilterGraph FilterGraph { get; }
         public IEnumerable<TOut> MapsOut { get { return _mapsOut; } }
         public IEnumerable<TIn> MapsIn { get { return _mapsIn; } }
         public TOut MapOut { get { return MapsOut.FirstOrDefault(); } }
 
-        protected BaseFilter(string filterName, bool isInput = false, params TIn[] mapsIn)
+        protected BaseFilter(string filterName, bool isInput, params TIn[] mapsIn)
         {
             if (string.IsNullOrWhiteSpace(filterName)) throw new ArgumentNullException(nameof(filterName));
-            if (mapsIn.Any(x => !x.IsInput && x.IsMapped))
-                throw new InvalidOperationException("Map is only \"one to one\", except input");
+
             var filters = mapsIn.GroupBy(x => x.FilterGraph);
             if (filters.Count() != 1) throw new InvalidOperationException("mapsIn are empty or not same FilterGraph");
 
-            this.IsInput = isInput;
-            this.FilterGraph = filters.First().Key;
-            this.FilterGraph._filters.Add(this);
-            this.FilterName = filterName;
+            if (mapsIn.Any(x => !x.IsInput && x.IsMapped))
+                throw new InvalidOperationException("Map is only \"one to one\", except input");
 
-            FilterIndex = this.FilterGraph._filters.IndexOf(this);
+            if(mapsIn.Any(x => x.IsInput && x.InputIndex == -1))
+                throw new InvalidOperationException("Invalid InputIndex");
+
+            this.FilterGraph = filters.First().Key;
+            this.FilterName = filterName;
+            this.IsInput = isInput;
+
             _mapsIn.AddRange(mapsIn);
             _mapsIn.ForEach(x => x.IsMapped = true);
+
+            this.FilterGraph._filters.Add(this);
+            FilterIndex = this.FilterGraph._filters.IndexOf(this);
+
+            if (isInput)
+            {
+                //
+            }
         }
 
         public override string ToString()
@@ -65,14 +76,36 @@ namespace FFmpegArgs.Cores.Filters
     /// end at BaseFilter.MapsOut.Count > 1
     /// [mapin1][[mapin2]]filter=...,filter=....,filter=....,filter=....[mapout1][[mapout2]]
     /// </summary>
-    internal static class FilterChain
+    internal class FilterChain
     {
-        internal static void BuildChain(IEnumerable<BaseFilter<BaseMap, BaseMap>> filters)
+        internal static void BuildChain(IEnumerable<IFilter<IMap, IMap>> filters)
         {
-            var filters_input = filters.Where(x => x.IsInput);
-            var filters_singleOutput = filters.Where(x => x.MapsOut.Count() == 1);//n in, 1 out
+            //chain input
+            //var filters_input = filters.Where(x => x.IsInput);
+            //List<List<IFilter<IMap, IMap>>> chains = new List<List<IFilter<IMap, IMap>>>();
+            //foreach(var filter_input in filters_input)
+            //{
+            //    //find what filter map 1:1 to that filter_input
+            //    List<IFilter<IMap, IMap>> chain = new List<IFilter<IMap, IMap>>();
+            //    chain.Add(filter_input);
 
+            //    //only mapin/empty-filter-mapout
+            //    while(true)
+            //    {
+            //        //var next = filters.FirstOrDefault(x => 
+            //        //    x.MapsOut.Count() == 1 && 
+            //        //    x.MapsIn.Count() == 1 &&
+            //        //    x.MapsIn.Contains(chain.Last().MapOut));
+            //        //if(next != null) chain.Add(next);
+            //        break;
+            //    }
+            //}
 
+            ////filter non input
+            //var filters_nonInput = filters.Except(chains.SelectMany(x => x)).ToList();
+            ////map from input
+            //var maps_input = filters_nonInput.SelectMany(x => x.MapsIn.Where(y => y.IsInput))
+            //    .Concat(chains.Select(x => x.Last().MapOut));
 
 
         }
