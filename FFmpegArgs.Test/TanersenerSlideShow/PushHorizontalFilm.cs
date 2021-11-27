@@ -44,7 +44,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var film_strip_map = filterGraph.AddImageInput(new ImageFileInput("film_strip.png").SetOption("-loop", 1));
 
             var background = filterGraph
-                .Color()
+                .ColorFilter()
                     .Color(BACKGROUND_COLOR)
                     .Size(new Size(WIDTH, HEIGHT))
                     .Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut

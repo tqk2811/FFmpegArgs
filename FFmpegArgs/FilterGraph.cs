@@ -39,7 +39,7 @@ namespace FFmpegArgs
             List<AudioMap> results = new List<AudioMap>();
             for (int i = 0; i < count; i++)
             {
-                results.Add(new AudioMap(this, $"{_inputs.IndexOf(sound)}") { IsInput = true, InputIndex = i });
+                results.Add(new AudioMap(this, $"{_inputs.IndexOf(sound)}") { IsInput = true, StreamIndex = i });
             }
             return results;
         }
@@ -48,7 +48,7 @@ namespace FFmpegArgs
         {
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
             _inputs.Add(sound);
-            return new AudioMap(this, $"{_inputs.IndexOf(sound)}") { IsInput = true , InputIndex = _inputs.IndexOf(sound) };
+            return new AudioMap(this, $"{_inputs.IndexOf(sound)}") { IsInput = true };
         }
 
         public IEnumerable<ImageMap> AddImagesInput(ImageInput image, int count)
@@ -59,7 +59,7 @@ namespace FFmpegArgs
             List<ImageMap> results = new List<ImageMap>();
             for (int i = 0; i < count; i++)
             {
-                results.Add(new ImageMap(this, $"{_inputs.IndexOf(image)}") { IsInput = true, InputIndex = i });
+                results.Add(new ImageMap(this, $"{_inputs.IndexOf(image)}") { IsInput = true, StreamIndex = i });
             }
             return results;
         }
@@ -68,7 +68,7 @@ namespace FFmpegArgs
         {
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
             _inputs.Add(image);
-            return new ImageMap(this, $"{_inputs.IndexOf(image)}") { IsInput = true, InputIndex = _inputs.IndexOf(image) };
+            return new ImageMap(this, $"{_inputs.IndexOf(image)}") { IsInput = true };
         }
 
         public VideoMap AddVideoInput(VideoInput video, int imageCount = 1, int audioCount = 1)
@@ -83,9 +83,9 @@ namespace FFmpegArgs
             List<AudioMap> audioMaps = new List<AudioMap>();
 
             for (int i = 0; i < imageCount; i++)
-                imageMaps.Add(new ImageMap(this, $"{inputIndex}") { IsInput = true, InputIndex = i });
+                imageMaps.Add(new ImageMap(this, $"{inputIndex}") { IsInput = true, StreamIndex = i });
             for (int i = 0; i < audioCount; i++)
-                audioMaps.Add(new AudioMap(this, $"{inputIndex}") { IsInput = true, InputIndex = i });
+                audioMaps.Add(new AudioMap(this, $"{inputIndex}") { IsInput = true, StreamIndex = i });
 
             return new VideoMap(imageMaps, audioMaps);
         }
@@ -108,23 +108,40 @@ namespace FFmpegArgs
         {
             return string.Join(" ", _outputs);
         }
-        public string GetFiltersArgs(bool withNewLine = false)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="withNewLine">if true, Join filter with <see cref="Environment.NewLine"/></param>
+        /// <param name="useChain">Make filter smaller by skipping map [map_name]</param>
+        /// <returns></returns>
+        /// <exception cref="FilterException"></exception>
+        public string GetFiltersArgs(bool withNewLine = false, bool useChain = true)
         {
             var filter_not_bind = Filters.FirstOrDefault(x => x.MapsOut.Any(y => !y.IsMapped));
             if (filter_not_bind != null)
                 throw new FilterException($"Have Map in filter {filter_not_bind.FilterName} are not bind");
-
-            if (withNewLine) return string.Join(";\r\n", _filters);
-            else return string.Join(";", _filters);
+            if(useChain)
+            {
+                var chain = FilterChain.BuildChains(_filters);
+                if (withNewLine) return string.Join($";{Environment.NewLine}", chain);
+                else return string.Join(";", chain);
+            }
+            else
+            {
+                if (withNewLine) return string.Join($";{Environment.NewLine}", _filters);
+                else return string.Join(";", _filters);
+            }
+            
         }
 
-        public string GetFullCommandline()
+        public string GetFullCommandline(bool useChain = true)
         {
             List<string> args = new List<string>()
             {
                 GetGlobalArgs(),
                 GetInputsArgs(),
-                $"-filter_complex \"{GetFiltersArgs()}\"",
+                $"-filter_complex \"{GetFiltersArgs(false,useChain)}\"",
                 GetOutputsArgs()
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

@@ -9,7 +9,7 @@
 
         public override string GetMapOut()
         {
-            return IsInput ? $"\"{MapName}:a:{InputIndex}\"" : $"\"[{MapName}]\"";
+            return IsInput ? $"\"{MapName}:a:{StreamIndex}\"" : $"\"[{MapName}]\"";
         }
     }
 }

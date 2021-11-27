@@ -19,7 +19,7 @@ namespace FFmpegArgs.Filters.VideoSources
 
     public static class ColorFilterExtension
     {
-        public static ColorFilter Color(this FilterGraph filterGraph)
+        public static ColorFilter ColorFilter(this FilterGraph filterGraph)
           => new ColorFilter(filterGraph);
     }
 }

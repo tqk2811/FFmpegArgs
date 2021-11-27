@@ -5,7 +5,7 @@
         FilterGraph FilterGraph { get; }
         string MapName { get; }
         bool IsInput { get; }
-        int InputIndex { get; }
+        int StreamIndex { get; }
         bool IsMapped { get; }
         string GetMapOut();
     }

@@ -1,29 +1,27 @@
-﻿namespace FFmpegArgs.Inputs
+﻿using FFmpegArgs.Cores.Inputs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace FFmpegArgs.Inputs
 {
-    //public class ImageFilterInput<TFilter, TIn, TOut> : ImageInput
-    //    where TIn : BaseMap
-    //    where TOut : ImageMap
-    //    where TFilter : BaseFilter<TIn, TOut>
-    //{
-    //    public TFilter Filter { get; }
+    public class ImageFilterInput : ImageInput
+    {
+         readonly string _filter;
+        public ImageFilterInput(string filter)
+        {
+            if (string.IsNullOrEmpty(filter)) throw new ArgumentNullException(nameof(filter));
+            this._filter = filter;
+        }
 
-    //    public ImageFilterInput(TFilter filter)
-    //    {
-    //        this.Filter = filter ?? throw new ArgumentNullException(nameof(filter));
-    //    }
-
-
-    //    //public TFilter AddFilterInput<TFilter, TIn, TOut>(TFilter filter)
-    //    //    where TIn : BaseMap
-    //    //    where TOut : BaseMap
-    //    //    where TFilter : BaseFilter<TIn, TOut>, ICommandSupport
-    //    //{
-    //    //    return null;
-    //    //}
-
-    //    public override string ToString()
-    //    {
-    //        return base.ToString();
-    //    }
-    //}
+        public override string ToString()
+        {
+            List<string> args = new List<string>()
+            {
+                GetArgs(),
+                _filter.Contains(" ") ? $"-f lavfi -i \"{_filter}\"" : $"-f lavfi -i {_filter}"
+            };
+            return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+        }
+    }
 }

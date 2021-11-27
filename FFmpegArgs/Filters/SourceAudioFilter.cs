@@ -5,8 +5,8 @@ namespace FFmpegArgs.Filters
 {
     public abstract class SourceAudioFilter : BaseFilter<BaseMap, AudioMap>
     {
-        protected SourceAudioFilter(string filterName, FilterGraph filterGraph, bool isInput = false)
-          : base(filterName, isInput, new AudioMap(filterGraph, string.Empty))
+        protected SourceAudioFilter(string filterName, FilterGraph filterGraph)
+          : base(filterName, new AudioMap(filterGraph, string.Empty))
         {
 
         }

@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters
 {
     public abstract class AudioToAudioFilter : BaseFilter<AudioMap, AudioMap>
     {
-        protected AudioToAudioFilter(string filterName, params AudioMap[] mapsIn) : base(filterName, false, mapsIn)
+        protected AudioToAudioFilter(string filterName, params AudioMap[] mapsIn) : base(filterName, mapsIn)
         {
 
         }

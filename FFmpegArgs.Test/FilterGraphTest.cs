@@ -54,7 +54,7 @@ namespace FFmpegArgs.Test
             FilterGraph filterGraph = new FilterGraph();
             filterGraph.OverWriteOutput();
 
-            var background = filterGraph.Color()
+            var background = filterGraph.ColorFilter()
               .Color(Color.FromArgb(00, 100, 00))
               .Size(new Size(out_w, out_h));
 

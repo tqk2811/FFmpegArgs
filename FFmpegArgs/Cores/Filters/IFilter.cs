@@ -10,10 +10,10 @@ namespace FFmpegArgs.Cores.Filters
         FilterGraph FilterGraph { get; }
         int FilterIndex { get; }
         string FilterName { get; }
-        bool IsInput { get; }
 
         IEnumerable<TOut> MapsOut { get; }
         IEnumerable<TIn> MapsIn { get; }
         TOut MapOut { get; }
+        IEnumerable<KeyValuePair<string, string>> Options { get; }
     }
 }

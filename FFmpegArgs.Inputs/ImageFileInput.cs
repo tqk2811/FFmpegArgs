@@ -17,10 +17,10 @@ namespace FFmpegArgs.Inputs
         public override string ToString()
         {
             List<string> args = new List<string>()
-      {
-        GetArgs(),
-        _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
-      };
+            {
+                GetArgs(),
+                _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
+            };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
         }
     }
