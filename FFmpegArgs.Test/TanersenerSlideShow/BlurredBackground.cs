@@ -36,9 +36,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             double TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT - TRANSITION_DURATION;
             double TOTAL_FRAME_COUNT = TOTAL_DURATION * FPS;
 
-            FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
 
-            var images_inputmap = files.Select(x => filterGraph.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
+            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
 
             //PREPARE BLURRED INPUTS
             List<ImageMap> blureds = new List<ImageMap>();
@@ -149,10 +149,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
 
-            filterGraph.AddOutput(imageFileOutput);
+            ffmpegArg.AddOutput(imageFileOutput);
 
-            string filter = filterGraph.GetFiltersArgs(true);
-            string args = filterGraph.GetFullCommandlineWithFilterScript("filter_script.txt");
+            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
             int len = args.Length;
         }
     }

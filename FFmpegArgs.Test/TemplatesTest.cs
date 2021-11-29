@@ -14,18 +14,18 @@ namespace FFmpegArgs.Test
         [TestMethod]
         public void BlurredBackground()
         {
-            FilterGraph filterGraph = new FilterGraph();
-            filterGraph.OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg();
+            ffmpegArg.OverWriteOutput();
 
             var video = new ImageFileInput(@"D:\temp\ffmpeg_encode_test\loop.mp4");
-            var video_map = filterGraph.AddImageInput(video);
+            var video_map = ffmpegArg.AddImageInput(video);
             var blurred = video_map.CropFilter("iw/2-iw/4", "0", "iw/2", "ih").MapOut
               .MakeBlurredBackgroundTemplate(1366, 768);
 
             var output = new ImageFileOutput("BlurredBackground.mp4", blurred);
-            filterGraph.AddOutput(output);
+            ffmpegArg.AddOutput(output);
 
-            string args = filterGraph.GetFullCommandline();
+            string args = ffmpegArg.GetFullCommandline();
         }
 
         [TestMethod]
@@ -34,35 +34,35 @@ namespace FFmpegArgs.Test
             DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
             var files = directoryInfo.GetFiles("*.jpg");
 
-            FilterGraph filterGraph = new FilterGraph();
-            filterGraph.OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg();
+            ffmpegArg.OverWriteOutput();
 
-            var images_inputmap = files.Select(x => filterGraph.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
+            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
             var fix_sizesInputmap = images_inputmap.Select(x => x.ScaleFilter($"trunc(iw/2)*2", $"trunc(ih/2)*2").MapOut).ToList();
             var fadeMap = fix_sizesInputmap.MakeFadeInTwoTemplate("1366", "768", 3, 1);
             var output = new ImageFileOutput("FadeInTwoTemplate.mp4", fadeMap);
-            filterGraph.AddOutput(output);
+            ffmpegArg.AddOutput(output);
 
-            string filter = filterGraph.GetFiltersArgs(true);
-            string args = filterGraph.GetFullCommandlineWithFilterScript("filter_script.txt");
-            //string args = filterGraph.GetFullCommandline();
+            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
+            //string args = FFmpegArg.GetFullCommandline();
         }
 
         [TestMethod]
         public void BlurredBackground_of_FadeInTwoTemplate()
         {
-            FilterGraph filterGraph = new FilterGraph();
-            filterGraph.OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg();
+            ffmpegArg.OverWriteOutput();
 
             var video = new ImageFileInput(@"FadeInTwoTemplate.mp4");
-            var video_map = filterGraph.AddImageInput(video);
+            var video_map = ffmpegArg.AddImageInput(video);
             var blurred = video_map//.CropFilter("iw/2-iw/4", "0", "iw/2", "ih").MapOut
               .MakeBlurredBackgroundTemplate(1366, 768);
 
             var output = new ImageFileOutput("BlurredBackground_of_FadeInTwoTemplate.mp4", blurred);
-            filterGraph.AddOutput(output);
+            ffmpegArg.AddOutput(output);
 
-            string args = filterGraph.GetFullCommandline();
+            string args = ffmpegArg.GetFullCommandline();
         }
     }
 }

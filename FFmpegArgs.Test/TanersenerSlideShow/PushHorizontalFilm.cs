@@ -38,12 +38,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             double TOTAL_DURATION = TRANSITION_DURATION * (IMAGE_COUNT + 1);
             double TOTAL_FRAME_COUNT = TOTAL_DURATION * FPS;
 
-            FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
-            var images_inputmap = files.Select(x => filterGraph.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
 
-            var film_strip_map = filterGraph.AddImageInput(new ImageFileInput("film_strip.png").SetOption("-loop", 1));
+            var film_strip_map = ffmpegArg.AddImageInput(new ImageFileInput("film_strip.png").SetOption("-loop", 1));
 
-            var background = filterGraph
+            var background = ffmpegArg.FilterGraph
                 .ColorFilter()
                     .Color(BACKGROUND_COLOR)
                     .Size(new Size(WIDTH, HEIGHT))
@@ -153,14 +153,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 //.SetOption("-b:v", "3000")
                 .Fps((int)FPS);
 
-            filterGraph.AddOutput(videoOut);
+            ffmpegArg.AddOutput(videoOut);
 
-            string filter = filterGraph.GetFiltersArgs(true);
+            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
             int filter_length = filter.Length;
-            string args = filterGraph.GetFullCommandlineWithFilterScript("filter_script.txt");
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
 
 
-            //Assert.IsTrue(filterGraph.Build(b => b.WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")).Execute());
+            //Assert.IsTrue(FFmpegArg.Build(b => b.WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")).Execute());
         }
     }
 }

@@ -11,16 +11,16 @@ using System.Linq;
 namespace FFmpegArgs.Test
 {
     [TestClass]
-    public class FilterGraphTest
+    public class FFmpegArgTest
     {
         [TestMethod]
         public void Test1()
         {
-            FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
 
-            var green_video = filterGraph.AddVideoInput(new VideoFileInput(@"chromakey.mp4")
+            var green_video = ffmpegArg.AddVideoInput(new VideoFileInput(@"chromakey.mp4")
                 .SsPosition(TimeSpan.FromSeconds(0.5)));
-            var background_video = filterGraph.AddVideoInput(new VideoFileInput(@"background.mp4")
+            var background_video = ffmpegArg.AddVideoInput(new VideoFileInput(@"background.mp4")
                 .SsPosition(TimeSpan.FromSeconds(1))
                 .ToPosition(TimeSpan.FromSeconds(10)));
 
@@ -34,10 +34,10 @@ namespace FFmpegArgs.Test
                 //overlay color_key on-center background_video
                 .OverlayFilterOn(background_video.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
 
-            filterGraph.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
-            filterGraph.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
+            ffmpegArg.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
+            ffmpegArg.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
 
-            var args = filterGraph.GetFullCommandline();
+            var args = ffmpegArg.GetFullCommandline();
         }
 
         [TestMethod]
@@ -51,16 +51,16 @@ namespace FFmpegArgs.Test
             double animationDuration = 1;
             double rotateSpeed = 2;//2 * 2PI radian/sec
 
-            FilterGraph filterGraph = new FilterGraph();
-            filterGraph.OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg();
+            ffmpegArg.OverWriteOutput();
 
-            var background = filterGraph.ColorFilter()
+            var background = ffmpegArg.FilterGraph.ColorFilter()
               .Color(Color.FromArgb(00, 100, 00))
               .Size(new Size(out_w, out_h));
 
             var images = ImageFilesConcatInput.FromFilesSearch(@"D:\temp\ffmpeg_encode_test\ImgsTest\img%d.jpg");
             images.SetOption("-r", 1 / (imageDuration + animationDuration));
-            var images_map = filterGraph.AddImageInput(images);
+            var images_map = ffmpegArg.AddImageInput(images);
             var pad = images_map.PadFilter("ceil(iw/2)*2", "ceil(ih/2)*2");//fix image size not % 2 = 0
             var format = pad.MapOut.FormatFilter(PixFmt.rgba);
             var scale = format.MapOut.ScaleFilter($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)", $"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
@@ -79,10 +79,36 @@ namespace FFmpegArgs.Test
             overlay.EofAction(EofAction.EndAll);
             var videout = new ImageFileOutput(@"D:\temp\ffmpeg_encode_test\ImgsTest\test.mp4", overlay.MapOut);
             videout.Fps(24);
-            filterGraph.AddOutput(videout);
+            ffmpegArg.AddOutput(videout);
 
-            var args = filterGraph.GetFullCommandline();
+            var args = ffmpegArg.GetFullCommandline();
 
+
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void TestFilterInput()
+        {
+            FFmpegArg ffmpegArg = new FFmpegArg();
+            ffmpegArg.OverWriteOutput();
+
+
+            FilterInput filterInput = new FilterInput();
+            filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280,720)).MapOut
+                .FpsFilter(25);
+            filterInput.FilterGraph.ColorFilter().Color(Color.Green).Size(new Size(1280/2, 720/2)).MapOut
+                .FpsFilter(25);
+
+            var videos = ffmpegArg.AddVideoInput(filterInput, 2, 0);
+
+            var output = videos.ImageMaps.Last().OverlayFilterOn(videos.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
+
+            ImageFileOutput imageFileOutput = new ImageFileOutput("TestFilterInput.mp4", output);
+            ffmpegArg.AddOutput(imageFileOutput);
+
+            string args = ffmpegArg.GetFullCommandline();
 
         }
 

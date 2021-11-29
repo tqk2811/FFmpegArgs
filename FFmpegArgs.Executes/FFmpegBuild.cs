@@ -29,26 +29,26 @@ namespace FFmpegArgs.Executes
 
         }
 
-        public static FFmpegBuild FromFilterGraph(FilterGraph filterGraph, Action<FFmpegBuildConfig> config)
+        public static FFmpegBuild FromArgument(FFmpegArg ffmpegArg, Action<FFmpegBuildConfig> config)
         {
-            if (filterGraph == null) throw new ArgumentNullException(nameof(filterGraph));
+            if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
 
             FFmpegBuildConfig buildConfig = new FFmpegBuildConfig();
             config.Invoke(buildConfig);
-            return FromFilterGraph(filterGraph, buildConfig);
+            return FromArgument(ffmpegArg, buildConfig);
         }
-        public static FFmpegBuild FromFilterGraph(FilterGraph filterGraph, FFmpegBuildConfig config)
+        public static FFmpegBuild FromArgument(FFmpegArg ffmpegArg, FFmpegBuildConfig config)
         {
-            if (filterGraph == null) throw new ArgumentNullException(nameof(filterGraph));
+            if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
 
             FFmpegBuild fFmpegBuild = new FFmpegBuild(config);
-            string args = filterGraph.GetFullCommandline();
+            string args = ffmpegArg.GetFullCommandline();
             if (config.IsForceUseScript || args.Length > config.ArgumentsMaxLength)
             {
-                File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), filterGraph.GetFiltersArgs(true));
-                fFmpegBuild.Arguments = filterGraph.GetFullCommandlineWithFilterScript(config.FilterScriptName);
+                File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), ffmpegArg.FilterGraph.GetFiltersArgs(true));
+                fFmpegBuild.Arguments = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName);
             }
             else fFmpegBuild.Arguments = args;
             return fFmpegBuild;

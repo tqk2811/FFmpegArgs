@@ -41,9 +41,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             Random random = new Random();
 
-            FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
-            var images_inputmap = files.Select(x => filterGraph.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
-            var background = filterGraph.ColorFilter()
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
+            var background = ffmpegArg.FilterGraph.ColorFilter()
                     .Size(new Size(WIDTH, HEIGHT))
                     .Color(BACKGROUND_COLOR)
                     .Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
@@ -85,12 +85,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var videoOut = new ImageFileOutput("PhotoCollection.mp4", output);
             videoOut.VSync(VSyncMethod.vfr).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").Fps(FPS);
 
-            filterGraph.AddOutput(videoOut);
+            ffmpegArg.AddOutput(videoOut);
 
-            //string full_args = filterGraph.GetFullCommandline();
+            //string full_args = FFmpegArg.GetFullCommandline();
             //int len = full_args.Length;
-            string filter = filterGraph.GetFiltersArgs(true);
-            string args = filterGraph.GetFullCommandlineWithFilterScript("filter_script.txt");
+            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
             
         }
 
@@ -116,13 +116,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             Random random = new Random();
 
-            FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
 
-            var images_inputmap = files.Select(x => filterGraph.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
+            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
 
-            var background = filterGraph.AddImageInput(
-                new ImageFilterInput($"color={BACKGROUND_COLOR.ToHexStringRGBA()}:s={WIDTH}x{HEIGHT},fps={FPS}"))
-                .TrimFilter().Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut;
+            var background = ffmpegArg.AddVideoInput(
+                new FilterInput($"color={BACKGROUND_COLOR.ToHexStringRGBA()}:s={WIDTH}x{HEIGHT},fps={FPS}"),1,0)
+                .ImageMaps.First().TrimFilter().Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut;
 
             var lastOverLay = background;
 
@@ -159,12 +159,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var videoOut = new ImageFileOutput("PhotoCollection.mp4", output);
             videoOut.VSync(VSyncMethod.vfr).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").Fps(FPS);
 
-            filterGraph.AddOutput(videoOut);
+            ffmpegArg.AddOutput(videoOut);
 
-            //string full_args = filterGraph.GetFullCommandline();
+            //string full_args = FFmpegArg.GetFullCommandline();
             //int len = full_args.Length;
-            string filter = filterGraph.GetFiltersArgs(true);
-            string args = filterGraph.GetFullCommandlineWithFilterScript("filter_script.txt");
+            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
 
         }
 

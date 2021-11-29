@@ -7,8 +7,8 @@ namespace FFmpegArgs.Executes
 {
     public static class FFmpegBuildExtension
     {
-        public static FFmpegBuild Build(this FilterGraph filterGraph, FFmpegBuildConfig config) => FFmpegBuild.FromFilterGraph(filterGraph, config);
-        public static FFmpegBuild Build(this FilterGraph filterGraph, Action<FFmpegBuildConfig> config) => FFmpegBuild.FromFilterGraph(filterGraph, config);
+        public static FFmpegBuild Build(this FFmpegArg ffmpegArg, FFmpegBuildConfig config) => FFmpegBuild.FromArgument(ffmpegArg, config);
+        public static FFmpegBuild Build(this FFmpegArg ffmpegArg, Action<FFmpegBuildConfig> config) => FFmpegBuild.FromArgument(ffmpegArg, config);
 
         public static bool Execute(this FFmpegBuild build, Action<EncodingProgress> onEncodingProgress, CancellationToken token = default)
         {

@@ -2,11 +2,11 @@
 
 Easy to use
 ``` Csharp
-FilterGraph filterGraph = new FilterGraph().OverWriteOutput();
+FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
 
-var green_video = filterGraph.AddVideoInput(new VideoFileInput(@"chromakey.mp4")
+var green_video = ffmpegArg.AddVideoInput(new VideoFileInput(@"chromakey.mp4")
     .SsPosition(TimeSpan.FromSeconds(0.5)));
-var background_video = filterGraph.AddVideoInput(new VideoFileInput(@"background.mp4")
+var background_video = ffmpegArg.AddVideoInput(new VideoFileInput(@"background.mp4")
     .SsPosition(TimeSpan.FromSeconds(1))
     .ToPosition(TimeSpan.FromSeconds(10)));
 
@@ -20,10 +20,10 @@ var overlay = color_keys.First()
     //overlay color_key on-center background_video
     .OverlayFilterOn(background_video.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
 
-filterGraph.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
-filterGraph.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
+ffmpegArg.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
+ffmpegArg.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
 
-var args = filterGraph.GetFullCommandline();
+var args = ffmpegArg.GetFullCommandline();
 ```
 For more example, see `FFmpegArgs.Test`  
 
@@ -82,8 +82,8 @@ public static T ASync<T>(this T output, int async) where T : AudioOutput
     => output.SetOption("-async", async);
 
 //global 
-public static FilterGraph OverWriteOutput(this FilterGraph filterGraph)
-    => filterGraph.SetFlag("-y");
+public static FFmpegArg OverWriteOutput(this FFmpegArg ffmpegArg)
+    => ffmpegArg.SetFlag("-y");
 ```
 
 ffmpeg expression check

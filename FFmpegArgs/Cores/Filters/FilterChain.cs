@@ -23,18 +23,18 @@ namespace FFmpegArgs.Cores.Filters
             this.chain = chain ?? throw new ArgumentNullException(nameof(chain));
         }
 
-        public override string ToString() => BuildChain(true);
+        public override string ToString() => BuildChain(true, true);
 
-        internal string BuildChain(bool useMap)
+        internal string BuildChain(bool useMapIn, bool useMapOut)
         {
             var first = chain.First();
             var last = chain.Last();
 
-            string inputs = string.Join("", first.MapsIn
+            string inputs = useMapIn ? string.Join("", first.MapsIn
               .Where(x => !string.IsNullOrWhiteSpace(x.MapName))
-              .Select(x => x.IsInput ? $"[{x.MapName}:{(x is ImageMap ? "v" : "a")}:{x.StreamIndex}]" : $"[{x.MapName}]"));
+              .Select(x => x.IsInput ? $"[{x.MapName}:{(x is ImageMap ? "v" : "a")}:{x.StreamIndex}]" : $"[{x.MapName}]")) : string.Empty;
 
-            string outputs = useMap ? string.Join("", last.MapsOut.Select(x => $"[{x.MapName}]")) : string.Empty;
+            string outputs = useMapOut ? string.Join("", last.MapsOut.Select(x => $"[{x.MapName}]")) : string.Empty;
 
             string body = string.Join(",", chain.Select(x =>
             {
@@ -47,7 +47,7 @@ namespace FFmpegArgs.Cores.Filters
         }
 
 
-        internal static IEnumerable<FilterChain> BuildChains(IEnumerable<IFilter<IMap, IMap>> filters)
+        internal static IEnumerable<FilterChain> BuildChains(IEnumerable<IFilter<IMap, IMap>> filters,bool isAllowMultiOut)
         {
             List<IFilter<IMap, IMap>> filters_ = filters.ToList();
             List<List<IFilter<IMap, IMap>>> chains = new List<List<IFilter<IMap, IMap>>>();
@@ -58,7 +58,7 @@ namespace FFmpegArgs.Cores.Filters
                 if (first_chain == null) first_chain = filters_.FirstOrDefault();//other filter
                 if (first_chain == null) break;
 
-                chains.Add(FindChain(filters_, first_chain, true));
+                chains.Add(FindChain(filters_, first_chain, isAllowMultiOut));
             }
 
             return chains.Select(x => new FilterChain(x));
