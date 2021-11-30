@@ -11,6 +11,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using FFmpegArgs.Executes;
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -82,16 +83,22 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             var output = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var videoOut = new ImageFileOutput("PhotoCollection.mp4", output);
+            var videoOut = new ImageFileOutput($"{nameof(PhotoCollectionCustomTest)}.mp4", output);
             videoOut.VSync(VSyncMethod.vfr).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").Fps(FPS);
 
             ffmpegArg.AddOutput(videoOut);
 
-            //string full_args = FFmpegArg.GetFullCommandline();
-            //int len = full_args.Length;
             string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
-            
+            string filterFile = $"{nameof(PhotoCollectionCustomTest)}.txt";
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
+
+#if RELEASE
+            Assert.IsTrue(ffmpegArg.Build(b => b
+                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
+                .WithFilterScriptName(filterFile))
+                .Execute().ExitCode == 0);
+            #endif
+
         }
 
 
@@ -156,15 +163,21 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             var output = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var videoOut = new ImageFileOutput("PhotoCollection.mp4", output);
+            var videoOut = new ImageFileOutput($"{nameof(PhotoCollectionTest)}.mp4", output);
             videoOut.VSync(VSyncMethod.vfr).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").Fps(FPS);
 
             ffmpegArg.AddOutput(videoOut);
 
-            //string full_args = FFmpegArg.GetFullCommandline();
-            //int len = full_args.Length;
             string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
+            string filterFile = $"{nameof(PhotoCollectionTest)}.txt";
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
+
+#if RELEASE
+            Assert.IsTrue(ffmpegArg.Build(b => b
+                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
+                .WithFilterScriptName(filterFile))
+                .Execute().ExitCode == 0);
+            #endif
 
         }
 

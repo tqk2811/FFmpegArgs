@@ -7,6 +7,8 @@ namespace FFmpegArgs.Executes
     public class FFmpegBuild
     {
         public event Action<EncodingProgress> OnEncodingProgress;
+        public event Action<string> OnOutputDataReceived;
+        public int ExitCode { get; internal set; } = 0;
         public FFmpegBuildConfig Config { get; }
         internal FFmpegBuild(FFmpegBuildConfig config)
         {
@@ -26,7 +28,7 @@ namespace FFmpegArgs.Executes
 
         internal void OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-
+            OnOutputDataReceived?.Invoke(e?.Data);
         }
 
         public static FFmpegBuild FromArgument(FFmpegArg ffmpegArg, Action<FFmpegBuildConfig> config)

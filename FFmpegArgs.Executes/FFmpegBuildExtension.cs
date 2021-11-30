@@ -10,13 +10,29 @@ namespace FFmpegArgs.Executes
         public static FFmpegBuild Build(this FFmpegArg ffmpegArg, FFmpegBuildConfig config) => FFmpegBuild.FromArgument(ffmpegArg, config);
         public static FFmpegBuild Build(this FFmpegArg ffmpegArg, Action<FFmpegBuildConfig> config) => FFmpegBuild.FromArgument(ffmpegArg, config);
 
-        public static bool Execute(this FFmpegBuild build, Action<EncodingProgress> onEncodingProgress, CancellationToken token = default)
+
+
+        public static FFmpegBuild Execute(
+            this FFmpegBuild build, 
+            Action<EncodingProgress> onEncodingProgress, 
+            CancellationToken token = default)
         {
             build.OnEncodingProgress += onEncodingProgress ?? throw new ArgumentNullException(nameof(onEncodingProgress));
             return build.Execute(onEncodingProgress, token);
         }
 
-        public static bool Execute(this FFmpegBuild build, CancellationToken token = default)
+        public static FFmpegBuild Execute(
+            this FFmpegBuild build,
+            Action<EncodingProgress> onEncodingProgress,
+            Action<string> onOutputDataReceived, 
+            CancellationToken token = default)
+        {
+            build.OnEncodingProgress += onEncodingProgress ?? throw new ArgumentNullException(nameof(onEncodingProgress));
+            build.OnOutputDataReceived += onOutputDataReceived ?? throw new ArgumentNullException(nameof(onOutputDataReceived));
+            return build.Execute(onEncodingProgress, token);
+        }
+
+        public static FFmpegBuild Execute(this FFmpegBuild build, CancellationToken token = default)
         {
             if (build == null) throw new ArgumentNullException(nameof(build));
             ProcessStartInfo info = new ProcessStartInfo(build.Config.FFmpegBinaryPath, build.Arguments)
@@ -36,12 +52,26 @@ namespace FFmpegArgs.Executes
             process.BeginOutputReadLine();
             using var register = token.Register(() => process.Kill());
             process.WaitForExit();
-            return process.ExitCode == 0;
+            build.ExitCode = process.ExitCode;
+            return build;
         }
 
-        public static Task<bool> ExecuteAsync(this FFmpegBuild build, Action<EncodingProgress> onEncodingProgress, CancellationToken token = default)
+
+
+        public static Task<FFmpegBuild> ExecuteAsync(
+            this FFmpegBuild build,
+            Action<EncodingProgress> onEncodingProgress,
+            Action<string> onOutputDataReceived,
+            CancellationToken token = default)
+           => Task.Run(() => build.Execute(onEncodingProgress, onOutputDataReceived, token));
+        public static Task<FFmpegBuild> ExecuteAsync(
+            this FFmpegBuild build, 
+            Action<EncodingProgress> onEncodingProgress, 
+            CancellationToken token = default)
            => Task.Run(() => build.Execute(onEncodingProgress, token));
-        public static Task<bool> ExecuteAsync(this FFmpegBuild build, CancellationToken token = default)
+        public static Task<FFmpegBuild> ExecuteAsync(
+            this FFmpegBuild build, 
+            CancellationToken token = default)
             => Task.Run(() => build.Execute(token));
 
     }

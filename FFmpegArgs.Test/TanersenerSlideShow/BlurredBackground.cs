@@ -1,4 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Executes;
 using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
 using FFmpegArgs.Filters.VideoFilters;
@@ -141,7 +142,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .FormatFilter(PixFmt.yuv420p).MapOut;
 
             //Output
-            ImageFileOutput imageFileOutput = new ImageFileOutput(@"out.mp4", out_map);
+            ImageFileOutput imageFileOutput = new ImageFileOutput($"{nameof(BlurredBackgroundTest)}.mp4", out_map);
             imageFileOutput
               .VSync(VSyncMethod.vfr)
               .SetOption("-c:v", "libx264")
@@ -152,8 +153,15 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ffmpegArg.AddOutput(imageFileOutput);
 
             string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
-            int len = args.Length;
+            string filterFile = $"{nameof(BlurredBackgroundTest)}.txt";
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
+
+#if RELEASE
+            Assert.IsTrue(ffmpegArg.Build(b => b
+                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
+                .WithFilterScriptName(filterFile))
+                .Execute().ExitCode == 0);
+            #endif
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using FFmpegArgs.Filters;
+﻿using FFmpegArgs.Executes;
+using FFmpegArgs.Filters;
 using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.VideoFilters;
 using FFmpegArgs.Filters.VideoSources;
@@ -34,10 +35,10 @@ namespace FFmpegArgs.Test
                 //overlay color_key on-center background_video
                 .OverlayFilterOn(background_video.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
 
-            ffmpegArg.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
-            ffmpegArg.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
+            ffmpegArg.AddOutput(new VideoFileOutput($"{nameof(FFmpegArgTest)}-{nameof(Test1)}.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
+            ffmpegArg.AddOutput(new VideoFileOutput($"{nameof(FFmpegArgTest)}-{nameof(Test1)}2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
 
-            var args = ffmpegArg.GetFullCommandline();
+            var command = ffmpegArg.GetFullCommandline();
         }
 
         [TestMethod]
@@ -77,13 +78,11 @@ namespace FFmpegArgs.Test
             string _stopMove = $"main_w/2";
             var overlay = rotate.MapOut.OverlayFilterOn(background.MapOut, $"if({_whenMove},{_move},{_stopMove})", $"main_h/2");
             overlay.EofAction(EofAction.EndAll);
-            var videout = new ImageFileOutput(@"D:\temp\ffmpeg_encode_test\ImgsTest\test.mp4", overlay.MapOut);
+            var videout = new ImageFileOutput($"{nameof(FFmpegArgTest)}-{nameof(Test2)}.mp4", overlay.MapOut);
             videout.Fps(24);
             ffmpegArg.AddOutput(videout);
 
-            var args = ffmpegArg.GetFullCommandline();
-
-
+            var command = ffmpegArg.GetFullCommandline();
         }
 
 

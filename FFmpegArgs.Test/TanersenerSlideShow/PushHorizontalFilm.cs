@@ -7,6 +7,7 @@ using FFmpegArgs.Filters.VideoSources;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
 using FFmpegArgs.Template;
+using FFmpegArgs.Executes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -145,7 +146,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .FpsFilter($"{FPS}").MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var videoOut = new ImageFileOutput($"PushHorizontalFilm-{screenMode}-{direction}.mp4", output)
+            var videoOut = new ImageFileOutput($"{nameof(PushHorizontalFilm)}-{screenMode}-{direction}.mp4", output)
                 .VSync(VSyncMethod.vfr)
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
@@ -156,11 +157,15 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ffmpegArg.AddOutput(videoOut);
 
             string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            int filter_length = filter.Length;
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
+            string filterFile = $"{nameof(PushHorizontalFilm)}-{screenMode}-{direction}.txt";
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
 
-
-            //Assert.IsTrue(FFmpegArg.Build(b => b.WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")).Execute());
+#if RELEASE
+            Assert.IsTrue(ffmpegArg.Build(b => b
+                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
+                .WithFilterScriptName(filterFile))
+                .Execute().ExitCode == 0);
+            #endif
         }
     }
 }

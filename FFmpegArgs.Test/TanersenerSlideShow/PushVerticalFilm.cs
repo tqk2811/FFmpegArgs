@@ -1,4 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Executes;
 using FFmpegArgs.Filters;
 using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
@@ -146,7 +147,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .FpsFilter($"{FPS}").MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var videoOut = new ImageFileOutput($"PushVerticalFilm-{screenMode}-{direction}.mp4", output)
+            var videoOut = new ImageFileOutput($"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.mp4", output)
                 .VSync(VSyncMethod.vfr)
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
@@ -157,7 +158,15 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ffmpegArg.AddOutput(videoOut);
 
             string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
+            string filterFile = $"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.txt";
+            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
+
+#if RELEASE
+            Assert.IsTrue(ffmpegArg.Build(b => b
+                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
+                .WithFilterScriptName(filterFile))
+                .Execute().ExitCode == 0);
+            #endif
         }
     }
 }
