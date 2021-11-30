@@ -36,15 +36,13 @@ namespace FFmpegArgs.Filters.AudioSources
         public HilbertFilter NbSamples(int n)
           => this.SetOptionRange("n", n, 0, int.MaxValue);
 
-#warning Need more info
-        // #NeedMoreInfo
-        ///// <summary>
-        ///// Set window function to be used when generating FIR coefficients.
-        ///// </summary>
-        ///// <param name="w"></param>
-        ///// <returns></returns>
-        //public HilbertFilter WinFunc(w)
-        //  => this.SetOption("w", w);
+        /// <summary>
+        /// Set window function to be used when generating FIR coefficients.
+        /// </summary>
+        /// <param name="w"></param>
+        /// <returns></returns>
+        public HilbertFilter WinFunc(HilbertWinFunc winFunc)
+          => this.SetOption("w", winFunc);
     }
 
     public static class HilbertFilterExtensions
@@ -58,5 +56,90 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public static HilbertFilter HilbertFilter(this FilterGraph filterGraph)
           => new HilbertFilter(filterGraph);
+    }
+
+
+    public enum HilbertWinFunc
+    {
+        /// <summary>
+        /// Rectangular
+        /// </summary>
+        rect,
+        /// <summary>
+        /// Bartlett
+        /// </summary>
+        bartlett,
+        /// <summary>
+        /// Hanning
+        /// </summary>
+        hanning,
+        /// <summary>
+        /// Hamming
+        /// </summary>
+        hamming,
+        /// <summary>
+        /// Blackman
+        /// </summary>
+        blackman,
+        /// <summary>
+        /// Welch
+        /// </summary>
+        welch,
+        /// <summary>
+        /// Flat-top
+        /// </summary>
+        flattop,
+        /// <summary>
+        /// Blackman-Harris
+        /// </summary>
+        bharris,
+        /// <summary>
+        /// Blackman-Nuttall
+        /// </summary>
+        bnuttall,
+        /// <summary>
+        /// Bartlett-Hann
+        /// </summary>
+        bhann,
+        /// <summary>
+        /// Sine
+        /// </summary>
+        sine,
+        /// <summary>
+        /// Nuttall
+        /// </summary>
+        nuttall,
+        /// <summary>
+        /// Lanczos
+        /// </summary>
+        lanczos,
+        /// <summary>
+        /// Gauss
+        /// </summary>
+        gauss,
+        /// <summary>
+        /// Tukey
+        /// </summary>
+        tukey,
+        /// <summary>
+        /// Dolph-Chebyshev
+        /// </summary>
+        dolph,
+        /// <summary>
+        /// Cauchy
+        /// </summary>
+        cauchy,
+        /// <summary>
+        /// Parzen
+        /// </summary>
+        parzen,
+        /// <summary>
+        /// Poisson
+        /// </summary>
+        poisson,
+        /// <summary>
+        /// Bohman
+        /// </summary>
+        bohman
     }
 }

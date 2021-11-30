@@ -21,8 +21,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CurvesFilter Preset(CurvesPreset preset)
             => this.SetOption("preset", preset);
 
-#warning Need more info
-        // #NeedMoreInfo
+
         /// <summary>
         /// Set the master key points. These points will define a second pass mapping. It is sometimes called a "luminance" or "value" mapping. It can be used with r, g, b or all since it acts like a post-processing LUT.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -32,8 +31,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CurvesFilter Master(string master)
             => this.SetOption("m", master);
 
-#warning Need more info
-        // #NeedMoreInfo
+
         /// <summary>
         /// Set the key points for the red component.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -42,8 +40,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter Red(string r)
             => this.SetOption("r", r);
-#warning Need more info
-        // #NeedMoreInfo
+
+
         /// <summary>
         /// Set the key points for the green component.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -53,8 +51,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CurvesFilter Green(string g)
             => this.SetOption("g", g);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Set the key points for the blue component.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -64,8 +60,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CurvesFilter Blue(string b)
             => this.SetOption("b", b);
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// Set the key points for all components (not including master). Can be used in addition to the other key points component options. In this case, the unset component(s) will fallback on this all setting.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....

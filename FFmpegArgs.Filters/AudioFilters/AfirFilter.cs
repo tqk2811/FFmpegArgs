@@ -1,4 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
+using System.Drawing;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -13,16 +14,29 @@ namespace FFmpegArgs.Filters.AudioFilters
             AddMapOut();
         }
 
-#warning Need more info
-        // #NeedMoreInfo
-        //dry
-        //  Set dry gain.This sets input gain.
+        /// <summary>
+        /// dry               <float>      ..F.A...... set dry gain (from 0 to 10) (default 1)
+        /// </summary>
+        /// <param name="dry"></param>
+        /// <returns></returns>
+        public AfirFilter Dry(float dry)
+            => this.SetOptionRange("dry", dry, 0, 10);
 
-        //wet
-        //  Set wet gain. This sets final output gain.
+        /// <summary>
+        /// wet               <float>      ..F.A...... set wet gain (from 0 to 10) (default 1)
+        /// </summary>
+        /// <param name="dry"></param>
+        /// <returns></returns>
+        public AfirFilter Wet(float wet)
+            => this.SetOptionRange("wet", wet, 0, 10);
 
-        //length
-        //  Set Impulse Response filter length. Default is 1, which means whole IR is processed.
+        /// <summary>
+        /// length            <float>      ..F.A...... set IR length (from 0 to 1) (default 1)
+        /// </summary>
+        /// <param name="dry"></param>
+        /// <returns></returns>
+        public AfirFilter Length(float length)
+            => this.SetOptionRange("length", length, 0, 1);
 
         /// <summary>
         /// Enable applying gain measured from power of IR.<br></br>
@@ -68,27 +82,28 @@ namespace FFmpegArgs.Filters.AudioFilters
 
         /// <summary>
         /// Set for which IR channel to display frequency response. By default is first channel displayed. This option is used only when response is enabled.
+        /// <br></br>channel           <int>        ..FV....... set IR channel to display frequency response (from 0 to 1024) (default 0)
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public AfirFilter Channel(double channel)
-          => this.SetOption("channel", channel);
+        public AfirFilter Channel(int channel)
+          => this.SetOptionRange("channel", channel, 0, 1024);
 
         /// <summary>
         /// Set video stream size. This option is used only when response is enabled.
         /// </summary>
         /// <param name="size"></param>
         /// <returns></returns>
-        public AfirFilter Size(double size)
-          => this.SetOption("size", size);
+        public AfirFilter Size(Size size)
+          => this.SetOption("size", $"{size.Width}x{size.Height}");
 
         /// <summary>
         /// Set video stream frame rate. This option is used only when response is enabled.
         /// </summary>
         /// <param name="rate"></param>
         /// <returns></returns>
-        public AfirFilter Rate(int rate)
-          => this.SetOptionRange("rate", rate, 1, int.MaxValue);
+        public AfirFilter Rate(Rational rate)
+          => this.SetOption("rate", rate.Check(0, double.MaxValue));
 
         /// <summary>
         /// Set minimal partition size used for convolution. Default is 8192. Allowed range is from 1 to 32768.<br>
@@ -120,11 +135,12 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// Set IR stream which will be used for convolution, starting from 0, should always be lower than supplied value by nbirs option.<br>
         /// </br> Default is 0. This option can be changed at runtime via commands.
+        /// <br></br>select IR (from 0 to 31) (default 0)
         /// </summary>
         /// <param name="ir"></param>
         /// <returns></returns>
         public AfirFilter Ir(int ir)
-         => this.SetOptionRange("ir", ir, 0, int.MaxValue);
+         => this.SetOptionRange("ir", ir, 0, 31);
     }
 
     public static class AfirFilterExtension

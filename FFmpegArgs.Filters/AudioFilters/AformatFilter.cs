@@ -3,7 +3,8 @@
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    /// ... aformat           A->A       Convert the input audio to one of the specified formats.
+    /// ... aformat           A->A       Convert the input audio to one of the specified formats.<br>
+    /// </br>https://ffmpeg.org/ffmpeg-filters.html#aformat
     /// </summary>
     public class AformatFilter : AudioToAudioFilter
     {
@@ -12,8 +13,6 @@ namespace FFmpegArgs.Filters.AudioFilters
             AddMapOut();
         }
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// A ’|’-separated list of requested sample formats.
         /// </summary>
@@ -27,11 +26,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
-        public AformatFilter SampleRates(params int[] r)
+        public AformatFilter SampleRates(params string[] r)
           => this.SetOption("r", string.Join("|", r));
 
-#warning Need more info
-        // #NeedMoreInfo
         /// <summary>
         /// A ’|’-separated list of requested channel layouts.<br>
         /// </br>https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax

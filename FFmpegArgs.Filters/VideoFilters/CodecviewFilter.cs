@@ -13,16 +13,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
 
-#warning Need more info
-        // #NeedMoreInfo
-        /// <summary>
-        /// Display block partition structure using the luma plane.
-        /// </summary>
-        /// <param name="block"></param>
-        /// <returns></returns>
-        public CodecviewFilter Block(string block)
-          => this.SetOption("block", block);
-
         /// <summary>
         /// Set motion vectors to visualize.
         /// </summary>
