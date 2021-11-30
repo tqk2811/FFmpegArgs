@@ -3,16 +3,16 @@ using System.Text.RegularExpressions;
 
 namespace FFmpegArgs.Executes
 {
-    public class EncodingProgress
+    public class RenderProgress
     {
         static readonly Regex regex
             = new Regex(@"frame= *(\d+) fps= *([0-9.]+).*?size= *([0-9.]+)kB time= *(\d{2}:\d{2}:\d{2}.\d+) bitrate= *([0-9.]+)kbits\/s speed= *([0-9.]+)x");
-        public static EncodingProgress FromProgressString(string progress)
+        public static RenderProgress FromProgressString(string progress)
         {
             Match match = regex.Match(progress);
             if (match.Success && match.Groups.Count == 7)
             {
-                return new EncodingProgress
+                return new RenderProgress
                 {
                     Frame = int.Parse(match.Groups[1].Value),
                     Fps = double.Parse(match.Groups[2].Value),
@@ -25,7 +25,7 @@ namespace FFmpegArgs.Executes
             return null;
         }
 
-        internal EncodingProgress() { }
+        internal RenderProgress() { }
 
         public int Frame { get; private set; }
 

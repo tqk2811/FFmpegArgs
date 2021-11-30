@@ -3,7 +3,7 @@ using System.IO;
 
 namespace FFmpegArgs.Executes
 {
-    public class FFmpegBuildConfig
+    public class FFmpegRenderConfig
     {
         /// <summary>
         /// Default: ffmpeg
@@ -79,7 +79,7 @@ namespace FFmpegArgs.Executes
         /// <summary>
         /// Default: ffmpeg
         /// </summary>
-        public FFmpegBuildConfig WithFFmpegBinaryPath(string filePath)
+        public FFmpegRenderConfig WithFFmpegBinaryPath(string filePath)
         {
             if (File.Exists(filePath)) FFmpegBinaryPath = filePath;
             else throw new FileNotFoundException(filePath);
@@ -89,7 +89,7 @@ namespace FFmpegArgs.Executes
         /// <summary>
         /// Default: FS.txt
         /// </summary>
-        public FFmpegBuildConfig WithFilterScriptName(string scriptName, bool forceUseScript = false)
+        public FFmpegRenderConfig WithFilterScriptName(string scriptName, bool forceUseScript = false)
         {
             if (string.IsNullOrWhiteSpace(scriptName)) throw new ArgumentNullException(nameof(scriptName));
             else FilterScriptName = scriptName;
@@ -100,7 +100,7 @@ namespace FFmpegArgs.Executes
         /// <summary>
         /// Default: Directory.GetCurrentDirectory()
         /// </summary>
-        public FFmpegBuildConfig WithWorkingDirectory(string workingDir)
+        public FFmpegRenderConfig WithWorkingDirectory(string workingDir)
         {
             if (string.IsNullOrWhiteSpace(workingDir)) throw new ArgumentNullException(nameof(workingDir));
             else WorkingDirectory = workingDir;

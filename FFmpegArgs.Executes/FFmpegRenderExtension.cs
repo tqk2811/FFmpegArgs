@@ -5,25 +5,25 @@ using System.Threading.Tasks;
 
 namespace FFmpegArgs.Executes
 {
-    public static class FFmpegBuildExtension
+    public static class FFmpegRenderExtension
     {
-        public static FFmpegBuild Build(this FFmpegArg ffmpegArg, FFmpegBuildConfig config) => FFmpegBuild.FromArgument(ffmpegArg, config);
-        public static FFmpegBuild Build(this FFmpegArg ffmpegArg, Action<FFmpegBuildConfig> config) => FFmpegBuild.FromArgument(ffmpegArg, config);
+        public static FFmpegRender Build(this FFmpegArg ffmpegArg, FFmpegRenderConfig config) => FFmpegRender.FromArgument(ffmpegArg, config);
+        public static FFmpegRender Build(this FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config) => FFmpegRender.FromArgument(ffmpegArg, config);
 
 
 
-        public static FFmpegBuild Execute(
-            this FFmpegBuild build, 
-            Action<EncodingProgress> onEncodingProgress, 
+        public static FFmpegRender Execute(
+            this FFmpegRender build, 
+            Action<RenderProgress> onEncodingProgress, 
             CancellationToken token = default)
         {
             build.OnEncodingProgress += onEncodingProgress ?? throw new ArgumentNullException(nameof(onEncodingProgress));
             return build.Execute(onEncodingProgress, token);
         }
 
-        public static FFmpegBuild Execute(
-            this FFmpegBuild build,
-            Action<EncodingProgress> onEncodingProgress,
+        public static FFmpegRender Execute(
+            this FFmpegRender build,
+            Action<RenderProgress> onEncodingProgress,
             Action<string> onOutputDataReceived, 
             CancellationToken token = default)
         {
@@ -32,7 +32,7 @@ namespace FFmpegArgs.Executes
             return build.Execute(onEncodingProgress, token);
         }
 
-        public static FFmpegBuild Execute(this FFmpegBuild build, CancellationToken token = default)
+        public static FFmpegRender Execute(this FFmpegRender build, CancellationToken token = default)
         {
             if (build == null) throw new ArgumentNullException(nameof(build));
             ProcessStartInfo info = new ProcessStartInfo(build.Config.FFmpegBinaryPath, build.Arguments)
@@ -58,19 +58,19 @@ namespace FFmpegArgs.Executes
 
 
 
-        public static Task<FFmpegBuild> ExecuteAsync(
-            this FFmpegBuild build,
-            Action<EncodingProgress> onEncodingProgress,
+        public static Task<FFmpegRender> ExecuteAsync(
+            this FFmpegRender build,
+            Action<RenderProgress> onEncodingProgress,
             Action<string> onOutputDataReceived,
             CancellationToken token = default)
            => Task.Run(() => build.Execute(onEncodingProgress, onOutputDataReceived, token));
-        public static Task<FFmpegBuild> ExecuteAsync(
-            this FFmpegBuild build, 
-            Action<EncodingProgress> onEncodingProgress, 
+        public static Task<FFmpegRender> ExecuteAsync(
+            this FFmpegRender build, 
+            Action<RenderProgress> onEncodingProgress, 
             CancellationToken token = default)
            => Task.Run(() => build.Execute(onEncodingProgress, token));
-        public static Task<FFmpegBuild> ExecuteAsync(
-            this FFmpegBuild build, 
+        public static Task<FFmpegRender> ExecuteAsync(
+            this FFmpegRender build, 
             CancellationToken token = default)
             => Task.Run(() => build.Execute(token));
 

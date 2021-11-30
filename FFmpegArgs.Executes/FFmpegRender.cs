@@ -4,13 +4,13 @@ using System.IO;
 
 namespace FFmpegArgs.Executes
 {
-    public class FFmpegBuild
+    public class FFmpegRender
     {
-        public event Action<EncodingProgress> OnEncodingProgress;
+        public event Action<RenderProgress> OnEncodingProgress;
         public event Action<string> OnOutputDataReceived;
         public int ExitCode { get; internal set; } = 0;
-        public FFmpegBuildConfig Config { get; }
-        internal FFmpegBuild(FFmpegBuildConfig config)
+        public FFmpegRenderConfig Config { get; }
+        internal FFmpegRender(FFmpegRenderConfig config)
         {
             Config = config;
         }
@@ -21,7 +21,7 @@ namespace FFmpegArgs.Executes
         {
             if (OnEncodingProgress != null)
             {
-                EncodingProgress progress = EncodingProgress.FromProgressString(e.Data);
+                RenderProgress progress = RenderProgress.FromProgressString(e.Data);
                 if (progress != null) OnEncodingProgress?.Invoke(progress);
             }
         }
@@ -31,21 +31,21 @@ namespace FFmpegArgs.Executes
             OnOutputDataReceived?.Invoke(e?.Data);
         }
 
-        public static FFmpegBuild FromArgument(FFmpegArg ffmpegArg, Action<FFmpegBuildConfig> config)
+        public static FFmpegRender FromArgument(FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config)
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
 
-            FFmpegBuildConfig buildConfig = new FFmpegBuildConfig();
+            FFmpegRenderConfig buildConfig = new FFmpegRenderConfig();
             config.Invoke(buildConfig);
             return FromArgument(ffmpegArg, buildConfig);
         }
-        public static FFmpegBuild FromArgument(FFmpegArg ffmpegArg, FFmpegBuildConfig config)
+        public static FFmpegRender FromArgument(FFmpegArg ffmpegArg, FFmpegRenderConfig config)
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
 
-            FFmpegBuild fFmpegBuild = new FFmpegBuild(config);
+            FFmpegRender fFmpegBuild = new FFmpegRender(config);
             string args = ffmpegArg.GetFullCommandline();
             if (config.IsForceUseScript || args.Length > config.ArgumentsMaxLength)
             {
@@ -56,21 +56,21 @@ namespace FFmpegArgs.Executes
             return fFmpegBuild;
         }
 
-        public static FFmpegBuild FromArgument(string commands, FFmpegBuildConfig config)
+        public static FFmpegRender FromArgument(string commands, FFmpegRenderConfig config)
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));
-            return new FFmpegBuild(config)
+            return new FFmpegRender(config)
             {
                 Arguments = commands
             };
         }
-        public static FFmpegBuild FromArgument(string commands, Action<FFmpegBuildConfig> config)
+        public static FFmpegRender FromArgument(string commands, Action<FFmpegRenderConfig> config)
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));
 
-            FFmpegBuildConfig buildConfig = new FFmpegBuildConfig();
+            FFmpegRenderConfig buildConfig = new FFmpegRenderConfig();
             config.Invoke(buildConfig);
             return FromArgument(commands, buildConfig);
         }
