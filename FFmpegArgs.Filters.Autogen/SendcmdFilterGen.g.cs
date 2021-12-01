@@ -19,17 +19,9 @@ internal SendcmdFilterGen(ImageMap input) : base("sendcmd",input) { AddMapOut();
 /// </summary>
 public SendcmdFilterGen commands(string commands) => this.SetOption("commands",commands);
 /// <summary>
-///  set commands
-/// </summary>
-public SendcmdFilterGen c(string c) => this.SetOption("c",c);
-/// <summary>
 ///  set commands file
 /// </summary>
 public SendcmdFilterGen filename(string filename) => this.SetOption("filename",filename);
-/// <summary>
-///  set commands file
-/// </summary>
-public SendcmdFilterGen f(string f) => this.SetOption("f",f);
 }
 public static class SendcmdFilterGenExtensions
 {

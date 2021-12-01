@@ -35,33 +35,17 @@ public DebandFilterGen _4thr(float _4thr) => this.SetOptionRange("4thr", _4thr,3
 /// </summary>
 public DebandFilterGen range(int range) => this.SetOptionRange("range", range,INT_MIN,INT_MAX);
 /// <summary>
-///  set range (from INT_MIN to INT_MAX) (default 16)
-/// </summary>
-public DebandFilterGen r(int r) => this.SetOptionRange("r", r,INT_MIN,INT_MAX);
-/// <summary>
 ///  set direction (from -6.28319 to 6.28319) (default 6.28319)
 /// </summary>
 public DebandFilterGen direction(float direction) => this.SetOptionRange("direction", direction,-6.28319,6.28319);
-/// <summary>
-///  set direction (from -6.28319 to 6.28319) (default 6.28319)
-/// </summary>
-public DebandFilterGen d(float d) => this.SetOptionRange("d", d,-6.28319,6.28319);
 /// <summary>
 ///  set blur (default true)
 /// </summary>
 public DebandFilterGen blur(bool flag) => this.SetOption("blur",flag.ToFFmpegFlag());
 /// <summary>
-///  set blur (default true)
-/// </summary>
-public DebandFilterGen b(bool flag) => this.SetOption("b",flag.ToFFmpegFlag());
-/// <summary>
 ///  set plane coupling (default false)
 /// </summary>
 public DebandFilterGen coupling(bool flag) => this.SetOption("coupling",flag.ToFFmpegFlag());
-/// <summary>
-///  set plane coupling (default false)
-/// </summary>
-public DebandFilterGen c(bool flag) => this.SetOption("c",flag.ToFFmpegFlag());
 }
 public static class DebandFilterGenExtensions
 {

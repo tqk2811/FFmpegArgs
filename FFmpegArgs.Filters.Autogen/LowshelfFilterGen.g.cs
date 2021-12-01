@@ -19,10 +19,6 @@ internal LowshelfFilterGen(AudioMap input) : base("lowshelf",input) { AddMapOut(
 /// </summary>
 public LowshelfFilterGen frequency(double frequency) => this.SetOptionRange("frequency", frequency,0,999999);
 /// <summary>
-///  set central frequency (from 0 to 999999) (default 100)
-/// </summary>
-public LowshelfFilterGen f(double f) => this.SetOptionRange("f", f,0,999999);
-/// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
 public LowshelfFilterGen width_type(LowshelfFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetAttribute<NameAttribute>().Name);
@@ -35,49 +31,25 @@ public LowshelfFilterGen t(LowshelfFilterGenT t) => this.SetOption("t", t.GetAtt
 /// </summary>
 public LowshelfFilterGen width(double width) => this.SetOptionRange("width", width,0,99999);
 /// <summary>
-///  set shelf transition steep (from 0 to 99999) (default 0.5)
-/// </summary>
-public LowshelfFilterGen w(double w) => this.SetOptionRange("w", w,0,99999);
-/// <summary>
 ///  set gain (from -900 to 900) (default 0)
 /// </summary>
 public LowshelfFilterGen gain(double gain) => this.SetOptionRange("gain", gain,-900,900);
-/// <summary>
-///  set gain (from -900 to 900) (default 0)
-/// </summary>
-public LowshelfFilterGen g(double g) => this.SetOptionRange("g", g,-900,900);
 /// <summary>
 ///  set number of poles (from 1 to 2) (default 2)
 /// </summary>
 public LowshelfFilterGen poles(int poles) => this.SetOptionRange("poles", poles,1,2);
 /// <summary>
-///  set number of poles (from 1 to 2) (default 2)
-/// </summary>
-public LowshelfFilterGen p(int p) => this.SetOptionRange("p", p,1,2);
-/// <summary>
 ///  set mix (from 0 to 1) (default 1)
 /// </summary>
 public LowshelfFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
-/// <summary>
-///  set mix (from 0 to 1) (default 1)
-/// </summary>
-public LowshelfFilterGen m(double m) => this.SetOptionRange("m", m,0,1);
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
 public LowshelfFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
-/// </summary>
-public LowshelfFilterGen c(AV_CH_LAYOUT c) => this.SetOption("c",c.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
 public LowshelfFilterGen normalize(bool flag) => this.SetOption("normalize",flag.ToFFmpegFlag());
-/// <summary>
-///  normalize coefficients (default false)
-/// </summary>
-public LowshelfFilterGen n(bool flag) => this.SetOption("n",flag.ToFFmpegFlag());
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>

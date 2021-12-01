@@ -27,17 +27,9 @@ public AnoisesrcFilterGen r(int r) => this.SetOptionRange("r", r,15,INT_MAX);
 /// </summary>
 public AnoisesrcFilterGen amplitude(double amplitude) => this.SetOptionRange("amplitude", amplitude,0,1);
 /// <summary>
-///  set amplitude (from 0 to 1) (default 1)
-/// </summary>
-public AnoisesrcFilterGen a(double a) => this.SetOptionRange("a", a,0,1);
-/// <summary>
 ///  set duration (default 0)
 /// </summary>
 public AnoisesrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  set duration (default 0)
-/// </summary>
-public AnoisesrcFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
@@ -55,17 +47,9 @@ public AnoisesrcFilterGen c(AnoisesrcFilterGenC c) => this.SetOption("c", c.GetA
 /// </summary>
 public AnoisesrcFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1,UINT32_MAX);
 /// <summary>
-///  set random seed (from -1 to UINT32_MAX) (default -1)
-/// </summary>
-public AnoisesrcFilterGen s(long s) => this.SetOptionRange("s", s,-1,UINT32_MAX);
-/// <summary>
 ///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
 /// </summary>
 public AnoisesrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,1,INT_MAX);
-/// <summary>
-///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
-/// </summary>
-public AnoisesrcFilterGen n(int n) => this.SetOptionRange("n", n,1,INT_MAX);
 }
 public static class AnoisesrcFilterGenExtensions
 {

@@ -19,10 +19,6 @@ internal AssFilterGen(ImageMap input) : base("ass",input) { AddMapOut(); }
 /// </summary>
 public AssFilterGen filename(string filename) => this.SetOption("filename",filename);
 /// <summary>
-///  set the filename of file to read
-/// </summary>
-public AssFilterGen f(string f) => this.SetOption("f",f);
-/// <summary>
 ///  set the size of the original video (used to scale fonts)
 /// </summary>
 public AssFilterGen original_size(Size size) => this.SetOption("original_size",$"{size.Width}x{size.Height}");

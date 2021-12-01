@@ -19,17 +19,9 @@ internal PhotosensitivityFilterGen(ImageMap input) : base("photosensitivity",inp
 /// </summary>
 public PhotosensitivityFilterGen frames(int frames) => this.SetOptionRange("frames", frames,2,240);
 /// <summary>
-///  set how many frames to use (from 2 to 240) (default 30)
-/// </summary>
-public PhotosensitivityFilterGen f(int f) => this.SetOptionRange("f", f,2,240);
-/// <summary>
 ///  set detection threshold factor (lower is stricter) (from 0.1 to FLT_MAX) (default 1)
 /// </summary>
 public PhotosensitivityFilterGen threshold(float threshold) => this.SetOptionRange("threshold", threshold,0.1,FLT_MAX);
-/// <summary>
-///  set detection threshold factor (lower is stricter) (from 0.1 to FLT_MAX) (default 1)
-/// </summary>
-public PhotosensitivityFilterGen t(float t) => this.SetOptionRange("t", t,0.1,FLT_MAX);
 /// <summary>
 ///  set pixels to skip when sampling frames (from 1 to 1024) (default 1)
 /// </summary>

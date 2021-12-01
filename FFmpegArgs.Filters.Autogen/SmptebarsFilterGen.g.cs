@@ -19,25 +19,13 @@ internal SmptebarsFilterGen(FilterGraph input) : base("smptebars",input) { AddMa
 /// </summary>
 public SmptebarsFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video size (default "320x240")
-/// </summary>
-public SmptebarsFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set video rate (default "25")
 /// </summary>
 public SmptebarsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set video rate (default "25")
-/// </summary>
-public SmptebarsFilterGen r(Rational r) => this.SetOption("r",r);
-/// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
 public SmptebarsFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  set video duration (default -0.000001)
-/// </summary>
-public SmptebarsFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>

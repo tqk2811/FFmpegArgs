@@ -19,33 +19,17 @@ internal DynaudnormFilterGen(AudioMap input) : base("dynaudnorm",input) { AddMap
 /// </summary>
 public DynaudnormFilterGen framelen(int framelen) => this.SetOptionRange("framelen", framelen,10,8000);
 /// <summary>
-///  set the frame length in msec (from 10 to 8000) (default 500)
-/// </summary>
-public DynaudnormFilterGen f(int f) => this.SetOptionRange("f", f,10,8000);
-/// <summary>
 ///  set the filter size (from 3 to 301) (default 31)
 /// </summary>
 public DynaudnormFilterGen gausssize(int gausssize) => this.SetOptionRange("gausssize", gausssize,3,301);
-/// <summary>
-///  set the filter size (from 3 to 301) (default 31)
-/// </summary>
-public DynaudnormFilterGen g(int g) => this.SetOptionRange("g", g,3,301);
 /// <summary>
 ///  set the peak value (from 0 to 1) (default 0.95)
 /// </summary>
 public DynaudnormFilterGen peak(double peak) => this.SetOptionRange("peak", peak,0,1);
 /// <summary>
-///  set the peak value (from 0 to 1) (default 0.95)
-/// </summary>
-public DynaudnormFilterGen p(double p) => this.SetOptionRange("p", p,0,1);
-/// <summary>
 ///  set the max amplification (from 1 to 100) (default 10)
 /// </summary>
 public DynaudnormFilterGen maxgain(double maxgain) => this.SetOptionRange("maxgain", maxgain,1,100);
-/// <summary>
-///  set the max amplification (from 1 to 100) (default 10)
-/// </summary>
-public DynaudnormFilterGen m(double m) => this.SetOptionRange("m", m,1,100);
 /// <summary>
 ///  set the target RMS (from 0 to 1) (default 0)
 /// </summary>
@@ -67,10 +51,6 @@ public DynaudnormFilterGen n(bool flag) => this.SetOption("n",flag.ToFFmpegFlag(
 /// </summary>
 public DynaudnormFilterGen correctdc(bool flag) => this.SetOption("correctdc",flag.ToFFmpegFlag());
 /// <summary>
-///  set DC correction (default false)
-/// </summary>
-public DynaudnormFilterGen c(bool flag) => this.SetOption("c",flag.ToFFmpegFlag());
-/// <summary>
 ///  set alternative boundary mode (default false)
 /// </summary>
 public DynaudnormFilterGen altboundary(bool flag) => this.SetOption("altboundary",flag.ToFFmpegFlag());
@@ -90,10 +70,6 @@ public DynaudnormFilterGen s(double s) => this.SetOptionRange("s", s,0,30);
 ///  set the threshold value (from 0 to 1) (default 0)
 /// </summary>
 public DynaudnormFilterGen threshold(double threshold) => this.SetOptionRange("threshold", threshold,0,1);
-/// <summary>
-///  set the threshold value (from 0 to 1) (default 0)
-/// </summary>
-public DynaudnormFilterGen t(double t) => this.SetOptionRange("t", t,0,1);
 }
 public static class DynaudnormFilterGenExtensions
 {

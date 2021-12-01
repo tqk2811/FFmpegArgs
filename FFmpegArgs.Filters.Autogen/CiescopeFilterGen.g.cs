@@ -31,17 +31,9 @@ public CiescopeFilterGen gamuts(CiescopeFilterGenGamuts gamuts) => this.SetOptio
 /// </summary>
 public CiescopeFilterGen size(int size) => this.SetOptionRange("size", size,256,8192);
 /// <summary>
-///  set ciescope size (from 256 to 8192) (default 512)
-/// </summary>
-public CiescopeFilterGen s(int s) => this.SetOptionRange("s", s,256,8192);
-/// <summary>
 ///  set ciescope intensity (from 0 to 1) (default 0.001)
 /// </summary>
 public CiescopeFilterGen intensity(float intensity) => this.SetOptionRange("intensity", intensity,0,1);
-/// <summary>
-///  set ciescope intensity (from 0 to 1) (default 0.001)
-/// </summary>
-public CiescopeFilterGen i(float i) => this.SetOptionRange("i", i,0,1);
 /// <summary>
 ///  (from 0 to 1) (default 0.75)
 /// </summary>

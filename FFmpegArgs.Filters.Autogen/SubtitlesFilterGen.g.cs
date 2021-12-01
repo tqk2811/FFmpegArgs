@@ -19,10 +19,6 @@ internal SubtitlesFilterGen(ImageMap input) : base("subtitles",input) { AddMapOu
 /// </summary>
 public SubtitlesFilterGen filename(string filename) => this.SetOption("filename",filename);
 /// <summary>
-///  set the filename of file to read
-/// </summary>
-public SubtitlesFilterGen f(string f) => this.SetOption("f",f);
-/// <summary>
 ///  set the size of the original video (used to scale fonts)
 /// </summary>
 public SubtitlesFilterGen original_size(Size size) => this.SetOption("original_size",$"{size.Width}x{size.Height}");

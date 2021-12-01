@@ -19,17 +19,9 @@ internal AsetnsamplesFilterGen(AudioMap input) : base("asetnsamples",input) { Ad
 /// </summary>
 public AsetnsamplesFilterGen nb_out_samples(int nb_out_samples) => this.SetOptionRange("nb_out_samples", nb_out_samples,1,INT_MAX);
 /// <summary>
-///  set the number of per-frame output samples (from 1 to INT_MAX) (default 1024)
-/// </summary>
-public AsetnsamplesFilterGen n(int n) => this.SetOptionRange("n", n,1,INT_MAX);
-/// <summary>
 ///  pad last frame with zeros (default true)
 /// </summary>
 public AsetnsamplesFilterGen pad(bool flag) => this.SetOption("pad",flag.ToFFmpegFlag());
-/// <summary>
-///  pad last frame with zeros (default true)
-/// </summary>
-public AsetnsamplesFilterGen p(bool flag) => this.SetOption("p",flag.ToFFmpegFlag());
 }
 public static class AsetnsamplesFilterGenExtensions
 {

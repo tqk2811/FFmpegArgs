@@ -19,17 +19,9 @@ internal AsendcmdFilterGen(AudioMap input) : base("asendcmd",input) { AddMapOut(
 /// </summary>
 public AsendcmdFilterGen commands(string commands) => this.SetOption("commands",commands);
 /// <summary>
-///  set commands
-/// </summary>
-public AsendcmdFilterGen c(string c) => this.SetOption("c",c);
-/// <summary>
 ///  set commands file
 /// </summary>
 public AsendcmdFilterGen filename(string filename) => this.SetOption("filename",filename);
-/// <summary>
-///  set commands file
-/// </summary>
-public AsendcmdFilterGen f(string f) => this.SetOption("f",f);
 }
 public static class AsendcmdFilterGenExtensions
 {

@@ -22,10 +22,6 @@ public BlackframeFilterGen amount(int amount) => this.SetOptionRange("amount", a
 ///  threshold below which a pixel value is considered black (from 0 to 255) (default 32)
 /// </summary>
 public BlackframeFilterGen threshold(int threshold) => this.SetOptionRange("threshold", threshold,0,255);
-/// <summary>
-///  threshold below which a pixel value is considered black (from 0 to 255) (default 32)
-/// </summary>
-public BlackframeFilterGen thresh(int thresh) => this.SetOptionRange("thresh", thresh,0,255);
 }
 public static class BlackframeFilterGenExtensions
 {

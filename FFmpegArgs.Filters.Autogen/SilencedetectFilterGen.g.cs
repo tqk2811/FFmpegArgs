@@ -17,15 +17,7 @@ internal SilencedetectFilterGen(AudioMap input) : base("silencedetect",input) { 
 /// <summary>
 ///  set noise tolerance (from 0 to DBL_MAX) (default 0.001)
 /// </summary>
-public SilencedetectFilterGen n(double n) => this.SetOptionRange("n", n,0,DBL_MAX);
-/// <summary>
-///  set noise tolerance (from 0 to DBL_MAX) (default 0.001)
-/// </summary>
 public SilencedetectFilterGen noise(double noise) => this.SetOptionRange("noise", noise,0,DBL_MAX);
-/// <summary>
-///  set minimum duration in seconds (default 2)
-/// </summary>
-public SilencedetectFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set minimum duration in seconds (default 2)
 /// </summary>
@@ -34,10 +26,6 @@ public SilencedetectFilterGen duration(TimeSpan duration) => this.SetOptionRange
 ///  check each channel separately (default false)
 /// </summary>
 public SilencedetectFilterGen mono(bool flag) => this.SetOption("mono",flag.ToFFmpegFlag());
-/// <summary>
-///  check each channel separately (default false)
-/// </summary>
-public SilencedetectFilterGen m(bool flag) => this.SetOption("m",flag.ToFFmpegFlag());
 }
 public static class SilencedetectFilterGenExtensions
 {

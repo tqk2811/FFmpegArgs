@@ -23,17 +23,9 @@ public HaldclutsrcFilterGen level(int level) => this.SetOptionRange("level", lev
 /// </summary>
 public HaldclutsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set video rate (default "25")
-/// </summary>
-public HaldclutsrcFilterGen r(Rational r) => this.SetOption("r",r);
-/// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
 public HaldclutsrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  set video duration (default -0.000001)
-/// </summary>
-public HaldclutsrcFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>

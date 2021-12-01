@@ -19,25 +19,13 @@ internal Testsrc2FilterGen(FilterGraph input) : base("testsrc2",input) { AddMapO
 /// </summary>
 public Testsrc2FilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video size (default "320x240")
-/// </summary>
-public Testsrc2FilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set video rate (default "25")
 /// </summary>
 public Testsrc2FilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Testsrc2FilterGen r(Rational r) => this.SetOption("r",r);
-/// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
 public Testsrc2FilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  set video duration (default -0.000001)
-/// </summary>
-public Testsrc2FilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>

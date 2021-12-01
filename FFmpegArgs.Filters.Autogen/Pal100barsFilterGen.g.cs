@@ -19,25 +19,13 @@ internal Pal100barsFilterGen(FilterGraph input) : base("pal100bars",input) { Add
 /// </summary>
 public Pal100barsFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video size (default "320x240")
-/// </summary>
-public Pal100barsFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set video rate (default "25")
 /// </summary>
 public Pal100barsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Pal100barsFilterGen r(Rational r) => this.SetOption("r",r);
-/// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
 public Pal100barsFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  set video duration (default -0.000001)
-/// </summary>
-public Pal100barsFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>

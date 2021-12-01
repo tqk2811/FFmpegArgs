@@ -43,25 +43,13 @@ public BiquadFilterGen b2(double b2) => this.SetOptionRange("b2", b2,INT_MIN,INT
 /// </summary>
 public BiquadFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
-///  set mix (from 0 to 1) (default 1)
-/// </summary>
-public BiquadFilterGen m(double m) => this.SetOptionRange("m", m,0,1);
-/// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
 public BiquadFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
-/// </summary>
-public BiquadFilterGen c(AV_CH_LAYOUT c) => this.SetOption("c",c.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
 public BiquadFilterGen normalize(bool flag) => this.SetOption("normalize",flag.ToFFmpegFlag());
-/// <summary>
-///  normalize coefficients (default false)
-/// </summary>
-public BiquadFilterGen n(bool flag) => this.SetOption("n",flag.ToFFmpegFlag());
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>

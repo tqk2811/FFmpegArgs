@@ -19,10 +19,6 @@ internal EqualizerFilterGen(AudioMap input) : base("equalizer",input) { AddMapOu
 /// </summary>
 public EqualizerFilterGen frequency(double frequency) => this.SetOptionRange("frequency", frequency,0,999999);
 /// <summary>
-///  set central frequency (from 0 to 999999) (default 0)
-/// </summary>
-public EqualizerFilterGen f(double f) => this.SetOptionRange("f", f,0,999999);
-/// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
 public EqualizerFilterGen width_type(EqualizerFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetAttribute<NameAttribute>().Name);
@@ -35,41 +31,21 @@ public EqualizerFilterGen t(EqualizerFilterGenT t) => this.SetOption("t", t.GetA
 /// </summary>
 public EqualizerFilterGen width(double width) => this.SetOptionRange("width", width,0,99999);
 /// <summary>
-///  set band-width (from 0 to 99999) (default 1)
-/// </summary>
-public EqualizerFilterGen w(double w) => this.SetOptionRange("w", w,0,99999);
-/// <summary>
 ///  set gain (from -900 to 900) (default 0)
 /// </summary>
 public EqualizerFilterGen gain(double gain) => this.SetOptionRange("gain", gain,-900,900);
-/// <summary>
-///  set gain (from -900 to 900) (default 0)
-/// </summary>
-public EqualizerFilterGen g(double g) => this.SetOptionRange("g", g,-900,900);
 /// <summary>
 ///  set mix (from 0 to 1) (default 1)
 /// </summary>
 public EqualizerFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
-///  set mix (from 0 to 1) (default 1)
-/// </summary>
-public EqualizerFilterGen m(double m) => this.SetOptionRange("m", m,0,1);
-/// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
 public EqualizerFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
-/// </summary>
-public EqualizerFilterGen c(AV_CH_LAYOUT c) => this.SetOption("c",c.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
 public EqualizerFilterGen normalize(bool flag) => this.SetOption("normalize",flag.ToFFmpegFlag());
-/// <summary>
-///  normalize coefficients (default false)
-/// </summary>
-public EqualizerFilterGen n(bool flag) => this.SetOption("n",flag.ToFFmpegFlag());
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>

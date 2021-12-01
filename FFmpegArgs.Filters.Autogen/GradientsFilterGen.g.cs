@@ -19,17 +19,9 @@ internal GradientsFilterGen(FilterGraph input) : base("gradients",input) { AddMa
 /// </summary>
 public GradientsFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set frame size (default "640x480")
-/// </summary>
-public GradientsFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set frame rate (default "25")
 /// </summary>
 public GradientsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public GradientsFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set 1st color (default "random")
 /// </summary>
@@ -83,10 +75,6 @@ public GradientsFilterGen y1(int y1) => this.SetOptionRange("y1", y1,-1,INT_MAX)
 /// </summary>
 public GradientsFilterGen nb_colors(int nb_colors) => this.SetOptionRange("nb_colors", nb_colors,2,8);
 /// <summary>
-///  set the number of colors (from 2 to 8) (default 2)
-/// </summary>
-public GradientsFilterGen n(int n) => this.SetOptionRange("n", n,2,8);
-/// <summary>
 ///  set the seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
 public GradientsFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1,UINT32_MAX);
@@ -94,10 +82,6 @@ public GradientsFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1
 ///  set video duration (default -0.000001)
 /// </summary>
 public GradientsFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  set video duration (default -0.000001)
-/// </summary>
-public GradientsFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set gradients rotation speed (from 1e-05 to 1) (default 0.01)
 /// </summary>

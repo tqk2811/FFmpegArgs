@@ -35,17 +35,9 @@ public AnullsrcFilterGen r(string r) => this.SetOption("r",r);
 /// </summary>
 public AnullsrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,1,65535);
 /// <summary>
-///  set the number of samples per requested frame (from 1 to 65535) (default 1024)
-/// </summary>
-public AnullsrcFilterGen n(int n) => this.SetOptionRange("n", n,1,65535);
-/// <summary>
 ///  set the audio duration (default -0.000001)
 /// </summary>
 public AnullsrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  set the audio duration (default -0.000001)
-/// </summary>
-public AnullsrcFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
 }
 public static class AnullsrcFilterGenExtensions
 {

@@ -19,10 +19,6 @@ internal DatascopeFilterGen(ImageMap input) : base("datascope",input) { AddMapOu
 /// </summary>
 public DatascopeFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set output size (default "hd720")
-/// </summary>
-public DatascopeFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set x offset (from 0 to INT_MAX) (default 0)
 /// </summary>
 public DatascopeFilterGen x(int x) => this.SetOptionRange("x", x,0,INT_MAX);

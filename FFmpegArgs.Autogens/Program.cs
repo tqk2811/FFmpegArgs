@@ -12,7 +12,7 @@ namespace FFmpegArgs.Autogens
             var filters = GetDoc("-filters").Skip(8).Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.TrimStart()).ToList();
             var fulls = DocLine.GetDocLine(GetDoc("-h full").ToList());
 
-            Filters.Gen(filters, fulls);
+            FiltersGen.Gen(filters, fulls);
             Console.ReadLine();
         }
 

@@ -17,15 +17,7 @@ internal ScaleFilterGen(ImageMap input) : base("scale",input) { AddMapOut(); }
 /// <summary>
 ///  Output video width
 /// </summary>
-public ScaleFilterGen w(string w) => this.SetOption("w",w);
-/// <summary>
-///  Output video width
-/// </summary>
 public ScaleFilterGen width(string width) => this.SetOption("width",width);
-/// <summary>
-///  Output video height
-/// </summary>
-public ScaleFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  Output video height
 /// </summary>

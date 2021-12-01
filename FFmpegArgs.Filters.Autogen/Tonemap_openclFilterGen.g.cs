@@ -23,33 +23,17 @@ public Tonemap_openclFilterGen tonemap(Tonemap_openclFilterGenTonemap tonemap) =
 /// </summary>
 public Tonemap_openclFilterGen transfer(Tonemap_openclFilterGenTransfer transfer) => this.SetOption("transfer", transfer.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transfer characteristic (from -1 to INT_MAX) (default bt709)
-/// </summary>
-public Tonemap_openclFilterGen t(Tonemap_openclFilterGenT t) => this.SetOption("t", t.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  set colorspace matrix (from -1 to INT_MAX) (default -1)
 /// </summary>
 public Tonemap_openclFilterGen matrix(Tonemap_openclFilterGenMatrix matrix) => this.SetOption("matrix", matrix.GetAttribute<NameAttribute>().Name);
-/// <summary>
-///  set colorspace matrix (from -1 to INT_MAX) (default -1)
-/// </summary>
-public Tonemap_openclFilterGen m(Tonemap_openclFilterGenM m) => this.SetOption("m", m.GetAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color primaries (from -1 to INT_MAX) (default -1)
 /// </summary>
 public Tonemap_openclFilterGen primaries(Tonemap_openclFilterGenPrimaries primaries) => this.SetOption("primaries", primaries.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  set color primaries (from -1 to INT_MAX) (default -1)
-/// </summary>
-public Tonemap_openclFilterGen p(Tonemap_openclFilterGenP p) => this.SetOption("p", p.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  set color range (from -1 to INT_MAX) (default -1)
 /// </summary>
 public Tonemap_openclFilterGen range(Tonemap_openclFilterGenRange range) => this.SetOption("range", range.GetAttribute<NameAttribute>().Name);
-/// <summary>
-///  set color range (from -1 to INT_MAX) (default -1)
-/// </summary>
-public Tonemap_openclFilterGen r(Tonemap_openclFilterGenR r) => this.SetOption("r", r.GetAttribute<NameAttribute>().Name);
 /// <summary>
 ///  output pixel format (default none)
 /// </summary>
@@ -95,19 +79,7 @@ public enum Tonemap_openclFilterGenTransfer
 [Name("bt2020")] bt2020,
 }
 
-public enum Tonemap_openclFilterGenT
-{
-[Name("bt709")] bt709,
-[Name("bt2020")] bt2020,
-}
-
 public enum Tonemap_openclFilterGenMatrix
-{
-[Name("bt709")] bt709,
-[Name("bt2020")] bt2020,
-}
-
-public enum Tonemap_openclFilterGenM
 {
 [Name("bt709")] bt709,
 [Name("bt2020")] bt2020,
@@ -119,21 +91,7 @@ public enum Tonemap_openclFilterGenPrimaries
 [Name("bt2020")] bt2020,
 }
 
-public enum Tonemap_openclFilterGenP
-{
-[Name("bt709")] bt709,
-[Name("bt2020")] bt2020,
-}
-
 public enum Tonemap_openclFilterGenRange
-{
-[Name("tv")] tv,
-[Name("pc")] pc,
-[Name("limited")] limited,
-[Name("full")] full,
-}
-
-public enum Tonemap_openclFilterGenR
 {
 [Name("tv")] tv,
 [Name("pc")] pc,

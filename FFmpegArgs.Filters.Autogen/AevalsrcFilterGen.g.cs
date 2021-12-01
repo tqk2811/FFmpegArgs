@@ -23,33 +23,17 @@ public AevalsrcFilterGen exprs(string exprs) => this.SetOption("exprs",exprs);
 /// </summary>
 public AevalsrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,0,INT_MAX);
 /// <summary>
-///  set the number of samples per requested frame (from 0 to INT_MAX) (default 1024)
-/// </summary>
-public AevalsrcFilterGen n(int n) => this.SetOptionRange("n", n,0,INT_MAX);
-/// <summary>
 ///  set the sample rate (default "44100")
 /// </summary>
 public AevalsrcFilterGen sample_rate(string sample_rate) => this.SetOption("sample_rate",sample_rate);
-/// <summary>
-///  set the sample rate (default "44100")
-/// </summary>
-public AevalsrcFilterGen s(string s) => this.SetOption("s",s);
 /// <summary>
 ///  set audio duration (default -0.000001)
 /// </summary>
 public AevalsrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set audio duration (default -0.000001)
-/// </summary>
-public AevalsrcFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
 ///  set channel layout
 /// </summary>
 public AevalsrcFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
-/// <summary>
-///  set channel layout
-/// </summary>
-public AevalsrcFilterGen c(string c) => this.SetOption("c",c);
 }
 public static class AevalsrcFilterGenExtensions
 {

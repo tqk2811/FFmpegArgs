@@ -27,10 +27,6 @@ public HistogramFilterGen scale_height(int scale_height) => this.SetOptionRange(
 /// </summary>
 public HistogramFilterGen display_mode(HistogramFilterGenDisplay_mode display_mode) => this.SetOption("display_mode", display_mode.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  set display mode (from 0 to 2) (default stack)
-/// </summary>
-public HistogramFilterGen d(HistogramFilterGenD d) => this.SetOption("d", d.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  set levels mode (from 0 to 1) (default linear)
 /// </summary>
 public HistogramFilterGen levels_mode(HistogramFilterGenLevels_mode levels_mode) => this.SetOption("levels_mode", levels_mode.GetAttribute<NameAttribute>().Name);
@@ -43,25 +39,13 @@ public HistogramFilterGen m(HistogramFilterGenM m) => this.SetOption("m", m.GetA
 /// </summary>
 public HistogramFilterGen components(int components) => this.SetOptionRange("components", components,1,15);
 /// <summary>
-///  set color components to display (from 1 to 15) (default 7)
-/// </summary>
-public HistogramFilterGen c(int c) => this.SetOptionRange("c", c,1,15);
-/// <summary>
 ///  set foreground opacity (from 0 to 1) (default 0.7)
 /// </summary>
 public HistogramFilterGen fgopacity(float fgopacity) => this.SetOptionRange("fgopacity", fgopacity,0,1);
 /// <summary>
-///  set foreground opacity (from 0 to 1) (default 0.7)
-/// </summary>
-public HistogramFilterGen f(float f) => this.SetOptionRange("f", f,0,1);
-/// <summary>
 ///  set background opacity (from 0 to 1) (default 0.5)
 /// </summary>
 public HistogramFilterGen bgopacity(float bgopacity) => this.SetOptionRange("bgopacity", bgopacity,0,1);
-/// <summary>
-///  set background opacity (from 0 to 1) (default 0.5)
-/// </summary>
-public HistogramFilterGen b(float b) => this.SetOptionRange("b", b,0,1);
 }
 public static class HistogramFilterGenExtensions
 {
@@ -71,13 +55,6 @@ public static class HistogramFilterGenExtensions
 public static HistogramFilterGen HistogramFilterGen(this ImageMap input0) => new HistogramFilterGen(input0);
 }
 public enum HistogramFilterGenDisplay_mode
-{
-[Name("overlay")] overlay,
-[Name("parade")] parade,
-[Name("stack")] stack,
-}
-
-public enum HistogramFilterGenD
 {
 [Name("overlay")] overlay,
 [Name("parade")] parade,

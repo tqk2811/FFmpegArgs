@@ -22,10 +22,6 @@ public AevalFilterGen exprs(string exprs) => this.SetOption("exprs",exprs);
 ///  set channel layout
 /// </summary>
 public AevalFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
-/// <summary>
-///  set channel layout
-/// </summary>
-public AevalFilterGen c(string c) => this.SetOption("c",c);
 }
 public static class AevalFilterGenExtensions
 {

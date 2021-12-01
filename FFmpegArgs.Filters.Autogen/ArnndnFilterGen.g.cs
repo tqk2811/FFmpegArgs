@@ -19,10 +19,6 @@ internal ArnndnFilterGen(AudioMap input) : base("arnndn",input) { AddMapOut(); }
 /// </summary>
 public ArnndnFilterGen model(string model) => this.SetOption("model",model);
 /// <summary>
-///  set model name
-/// </summary>
-public ArnndnFilterGen m(string m) => this.SetOption("m",m);
-/// <summary>
 ///  set output vs input mix (from -1 to 1) (default 1)
 /// </summary>
 public ArnndnFilterGen mix(float mix) => this.SetOptionRange("mix", mix,-1,1);

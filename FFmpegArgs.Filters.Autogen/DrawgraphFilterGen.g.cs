@@ -71,17 +71,9 @@ public DrawgraphFilterGen slide(DrawgraphFilterGenSlide slide) => this.SetOption
 /// </summary>
 public DrawgraphFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set graph size (default "900x256")
-/// </summary>
-public DrawgraphFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set video rate (default "25")
 /// </summary>
 public DrawgraphFilterGen rate(Rational rate) => this.SetOption("rate",rate);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public DrawgraphFilterGen r(Rational r) => this.SetOption("r",r);
 }
 public static class DrawgraphFilterGenExtensions
 {

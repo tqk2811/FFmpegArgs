@@ -19,10 +19,6 @@ internal VignetteFilterGen(ImageMap input) : base("vignette",input) { AddMapOut(
 /// </summary>
 public VignetteFilterGen angle(string angle) => this.SetOption("angle",angle);
 /// <summary>
-///  set lens angle (default "PI/5")
-/// </summary>
-public VignetteFilterGen a(string a) => this.SetOption("a",a);
-/// <summary>
 ///  set circle center position on x-axis (default "w/2")
 /// </summary>
 public VignetteFilterGen x0(string x0) => this.SetOption("x0",x0);

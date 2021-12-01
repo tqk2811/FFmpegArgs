@@ -27,17 +27,9 @@ public ElbgFilterGen l(int l) => this.SetOptionRange("l", l,1,INT_MAX);
 /// </summary>
 public ElbgFilterGen nb_steps(int nb_steps) => this.SetOptionRange("nb_steps", nb_steps,1,INT_MAX);
 /// <summary>
-///  set max number of steps used to compute the mapping (from 1 to INT_MAX) (default 1)
-/// </summary>
-public ElbgFilterGen n(int n) => this.SetOptionRange("n", n,1,INT_MAX);
-/// <summary>
 ///  set the random seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
 public ElbgFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1,UINT32_MAX);
-/// <summary>
-///  set the random seed (from -1 to UINT32_MAX) (default -1)
-/// </summary>
-public ElbgFilterGen s(long s) => this.SetOptionRange("s", s,-1,UINT32_MAX);
 /// <summary>
 ///  set the pal8 output (default false)
 /// </summary>

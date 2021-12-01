@@ -27,17 +27,9 @@ public AcrossfadeFilterGen ns(int ns) => this.SetOptionRange("ns", ns,1,2.14748e
 /// </summary>
 public AcrossfadeFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set cross fade duration (default 0)
-/// </summary>
-public AcrossfadeFilterGen d(TimeSpan d) => this.SetOptionRange("d",d,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
 ///  overlap 1st stream end with 2nd stream start (default true)
 /// </summary>
 public AcrossfadeFilterGen overlap(bool flag) => this.SetOption("overlap",flag.ToFFmpegFlag());
-/// <summary>
-///  overlap 1st stream end with 2nd stream start (default true)
-/// </summary>
-public AcrossfadeFilterGen o(bool flag) => this.SetOption("o",flag.ToFFmpegFlag());
 /// <summary>
 ///  set fade curve type for 1st stream (from -1 to 18) (default tri)
 /// </summary>

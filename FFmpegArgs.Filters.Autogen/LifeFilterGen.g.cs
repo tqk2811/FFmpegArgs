@@ -19,25 +19,13 @@ internal LifeFilterGen(FilterGraph input) : base("life",input) { AddMapOut(); }
 /// </summary>
 public LifeFilterGen filename(string filename) => this.SetOption("filename",filename);
 /// <summary>
-///  set source file
-/// </summary>
-public LifeFilterGen f(string f) => this.SetOption("f",f);
-/// <summary>
 ///  set video size
 /// </summary>
 public LifeFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video size
-/// </summary>
-public LifeFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set video rate (default "25")
 /// </summary>
 public LifeFilterGen rate(Rational rate) => this.SetOption("rate",rate);
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public LifeFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set rule (default "B3/S23")
 /// </summary>

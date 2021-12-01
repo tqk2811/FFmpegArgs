@@ -19,10 +19,6 @@ internal ZoompanFilterGen(ImageMap input) : base("zoompan",input) { AddMapOut();
 /// </summary>
 public ZoompanFilterGen zoom(string zoom) => this.SetOption("zoom",zoom);
 /// <summary>
-///  set the zoom expression (default "1")
-/// </summary>
-public ZoompanFilterGen z(string z) => this.SetOption("z",z);
-/// <summary>
 ///  set the x expression (default "0")
 /// </summary>
 public ZoompanFilterGen x(string x) => this.SetOption("x",x);

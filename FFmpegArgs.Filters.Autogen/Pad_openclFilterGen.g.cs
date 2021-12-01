@@ -19,17 +19,9 @@ internal Pad_openclFilterGen(ImageMap input) : base("pad_opencl",input) { AddMap
 /// </summary>
 public Pad_openclFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  set the pad area width (default "iw")
-/// </summary>
-public Pad_openclFilterGen w(string w) => this.SetOption("w",w);
-/// <summary>
 ///  set the pad area height (default "ih")
 /// </summary>
 public Pad_openclFilterGen height(string height) => this.SetOption("height",height);
-/// <summary>
-///  set the pad area height (default "ih")
-/// </summary>
-public Pad_openclFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  set the x offset for the input image position (default "0")
 /// </summary>

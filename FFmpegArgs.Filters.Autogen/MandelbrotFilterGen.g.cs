@@ -19,17 +19,9 @@ internal MandelbrotFilterGen(FilterGraph input) : base("mandelbrot",input) { Add
 /// </summary>
 public MandelbrotFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set frame size (default "640x480")
-/// </summary>
-public MandelbrotFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set frame rate (default "25")
 /// </summary>
 public MandelbrotFilterGen rate(Rational rate) => this.SetOption("rate",rate);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public MandelbrotFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set max iterations number (from 1 to INT_MAX) (default 7189)
 /// </summary>

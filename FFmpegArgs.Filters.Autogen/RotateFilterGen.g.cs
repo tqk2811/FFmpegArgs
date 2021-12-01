@@ -19,10 +19,6 @@ internal RotateFilterGen(ImageMap input) : base("rotate",input) { AddMapOut(); }
 /// </summary>
 public RotateFilterGen angle(string angle) => this.SetOption("angle",angle);
 /// <summary>
-///  set angle (in radians) (default "0")
-/// </summary>
-public RotateFilterGen a(string a) => this.SetOption("a",a);
-/// <summary>
 ///  set output width expression (default "iw")
 /// </summary>
 public RotateFilterGen out_w(string out_w) => this.SetOption("out_w",out_w);

@@ -19,33 +19,17 @@ internal CellautoFilterGen(FilterGraph input) : base("cellauto",input) { AddMapO
 /// </summary>
 public CellautoFilterGen filename(string filename) => this.SetOption("filename",filename);
 /// <summary>
-///  read initial pattern from file
-/// </summary>
-public CellautoFilterGen f(string f) => this.SetOption("f",f);
-/// <summary>
 ///  set initial pattern
 /// </summary>
 public CellautoFilterGen pattern(string pattern) => this.SetOption("pattern",pattern);
-/// <summary>
-///  set initial pattern
-/// </summary>
-public CellautoFilterGen p(string p) => this.SetOption("p",p);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
 public CellautoFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set video rate (default "25")
-/// </summary>
-public CellautoFilterGen r(Rational r) => this.SetOption("r",r);
-/// <summary>
 ///  set video size
 /// </summary>
 public CellautoFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
-/// <summary>
-///  set video size
-/// </summary>
-public CellautoFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
 /// <summary>
 ///  set rule (from 0 to 255) (default 110)
 /// </summary>

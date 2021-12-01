@@ -19,10 +19,6 @@ internal DctdnoizFilterGen(ImageMap input) : base("dctdnoiz",input) { AddMapOut(
 /// </summary>
 public DctdnoizFilterGen sigma(float sigma) => this.SetOptionRange("sigma", sigma,0,999);
 /// <summary>
-///  set noise sigma constant (from 0 to 999) (default 0)
-/// </summary>
-public DctdnoizFilterGen s(float s) => this.SetOptionRange("s", s,0,999);
-/// <summary>
 ///  set number of block overlapping pixels (from -1 to 15) (default -1)
 /// </summary>
 public DctdnoizFilterGen overlap(int overlap) => this.SetOptionRange("overlap", overlap,-1,15);
@@ -30,10 +26,6 @@ public DctdnoizFilterGen overlap(int overlap) => this.SetOptionRange("overlap", 
 ///  set coefficient factor expression
 /// </summary>
 public DctdnoizFilterGen expr(string expr) => this.SetOption("expr",expr);
-/// <summary>
-///  set coefficient factor expression
-/// </summary>
-public DctdnoizFilterGen e(string e) => this.SetOption("e",e);
 /// <summary>
 ///  set the block size, expressed in bits (from 3 to 4) (default 3)
 /// </summary>

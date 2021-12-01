@@ -27,10 +27,6 @@ public SincFilterGen r(int r) => this.SetOptionRange("r", r,1,INT_MAX);
 /// </summary>
 public SincFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,1,INT_MAX);
 /// <summary>
-///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
-/// </summary>
-public SincFilterGen n(int n) => this.SetOptionRange("n", n,1,INT_MAX);
-/// <summary>
 ///  set high-pass filter frequency (from 0 to INT_MAX) (default 0)
 /// </summary>
 public SincFilterGen hp(float hp) => this.SetOptionRange("hp", hp,0,INT_MAX);

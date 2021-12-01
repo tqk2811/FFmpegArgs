@@ -18,10 +18,6 @@ internal RemovelogoFilterGen(ImageMap input) : base("removelogo",input) { AddMap
 ///  set bitmap filename
 /// </summary>
 public RemovelogoFilterGen filename(string filename) => this.SetOption("filename",filename);
-/// <summary>
-///  set bitmap filename
-/// </summary>
-public RemovelogoFilterGen f(string f) => this.SetOption("f",f);
 }
 public static class RemovelogoFilterGenExtensions
 {

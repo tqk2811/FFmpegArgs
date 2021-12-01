@@ -23,10 +23,6 @@ public CropdetectFilterGen limit(float limit) => this.SetOptionRange("limit", li
 /// </summary>
 public CropdetectFilterGen round(int round) => this.SetOptionRange("round", round,0,INT_MAX);
 /// <summary>
-///  Recalculate the crop area after this many frames (from 0 to INT_MAX) (default 0)
-/// </summary>
-public CropdetectFilterGen reset(int reset) => this.SetOptionRange("reset", reset,0,INT_MAX);
-/// <summary>
 ///  Number of initial frames to skip (from 0 to INT_MAX) (default 2)
 /// </summary>
 public CropdetectFilterGen skip(int skip) => this.SetOptionRange("skip", skip,0,INT_MAX);

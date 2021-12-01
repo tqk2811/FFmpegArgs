@@ -27,33 +27,17 @@ public DrawboxFilterGen y(string y) => this.SetOption("y",y);
 /// </summary>
 public DrawboxFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  set width of the box (default "0")
-/// </summary>
-public DrawboxFilterGen w(string w) => this.SetOption("w",w);
-/// <summary>
 ///  set height of the box (default "0")
 /// </summary>
 public DrawboxFilterGen height(string height) => this.SetOption("height",height);
-/// <summary>
-///  set height of the box (default "0")
-/// </summary>
-public DrawboxFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  set color of the box (default "black")
 /// </summary>
 public DrawboxFilterGen color(string color) => this.SetOption("color",color);
 /// <summary>
-///  set color of the box (default "black")
-/// </summary>
-public DrawboxFilterGen c(string c) => this.SetOption("c",c);
-/// <summary>
 ///  set the box thickness (default "3")
 /// </summary>
 public DrawboxFilterGen thickness(string thickness) => this.SetOption("thickness",thickness);
-/// <summary>
-///  set the box thickness (default "3")
-/// </summary>
-public DrawboxFilterGen t(string t) => this.SetOption("t",t);
 /// <summary>
 ///  replace color & alpha (default false)
 /// </summary>

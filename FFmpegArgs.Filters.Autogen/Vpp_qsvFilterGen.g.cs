@@ -73,15 +73,7 @@ public Vpp_qsvFilterGen cy(string cy) => this.SetOption("cy",cy);
 /// <summary>
 ///  Output video width (default "cw")
 /// </summary>
-public Vpp_qsvFilterGen w(string w) => this.SetOption("w",w);
-/// <summary>
-///  Output video width (default "cw")
-/// </summary>
 public Vpp_qsvFilterGen width(string width) => this.SetOption("width",width);
-/// <summary>
-///  Output video height (default "w*ch/cw")
-/// </summary>
-public Vpp_qsvFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  Output video height (default "w*ch/cw")
 /// </summary>

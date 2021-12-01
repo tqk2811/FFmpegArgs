@@ -19,17 +19,9 @@ internal PadFilterGen(ImageMap input) : base("pad",input) { AddMapOut(); }
 /// </summary>
 public PadFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  set the pad area width expression (default "iw")
-/// </summary>
-public PadFilterGen w(string w) => this.SetOption("w",w);
-/// <summary>
 ///  set the pad area height expression (default "ih")
 /// </summary>
 public PadFilterGen height(string height) => this.SetOption("height",height);
-/// <summary>
-///  set the pad area height expression (default "ih")
-/// </summary>
-public PadFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  set the x offset expression for the input image position (default "0")
 /// </summary>

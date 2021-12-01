@@ -17,15 +17,7 @@ internal AtrimFilterGen(AudioMap input) : base("atrim",input) { AddMapOut(); }
 /// <summary>
 ///  Timestamp of the first frame that should be passed (default INT64_MAX)
 /// </summary>
-public AtrimFilterGen start(TimeSpan start) => this.SetOptionRange("start",start,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  Timestamp of the first frame that should be passed (default INT64_MAX)
-/// </summary>
 public AtrimFilterGen starti(TimeSpan starti) => this.SetOptionRange("starti",starti,TimeSpan.Zero,TimeSpan.MaxValue);
-/// <summary>
-///  Timestamp of the first frame that should be dropped again (default INT64_MAX)
-/// </summary>
-public AtrimFilterGen end(TimeSpan end) => this.SetOptionRange("end",end,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  Timestamp of the first frame that should be dropped again (default INT64_MAX)
 /// </summary>
@@ -38,10 +30,6 @@ public AtrimFilterGen start_pts(long start_pts) => this.SetOptionRange("start_pt
 ///  Timestamp of the first frame that should be dropped again (from I64_MIN to I64_MAX) (default I64_MIN)
 /// </summary>
 public AtrimFilterGen end_pts(long end_pts) => this.SetOptionRange("end_pts", end_pts,I64_MIN,I64_MAX);
-/// <summary>
-///  Maximum duration of the output (default 0)
-/// </summary>
-public AtrimFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  Maximum duration of the output (default 0)
 /// </summary>

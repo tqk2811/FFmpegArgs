@@ -25,10 +25,6 @@ public SignalstatsFilterGen _out(SignalstatsFilterGenOut _out) => this.SetOption
 /// <summary>
 ///  set highlight color (default "yellow")
 /// </summary>
-public SignalstatsFilterGen c(Color c) => this.SetOption("c",c.ToHexStringRGBA());
-/// <summary>
-///  set highlight color (default "yellow")
-/// </summary>
 public SignalstatsFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }
 public static class SignalstatsFilterGenExtensions

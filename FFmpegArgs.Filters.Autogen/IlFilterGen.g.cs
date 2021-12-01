@@ -19,25 +19,13 @@ internal IlFilterGen(ImageMap input) : base("il",input) { AddMapOut(); }
 /// </summary>
 public IlFilterGen luma_mode(IlFilterGenLuma_mode luma_mode) => this.SetOption("luma_mode", luma_mode.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  select luma mode (from 0 to 2) (default none)
-/// </summary>
-public IlFilterGen l(IlFilterGenL l) => this.SetOption("l", l.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  select chroma mode (from 0 to 2) (default none)
 /// </summary>
 public IlFilterGen chroma_mode(IlFilterGenChroma_mode chroma_mode) => this.SetOption("chroma_mode", chroma_mode.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  select chroma mode (from 0 to 2) (default none)
-/// </summary>
-public IlFilterGen c(IlFilterGenC c) => this.SetOption("c", c.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  select alpha mode (from 0 to 2) (default none)
 /// </summary>
 public IlFilterGen alpha_mode(IlFilterGenAlpha_mode alpha_mode) => this.SetOption("alpha_mode", alpha_mode.GetAttribute<NameAttribute>().Name);
-/// <summary>
-///  select alpha mode (from 0 to 2) (default none)
-/// </summary>
-public IlFilterGen a(IlFilterGenA a) => this.SetOption("a", a.GetAttribute<NameAttribute>().Name);
 /// <summary>
 ///  swap luma fields (default false)
 /// </summary>
@@ -79,15 +67,6 @@ public enum IlFilterGenLuma_mode
 [Name("d")] d,
 }
 
-public enum IlFilterGenL
-{
-[Name("none")] none,
-[Name("interleave")] interleave,
-[Name("i")] i,
-[Name("deinterleave")] deinterleave,
-[Name("d")] d,
-}
-
 public enum IlFilterGenChroma_mode
 {
 [Name("none")] none,
@@ -97,25 +76,7 @@ public enum IlFilterGenChroma_mode
 [Name("d")] d,
 }
 
-public enum IlFilterGenC
-{
-[Name("none")] none,
-[Name("interleave")] interleave,
-[Name("i")] i,
-[Name("deinterleave")] deinterleave,
-[Name("d")] d,
-}
-
 public enum IlFilterGenAlpha_mode
-{
-[Name("none")] none,
-[Name("interleave")] interleave,
-[Name("i")] i,
-[Name("deinterleave")] deinterleave,
-[Name("d")] d,
-}
-
-public enum IlFilterGenA
 {
 [Name("none")] none,
 [Name("interleave")] interleave,

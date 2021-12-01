@@ -35,17 +35,9 @@ public PseudocolorFilterGen c3(string c3) => this.SetOption("c3",c3);
 /// </summary>
 public PseudocolorFilterGen index(int index) => this.SetOptionRange("index", index,0,3);
 /// <summary>
-///  set component as base (from 0 to 3) (default 0)
-/// </summary>
-public PseudocolorFilterGen i(int i) => this.SetOptionRange("i", i,0,3);
-/// <summary>
 ///  set preset (from -1 to 9) (default none)
 /// </summary>
 public PseudocolorFilterGen preset(PseudocolorFilterGenPreset preset) => this.SetOption("preset", preset.GetAttribute<NameAttribute>().Name);
-/// <summary>
-///  set preset (from -1 to 9) (default none)
-/// </summary>
-public PseudocolorFilterGen p(PseudocolorFilterGenP p) => this.SetOption("p", p.GetAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set pseudocolor opacity (from 0 to 1) (default 1)
 /// </summary>
@@ -59,21 +51,6 @@ public static class PseudocolorFilterGenExtensions
 public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input0) => new PseudocolorFilterGen(input0);
 }
 public enum PseudocolorFilterGenPreset
-{
-[Name("none")] none,
-[Name("magma")] magma,
-[Name("inferno")] inferno,
-[Name("plasma")] plasma,
-[Name("viridis")] viridis,
-[Name("turbo")] turbo,
-[Name("cividis")] cividis,
-[Name("range1")] range1,
-[Name("range2")] range2,
-[Name("shadows")] shadows,
-[Name("highlights")] highlights,
-}
-
-public enum PseudocolorFilterGenP
 {
 [Name("none")] none,
 [Name("magma")] magma,

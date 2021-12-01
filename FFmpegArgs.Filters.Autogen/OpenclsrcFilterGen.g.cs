@@ -27,10 +27,6 @@ public OpenclsrcFilterGen kernel(string kernel) => this.SetOption("kernel",kerne
 /// </summary>
 public OpenclsrcFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  Video size
-/// </summary>
-public OpenclsrcFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  Video format (default none)
 /// </summary>
 public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format",format.ToString());
@@ -38,10 +34,6 @@ public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format",forma
 ///  Video frame rate (default "25")
 /// </summary>
 public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
-/// <summary>
-///  Video frame rate (default "25")
-/// </summary>
-public OpenclsrcFilterGen r(Rational r) => this.SetOption("r",r);
 }
 public static class OpenclsrcFilterGenExtensions
 {

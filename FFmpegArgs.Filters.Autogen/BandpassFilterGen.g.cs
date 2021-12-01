@@ -19,10 +19,6 @@ internal BandpassFilterGen(AudioMap input) : base("bandpass",input) { AddMapOut(
 /// </summary>
 public BandpassFilterGen frequency(double frequency) => this.SetOptionRange("frequency", frequency,0,999999);
 /// <summary>
-///  set central frequency (from 0 to 999999) (default 3000)
-/// </summary>
-public BandpassFilterGen f(double f) => this.SetOptionRange("f", f,0,999999);
-/// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
 public BandpassFilterGen width_type(BandpassFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetAttribute<NameAttribute>().Name);
@@ -35,10 +31,6 @@ public BandpassFilterGen t(BandpassFilterGenT t) => this.SetOption("t", t.GetAtt
 /// </summary>
 public BandpassFilterGen width(double width) => this.SetOptionRange("width", width,0,99999);
 /// <summary>
-///  set band-width (from 0 to 99999) (default 0.5)
-/// </summary>
-public BandpassFilterGen w(double w) => this.SetOptionRange("w", w,0,99999);
-/// <summary>
 ///  use constant skirt gain (default false)
 /// </summary>
 public BandpassFilterGen csg(bool flag) => this.SetOption("csg",flag.ToFFmpegFlag());
@@ -47,25 +39,13 @@ public BandpassFilterGen csg(bool flag) => this.SetOption("csg",flag.ToFFmpegFla
 /// </summary>
 public BandpassFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
-///  set mix (from 0 to 1) (default 1)
-/// </summary>
-public BandpassFilterGen m(double m) => this.SetOptionRange("m", m,0,1);
-/// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
 public BandpassFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
-/// </summary>
-public BandpassFilterGen c(AV_CH_LAYOUT c) => this.SetOption("c",c.GetAttribute<NameAttribute>().Name);
-/// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
 public BandpassFilterGen normalize(bool flag) => this.SetOption("normalize",flag.ToFFmpegFlag());
-/// <summary>
-///  normalize coefficients (default false)
-/// </summary>
-public BandpassFilterGen n(bool flag) => this.SetOption("n",flag.ToFFmpegFlag());
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>

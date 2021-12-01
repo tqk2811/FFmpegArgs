@@ -30,10 +30,6 @@ public Program_openclFilterGen inputs(int inputs) => this.SetOptionRange("inputs
 ///  Video size
 /// </summary>
 public Program_openclFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
-/// <summary>
-///  Video size
-/// </summary>
-public Program_openclFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
 }
 public static class Program_openclFilterGenExtensions
 {

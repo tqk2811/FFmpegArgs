@@ -23,33 +23,17 @@ public CurvesFilterGen preset(CurvesFilterGenPreset preset) => this.SetOption("p
 /// </summary>
 public CurvesFilterGen master(string master) => this.SetOption("master",master);
 /// <summary>
-///  set master points coordinates
-/// </summary>
-public CurvesFilterGen m(string m) => this.SetOption("m",m);
-/// <summary>
 ///  set red points coordinates
 /// </summary>
 public CurvesFilterGen red(string red) => this.SetOption("red",red);
-/// <summary>
-///  set red points coordinates
-/// </summary>
-public CurvesFilterGen r(string r) => this.SetOption("r",r);
 /// <summary>
 ///  set green points coordinates
 /// </summary>
 public CurvesFilterGen green(string green) => this.SetOption("green",green);
 /// <summary>
-///  set green points coordinates
-/// </summary>
-public CurvesFilterGen g(string g) => this.SetOption("g",g);
-/// <summary>
 ///  set blue points coordinates
 /// </summary>
 public CurvesFilterGen blue(string blue) => this.SetOption("blue",blue);
-/// <summary>
-///  set blue points coordinates
-/// </summary>
-public CurvesFilterGen b(string b) => this.SetOption("b",b);
 /// <summary>
 ///  set points coordinates for all components
 /// </summary>

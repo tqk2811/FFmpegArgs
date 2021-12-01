@@ -19,17 +19,9 @@ internal SierpinskiFilterGen(FilterGraph input) : base("sierpinski",input) { Add
 /// </summary>
 public SierpinskiFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set frame size (default "640x480")
-/// </summary>
-public SierpinskiFilterGen s(Size size) => this.SetOption("s",$"{size.Width}x{size.Height}");
-/// <summary>
 ///  set frame rate (default "25")
 /// </summary>
 public SierpinskiFilterGen rate(Rational rate) => this.SetOption("rate",rate);
-/// <summary>
-///  set frame rate (default "25")
-/// </summary>
-public SierpinskiFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
 ///  set the seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
