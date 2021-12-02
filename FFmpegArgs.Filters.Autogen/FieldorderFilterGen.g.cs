@@ -37,6 +37,7 @@ return result;
 }
 }
 public class FieldorderFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  output field order (from 0 to 1) (default tff)

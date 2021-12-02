@@ -92,6 +92,7 @@ return result;
 }
 }
 public class LowpassFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set frequency (from 0 to 999999) (default 500)

@@ -57,6 +57,7 @@ return result;
 }
 }
 public class ShearFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set x shear factor (from -2 to 2) (default 0)

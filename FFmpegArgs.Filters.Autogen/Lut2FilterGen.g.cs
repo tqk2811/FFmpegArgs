@@ -57,6 +57,7 @@ return result;
 }
 }
 public class Lut2FilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set component #0 expression (default "x")

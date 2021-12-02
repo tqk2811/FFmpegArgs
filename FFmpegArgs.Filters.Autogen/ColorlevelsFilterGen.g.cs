@@ -112,6 +112,7 @@ return result;
 }
 }
 public class ColorlevelsFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set input red black point (from -1 to 1) (default 0)

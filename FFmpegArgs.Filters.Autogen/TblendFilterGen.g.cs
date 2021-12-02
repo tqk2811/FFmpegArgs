@@ -107,6 +107,7 @@ return result;
 }
 }
 public class TblendFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set component #0 blend mode (from 0 to 32) (default normal)

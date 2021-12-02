@@ -52,6 +52,7 @@ return result;
 }
 }
 public class PsnrFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  Set file where to store per-frame difference information

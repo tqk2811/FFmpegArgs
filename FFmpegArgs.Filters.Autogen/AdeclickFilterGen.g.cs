@@ -62,6 +62,7 @@ return result;
 }
 }
 public class AdeclickFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set window size (from 10 to 100) (default 55)

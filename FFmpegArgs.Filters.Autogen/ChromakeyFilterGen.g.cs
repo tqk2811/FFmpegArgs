@@ -52,6 +52,7 @@ return result;
 }
 }
 public class ChromakeyFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the chromakey key color (default "black")

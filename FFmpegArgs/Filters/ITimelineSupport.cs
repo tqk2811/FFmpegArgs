@@ -11,7 +11,10 @@ namespace FFmpegArgs.Filters
     public interface ITimelineSupport
     {
     }
-
+    public interface ITimelineSupportConfig
+    {
+        string TimelineSupport { get; set; }
+    }
     public static class TimelineSupportExtension
     {
         public static T Enable<T>(this T timelineSupport, Action<TimelineEditingExpression> timelineExpression)

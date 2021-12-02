@@ -92,6 +92,7 @@ return result;
 }
 }
 public class BoxblurFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  Radius of the luma blurring box (default "2")

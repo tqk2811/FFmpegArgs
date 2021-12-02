@@ -67,6 +67,7 @@ return result;
 }
 }
 public class DrawboxFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set horizontal position of the left box edge (default "0")

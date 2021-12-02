@@ -192,6 +192,7 @@ return result;
 }
 }
 public class DrawtextFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set font file

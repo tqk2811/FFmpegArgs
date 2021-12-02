@@ -32,6 +32,7 @@ return result;
 }
 }
 public class HflipFilterGenConfig
+:ITimelineSupportConfig
 {
 public string TimelineSupport { get; set; }
 }

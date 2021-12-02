@@ -42,6 +42,7 @@ return result;
 }
 }
 public class ColormatrixFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set source color matrix (from -1 to 4) (default -1)

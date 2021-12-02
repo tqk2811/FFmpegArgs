@@ -52,6 +52,7 @@ return result;
 }
 }
 public class ColorizeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the hue (from 0 to 360) (default 0)

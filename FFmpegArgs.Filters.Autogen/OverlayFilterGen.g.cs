@@ -72,6 +72,7 @@ return result;
 }
 }
 public class OverlayFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the x expression (default "0")

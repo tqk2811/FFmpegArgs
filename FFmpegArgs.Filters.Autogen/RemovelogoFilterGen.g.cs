@@ -37,6 +37,7 @@ return result;
 }
 }
 public class RemovelogoFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set bitmap filename

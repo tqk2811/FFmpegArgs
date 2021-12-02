@@ -37,6 +37,7 @@ return result;
 }
 }
 public class FramestepFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set frame step (from 1 to INT_MAX) (default 1)

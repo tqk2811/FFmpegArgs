@@ -47,6 +47,7 @@ return result;
 }
 }
 public class AsubcutFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set cutoff frequency (from 2 to 200) (default 20)

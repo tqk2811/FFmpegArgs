@@ -42,6 +42,7 @@ return result;
 }
 }
 public class ArnndnFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set model name

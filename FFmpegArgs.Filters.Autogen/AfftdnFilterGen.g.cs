@@ -72,6 +72,7 @@ return result;
 }
 }
 public class AfftdnFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the noise reduction (from 0.01 to 97) (default 12)

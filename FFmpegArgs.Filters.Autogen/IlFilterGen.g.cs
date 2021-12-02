@@ -77,6 +77,7 @@ return result;
 }
 }
 public class IlFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  select luma mode (from 0 to 2) (default none)

@@ -37,6 +37,7 @@ return result;
 }
 }
 public class ThresholdFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)

@@ -42,6 +42,7 @@ return result;
 }
 }
 public class LagfunFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set decay (from 0 to 1) (default 0.95)

@@ -42,6 +42,7 @@ return result;
 }
 }
 public class AevalFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the '|'-separated list of channels expressions

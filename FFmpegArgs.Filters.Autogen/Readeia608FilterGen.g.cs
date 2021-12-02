@@ -57,6 +57,7 @@ return result;
 }
 }
 public class Readeia608FilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set from which line to scan for codes (from 0 to INT_MAX) (default 0)

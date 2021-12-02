@@ -117,6 +117,7 @@ return result;
 }
 }
 public class ColorchannelmixerFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the red gain for the red channel (from -2 to 2) (default 1)

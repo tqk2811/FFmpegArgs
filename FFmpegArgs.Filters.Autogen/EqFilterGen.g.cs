@@ -77,6 +77,7 @@ return result;
 }
 }
 public class EqFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the contrast adjustment, negative values give a negative image (default "1.0")

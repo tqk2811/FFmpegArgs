@@ -92,6 +92,7 @@ return result;
 }
 }
 public class HighpassFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set frequency (from 0 to 999999) (default 3000)

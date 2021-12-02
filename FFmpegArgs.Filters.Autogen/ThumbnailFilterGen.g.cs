@@ -37,6 +37,7 @@ return result;
 }
 }
 public class ThumbnailFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the frames batch size (from 2 to INT_MAX) (default 100)

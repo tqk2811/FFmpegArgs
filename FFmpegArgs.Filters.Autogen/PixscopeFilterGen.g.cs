@@ -67,6 +67,7 @@ return result;
 }
 }
 public class PixscopeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set scope x offset (from 0 to 1) (default 0.5)

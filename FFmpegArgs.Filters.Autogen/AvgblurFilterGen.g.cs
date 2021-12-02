@@ -47,6 +47,7 @@ return result;
 }
 }
 public class AvgblurFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set horizontal size (from 1 to 1024) (default 1)

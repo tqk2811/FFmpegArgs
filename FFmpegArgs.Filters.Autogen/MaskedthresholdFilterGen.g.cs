@@ -42,6 +42,7 @@ return result;
 }
 }
 public class MaskedthresholdFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set threshold (from 0 to 65535) (default 1)

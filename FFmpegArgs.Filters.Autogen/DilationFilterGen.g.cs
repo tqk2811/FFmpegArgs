@@ -57,6 +57,7 @@ return result;
 }
 }
 public class DilationFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set coordinates (from 0 to 255) (default 255)

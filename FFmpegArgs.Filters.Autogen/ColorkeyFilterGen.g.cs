@@ -47,6 +47,7 @@ return result;
 }
 }
 public class ColorkeyFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the colorkey key color (default "black")

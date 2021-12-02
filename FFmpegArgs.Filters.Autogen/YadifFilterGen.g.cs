@@ -47,6 +47,7 @@ return result;
 }
 }
 public class YadifFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  specify the interlacing mode (from 0 to 3) (default send_frame)

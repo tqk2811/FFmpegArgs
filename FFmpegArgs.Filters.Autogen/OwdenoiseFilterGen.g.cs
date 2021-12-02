@@ -57,6 +57,7 @@ return result;
 }
 }
 public class OwdenoiseFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set depth (from 8 to 16) (default 8)

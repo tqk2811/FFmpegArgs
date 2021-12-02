@@ -97,6 +97,7 @@ return result;
 }
 }
 public class BiquadFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  (from INT_MIN to INT_MAX) (default 1)

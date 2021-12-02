@@ -87,6 +87,7 @@ return result;
 }
 }
 public class LutrgbFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set component #0 expression (default "clipval")

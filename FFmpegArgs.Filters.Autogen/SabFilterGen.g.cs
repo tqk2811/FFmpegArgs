@@ -92,6 +92,7 @@ return result;
 }
 }
 public class SabFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set luma radius (from 0.1 to 4) (default 1)

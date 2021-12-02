@@ -77,6 +77,7 @@ return result;
 }
 }
 public class NnediFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set weights file (default "nnedi3_weights.bin")

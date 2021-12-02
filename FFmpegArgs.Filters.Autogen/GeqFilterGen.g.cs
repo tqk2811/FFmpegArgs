@@ -72,6 +72,7 @@ return result;
 }
 }
 public class GeqFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set luminance expression

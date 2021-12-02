@@ -37,6 +37,7 @@ return result;
 }
 }
 public class DisplaceFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set edge mode (from 0 to 3) (default smear)

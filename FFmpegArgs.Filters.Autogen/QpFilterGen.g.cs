@@ -37,6 +37,7 @@ return result;
 }
 }
 public class QpFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set qp expression

@@ -57,6 +57,7 @@ return result;
 }
 }
 public class DedotFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set filtering mode (default dotcrawl+rainbows)

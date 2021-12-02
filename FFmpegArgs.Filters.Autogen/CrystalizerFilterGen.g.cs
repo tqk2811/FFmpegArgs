@@ -42,6 +42,7 @@ return result;
 }
 }
 public class CrystalizerFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set intensity (from -10 to 10) (default 2)

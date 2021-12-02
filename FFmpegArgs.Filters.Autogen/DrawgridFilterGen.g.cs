@@ -67,6 +67,7 @@ return result;
 }
 }
 public class DrawgridFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set horizontal offset (default "0")

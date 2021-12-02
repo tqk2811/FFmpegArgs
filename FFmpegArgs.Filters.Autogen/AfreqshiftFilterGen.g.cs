@@ -42,6 +42,7 @@ return result;
 }
 }
 public class AfreqshiftFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set frequency shift (from -2.14748e+09 to INT_MAX) (default 0)

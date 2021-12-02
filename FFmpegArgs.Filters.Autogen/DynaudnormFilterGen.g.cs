@@ -102,6 +102,7 @@ return result;
 }
 }
 public class DynaudnormFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the frame length in msec (from 10 to 8000) (default 500)

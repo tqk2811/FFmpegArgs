@@ -52,6 +52,7 @@ return result;
 }
 }
 public class AemphasisFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set input gain (from 0 to 64) (default 1)

@@ -42,6 +42,7 @@ return result;
 }
 }
 public class HysteresisFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set planes (from 0 to 15) (default 15)

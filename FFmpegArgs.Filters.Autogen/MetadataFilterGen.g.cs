@@ -67,6 +67,7 @@ return result;
 }
 }
 public class MetadataFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set a mode of operation (from 0 to 4) (default select)

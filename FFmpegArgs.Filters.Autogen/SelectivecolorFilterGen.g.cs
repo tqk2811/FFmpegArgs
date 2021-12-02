@@ -87,6 +87,7 @@ return result;
 }
 }
 public class SelectivecolorFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  select correction method (from 0 to 1) (default absolute)

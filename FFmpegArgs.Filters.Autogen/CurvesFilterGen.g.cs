@@ -72,6 +72,7 @@ return result;
 }
 }
 public class CurvesFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  select a color curves preset (from 0 to 10) (default none)

@@ -77,6 +77,7 @@ return result;
 }
 }
 public class RgbashiftFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  shift red horizontally (from -255 to 255) (default 0)

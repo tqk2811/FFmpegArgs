@@ -57,6 +57,7 @@ return result;
 }
 }
 public class CropdetectFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  Threshold below which the pixel is considered black (from 0 to 65535) (default 0.0941176)

@@ -87,6 +87,7 @@ return result;
 }
 }
 public class LutyuvFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set component #0 expression (default "clipval")

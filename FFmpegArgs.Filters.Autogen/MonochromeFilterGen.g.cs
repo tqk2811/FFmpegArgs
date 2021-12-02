@@ -52,6 +52,7 @@ return result;
 }
 }
 public class MonochromeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the chroma blue spot (from -1 to 1) (default 0)

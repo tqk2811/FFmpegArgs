@@ -52,6 +52,7 @@ return result;
 }
 }
 public class DeflateFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set threshold for 1st plane (from 0 to 65535) (default 65535)

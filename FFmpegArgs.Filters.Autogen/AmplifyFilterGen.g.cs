@@ -67,6 +67,7 @@ return result;
 }
 }
 public class AmplifyFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set radius (from 1 to 63) (default 2)

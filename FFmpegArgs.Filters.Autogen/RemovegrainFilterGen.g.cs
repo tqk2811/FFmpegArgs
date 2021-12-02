@@ -52,6 +52,7 @@ return result;
 }
 }
 public class RemovegrainFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set mode for 1st plane (from 0 to 24) (default 0)

@@ -67,6 +67,7 @@ return result;
 }
 }
 public class DeblockFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set type of filter (from 0 to 1) (default strong)

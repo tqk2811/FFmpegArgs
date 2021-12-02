@@ -47,6 +47,7 @@ return result;
 }
 }
 public class BwdifFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  specify the interlacing mode (from 0 to 1) (default send_field)

@@ -62,6 +62,7 @@ return result;
 }
 }
 public class VaguedenoiserFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set filtering strength (from 0 to DBL_MAX) (default 2)

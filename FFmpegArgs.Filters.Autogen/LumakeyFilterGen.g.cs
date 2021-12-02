@@ -47,6 +47,7 @@ return result;
 }
 }
 public class LumakeyFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the threshold value (from 0 to 1) (default 0)

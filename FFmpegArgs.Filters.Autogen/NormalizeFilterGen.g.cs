@@ -57,6 +57,7 @@ return result;
 }
 }
 public class NormalizeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  output color to which darkest input color is mapped (default "black")

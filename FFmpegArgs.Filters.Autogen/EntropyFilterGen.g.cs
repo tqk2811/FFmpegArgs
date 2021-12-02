@@ -37,6 +37,7 @@ return result;
 }
 }
 public class EntropyFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set kind of histogram entropy measurement (from 0 to 1) (default normal)

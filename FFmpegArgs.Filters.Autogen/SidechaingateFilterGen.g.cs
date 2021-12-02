@@ -92,6 +92,7 @@ return result;
 }
 }
 public class SidechaingateFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set input level (from 0.015625 to 64) (default 1)

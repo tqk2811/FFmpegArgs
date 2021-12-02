@@ -52,6 +52,7 @@ return result;
 }
 }
 public class DeesserFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set intensity (from 0 to 1) (default 0)

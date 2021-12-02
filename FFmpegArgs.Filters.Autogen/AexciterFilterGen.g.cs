@@ -72,6 +72,7 @@ return result;
 }
 }
 public class AexciterFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set level in (from 0 to 64) (default 1)

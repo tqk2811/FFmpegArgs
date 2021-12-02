@@ -62,6 +62,7 @@ return result;
 }
 }
 public class SwaprectFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set rect width (default "w/2")

@@ -57,6 +57,7 @@ return result;
 }
 }
 public class AsoftclipFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set softclip type (from -1 to 7) (default tanh)

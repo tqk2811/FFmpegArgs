@@ -67,6 +67,7 @@ return result;
 }
 }
 public class PseudocolorFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set component #0 expression (default "val")

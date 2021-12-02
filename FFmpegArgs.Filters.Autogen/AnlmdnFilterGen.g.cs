@@ -57,6 +57,7 @@ return result;
 }
 }
 public class AnlmdnFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set denoising strength (from 1e-05 to 10) (default 1e-05)

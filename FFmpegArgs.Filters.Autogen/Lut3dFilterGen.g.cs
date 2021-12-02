@@ -42,6 +42,7 @@ return result;
 }
 }
 public class Lut3dFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set 3D LUT file name

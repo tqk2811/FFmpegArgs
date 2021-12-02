@@ -107,6 +107,7 @@ return result;
 }
 }
 public class BlendFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set component #0 blend mode (from 0 to 32) (default normal)

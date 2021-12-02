@@ -42,6 +42,7 @@ return result;
 }
 }
 public class AdenormFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set level (from -451 to -90) (default -351)

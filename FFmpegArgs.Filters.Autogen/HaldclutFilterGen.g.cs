@@ -37,6 +37,7 @@ return result;
 }
 }
 public class HaldclutFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)

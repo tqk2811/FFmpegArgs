@@ -32,6 +32,7 @@ return result;
 }
 }
 public class SwapuvFilterGenConfig
+:ITimelineSupportConfig
 {
 public string TimelineSupport { get; set; }
 }

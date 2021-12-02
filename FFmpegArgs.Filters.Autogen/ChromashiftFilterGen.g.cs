@@ -57,6 +57,7 @@ return result;
 }
 }
 public class ChromashiftFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  shift chroma-blue horizontally (from -255 to 255) (default 0)

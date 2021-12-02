@@ -37,6 +37,7 @@ return result;
 }
 }
 public class PpFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set postprocess subfilters (default "de")

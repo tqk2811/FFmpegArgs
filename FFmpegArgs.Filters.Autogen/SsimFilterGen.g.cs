@@ -42,6 +42,7 @@ return result;
 }
 }
 public class SsimFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  Set file where to store per-frame difference information

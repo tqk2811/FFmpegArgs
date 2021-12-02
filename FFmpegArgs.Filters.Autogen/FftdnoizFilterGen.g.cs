@@ -67,6 +67,7 @@ return result;
 }
 }
 public class FftdnoizFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set denoise strength (from 0 to 30) (default 1)

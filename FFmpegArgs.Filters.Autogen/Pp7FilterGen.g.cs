@@ -42,6 +42,7 @@ return result;
 }
 }
 public class Pp7FilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  force a constant quantizer parameter (from 0 to 64) (default 0)

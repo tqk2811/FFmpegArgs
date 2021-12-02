@@ -52,6 +52,7 @@ return result;
 }
 }
 public class HueFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the hue angle degrees expression

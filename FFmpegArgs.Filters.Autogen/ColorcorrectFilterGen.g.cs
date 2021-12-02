@@ -57,6 +57,7 @@ return result;
 }
 }
 public class ColorcorrectFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the red shadow spot (from -1 to 1) (default 0)

@@ -92,6 +92,7 @@ return result;
 }
 }
 public class BandpassFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set central frequency (from 0 to 999999) (default 3000)

@@ -52,6 +52,7 @@ return result;
 }
 }
 public class ChromaholdFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the chromahold key color (default "black")

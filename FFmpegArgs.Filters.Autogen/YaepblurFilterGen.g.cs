@@ -47,6 +47,7 @@ return result;
 }
 }
 public class YaepblurFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set window radius (from 0 to INT_MAX) (default 3)

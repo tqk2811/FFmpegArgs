@@ -97,6 +97,7 @@ return result;
 }
 }
 public class OscilloscopeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set scope x position (from 0 to 1) (default 0.5)

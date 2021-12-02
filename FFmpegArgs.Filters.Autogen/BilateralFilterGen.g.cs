@@ -47,6 +47,7 @@ return result;
 }
 }
 public class BilateralFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set spatial sigma (from 0 to 512) (default 0.1)

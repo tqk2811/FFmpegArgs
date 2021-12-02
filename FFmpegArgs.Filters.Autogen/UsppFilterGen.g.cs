@@ -47,6 +47,7 @@ return result;
 }
 }
 public class UsppFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set quality (from 0 to 8) (default 3)

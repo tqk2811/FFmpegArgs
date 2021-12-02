@@ -47,6 +47,7 @@ return result;
 }
 }
 public class ColorholdFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the colorhold key color (default "black")

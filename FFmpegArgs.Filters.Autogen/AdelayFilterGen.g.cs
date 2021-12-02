@@ -42,6 +42,7 @@ return result;
 }
 }
 public class AdelayFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set list of delays for each channel

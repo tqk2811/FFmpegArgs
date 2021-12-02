@@ -52,6 +52,7 @@ return result;
 }
 }
 public class EdgedetectFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set high threshold (from 0 to 1) (default 0.196078)

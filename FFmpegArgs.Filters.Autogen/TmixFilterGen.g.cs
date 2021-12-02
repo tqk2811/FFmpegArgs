@@ -47,6 +47,7 @@ return result;
 }
 }
 public class TmixFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set number of successive frames to mix (from 1 to 128) (default 3)

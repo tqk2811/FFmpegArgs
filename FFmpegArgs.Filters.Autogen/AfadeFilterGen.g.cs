@@ -72,6 +72,7 @@ return result;
 }
 }
 public class AfadeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the fade direction (from 0 to 1) (default in)

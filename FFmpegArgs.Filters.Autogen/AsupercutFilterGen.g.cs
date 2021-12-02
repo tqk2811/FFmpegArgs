@@ -47,6 +47,7 @@ return result;
 }
 }
 public class AsupercutFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set cutoff frequency (from 20000 to 192000) (default 20000)

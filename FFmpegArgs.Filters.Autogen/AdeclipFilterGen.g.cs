@@ -67,6 +67,7 @@ return result;
 }
 }
 public class AdeclipFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set window size (from 10 to 100) (default 55)

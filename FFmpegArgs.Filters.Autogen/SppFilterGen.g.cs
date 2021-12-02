@@ -52,6 +52,7 @@ return result;
 }
 }
 public class SppFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set quality (from 0 to 6) (default 3)

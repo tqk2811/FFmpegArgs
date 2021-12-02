@@ -57,6 +57,7 @@ return result;
 }
 }
 public class NlmeansFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  denoising strength (from 1 to 30) (default 1)

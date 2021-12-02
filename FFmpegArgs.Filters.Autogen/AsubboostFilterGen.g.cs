@@ -67,6 +67,7 @@ return result;
 }
 }
 public class AsubboostFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set dry gain (from 0 to 1) (default 0.7)

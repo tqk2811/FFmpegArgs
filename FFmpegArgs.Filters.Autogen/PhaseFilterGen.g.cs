@@ -37,6 +37,7 @@ return result;
 }
 }
 public class PhaseFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set phase mode (from 0 to 8) (default A)

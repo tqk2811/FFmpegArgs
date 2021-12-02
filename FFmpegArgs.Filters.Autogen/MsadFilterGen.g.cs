@@ -32,6 +32,7 @@ return result;
 }
 }
 public class MsadFilterGenConfig
+:ITimelineSupportConfig
 {
 public string TimelineSupport { get; set; }
 }

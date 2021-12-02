@@ -52,6 +52,7 @@ return result;
 }
 }
 public class AsuperpassFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set center frequency (from 2 to 999999) (default 1000)

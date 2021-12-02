@@ -42,6 +42,7 @@ return result;
 }
 }
 public class AsidedataFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set a mode of operation (from 0 to 1) (default select)

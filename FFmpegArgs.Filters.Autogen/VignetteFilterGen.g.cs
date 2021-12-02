@@ -67,6 +67,7 @@ return result;
 }
 }
 public class VignetteFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set lens angle (default "PI/5")

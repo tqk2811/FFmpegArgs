@@ -97,6 +97,7 @@ return result;
 }
 }
 public class LowshelfFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set central frequency (from 0 to 999999) (default 100)

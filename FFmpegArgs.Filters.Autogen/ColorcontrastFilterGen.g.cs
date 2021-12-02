@@ -67,6 +67,7 @@ return result;
 }
 }
 public class ColorcontrastFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the red-cyan contrast (from -1 to 1) (default 0)

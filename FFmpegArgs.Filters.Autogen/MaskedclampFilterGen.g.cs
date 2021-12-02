@@ -47,6 +47,7 @@ return result;
 }
 }
 public class MaskedclampFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set undershoot (from 0 to 65535) (default 0)

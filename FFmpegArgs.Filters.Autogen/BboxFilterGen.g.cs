@@ -37,6 +37,7 @@ return result;
 }
 }
 public class BboxFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set minimum luminance value for bounding box (from 0 to 65535) (default 16)

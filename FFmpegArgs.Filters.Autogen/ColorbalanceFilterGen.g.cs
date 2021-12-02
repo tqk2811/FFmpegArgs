@@ -82,6 +82,7 @@ return result;
 }
 }
 public class ColorbalanceFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set red shadows (from -1 to 1) (default 0)

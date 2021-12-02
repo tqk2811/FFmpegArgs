@@ -47,6 +47,7 @@ return result;
 }
 }
 public class DblurFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set angle (from 0 to 360) (default 45)

@@ -52,6 +52,7 @@ return result;
 }
 }
 public class ScrollFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the horizontal scrolling speed (from -1 to 1) (default 0)

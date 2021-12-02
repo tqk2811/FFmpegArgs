@@ -62,6 +62,7 @@ return result;
 }
 }
 public class FillbordersFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the left fill border (from 0 to INT_MAX) (default 0)

@@ -62,6 +62,7 @@ return result;
 }
 }
 public class LenscorrectionFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set relative center x (from 0 to 1) (default 0.5)

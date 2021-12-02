@@ -67,6 +67,7 @@ return result;
 }
 }
 public class FftfiltFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  adjust gain in Y plane (from 0 to 1000) (default 0)

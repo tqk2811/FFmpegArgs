@@ -32,6 +32,7 @@ return result;
 }
 }
 public class VifFilterGenConfig
+:ITimelineSupportConfig
 {
 public string TimelineSupport { get; set; }
 }

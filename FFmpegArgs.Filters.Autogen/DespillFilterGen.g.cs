@@ -72,6 +72,7 @@ return result;
 }
 }
 public class DespillFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the screen type (from 0 to 1) (default green)

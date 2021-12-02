@@ -112,6 +112,7 @@ return result;
 }
 }
 public class ConvolutionFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set matrix for 1st plane (default "0 0 0 0 1 0 0 0 0")

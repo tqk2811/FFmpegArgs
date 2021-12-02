@@ -72,6 +72,7 @@ return result;
 }
 }
 public class VibranceFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the intensity value (from -2 to 2) (default 0)

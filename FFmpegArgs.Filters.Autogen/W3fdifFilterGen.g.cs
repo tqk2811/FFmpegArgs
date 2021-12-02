@@ -52,6 +52,7 @@ return result;
 }
 }
 public class W3fdifFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  specify the filter (from 0 to 1) (default complex)

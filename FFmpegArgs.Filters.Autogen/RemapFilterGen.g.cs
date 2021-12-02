@@ -42,6 +42,7 @@ return result;
 }
 }
 public class RemapFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set output format (from 0 to 1) (default color)

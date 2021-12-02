@@ -52,6 +52,7 @@ return result;
 }
 }
 public class FsppFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set quality (from 4 to 5) (default 4)

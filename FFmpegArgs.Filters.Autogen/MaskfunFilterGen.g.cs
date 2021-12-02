@@ -57,6 +57,7 @@ return result;
 }
 }
 public class MaskfunFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set low threshold (from 0 to 65535) (default 10)

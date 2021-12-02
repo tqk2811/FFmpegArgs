@@ -47,6 +47,7 @@ return result;
 }
 }
 public class ColortemperatureFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the temperature in Kelvin (from 1000 to 40000) (default 6500)

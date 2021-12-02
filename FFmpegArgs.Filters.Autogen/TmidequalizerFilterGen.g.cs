@@ -47,6 +47,7 @@ return result;
 }
 }
 public class TmidequalizerFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set radius (from 1 to 127) (default 5)

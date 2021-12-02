@@ -42,6 +42,7 @@ return result;
 }
 }
 public class BitplanenoiseFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set bit plane to use for measuring noise (from 1 to 16) (default 1)

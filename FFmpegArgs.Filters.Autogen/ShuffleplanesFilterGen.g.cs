@@ -52,6 +52,7 @@ return result;
 }
 }
 public class ShuffleplanesFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  Index of the input plane to be used as the first output plane  (from 0 to 3) (default 0)

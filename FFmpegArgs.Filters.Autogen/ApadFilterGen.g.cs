@@ -57,6 +57,7 @@ return result;
 }
 }
 public class ApadFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set silence packet size (from 0 to INT_MAX) (default 4096)

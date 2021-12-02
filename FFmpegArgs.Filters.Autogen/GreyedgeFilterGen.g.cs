@@ -47,6 +47,7 @@ return result;
 }
 }
 public class GreyedgeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set differentiation order (from 0 to 2) (default 1)

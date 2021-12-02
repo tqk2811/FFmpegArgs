@@ -62,6 +62,7 @@ return result;
 }
 }
 public class EstdifFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  specify the mode (from 0 to 1) (default field)

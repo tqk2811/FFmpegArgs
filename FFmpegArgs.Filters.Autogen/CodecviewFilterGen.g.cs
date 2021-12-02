@@ -62,6 +62,7 @@ return result;
 }
 }
 public class CodecviewFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set motion vectors to visualize (default 0)

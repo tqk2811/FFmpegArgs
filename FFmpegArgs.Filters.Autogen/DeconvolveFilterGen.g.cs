@@ -47,6 +47,7 @@ return result;
 }
 }
 public class DeconvolveFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set planes to deconvolve (from 0 to 15) (default 7)

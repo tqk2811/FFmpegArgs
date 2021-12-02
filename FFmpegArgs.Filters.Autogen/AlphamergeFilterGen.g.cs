@@ -32,6 +32,7 @@ return result;
 }
 }
 public class AlphamergeFilterGenConfig
+:ITimelineSupportConfig
 {
 public string TimelineSupport { get; set; }
 }

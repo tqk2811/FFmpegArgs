@@ -62,6 +62,7 @@ return result;
 }
 }
 public class VolumeFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set volume adjustment expression (default "1.0")

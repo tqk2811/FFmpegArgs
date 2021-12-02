@@ -92,6 +92,7 @@ return result;
 }
 }
 public class SmartblurFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set luma radius (from 0.1 to 5) (default 1)

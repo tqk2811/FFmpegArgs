@@ -72,6 +72,7 @@ return result;
 }
 }
 public class RotateFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set angle (in radians) (default "0")

@@ -52,6 +52,7 @@ return result;
 }
 }
 public class GblurFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set sigma (from 0 to 1024) (default 0.5)

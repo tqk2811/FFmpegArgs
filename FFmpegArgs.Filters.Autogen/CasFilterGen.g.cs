@@ -42,6 +42,7 @@ return result;
 }
 }
 public class CasFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the sharpening strength (from 0 to 1) (default 0)

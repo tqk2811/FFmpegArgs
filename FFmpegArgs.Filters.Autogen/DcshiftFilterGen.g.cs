@@ -42,6 +42,7 @@ return result;
 }
 }
 public class DcshiftFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set DC shift (from -1 to 1) (default 0)

@@ -42,6 +42,7 @@ return result;
 }
 }
 public class ExposureFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the exposure correction (from -3 to 3) (default 0)

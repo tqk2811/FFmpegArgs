@@ -47,6 +47,7 @@ return result;
 }
 }
 public class LimiterFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set min value (from 0 to 65535) (default 0)

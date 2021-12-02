@@ -42,6 +42,7 @@ return result;
 }
 }
 public class AphaseshiftFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set phase shift (from -1 to 1) (default 0)

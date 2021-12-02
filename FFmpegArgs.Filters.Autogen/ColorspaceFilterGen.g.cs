@@ -102,6 +102,7 @@ return result;
 }
 }
 public class ColorspaceFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  Set all color properties together (from 0 to 8) (default 0)

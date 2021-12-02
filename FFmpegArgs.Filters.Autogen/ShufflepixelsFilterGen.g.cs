@@ -57,6 +57,7 @@ return result;
 }
 }
 public class ShufflepixelsFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set shuffle direction (from 0 to 1) (default forward)

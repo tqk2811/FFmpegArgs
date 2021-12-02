@@ -52,6 +52,7 @@ return result;
 }
 }
 public class DctdnoizFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set noise sigma constant (from 0 to 999) (default 0)

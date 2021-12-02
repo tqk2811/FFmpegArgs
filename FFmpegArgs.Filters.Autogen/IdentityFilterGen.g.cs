@@ -32,6 +32,7 @@ return result;
 }
 }
 public class IdentityFilterGenConfig
+:ITimelineSupportConfig
 {
 public string TimelineSupport { get; set; }
 }

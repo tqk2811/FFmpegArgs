@@ -393,7 +393,14 @@ namespace FFmpegArgs.Autogens
                     streamWriter.WriteLine("}");
 
                     //config class
+                    var interfaceConfigs = new List<string>();
+                    if (interfaces.Contains(nameof(ITimelineSupport)))
+                    {
+                        interfaceConfigs.Add(nameof(ITimelineSupportConfig));
+                    }
+
                     streamWriter.WriteLine($"public class {className}Config");
+                    if(interfaceConfigs.Count > 0) streamWriter.WriteLine(":" + string.Join(",", interfaceConfigs));
                     streamWriter.WriteLine("{");
                     foreach (var filterFunction in filterFunctions.Except(removes))
                     {

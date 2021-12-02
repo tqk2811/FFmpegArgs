@@ -52,6 +52,7 @@ return result;
 }
 }
 public class MedianFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set median radius (from 1 to 127) (default 1)

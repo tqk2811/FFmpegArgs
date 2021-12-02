@@ -57,6 +57,7 @@ return result;
 }
 }
 public class DelogoFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set logo x position (default "-1")

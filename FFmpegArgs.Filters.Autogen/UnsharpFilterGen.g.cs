@@ -97,6 +97,7 @@ return result;
 }
 }
 public class UnsharpFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set luma matrix horizontal size (from 3 to 23) (default 5)

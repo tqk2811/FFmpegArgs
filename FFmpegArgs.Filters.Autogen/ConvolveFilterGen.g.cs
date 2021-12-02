@@ -47,6 +47,7 @@ return result;
 }
 }
 public class ConvolveFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set planes to convolve (from 0 to 15) (default 7)

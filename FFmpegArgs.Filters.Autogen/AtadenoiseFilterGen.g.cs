@@ -92,6 +92,7 @@ return result;
 }
 }
 public class AtadenoiseFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set threshold A for 1st plane (from 0 to 0.3) (default 0.02)

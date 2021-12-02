@@ -37,6 +37,7 @@ return result;
 }
 }
 public class ShuffleframesFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set destination indexes of input frames (default "0")

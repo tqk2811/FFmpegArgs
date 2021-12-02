@@ -42,6 +42,7 @@ return result;
 }
 }
 public class GradfunFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  The maximum amount by which the filter will change any one pixel. (from 0.51 to 64) (default 1.2)

@@ -157,6 +157,7 @@ return result;
 }
 }
 public class NoiseFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set component #0 noise seed (from -1 to INT_MAX) (default -1)

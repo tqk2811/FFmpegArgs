@@ -57,6 +57,7 @@ return result;
 }
 }
 public class DerainFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  filter type(derain/dehaze) (from 0 to 1) (default derain)

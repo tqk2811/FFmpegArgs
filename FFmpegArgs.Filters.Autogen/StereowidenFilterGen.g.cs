@@ -52,6 +52,7 @@ return result;
 }
 }
 public class StereowidenFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set delay time (from 1 to 100) (default 20)

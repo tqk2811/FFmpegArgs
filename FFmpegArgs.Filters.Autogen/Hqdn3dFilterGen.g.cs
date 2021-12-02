@@ -52,6 +52,7 @@ return result;
 }
 }
 public class Hqdn3dFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  spatial luma strength (from 0 to DBL_MAX) (default 0)

@@ -37,6 +37,7 @@ return result;
 }
 }
 public class MidequalizerFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set planes (from 0 to 15) (default 15)

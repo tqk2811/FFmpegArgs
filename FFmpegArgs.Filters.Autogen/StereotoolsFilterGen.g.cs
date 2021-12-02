@@ -132,6 +132,7 @@ return result;
 }
 }
 public class StereotoolsFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set level in (from 0.015625 to 64) (default 1)

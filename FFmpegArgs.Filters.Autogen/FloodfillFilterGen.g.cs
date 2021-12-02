@@ -82,6 +82,7 @@ return result;
 }
 }
 public class FloodfillFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set pixel x coordinate (from 0 to 65535) (default 0)

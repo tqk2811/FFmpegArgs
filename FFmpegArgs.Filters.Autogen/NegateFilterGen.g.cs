@@ -37,6 +37,7 @@ return result;
 }
 }
 public class NegateFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  (default false)

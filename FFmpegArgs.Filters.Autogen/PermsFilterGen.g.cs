@@ -42,6 +42,7 @@ return result;
 }
 }
 public class PermsFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  select permissions mode (from 0 to 4) (default none)

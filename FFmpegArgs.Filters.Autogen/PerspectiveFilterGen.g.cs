@@ -87,6 +87,7 @@ return result;
 }
 }
 public class PerspectiveFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set top left x coordinate (default "0")

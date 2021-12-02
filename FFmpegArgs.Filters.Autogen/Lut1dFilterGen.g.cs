@@ -42,6 +42,7 @@ return result;
 }
 }
 public class Lut1dFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set 1D LUT file name

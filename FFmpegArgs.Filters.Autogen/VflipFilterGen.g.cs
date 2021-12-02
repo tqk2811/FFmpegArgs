@@ -32,6 +32,7 @@ return result;
 }
 }
 public class VflipFilterGenConfig
+:ITimelineSupportConfig
 {
 public string TimelineSupport { get; set; }
 }

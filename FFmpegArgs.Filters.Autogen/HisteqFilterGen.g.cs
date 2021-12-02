@@ -47,6 +47,7 @@ return result;
 }
 }
 public class HisteqFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set the strength (from 0 to 1) (default 0.2)

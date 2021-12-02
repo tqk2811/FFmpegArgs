@@ -72,6 +72,7 @@ return result;
 }
 }
 public class ChromanrFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set y+u+v threshold (from 1 to 200) (default 30)

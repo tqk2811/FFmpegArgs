@@ -72,6 +72,7 @@ return result;
 }
 }
 public class DebandFilterGenConfig
+:ITimelineSupportConfig
 {
 /// <summary>
 ///  set 1st plane threshold (from 3e-05 to 0.5) (default 0.02)
