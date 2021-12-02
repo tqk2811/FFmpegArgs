@@ -29,7 +29,7 @@ public FsppFilterGen strength(int strength) => this.SetOptionRange("strength", s
 /// <summary>
 ///  use B-frames' QP (default false)
 /// </summary>
-public FsppFilterGen use_bframe_qp(bool flag) => this.SetOption("use_bframe_qp",flag.ToFFmpegFlag());
+public FsppFilterGen use_bframe_qp(bool use_bframe_qp) => this.SetOption("use_bframe_qp",use_bframe_qp.ToFFmpegFlag());
 }
 public static class FsppFilterGenExtensions
 {
@@ -37,5 +37,36 @@ public static class FsppFilterGenExtensions
 /// Apply Fast Simple Post-processing filter.
 /// </summary>
 public static FsppFilterGen FsppFilterGen(this ImageMap input0) => new FsppFilterGen(input0);
+/// <summary>
+/// Apply Fast Simple Post-processing filter.
+/// </summary>
+public static FsppFilterGen FsppFilterGen(this ImageMap input0,FsppFilterGenConfig config)
+{
+var result = new FsppFilterGen(input0);
+if(config?.quality != null) result.quality(config.quality);
+if(config?.qp != null) result.qp(config.qp);
+if(config?.strength != null) result.strength(config.strength);
+if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp);
+return result;
+}
+}
+public class FsppFilterGenConfig
+{
+/// <summary>
+///  set quality (from 4 to 5) (default 4)
+/// </summary>
+public int quality { get; set; }
+/// <summary>
+///  force a constant quantizer parameter (from 0 to 64) (default 0)
+/// </summary>
+public int qp { get; set; }
+/// <summary>
+///  set filter strength (from -15 to 32) (default 0)
+/// </summary>
+public int strength { get; set; }
+/// <summary>
+///  use B-frames' QP (default false)
+/// </summary>
+public bool use_bframe_qp { get; set; }
 }
 }

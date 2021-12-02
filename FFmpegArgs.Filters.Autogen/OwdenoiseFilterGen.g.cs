@@ -41,5 +41,41 @@ public static class OwdenoiseFilterGenExtensions
 /// Denoise using wavelets.
 /// </summary>
 public static OwdenoiseFilterGen OwdenoiseFilterGen(this ImageMap input0) => new OwdenoiseFilterGen(input0);
+/// <summary>
+/// Denoise using wavelets.
+/// </summary>
+public static OwdenoiseFilterGen OwdenoiseFilterGen(this ImageMap input0,OwdenoiseFilterGenConfig config)
+{
+var result = new OwdenoiseFilterGen(input0);
+if(config?.depth != null) result.depth(config.depth);
+if(config?.luma_strength != null) result.luma_strength(config.luma_strength);
+if(config?.ls != null) result.ls(config.ls);
+if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength);
+if(config?.cs != null) result.cs(config.cs);
+return result;
+}
+}
+public class OwdenoiseFilterGenConfig
+{
+/// <summary>
+///  set depth (from 8 to 16) (default 8)
+/// </summary>
+public int depth { get; set; }
+/// <summary>
+///  set luma strength (from 0 to 1000) (default 1)
+/// </summary>
+public double luma_strength { get; set; }
+/// <summary>
+///  set luma strength (from 0 to 1000) (default 1)
+/// </summary>
+public double ls { get; set; }
+/// <summary>
+///  set chroma strength (from 0 to 1000) (default 1)
+/// </summary>
+public double chroma_strength { get; set; }
+/// <summary>
+///  set chroma strength (from 0 to 1000) (default 1)
+/// </summary>
+public double cs { get; set; }
 }
 }

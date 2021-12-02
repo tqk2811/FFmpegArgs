@@ -41,5 +41,41 @@ public static class ColorcorrectFilterGenExtensions
 /// Adjust color white balance selectively for blacks and whites.
 /// </summary>
 public static ColorcorrectFilterGen ColorcorrectFilterGen(this ImageMap input0) => new ColorcorrectFilterGen(input0);
+/// <summary>
+/// Adjust color white balance selectively for blacks and whites.
+/// </summary>
+public static ColorcorrectFilterGen ColorcorrectFilterGen(this ImageMap input0,ColorcorrectFilterGenConfig config)
+{
+var result = new ColorcorrectFilterGen(input0);
+if(config?.rl != null) result.rl(config.rl);
+if(config?.bl != null) result.bl(config.bl);
+if(config?.rh != null) result.rh(config.rh);
+if(config?.bh != null) result.bh(config.bh);
+if(config?.saturation != null) result.saturation(config.saturation);
+return result;
+}
+}
+public class ColorcorrectFilterGenConfig
+{
+/// <summary>
+///  set the red shadow spot (from -1 to 1) (default 0)
+/// </summary>
+public float rl { get; set; }
+/// <summary>
+///  set the blue shadow spot (from -1 to 1) (default 0)
+/// </summary>
+public float bl { get; set; }
+/// <summary>
+///  set the red highlight spot (from -1 to 1) (default 0)
+/// </summary>
+public float rh { get; set; }
+/// <summary>
+///  set the blue highlight spot (from -1 to 1) (default 0)
+/// </summary>
+public float bh { get; set; }
+/// <summary>
+///  set the amount of saturation (from -3 to 3) (default 1)
+/// </summary>
+public float saturation { get; set; }
 }
 }

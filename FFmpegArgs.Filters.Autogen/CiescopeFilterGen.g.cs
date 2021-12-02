@@ -41,11 +41,11 @@ public CiescopeFilterGen contrast(float contrast) => this.SetOptionRange("contra
 /// <summary>
 ///  (default true)
 /// </summary>
-public CiescopeFilterGen corrgamma(bool flag) => this.SetOption("corrgamma",flag.ToFFmpegFlag());
+public CiescopeFilterGen corrgamma(bool corrgamma) => this.SetOption("corrgamma",corrgamma.ToFFmpegFlag());
 /// <summary>
 ///  (default false)
 /// </summary>
-public CiescopeFilterGen showwhite(bool flag) => this.SetOption("showwhite",flag.ToFFmpegFlag());
+public CiescopeFilterGen showwhite(bool showwhite) => this.SetOption("showwhite",showwhite.ToFFmpegFlag());
 /// <summary>
 ///  (from 0.1 to 6) (default 2.6)
 /// </summary>
@@ -57,6 +57,62 @@ public static class CiescopeFilterGenExtensions
 /// Video CIE scope.
 /// </summary>
 public static CiescopeFilterGen CiescopeFilterGen(this ImageMap input0) => new CiescopeFilterGen(input0);
+/// <summary>
+/// Video CIE scope.
+/// </summary>
+public static CiescopeFilterGen CiescopeFilterGen(this ImageMap input0,CiescopeFilterGenConfig config)
+{
+var result = new CiescopeFilterGen(input0);
+if(config?.system != null) result.system(config.system);
+if(config?.cie != null) result.cie(config.cie);
+if(config?.gamuts != null) result.gamuts(config.gamuts);
+if(config?.size != null) result.size(config.size);
+if(config?.intensity != null) result.intensity(config.intensity);
+if(config?.contrast != null) result.contrast(config.contrast);
+if(config?.corrgamma != null) result.corrgamma(config.corrgamma);
+if(config?.showwhite != null) result.showwhite(config.showwhite);
+if(config?.gamma != null) result.gamma(config.gamma);
+return result;
+}
+}
+public class CiescopeFilterGenConfig
+{
+/// <summary>
+///  set color system (from 0 to 9) (default hdtv)
+/// </summary>
+public CiescopeFilterGenSystem system { get; set; }
+/// <summary>
+///  set cie system (from 0 to 2) (default xyy)
+/// </summary>
+public CiescopeFilterGenCie cie { get; set; }
+/// <summary>
+///  set what gamuts to draw (default 0)
+/// </summary>
+public CiescopeFilterGenGamuts gamuts { get; set; }
+/// <summary>
+///  set ciescope size (from 256 to 8192) (default 512)
+/// </summary>
+public int size { get; set; }
+/// <summary>
+///  set ciescope intensity (from 0 to 1) (default 0.001)
+/// </summary>
+public float intensity { get; set; }
+/// <summary>
+///  (from 0 to 1) (default 0.75)
+/// </summary>
+public float contrast { get; set; }
+/// <summary>
+///  (default true)
+/// </summary>
+public bool corrgamma { get; set; }
+/// <summary>
+///  (default false)
+/// </summary>
+public bool showwhite { get; set; }
+/// <summary>
+///  (from 0.1 to 6) (default 2.6)
+/// </summary>
+public double gamma { get; set; }
 }
 public enum CiescopeFilterGenSystem
 {

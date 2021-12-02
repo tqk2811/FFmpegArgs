@@ -49,5 +49,51 @@ public static class TrimFilterGenExtensions
 /// Pick one continuous section from the input, drop the rest.
 /// </summary>
 public static TrimFilterGen TrimFilterGen(this ImageMap input0) => new TrimFilterGen(input0);
+/// <summary>
+/// Pick one continuous section from the input, drop the rest.
+/// </summary>
+public static TrimFilterGen TrimFilterGen(this ImageMap input0,TrimFilterGenConfig config)
+{
+var result = new TrimFilterGen(input0);
+if(config?.starti != null) result.starti(config.starti);
+if(config?.endi != null) result.endi(config.endi);
+if(config?.start_pts != null) result.start_pts(config.start_pts);
+if(config?.end_pts != null) result.end_pts(config.end_pts);
+if(config?.durationi != null) result.durationi(config.durationi);
+if(config?.start_frame != null) result.start_frame(config.start_frame);
+if(config?.end_frame != null) result.end_frame(config.end_frame);
+return result;
+}
+}
+public class TrimFilterGenConfig
+{
+/// <summary>
+///  Timestamp of the first frame that should be passed (default INT64_MAX)
+/// </summary>
+public TimeSpan starti { get; set; }
+/// <summary>
+///  Timestamp of the first frame that should be dropped again (default INT64_MAX)
+/// </summary>
+public TimeSpan endi { get; set; }
+/// <summary>
+///  Timestamp of the first frame that should be  passed (from I64_MIN to I64_MAX) (default I64_MIN)
+/// </summary>
+public long start_pts { get; set; }
+/// <summary>
+///  Timestamp of the first frame that should be dropped again (from I64_MIN to I64_MAX) (default I64_MIN)
+/// </summary>
+public long end_pts { get; set; }
+/// <summary>
+///  Maximum duration of the output (default 0)
+/// </summary>
+public TimeSpan durationi { get; set; }
+/// <summary>
+///  Number of the first frame that should be passed to the output (from -1 to I64_MAX) (default -1)
+/// </summary>
+public long start_frame { get; set; }
+/// <summary>
+///  Number of the first frame that should be dropped again (from 0 to I64_MAX) (default I64_MAX)
+/// </summary>
+public long end_frame { get; set; }
 }
 }

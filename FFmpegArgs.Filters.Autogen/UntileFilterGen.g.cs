@@ -17,7 +17,7 @@ internal UntileFilterGen(ImageMap input) : base("untile",input) { AddMapOut(); }
 /// <summary>
 ///  set grid size (default "6x5")
 /// </summary>
-public UntileFilterGen layout(Size size) => this.SetOption("layout",$"{size.Width}x{size.Height}");
+public UntileFilterGen layout(Size layout) => this.SetOption("layout",$"{layout.Width}x{layout.Height}");
 }
 public static class UntileFilterGenExtensions
 {
@@ -25,5 +25,21 @@ public static class UntileFilterGenExtensions
 /// Untile a frame into a sequence of frames.
 /// </summary>
 public static UntileFilterGen UntileFilterGen(this ImageMap input0) => new UntileFilterGen(input0);
+/// <summary>
+/// Untile a frame into a sequence of frames.
+/// </summary>
+public static UntileFilterGen UntileFilterGen(this ImageMap input0,UntileFilterGenConfig config)
+{
+var result = new UntileFilterGen(input0);
+if(config?.layout != null) result.layout(config.layout);
+return result;
+}
+}
+public class UntileFilterGenConfig
+{
+/// <summary>
+///  set grid size (default "6x5")
+/// </summary>
+public Size layout { get; set; }
 }
 }

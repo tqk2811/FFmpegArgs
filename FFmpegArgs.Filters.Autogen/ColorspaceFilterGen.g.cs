@@ -41,7 +41,7 @@ public ColorspaceFilterGen format(ColorspaceFilterGenFormat format) => this.SetO
 /// <summary>
 ///  Ignore primary chromaticity and gamma correction (default false)
 /// </summary>
-public ColorspaceFilterGen fast(bool flag) => this.SetOption("fast",flag.ToFFmpegFlag());
+public ColorspaceFilterGen fast(bool fast) => this.SetOption("fast",fast.ToFFmpegFlag());
 /// <summary>
 ///  Dithering mode (from 0 to 1) (default none)
 /// </summary>
@@ -77,6 +77,87 @@ public static class ColorspaceFilterGenExtensions
 /// Convert between colorspaces.
 /// </summary>
 public static ColorspaceFilterGen ColorspaceFilterGen(this ImageMap input0) => new ColorspaceFilterGen(input0);
+/// <summary>
+/// Convert between colorspaces.
+/// </summary>
+public static ColorspaceFilterGen ColorspaceFilterGen(this ImageMap input0,ColorspaceFilterGenConfig config)
+{
+var result = new ColorspaceFilterGen(input0);
+if(config?.all != null) result.all(config.all);
+if(config?.space != null) result.space(config.space);
+if(config?.range != null) result.range(config.range);
+if(config?.primaries != null) result.primaries(config.primaries);
+if(config?.trc != null) result.trc(config.trc);
+if(config?.format != null) result.format(config.format);
+if(config?.fast != null) result.fast(config.fast);
+if(config?.dither != null) result.dither(config.dither);
+if(config?.wpadapt != null) result.wpadapt(config.wpadapt);
+if(config?.iall != null) result.iall(config.iall);
+if(config?.ispace != null) result.ispace(config.ispace);
+if(config?.irange != null) result.irange(config.irange);
+if(config?.iprimaries != null) result.iprimaries(config.iprimaries);
+if(config?.itrc != null) result.itrc(config.itrc);
+return result;
+}
+}
+public class ColorspaceFilterGenConfig
+{
+/// <summary>
+///  Set all color properties together (from 0 to 8) (default 0)
+/// </summary>
+public ColorspaceFilterGenAll all { get; set; }
+/// <summary>
+///  Output colorspace (from 0 to 14) (default 2)
+/// </summary>
+public ColorspaceFilterGenSpace space { get; set; }
+/// <summary>
+///  Output color range (from 0 to 2) (default 0)
+/// </summary>
+public ColorspaceFilterGenRange range { get; set; }
+/// <summary>
+///  Output color primaries (from 0 to 22) (default 2)
+/// </summary>
+public ColorspaceFilterGenPrimaries primaries { get; set; }
+/// <summary>
+///  Output transfer characteristics (from 0 to 18) (default 2)
+/// </summary>
+public ColorspaceFilterGenTrc trc { get; set; }
+/// <summary>
+///  Output pixel format (from -1 to 164) (default -1)
+/// </summary>
+public ColorspaceFilterGenFormat format { get; set; }
+/// <summary>
+///  Ignore primary chromaticity and gamma correction (default false)
+/// </summary>
+public bool fast { get; set; }
+/// <summary>
+///  Dithering mode (from 0 to 1) (default none)
+/// </summary>
+public ColorspaceFilterGenDither dither { get; set; }
+/// <summary>
+///  Whitepoint adaptation method (from 0 to 2) (default bradford)
+/// </summary>
+public ColorspaceFilterGenWpadapt wpadapt { get; set; }
+/// <summary>
+///  Set all input color properties together (from 0 to 8) (default 0)
+/// </summary>
+public ColorspaceFilterGenIall iall { get; set; }
+/// <summary>
+///  Input colorspace (from 0 to 22) (default 2)
+/// </summary>
+public ColorspaceFilterGenIspace ispace { get; set; }
+/// <summary>
+///  Input color range (from 0 to 2) (default 0)
+/// </summary>
+public ColorspaceFilterGenIrange irange { get; set; }
+/// <summary>
+///  Input color primaries (from 0 to 22) (default 2)
+/// </summary>
+public ColorspaceFilterGenIprimaries iprimaries { get; set; }
+/// <summary>
+///  Input transfer characteristics (from 0 to 18) (default 2)
+/// </summary>
+public ColorspaceFilterGenItrc itrc { get; set; }
 }
 public enum ColorspaceFilterGenAll
 {

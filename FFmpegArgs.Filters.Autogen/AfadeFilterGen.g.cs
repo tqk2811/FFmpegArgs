@@ -53,6 +53,57 @@ public static class AfadeFilterGenExtensions
 /// Fade in/out input audio.
 /// </summary>
 public static AfadeFilterGen AfadeFilterGen(this AudioMap input0) => new AfadeFilterGen(input0);
+/// <summary>
+/// Fade in/out input audio.
+/// </summary>
+public static AfadeFilterGen AfadeFilterGen(this AudioMap input0,AfadeFilterGenConfig config)
+{
+var result = new AfadeFilterGen(input0);
+if(config?.type != null) result.type(config.type);
+if(config?.start_sample != null) result.start_sample(config.start_sample);
+if(config?.ss != null) result.ss(config.ss);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
+if(config?.ns != null) result.ns(config.ns);
+if(config?.start_time != null) result.start_time(config.start_time);
+if(config?.duration != null) result.duration(config.duration);
+if(config?.curve != null) result.curve(config.curve);
+return result;
+}
+}
+public class AfadeFilterGenConfig
+{
+/// <summary>
+///  set the fade direction (from 0 to 1) (default in)
+/// </summary>
+public AfadeFilterGenType type { get; set; }
+/// <summary>
+///  set number of first sample to start fading (from 0 to I64_MAX) (default 0)
+/// </summary>
+public long start_sample { get; set; }
+/// <summary>
+///  set number of first sample to start fading (from 0 to I64_MAX) (default 0)
+/// </summary>
+public long ss { get; set; }
+/// <summary>
+///  set number of samples for fade duration (from 1 to I64_MAX) (default 44100)
+/// </summary>
+public long nb_samples { get; set; }
+/// <summary>
+///  set number of samples for fade duration (from 1 to I64_MAX) (default 44100)
+/// </summary>
+public long ns { get; set; }
+/// <summary>
+///  set time to start fading (default 0)
+/// </summary>
+public TimeSpan start_time { get; set; }
+/// <summary>
+///  set fade duration (default 0)
+/// </summary>
+public TimeSpan duration { get; set; }
+/// <summary>
+///  set fade curve type (from -1 to 18) (default tri)
+/// </summary>
+public AfadeFilterGenCurve curve { get; set; }
 }
 public enum AfadeFilterGenType
 {

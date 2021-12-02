@@ -53,6 +53,57 @@ public static class GeqFilterGenExtensions
 /// Apply generic equation to each pixel.
 /// </summary>
 public static GeqFilterGen GeqFilterGen(this ImageMap input0) => new GeqFilterGen(input0);
+/// <summary>
+/// Apply generic equation to each pixel.
+/// </summary>
+public static GeqFilterGen GeqFilterGen(this ImageMap input0,GeqFilterGenConfig config)
+{
+var result = new GeqFilterGen(input0);
+if(config?.lum_expr != null) result.lum_expr(config.lum_expr);
+if(config?.cb_expr != null) result.cb_expr(config.cb_expr);
+if(config?.cr_expr != null) result.cr_expr(config.cr_expr);
+if(config?.alpha_expr != null) result.alpha_expr(config.alpha_expr);
+if(config?.red_expr != null) result.red_expr(config.red_expr);
+if(config?.green_expr != null) result.green_expr(config.green_expr);
+if(config?.blue_expr != null) result.blue_expr(config.blue_expr);
+if(config?.interpolation != null) result.interpolation(config.interpolation);
+return result;
+}
+}
+public class GeqFilterGenConfig
+{
+/// <summary>
+///  set luminance expression
+/// </summary>
+public string lum_expr { get; set; }
+/// <summary>
+///  set chroma blue expression
+/// </summary>
+public string cb_expr { get; set; }
+/// <summary>
+///  set chroma red expression
+/// </summary>
+public string cr_expr { get; set; }
+/// <summary>
+///  set alpha expression
+/// </summary>
+public string alpha_expr { get; set; }
+/// <summary>
+///  set red expression
+/// </summary>
+public string red_expr { get; set; }
+/// <summary>
+///  set green expression
+/// </summary>
+public string green_expr { get; set; }
+/// <summary>
+///  set blue expression
+/// </summary>
+public string blue_expr { get; set; }
+/// <summary>
+///  set interpolation method (from 0 to 1) (default bilinear)
+/// </summary>
+public GeqFilterGenInterpolation interpolation { get; set; }
 }
 public enum GeqFilterGenInterpolation
 {

@@ -69,6 +69,77 @@ public static class AtadenoiseFilterGenExtensions
 /// Apply an Adaptive Temporal Averaging Denoiser.
 /// </summary>
 public static AtadenoiseFilterGen AtadenoiseFilterGen(this ImageMap input0) => new AtadenoiseFilterGen(input0);
+/// <summary>
+/// Apply an Adaptive Temporal Averaging Denoiser.
+/// </summary>
+public static AtadenoiseFilterGen AtadenoiseFilterGen(this ImageMap input0,AtadenoiseFilterGenConfig config)
+{
+var result = new AtadenoiseFilterGen(input0);
+if(config?._0a != null) result._0a(config._0a);
+if(config?._0b != null) result._0b(config._0b);
+if(config?._1a != null) result._1a(config._1a);
+if(config?._1b != null) result._1b(config._1b);
+if(config?._2a != null) result._2a(config._2a);
+if(config?._2b != null) result._2b(config._2b);
+if(config?.s != null) result.s(config.s);
+if(config?.p != null) result.p(config.p);
+if(config?.a != null) result.a(config.a);
+if(config?._0s != null) result._0s(config._0s);
+if(config?._1s != null) result._1s(config._1s);
+if(config?._2s != null) result._2s(config._2s);
+return result;
+}
+}
+public class AtadenoiseFilterGenConfig
+{
+/// <summary>
+///  set threshold A for 1st plane (from 0 to 0.3) (default 0.02)
+/// </summary>
+public float _0a { get; set; }
+/// <summary>
+///  set threshold B for 1st plane (from 0 to 5) (default 0.04)
+/// </summary>
+public float _0b { get; set; }
+/// <summary>
+///  set threshold A for 2nd plane (from 0 to 0.3) (default 0.02)
+/// </summary>
+public float _1a { get; set; }
+/// <summary>
+///  set threshold B for 2nd plane (from 0 to 5) (default 0.04)
+/// </summary>
+public float _1b { get; set; }
+/// <summary>
+///  set threshold A for 3rd plane (from 0 to 0.3) (default 0.02)
+/// </summary>
+public float _2a { get; set; }
+/// <summary>
+///  set threshold B for 3rd plane (from 0 to 5) (default 0.04)
+/// </summary>
+public float _2b { get; set; }
+/// <summary>
+///  set how many frames to use (from 5 to 129) (default 9)
+/// </summary>
+public int s { get; set; }
+/// <summary>
+///  set what planes to filter (default 7)
+/// </summary>
+public AtadenoiseFilterGenP p { get; set; }
+/// <summary>
+///  set variant of algorithm (from 0 to 1) (default p)
+/// </summary>
+public AtadenoiseFilterGenA a { get; set; }
+/// <summary>
+///  set sigma for 1st plane (from 0 to 32767) (default 32767)
+/// </summary>
+public float _0s { get; set; }
+/// <summary>
+///  set sigma for 2nd plane (from 0 to 32767) (default 32767)
+/// </summary>
+public float _1s { get; set; }
+/// <summary>
+///  set sigma for 3rd plane (from 0 to 32767) (default 32767)
+/// </summary>
+public float _2s { get; set; }
 }
 public enum AtadenoiseFilterGenP
 {

@@ -21,7 +21,7 @@ public BufferFilterGen width(int width) => this.SetOptionRange("width", width,0,
 /// <summary>
 /// 
 /// </summary>
-public BufferFilterGen video_size(Size size) => this.SetOption("video_size",$"{size.Width}x{size.Height}");
+public BufferFilterGen video_size(Size video_size) => this.SetOption("video_size",$"{video_size.Width}x{video_size.Height}");
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
@@ -57,5 +57,61 @@ public static class BufferFilterGenExtensions
 /// Buffer video frames, and make them accessible to the filterchain.
 /// </summary>
 public static BufferFilterGen BufferFilterGen(this FilterGraph input0) => new BufferFilterGen(input0);
+/// <summary>
+/// Buffer video frames, and make them accessible to the filterchain.
+/// </summary>
+public static BufferFilterGen BufferFilterGen(this FilterGraph input0,BufferFilterGenConfig config)
+{
+var result = new BufferFilterGen(input0);
+if(config?.width != null) result.width(config.width);
+if(config?.video_size != null) result.video_size(config.video_size);
+if(config?.height != null) result.height(config.height);
+if(config?.pix_fmt != null) result.pix_fmt(config.pix_fmt);
+if(config?.sar != null) result.sar(config.sar);
+if(config?.pixel_aspect != null) result.pixel_aspect(config.pixel_aspect);
+if(config?.time_base != null) result.time_base(config.time_base);
+if(config?.frame_rate != null) result.frame_rate(config.frame_rate);
+if(config?.sws_param != null) result.sws_param(config.sws_param);
+return result;
+}
+}
+public class BufferFilterGenConfig
+{
+/// <summary>
+///  (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int width { get; set; }
+/// <summary>
+/// 
+/// </summary>
+public Size video_size { get; set; }
+/// <summary>
+///  (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int height { get; set; }
+/// <summary>
+///  (default none)
+/// </summary>
+public PixFmt pix_fmt { get; set; }
+/// <summary>
+///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
+/// </summary>
+public Rational sar { get; set; }
+/// <summary>
+///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
+/// </summary>
+public Rational pixel_aspect { get; set; }
+/// <summary>
+///  (from 0 to DBL_MAX) (default 0/1)
+/// </summary>
+public Rational time_base { get; set; }
+/// <summary>
+///  (from 0 to DBL_MAX) (default 0/1)
+/// </summary>
+public Rational frame_rate { get; set; }
+/// <summary>
+/// 
+/// </summary>
+public string sws_param { get; set; }
 }
 }

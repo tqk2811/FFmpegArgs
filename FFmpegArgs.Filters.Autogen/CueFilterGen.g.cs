@@ -33,5 +33,31 @@ public static class CueFilterGenExtensions
 /// Delay filtering to match a cue.
 /// </summary>
 public static CueFilterGen CueFilterGen(this ImageMap input0) => new CueFilterGen(input0);
+/// <summary>
+/// Delay filtering to match a cue.
+/// </summary>
+public static CueFilterGen CueFilterGen(this ImageMap input0,CueFilterGenConfig config)
+{
+var result = new CueFilterGen(input0);
+if(config?.cue != null) result.cue(config.cue);
+if(config?.preroll != null) result.preroll(config.preroll);
+if(config?.buffer != null) result.buffer(config.buffer);
+return result;
+}
+}
+public class CueFilterGenConfig
+{
+/// <summary>
+///  cue unix timestamp in microseconds (from 0 to I64_MAX) (default 0)
+/// </summary>
+public long cue { get; set; }
+/// <summary>
+///  preroll duration in seconds (default 0)
+/// </summary>
+public TimeSpan preroll { get; set; }
+/// <summary>
+///  buffer duration in seconds (default 0)
+/// </summary>
+public TimeSpan buffer { get; set; }
 }
 }

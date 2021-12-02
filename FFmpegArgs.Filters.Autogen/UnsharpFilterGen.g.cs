@@ -65,7 +65,7 @@ public UnsharpFilterGen ca(float ca) => this.SetOptionRange("ca", ca,-2,5);
 /// <summary>
 ///  ignored (default false)
 /// </summary>
-public UnsharpFilterGen opencl(bool flag) => this.SetOption("opencl",flag.ToFFmpegFlag());
+public UnsharpFilterGen opencl(bool opencl) => this.SetOption("opencl",opencl.ToFFmpegFlag());
 }
 public static class UnsharpFilterGenExtensions
 {
@@ -73,5 +73,81 @@ public static class UnsharpFilterGenExtensions
 /// Sharpen or blur the input video.
 /// </summary>
 public static UnsharpFilterGen UnsharpFilterGen(this ImageMap input0) => new UnsharpFilterGen(input0);
+/// <summary>
+/// Sharpen or blur the input video.
+/// </summary>
+public static UnsharpFilterGen UnsharpFilterGen(this ImageMap input0,UnsharpFilterGenConfig config)
+{
+var result = new UnsharpFilterGen(input0);
+if(config?.luma_msize_x != null) result.luma_msize_x(config.luma_msize_x);
+if(config?.lx != null) result.lx(config.lx);
+if(config?.luma_msize_y != null) result.luma_msize_y(config.luma_msize_y);
+if(config?.ly != null) result.ly(config.ly);
+if(config?.luma_amount != null) result.luma_amount(config.luma_amount);
+if(config?.la != null) result.la(config.la);
+if(config?.chroma_msize_x != null) result.chroma_msize_x(config.chroma_msize_x);
+if(config?.cx != null) result.cx(config.cx);
+if(config?.chroma_msize_y != null) result.chroma_msize_y(config.chroma_msize_y);
+if(config?.cy != null) result.cy(config.cy);
+if(config?.chroma_amount != null) result.chroma_amount(config.chroma_amount);
+if(config?.ca != null) result.ca(config.ca);
+if(config?.opencl != null) result.opencl(config.opencl);
+return result;
+}
+}
+public class UnsharpFilterGenConfig
+{
+/// <summary>
+///  set luma matrix horizontal size (from 3 to 23) (default 5)
+/// </summary>
+public int luma_msize_x { get; set; }
+/// <summary>
+///  set luma matrix horizontal size (from 3 to 23) (default 5)
+/// </summary>
+public int lx { get; set; }
+/// <summary>
+///  set luma matrix vertical size (from 3 to 23) (default 5)
+/// </summary>
+public int luma_msize_y { get; set; }
+/// <summary>
+///  set luma matrix vertical size (from 3 to 23) (default 5)
+/// </summary>
+public int ly { get; set; }
+/// <summary>
+///  set luma effect strength (from -2 to 5) (default 1)
+/// </summary>
+public float luma_amount { get; set; }
+/// <summary>
+///  set luma effect strength (from -2 to 5) (default 1)
+/// </summary>
+public float la { get; set; }
+/// <summary>
+///  set chroma matrix horizontal size (from 3 to 23) (default 5)
+/// </summary>
+public int chroma_msize_x { get; set; }
+/// <summary>
+///  set chroma matrix horizontal size (from 3 to 23) (default 5)
+/// </summary>
+public int cx { get; set; }
+/// <summary>
+///  set chroma matrix vertical size (from 3 to 23) (default 5)
+/// </summary>
+public int chroma_msize_y { get; set; }
+/// <summary>
+///  set chroma matrix vertical size (from 3 to 23) (default 5)
+/// </summary>
+public int cy { get; set; }
+/// <summary>
+///  set chroma effect strength (from -2 to 5) (default 0)
+/// </summary>
+public float chroma_amount { get; set; }
+/// <summary>
+///  set chroma effect strength (from -2 to 5) (default 0)
+/// </summary>
+public float ca { get; set; }
+/// <summary>
+///  ignored (default false)
+/// </summary>
+public bool opencl { get; set; }
 }
 }

@@ -33,5 +33,31 @@ public static class MaskedclampFilterGenExtensions
 /// Clamp first stream with second stream and third stream.
 /// </summary>
 public static MaskedclampFilterGen MaskedclampFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2) => new MaskedclampFilterGen(input0, input1, input2);
+/// <summary>
+/// Clamp first stream with second stream and third stream.
+/// </summary>
+public static MaskedclampFilterGen MaskedclampFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2,MaskedclampFilterGenConfig config)
+{
+var result = new MaskedclampFilterGen(input0, input1, input2);
+if(config?.undershoot != null) result.undershoot(config.undershoot);
+if(config?.overshoot != null) result.overshoot(config.overshoot);
+if(config?.planes != null) result.planes(config.planes);
+return result;
+}
+}
+public class MaskedclampFilterGenConfig
+{
+/// <summary>
+///  set undershoot (from 0 to 65535) (default 0)
+/// </summary>
+public int undershoot { get; set; }
+/// <summary>
+///  set overshoot (from 0 to 65535) (default 0)
+/// </summary>
+public int overshoot { get; set; }
+/// <summary>
+///  set planes (from 0 to 15) (default 15)
+/// </summary>
+public int planes { get; set; }
 }
 }

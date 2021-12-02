@@ -41,6 +41,42 @@ public static class ShufflepixelsFilterGenExtensions
 /// Shuffle video pixels.
 /// </summary>
 public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input0) => new ShufflepixelsFilterGen(input0);
+/// <summary>
+/// Shuffle video pixels.
+/// </summary>
+public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input0,ShufflepixelsFilterGenConfig config)
+{
+var result = new ShufflepixelsFilterGen(input0);
+if(config?.direction != null) result.direction(config.direction);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.width != null) result.width(config.width);
+if(config?.height != null) result.height(config.height);
+if(config?.seed != null) result.seed(config.seed);
+return result;
+}
+}
+public class ShufflepixelsFilterGenConfig
+{
+/// <summary>
+///  set shuffle direction (from 0 to 1) (default forward)
+/// </summary>
+public ShufflepixelsFilterGenDirection direction { get; set; }
+/// <summary>
+///  set shuffle mode (from 0 to 2) (default horizontal)
+/// </summary>
+public ShufflepixelsFilterGenMode mode { get; set; }
+/// <summary>
+///  set block width (from 1 to 8000) (default 10)
+/// </summary>
+public int width { get; set; }
+/// <summary>
+///  set block height (from 1 to 8000) (default 10)
+/// </summary>
+public int height { get; set; }
+/// <summary>
+///  set random seed (from -1 to UINT32_MAX) (default -1)
+/// </summary>
+public long seed { get; set; }
 }
 public enum ShufflepixelsFilterGenDirection
 {

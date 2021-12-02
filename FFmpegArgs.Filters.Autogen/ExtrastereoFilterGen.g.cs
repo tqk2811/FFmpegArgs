@@ -21,7 +21,7 @@ public ExtrastereoFilterGen m(float m) => this.SetOptionRange("m", m,-10,10);
 /// <summary>
 ///  enable clipping (default true)
 /// </summary>
-public ExtrastereoFilterGen c(bool flag) => this.SetOption("c",flag.ToFFmpegFlag());
+public ExtrastereoFilterGen c(bool c) => this.SetOption("c",c.ToFFmpegFlag());
 }
 public static class ExtrastereoFilterGenExtensions
 {
@@ -29,5 +29,26 @@ public static class ExtrastereoFilterGenExtensions
 /// Increase difference between stereo audio channels.
 /// </summary>
 public static ExtrastereoFilterGen ExtrastereoFilterGen(this AudioMap input0) => new ExtrastereoFilterGen(input0);
+/// <summary>
+/// Increase difference between stereo audio channels.
+/// </summary>
+public static ExtrastereoFilterGen ExtrastereoFilterGen(this AudioMap input0,ExtrastereoFilterGenConfig config)
+{
+var result = new ExtrastereoFilterGen(input0);
+if(config?.m != null) result.m(config.m);
+if(config?.c != null) result.c(config.c);
+return result;
+}
+}
+public class ExtrastereoFilterGenConfig
+{
+/// <summary>
+///  set the difference coefficient (from -10 to 10) (default 2.5)
+/// </summary>
+public float m { get; set; }
+/// <summary>
+///  enable clipping (default true)
+/// </summary>
+public bool c { get; set; }
 }
 }

@@ -37,5 +37,36 @@ public static class ScrollFilterGenExtensions
 /// Scroll input video.
 /// </summary>
 public static ScrollFilterGen ScrollFilterGen(this ImageMap input0) => new ScrollFilterGen(input0);
+/// <summary>
+/// Scroll input video.
+/// </summary>
+public static ScrollFilterGen ScrollFilterGen(this ImageMap input0,ScrollFilterGenConfig config)
+{
+var result = new ScrollFilterGen(input0);
+if(config?.horizontal != null) result.horizontal(config.horizontal);
+if(config?.vertical != null) result.vertical(config.vertical);
+if(config?.hpos != null) result.hpos(config.hpos);
+if(config?.vpos != null) result.vpos(config.vpos);
+return result;
+}
+}
+public class ScrollFilterGenConfig
+{
+/// <summary>
+///  set the horizontal scrolling speed (from -1 to 1) (default 0)
+/// </summary>
+public float horizontal { get; set; }
+/// <summary>
+///  set the vertical scrolling speed (from -1 to 1) (default 0)
+/// </summary>
+public float vertical { get; set; }
+/// <summary>
+///  set initial horizontal position (from 0 to 1) (default 0)
+/// </summary>
+public float hpos { get; set; }
+/// <summary>
+///  set initial vertical position (from 0 to 1) (default 0)
+/// </summary>
+public float vpos { get; set; }
 }
 }

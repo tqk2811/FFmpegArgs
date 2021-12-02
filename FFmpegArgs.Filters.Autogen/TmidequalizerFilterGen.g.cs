@@ -33,5 +33,31 @@ public static class TmidequalizerFilterGenExtensions
 /// Apply Temporal Midway Equalization.
 /// </summary>
 public static TmidequalizerFilterGen TmidequalizerFilterGen(this ImageMap input0) => new TmidequalizerFilterGen(input0);
+/// <summary>
+/// Apply Temporal Midway Equalization.
+/// </summary>
+public static TmidequalizerFilterGen TmidequalizerFilterGen(this ImageMap input0,TmidequalizerFilterGenConfig config)
+{
+var result = new TmidequalizerFilterGen(input0);
+if(config?.radius != null) result.radius(config.radius);
+if(config?.sigma != null) result.sigma(config.sigma);
+if(config?.planes != null) result.planes(config.planes);
+return result;
+}
+}
+public class TmidequalizerFilterGenConfig
+{
+/// <summary>
+///  set radius (from 1 to 127) (default 5)
+/// </summary>
+public int radius { get; set; }
+/// <summary>
+///  set sigma (from 0 to 1) (default 0.5)
+/// </summary>
+public float sigma { get; set; }
+/// <summary>
+///  set planes (from 0 to 15) (default 15)
+/// </summary>
+public int planes { get; set; }
 }
 }

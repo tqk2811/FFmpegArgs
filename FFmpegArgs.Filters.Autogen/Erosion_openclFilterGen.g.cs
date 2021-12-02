@@ -41,5 +41,41 @@ public static class Erosion_openclFilterGenExtensions
 /// Apply erosion effect
 /// </summary>
 public static Erosion_openclFilterGen Erosion_openclFilterGen(this ImageMap input0) => new Erosion_openclFilterGen(input0);
+/// <summary>
+/// Apply erosion effect
+/// </summary>
+public static Erosion_openclFilterGen Erosion_openclFilterGen(this ImageMap input0,Erosion_openclFilterGenConfig config)
+{
+var result = new Erosion_openclFilterGen(input0);
+if(config?.threshold0 != null) result.threshold0(config.threshold0);
+if(config?.threshold1 != null) result.threshold1(config.threshold1);
+if(config?.threshold2 != null) result.threshold2(config.threshold2);
+if(config?.threshold3 != null) result.threshold3(config.threshold3);
+if(config?.coordinates != null) result.coordinates(config.coordinates);
+return result;
+}
+}
+public class Erosion_openclFilterGenConfig
+{
+/// <summary>
+///  set threshold for 1st plane (from 0 to 65535) (default 65535)
+/// </summary>
+public float threshold0 { get; set; }
+/// <summary>
+///  set threshold for 2nd plane (from 0 to 65535) (default 65535)
+/// </summary>
+public float threshold1 { get; set; }
+/// <summary>
+///  set threshold for 3rd plane (from 0 to 65535) (default 65535)
+/// </summary>
+public float threshold2 { get; set; }
+/// <summary>
+///  set threshold for 4th plane (from 0 to 65535) (default 65535)
+/// </summary>
+public float threshold3 { get; set; }
+/// <summary>
+///  set coordinates (from 0 to 255) (default 255)
+/// </summary>
+public int coordinates { get; set; }
 }
 }

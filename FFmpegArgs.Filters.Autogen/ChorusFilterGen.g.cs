@@ -45,5 +45,46 @@ public static class ChorusFilterGenExtensions
 /// Add a chorus effect to the audio.
 /// </summary>
 public static ChorusFilterGen ChorusFilterGen(this AudioMap input0) => new ChorusFilterGen(input0);
+/// <summary>
+/// Add a chorus effect to the audio.
+/// </summary>
+public static ChorusFilterGen ChorusFilterGen(this AudioMap input0,ChorusFilterGenConfig config)
+{
+var result = new ChorusFilterGen(input0);
+if(config?.in_gain != null) result.in_gain(config.in_gain);
+if(config?.out_gain != null) result.out_gain(config.out_gain);
+if(config?.delays != null) result.delays(config.delays);
+if(config?.decays != null) result.decays(config.decays);
+if(config?.speeds != null) result.speeds(config.speeds);
+if(config?.depths != null) result.depths(config.depths);
+return result;
+}
+}
+public class ChorusFilterGenConfig
+{
+/// <summary>
+///  set input gain (from 0 to 1) (default 0.4)
+/// </summary>
+public float in_gain { get; set; }
+/// <summary>
+///  set output gain (from 0 to 1) (default 0.4)
+/// </summary>
+public float out_gain { get; set; }
+/// <summary>
+///  set delays
+/// </summary>
+public string delays { get; set; }
+/// <summary>
+///  set decays
+/// </summary>
+public string decays { get; set; }
+/// <summary>
+///  set speeds
+/// </summary>
+public string speeds { get; set; }
+/// <summary>
+///  set depths
+/// </summary>
+public string depths { get; set; }
 }
 }

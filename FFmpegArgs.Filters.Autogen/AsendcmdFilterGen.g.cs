@@ -29,5 +29,26 @@ public static class AsendcmdFilterGenExtensions
 /// Send commands to filters.
 /// </summary>
 public static AsendcmdFilterGen AsendcmdFilterGen(this AudioMap input0) => new AsendcmdFilterGen(input0);
+/// <summary>
+/// Send commands to filters.
+/// </summary>
+public static AsendcmdFilterGen AsendcmdFilterGen(this AudioMap input0,AsendcmdFilterGenConfig config)
+{
+var result = new AsendcmdFilterGen(input0);
+if(config?.commands != null) result.commands(config.commands);
+if(config?.filename != null) result.filename(config.filename);
+return result;
+}
+}
+public class AsendcmdFilterGenConfig
+{
+/// <summary>
+///  set commands
+/// </summary>
+public string commands { get; set; }
+/// <summary>
+///  set commands file
+/// </summary>
+public string filename { get; set; }
 }
 }

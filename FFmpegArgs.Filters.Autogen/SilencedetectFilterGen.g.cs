@@ -25,7 +25,7 @@ public SilencedetectFilterGen duration(TimeSpan duration) => this.SetOptionRange
 /// <summary>
 ///  check each channel separately (default false)
 /// </summary>
-public SilencedetectFilterGen mono(bool flag) => this.SetOption("mono",flag.ToFFmpegFlag());
+public SilencedetectFilterGen mono(bool mono) => this.SetOption("mono",mono.ToFFmpegFlag());
 }
 public static class SilencedetectFilterGenExtensions
 {
@@ -33,5 +33,31 @@ public static class SilencedetectFilterGenExtensions
 /// Detect silence.
 /// </summary>
 public static SilencedetectFilterGen SilencedetectFilterGen(this AudioMap input0) => new SilencedetectFilterGen(input0);
+/// <summary>
+/// Detect silence.
+/// </summary>
+public static SilencedetectFilterGen SilencedetectFilterGen(this AudioMap input0,SilencedetectFilterGenConfig config)
+{
+var result = new SilencedetectFilterGen(input0);
+if(config?.noise != null) result.noise(config.noise);
+if(config?.duration != null) result.duration(config.duration);
+if(config?.mono != null) result.mono(config.mono);
+return result;
+}
+}
+public class SilencedetectFilterGenConfig
+{
+/// <summary>
+///  set noise tolerance (from 0 to DBL_MAX) (default 0.001)
+/// </summary>
+public double noise { get; set; }
+/// <summary>
+///  set minimum duration in seconds (default 2)
+/// </summary>
+public TimeSpan duration { get; set; }
+/// <summary>
+///  check each channel separately (default false)
+/// </summary>
+public bool mono { get; set; }
 }
 }

@@ -25,5 +25,21 @@ public static class VmafmotionFilterGenExtensions
 /// Calculate the VMAF Motion score.
 /// </summary>
 public static VmafmotionFilterGen VmafmotionFilterGen(this ImageMap input0) => new VmafmotionFilterGen(input0);
+/// <summary>
+/// Calculate the VMAF Motion score.
+/// </summary>
+public static VmafmotionFilterGen VmafmotionFilterGen(this ImageMap input0,VmafmotionFilterGenConfig config)
+{
+var result = new VmafmotionFilterGen(input0);
+if(config?.stats_file != null) result.stats_file(config.stats_file);
+return result;
+}
+}
+public class VmafmotionFilterGenConfig
+{
+/// <summary>
+///  Set file where to store per-frame difference information
+/// </summary>
+public string stats_file { get; set; }
 }
 }

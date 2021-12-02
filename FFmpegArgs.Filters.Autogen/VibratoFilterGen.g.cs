@@ -29,5 +29,26 @@ public static class VibratoFilterGenExtensions
 /// Apply vibrato effect.
 /// </summary>
 public static VibratoFilterGen VibratoFilterGen(this AudioMap input0) => new VibratoFilterGen(input0);
+/// <summary>
+/// Apply vibrato effect.
+/// </summary>
+public static VibratoFilterGen VibratoFilterGen(this AudioMap input0,VibratoFilterGenConfig config)
+{
+var result = new VibratoFilterGen(input0);
+if(config?.f != null) result.f(config.f);
+if(config?.d != null) result.d(config.d);
+return result;
+}
+}
+public class VibratoFilterGenConfig
+{
+/// <summary>
+///  set frequency in hertz (from 0.1 to 20000) (default 5)
+/// </summary>
+public double f { get; set; }
+/// <summary>
+///  set depth as percentage (from 0 to 1) (default 0.5)
+/// </summary>
+public double d { get; set; }
 }
 }

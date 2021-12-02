@@ -41,7 +41,7 @@ public DrawgridFilterGen thickness(string thickness) => this.SetOption("thicknes
 /// <summary>
 ///  replace color & alpha (default false)
 /// </summary>
-public DrawgridFilterGen replace(bool flag) => this.SetOption("replace",flag.ToFFmpegFlag());
+public DrawgridFilterGen replace(bool replace) => this.SetOption("replace",replace.ToFFmpegFlag());
 }
 public static class DrawgridFilterGenExtensions
 {
@@ -49,5 +49,51 @@ public static class DrawgridFilterGenExtensions
 /// Draw a colored grid on the input video.
 /// </summary>
 public static DrawgridFilterGen DrawgridFilterGen(this ImageMap input0) => new DrawgridFilterGen(input0);
+/// <summary>
+/// Draw a colored grid on the input video.
+/// </summary>
+public static DrawgridFilterGen DrawgridFilterGen(this ImageMap input0,DrawgridFilterGenConfig config)
+{
+var result = new DrawgridFilterGen(input0);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.width != null) result.width(config.width);
+if(config?.height != null) result.height(config.height);
+if(config?.color != null) result.color(config.color);
+if(config?.thickness != null) result.thickness(config.thickness);
+if(config?.replace != null) result.replace(config.replace);
+return result;
+}
+}
+public class DrawgridFilterGenConfig
+{
+/// <summary>
+///  set horizontal offset (default "0")
+/// </summary>
+public string x { get; set; }
+/// <summary>
+///  set vertical offset (default "0")
+/// </summary>
+public string y { get; set; }
+/// <summary>
+///  set width of grid cell (default "0")
+/// </summary>
+public string width { get; set; }
+/// <summary>
+///  set height of grid cell (default "0")
+/// </summary>
+public string height { get; set; }
+/// <summary>
+///  set color of the grid (default "black")
+/// </summary>
+public string color { get; set; }
+/// <summary>
+///  set grid line thickness (default "1")
+/// </summary>
+public string thickness { get; set; }
+/// <summary>
+///  replace color & alpha (default false)
+/// </summary>
+public bool replace { get; set; }
 }
 }

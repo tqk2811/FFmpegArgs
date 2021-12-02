@@ -41,6 +41,42 @@ public static class FramerateFilterGenExtensions
 /// Upsamples or downsamples progressive source between specified frame rates.
 /// </summary>
 public static FramerateFilterGen FramerateFilterGen(this ImageMap input0) => new FramerateFilterGen(input0);
+/// <summary>
+/// Upsamples or downsamples progressive source between specified frame rates.
+/// </summary>
+public static FramerateFilterGen FramerateFilterGen(this ImageMap input0,FramerateFilterGenConfig config)
+{
+var result = new FramerateFilterGen(input0);
+if(config?.fps != null) result.fps(config.fps);
+if(config?.interp_start != null) result.interp_start(config.interp_start);
+if(config?.interp_end != null) result.interp_end(config.interp_end);
+if(config?.scene != null) result.scene(config.scene);
+if(config?.flags != null) result.flags(config.flags);
+return result;
+}
+}
+public class FramerateFilterGenConfig
+{
+/// <summary>
+///  required output frames per second rate (default "50")
+/// </summary>
+public Rational fps { get; set; }
+/// <summary>
+///  point to start linear interpolation (from 0 to 255) (default 15)
+/// </summary>
+public int interp_start { get; set; }
+/// <summary>
+///  point to end linear interpolation (from 0 to 255) (default 240)
+/// </summary>
+public int interp_end { get; set; }
+/// <summary>
+///  scene change level (from 0 to 100) (default 8.2)
+/// </summary>
+public double scene { get; set; }
+/// <summary>
+///  set flags (default scene_change_detect+scd)
+/// </summary>
+public FramerateFilterGenFlags flags { get; set; }
 }
 public enum FramerateFilterGenFlags
 {

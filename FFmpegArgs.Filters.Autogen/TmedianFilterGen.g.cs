@@ -33,5 +33,31 @@ public static class TmedianFilterGenExtensions
 /// Pick median pixels from successive frames.
 /// </summary>
 public static TmedianFilterGen TmedianFilterGen(this ImageMap input0) => new TmedianFilterGen(input0);
+/// <summary>
+/// Pick median pixels from successive frames.
+/// </summary>
+public static TmedianFilterGen TmedianFilterGen(this ImageMap input0,TmedianFilterGenConfig config)
+{
+var result = new TmedianFilterGen(input0);
+if(config?.radius != null) result.radius(config.radius);
+if(config?.planes != null) result.planes(config.planes);
+if(config?.percentile != null) result.percentile(config.percentile);
+return result;
+}
+}
+public class TmedianFilterGenConfig
+{
+/// <summary>
+///  set median filter radius (from 1 to 127) (default 1)
+/// </summary>
+public int radius { get; set; }
+/// <summary>
+///  set planes to filter (from 0 to 15) (default 15)
+/// </summary>
+public int planes { get; set; }
+/// <summary>
+///  set percentile (from 0 to 1) (default 0.5)
+/// </summary>
+public float percentile { get; set; }
 }
 }

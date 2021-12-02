@@ -29,6 +29,27 @@ public static class Transpose_openclFilterGenExtensions
 /// Transpose input video
 /// </summary>
 public static Transpose_openclFilterGen Transpose_openclFilterGen(this ImageMap input0) => new Transpose_openclFilterGen(input0);
+/// <summary>
+/// Transpose input video
+/// </summary>
+public static Transpose_openclFilterGen Transpose_openclFilterGen(this ImageMap input0,Transpose_openclFilterGenConfig config)
+{
+var result = new Transpose_openclFilterGen(input0);
+if(config?.dir != null) result.dir(config.dir);
+if(config?.passthrough != null) result.passthrough(config.passthrough);
+return result;
+}
+}
+public class Transpose_openclFilterGenConfig
+{
+/// <summary>
+///  set transpose direction (from 0 to 3) (default cclock_flip)
+/// </summary>
+public Transpose_openclFilterGenDir dir { get; set; }
+/// <summary>
+///  do not apply transposition if the input matches the specified geometry (from 0 to INT_MAX) (default none)
+/// </summary>
+public Transpose_openclFilterGenPassthrough passthrough { get; set; }
 }
 public enum Transpose_openclFilterGenDir
 {

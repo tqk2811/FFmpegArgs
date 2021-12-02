@@ -49,6 +49,52 @@ public static class PadFilterGenExtensions
 /// Pad the input video.
 /// </summary>
 public static PadFilterGen PadFilterGen(this ImageMap input0) => new PadFilterGen(input0);
+/// <summary>
+/// Pad the input video.
+/// </summary>
+public static PadFilterGen PadFilterGen(this ImageMap input0,PadFilterGenConfig config)
+{
+var result = new PadFilterGen(input0);
+if(config?.width != null) result.width(config.width);
+if(config?.height != null) result.height(config.height);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.color != null) result.color(config.color);
+if(config?.eval != null) result.eval(config.eval);
+if(config?.aspect != null) result.aspect(config.aspect);
+return result;
+}
+}
+public class PadFilterGenConfig
+{
+/// <summary>
+///  set the pad area width expression (default "iw")
+/// </summary>
+public string width { get; set; }
+/// <summary>
+///  set the pad area height expression (default "ih")
+/// </summary>
+public string height { get; set; }
+/// <summary>
+///  set the x offset expression for the input image position (default "0")
+/// </summary>
+public string x { get; set; }
+/// <summary>
+///  set the y offset expression for the input image position (default "0")
+/// </summary>
+public string y { get; set; }
+/// <summary>
+///  set the color of the padded area border (default "black")
+/// </summary>
+public Color color { get; set; }
+/// <summary>
+///  specify when to evaluate expressions (from 0 to 1) (default init)
+/// </summary>
+public PadFilterGenEval eval { get; set; }
+/// <summary>
+///  pad to fit an aspect instead of a resolution (from 0 to DBL_MAX) (default 0/1)
+/// </summary>
+public Rational aspect { get; set; }
 }
 public enum PadFilterGenEval
 {

@@ -33,7 +33,7 @@ public DelogoFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  show delogo area (default false)
 /// </summary>
-public DelogoFilterGen show(bool flag) => this.SetOption("show",flag.ToFFmpegFlag());
+public DelogoFilterGen show(bool show) => this.SetOption("show",show.ToFFmpegFlag());
 }
 public static class DelogoFilterGenExtensions
 {
@@ -41,5 +41,41 @@ public static class DelogoFilterGenExtensions
 /// Remove logo from input video.
 /// </summary>
 public static DelogoFilterGen DelogoFilterGen(this ImageMap input0) => new DelogoFilterGen(input0);
+/// <summary>
+/// Remove logo from input video.
+/// </summary>
+public static DelogoFilterGen DelogoFilterGen(this ImageMap input0,DelogoFilterGenConfig config)
+{
+var result = new DelogoFilterGen(input0);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.w != null) result.w(config.w);
+if(config?.h != null) result.h(config.h);
+if(config?.show != null) result.show(config.show);
+return result;
+}
+}
+public class DelogoFilterGenConfig
+{
+/// <summary>
+///  set logo x position (default "-1")
+/// </summary>
+public string x { get; set; }
+/// <summary>
+///  set logo y position (default "-1")
+/// </summary>
+public string y { get; set; }
+/// <summary>
+///  set logo width (default "-1")
+/// </summary>
+public string w { get; set; }
+/// <summary>
+///  set logo height (default "-1")
+/// </summary>
+public string h { get; set; }
+/// <summary>
+///  show delogo area (default false)
+/// </summary>
+public bool show { get; set; }
 }
 }

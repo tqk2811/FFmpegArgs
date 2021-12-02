@@ -29,6 +29,27 @@ public static class Stereo3dFilterGenExtensions
 /// Convert video stereoscopic 3D view.
 /// </summary>
 public static Stereo3dFilterGen Stereo3dFilterGen(this ImageMap input0) => new Stereo3dFilterGen(input0);
+/// <summary>
+/// Convert video stereoscopic 3D view.
+/// </summary>
+public static Stereo3dFilterGen Stereo3dFilterGen(this ImageMap input0,Stereo3dFilterGenConfig config)
+{
+var result = new Stereo3dFilterGen(input0);
+if(config?._in != null) result._in(config._in);
+if(config?._out != null) result._out(config._out);
+return result;
+}
+}
+public class Stereo3dFilterGenConfig
+{
+/// <summary>
+///  set input format (from 16 to 32) (default sbsl)
+/// </summary>
+public Stereo3dFilterGenIn _in { get; set; }
+/// <summary>
+///  set output format (from 0 to 32) (default arcd)
+/// </summary>
+public Stereo3dFilterGenOut _out { get; set; }
 }
 public enum Stereo3dFilterGenIn
 {

@@ -85,5 +85,96 @@ public static class ColorlevelsFilterGenExtensions
 /// Adjust the color levels.
 /// </summary>
 public static ColorlevelsFilterGen ColorlevelsFilterGen(this ImageMap input0) => new ColorlevelsFilterGen(input0);
+/// <summary>
+/// Adjust the color levels.
+/// </summary>
+public static ColorlevelsFilterGen ColorlevelsFilterGen(this ImageMap input0,ColorlevelsFilterGenConfig config)
+{
+var result = new ColorlevelsFilterGen(input0);
+if(config?.rimin != null) result.rimin(config.rimin);
+if(config?.gimin != null) result.gimin(config.gimin);
+if(config?.bimin != null) result.bimin(config.bimin);
+if(config?.aimin != null) result.aimin(config.aimin);
+if(config?.rimax != null) result.rimax(config.rimax);
+if(config?.gimax != null) result.gimax(config.gimax);
+if(config?.bimax != null) result.bimax(config.bimax);
+if(config?.aimax != null) result.aimax(config.aimax);
+if(config?.romin != null) result.romin(config.romin);
+if(config?.gomin != null) result.gomin(config.gomin);
+if(config?.bomin != null) result.bomin(config.bomin);
+if(config?.aomin != null) result.aomin(config.aomin);
+if(config?.romax != null) result.romax(config.romax);
+if(config?.gomax != null) result.gomax(config.gomax);
+if(config?.bomax != null) result.bomax(config.bomax);
+if(config?.aomax != null) result.aomax(config.aomax);
+return result;
+}
+}
+public class ColorlevelsFilterGenConfig
+{
+/// <summary>
+///  set input red black point (from -1 to 1) (default 0)
+/// </summary>
+public double rimin { get; set; }
+/// <summary>
+///  set input green black point (from -1 to 1) (default 0)
+/// </summary>
+public double gimin { get; set; }
+/// <summary>
+///  set input blue black point (from -1 to 1) (default 0)
+/// </summary>
+public double bimin { get; set; }
+/// <summary>
+///  set input alpha black point (from -1 to 1) (default 0)
+/// </summary>
+public double aimin { get; set; }
+/// <summary>
+///  set input red white point (from -1 to 1) (default 1)
+/// </summary>
+public double rimax { get; set; }
+/// <summary>
+///  set input green white point (from -1 to 1) (default 1)
+/// </summary>
+public double gimax { get; set; }
+/// <summary>
+///  set input blue white point (from -1 to 1) (default 1)
+/// </summary>
+public double bimax { get; set; }
+/// <summary>
+///  set input alpha white point (from -1 to 1) (default 1)
+/// </summary>
+public double aimax { get; set; }
+/// <summary>
+///  set output red black point (from 0 to 1) (default 0)
+/// </summary>
+public double romin { get; set; }
+/// <summary>
+///  set output green black point (from 0 to 1) (default 0)
+/// </summary>
+public double gomin { get; set; }
+/// <summary>
+///  set output blue black point (from 0 to 1) (default 0)
+/// </summary>
+public double bomin { get; set; }
+/// <summary>
+///  set output alpha black point (from 0 to 1) (default 0)
+/// </summary>
+public double aomin { get; set; }
+/// <summary>
+///  set output red white point (from 0 to 1) (default 1)
+/// </summary>
+public double romax { get; set; }
+/// <summary>
+///  set output green white point (from 0 to 1) (default 1)
+/// </summary>
+public double gomax { get; set; }
+/// <summary>
+///  set output blue white point (from 0 to 1) (default 1)
+/// </summary>
+public double bomax { get; set; }
+/// <summary>
+///  set output alpha white point (from 0 to 1) (default 1)
+/// </summary>
+public double aomax { get; set; }
 }
 }

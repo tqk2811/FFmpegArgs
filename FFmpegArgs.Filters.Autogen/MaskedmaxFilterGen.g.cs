@@ -25,5 +25,21 @@ public static class MaskedmaxFilterGenExtensions
 /// Apply filtering with maximum difference of two streams.
 /// </summary>
 public static MaskedmaxFilterGen MaskedmaxFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2) => new MaskedmaxFilterGen(input0, input1, input2);
+/// <summary>
+/// Apply filtering with maximum difference of two streams.
+/// </summary>
+public static MaskedmaxFilterGen MaskedmaxFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2,MaskedmaxFilterGenConfig config)
+{
+var result = new MaskedmaxFilterGen(input0, input1, input2);
+if(config?.planes != null) result.planes(config.planes);
+return result;
+}
+}
+public class MaskedmaxFilterGenConfig
+{
+/// <summary>
+///  set planes (from 0 to 15) (default 15)
+/// </summary>
+public int planes { get; set; }
 }
 }

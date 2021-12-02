@@ -37,11 +37,11 @@ public AfftdnFilterGen rf(float rf) => this.SetOptionRange("rf", rf,-80,-20);
 /// <summary>
 ///  track noise (default false)
 /// </summary>
-public AfftdnFilterGen tn(bool flag) => this.SetOption("tn",flag.ToFFmpegFlag());
+public AfftdnFilterGen tn(bool tn) => this.SetOption("tn",tn.ToFFmpegFlag());
 /// <summary>
 ///  track residual (default false)
 /// </summary>
-public AfftdnFilterGen tr(bool flag) => this.SetOption("tr",flag.ToFFmpegFlag());
+public AfftdnFilterGen tr(bool tr) => this.SetOption("tr",tr.ToFFmpegFlag());
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
@@ -53,6 +53,57 @@ public static class AfftdnFilterGenExtensions
 /// Denoise audio samples using FFT.
 /// </summary>
 public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input0) => new AfftdnFilterGen(input0);
+/// <summary>
+/// Denoise audio samples using FFT.
+/// </summary>
+public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input0,AfftdnFilterGenConfig config)
+{
+var result = new AfftdnFilterGen(input0);
+if(config?.nr != null) result.nr(config.nr);
+if(config?.nf != null) result.nf(config.nf);
+if(config?.nt != null) result.nt(config.nt);
+if(config?.bn != null) result.bn(config.bn);
+if(config?.rf != null) result.rf(config.rf);
+if(config?.tn != null) result.tn(config.tn);
+if(config?.tr != null) result.tr(config.tr);
+if(config?.om != null) result.om(config.om);
+return result;
+}
+}
+public class AfftdnFilterGenConfig
+{
+/// <summary>
+///  set the noise reduction (from 0.01 to 97) (default 12)
+/// </summary>
+public float nr { get; set; }
+/// <summary>
+///  set the noise floor (from -80 to -20) (default -50)
+/// </summary>
+public float nf { get; set; }
+/// <summary>
+///  set the noise type (from 0 to 3) (default w)
+/// </summary>
+public AfftdnFilterGenNt nt { get; set; }
+/// <summary>
+///  set the custom bands noise
+/// </summary>
+public string bn { get; set; }
+/// <summary>
+///  set the residual floor (from -80 to -20) (default -38)
+/// </summary>
+public float rf { get; set; }
+/// <summary>
+///  track noise (default false)
+/// </summary>
+public bool tn { get; set; }
+/// <summary>
+///  track residual (default false)
+/// </summary>
+public bool tr { get; set; }
+/// <summary>
+///  set output mode (from 0 to 2) (default o)
+/// </summary>
+public AfftdnFilterGenOm om { get; set; }
 }
 public enum AfftdnFilterGenNt
 {

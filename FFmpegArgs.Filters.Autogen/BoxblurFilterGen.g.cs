@@ -69,5 +69,76 @@ public static class BoxblurFilterGenExtensions
 /// Blur the input.
 /// </summary>
 public static BoxblurFilterGen BoxblurFilterGen(this ImageMap input0) => new BoxblurFilterGen(input0);
+/// <summary>
+/// Blur the input.
+/// </summary>
+public static BoxblurFilterGen BoxblurFilterGen(this ImageMap input0,BoxblurFilterGenConfig config)
+{
+var result = new BoxblurFilterGen(input0);
+if(config?.luma_radius != null) result.luma_radius(config.luma_radius);
+if(config?.lr != null) result.lr(config.lr);
+if(config?.luma_power != null) result.luma_power(config.luma_power);
+if(config?.lp != null) result.lp(config.lp);
+if(config?.chroma_radius != null) result.chroma_radius(config.chroma_radius);
+if(config?.cr != null) result.cr(config.cr);
+if(config?.chroma_power != null) result.chroma_power(config.chroma_power);
+if(config?.cp != null) result.cp(config.cp);
+if(config?.alpha_radius != null) result.alpha_radius(config.alpha_radius);
+if(config?.ar != null) result.ar(config.ar);
+if(config?.alpha_power != null) result.alpha_power(config.alpha_power);
+if(config?.ap != null) result.ap(config.ap);
+return result;
+}
+}
+public class BoxblurFilterGenConfig
+{
+/// <summary>
+///  Radius of the luma blurring box (default "2")
+/// </summary>
+public string luma_radius { get; set; }
+/// <summary>
+///  Radius of the luma blurring box (default "2")
+/// </summary>
+public string lr { get; set; }
+/// <summary>
+///  How many times should the boxblur be applied to luma (from 0 to INT_MAX) (default 2)
+/// </summary>
+public int luma_power { get; set; }
+/// <summary>
+///  How many times should the boxblur be applied to luma (from 0 to INT_MAX) (default 2)
+/// </summary>
+public int lp { get; set; }
+/// <summary>
+///  Radius of the chroma blurring box
+/// </summary>
+public string chroma_radius { get; set; }
+/// <summary>
+///  Radius of the chroma blurring box
+/// </summary>
+public string cr { get; set; }
+/// <summary>
+///  How many times should the boxblur be applied to chroma (from -1 to INT_MAX) (default -1)
+/// </summary>
+public int chroma_power { get; set; }
+/// <summary>
+///  How many times should the boxblur be applied to chroma (from -1 to INT_MAX) (default -1)
+/// </summary>
+public int cp { get; set; }
+/// <summary>
+///  Radius of the alpha blurring box
+/// </summary>
+public string alpha_radius { get; set; }
+/// <summary>
+///  Radius of the alpha blurring box
+/// </summary>
+public string ar { get; set; }
+/// <summary>
+///  How many times should the boxblur be applied to alpha (from -1 to INT_MAX) (default -1)
+/// </summary>
+public int alpha_power { get; set; }
+/// <summary>
+///  How many times should the boxblur be applied to alpha (from -1 to INT_MAX) (default -1)
+/// </summary>
+public int ap { get; set; }
 }
 }

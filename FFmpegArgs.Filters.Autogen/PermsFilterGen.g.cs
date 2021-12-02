@@ -29,6 +29,27 @@ public static class PermsFilterGenExtensions
 /// Set permissions for the output video frame.
 /// </summary>
 public static PermsFilterGen PermsFilterGen(this ImageMap input0) => new PermsFilterGen(input0);
+/// <summary>
+/// Set permissions for the output video frame.
+/// </summary>
+public static PermsFilterGen PermsFilterGen(this ImageMap input0,PermsFilterGenConfig config)
+{
+var result = new PermsFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.seed != null) result.seed(config.seed);
+return result;
+}
+}
+public class PermsFilterGenConfig
+{
+/// <summary>
+///  select permissions mode (from 0 to 4) (default none)
+/// </summary>
+public PermsFilterGenMode mode { get; set; }
+/// <summary>
+///  set the seed for the random mode (from -1 to UINT32_MAX) (default -1)
+/// </summary>
+public long seed { get; set; }
 }
 public enum PermsFilterGenMode
 {

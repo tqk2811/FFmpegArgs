@@ -105,31 +105,31 @@ public V360FilterGen d_fov(float d_fov) => this.SetOptionRange("d_fov", d_fov,0,
 /// <summary>
 ///  flip out video horizontally (default false)
 /// </summary>
-public V360FilterGen h_flip(bool flag) => this.SetOption("h_flip",flag.ToFFmpegFlag());
+public V360FilterGen h_flip(bool h_flip) => this.SetOption("h_flip",h_flip.ToFFmpegFlag());
 /// <summary>
 ///  flip out video vertically (default false)
 /// </summary>
-public V360FilterGen v_flip(bool flag) => this.SetOption("v_flip",flag.ToFFmpegFlag());
+public V360FilterGen v_flip(bool v_flip) => this.SetOption("v_flip",v_flip.ToFFmpegFlag());
 /// <summary>
 ///  flip out video indepth (default false)
 /// </summary>
-public V360FilterGen d_flip(bool flag) => this.SetOption("d_flip",flag.ToFFmpegFlag());
+public V360FilterGen d_flip(bool d_flip) => this.SetOption("d_flip",d_flip.ToFFmpegFlag());
 /// <summary>
 ///  flip in video horizontally (default false)
 /// </summary>
-public V360FilterGen ih_flip(bool flag) => this.SetOption("ih_flip",flag.ToFFmpegFlag());
+public V360FilterGen ih_flip(bool ih_flip) => this.SetOption("ih_flip",ih_flip.ToFFmpegFlag());
 /// <summary>
 ///  flip in video vertically (default false)
 /// </summary>
-public V360FilterGen iv_flip(bool flag) => this.SetOption("iv_flip",flag.ToFFmpegFlag());
+public V360FilterGen iv_flip(bool iv_flip) => this.SetOption("iv_flip",iv_flip.ToFFmpegFlag());
 /// <summary>
 ///  transpose video input (default false)
 /// </summary>
-public V360FilterGen in_trans(bool flag) => this.SetOption("in_trans",flag.ToFFmpegFlag());
+public V360FilterGen in_trans(bool in_trans) => this.SetOption("in_trans",in_trans.ToFFmpegFlag());
 /// <summary>
 ///  transpose video output (default false)
 /// </summary>
-public V360FilterGen out_trans(bool flag) => this.SetOption("out_trans",flag.ToFFmpegFlag());
+public V360FilterGen out_trans(bool out_trans) => this.SetOption("out_trans",out_trans.ToFFmpegFlag());
 /// <summary>
 ///  input horizontal field of view (from 1e-05 to 360) (default 90)
 /// </summary>
@@ -145,7 +145,7 @@ public V360FilterGen id_fov(float id_fov) => this.SetOptionRange("id_fov", id_fo
 /// <summary>
 ///  build mask in alpha plane (default false)
 /// </summary>
-public V360FilterGen alpha_mask(bool flag) => this.SetOption("alpha_mask",flag.ToFFmpegFlag());
+public V360FilterGen alpha_mask(bool alpha_mask) => this.SetOption("alpha_mask",alpha_mask.ToFFmpegFlag());
 }
 public static class V360FilterGenExtensions
 {
@@ -153,6 +153,182 @@ public static class V360FilterGenExtensions
 /// Convert 360 projection of video.
 /// </summary>
 public static V360FilterGen V360FilterGen(this ImageMap input0) => new V360FilterGen(input0);
+/// <summary>
+/// Convert 360 projection of video.
+/// </summary>
+public static V360FilterGen V360FilterGen(this ImageMap input0,V360FilterGenConfig config)
+{
+var result = new V360FilterGen(input0);
+if(config?.input != null) result.input(config.input);
+if(config?.output != null) result.output(config.output);
+if(config?.interp != null) result.interp(config.interp);
+if(config?.w != null) result.w(config.w);
+if(config?.h != null) result.h(config.h);
+if(config?.in_stereo != null) result.in_stereo(config.in_stereo);
+if(config?.out_stereo != null) result.out_stereo(config.out_stereo);
+if(config?.in_forder != null) result.in_forder(config.in_forder);
+if(config?.out_forder != null) result.out_forder(config.out_forder);
+if(config?.in_frot != null) result.in_frot(config.in_frot);
+if(config?.out_frot != null) result.out_frot(config.out_frot);
+if(config?.in_pad != null) result.in_pad(config.in_pad);
+if(config?.out_pad != null) result.out_pad(config.out_pad);
+if(config?.fin_pad != null) result.fin_pad(config.fin_pad);
+if(config?.fout_pad != null) result.fout_pad(config.fout_pad);
+if(config?.yaw != null) result.yaw(config.yaw);
+if(config?.pitch != null) result.pitch(config.pitch);
+if(config?.roll != null) result.roll(config.roll);
+if(config?.rorder != null) result.rorder(config.rorder);
+if(config?.h_fov != null) result.h_fov(config.h_fov);
+if(config?.v_fov != null) result.v_fov(config.v_fov);
+if(config?.d_fov != null) result.d_fov(config.d_fov);
+if(config?.h_flip != null) result.h_flip(config.h_flip);
+if(config?.v_flip != null) result.v_flip(config.v_flip);
+if(config?.d_flip != null) result.d_flip(config.d_flip);
+if(config?.ih_flip != null) result.ih_flip(config.ih_flip);
+if(config?.iv_flip != null) result.iv_flip(config.iv_flip);
+if(config?.in_trans != null) result.in_trans(config.in_trans);
+if(config?.out_trans != null) result.out_trans(config.out_trans);
+if(config?.ih_fov != null) result.ih_fov(config.ih_fov);
+if(config?.iv_fov != null) result.iv_fov(config.iv_fov);
+if(config?.id_fov != null) result.id_fov(config.id_fov);
+if(config?.alpha_mask != null) result.alpha_mask(config.alpha_mask);
+return result;
+}
+}
+public class V360FilterGenConfig
+{
+/// <summary>
+///  set input projection (from 0 to 23) (default e)
+/// </summary>
+public V360FilterGenInput input { get; set; }
+/// <summary>
+///  set output projection (from 0 to 23) (default c3x2)
+/// </summary>
+public V360FilterGenOutput output { get; set; }
+/// <summary>
+///  set interpolation method (from 0 to 7) (default line)
+/// </summary>
+public V360FilterGenInterp interp { get; set; }
+/// <summary>
+///  output width (from 0 to 32767) (default 0)
+/// </summary>
+public int w { get; set; }
+/// <summary>
+///  output height (from 0 to 32767) (default 0)
+/// </summary>
+public int h { get; set; }
+/// <summary>
+///  input stereo format (from 0 to 2) (default 2d)
+/// </summary>
+public V360FilterGenIn_stereo in_stereo { get; set; }
+/// <summary>
+///  output stereo format (from 0 to 2) (default 2d)
+/// </summary>
+public V360FilterGenOut_stereo out_stereo { get; set; }
+/// <summary>
+///  input cubemap face order (default "rludfb")
+/// </summary>
+public string in_forder { get; set; }
+/// <summary>
+///  output cubemap face order (default "rludfb")
+/// </summary>
+public string out_forder { get; set; }
+/// <summary>
+///  input cubemap face rotation (default "000000")
+/// </summary>
+public string in_frot { get; set; }
+/// <summary>
+///  output cubemap face rotation (default "000000")
+/// </summary>
+public string out_frot { get; set; }
+/// <summary>
+///  percent input cubemap pads (from 0 to 0.1) (default 0)
+/// </summary>
+public float in_pad { get; set; }
+/// <summary>
+///  percent output cubemap pads (from 0 to 0.1) (default 0)
+/// </summary>
+public float out_pad { get; set; }
+/// <summary>
+///  fixed input cubemap pads (from 0 to 100) (default 0)
+/// </summary>
+public int fin_pad { get; set; }
+/// <summary>
+///  fixed output cubemap pads (from 0 to 100) (default 0)
+/// </summary>
+public int fout_pad { get; set; }
+/// <summary>
+///  yaw rotation (from -180 to 180) (default 0)
+/// </summary>
+public float yaw { get; set; }
+/// <summary>
+///  pitch rotation (from -180 to 180) (default 0)
+/// </summary>
+public float pitch { get; set; }
+/// <summary>
+///  roll rotation (from -180 to 180) (default 0)
+/// </summary>
+public float roll { get; set; }
+/// <summary>
+///  rotation order (default "ypr")
+/// </summary>
+public string rorder { get; set; }
+/// <summary>
+///  output horizontal field of view (from 1e-05 to 360) (default 90)
+/// </summary>
+public float h_fov { get; set; }
+/// <summary>
+///  output vertical field of view (from 1e-05 to 360) (default 45)
+/// </summary>
+public float v_fov { get; set; }
+/// <summary>
+///  output diagonal field of view (from 0 to 360) (default 0)
+/// </summary>
+public float d_fov { get; set; }
+/// <summary>
+///  flip out video horizontally (default false)
+/// </summary>
+public bool h_flip { get; set; }
+/// <summary>
+///  flip out video vertically (default false)
+/// </summary>
+public bool v_flip { get; set; }
+/// <summary>
+///  flip out video indepth (default false)
+/// </summary>
+public bool d_flip { get; set; }
+/// <summary>
+///  flip in video horizontally (default false)
+/// </summary>
+public bool ih_flip { get; set; }
+/// <summary>
+///  flip in video vertically (default false)
+/// </summary>
+public bool iv_flip { get; set; }
+/// <summary>
+///  transpose video input (default false)
+/// </summary>
+public bool in_trans { get; set; }
+/// <summary>
+///  transpose video output (default false)
+/// </summary>
+public bool out_trans { get; set; }
+/// <summary>
+///  input horizontal field of view (from 1e-05 to 360) (default 90)
+/// </summary>
+public float ih_fov { get; set; }
+/// <summary>
+///  input vertical field of view (from 1e-05 to 360) (default 45)
+/// </summary>
+public float iv_fov { get; set; }
+/// <summary>
+///  input diagonal field of view (from 0 to 360) (default 0)
+/// </summary>
+public float id_fov { get; set; }
+/// <summary>
+///  build mask in alpha plane (default false)
+/// </summary>
+public bool alpha_mask { get; set; }
 }
 public enum V360FilterGenInput
 {

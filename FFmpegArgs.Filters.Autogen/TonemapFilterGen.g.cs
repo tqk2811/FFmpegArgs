@@ -37,6 +37,37 @@ public static class TonemapFilterGenExtensions
 /// Conversion to/from different dynamic ranges.
 /// </summary>
 public static TonemapFilterGen TonemapFilterGen(this ImageMap input0) => new TonemapFilterGen(input0);
+/// <summary>
+/// Conversion to/from different dynamic ranges.
+/// </summary>
+public static TonemapFilterGen TonemapFilterGen(this ImageMap input0,TonemapFilterGenConfig config)
+{
+var result = new TonemapFilterGen(input0);
+if(config?.tonemap != null) result.tonemap(config.tonemap);
+if(config?.param != null) result.param(config.param);
+if(config?.desat != null) result.desat(config.desat);
+if(config?.peak != null) result.peak(config.peak);
+return result;
+}
+}
+public class TonemapFilterGenConfig
+{
+/// <summary>
+///  tonemap algorithm selection (from 0 to 6) (default none)
+/// </summary>
+public TonemapFilterGenTonemap tonemap { get; set; }
+/// <summary>
+///  tonemap parameter (from DBL_MIN to DBL_MAX) (default nan)
+/// </summary>
+public double param { get; set; }
+/// <summary>
+///  desaturation strength (from 0 to DBL_MAX) (default 2)
+/// </summary>
+public double desat { get; set; }
+/// <summary>
+///  signal peak override (from 0 to DBL_MAX) (default 0)
+/// </summary>
+public double peak { get; set; }
 }
 public enum TonemapFilterGenTonemap
 {

@@ -37,5 +37,36 @@ public static class AechoFilterGenExtensions
 /// Add echoing to the audio.
 /// </summary>
 public static AechoFilterGen AechoFilterGen(this AudioMap input0) => new AechoFilterGen(input0);
+/// <summary>
+/// Add echoing to the audio.
+/// </summary>
+public static AechoFilterGen AechoFilterGen(this AudioMap input0,AechoFilterGenConfig config)
+{
+var result = new AechoFilterGen(input0);
+if(config?.in_gain != null) result.in_gain(config.in_gain);
+if(config?.out_gain != null) result.out_gain(config.out_gain);
+if(config?.delays != null) result.delays(config.delays);
+if(config?.decays != null) result.decays(config.decays);
+return result;
+}
+}
+public class AechoFilterGenConfig
+{
+/// <summary>
+///  set signal input gain (from 0 to 1) (default 0.6)
+/// </summary>
+public float in_gain { get; set; }
+/// <summary>
+///  set signal output gain (from 0 to 1) (default 0.3)
+/// </summary>
+public float out_gain { get; set; }
+/// <summary>
+///  set list of signal delays (default "1000")
+/// </summary>
+public string delays { get; set; }
+/// <summary>
+///  set list of signal decays (default "0.5")
+/// </summary>
+public string decays { get; set; }
 }
 }

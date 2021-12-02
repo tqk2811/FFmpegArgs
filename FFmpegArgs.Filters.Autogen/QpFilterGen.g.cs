@@ -25,5 +25,21 @@ public static class QpFilterGenExtensions
 /// Change video quantization parameters.
 /// </summary>
 public static QpFilterGen QpFilterGen(this ImageMap input0) => new QpFilterGen(input0);
+/// <summary>
+/// Change video quantization parameters.
+/// </summary>
+public static QpFilterGen QpFilterGen(this ImageMap input0,QpFilterGenConfig config)
+{
+var result = new QpFilterGen(input0);
+if(config?.qp != null) result.qp(config.qp);
+return result;
+}
+}
+public class QpFilterGenConfig
+{
+/// <summary>
+///  set qp expression
+/// </summary>
+public string qp { get; set; }
 }
 }

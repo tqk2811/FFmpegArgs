@@ -29,5 +29,26 @@ public static class GradfunFilterGenExtensions
 /// Debands video quickly using gradients.
 /// </summary>
 public static GradfunFilterGen GradfunFilterGen(this ImageMap input0) => new GradfunFilterGen(input0);
+/// <summary>
+/// Debands video quickly using gradients.
+/// </summary>
+public static GradfunFilterGen GradfunFilterGen(this ImageMap input0,GradfunFilterGenConfig config)
+{
+var result = new GradfunFilterGen(input0);
+if(config?.strength != null) result.strength(config.strength);
+if(config?.radius != null) result.radius(config.radius);
+return result;
+}
+}
+public class GradfunFilterGenConfig
+{
+/// <summary>
+///  The maximum amount by which the filter will change any one pixel. (from 0.51 to 64) (default 1.2)
+/// </summary>
+public float strength { get; set; }
+/// <summary>
+///  The neighborhood to fit the gradient to. (from 4 to 32) (default 16)
+/// </summary>
+public int radius { get; set; }
 }
 }

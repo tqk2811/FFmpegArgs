@@ -29,6 +29,27 @@ public static class Cover_rectFilterGenExtensions
 /// Find and cover a user specified object.
 /// </summary>
 public static Cover_rectFilterGen Cover_rectFilterGen(this ImageMap input0) => new Cover_rectFilterGen(input0);
+/// <summary>
+/// Find and cover a user specified object.
+/// </summary>
+public static Cover_rectFilterGen Cover_rectFilterGen(this ImageMap input0,Cover_rectFilterGenConfig config)
+{
+var result = new Cover_rectFilterGen(input0);
+if(config?.cover != null) result.cover(config.cover);
+if(config?.mode != null) result.mode(config.mode);
+return result;
+}
+}
+public class Cover_rectFilterGenConfig
+{
+/// <summary>
+///  cover bitmap filename
+/// </summary>
+public string cover { get; set; }
+/// <summary>
+///  set removal mode (from 0 to 1) (default blur)
+/// </summary>
+public Cover_rectFilterGenMode mode { get; set; }
 }
 public enum Cover_rectFilterGenMode
 {

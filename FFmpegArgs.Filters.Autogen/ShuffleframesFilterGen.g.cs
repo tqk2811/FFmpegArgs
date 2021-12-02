@@ -25,5 +25,21 @@ public static class ShuffleframesFilterGenExtensions
 /// Shuffle video frames.
 /// </summary>
 public static ShuffleframesFilterGen ShuffleframesFilterGen(this ImageMap input0) => new ShuffleframesFilterGen(input0);
+/// <summary>
+/// Shuffle video frames.
+/// </summary>
+public static ShuffleframesFilterGen ShuffleframesFilterGen(this ImageMap input0,ShuffleframesFilterGenConfig config)
+{
+var result = new ShuffleframesFilterGen(input0);
+if(config?.mapping != null) result.mapping(config.mapping);
+return result;
+}
+}
+public class ShuffleframesFilterGenConfig
+{
+/// <summary>
+///  set destination indexes of input frames (default "0")
+/// </summary>
+public string mapping { get; set; }
 }
 }

@@ -21,7 +21,7 @@ public AstatsFilterGen length(double length) => this.SetOptionRange("length", le
 /// <summary>
 ///  inject metadata in the filtergraph (default false)
 /// </summary>
-public AstatsFilterGen metadata(bool flag) => this.SetOption("metadata",flag.ToFFmpegFlag());
+public AstatsFilterGen metadata(bool metadata) => this.SetOption("metadata",metadata.ToFFmpegFlag());
 /// <summary>
 ///  recalculate stats after this many frames (from 0 to INT_MAX) (default 0)
 /// </summary>
@@ -41,6 +41,42 @@ public static class AstatsFilterGenExtensions
 /// Show time domain statistics about audio frames.
 /// </summary>
 public static AstatsFilterGen AstatsFilterGen(this AudioMap input0) => new AstatsFilterGen(input0);
+/// <summary>
+/// Show time domain statistics about audio frames.
+/// </summary>
+public static AstatsFilterGen AstatsFilterGen(this AudioMap input0,AstatsFilterGenConfig config)
+{
+var result = new AstatsFilterGen(input0);
+if(config?.length != null) result.length(config.length);
+if(config?.metadata != null) result.metadata(config.metadata);
+if(config?.reset != null) result.reset(config.reset);
+if(config?.measure_perchannel != null) result.measure_perchannel(config.measure_perchannel);
+if(config?.measure_overall != null) result.measure_overall(config.measure_overall);
+return result;
+}
+}
+public class AstatsFilterGenConfig
+{
+/// <summary>
+///  set the window length (from 0.01 to 10) (default 0.05)
+/// </summary>
+public double length { get; set; }
+/// <summary>
+///  inject metadata in the filtergraph (default false)
+/// </summary>
+public bool metadata { get; set; }
+/// <summary>
+///  recalculate stats after this many frames (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int reset { get; set; }
+/// <summary>
+///  only measure_perchannel these per-channel statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
+/// </summary>
+public AstatsFilterGenMeasure_perchannel measure_perchannel { get; set; }
+/// <summary>
+///  only measure_perchannel these overall statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
+/// </summary>
+public AstatsFilterGenMeasure_overall measure_overall { get; set; }
 }
 public enum AstatsFilterGenMeasure_perchannel
 {

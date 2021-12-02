@@ -29,11 +29,11 @@ public Overlay_cudaFilterGen eof_action(Overlay_cudaFilterGenEof_action eof_acti
 /// <summary>
 ///  force termination when the shortest input terminates (default false)
 /// </summary>
-public Overlay_cudaFilterGen shortest(bool flag) => this.SetOption("shortest",flag.ToFFmpegFlag());
+public Overlay_cudaFilterGen shortest(bool shortest) => this.SetOption("shortest",shortest.ToFFmpegFlag());
 /// <summary>
 ///  repeat overlay of the last overlay frame (default true)
 /// </summary>
-public Overlay_cudaFilterGen repeatlast(bool flag) => this.SetOption("repeatlast",flag.ToFFmpegFlag());
+public Overlay_cudaFilterGen repeatlast(bool repeatlast) => this.SetOption("repeatlast",repeatlast.ToFFmpegFlag());
 }
 public static class Overlay_cudaFilterGenExtensions
 {
@@ -41,6 +41,42 @@ public static class Overlay_cudaFilterGenExtensions
 /// Overlay one video on top of another using CUDA
 /// </summary>
 public static Overlay_cudaFilterGen Overlay_cudaFilterGen(this ImageMap input0, ImageMap input1) => new Overlay_cudaFilterGen(input0, input1);
+/// <summary>
+/// Overlay one video on top of another using CUDA
+/// </summary>
+public static Overlay_cudaFilterGen Overlay_cudaFilterGen(this ImageMap input0, ImageMap input1,Overlay_cudaFilterGenConfig config)
+{
+var result = new Overlay_cudaFilterGen(input0, input1);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.eof_action != null) result.eof_action(config.eof_action);
+if(config?.shortest != null) result.shortest(config.shortest);
+if(config?.repeatlast != null) result.repeatlast(config.repeatlast);
+return result;
+}
+}
+public class Overlay_cudaFilterGenConfig
+{
+/// <summary>
+///  Overlay x position (from INT_MIN to INT_MAX) (default 0)
+/// </summary>
+public int x { get; set; }
+/// <summary>
+///  Overlay y position (from INT_MIN to INT_MAX) (default 0)
+/// </summary>
+public int y { get; set; }
+/// <summary>
+///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
+/// </summary>
+public Overlay_cudaFilterGenEof_action eof_action { get; set; }
+/// <summary>
+///  force termination when the shortest input terminates (default false)
+/// </summary>
+public bool shortest { get; set; }
+/// <summary>
+///  repeat overlay of the last overlay frame (default true)
+/// </summary>
+public bool repeatlast { get; set; }
 }
 public enum Overlay_cudaFilterGenEof_action
 {

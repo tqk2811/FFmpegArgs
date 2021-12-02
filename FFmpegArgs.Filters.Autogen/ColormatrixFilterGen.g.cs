@@ -29,6 +29,27 @@ public static class ColormatrixFilterGenExtensions
 /// Convert color matrix.
 /// </summary>
 public static ColormatrixFilterGen ColormatrixFilterGen(this ImageMap input0) => new ColormatrixFilterGen(input0);
+/// <summary>
+/// Convert color matrix.
+/// </summary>
+public static ColormatrixFilterGen ColormatrixFilterGen(this ImageMap input0,ColormatrixFilterGenConfig config)
+{
+var result = new ColormatrixFilterGen(input0);
+if(config?.src != null) result.src(config.src);
+if(config?.dst != null) result.dst(config.dst);
+return result;
+}
+}
+public class ColormatrixFilterGenConfig
+{
+/// <summary>
+///  set source color matrix (from -1 to 4) (default -1)
+/// </summary>
+public ColormatrixFilterGenSrc src { get; set; }
+/// <summary>
+///  set destination color matrix (from -1 to 4) (default -1)
+/// </summary>
+public ColormatrixFilterGenDst dst { get; set; }
 }
 public enum ColormatrixFilterGenSrc
 {

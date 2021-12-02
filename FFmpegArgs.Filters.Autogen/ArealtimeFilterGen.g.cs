@@ -29,5 +29,26 @@ public static class ArealtimeFilterGenExtensions
 /// Slow down filtering to match realtime.
 /// </summary>
 public static ArealtimeFilterGen ArealtimeFilterGen(this AudioMap input0) => new ArealtimeFilterGen(input0);
+/// <summary>
+/// Slow down filtering to match realtime.
+/// </summary>
+public static ArealtimeFilterGen ArealtimeFilterGen(this AudioMap input0,ArealtimeFilterGenConfig config)
+{
+var result = new ArealtimeFilterGen(input0);
+if(config?.limit != null) result.limit(config.limit);
+if(config?.speed != null) result.speed(config.speed);
+return result;
+}
+}
+public class ArealtimeFilterGenConfig
+{
+/// <summary>
+///  sleep time limit (default 2)
+/// </summary>
+public TimeSpan limit { get; set; }
+/// <summary>
+///  speed factor (from DBL_MIN to DBL_MAX) (default 1)
+/// </summary>
+public double speed { get; set; }
 }
 }

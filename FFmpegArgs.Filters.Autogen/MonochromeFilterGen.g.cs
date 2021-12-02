@@ -37,5 +37,36 @@ public static class MonochromeFilterGenExtensions
 /// Convert video to gray using custom color filter.
 /// </summary>
 public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input0) => new MonochromeFilterGen(input0);
+/// <summary>
+/// Convert video to gray using custom color filter.
+/// </summary>
+public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input0,MonochromeFilterGenConfig config)
+{
+var result = new MonochromeFilterGen(input0);
+if(config?.cb != null) result.cb(config.cb);
+if(config?.cr != null) result.cr(config.cr);
+if(config?.size != null) result.size(config.size);
+if(config?.high != null) result.high(config.high);
+return result;
+}
+}
+public class MonochromeFilterGenConfig
+{
+/// <summary>
+///  set the chroma blue spot (from -1 to 1) (default 0)
+/// </summary>
+public float cb { get; set; }
+/// <summary>
+///  set the chroma red spot (from -1 to 1) (default 0)
+/// </summary>
+public float cr { get; set; }
+/// <summary>
+///  set the color filter size (from 0.1 to 10) (default 1)
+/// </summary>
+public float size { get; set; }
+/// <summary>
+///  set the highlights strength (from 0 to 1) (default 0)
+/// </summary>
+public float high { get; set; }
 }
 }

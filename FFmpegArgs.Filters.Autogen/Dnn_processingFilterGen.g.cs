@@ -41,7 +41,7 @@ public Dnn_processingFilterGen options(string options) => this.SetOption("option
 /// <summary>
 ///  use DNN async inference (default true)
 /// </summary>
-public Dnn_processingFilterGen async(bool flag) => this.SetOption("async",flag.ToFFmpegFlag());
+public Dnn_processingFilterGen async(bool async) => this.SetOption("async",async.ToFFmpegFlag());
 }
 public static class Dnn_processingFilterGenExtensions
 {
@@ -49,6 +49,52 @@ public static class Dnn_processingFilterGenExtensions
 /// Apply DNN processing filter to the input.
 /// </summary>
 public static Dnn_processingFilterGen Dnn_processingFilterGen(this ImageMap input0) => new Dnn_processingFilterGen(input0);
+/// <summary>
+/// Apply DNN processing filter to the input.
+/// </summary>
+public static Dnn_processingFilterGen Dnn_processingFilterGen(this ImageMap input0,Dnn_processingFilterGenConfig config)
+{
+var result = new Dnn_processingFilterGen(input0);
+if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend);
+if(config?.model != null) result.model(config.model);
+if(config?.input != null) result.input(config.input);
+if(config?.output != null) result.output(config.output);
+if(config?.backend_configs != null) result.backend_configs(config.backend_configs);
+if(config?.options != null) result.options(config.options);
+if(config?.async != null) result.async(config.async);
+return result;
+}
+}
+public class Dnn_processingFilterGenConfig
+{
+/// <summary>
+///  DNN backend (from INT_MIN to INT_MAX) (default native)
+/// </summary>
+public Dnn_processingFilterGenDnn_backend dnn_backend { get; set; }
+/// <summary>
+///  path to model file
+/// </summary>
+public string model { get; set; }
+/// <summary>
+///  input name of the model
+/// </summary>
+public string input { get; set; }
+/// <summary>
+///  output name of the model
+/// </summary>
+public string output { get; set; }
+/// <summary>
+///  backend configs
+/// </summary>
+public string backend_configs { get; set; }
+/// <summary>
+///  backend configs
+/// </summary>
+public string options { get; set; }
+/// <summary>
+///  use DNN async inference (default true)
+/// </summary>
+public bool async { get; set; }
 }
 public enum Dnn_processingFilterGenDnn_backend
 {

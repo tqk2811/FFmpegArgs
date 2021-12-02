@@ -25,5 +25,21 @@ public static class MaskedminFilterGenExtensions
 /// Apply filtering with minimum difference of two streams.
 /// </summary>
 public static MaskedminFilterGen MaskedminFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2) => new MaskedminFilterGen(input0, input1, input2);
+/// <summary>
+/// Apply filtering with minimum difference of two streams.
+/// </summary>
+public static MaskedminFilterGen MaskedminFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2,MaskedminFilterGenConfig config)
+{
+var result = new MaskedminFilterGen(input0, input1, input2);
+if(config?.planes != null) result.planes(config.planes);
+return result;
+}
+}
+public class MaskedminFilterGenConfig
+{
+/// <summary>
+///  set planes (from 0 to 15) (default 15)
+/// </summary>
+public int planes { get; set; }
 }
 }

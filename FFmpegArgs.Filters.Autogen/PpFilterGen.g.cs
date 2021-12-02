@@ -25,5 +25,21 @@ public static class PpFilterGenExtensions
 /// Filter video using libpostproc.
 /// </summary>
 public static PpFilterGen PpFilterGen(this ImageMap input0) => new PpFilterGen(input0);
+/// <summary>
+/// Filter video using libpostproc.
+/// </summary>
+public static PpFilterGen PpFilterGen(this ImageMap input0,PpFilterGenConfig config)
+{
+var result = new PpFilterGen(input0);
+if(config?.subfilters != null) result.subfilters(config.subfilters);
+return result;
+}
+}
+public class PpFilterGenConfig
+{
+/// <summary>
+///  set postprocess subfilters (default "de")
+/// </summary>
+public string subfilters { get; set; }
 }
 }

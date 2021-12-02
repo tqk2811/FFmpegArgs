@@ -45,6 +45,47 @@ public static class VaguedenoiserFilterGenExtensions
 /// Apply a Wavelet based Denoiser.
 /// </summary>
 public static VaguedenoiserFilterGen VaguedenoiserFilterGen(this ImageMap input0) => new VaguedenoiserFilterGen(input0);
+/// <summary>
+/// Apply a Wavelet based Denoiser.
+/// </summary>
+public static VaguedenoiserFilterGen VaguedenoiserFilterGen(this ImageMap input0,VaguedenoiserFilterGenConfig config)
+{
+var result = new VaguedenoiserFilterGen(input0);
+if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.method != null) result.method(config.method);
+if(config?.nsteps != null) result.nsteps(config.nsteps);
+if(config?.percent != null) result.percent(config.percent);
+if(config?.planes != null) result.planes(config.planes);
+if(config?.type != null) result.type(config.type);
+return result;
+}
+}
+public class VaguedenoiserFilterGenConfig
+{
+/// <summary>
+///  set filtering strength (from 0 to DBL_MAX) (default 2)
+/// </summary>
+public float threshold { get; set; }
+/// <summary>
+///  set filtering method (from 0 to 2) (default garrote)
+/// </summary>
+public VaguedenoiserFilterGenMethod method { get; set; }
+/// <summary>
+///  set number of steps (from 1 to 32) (default 6)
+/// </summary>
+public int nsteps { get; set; }
+/// <summary>
+///  set percent of full denoising (from 0 to 100) (default 85)
+/// </summary>
+public float percent { get; set; }
+/// <summary>
+///  set planes to filter (from 0 to 15) (default 15)
+/// </summary>
+public int planes { get; set; }
+/// <summary>
+///  set threshold type (from 0 to 1) (default universal)
+/// </summary>
+public VaguedenoiserFilterGenType type { get; set; }
 }
 public enum VaguedenoiserFilterGenMethod
 {

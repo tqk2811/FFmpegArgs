@@ -25,5 +25,21 @@ public static class AtempoFilterGenExtensions
 /// Adjust audio tempo.
 /// </summary>
 public static AtempoFilterGen AtempoFilterGen(this AudioMap input0) => new AtempoFilterGen(input0);
+/// <summary>
+/// Adjust audio tempo.
+/// </summary>
+public static AtempoFilterGen AtempoFilterGen(this AudioMap input0,AtempoFilterGenConfig config)
+{
+var result = new AtempoFilterGen(input0);
+if(config?.tempo != null) result.tempo(config.tempo);
+return result;
+}
+}
+public class AtempoFilterGenConfig
+{
+/// <summary>
+///  set tempo scale factor (from 0.5 to 100) (default 1)
+/// </summary>
+public double tempo { get; set; }
 }
 }

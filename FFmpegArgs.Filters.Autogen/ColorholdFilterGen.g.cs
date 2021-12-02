@@ -33,5 +33,31 @@ public static class ColorholdFilterGenExtensions
 /// Turns a certain color range into gray. Operates on RGB colors.
 /// </summary>
 public static ColorholdFilterGen ColorholdFilterGen(this ImageMap input0) => new ColorholdFilterGen(input0);
+/// <summary>
+/// Turns a certain color range into gray. Operates on RGB colors.
+/// </summary>
+public static ColorholdFilterGen ColorholdFilterGen(this ImageMap input0,ColorholdFilterGenConfig config)
+{
+var result = new ColorholdFilterGen(input0);
+if(config?.color != null) result.color(config.color);
+if(config?.similarity != null) result.similarity(config.similarity);
+if(config?.blend != null) result.blend(config.blend);
+return result;
+}
+}
+public class ColorholdFilterGenConfig
+{
+/// <summary>
+///  set the colorhold key color (default "black")
+/// </summary>
+public Color color { get; set; }
+/// <summary>
+///  set the colorhold similarity value (from 0.01 to 1) (default 0.01)
+/// </summary>
+public float similarity { get; set; }
+/// <summary>
+///  set the colorhold blend value (from 0 to 1) (default 0)
+/// </summary>
+public float blend { get; set; }
 }
 }

@@ -33,5 +33,31 @@ public static class AloopFilterGenExtensions
 /// Loop audio samples.
 /// </summary>
 public static AloopFilterGen AloopFilterGen(this AudioMap input0) => new AloopFilterGen(input0);
+/// <summary>
+/// Loop audio samples.
+/// </summary>
+public static AloopFilterGen AloopFilterGen(this AudioMap input0,AloopFilterGenConfig config)
+{
+var result = new AloopFilterGen(input0);
+if(config?.loop != null) result.loop(config.loop);
+if(config?.size != null) result.size(config.size);
+if(config?.start != null) result.start(config.start);
+return result;
+}
+}
+public class AloopFilterGenConfig
+{
+/// <summary>
+///  number of loops (from -1 to INT_MAX) (default 0)
+/// </summary>
+public int loop { get; set; }
+/// <summary>
+///  max number of samples to loop (from 0 to INT_MAX) (default 0)
+/// </summary>
+public long size { get; set; }
+/// <summary>
+///  set the loop start sample (from 0 to I64_MAX) (default 0)
+/// </summary>
+public long start { get; set; }
 }
 }

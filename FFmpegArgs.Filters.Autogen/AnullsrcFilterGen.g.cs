@@ -45,5 +45,46 @@ public static class AnullsrcFilterGenExtensions
 /// Null audio source, return empty audio frames.
 /// </summary>
 public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input0) => new AnullsrcFilterGen(input0);
+/// <summary>
+/// Null audio source, return empty audio frames.
+/// </summary>
+public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input0,AnullsrcFilterGenConfig config)
+{
+var result = new AnullsrcFilterGen(input0);
+if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
+if(config?.cl != null) result.cl(config.cl);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
+if(config?.r != null) result.r(config.r);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
+if(config?.duration != null) result.duration(config.duration);
+return result;
+}
+}
+public class AnullsrcFilterGenConfig
+{
+/// <summary>
+///  set channel_layout (default "stereo")
+/// </summary>
+public string channel_layout { get; set; }
+/// <summary>
+///  set channel_layout (default "stereo")
+/// </summary>
+public string cl { get; set; }
+/// <summary>
+///  set sample rate (default "44100")
+/// </summary>
+public string sample_rate { get; set; }
+/// <summary>
+///  set sample rate (default "44100")
+/// </summary>
+public string r { get; set; }
+/// <summary>
+///  set the number of samples per requested frame (from 1 to 65535) (default 1024)
+/// </summary>
+public int nb_samples { get; set; }
+/// <summary>
+///  set the audio duration (default -0.000001)
+/// </summary>
+public TimeSpan duration { get; set; }
 }
 }

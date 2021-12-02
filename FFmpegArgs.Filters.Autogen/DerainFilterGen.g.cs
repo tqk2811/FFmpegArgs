@@ -41,6 +41,42 @@ public static class DerainFilterGenExtensions
 /// Apply derain filter to the input.
 /// </summary>
 public static DerainFilterGen DerainFilterGen(this ImageMap input0) => new DerainFilterGen(input0);
+/// <summary>
+/// Apply derain filter to the input.
+/// </summary>
+public static DerainFilterGen DerainFilterGen(this ImageMap input0,DerainFilterGenConfig config)
+{
+var result = new DerainFilterGen(input0);
+if(config?.filter_type != null) result.filter_type(config.filter_type);
+if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend);
+if(config?.model != null) result.model(config.model);
+if(config?.input != null) result.input(config.input);
+if(config?.output != null) result.output(config.output);
+return result;
+}
+}
+public class DerainFilterGenConfig
+{
+/// <summary>
+///  filter type(derain/dehaze) (from 0 to 1) (default derain)
+/// </summary>
+public DerainFilterGenFilter_type filter_type { get; set; }
+/// <summary>
+///  DNN backend (from 0 to 1) (default native)
+/// </summary>
+public DerainFilterGenDnn_backend dnn_backend { get; set; }
+/// <summary>
+///  path to model file
+/// </summary>
+public string model { get; set; }
+/// <summary>
+///  input name of the model (default "x")
+/// </summary>
+public string input { get; set; }
+/// <summary>
+///  output name of the model (default "y")
+/// </summary>
+public string output { get; set; }
 }
 public enum DerainFilterGenFilter_type
 {

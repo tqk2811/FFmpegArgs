@@ -29,5 +29,26 @@ public static class SettbFilterGenExtensions
 /// Set timebase for the video output link.
 /// </summary>
 public static SettbFilterGen SettbFilterGen(this ImageMap input0) => new SettbFilterGen(input0);
+/// <summary>
+/// Set timebase for the video output link.
+/// </summary>
+public static SettbFilterGen SettbFilterGen(this ImageMap input0,SettbFilterGenConfig config)
+{
+var result = new SettbFilterGen(input0);
+if(config?.expr != null) result.expr(config.expr);
+if(config?.tb != null) result.tb(config.tb);
+return result;
+}
+}
+public class SettbFilterGenConfig
+{
+/// <summary>
+///  set expression determining the output timebase (default "intb")
+/// </summary>
+public string expr { get; set; }
+/// <summary>
+///  set expression determining the output timebase (default "intb")
+/// </summary>
+public string tb { get; set; }
 }
 }

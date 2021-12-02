@@ -49,7 +49,7 @@ public DrawtextFilterGen shadowcolor(Color shadowcolor) => this.SetOption("shado
 /// <summary>
 ///  set box (default false)
 /// </summary>
-public DrawtextFilterGen box(bool flag) => this.SetOption("box",flag.ToFFmpegFlag());
+public DrawtextFilterGen box(bool box) => this.SetOption("box",box.ToFFmpegFlag());
 /// <summary>
 ///  set box border width (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
@@ -105,7 +105,7 @@ public DrawtextFilterGen timecode(string timecode) => this.SetOption("timecode",
 /// <summary>
 ///  set 24 hours max (timecode only) (default false)
 /// </summary>
-public DrawtextFilterGen tc24hmax(bool flag) => this.SetOption("tc24hmax",flag.ToFFmpegFlag());
+public DrawtextFilterGen tc24hmax(bool tc24hmax) => this.SetOption("tc24hmax",tc24hmax.ToFFmpegFlag());
 /// <summary>
 ///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
 /// </summary>
@@ -121,7 +121,7 @@ public DrawtextFilterGen rate(Rational rate) => this.SetOption("rate",rate.Check
 /// <summary>
 ///  reload text file for each frame (default false)
 /// </summary>
-public DrawtextFilterGen reload(bool flag) => this.SetOption("reload",flag.ToFFmpegFlag());
+public DrawtextFilterGen reload(bool reload) => this.SetOption("reload",reload.ToFFmpegFlag());
 /// <summary>
 ///  apply alpha while rendering (default "1")
 /// </summary>
@@ -129,7 +129,7 @@ public DrawtextFilterGen alpha(string alpha) => this.SetOption("alpha",alpha);
 /// <summary>
 ///  check and fix text coords to avoid clipping (default false)
 /// </summary>
-public DrawtextFilterGen fix_bounds(bool flag) => this.SetOption("fix_bounds",flag.ToFFmpegFlag());
+public DrawtextFilterGen fix_bounds(bool fix_bounds) => this.SetOption("fix_bounds",fix_bounds.ToFFmpegFlag());
 /// <summary>
 ///  start frame number for n/frame_num variable (from 0 to INT_MAX) (default 0)
 /// </summary>
@@ -137,7 +137,7 @@ public DrawtextFilterGen start_number(int start_number) => this.SetOptionRange("
 /// <summary>
 ///  attempt to shape text before drawing (default true)
 /// </summary>
-public DrawtextFilterGen text_shaping(bool flag) => this.SetOption("text_shaping",flag.ToFFmpegFlag());
+public DrawtextFilterGen text_shaping(bool text_shaping) => this.SetOption("text_shaping",text_shaping.ToFFmpegFlag());
 /// <summary>
 ///  set font loading flags for libfreetype (default 0)
 /// </summary>
@@ -149,6 +149,177 @@ public static class DrawtextFilterGenExtensions
 /// Draw text on top of video frames using libfreetype library.
 /// </summary>
 public static DrawtextFilterGen DrawtextFilterGen(this ImageMap input0) => new DrawtextFilterGen(input0);
+/// <summary>
+/// Draw text on top of video frames using libfreetype library.
+/// </summary>
+public static DrawtextFilterGen DrawtextFilterGen(this ImageMap input0,DrawtextFilterGenConfig config)
+{
+var result = new DrawtextFilterGen(input0);
+if(config?.fontfile != null) result.fontfile(config.fontfile);
+if(config?.text != null) result.text(config.text);
+if(config?.textfile != null) result.textfile(config.textfile);
+if(config?.fontcolor != null) result.fontcolor(config.fontcolor);
+if(config?.fontcolor_expr != null) result.fontcolor_expr(config.fontcolor_expr);
+if(config?.boxcolor != null) result.boxcolor(config.boxcolor);
+if(config?.bordercolor != null) result.bordercolor(config.bordercolor);
+if(config?.shadowcolor != null) result.shadowcolor(config.shadowcolor);
+if(config?.box != null) result.box(config.box);
+if(config?.boxborderw != null) result.boxborderw(config.boxborderw);
+if(config?.line_spacing != null) result.line_spacing(config.line_spacing);
+if(config?.fontsize != null) result.fontsize(config.fontsize);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.shadowx != null) result.shadowx(config.shadowx);
+if(config?.shadowy != null) result.shadowy(config.shadowy);
+if(config?.borderw != null) result.borderw(config.borderw);
+if(config?.tabsize != null) result.tabsize(config.tabsize);
+if(config?.basetime != null) result.basetime(config.basetime);
+if(config?.font != null) result.font(config.font);
+if(config?.expansion != null) result.expansion(config.expansion);
+if(config?.timecode != null) result.timecode(config.timecode);
+if(config?.tc24hmax != null) result.tc24hmax(config.tc24hmax);
+if(config?.timecode_rate != null) result.timecode_rate(config.timecode_rate);
+if(config?.r != null) result.r(config.r);
+if(config?.rate != null) result.rate(config.rate);
+if(config?.reload != null) result.reload(config.reload);
+if(config?.alpha != null) result.alpha(config.alpha);
+if(config?.fix_bounds != null) result.fix_bounds(config.fix_bounds);
+if(config?.start_number != null) result.start_number(config.start_number);
+if(config?.text_shaping != null) result.text_shaping(config.text_shaping);
+if(config?.ft_load_flags != null) result.ft_load_flags(config.ft_load_flags);
+return result;
+}
+}
+public class DrawtextFilterGenConfig
+{
+/// <summary>
+///  set font file
+/// </summary>
+public string fontfile { get; set; }
+/// <summary>
+///  set text
+/// </summary>
+public string text { get; set; }
+/// <summary>
+///  set text file
+/// </summary>
+public string textfile { get; set; }
+/// <summary>
+///  set foreground color (default "black")
+/// </summary>
+public Color fontcolor { get; set; }
+/// <summary>
+///  set foreground color expression (default "")
+/// </summary>
+public string fontcolor_expr { get; set; }
+/// <summary>
+///  set box color (default "white")
+/// </summary>
+public Color boxcolor { get; set; }
+/// <summary>
+///  set border color (default "black")
+/// </summary>
+public Color bordercolor { get; set; }
+/// <summary>
+///  set shadow color (default "black")
+/// </summary>
+public Color shadowcolor { get; set; }
+/// <summary>
+///  set box (default false)
+/// </summary>
+public bool box { get; set; }
+/// <summary>
+///  set box border width (from INT_MIN to INT_MAX) (default 0)
+/// </summary>
+public int boxborderw { get; set; }
+/// <summary>
+///  set line spacing in pixels (from INT_MIN to INT_MAX) (default 0)
+/// </summary>
+public int line_spacing { get; set; }
+/// <summary>
+///  set font size
+/// </summary>
+public string fontsize { get; set; }
+/// <summary>
+///  set x expression (default "0")
+/// </summary>
+public string x { get; set; }
+/// <summary>
+///  set y expression (default "0")
+/// </summary>
+public string y { get; set; }
+/// <summary>
+///  set shadow x offset (from INT_MIN to INT_MAX) (default 0)
+/// </summary>
+public int shadowx { get; set; }
+/// <summary>
+///  set shadow y offset (from INT_MIN to INT_MAX) (default 0)
+/// </summary>
+public int shadowy { get; set; }
+/// <summary>
+///  set border width (from INT_MIN to INT_MAX) (default 0)
+/// </summary>
+public int borderw { get; set; }
+/// <summary>
+///  set tab size (from 0 to INT_MAX) (default 4)
+/// </summary>
+public int tabsize { get; set; }
+/// <summary>
+///  set base time (from I64_MIN to I64_MAX) (default I64_MIN)
+/// </summary>
+public long basetime { get; set; }
+/// <summary>
+///  Font name (default "Sans")
+/// </summary>
+public string font { get; set; }
+/// <summary>
+///  set the expansion mode (from 0 to 2) (default normal)
+/// </summary>
+public DrawtextFilterGenExpansion expansion { get; set; }
+/// <summary>
+///  set initial timecode
+/// </summary>
+public string timecode { get; set; }
+/// <summary>
+///  set 24 hours max (timecode only) (default false)
+/// </summary>
+public bool tc24hmax { get; set; }
+/// <summary>
+///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
+/// </summary>
+public Rational timecode_rate { get; set; }
+/// <summary>
+///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
+/// </summary>
+public Rational r { get; set; }
+/// <summary>
+///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
+/// </summary>
+public Rational rate { get; set; }
+/// <summary>
+///  reload text file for each frame (default false)
+/// </summary>
+public bool reload { get; set; }
+/// <summary>
+///  apply alpha while rendering (default "1")
+/// </summary>
+public string alpha { get; set; }
+/// <summary>
+///  check and fix text coords to avoid clipping (default false)
+/// </summary>
+public bool fix_bounds { get; set; }
+/// <summary>
+///  start frame number for n/frame_num variable (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int start_number { get; set; }
+/// <summary>
+///  attempt to shape text before drawing (default true)
+/// </summary>
+public bool text_shaping { get; set; }
+/// <summary>
+///  set font loading flags for libfreetype (default 0)
+/// </summary>
+public DrawtextFilterGenFt_load_flags ft_load_flags { get; set; }
 }
 public enum DrawtextFilterGenExpansion
 {

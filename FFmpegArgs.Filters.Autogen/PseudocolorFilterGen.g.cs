@@ -49,6 +49,52 @@ public static class PseudocolorFilterGenExtensions
 /// Make pseudocolored video frames.
 /// </summary>
 public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input0) => new PseudocolorFilterGen(input0);
+/// <summary>
+/// Make pseudocolored video frames.
+/// </summary>
+public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input0,PseudocolorFilterGenConfig config)
+{
+var result = new PseudocolorFilterGen(input0);
+if(config?.c0 != null) result.c0(config.c0);
+if(config?.c1 != null) result.c1(config.c1);
+if(config?.c2 != null) result.c2(config.c2);
+if(config?.c3 != null) result.c3(config.c3);
+if(config?.index != null) result.index(config.index);
+if(config?.preset != null) result.preset(config.preset);
+if(config?.opacity != null) result.opacity(config.opacity);
+return result;
+}
+}
+public class PseudocolorFilterGenConfig
+{
+/// <summary>
+///  set component #0 expression (default "val")
+/// </summary>
+public string c0 { get; set; }
+/// <summary>
+///  set component #1 expression (default "val")
+/// </summary>
+public string c1 { get; set; }
+/// <summary>
+///  set component #2 expression (default "val")
+/// </summary>
+public string c2 { get; set; }
+/// <summary>
+///  set component #3 expression (default "val")
+/// </summary>
+public string c3 { get; set; }
+/// <summary>
+///  set component as base (from 0 to 3) (default 0)
+/// </summary>
+public int index { get; set; }
+/// <summary>
+///  set preset (from -1 to 9) (default none)
+/// </summary>
+public PseudocolorFilterGenPreset preset { get; set; }
+/// <summary>
+///  set pseudocolor opacity (from 0 to 1) (default 1)
+/// </summary>
+public float opacity { get; set; }
 }
 public enum PseudocolorFilterGenPreset
 {

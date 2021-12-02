@@ -25,6 +25,22 @@ public static class HaldclutFilterGenExtensions
 /// Adjust colors using a Hald CLUT.
 /// </summary>
 public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap input1) => new HaldclutFilterGen(input0, input1);
+/// <summary>
+/// Adjust colors using a Hald CLUT.
+/// </summary>
+public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap input1,HaldclutFilterGenConfig config)
+{
+var result = new HaldclutFilterGen(input0, input1);
+if(config?.interp != null) result.interp(config.interp);
+return result;
+}
+}
+public class HaldclutFilterGenConfig
+{
+/// <summary>
+///  select interpolation mode (from 0 to 4) (default tetrahedral)
+/// </summary>
+public HaldclutFilterGenInterp interp { get; set; }
 }
 public enum HaldclutFilterGenInterp
 {

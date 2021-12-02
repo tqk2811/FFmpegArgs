@@ -37,6 +37,37 @@ public static class W3fdifFilterGenExtensions
 /// Apply Martin Weston three field deinterlace.
 /// </summary>
 public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input0) => new W3fdifFilterGen(input0);
+/// <summary>
+/// Apply Martin Weston three field deinterlace.
+/// </summary>
+public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input0,W3fdifFilterGenConfig config)
+{
+var result = new W3fdifFilterGen(input0);
+if(config?.filter != null) result.filter(config.filter);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.parity != null) result.parity(config.parity);
+if(config?.deint != null) result.deint(config.deint);
+return result;
+}
+}
+public class W3fdifFilterGenConfig
+{
+/// <summary>
+///  specify the filter (from 0 to 1) (default complex)
+/// </summary>
+public W3fdifFilterGenFilter filter { get; set; }
+/// <summary>
+///  specify the interlacing mode (from 0 to 1) (default field)
+/// </summary>
+public W3fdifFilterGenMode mode { get; set; }
+/// <summary>
+///  specify the assumed picture field parity (from -1 to 1) (default auto)
+/// </summary>
+public W3fdifFilterGenParity parity { get; set; }
+/// <summary>
+///  specify which frames to deinterlace (from 0 to 1) (default all)
+/// </summary>
+public W3fdifFilterGenDeint deint { get; set; }
 }
 public enum W3fdifFilterGenFilter
 {

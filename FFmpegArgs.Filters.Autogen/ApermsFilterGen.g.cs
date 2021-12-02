@@ -29,6 +29,27 @@ public static class ApermsFilterGenExtensions
 /// Set permissions for the output audio frame.
 /// </summary>
 public static ApermsFilterGen ApermsFilterGen(this AudioMap input0) => new ApermsFilterGen(input0);
+/// <summary>
+/// Set permissions for the output audio frame.
+/// </summary>
+public static ApermsFilterGen ApermsFilterGen(this AudioMap input0,ApermsFilterGenConfig config)
+{
+var result = new ApermsFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.seed != null) result.seed(config.seed);
+return result;
+}
+}
+public class ApermsFilterGenConfig
+{
+/// <summary>
+///  select permissions mode (from 0 to 4) (default none)
+/// </summary>
+public ApermsFilterGenMode mode { get; set; }
+/// <summary>
+///  set the seed for the random mode (from -1 to UINT32_MAX) (default -1)
+/// </summary>
+public long seed { get; set; }
 }
 public enum ApermsFilterGenMode
 {

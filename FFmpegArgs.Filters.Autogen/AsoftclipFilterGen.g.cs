@@ -41,6 +41,42 @@ public static class AsoftclipFilterGenExtensions
 /// Audio Soft Clipper.
 /// </summary>
 public static AsoftclipFilterGen AsoftclipFilterGen(this AudioMap input0) => new AsoftclipFilterGen(input0);
+/// <summary>
+/// Audio Soft Clipper.
+/// </summary>
+public static AsoftclipFilterGen AsoftclipFilterGen(this AudioMap input0,AsoftclipFilterGenConfig config)
+{
+var result = new AsoftclipFilterGen(input0);
+if(config?.type != null) result.type(config.type);
+if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.output != null) result.output(config.output);
+if(config?.param != null) result.param(config.param);
+if(config?.oversample != null) result.oversample(config.oversample);
+return result;
+}
+}
+public class AsoftclipFilterGenConfig
+{
+/// <summary>
+///  set softclip type (from -1 to 7) (default tanh)
+/// </summary>
+public AsoftclipFilterGenType type { get; set; }
+/// <summary>
+///  set softclip threshold (from 1e-06 to 1) (default 1)
+/// </summary>
+public double threshold { get; set; }
+/// <summary>
+///  set softclip output gain (from 1e-06 to 16) (default 1)
+/// </summary>
+public double output { get; set; }
+/// <summary>
+///  set softclip parameter (from 0.01 to 3) (default 1)
+/// </summary>
+public double param { get; set; }
+/// <summary>
+///  set oversample factor (from 1 to 32) (default 1)
+/// </summary>
+public int oversample { get; set; }
 }
 public enum AsoftclipFilterGenType
 {

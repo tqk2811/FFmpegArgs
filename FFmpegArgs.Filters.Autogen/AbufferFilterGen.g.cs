@@ -41,5 +41,41 @@ public static class AbufferFilterGenExtensions
 /// Buffer audio frames, and make them accessible to the filterchain.
 /// </summary>
 public static AbufferFilterGen AbufferFilterGen(this FilterGraph input0) => new AbufferFilterGen(input0);
+/// <summary>
+/// Buffer audio frames, and make them accessible to the filterchain.
+/// </summary>
+public static AbufferFilterGen AbufferFilterGen(this FilterGraph input0,AbufferFilterGenConfig config)
+{
+var result = new AbufferFilterGen(input0);
+if(config?.time_base != null) result.time_base(config.time_base);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
+if(config?.sample_fmt != null) result.sample_fmt(config.sample_fmt);
+if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
+if(config?.channels != null) result.channels(config.channels);
+return result;
+}
+}
+public class AbufferFilterGenConfig
+{
+/// <summary>
+///  (from 0 to INT_MAX) (default 0/1)
+/// </summary>
+public Rational time_base { get; set; }
+/// <summary>
+///  (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int sample_rate { get; set; }
+/// <summary>
+///  (default none)
+/// </summary>
+public AVSampleFormat sample_fmt { get; set; }
+/// <summary>
+/// 
+/// </summary>
+public string channel_layout { get; set; }
+/// <summary>
+///  (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int channels { get; set; }
 }
 }

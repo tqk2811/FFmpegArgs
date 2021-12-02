@@ -25,5 +25,21 @@ public static class AresampleFilterGenExtensions
 /// Resample audio data.
 /// </summary>
 public static AresampleFilterGen AresampleFilterGen(this AudioMap input0) => new AresampleFilterGen(input0);
+/// <summary>
+/// Resample audio data.
+/// </summary>
+public static AresampleFilterGen AresampleFilterGen(this AudioMap input0,AresampleFilterGenConfig config)
+{
+var result = new AresampleFilterGen(input0);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
+return result;
+}
+}
+public class AresampleFilterGenConfig
+{
+/// <summary>
+///  (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int sample_rate { get; set; }
 }
 }

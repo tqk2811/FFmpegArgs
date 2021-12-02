@@ -29,7 +29,7 @@ public SppFilterGen mode(SppFilterGenMode mode) => this.SetOption("mode", mode.G
 /// <summary>
 ///  use B-frames' QP (default false)
 /// </summary>
-public SppFilterGen use_bframe_qp(bool flag) => this.SetOption("use_bframe_qp",flag.ToFFmpegFlag());
+public SppFilterGen use_bframe_qp(bool use_bframe_qp) => this.SetOption("use_bframe_qp",use_bframe_qp.ToFFmpegFlag());
 }
 public static class SppFilterGenExtensions
 {
@@ -37,6 +37,37 @@ public static class SppFilterGenExtensions
 /// Apply a simple post processing filter.
 /// </summary>
 public static SppFilterGen SppFilterGen(this ImageMap input0) => new SppFilterGen(input0);
+/// <summary>
+/// Apply a simple post processing filter.
+/// </summary>
+public static SppFilterGen SppFilterGen(this ImageMap input0,SppFilterGenConfig config)
+{
+var result = new SppFilterGen(input0);
+if(config?.quality != null) result.quality(config.quality);
+if(config?.qp != null) result.qp(config.qp);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp);
+return result;
+}
+}
+public class SppFilterGenConfig
+{
+/// <summary>
+///  set quality (from 0 to 6) (default 3)
+/// </summary>
+public int quality { get; set; }
+/// <summary>
+///  force a constant quantizer parameter (from 0 to 63) (default 0)
+/// </summary>
+public int qp { get; set; }
+/// <summary>
+///  set thresholding mode (from 0 to 1) (default hard)
+/// </summary>
+public SppFilterGenMode mode { get; set; }
+/// <summary>
+///  use B-frames' QP (default false)
+/// </summary>
+public bool use_bframe_qp { get; set; }
 }
 public enum SppFilterGenMode
 {

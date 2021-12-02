@@ -25,6 +25,22 @@ public static class TinterlaceFilterGenExtensions
 /// Perform temporal field interlacing.
 /// </summary>
 public static TinterlaceFilterGen TinterlaceFilterGen(this ImageMap input0) => new TinterlaceFilterGen(input0);
+/// <summary>
+/// Perform temporal field interlacing.
+/// </summary>
+public static TinterlaceFilterGen TinterlaceFilterGen(this ImageMap input0,TinterlaceFilterGenConfig config)
+{
+var result = new TinterlaceFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+return result;
+}
+}
+public class TinterlaceFilterGenConfig
+{
+/// <summary>
+///  select interlace mode (from 0 to 7) (default merge)
+/// </summary>
+public TinterlaceFilterGenMode mode { get; set; }
 }
 public enum TinterlaceFilterGenMode
 {

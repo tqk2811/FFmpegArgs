@@ -37,5 +37,36 @@ public static class SetdarFilterGenExtensions
 /// Set the frame display aspect ratio.
 /// </summary>
 public static SetdarFilterGen SetdarFilterGen(this ImageMap input0) => new SetdarFilterGen(input0);
+/// <summary>
+/// Set the frame display aspect ratio.
+/// </summary>
+public static SetdarFilterGen SetdarFilterGen(this ImageMap input0,SetdarFilterGenConfig config)
+{
+var result = new SetdarFilterGen(input0);
+if(config?.dar != null) result.dar(config.dar);
+if(config?.ratio != null) result.ratio(config.ratio);
+if(config?.r != null) result.r(config.r);
+if(config?.max != null) result.max(config.max);
+return result;
+}
+}
+public class SetdarFilterGenConfig
+{
+/// <summary>
+///  set display aspect ratio (default "0")
+/// </summary>
+public string dar { get; set; }
+/// <summary>
+///  set display aspect ratio (default "0")
+/// </summary>
+public string ratio { get; set; }
+/// <summary>
+///  set display aspect ratio (default "0")
+/// </summary>
+public string r { get; set; }
+/// <summary>
+///  set max value for nominator or denominator in the ratio (from 1 to INT_MAX) (default 100)
+/// </summary>
+public int max { get; set; }
 }
 }

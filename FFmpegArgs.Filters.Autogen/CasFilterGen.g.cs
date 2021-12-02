@@ -29,6 +29,27 @@ public static class CasFilterGenExtensions
 /// Contrast Adaptive Sharpen.
 /// </summary>
 public static CasFilterGen CasFilterGen(this ImageMap input0) => new CasFilterGen(input0);
+/// <summary>
+/// Contrast Adaptive Sharpen.
+/// </summary>
+public static CasFilterGen CasFilterGen(this ImageMap input0,CasFilterGenConfig config)
+{
+var result = new CasFilterGen(input0);
+if(config?.strength != null) result.strength(config.strength);
+if(config?.planes != null) result.planes(config.planes);
+return result;
+}
+}
+public class CasFilterGenConfig
+{
+/// <summary>
+///  set the sharpening strength (from 0 to 1) (default 0)
+/// </summary>
+public float strength { get; set; }
+/// <summary>
+///  set what planes to filter (default 7)
+/// </summary>
+public CasFilterGenPlanes planes { get; set; }
 }
 public enum CasFilterGenPlanes
 {

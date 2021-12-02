@@ -37,6 +37,37 @@ public static class FpsFilterGenExtensions
 /// Force constant framerate.
 /// </summary>
 public static FpsFilterGen FpsFilterGen(this ImageMap input0) => new FpsFilterGen(input0);
+/// <summary>
+/// Force constant framerate.
+/// </summary>
+public static FpsFilterGen FpsFilterGen(this ImageMap input0,FpsFilterGenConfig config)
+{
+var result = new FpsFilterGen(input0);
+if(config?.fps != null) result.fps(config.fps);
+if(config?.start_time != null) result.start_time(config.start_time);
+if(config?.round != null) result.round(config.round);
+if(config?.eof_action != null) result.eof_action(config.eof_action);
+return result;
+}
+}
+public class FpsFilterGenConfig
+{
+/// <summary>
+///  A string describing desired output framerate (default "25")
+/// </summary>
+public Rational fps { get; set; }
+/// <summary>
+///  Assume the first PTS should be this value. (from -DBL_MAX to DBL_MAX) (default DBL_MAX)
+/// </summary>
+public double start_time { get; set; }
+/// <summary>
+///  set rounding method for timestamps (from 0 to 5) (default near)
+/// </summary>
+public FpsFilterGenRound round { get; set; }
+/// <summary>
+///  action performed for last frame (from 0 to 1) (default round)
+/// </summary>
+public FpsFilterGenEof_action eof_action { get; set; }
 }
 public enum FpsFilterGenRound
 {

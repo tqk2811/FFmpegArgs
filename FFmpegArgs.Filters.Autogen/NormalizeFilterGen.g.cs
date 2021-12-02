@@ -41,5 +41,41 @@ public static class NormalizeFilterGenExtensions
 /// Normalize RGB video.
 /// </summary>
 public static NormalizeFilterGen NormalizeFilterGen(this ImageMap input0) => new NormalizeFilterGen(input0);
+/// <summary>
+/// Normalize RGB video.
+/// </summary>
+public static NormalizeFilterGen NormalizeFilterGen(this ImageMap input0,NormalizeFilterGenConfig config)
+{
+var result = new NormalizeFilterGen(input0);
+if(config?.blackpt != null) result.blackpt(config.blackpt);
+if(config?.whitept != null) result.whitept(config.whitept);
+if(config?.smoothing != null) result.smoothing(config.smoothing);
+if(config?.independence != null) result.independence(config.independence);
+if(config?.strength != null) result.strength(config.strength);
+return result;
+}
+}
+public class NormalizeFilterGenConfig
+{
+/// <summary>
+///  output color to which darkest input color is mapped (default "black")
+/// </summary>
+public Color blackpt { get; set; }
+/// <summary>
+///  output color to which brightest input color is mapped (default "white")
+/// </summary>
+public Color whitept { get; set; }
+/// <summary>
+///  amount of temporal smoothing of the input range, to reduce flicker (from 0 to 2.68435e+08) (default 0)
+/// </summary>
+public int smoothing { get; set; }
+/// <summary>
+///  proportion of independent to linked channel normalization (from 0 to 1) (default 1)
+/// </summary>
+public float independence { get; set; }
+/// <summary>
+///  strength of filter, from no effect to full normalization (from 0 to 1) (default 1)
+/// </summary>
+public float strength { get; set; }
 }
 }

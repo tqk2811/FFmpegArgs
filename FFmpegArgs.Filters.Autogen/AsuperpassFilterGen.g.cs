@@ -37,5 +37,36 @@ public static class AsuperpassFilterGenExtensions
 /// Apply high order Butterworth band-pass filter.
 /// </summary>
 public static AsuperpassFilterGen AsuperpassFilterGen(this AudioMap input0) => new AsuperpassFilterGen(input0);
+/// <summary>
+/// Apply high order Butterworth band-pass filter.
+/// </summary>
+public static AsuperpassFilterGen AsuperpassFilterGen(this AudioMap input0,AsuperpassFilterGenConfig config)
+{
+var result = new AsuperpassFilterGen(input0);
+if(config?.centerf != null) result.centerf(config.centerf);
+if(config?.order != null) result.order(config.order);
+if(config?.qfactor != null) result.qfactor(config.qfactor);
+if(config?.level != null) result.level(config.level);
+return result;
+}
+}
+public class AsuperpassFilterGenConfig
+{
+/// <summary>
+///  set center frequency (from 2 to 999999) (default 1000)
+/// </summary>
+public double centerf { get; set; }
+/// <summary>
+///  set filter order (from 4 to 20) (default 4)
+/// </summary>
+public int order { get; set; }
+/// <summary>
+///  set Q-factor (from 0.01 to 100) (default 1)
+/// </summary>
+public double qfactor { get; set; }
+/// <summary>
+///  set input level (from 0 to 2) (default 1)
+/// </summary>
+public double level { get; set; }
 }
 }

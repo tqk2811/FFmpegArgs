@@ -45,6 +45,47 @@ public static class EstdifFilterGenExtensions
 /// Apply Edge Slope Tracing deinterlace.
 /// </summary>
 public static EstdifFilterGen EstdifFilterGen(this ImageMap input0) => new EstdifFilterGen(input0);
+/// <summary>
+/// Apply Edge Slope Tracing deinterlace.
+/// </summary>
+public static EstdifFilterGen EstdifFilterGen(this ImageMap input0,EstdifFilterGenConfig config)
+{
+var result = new EstdifFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.parity != null) result.parity(config.parity);
+if(config?.deint != null) result.deint(config.deint);
+if(config?.rslope != null) result.rslope(config.rslope);
+if(config?.redge != null) result.redge(config.redge);
+if(config?.interp != null) result.interp(config.interp);
+return result;
+}
+}
+public class EstdifFilterGenConfig
+{
+/// <summary>
+///  specify the mode (from 0 to 1) (default field)
+/// </summary>
+public EstdifFilterGenMode mode { get; set; }
+/// <summary>
+///  specify the assumed picture field parity (from -1 to 1) (default auto)
+/// </summary>
+public EstdifFilterGenParity parity { get; set; }
+/// <summary>
+///  specify which frames to deinterlace (from 0 to 1) (default all)
+/// </summary>
+public EstdifFilterGenDeint deint { get; set; }
+/// <summary>
+///  specify the search radius for edge slope tracing (from 1 to 15) (default 1)
+/// </summary>
+public int rslope { get; set; }
+/// <summary>
+///  specify the search radius for best edge matching (from 0 to 15) (default 2)
+/// </summary>
+public int redge { get; set; }
+/// <summary>
+///  specify the type of interpolation (from 0 to 2) (default 4p)
+/// </summary>
+public EstdifFilterGenInterp interp { get; set; }
 }
 public enum EstdifFilterGenMode
 {

@@ -53,13 +53,13 @@ namespace FFmpegArgs.Autogens
         public string ReturnTypeName { get; set; }
         public string FunctionName { get; set; }
         public string Description { get; set; }
-        public string FunctionParam { get; set; }
+        public string FunctionParamType { get; set; }
         public string FunctionBody { get; set; }
         public string EnumData { get; set; }
 
         public override string ToString()
         {
-            return $"public {ReturnTypeName} {FunctionName}({FunctionParam}) {FunctionBody}";
+            return $"public {ReturnTypeName} {FunctionName}({FunctionParamType} {FunctionName}) {FunctionBody}";
         }
 
         internal static FilterFunction GetFilterFunction(FilterData filterData, string returnTypeName)
@@ -74,14 +74,14 @@ namespace FFmpegArgs.Autogens
                 switch (filterData.Type)
                 {
                     case "<double>":
-                        filterFunction.FunctionParam = $"double {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = $"double";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\", {filterFunction.FunctionName},{filterData.Min},{filterData.Max});";
                         break;
 
                     case "<int>":
                         if (filterData.Function.ChildLines.Count == 0)
                         {
-                            filterFunction.FunctionParam = $"int {filterFunction.FunctionName}";
+                            filterFunction.FunctionParamType = $"int";
                             filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\", {filterFunction.FunctionName},{filterData.Min},{filterData.Max});";
                         }
                         else WriteFunctionWithEnum(filterFunction, filterData, returnTypeName);
@@ -92,69 +92,69 @@ namespace FFmpegArgs.Autogens
                         break;
 
                     case "<int64>":
-                        filterFunction.FunctionParam = $"long {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = $"long";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\", {filterFunction.FunctionName},{filterData.Min},{filterData.Max});";
                         break;
 
                     case "<float>":
-                        filterFunction.FunctionParam = $"float {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = $"float";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\", {filterFunction.FunctionName},{filterData.Min},{filterData.Max});";
                         break;
 
                     case "<boolean>":
-                        filterFunction.FunctionParam = $"bool flag";
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",flag.{nameof(Extensions.ToFFmpegFlag)}());";
+                        filterFunction.FunctionParamType = $"bool";
+                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(Extensions.ToFFmpegFlag)}());";
                         break;
 
                     case "<string>":
-                        filterFunction.FunctionParam = $"string {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = $"string";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName});";
                         break;
 
                     case "<image_size>":
-                        filterFunction.FunctionParam = $"Size size";
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",$\"{{size.Width}}x{{size.Height}}\");";
+                        filterFunction.FunctionParamType = $"Size";
+                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",$\"{{{filterFunction.FunctionName}.Width}}x{{{filterFunction.FunctionName}.Height}}\");";
                         break;
 
                     case "<duration>":
-                        filterFunction.FunctionParam = $"TimeSpan {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = $"TimeSpan";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\",{filterFunction.FunctionName},TimeSpan.Zero,TimeSpan.MaxValue);";
                         break;
 
                     case "<color>":
-                        filterFunction.FunctionParam = $"Color {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = $"Color";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.ToHexStringRGBA)}());";
                         break;
 
                     case "<pix_fmt>":
-                        filterFunction.FunctionParam = $"{nameof(PixFmt)} {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = nameof(PixFmt);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.ToString());";
                         break;
 
                     case "<video_rate>":
-                        filterFunction.FunctionParam = $"{nameof(Rational)} {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = nameof(Rational);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName});";
                         break;
 
                     case "<rational>":
-                        filterFunction.FunctionParam = $"{nameof(Rational)} {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = nameof(Rational);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(Rational.Check)}({filterData.Min},{filterData.Max}));";
                         break;
 
                     case "<channel_layout>":
-                        filterFunction.FunctionParam = $"{nameof(AV_CH_LAYOUT)} {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = nameof(AV_CH_LAYOUT);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         break;
 
                     case "<sample_fmt>":
-                        filterFunction.FunctionParam = $"{nameof(AVSampleFormat)} {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = nameof(AVSampleFormat);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         break;
 
                     //dictionary
                     //binary
                     default:
-                        filterFunction.FunctionParam = $"string {filterFunction.FunctionName}";
+                        filterFunction.FunctionParamType = $"string";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName});";
                         Console.WriteLine($"{returnTypeName}: function error: {filterData.Function.LineData}");
                         break;
@@ -188,7 +188,7 @@ namespace FFmpegArgs.Autogens
             stringBuilder.AppendLine($"}}");
             filterFunction.EnumData = stringBuilder.ToString();
 
-            filterFunction.FunctionParam = $"{returnTypeName}{filterData.Name.UpperFirst()} {filterFunction.FunctionName}";
+            filterFunction.FunctionParamType = $"{returnTypeName}{filterData.Name.UpperFirst()}";
             filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\", {filterFunction.FunctionName}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
         }
     }
@@ -330,9 +330,10 @@ namespace FFmpegArgs.Autogens
                     //remove function alias (same description, and name start with)
                     var removes = filterFunctions
                         .GroupBy(x => x.Description)
-                        .Where(x => x.Count() == 2 && 
-                            (x.First().FunctionName.StartsWith(x.Last().FunctionName) || x.Last().FunctionName.StartsWith(x.First().FunctionName)))
-                        .Select(x => x.OrderBy(y => y.FunctionName.Length).First())
+                        .Where(x => x.Count() == 2)
+                        .Select(x => x.OrderBy(y => y.FunctionName.Length))
+                        .Where(x => x.Last().FunctionName.StartsWith(x.First().FunctionName))
+                        .Select(x => x.First())
                         .ToList();
 
                     foreach (var filterFunction in filterFunctions.Except(removes))
@@ -356,8 +357,30 @@ namespace FFmpegArgs.Autogens
 
                     streamWriter.WriteLine($"public static class {className}Extensions");
                     streamWriter.WriteLine("{");
+                    //default extension
                     streamWriter.WriteSummary(description);
                     streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)}) => new {className}({string.Join(", ", paramsInput)});");
+                    streamWriter.WriteSummary(description);
+                    //config extension
+                    streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)},{className}Config config)");
+                    streamWriter.WriteLine("{");
+                    streamWriter.WriteLine($"var result = new {className}({string.Join(", ", paramsInput)});");
+                    foreach (var filterFunction in filterFunctions.Except(removes))
+                    {
+                        streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
+                    }
+                    streamWriter.WriteLine("return result;");
+                    streamWriter.WriteLine("}");
+                    streamWriter.WriteLine("}");
+
+                    //config class
+                    streamWriter.WriteLine($"public class {className}Config");
+                    streamWriter.WriteLine("{");
+                    foreach (var filterFunction in filterFunctions.Except(removes))
+                    {
+                        streamWriter.WriteSummary(filterFunction.Description);
+                        streamWriter.WriteLine($"public {filterFunction.FunctionParamType} {filterFunction.FunctionName} {{ get; set; }}");
+                    }
                     streamWriter.WriteLine("}");
 
                     //enum

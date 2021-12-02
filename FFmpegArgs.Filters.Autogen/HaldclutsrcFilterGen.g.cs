@@ -37,5 +37,36 @@ public static class HaldclutsrcFilterGenExtensions
 /// Provide an identity Hald CLUT.
 /// </summary>
 public static HaldclutsrcFilterGen HaldclutsrcFilterGen(this FilterGraph input0) => new HaldclutsrcFilterGen(input0);
+/// <summary>
+/// Provide an identity Hald CLUT.
+/// </summary>
+public static HaldclutsrcFilterGen HaldclutsrcFilterGen(this FilterGraph input0,HaldclutsrcFilterGenConfig config)
+{
+var result = new HaldclutsrcFilterGen(input0);
+if(config?.level != null) result.level(config.level);
+if(config?.rate != null) result.rate(config.rate);
+if(config?.duration != null) result.duration(config.duration);
+if(config?.sar != null) result.sar(config.sar);
+return result;
+}
+}
+public class HaldclutsrcFilterGenConfig
+{
+/// <summary>
+///  set level (from 2 to 16) (default 6)
+/// </summary>
+public int level { get; set; }
+/// <summary>
+///  set video rate (default "25")
+/// </summary>
+public Rational rate { get; set; }
+/// <summary>
+///  set video duration (default -0.000001)
+/// </summary>
+public TimeSpan duration { get; set; }
+/// <summary>
+///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
+/// </summary>
+public Rational sar { get; set; }
 }
 }

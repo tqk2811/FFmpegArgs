@@ -29,6 +29,27 @@ public static class Lut1dFilterGenExtensions
 /// Adjust colors using a 1D LUT.
 /// </summary>
 public static Lut1dFilterGen Lut1dFilterGen(this ImageMap input0) => new Lut1dFilterGen(input0);
+/// <summary>
+/// Adjust colors using a 1D LUT.
+/// </summary>
+public static Lut1dFilterGen Lut1dFilterGen(this ImageMap input0,Lut1dFilterGenConfig config)
+{
+var result = new Lut1dFilterGen(input0);
+if(config?.file != null) result.file(config.file);
+if(config?.interp != null) result.interp(config.interp);
+return result;
+}
+}
+public class Lut1dFilterGenConfig
+{
+/// <summary>
+///  set 1D LUT file name
+/// </summary>
+public string file { get; set; }
+/// <summary>
+///  select interpolation mode (from 0 to 4) (default linear)
+/// </summary>
+public Lut1dFilterGenInterp interp { get; set; }
 }
 public enum Lut1dFilterGenInterp
 {

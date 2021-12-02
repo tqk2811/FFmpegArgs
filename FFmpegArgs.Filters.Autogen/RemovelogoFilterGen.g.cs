@@ -25,5 +25,21 @@ public static class RemovelogoFilterGenExtensions
 /// Remove a TV logo based on a mask image.
 /// </summary>
 public static RemovelogoFilterGen RemovelogoFilterGen(this ImageMap input0) => new RemovelogoFilterGen(input0);
+/// <summary>
+/// Remove a TV logo based on a mask image.
+/// </summary>
+public static RemovelogoFilterGen RemovelogoFilterGen(this ImageMap input0,RemovelogoFilterGenConfig config)
+{
+var result = new RemovelogoFilterGen(input0);
+if(config?.filename != null) result.filename(config.filename);
+return result;
+}
+}
+public class RemovelogoFilterGenConfig
+{
+/// <summary>
+///  set bitmap filename
+/// </summary>
+public string filename { get; set; }
 }
 }

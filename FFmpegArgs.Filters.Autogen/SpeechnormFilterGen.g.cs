@@ -49,11 +49,11 @@ public SpeechnormFilterGen h(AV_CH_LAYOUT h) => this.SetOption("h",h.GetAttribut
 /// <summary>
 ///  set inverted filtering (default false)
 /// </summary>
-public SpeechnormFilterGen invert(bool flag) => this.SetOption("invert",flag.ToFFmpegFlag());
+public SpeechnormFilterGen invert(bool invert) => this.SetOption("invert",invert.ToFFmpegFlag());
 /// <summary>
 ///  set linked channels filtering (default false)
 /// </summary>
-public SpeechnormFilterGen link(bool flag) => this.SetOption("link",flag.ToFFmpegFlag());
+public SpeechnormFilterGen link(bool link) => this.SetOption("link",link.ToFFmpegFlag());
 }
 public static class SpeechnormFilterGenExtensions
 {
@@ -61,5 +61,66 @@ public static class SpeechnormFilterGenExtensions
 /// Speech Normalizer.
 /// </summary>
 public static SpeechnormFilterGen SpeechnormFilterGen(this AudioMap input0) => new SpeechnormFilterGen(input0);
+/// <summary>
+/// Speech Normalizer.
+/// </summary>
+public static SpeechnormFilterGen SpeechnormFilterGen(this AudioMap input0,SpeechnormFilterGenConfig config)
+{
+var result = new SpeechnormFilterGen(input0);
+if(config?.peak != null) result.peak(config.peak);
+if(config?.expansion != null) result.expansion(config.expansion);
+if(config?.compression != null) result.compression(config.compression);
+if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.raise != null) result.raise(config.raise);
+if(config?.fall != null) result.fall(config.fall);
+if(config?.channels != null) result.channels(config.channels);
+if(config?.h != null) result.h(config.h);
+if(config?.invert != null) result.invert(config.invert);
+if(config?.link != null) result.link(config.link);
+return result;
+}
+}
+public class SpeechnormFilterGenConfig
+{
+/// <summary>
+///  set the peak value (from 0 to 1) (default 0.95)
+/// </summary>
+public double peak { get; set; }
+/// <summary>
+///  set the max expansion factor (from 1 to 50) (default 2)
+/// </summary>
+public double expansion { get; set; }
+/// <summary>
+///  set the max compression factor (from 1 to 50) (default 2)
+/// </summary>
+public double compression { get; set; }
+/// <summary>
+///  set the threshold value (from 0 to 1) (default 0)
+/// </summary>
+public double threshold { get; set; }
+/// <summary>
+///  set the expansion raising amount (from 0 to 1) (default 0.001)
+/// </summary>
+public double raise { get; set; }
+/// <summary>
+///  set the compression raising amount (from 0 to 1) (default 0.001)
+/// </summary>
+public double fall { get; set; }
+/// <summary>
+///  set channels to filter (default 0xffffffffffffffff)
+/// </summary>
+public AV_CH_LAYOUT channels { get; set; }
+/// <summary>
+///  set channels to filter (default 0xffffffffffffffff)
+/// </summary>
+public AV_CH_LAYOUT h { get; set; }
+/// <summary>
+///  set inverted filtering (default false)
+/// </summary>
+public bool invert { get; set; }
+/// <summary>
+///  set linked channels filtering (default false)
+/// </summary>
+public bool link { get; set; }
 }
 }

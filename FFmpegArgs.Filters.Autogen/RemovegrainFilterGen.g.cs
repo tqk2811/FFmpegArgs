@@ -37,5 +37,36 @@ public static class RemovegrainFilterGenExtensions
 /// Remove grain.
 /// </summary>
 public static RemovegrainFilterGen RemovegrainFilterGen(this ImageMap input0) => new RemovegrainFilterGen(input0);
+/// <summary>
+/// Remove grain.
+/// </summary>
+public static RemovegrainFilterGen RemovegrainFilterGen(this ImageMap input0,RemovegrainFilterGenConfig config)
+{
+var result = new RemovegrainFilterGen(input0);
+if(config?.m0 != null) result.m0(config.m0);
+if(config?.m1 != null) result.m1(config.m1);
+if(config?.m2 != null) result.m2(config.m2);
+if(config?.m3 != null) result.m3(config.m3);
+return result;
+}
+}
+public class RemovegrainFilterGenConfig
+{
+/// <summary>
+///  set mode for 1st plane (from 0 to 24) (default 0)
+/// </summary>
+public int m0 { get; set; }
+/// <summary>
+///  set mode for 2nd plane (from 0 to 24) (default 0)
+/// </summary>
+public int m1 { get; set; }
+/// <summary>
+///  set mode for 3rd plane (from 0 to 24) (default 0)
+/// </summary>
+public int m2 { get; set; }
+/// <summary>
+///  set mode for 4th plane (from 0 to 24) (default 0)
+/// </summary>
+public int m3 { get; set; }
 }
 }

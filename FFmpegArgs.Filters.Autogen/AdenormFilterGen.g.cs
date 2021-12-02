@@ -29,6 +29,27 @@ public static class AdenormFilterGenExtensions
 /// Remedy denormals by adding extremely low-level noise.
 /// </summary>
 public static AdenormFilterGen AdenormFilterGen(this AudioMap input0) => new AdenormFilterGen(input0);
+/// <summary>
+/// Remedy denormals by adding extremely low-level noise.
+/// </summary>
+public static AdenormFilterGen AdenormFilterGen(this AudioMap input0,AdenormFilterGenConfig config)
+{
+var result = new AdenormFilterGen(input0);
+if(config?.level != null) result.level(config.level);
+if(config?.type != null) result.type(config.type);
+return result;
+}
+}
+public class AdenormFilterGenConfig
+{
+/// <summary>
+///  set level (from -451 to -90) (default -351)
+/// </summary>
+public double level { get; set; }
+/// <summary>
+///  set type (from 0 to 3) (default dc)
+/// </summary>
+public AdenormFilterGenType type { get; set; }
 }
 public enum AdenormFilterGenType
 {

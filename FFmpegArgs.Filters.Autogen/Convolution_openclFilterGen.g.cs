@@ -69,5 +69,76 @@ public static class Convolution_openclFilterGenExtensions
 /// Apply convolution mask to input video
 /// </summary>
 public static Convolution_openclFilterGen Convolution_openclFilterGen(this ImageMap input0) => new Convolution_openclFilterGen(input0);
+/// <summary>
+/// Apply convolution mask to input video
+/// </summary>
+public static Convolution_openclFilterGen Convolution_openclFilterGen(this ImageMap input0,Convolution_openclFilterGenConfig config)
+{
+var result = new Convolution_openclFilterGen(input0);
+if(config?._0m != null) result._0m(config._0m);
+if(config?._1m != null) result._1m(config._1m);
+if(config?._2m != null) result._2m(config._2m);
+if(config?._3m != null) result._3m(config._3m);
+if(config?._0rdiv != null) result._0rdiv(config._0rdiv);
+if(config?._1rdiv != null) result._1rdiv(config._1rdiv);
+if(config?._2rdiv != null) result._2rdiv(config._2rdiv);
+if(config?._3rdiv != null) result._3rdiv(config._3rdiv);
+if(config?._0bias != null) result._0bias(config._0bias);
+if(config?._1bias != null) result._1bias(config._1bias);
+if(config?._2bias != null) result._2bias(config._2bias);
+if(config?._3bias != null) result._3bias(config._3bias);
+return result;
+}
+}
+public class Convolution_openclFilterGenConfig
+{
+/// <summary>
+///  set matrix for 2nd plane (default "0 0 0 0 1 0 0 0 0")
+/// </summary>
+public string _0m { get; set; }
+/// <summary>
+///  set matrix for 2nd plane (default "0 0 0 0 1 0 0 0 0")
+/// </summary>
+public string _1m { get; set; }
+/// <summary>
+///  set matrix for 3rd plane (default "0 0 0 0 1 0 0 0 0")
+/// </summary>
+public string _2m { get; set; }
+/// <summary>
+///  set matrix for 4th plane (default "0 0 0 0 1 0 0 0 0")
+/// </summary>
+public string _3m { get; set; }
+/// <summary>
+///  set rdiv for 1nd plane (from 0 to INT_MAX) (default 1)
+/// </summary>
+public float _0rdiv { get; set; }
+/// <summary>
+///  set rdiv for 2nd plane (from 0 to INT_MAX) (default 1)
+/// </summary>
+public float _1rdiv { get; set; }
+/// <summary>
+///  set rdiv for 3rd plane (from 0 to INT_MAX) (default 1)
+/// </summary>
+public float _2rdiv { get; set; }
+/// <summary>
+///  set rdiv for 4th plane (from 0 to INT_MAX) (default 1)
+/// </summary>
+public float _3rdiv { get; set; }
+/// <summary>
+///  set bias for 1st plane (from 0 to INT_MAX) (default 0)
+/// </summary>
+public float _0bias { get; set; }
+/// <summary>
+///  set bias for 2nd plane (from 0 to INT_MAX) (default 0)
+/// </summary>
+public float _1bias { get; set; }
+/// <summary>
+///  set bias for 3rd plane (from 0 to INT_MAX) (default 0)
+/// </summary>
+public float _2bias { get; set; }
+/// <summary>
+///  set bias for 4th plane (from 0 to INT_MAX) (default 0)
+/// </summary>
+public float _3bias { get; set; }
 }
 }

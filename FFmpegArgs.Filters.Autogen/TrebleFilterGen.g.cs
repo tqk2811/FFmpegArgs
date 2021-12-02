@@ -49,7 +49,7 @@ public TrebleFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("channe
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
-public TrebleFilterGen normalize(bool flag) => this.SetOption("normalize",flag.ToFFmpegFlag());
+public TrebleFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
@@ -73,6 +73,82 @@ public static class TrebleFilterGenExtensions
 /// Boost or cut upper frequencies.
 /// </summary>
 public static TrebleFilterGen TrebleFilterGen(this AudioMap input0) => new TrebleFilterGen(input0);
+/// <summary>
+/// Boost or cut upper frequencies.
+/// </summary>
+public static TrebleFilterGen TrebleFilterGen(this AudioMap input0,TrebleFilterGenConfig config)
+{
+var result = new TrebleFilterGen(input0);
+if(config?.frequency != null) result.frequency(config.frequency);
+if(config?.width_type != null) result.width_type(config.width_type);
+if(config?.t != null) result.t(config.t);
+if(config?.width != null) result.width(config.width);
+if(config?.gain != null) result.gain(config.gain);
+if(config?.poles != null) result.poles(config.poles);
+if(config?.mix != null) result.mix(config.mix);
+if(config?.channels != null) result.channels(config.channels);
+if(config?.normalize != null) result.normalize(config.normalize);
+if(config?.transform != null) result.transform(config.transform);
+if(config?.a != null) result.a(config.a);
+if(config?.precision != null) result.precision(config.precision);
+if(config?.r != null) result.r(config.r);
+return result;
+}
+}
+public class TrebleFilterGenConfig
+{
+/// <summary>
+///  set central frequency (from 0 to 999999) (default 3000)
+/// </summary>
+public double frequency { get; set; }
+/// <summary>
+///  set filter-width type (from 1 to 5) (default q)
+/// </summary>
+public TrebleFilterGenWidth_type width_type { get; set; }
+/// <summary>
+///  set filter-width type (from 1 to 5) (default q)
+/// </summary>
+public TrebleFilterGenT t { get; set; }
+/// <summary>
+///  set shelf transition steep (from 0 to 99999) (default 0.5)
+/// </summary>
+public double width { get; set; }
+/// <summary>
+///  set gain (from -900 to 900) (default 0)
+/// </summary>
+public double gain { get; set; }
+/// <summary>
+///  set number of poles (from 1 to 2) (default 2)
+/// </summary>
+public int poles { get; set; }
+/// <summary>
+///  set mix (from 0 to 1) (default 1)
+/// </summary>
+public double mix { get; set; }
+/// <summary>
+///  set channels to filter (default 0xffffffffffffffff)
+/// </summary>
+public AV_CH_LAYOUT channels { get; set; }
+/// <summary>
+///  normalize coefficients (default false)
+/// </summary>
+public bool normalize { get; set; }
+/// <summary>
+///  set transform type (from 0 to 3) (default di)
+/// </summary>
+public TrebleFilterGenTransform transform { get; set; }
+/// <summary>
+///  set transform type (from 0 to 3) (default di)
+/// </summary>
+public TrebleFilterGenA a { get; set; }
+/// <summary>
+///  set filtering precision (from -1 to 3) (default auto)
+/// </summary>
+public TrebleFilterGenPrecision precision { get; set; }
+/// <summary>
+///  set filtering precision (from -1 to 3) (default auto)
+/// </summary>
+public TrebleFilterGenR r { get; set; }
 }
 public enum TrebleFilterGenWidth_type
 {

@@ -33,7 +33,7 @@ public DatascopeFilterGen mode(DatascopeFilterGenMode mode) => this.SetOption("m
 /// <summary>
 ///  draw column/row numbers (default false)
 /// </summary>
-public DatascopeFilterGen axis(bool flag) => this.SetOption("axis",flag.ToFFmpegFlag());
+public DatascopeFilterGen axis(bool axis) => this.SetOption("axis",axis.ToFFmpegFlag());
 /// <summary>
 ///  set background opacity (from 0 to 1) (default 0.75)
 /// </summary>
@@ -53,6 +53,57 @@ public static class DatascopeFilterGenExtensions
 /// Video data analysis.
 /// </summary>
 public static DatascopeFilterGen DatascopeFilterGen(this ImageMap input0) => new DatascopeFilterGen(input0);
+/// <summary>
+/// Video data analysis.
+/// </summary>
+public static DatascopeFilterGen DatascopeFilterGen(this ImageMap input0,DatascopeFilterGenConfig config)
+{
+var result = new DatascopeFilterGen(input0);
+if(config?.size != null) result.size(config.size);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.axis != null) result.axis(config.axis);
+if(config?.opacity != null) result.opacity(config.opacity);
+if(config?.format != null) result.format(config.format);
+if(config?.components != null) result.components(config.components);
+return result;
+}
+}
+public class DatascopeFilterGenConfig
+{
+/// <summary>
+///  set output size (default "hd720")
+/// </summary>
+public Size size { get; set; }
+/// <summary>
+///  set x offset (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int x { get; set; }
+/// <summary>
+///  set y offset (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int y { get; set; }
+/// <summary>
+///  set scope mode (from 0 to 2) (default mono)
+/// </summary>
+public DatascopeFilterGenMode mode { get; set; }
+/// <summary>
+///  draw column/row numbers (default false)
+/// </summary>
+public bool axis { get; set; }
+/// <summary>
+///  set background opacity (from 0 to 1) (default 0.75)
+/// </summary>
+public float opacity { get; set; }
+/// <summary>
+///  set display number format (from 0 to 1) (default hex)
+/// </summary>
+public DatascopeFilterGenFormat format { get; set; }
+/// <summary>
+///  set components to display (from 1 to 15) (default 15)
+/// </summary>
+public int components { get; set; }
 }
 public enum DatascopeFilterGenMode
 {

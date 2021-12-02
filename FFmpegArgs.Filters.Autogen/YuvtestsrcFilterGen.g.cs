@@ -37,5 +37,36 @@ public static class YuvtestsrcFilterGenExtensions
 /// Generate YUV test pattern.
 /// </summary>
 public static YuvtestsrcFilterGen YuvtestsrcFilterGen(this FilterGraph input0) => new YuvtestsrcFilterGen(input0);
+/// <summary>
+/// Generate YUV test pattern.
+/// </summary>
+public static YuvtestsrcFilterGen YuvtestsrcFilterGen(this FilterGraph input0,YuvtestsrcFilterGenConfig config)
+{
+var result = new YuvtestsrcFilterGen(input0);
+if(config?.size != null) result.size(config.size);
+if(config?.rate != null) result.rate(config.rate);
+if(config?.duration != null) result.duration(config.duration);
+if(config?.sar != null) result.sar(config.sar);
+return result;
+}
+}
+public class YuvtestsrcFilterGenConfig
+{
+/// <summary>
+///  set video size (default "320x240")
+/// </summary>
+public Size size { get; set; }
+/// <summary>
+///  set video rate (default "25")
+/// </summary>
+public Rational rate { get; set; }
+/// <summary>
+///  set video duration (default -0.000001)
+/// </summary>
+public TimeSpan duration { get; set; }
+/// <summary>
+///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
+/// </summary>
+public Rational sar { get; set; }
 }
 }

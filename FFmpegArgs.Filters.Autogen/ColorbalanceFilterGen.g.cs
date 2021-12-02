@@ -53,7 +53,7 @@ public ColorbalanceFilterGen bh(float bh) => this.SetOptionRange("bh", bh,-1,1);
 /// <summary>
 ///  preserve lightness (default false)
 /// </summary>
-public ColorbalanceFilterGen pl(bool flag) => this.SetOption("pl",flag.ToFFmpegFlag());
+public ColorbalanceFilterGen pl(bool pl) => this.SetOption("pl",pl.ToFFmpegFlag());
 }
 public static class ColorbalanceFilterGenExtensions
 {
@@ -61,5 +61,66 @@ public static class ColorbalanceFilterGenExtensions
 /// Adjust the color balance.
 /// </summary>
 public static ColorbalanceFilterGen ColorbalanceFilterGen(this ImageMap input0) => new ColorbalanceFilterGen(input0);
+/// <summary>
+/// Adjust the color balance.
+/// </summary>
+public static ColorbalanceFilterGen ColorbalanceFilterGen(this ImageMap input0,ColorbalanceFilterGenConfig config)
+{
+var result = new ColorbalanceFilterGen(input0);
+if(config?.rs != null) result.rs(config.rs);
+if(config?.gs != null) result.gs(config.gs);
+if(config?.bs != null) result.bs(config.bs);
+if(config?.rm != null) result.rm(config.rm);
+if(config?.gm != null) result.gm(config.gm);
+if(config?.bm != null) result.bm(config.bm);
+if(config?.rh != null) result.rh(config.rh);
+if(config?.gh != null) result.gh(config.gh);
+if(config?.bh != null) result.bh(config.bh);
+if(config?.pl != null) result.pl(config.pl);
+return result;
+}
+}
+public class ColorbalanceFilterGenConfig
+{
+/// <summary>
+///  set red shadows (from -1 to 1) (default 0)
+/// </summary>
+public float rs { get; set; }
+/// <summary>
+///  set green shadows (from -1 to 1) (default 0)
+/// </summary>
+public float gs { get; set; }
+/// <summary>
+///  set blue shadows (from -1 to 1) (default 0)
+/// </summary>
+public float bs { get; set; }
+/// <summary>
+///  set red midtones (from -1 to 1) (default 0)
+/// </summary>
+public float rm { get; set; }
+/// <summary>
+///  set green midtones (from -1 to 1) (default 0)
+/// </summary>
+public float gm { get; set; }
+/// <summary>
+///  set blue midtones (from -1 to 1) (default 0)
+/// </summary>
+public float bm { get; set; }
+/// <summary>
+///  set red highlights (from -1 to 1) (default 0)
+/// </summary>
+public float rh { get; set; }
+/// <summary>
+///  set green highlights (from -1 to 1) (default 0)
+/// </summary>
+public float gh { get; set; }
+/// <summary>
+///  set blue highlights (from -1 to 1) (default 0)
+/// </summary>
+public float bh { get; set; }
+/// <summary>
+///  preserve lightness (default false)
+/// </summary>
+public bool pl { get; set; }
 }
 }

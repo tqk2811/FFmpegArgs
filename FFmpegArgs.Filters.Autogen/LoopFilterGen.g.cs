@@ -33,5 +33,31 @@ public static class LoopFilterGenExtensions
 /// Loop video frames.
 /// </summary>
 public static LoopFilterGen LoopFilterGen(this ImageMap input0) => new LoopFilterGen(input0);
+/// <summary>
+/// Loop video frames.
+/// </summary>
+public static LoopFilterGen LoopFilterGen(this ImageMap input0,LoopFilterGenConfig config)
+{
+var result = new LoopFilterGen(input0);
+if(config?.loop != null) result.loop(config.loop);
+if(config?.size != null) result.size(config.size);
+if(config?.start != null) result.start(config.start);
+return result;
+}
+}
+public class LoopFilterGenConfig
+{
+/// <summary>
+///  number of loops (from -1 to INT_MAX) (default 0)
+/// </summary>
+public int loop { get; set; }
+/// <summary>
+///  max number of frames to loop (from 0 to 32767) (default 0)
+/// </summary>
+public long size { get; set; }
+/// <summary>
+///  set the loop start frame (from 0 to I64_MAX) (default 0)
+/// </summary>
+public long start { get; set; }
 }
 }

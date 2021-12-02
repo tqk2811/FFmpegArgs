@@ -25,11 +25,11 @@ public WaveformFilterGen intensity(float intensity) => this.SetOptionRange("inte
 /// <summary>
 ///  set mirroring (default true)
 /// </summary>
-public WaveformFilterGen mirror(bool flag) => this.SetOption("mirror",flag.ToFFmpegFlag());
+public WaveformFilterGen mirror(bool mirror) => this.SetOption("mirror",mirror.ToFFmpegFlag());
 /// <summary>
 ///  set mirroring (default true)
 /// </summary>
-public WaveformFilterGen r(bool flag) => this.SetOption("r",flag.ToFFmpegFlag());
+public WaveformFilterGen r(bool r) => this.SetOption("r",r.ToFFmpegFlag());
 /// <summary>
 ///  set display mode (from 0 to 2) (default stack)
 /// </summary>
@@ -89,6 +89,102 @@ public static class WaveformFilterGenExtensions
 /// Video waveform monitor.
 /// </summary>
 public static WaveformFilterGen WaveformFilterGen(this ImageMap input0) => new WaveformFilterGen(input0);
+/// <summary>
+/// Video waveform monitor.
+/// </summary>
+public static WaveformFilterGen WaveformFilterGen(this ImageMap input0,WaveformFilterGenConfig config)
+{
+var result = new WaveformFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.intensity != null) result.intensity(config.intensity);
+if(config?.mirror != null) result.mirror(config.mirror);
+if(config?.r != null) result.r(config.r);
+if(config?.display != null) result.display(config.display);
+if(config?.components != null) result.components(config.components);
+if(config?.envelope != null) result.envelope(config.envelope);
+if(config?.filter != null) result.filter(config.filter);
+if(config?.graticule != null) result.graticule(config.graticule);
+if(config?.opacity != null) result.opacity(config.opacity);
+if(config?.flags != null) result.flags(config.flags);
+if(config?.scale != null) result.scale(config.scale);
+if(config?.bgopacity != null) result.bgopacity(config.bgopacity);
+if(config?.tint0 != null) result.tint0(config.tint0);
+if(config?.t0 != null) result.t0(config.t0);
+if(config?.tint1 != null) result.tint1(config.tint1);
+if(config?.t1 != null) result.t1(config.t1);
+return result;
+}
+}
+public class WaveformFilterGenConfig
+{
+/// <summary>
+///  set mode (from 0 to 1) (default column)
+/// </summary>
+public WaveformFilterGenMode mode { get; set; }
+/// <summary>
+///  set intensity (from 0 to 1) (default 0.04)
+/// </summary>
+public float intensity { get; set; }
+/// <summary>
+///  set mirroring (default true)
+/// </summary>
+public bool mirror { get; set; }
+/// <summary>
+///  set mirroring (default true)
+/// </summary>
+public bool r { get; set; }
+/// <summary>
+///  set display mode (from 0 to 2) (default stack)
+/// </summary>
+public WaveformFilterGenDisplay display { get; set; }
+/// <summary>
+///  set components to display (from 1 to 15) (default 1)
+/// </summary>
+public int components { get; set; }
+/// <summary>
+///  set envelope to display (from 0 to 3) (default none)
+/// </summary>
+public WaveformFilterGenEnvelope envelope { get; set; }
+/// <summary>
+///  set filter (from 0 to 7) (default lowpass)
+/// </summary>
+public WaveformFilterGenFilter filter { get; set; }
+/// <summary>
+///  set graticule (from 0 to 3) (default none)
+/// </summary>
+public WaveformFilterGenGraticule graticule { get; set; }
+/// <summary>
+///  set graticule opacity (from 0 to 1) (default 0.75)
+/// </summary>
+public float opacity { get; set; }
+/// <summary>
+///  set graticule flags (default numbers)
+/// </summary>
+public WaveformFilterGenFlags flags { get; set; }
+/// <summary>
+///  set scale (from 0 to 2) (default digital)
+/// </summary>
+public WaveformFilterGenScale scale { get; set; }
+/// <summary>
+///  set background opacity (from 0 to 1) (default 0.75)
+/// </summary>
+public float bgopacity { get; set; }
+/// <summary>
+///  set 1st tint (from -1 to 1) (default 0)
+/// </summary>
+public float tint0 { get; set; }
+/// <summary>
+///  set 1st tint (from -1 to 1) (default 0)
+/// </summary>
+public float t0 { get; set; }
+/// <summary>
+///  set 2nd tint (from -1 to 1) (default 0)
+/// </summary>
+public float tint1 { get; set; }
+/// <summary>
+///  set 2nd tint (from -1 to 1) (default 0)
+/// </summary>
+public float t1 { get; set; }
 }
 public enum WaveformFilterGenMode
 {

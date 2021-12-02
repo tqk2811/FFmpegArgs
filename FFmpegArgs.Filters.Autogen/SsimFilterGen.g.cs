@@ -29,5 +29,26 @@ public static class SsimFilterGenExtensions
 /// Calculate the SSIM between two video streams.
 /// </summary>
 public static SsimFilterGen SsimFilterGen(this ImageMap input0, ImageMap input1) => new SsimFilterGen(input0, input1);
+/// <summary>
+/// Calculate the SSIM between two video streams.
+/// </summary>
+public static SsimFilterGen SsimFilterGen(this ImageMap input0, ImageMap input1,SsimFilterGenConfig config)
+{
+var result = new SsimFilterGen(input0, input1);
+if(config?.stats_file != null) result.stats_file(config.stats_file);
+if(config?.f != null) result.f(config.f);
+return result;
+}
+}
+public class SsimFilterGenConfig
+{
+/// <summary>
+///  Set file where to store per-frame difference information
+/// </summary>
+public string stats_file { get; set; }
+/// <summary>
+///  Set file where to store per-frame difference information
+/// </summary>
+public string f { get; set; }
 }
 }

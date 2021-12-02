@@ -25,5 +25,21 @@ public static class AsetptsFilterGenExtensions
 /// Set PTS for the output audio frame.
 /// </summary>
 public static AsetptsFilterGen AsetptsFilterGen(this AudioMap input0) => new AsetptsFilterGen(input0);
+/// <summary>
+/// Set PTS for the output audio frame.
+/// </summary>
+public static AsetptsFilterGen AsetptsFilterGen(this AudioMap input0,AsetptsFilterGenConfig config)
+{
+var result = new AsetptsFilterGen(input0);
+if(config?.expr != null) result.expr(config.expr);
+return result;
+}
+}
+public class AsetptsFilterGenConfig
+{
+/// <summary>
+///  Expression determining the frame timestamp (default "PTS")
+/// </summary>
+public string expr { get; set; }
 }
 }

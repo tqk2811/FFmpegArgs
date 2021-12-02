@@ -29,27 +29,27 @@ public IlFilterGen alpha_mode(IlFilterGenAlpha_mode alpha_mode) => this.SetOptio
 /// <summary>
 ///  swap luma fields (default false)
 /// </summary>
-public IlFilterGen luma_swap(bool flag) => this.SetOption("luma_swap",flag.ToFFmpegFlag());
+public IlFilterGen luma_swap(bool luma_swap) => this.SetOption("luma_swap",luma_swap.ToFFmpegFlag());
 /// <summary>
 ///  swap luma fields (default false)
 /// </summary>
-public IlFilterGen ls(bool flag) => this.SetOption("ls",flag.ToFFmpegFlag());
+public IlFilterGen ls(bool ls) => this.SetOption("ls",ls.ToFFmpegFlag());
 /// <summary>
 ///  swap chroma fields (default false)
 /// </summary>
-public IlFilterGen chroma_swap(bool flag) => this.SetOption("chroma_swap",flag.ToFFmpegFlag());
+public IlFilterGen chroma_swap(bool chroma_swap) => this.SetOption("chroma_swap",chroma_swap.ToFFmpegFlag());
 /// <summary>
 ///  swap chroma fields (default false)
 /// </summary>
-public IlFilterGen cs(bool flag) => this.SetOption("cs",flag.ToFFmpegFlag());
+public IlFilterGen cs(bool cs) => this.SetOption("cs",cs.ToFFmpegFlag());
 /// <summary>
 ///  swap alpha fields (default false)
 /// </summary>
-public IlFilterGen alpha_swap(bool flag) => this.SetOption("alpha_swap",flag.ToFFmpegFlag());
+public IlFilterGen alpha_swap(bool alpha_swap) => this.SetOption("alpha_swap",alpha_swap.ToFFmpegFlag());
 /// <summary>
 ///  swap alpha fields (default false)
 /// </summary>
-public IlFilterGen _as(bool flag) => this.SetOption("as",flag.ToFFmpegFlag());
+public IlFilterGen _as(bool _as) => this.SetOption("as",_as.ToFFmpegFlag());
 }
 public static class IlFilterGenExtensions
 {
@@ -57,6 +57,62 @@ public static class IlFilterGenExtensions
 /// Deinterleave or interleave fields.
 /// </summary>
 public static IlFilterGen IlFilterGen(this ImageMap input0) => new IlFilterGen(input0);
+/// <summary>
+/// Deinterleave or interleave fields.
+/// </summary>
+public static IlFilterGen IlFilterGen(this ImageMap input0,IlFilterGenConfig config)
+{
+var result = new IlFilterGen(input0);
+if(config?.luma_mode != null) result.luma_mode(config.luma_mode);
+if(config?.chroma_mode != null) result.chroma_mode(config.chroma_mode);
+if(config?.alpha_mode != null) result.alpha_mode(config.alpha_mode);
+if(config?.luma_swap != null) result.luma_swap(config.luma_swap);
+if(config?.ls != null) result.ls(config.ls);
+if(config?.chroma_swap != null) result.chroma_swap(config.chroma_swap);
+if(config?.cs != null) result.cs(config.cs);
+if(config?.alpha_swap != null) result.alpha_swap(config.alpha_swap);
+if(config?._as != null) result._as(config._as);
+return result;
+}
+}
+public class IlFilterGenConfig
+{
+/// <summary>
+///  select luma mode (from 0 to 2) (default none)
+/// </summary>
+public IlFilterGenLuma_mode luma_mode { get; set; }
+/// <summary>
+///  select chroma mode (from 0 to 2) (default none)
+/// </summary>
+public IlFilterGenChroma_mode chroma_mode { get; set; }
+/// <summary>
+///  select alpha mode (from 0 to 2) (default none)
+/// </summary>
+public IlFilterGenAlpha_mode alpha_mode { get; set; }
+/// <summary>
+///  swap luma fields (default false)
+/// </summary>
+public bool luma_swap { get; set; }
+/// <summary>
+///  swap luma fields (default false)
+/// </summary>
+public bool ls { get; set; }
+/// <summary>
+///  swap chroma fields (default false)
+/// </summary>
+public bool chroma_swap { get; set; }
+/// <summary>
+///  swap chroma fields (default false)
+/// </summary>
+public bool cs { get; set; }
+/// <summary>
+///  swap alpha fields (default false)
+/// </summary>
+public bool alpha_swap { get; set; }
+/// <summary>
+///  swap alpha fields (default false)
+/// </summary>
+public bool _as { get; set; }
 }
 public enum IlFilterGenLuma_mode
 {

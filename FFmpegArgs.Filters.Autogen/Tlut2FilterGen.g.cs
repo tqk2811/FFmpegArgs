@@ -37,5 +37,36 @@ public static class Tlut2FilterGenExtensions
 /// Compute and apply a lookup table from two successive frames.
 /// </summary>
 public static Tlut2FilterGen Tlut2FilterGen(this ImageMap input0) => new Tlut2FilterGen(input0);
+/// <summary>
+/// Compute and apply a lookup table from two successive frames.
+/// </summary>
+public static Tlut2FilterGen Tlut2FilterGen(this ImageMap input0,Tlut2FilterGenConfig config)
+{
+var result = new Tlut2FilterGen(input0);
+if(config?.c0 != null) result.c0(config.c0);
+if(config?.c1 != null) result.c1(config.c1);
+if(config?.c2 != null) result.c2(config.c2);
+if(config?.c3 != null) result.c3(config.c3);
+return result;
+}
+}
+public class Tlut2FilterGenConfig
+{
+/// <summary>
+///  set component #0 expression (default "x")
+/// </summary>
+public string c0 { get; set; }
+/// <summary>
+///  set component #1 expression (default "x")
+/// </summary>
+public string c1 { get; set; }
+/// <summary>
+///  set component #2 expression (default "x")
+/// </summary>
+public string c2 { get; set; }
+/// <summary>
+///  set component #3 expression (default "x")
+/// </summary>
+public string c3 { get; set; }
 }
 }

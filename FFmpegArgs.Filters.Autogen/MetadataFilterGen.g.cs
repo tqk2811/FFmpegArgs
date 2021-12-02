@@ -41,7 +41,7 @@ public MetadataFilterGen file(string file) => this.SetOption("file",file);
 /// <summary>
 ///  reduce buffering when printing to user-set file or pipe (default false)
 /// </summary>
-public MetadataFilterGen direct(bool flag) => this.SetOption("direct",flag.ToFFmpegFlag());
+public MetadataFilterGen direct(bool direct) => this.SetOption("direct",direct.ToFFmpegFlag());
 }
 public static class MetadataFilterGenExtensions
 {
@@ -49,6 +49,52 @@ public static class MetadataFilterGenExtensions
 /// Manipulate video frame metadata.
 /// </summary>
 public static MetadataFilterGen MetadataFilterGen(this ImageMap input0) => new MetadataFilterGen(input0);
+/// <summary>
+/// Manipulate video frame metadata.
+/// </summary>
+public static MetadataFilterGen MetadataFilterGen(this ImageMap input0,MetadataFilterGenConfig config)
+{
+var result = new MetadataFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.key != null) result.key(config.key);
+if(config?.value != null) result.value(config.value);
+if(config?.function != null) result.function(config.function);
+if(config?.expr != null) result.expr(config.expr);
+if(config?.file != null) result.file(config.file);
+if(config?.direct != null) result.direct(config.direct);
+return result;
+}
+}
+public class MetadataFilterGenConfig
+{
+/// <summary>
+///  set a mode of operation (from 0 to 4) (default select)
+/// </summary>
+public MetadataFilterGenMode mode { get; set; }
+/// <summary>
+///  set metadata key
+/// </summary>
+public string key { get; set; }
+/// <summary>
+///  set metadata value
+/// </summary>
+public string value { get; set; }
+/// <summary>
+///  function for comparing values (from 0 to 6) (default same_str)
+/// </summary>
+public MetadataFilterGenFunction function { get; set; }
+/// <summary>
+///  set expression for expr function
+/// </summary>
+public string expr { get; set; }
+/// <summary>
+///  set file where to print metadata information
+/// </summary>
+public string file { get; set; }
+/// <summary>
+///  reduce buffering when printing to user-set file or pipe (default false)
+/// </summary>
+public bool direct { get; set; }
 }
 public enum MetadataFilterGenMode
 {

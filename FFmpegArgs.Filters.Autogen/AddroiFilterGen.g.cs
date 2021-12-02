@@ -37,7 +37,7 @@ public AddroiFilterGen qoffset(Rational qoffset) => this.SetOption("qoffset",qof
 /// <summary>
 ///  Remove any existing regions of interest before adding the new one. (default false)
 /// </summary>
-public AddroiFilterGen clear(bool flag) => this.SetOption("clear",flag.ToFFmpegFlag());
+public AddroiFilterGen clear(bool clear) => this.SetOption("clear",clear.ToFFmpegFlag());
 }
 public static class AddroiFilterGenExtensions
 {
@@ -45,5 +45,46 @@ public static class AddroiFilterGenExtensions
 /// Add region of interest to frame.
 /// </summary>
 public static AddroiFilterGen AddroiFilterGen(this ImageMap input0) => new AddroiFilterGen(input0);
+/// <summary>
+/// Add region of interest to frame.
+/// </summary>
+public static AddroiFilterGen AddroiFilterGen(this ImageMap input0,AddroiFilterGenConfig config)
+{
+var result = new AddroiFilterGen(input0);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.w != null) result.w(config.w);
+if(config?.h != null) result.h(config.h);
+if(config?.qoffset != null) result.qoffset(config.qoffset);
+if(config?.clear != null) result.clear(config.clear);
+return result;
+}
+}
+public class AddroiFilterGenConfig
+{
+/// <summary>
+///  Region distance from left edge of frame. (default "0")
+/// </summary>
+public string x { get; set; }
+/// <summary>
+///  Region distance from top edge of frame. (default "0")
+/// </summary>
+public string y { get; set; }
+/// <summary>
+///  Region width. (default "0")
+/// </summary>
+public string w { get; set; }
+/// <summary>
+///  Region height. (default "0")
+/// </summary>
+public string h { get; set; }
+/// <summary>
+///  Quantisation offset to apply in the region. (from -1 to 1) (default -1/10)
+/// </summary>
+public Rational qoffset { get; set; }
+/// <summary>
+///  Remove any existing regions of interest before adding the new one. (default false)
+/// </summary>
+public bool clear { get; set; }
 }
 }

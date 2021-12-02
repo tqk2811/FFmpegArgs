@@ -45,7 +45,7 @@ public RotateFilterGen c(string c) => this.SetOption("c",c);
 /// <summary>
 ///  use bilinear interpolation (default true)
 /// </summary>
-public RotateFilterGen bilinear(bool flag) => this.SetOption("bilinear",flag.ToFFmpegFlag());
+public RotateFilterGen bilinear(bool bilinear) => this.SetOption("bilinear",bilinear.ToFFmpegFlag());
 }
 public static class RotateFilterGenExtensions
 {
@@ -53,5 +53,56 @@ public static class RotateFilterGenExtensions
 /// Rotate the input image.
 /// </summary>
 public static RotateFilterGen RotateFilterGen(this ImageMap input0) => new RotateFilterGen(input0);
+/// <summary>
+/// Rotate the input image.
+/// </summary>
+public static RotateFilterGen RotateFilterGen(this ImageMap input0,RotateFilterGenConfig config)
+{
+var result = new RotateFilterGen(input0);
+if(config?.angle != null) result.angle(config.angle);
+if(config?.out_w != null) result.out_w(config.out_w);
+if(config?.ow != null) result.ow(config.ow);
+if(config?.out_h != null) result.out_h(config.out_h);
+if(config?.oh != null) result.oh(config.oh);
+if(config?.fillcolor != null) result.fillcolor(config.fillcolor);
+if(config?.c != null) result.c(config.c);
+if(config?.bilinear != null) result.bilinear(config.bilinear);
+return result;
+}
+}
+public class RotateFilterGenConfig
+{
+/// <summary>
+///  set angle (in radians) (default "0")
+/// </summary>
+public string angle { get; set; }
+/// <summary>
+///  set output width expression (default "iw")
+/// </summary>
+public string out_w { get; set; }
+/// <summary>
+///  set output width expression (default "iw")
+/// </summary>
+public string ow { get; set; }
+/// <summary>
+///  set output height expression (default "ih")
+/// </summary>
+public string out_h { get; set; }
+/// <summary>
+///  set output height expression (default "ih")
+/// </summary>
+public string oh { get; set; }
+/// <summary>
+///  set background fill color (default "black")
+/// </summary>
+public string fillcolor { get; set; }
+/// <summary>
+///  set background fill color (default "black")
+/// </summary>
+public string c { get; set; }
+/// <summary>
+///  use bilinear interpolation (default true)
+/// </summary>
+public bool bilinear { get; set; }
 }
 }

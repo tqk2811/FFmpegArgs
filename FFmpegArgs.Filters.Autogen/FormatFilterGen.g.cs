@@ -25,5 +25,21 @@ public static class FormatFilterGenExtensions
 /// Convert the input video to one of the specified pixel formats.
 /// </summary>
 public static FormatFilterGen FormatFilterGen(this ImageMap input0) => new FormatFilterGen(input0);
+/// <summary>
+/// Convert the input video to one of the specified pixel formats.
+/// </summary>
+public static FormatFilterGen FormatFilterGen(this ImageMap input0,FormatFilterGenConfig config)
+{
+var result = new FormatFilterGen(input0);
+if(config?.pix_fmts != null) result.pix_fmts(config.pix_fmts);
+return result;
+}
+}
+public class FormatFilterGenConfig
+{
+/// <summary>
+///  A '|'-separated list of pixel formats
+/// </summary>
+public string pix_fmts { get; set; }
 }
 }

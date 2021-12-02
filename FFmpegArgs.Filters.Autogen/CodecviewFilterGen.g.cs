@@ -21,7 +21,7 @@ public CodecviewFilterGen mv(CodecviewFilterGenMv mv) => this.SetOption("mv", mv
 /// <summary>
 ///  (default false)
 /// </summary>
-public CodecviewFilterGen qp(bool flag) => this.SetOption("qp",flag.ToFFmpegFlag());
+public CodecviewFilterGen qp(bool qp) => this.SetOption("qp",qp.ToFFmpegFlag());
 /// <summary>
 ///  set motion vectors type (default 0)
 /// </summary>
@@ -45,6 +45,47 @@ public static class CodecviewFilterGenExtensions
 /// Visualize information about some codecs.
 /// </summary>
 public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input0) => new CodecviewFilterGen(input0);
+/// <summary>
+/// Visualize information about some codecs.
+/// </summary>
+public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input0,CodecviewFilterGenConfig config)
+{
+var result = new CodecviewFilterGen(input0);
+if(config?.mv != null) result.mv(config.mv);
+if(config?.qp != null) result.qp(config.qp);
+if(config?.mv_type != null) result.mv_type(config.mv_type);
+if(config?.mvt != null) result.mvt(config.mvt);
+if(config?.frame_type != null) result.frame_type(config.frame_type);
+if(config?.ft != null) result.ft(config.ft);
+return result;
+}
+}
+public class CodecviewFilterGenConfig
+{
+/// <summary>
+///  set motion vectors to visualize (default 0)
+/// </summary>
+public CodecviewFilterGenMv mv { get; set; }
+/// <summary>
+///  (default false)
+/// </summary>
+public bool qp { get; set; }
+/// <summary>
+///  set motion vectors type (default 0)
+/// </summary>
+public CodecviewFilterGenMv_type mv_type { get; set; }
+/// <summary>
+///  set motion vectors type (default 0)
+/// </summary>
+public CodecviewFilterGenMvt mvt { get; set; }
+/// <summary>
+///  set frame types to visualize motion vectors of (default 0)
+/// </summary>
+public CodecviewFilterGenFrame_type frame_type { get; set; }
+/// <summary>
+///  set frame types to visualize motion vectors of (default 0)
+/// </summary>
+public CodecviewFilterGenFt ft { get; set; }
 }
 public enum CodecviewFilterGenMv
 {

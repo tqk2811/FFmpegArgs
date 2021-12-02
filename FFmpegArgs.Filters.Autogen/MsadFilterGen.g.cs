@@ -21,5 +21,16 @@ public static class MsadFilterGenExtensions
 /// Calculate the MSAD between two video streams.
 /// </summary>
 public static MsadFilterGen MsadFilterGen(this ImageMap input0, ImageMap input1) => new MsadFilterGen(input0, input1);
+/// <summary>
+/// Calculate the MSAD between two video streams.
+/// </summary>
+public static MsadFilterGen MsadFilterGen(this ImageMap input0, ImageMap input1,MsadFilterGenConfig config)
+{
+var result = new MsadFilterGen(input0, input1);
+return result;
+}
+}
+public class MsadFilterGenConfig
+{
 }
 }

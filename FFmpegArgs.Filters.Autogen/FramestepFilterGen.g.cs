@@ -25,5 +25,21 @@ public static class FramestepFilterGenExtensions
 /// Select one frame every N frames.
 /// </summary>
 public static FramestepFilterGen FramestepFilterGen(this ImageMap input0) => new FramestepFilterGen(input0);
+/// <summary>
+/// Select one frame every N frames.
+/// </summary>
+public static FramestepFilterGen FramestepFilterGen(this ImageMap input0,FramestepFilterGenConfig config)
+{
+var result = new FramestepFilterGen(input0);
+if(config?.step != null) result.step(config.step);
+return result;
+}
+}
+public class FramestepFilterGenConfig
+{
+/// <summary>
+///  set frame step (from 1 to INT_MAX) (default 1)
+/// </summary>
+public int step { get; set; }
 }
 }

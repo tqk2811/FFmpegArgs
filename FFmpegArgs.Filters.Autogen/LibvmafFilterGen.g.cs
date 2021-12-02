@@ -29,23 +29,23 @@ public LibvmafFilterGen log_fmt(string log_fmt) => this.SetOption("log_fmt",log_
 /// <summary>
 ///  Enables transform for computing vmaf. (default false)
 /// </summary>
-public LibvmafFilterGen enable_transform(bool flag) => this.SetOption("enable_transform",flag.ToFFmpegFlag());
+public LibvmafFilterGen enable_transform(bool enable_transform) => this.SetOption("enable_transform",enable_transform.ToFFmpegFlag());
 /// <summary>
 ///  Invokes the phone model that will generate higher VMAF scores. (default false)
 /// </summary>
-public LibvmafFilterGen phone_model(bool flag) => this.SetOption("phone_model",flag.ToFFmpegFlag());
+public LibvmafFilterGen phone_model(bool phone_model) => this.SetOption("phone_model",phone_model.ToFFmpegFlag());
 /// <summary>
 ///  Enables computing psnr along with vmaf. (default false)
 /// </summary>
-public LibvmafFilterGen psnr(bool flag) => this.SetOption("psnr",flag.ToFFmpegFlag());
+public LibvmafFilterGen psnr(bool psnr) => this.SetOption("psnr",psnr.ToFFmpegFlag());
 /// <summary>
 ///  Enables computing ssim along with vmaf. (default false)
 /// </summary>
-public LibvmafFilterGen ssim(bool flag) => this.SetOption("ssim",flag.ToFFmpegFlag());
+public LibvmafFilterGen ssim(bool ssim) => this.SetOption("ssim",ssim.ToFFmpegFlag());
 /// <summary>
 ///  Enables computing ms-ssim along with vmaf. (default false)
 /// </summary>
-public LibvmafFilterGen ms_ssim(bool flag) => this.SetOption("ms_ssim",flag.ToFFmpegFlag());
+public LibvmafFilterGen ms_ssim(bool ms_ssim) => this.SetOption("ms_ssim",ms_ssim.ToFFmpegFlag());
 /// <summary>
 ///  Set the pool method to be used for computing vmaf.
 /// </summary>
@@ -61,7 +61,7 @@ public LibvmafFilterGen n_subsample(int n_subsample) => this.SetOptionRange("n_s
 /// <summary>
 ///  Enables confidence interval. (default false)
 /// </summary>
-public LibvmafFilterGen enable_conf_interval(bool flag) => this.SetOption("enable_conf_interval",flag.ToFFmpegFlag());
+public LibvmafFilterGen enable_conf_interval(bool enable_conf_interval) => this.SetOption("enable_conf_interval",enable_conf_interval.ToFFmpegFlag());
 }
 public static class LibvmafFilterGenExtensions
 {
@@ -69,5 +69,76 @@ public static class LibvmafFilterGenExtensions
 /// Calculate the VMAF between two video streams.
 /// </summary>
 public static LibvmafFilterGen LibvmafFilterGen(this ImageMap input0, ImageMap input1) => new LibvmafFilterGen(input0, input1);
+/// <summary>
+/// Calculate the VMAF between two video streams.
+/// </summary>
+public static LibvmafFilterGen LibvmafFilterGen(this ImageMap input0, ImageMap input1,LibvmafFilterGenConfig config)
+{
+var result = new LibvmafFilterGen(input0, input1);
+if(config?.model_path != null) result.model_path(config.model_path);
+if(config?.log_path != null) result.log_path(config.log_path);
+if(config?.log_fmt != null) result.log_fmt(config.log_fmt);
+if(config?.enable_transform != null) result.enable_transform(config.enable_transform);
+if(config?.phone_model != null) result.phone_model(config.phone_model);
+if(config?.psnr != null) result.psnr(config.psnr);
+if(config?.ssim != null) result.ssim(config.ssim);
+if(config?.ms_ssim != null) result.ms_ssim(config.ms_ssim);
+if(config?.pool != null) result.pool(config.pool);
+if(config?.n_threads != null) result.n_threads(config.n_threads);
+if(config?.n_subsample != null) result.n_subsample(config.n_subsample);
+if(config?.enable_conf_interval != null) result.enable_conf_interval(config.enable_conf_interval);
+return result;
+}
+}
+public class LibvmafFilterGenConfig
+{
+/// <summary>
+///  Set the model to be used for computing vmaf. (default "/usr/local/share/model/vmaf_v0.6.1.pkl")
+/// </summary>
+public string model_path { get; set; }
+/// <summary>
+///  Set the file path to be used to store logs.
+/// </summary>
+public string log_path { get; set; }
+/// <summary>
+///  Set the format of the log (csv, json or xml).
+/// </summary>
+public string log_fmt { get; set; }
+/// <summary>
+///  Enables transform for computing vmaf. (default false)
+/// </summary>
+public bool enable_transform { get; set; }
+/// <summary>
+///  Invokes the phone model that will generate higher VMAF scores. (default false)
+/// </summary>
+public bool phone_model { get; set; }
+/// <summary>
+///  Enables computing psnr along with vmaf. (default false)
+/// </summary>
+public bool psnr { get; set; }
+/// <summary>
+///  Enables computing ssim along with vmaf. (default false)
+/// </summary>
+public bool ssim { get; set; }
+/// <summary>
+///  Enables computing ms-ssim along with vmaf. (default false)
+/// </summary>
+public bool ms_ssim { get; set; }
+/// <summary>
+///  Set the pool method to be used for computing vmaf.
+/// </summary>
+public string pool { get; set; }
+/// <summary>
+///  Set number of threads to be used when computing vmaf. (from 0 to UINT32_MAX) (default 0)
+/// </summary>
+public int n_threads { get; set; }
+/// <summary>
+///  Set interval for frame subsampling used when computing vmaf. (from 1 to UINT32_MAX) (default 1)
+/// </summary>
+public int n_subsample { get; set; }
+/// <summary>
+///  Enables confidence interval. (default false)
+/// </summary>
+public bool enable_conf_interval { get; set; }
 }
 }

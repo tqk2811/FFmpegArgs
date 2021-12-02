@@ -25,6 +25,22 @@ public static class BenchFilterGenExtensions
 /// Benchmark part of a filtergraph.
 /// </summary>
 public static BenchFilterGen BenchFilterGen(this ImageMap input0) => new BenchFilterGen(input0);
+/// <summary>
+/// Benchmark part of a filtergraph.
+/// </summary>
+public static BenchFilterGen BenchFilterGen(this ImageMap input0,BenchFilterGenConfig config)
+{
+var result = new BenchFilterGen(input0);
+if(config?.action != null) result.action(config.action);
+return result;
+}
+}
+public class BenchFilterGenConfig
+{
+/// <summary>
+///  set action (from 0 to 1) (default start)
+/// </summary>
+public BenchFilterGenAction action { get; set; }
 }
 public enum BenchFilterGenAction
 {

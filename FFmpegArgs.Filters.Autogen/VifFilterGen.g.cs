@@ -21,5 +21,16 @@ public static class VifFilterGenExtensions
 /// Calculate the VIF between two video streams.
 /// </summary>
 public static VifFilterGen VifFilterGen(this ImageMap input0, ImageMap input1) => new VifFilterGen(input0, input1);
+/// <summary>
+/// Calculate the VIF between two video streams.
+/// </summary>
+public static VifFilterGen VifFilterGen(this ImageMap input0, ImageMap input1,VifFilterGenConfig config)
+{
+var result = new VifFilterGen(input0, input1);
+return result;
+}
+}
+public class VifFilterGenConfig
+{
 }
 }

@@ -33,7 +33,7 @@ public BandpassFilterGen width(double width) => this.SetOptionRange("width", wid
 /// <summary>
 ///  use constant skirt gain (default false)
 /// </summary>
-public BandpassFilterGen csg(bool flag) => this.SetOption("csg",flag.ToFFmpegFlag());
+public BandpassFilterGen csg(bool csg) => this.SetOption("csg",csg.ToFFmpegFlag());
 /// <summary>
 ///  set mix (from 0 to 1) (default 1)
 /// </summary>
@@ -45,7 +45,7 @@ public BandpassFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("chan
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
-public BandpassFilterGen normalize(bool flag) => this.SetOption("normalize",flag.ToFFmpegFlag());
+public BandpassFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
@@ -69,6 +69,77 @@ public static class BandpassFilterGenExtensions
 /// Apply a two-pole Butterworth band-pass filter.
 /// </summary>
 public static BandpassFilterGen BandpassFilterGen(this AudioMap input0) => new BandpassFilterGen(input0);
+/// <summary>
+/// Apply a two-pole Butterworth band-pass filter.
+/// </summary>
+public static BandpassFilterGen BandpassFilterGen(this AudioMap input0,BandpassFilterGenConfig config)
+{
+var result = new BandpassFilterGen(input0);
+if(config?.frequency != null) result.frequency(config.frequency);
+if(config?.width_type != null) result.width_type(config.width_type);
+if(config?.t != null) result.t(config.t);
+if(config?.width != null) result.width(config.width);
+if(config?.csg != null) result.csg(config.csg);
+if(config?.mix != null) result.mix(config.mix);
+if(config?.channels != null) result.channels(config.channels);
+if(config?.normalize != null) result.normalize(config.normalize);
+if(config?.transform != null) result.transform(config.transform);
+if(config?.a != null) result.a(config.a);
+if(config?.precision != null) result.precision(config.precision);
+if(config?.r != null) result.r(config.r);
+return result;
+}
+}
+public class BandpassFilterGenConfig
+{
+/// <summary>
+///  set central frequency (from 0 to 999999) (default 3000)
+/// </summary>
+public double frequency { get; set; }
+/// <summary>
+///  set filter-width type (from 1 to 5) (default q)
+/// </summary>
+public BandpassFilterGenWidth_type width_type { get; set; }
+/// <summary>
+///  set filter-width type (from 1 to 5) (default q)
+/// </summary>
+public BandpassFilterGenT t { get; set; }
+/// <summary>
+///  set band-width (from 0 to 99999) (default 0.5)
+/// </summary>
+public double width { get; set; }
+/// <summary>
+///  use constant skirt gain (default false)
+/// </summary>
+public bool csg { get; set; }
+/// <summary>
+///  set mix (from 0 to 1) (default 1)
+/// </summary>
+public double mix { get; set; }
+/// <summary>
+///  set channels to filter (default 0xffffffffffffffff)
+/// </summary>
+public AV_CH_LAYOUT channels { get; set; }
+/// <summary>
+///  normalize coefficients (default false)
+/// </summary>
+public bool normalize { get; set; }
+/// <summary>
+///  set transform type (from 0 to 3) (default di)
+/// </summary>
+public BandpassFilterGenTransform transform { get; set; }
+/// <summary>
+///  set transform type (from 0 to 3) (default di)
+/// </summary>
+public BandpassFilterGenA a { get; set; }
+/// <summary>
+///  set filtering precision (from -1 to 3) (default auto)
+/// </summary>
+public BandpassFilterGenPrecision precision { get; set; }
+/// <summary>
+///  set filtering precision (from -1 to 3) (default auto)
+/// </summary>
+public BandpassFilterGenR r { get; set; }
 }
 public enum BandpassFilterGenWidth_type
 {

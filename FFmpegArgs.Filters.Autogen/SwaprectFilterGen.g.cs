@@ -45,5 +45,46 @@ public static class SwaprectFilterGenExtensions
 /// Swap 2 rectangular objects in video.
 /// </summary>
 public static SwaprectFilterGen SwaprectFilterGen(this ImageMap input0) => new SwaprectFilterGen(input0);
+/// <summary>
+/// Swap 2 rectangular objects in video.
+/// </summary>
+public static SwaprectFilterGen SwaprectFilterGen(this ImageMap input0,SwaprectFilterGenConfig config)
+{
+var result = new SwaprectFilterGen(input0);
+if(config?.w != null) result.w(config.w);
+if(config?.h != null) result.h(config.h);
+if(config?.x1 != null) result.x1(config.x1);
+if(config?.y1 != null) result.y1(config.y1);
+if(config?.x2 != null) result.x2(config.x2);
+if(config?.y2 != null) result.y2(config.y2);
+return result;
+}
+}
+public class SwaprectFilterGenConfig
+{
+/// <summary>
+///  set rect width (default "w/2")
+/// </summary>
+public string w { get; set; }
+/// <summary>
+///  set rect height (default "h/2")
+/// </summary>
+public string h { get; set; }
+/// <summary>
+///  set 1st rect x top left coordinate (default "w/2")
+/// </summary>
+public string x1 { get; set; }
+/// <summary>
+///  set 1st rect y top left coordinate (default "h/2")
+/// </summary>
+public string y1 { get; set; }
+/// <summary>
+///  set 2nd rect x top left coordinate (default "0")
+/// </summary>
+public string x2 { get; set; }
+/// <summary>
+///  set 2nd rect y top left coordinate (default "0")
+/// </summary>
+public string y2 { get; set; }
 }
 }

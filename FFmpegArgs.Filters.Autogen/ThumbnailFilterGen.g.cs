@@ -25,5 +25,21 @@ public static class ThumbnailFilterGenExtensions
 /// Select the most representative frame in a given sequence of consecutive frames.
 /// </summary>
 public static ThumbnailFilterGen ThumbnailFilterGen(this ImageMap input0) => new ThumbnailFilterGen(input0);
+/// <summary>
+/// Select the most representative frame in a given sequence of consecutive frames.
+/// </summary>
+public static ThumbnailFilterGen ThumbnailFilterGen(this ImageMap input0,ThumbnailFilterGenConfig config)
+{
+var result = new ThumbnailFilterGen(input0);
+if(config?.n != null) result.n(config.n);
+return result;
+}
+}
+public class ThumbnailFilterGenConfig
+{
+/// <summary>
+///  set the frames batch size (from 2 to INT_MAX) (default 100)
+/// </summary>
+public int n { get; set; }
 }
 }

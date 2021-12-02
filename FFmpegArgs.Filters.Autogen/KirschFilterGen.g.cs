@@ -33,5 +33,31 @@ public static class KirschFilterGenExtensions
 /// Apply kirsch operator.
 /// </summary>
 public static KirschFilterGen KirschFilterGen(this ImageMap input0) => new KirschFilterGen(input0);
+/// <summary>
+/// Apply kirsch operator.
+/// </summary>
+public static KirschFilterGen KirschFilterGen(this ImageMap input0,KirschFilterGenConfig config)
+{
+var result = new KirschFilterGen(input0);
+if(config?.planes != null) result.planes(config.planes);
+if(config?.scale != null) result.scale(config.scale);
+if(config?.delta != null) result.delta(config.delta);
+return result;
+}
+}
+public class KirschFilterGenConfig
+{
+/// <summary>
+///  set planes to filter (from 0 to 15) (default 15)
+/// </summary>
+public int planes { get; set; }
+/// <summary>
+///  set scale (from 0 to 65535) (default 1)
+/// </summary>
+public float scale { get; set; }
+/// <summary>
+///  set delta (from -65535 to 65535) (default 0)
+/// </summary>
+public float delta { get; set; }
 }
 }

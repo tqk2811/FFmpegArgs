@@ -37,6 +37,37 @@ public static class EdgedetectFilterGenExtensions
 /// Detect and draw edge.
 /// </summary>
 public static EdgedetectFilterGen EdgedetectFilterGen(this ImageMap input0) => new EdgedetectFilterGen(input0);
+/// <summary>
+/// Detect and draw edge.
+/// </summary>
+public static EdgedetectFilterGen EdgedetectFilterGen(this ImageMap input0,EdgedetectFilterGenConfig config)
+{
+var result = new EdgedetectFilterGen(input0);
+if(config?.high != null) result.high(config.high);
+if(config?.low != null) result.low(config.low);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.planes != null) result.planes(config.planes);
+return result;
+}
+}
+public class EdgedetectFilterGenConfig
+{
+/// <summary>
+///  set high threshold (from 0 to 1) (default 0.196078)
+/// </summary>
+public double high { get; set; }
+/// <summary>
+///  set low threshold (from 0 to 1) (default 0.0784314)
+/// </summary>
+public double low { get; set; }
+/// <summary>
+///  set mode (from 0 to 2) (default wires)
+/// </summary>
+public EdgedetectFilterGenMode mode { get; set; }
+/// <summary>
+///  set planes to filter (default y+u+v+r+g+b)
+/// </summary>
+public EdgedetectFilterGenPlanes planes { get; set; }
 }
 public enum EdgedetectFilterGenMode
 {

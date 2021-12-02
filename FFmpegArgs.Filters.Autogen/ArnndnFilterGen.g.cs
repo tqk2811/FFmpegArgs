@@ -29,5 +29,26 @@ public static class ArnndnFilterGenExtensions
 /// Reduce noise from speech using Recurrent Neural Networks.
 /// </summary>
 public static ArnndnFilterGen ArnndnFilterGen(this AudioMap input0) => new ArnndnFilterGen(input0);
+/// <summary>
+/// Reduce noise from speech using Recurrent Neural Networks.
+/// </summary>
+public static ArnndnFilterGen ArnndnFilterGen(this AudioMap input0,ArnndnFilterGenConfig config)
+{
+var result = new ArnndnFilterGen(input0);
+if(config?.model != null) result.model(config.model);
+if(config?.mix != null) result.mix(config.mix);
+return result;
+}
+}
+public class ArnndnFilterGenConfig
+{
+/// <summary>
+///  set model name
+/// </summary>
+public string model { get; set; }
+/// <summary>
+///  set output vs input mix (from -1 to 1) (default 1)
+/// </summary>
+public float mix { get; set; }
 }
 }

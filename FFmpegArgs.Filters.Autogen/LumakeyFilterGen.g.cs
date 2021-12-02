@@ -33,5 +33,31 @@ public static class LumakeyFilterGenExtensions
 /// Turns a certain luma into transparency.
 /// </summary>
 public static LumakeyFilterGen LumakeyFilterGen(this ImageMap input0) => new LumakeyFilterGen(input0);
+/// <summary>
+/// Turns a certain luma into transparency.
+/// </summary>
+public static LumakeyFilterGen LumakeyFilterGen(this ImageMap input0,LumakeyFilterGenConfig config)
+{
+var result = new LumakeyFilterGen(input0);
+if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.tolerance != null) result.tolerance(config.tolerance);
+if(config?.softness != null) result.softness(config.softness);
+return result;
+}
+}
+public class LumakeyFilterGenConfig
+{
+/// <summary>
+///  set the threshold value (from 0 to 1) (default 0)
+/// </summary>
+public double threshold { get; set; }
+/// <summary>
+///  set the tolerance value (from 0 to 1) (default 0.01)
+/// </summary>
+public double tolerance { get; set; }
+/// <summary>
+///  set the softness value (from 0 to 1) (default 0)
+/// </summary>
+public double softness { get; set; }
 }
 }

@@ -21,5 +21,16 @@ public static class SwapuvFilterGenExtensions
 /// Swap U and V components.
 /// </summary>
 public static SwapuvFilterGen SwapuvFilterGen(this ImageMap input0) => new SwapuvFilterGen(input0);
+/// <summary>
+/// Swap U and V components.
+/// </summary>
+public static SwapuvFilterGen SwapuvFilterGen(this ImageMap input0,SwapuvFilterGenConfig config)
+{
+var result = new SwapuvFilterGen(input0);
+return result;
+}
+}
+public class SwapuvFilterGenConfig
+{
 }
 }

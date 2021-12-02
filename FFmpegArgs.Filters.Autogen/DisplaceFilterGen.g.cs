@@ -25,6 +25,22 @@ public static class DisplaceFilterGenExtensions
 /// Displace pixels.
 /// </summary>
 public static DisplaceFilterGen DisplaceFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2) => new DisplaceFilterGen(input0, input1, input2);
+/// <summary>
+/// Displace pixels.
+/// </summary>
+public static DisplaceFilterGen DisplaceFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2,DisplaceFilterGenConfig config)
+{
+var result = new DisplaceFilterGen(input0, input1, input2);
+if(config?.edge != null) result.edge(config.edge);
+return result;
+}
+}
+public class DisplaceFilterGenConfig
+{
+/// <summary>
+///  set edge mode (from 0 to 3) (default smear)
+/// </summary>
+public DisplaceFilterGenEdge edge { get; set; }
 }
 public enum DisplaceFilterGenEdge
 {

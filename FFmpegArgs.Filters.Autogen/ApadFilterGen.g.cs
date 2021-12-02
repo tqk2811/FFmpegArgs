@@ -41,5 +41,41 @@ public static class ApadFilterGenExtensions
 /// Pad audio with silence.
 /// </summary>
 public static ApadFilterGen ApadFilterGen(this AudioMap input0) => new ApadFilterGen(input0);
+/// <summary>
+/// Pad audio with silence.
+/// </summary>
+public static ApadFilterGen ApadFilterGen(this AudioMap input0,ApadFilterGenConfig config)
+{
+var result = new ApadFilterGen(input0);
+if(config?.packet_size != null) result.packet_size(config.packet_size);
+if(config?.pad_len != null) result.pad_len(config.pad_len);
+if(config?.whole_len != null) result.whole_len(config.whole_len);
+if(config?.pad_dur != null) result.pad_dur(config.pad_dur);
+if(config?.whole_dur != null) result.whole_dur(config.whole_dur);
+return result;
+}
+}
+public class ApadFilterGenConfig
+{
+/// <summary>
+///  set silence packet size (from 0 to INT_MAX) (default 4096)
+/// </summary>
+public int packet_size { get; set; }
+/// <summary>
+///  set number of samples of silence to add (from -1 to I64_MAX) (default -1)
+/// </summary>
+public long pad_len { get; set; }
+/// <summary>
+///  set minimum target number of samples in the audio stream (from -1 to I64_MAX) (default -1)
+/// </summary>
+public long whole_len { get; set; }
+/// <summary>
+///  set duration of silence to add (default 0)
+/// </summary>
+public TimeSpan pad_dur { get; set; }
+/// <summary>
+///  set minimum target duration in the audio stream (default 0)
+/// </summary>
+public TimeSpan whole_dur { get; set; }
 }
 }

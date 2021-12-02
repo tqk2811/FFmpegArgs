@@ -29,5 +29,26 @@ public static class AevalFilterGenExtensions
 /// Filter audio signal according to a specified expression.
 /// </summary>
 public static AevalFilterGen AevalFilterGen(this AudioMap input0) => new AevalFilterGen(input0);
+/// <summary>
+/// Filter audio signal according to a specified expression.
+/// </summary>
+public static AevalFilterGen AevalFilterGen(this AudioMap input0,AevalFilterGenConfig config)
+{
+var result = new AevalFilterGen(input0);
+if(config?.exprs != null) result.exprs(config.exprs);
+if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
+return result;
+}
+}
+public class AevalFilterGenConfig
+{
+/// <summary>
+///  set the '|'-separated list of channels expressions
+/// </summary>
+public string exprs { get; set; }
+/// <summary>
+///  set channel layout
+/// </summary>
+public string channel_layout { get; set; }
 }
 }

@@ -25,5 +25,21 @@ public static class BboxFilterGenExtensions
 /// Compute bounding box for each frame.
 /// </summary>
 public static BboxFilterGen BboxFilterGen(this ImageMap input0) => new BboxFilterGen(input0);
+/// <summary>
+/// Compute bounding box for each frame.
+/// </summary>
+public static BboxFilterGen BboxFilterGen(this ImageMap input0,BboxFilterGenConfig config)
+{
+var result = new BboxFilterGen(input0);
+if(config?.min_val != null) result.min_val(config.min_val);
+return result;
+}
+}
+public class BboxFilterGenConfig
+{
+/// <summary>
+///  set minimum luminance value for bounding box (from 0 to 65535) (default 16)
+/// </summary>
+public int min_val { get; set; }
 }
 }

@@ -29,7 +29,7 @@ public PsnrFilterGen stats_version(int stats_version) => this.SetOptionRange("st
 /// <summary>
 ///  Add raw stats (max values) to the output log. (default false)
 /// </summary>
-public PsnrFilterGen output_max(bool flag) => this.SetOption("output_max",flag.ToFFmpegFlag());
+public PsnrFilterGen output_max(bool output_max) => this.SetOption("output_max",output_max.ToFFmpegFlag());
 }
 public static class PsnrFilterGenExtensions
 {
@@ -37,5 +37,36 @@ public static class PsnrFilterGenExtensions
 /// Calculate the PSNR between two video streams.
 /// </summary>
 public static PsnrFilterGen PsnrFilterGen(this ImageMap input0, ImageMap input1) => new PsnrFilterGen(input0, input1);
+/// <summary>
+/// Calculate the PSNR between two video streams.
+/// </summary>
+public static PsnrFilterGen PsnrFilterGen(this ImageMap input0, ImageMap input1,PsnrFilterGenConfig config)
+{
+var result = new PsnrFilterGen(input0, input1);
+if(config?.stats_file != null) result.stats_file(config.stats_file);
+if(config?.f != null) result.f(config.f);
+if(config?.stats_version != null) result.stats_version(config.stats_version);
+if(config?.output_max != null) result.output_max(config.output_max);
+return result;
+}
+}
+public class PsnrFilterGenConfig
+{
+/// <summary>
+///  Set file where to store per-frame difference information
+/// </summary>
+public string stats_file { get; set; }
+/// <summary>
+///  Set file where to store per-frame difference information
+/// </summary>
+public string f { get; set; }
+/// <summary>
+///  Set the format version for the stats file. (from 1 to 2) (default 1)
+/// </summary>
+public int stats_version { get; set; }
+/// <summary>
+///  Add raw stats (max values) to the output log. (default false)
+/// </summary>
+public bool output_max { get; set; }
 }
 }

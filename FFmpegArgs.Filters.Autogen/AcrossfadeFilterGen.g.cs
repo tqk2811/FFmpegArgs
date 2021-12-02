@@ -29,7 +29,7 @@ public AcrossfadeFilterGen duration(TimeSpan duration) => this.SetOptionRange("d
 /// <summary>
 ///  overlap 1st stream end with 2nd stream start (default true)
 /// </summary>
-public AcrossfadeFilterGen overlap(bool flag) => this.SetOption("overlap",flag.ToFFmpegFlag());
+public AcrossfadeFilterGen overlap(bool overlap) => this.SetOption("overlap",overlap.ToFFmpegFlag());
 /// <summary>
 ///  set fade curve type for 1st stream (from -1 to 18) (default tri)
 /// </summary>
@@ -53,6 +53,57 @@ public static class AcrossfadeFilterGenExtensions
 /// Cross fade two input audio streams.
 /// </summary>
 public static AcrossfadeFilterGen AcrossfadeFilterGen(this AudioMap input0, AudioMap input1) => new AcrossfadeFilterGen(input0, input1);
+/// <summary>
+/// Cross fade two input audio streams.
+/// </summary>
+public static AcrossfadeFilterGen AcrossfadeFilterGen(this AudioMap input0, AudioMap input1,AcrossfadeFilterGenConfig config)
+{
+var result = new AcrossfadeFilterGen(input0, input1);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
+if(config?.ns != null) result.ns(config.ns);
+if(config?.duration != null) result.duration(config.duration);
+if(config?.overlap != null) result.overlap(config.overlap);
+if(config?.curve1 != null) result.curve1(config.curve1);
+if(config?.c1 != null) result.c1(config.c1);
+if(config?.curve2 != null) result.curve2(config.curve2);
+if(config?.c2 != null) result.c2(config.c2);
+return result;
+}
+}
+public class AcrossfadeFilterGenConfig
+{
+/// <summary>
+///  set number of samples for cross fade duration (from 1 to 2.14748e+08) (default 44100)
+/// </summary>
+public int nb_samples { get; set; }
+/// <summary>
+///  set number of samples for cross fade duration (from 1 to 2.14748e+08) (default 44100)
+/// </summary>
+public int ns { get; set; }
+/// <summary>
+///  set cross fade duration (default 0)
+/// </summary>
+public TimeSpan duration { get; set; }
+/// <summary>
+///  overlap 1st stream end with 2nd stream start (default true)
+/// </summary>
+public bool overlap { get; set; }
+/// <summary>
+///  set fade curve type for 1st stream (from -1 to 18) (default tri)
+/// </summary>
+public AcrossfadeFilterGenCurve1 curve1 { get; set; }
+/// <summary>
+///  set fade curve type for 1st stream (from -1 to 18) (default tri)
+/// </summary>
+public AcrossfadeFilterGenC1 c1 { get; set; }
+/// <summary>
+///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
+/// </summary>
+public AcrossfadeFilterGenCurve2 curve2 { get; set; }
+/// <summary>
+///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
+/// </summary>
+public AcrossfadeFilterGenC2 c2 { get; set; }
 }
 public enum AcrossfadeFilterGenCurve1
 {

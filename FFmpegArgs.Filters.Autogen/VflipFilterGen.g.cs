@@ -21,5 +21,16 @@ public static class VflipFilterGenExtensions
 /// Flip the input video vertically.
 /// </summary>
 public static VflipFilterGen VflipFilterGen(this ImageMap input0) => new VflipFilterGen(input0);
+/// <summary>
+/// Flip the input video vertically.
+/// </summary>
+public static VflipFilterGen VflipFilterGen(this ImageMap input0,VflipFilterGenConfig config)
+{
+var result = new VflipFilterGen(input0);
+return result;
+}
+}
+public class VflipFilterGenConfig
+{
 }
 }

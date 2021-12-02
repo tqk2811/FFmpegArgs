@@ -57,6 +57,62 @@ public static class NnediFilterGenExtensions
 /// Apply neural network edge directed interpolation intra-only deinterlacer.
 /// </summary>
 public static NnediFilterGen NnediFilterGen(this ImageMap input0) => new NnediFilterGen(input0);
+/// <summary>
+/// Apply neural network edge directed interpolation intra-only deinterlacer.
+/// </summary>
+public static NnediFilterGen NnediFilterGen(this ImageMap input0,NnediFilterGenConfig config)
+{
+var result = new NnediFilterGen(input0);
+if(config?.weights != null) result.weights(config.weights);
+if(config?.deint != null) result.deint(config.deint);
+if(config?.field != null) result.field(config.field);
+if(config?.planes != null) result.planes(config.planes);
+if(config?.nsize != null) result.nsize(config.nsize);
+if(config?.nns != null) result.nns(config.nns);
+if(config?.qual != null) result.qual(config.qual);
+if(config?.etype != null) result.etype(config.etype);
+if(config?.pscrn != null) result.pscrn(config.pscrn);
+return result;
+}
+}
+public class NnediFilterGenConfig
+{
+/// <summary>
+///  set weights file (default "nnedi3_weights.bin")
+/// </summary>
+public string weights { get; set; }
+/// <summary>
+///  set which frames to deinterlace (from 0 to 1) (default all)
+/// </summary>
+public NnediFilterGenDeint deint { get; set; }
+/// <summary>
+///  set mode of operation (from -2 to 3) (default a)
+/// </summary>
+public NnediFilterGenField field { get; set; }
+/// <summary>
+///  set which planes to process (from 0 to 15) (default 7)
+/// </summary>
+public int planes { get; set; }
+/// <summary>
+///  set size of local neighborhood around each pixel, used by the predictor neural network (from 0 to 6) (default s32x4)
+/// </summary>
+public NnediFilterGenNsize nsize { get; set; }
+/// <summary>
+///  set number of neurons in predictor neural network (from 0 to 4) (default n32)
+/// </summary>
+public NnediFilterGenNns nns { get; set; }
+/// <summary>
+///  set quality (from 1 to 2) (default fast)
+/// </summary>
+public NnediFilterGenQual qual { get; set; }
+/// <summary>
+///  set which set of weights to use in the predictor (from 0 to 1) (default a)
+/// </summary>
+public NnediFilterGenEtype etype { get; set; }
+/// <summary>
+///  set prescreening (from 0 to 4) (default new)
+/// </summary>
+public NnediFilterGenPscrn pscrn { get; set; }
 }
 public enum NnediFilterGenDeint
 {

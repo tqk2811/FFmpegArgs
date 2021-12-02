@@ -29,5 +29,26 @@ public static class ChannelmapFilterGenExtensions
 /// Remap audio channels.
 /// </summary>
 public static ChannelmapFilterGen ChannelmapFilterGen(this AudioMap input0) => new ChannelmapFilterGen(input0);
+/// <summary>
+/// Remap audio channels.
+/// </summary>
+public static ChannelmapFilterGen ChannelmapFilterGen(this AudioMap input0,ChannelmapFilterGenConfig config)
+{
+var result = new ChannelmapFilterGen(input0);
+if(config?.map != null) result.map(config.map);
+if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
+return result;
+}
+}
+public class ChannelmapFilterGenConfig
+{
+/// <summary>
+///  A comma-separated list of input channel numbers in output order.
+/// </summary>
+public string map { get; set; }
+/// <summary>
+///  Output channel layout.
+/// </summary>
+public string channel_layout { get; set; }
 }
 }

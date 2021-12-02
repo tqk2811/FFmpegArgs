@@ -57,6 +57,62 @@ public static class RgbashiftFilterGenExtensions
 /// Shift RGBA.
 /// </summary>
 public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input0) => new RgbashiftFilterGen(input0);
+/// <summary>
+/// Shift RGBA.
+/// </summary>
+public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input0,RgbashiftFilterGenConfig config)
+{
+var result = new RgbashiftFilterGen(input0);
+if(config?.rh != null) result.rh(config.rh);
+if(config?.rv != null) result.rv(config.rv);
+if(config?.gh != null) result.gh(config.gh);
+if(config?.gv != null) result.gv(config.gv);
+if(config?.bh != null) result.bh(config.bh);
+if(config?.bv != null) result.bv(config.bv);
+if(config?.ah != null) result.ah(config.ah);
+if(config?.av != null) result.av(config.av);
+if(config?.edge != null) result.edge(config.edge);
+return result;
+}
+}
+public class RgbashiftFilterGenConfig
+{
+/// <summary>
+///  shift red horizontally (from -255 to 255) (default 0)
+/// </summary>
+public int rh { get; set; }
+/// <summary>
+///  shift red vertically (from -255 to 255) (default 0)
+/// </summary>
+public int rv { get; set; }
+/// <summary>
+///  shift green horizontally (from -255 to 255) (default 0)
+/// </summary>
+public int gh { get; set; }
+/// <summary>
+///  shift green vertically (from -255 to 255) (default 0)
+/// </summary>
+public int gv { get; set; }
+/// <summary>
+///  shift blue horizontally (from -255 to 255) (default 0)
+/// </summary>
+public int bh { get; set; }
+/// <summary>
+///  shift blue vertically (from -255 to 255) (default 0)
+/// </summary>
+public int bv { get; set; }
+/// <summary>
+///  shift alpha horizontally (from -255 to 255) (default 0)
+/// </summary>
+public int ah { get; set; }
+/// <summary>
+///  shift alpha vertically (from -255 to 255) (default 0)
+/// </summary>
+public int av { get; set; }
+/// <summary>
+///  set edge operation (from 0 to 1) (default smear)
+/// </summary>
+public RgbashiftFilterGenEdge edge { get; set; }
 }
 public enum RgbashiftFilterGenEdge
 {

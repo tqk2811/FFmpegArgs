@@ -37,5 +37,36 @@ public static class StereowidenFilterGenExtensions
 /// Apply stereo widening effect.
 /// </summary>
 public static StereowidenFilterGen StereowidenFilterGen(this AudioMap input0) => new StereowidenFilterGen(input0);
+/// <summary>
+/// Apply stereo widening effect.
+/// </summary>
+public static StereowidenFilterGen StereowidenFilterGen(this AudioMap input0,StereowidenFilterGenConfig config)
+{
+var result = new StereowidenFilterGen(input0);
+if(config?.delay != null) result.delay(config.delay);
+if(config?.feedback != null) result.feedback(config.feedback);
+if(config?.crossfeed != null) result.crossfeed(config.crossfeed);
+if(config?.drymix != null) result.drymix(config.drymix);
+return result;
+}
+}
+public class StereowidenFilterGenConfig
+{
+/// <summary>
+///  set delay time (from 1 to 100) (default 20)
+/// </summary>
+public float delay { get; set; }
+/// <summary>
+///  set feedback gain (from 0 to 0.9) (default 0.3)
+/// </summary>
+public float feedback { get; set; }
+/// <summary>
+///  set cross feed (from 0 to 0.8) (default 0.3)
+/// </summary>
+public float crossfeed { get; set; }
+/// <summary>
+///  set dry-mix (from 0 to 1) (default 0.8)
+/// </summary>
+public float drymix { get; set; }
 }
 }

@@ -21,7 +21,7 @@ public BitplanenoiseFilterGen bitplane(int bitplane) => this.SetOptionRange("bit
 /// <summary>
 ///  show noisy pixels (default false)
 /// </summary>
-public BitplanenoiseFilterGen filter(bool flag) => this.SetOption("filter",flag.ToFFmpegFlag());
+public BitplanenoiseFilterGen filter(bool filter) => this.SetOption("filter",filter.ToFFmpegFlag());
 }
 public static class BitplanenoiseFilterGenExtensions
 {
@@ -29,5 +29,26 @@ public static class BitplanenoiseFilterGenExtensions
 /// Measure bit plane noise.
 /// </summary>
 public static BitplanenoiseFilterGen BitplanenoiseFilterGen(this ImageMap input0) => new BitplanenoiseFilterGen(input0);
+/// <summary>
+/// Measure bit plane noise.
+/// </summary>
+public static BitplanenoiseFilterGen BitplanenoiseFilterGen(this ImageMap input0,BitplanenoiseFilterGenConfig config)
+{
+var result = new BitplanenoiseFilterGen(input0);
+if(config?.bitplane != null) result.bitplane(config.bitplane);
+if(config?.filter != null) result.filter(config.filter);
+return result;
+}
+}
+public class BitplanenoiseFilterGenConfig
+{
+/// <summary>
+///  set bit plane to use for measuring noise (from 1 to 16) (default 1)
+/// </summary>
+public int bitplane { get; set; }
+/// <summary>
+///  show noisy pixels (default false)
+/// </summary>
+public bool filter { get; set; }
 }
 }

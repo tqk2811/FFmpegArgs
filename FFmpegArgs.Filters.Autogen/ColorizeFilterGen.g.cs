@@ -37,5 +37,36 @@ public static class ColorizeFilterGenExtensions
 /// Overlay a solid color on the video stream.
 /// </summary>
 public static ColorizeFilterGen ColorizeFilterGen(this ImageMap input0) => new ColorizeFilterGen(input0);
+/// <summary>
+/// Overlay a solid color on the video stream.
+/// </summary>
+public static ColorizeFilterGen ColorizeFilterGen(this ImageMap input0,ColorizeFilterGenConfig config)
+{
+var result = new ColorizeFilterGen(input0);
+if(config?.hue != null) result.hue(config.hue);
+if(config?.saturation != null) result.saturation(config.saturation);
+if(config?.lightness != null) result.lightness(config.lightness);
+if(config?.mix != null) result.mix(config.mix);
+return result;
+}
+}
+public class ColorizeFilterGenConfig
+{
+/// <summary>
+///  set the hue (from 0 to 360) (default 0)
+/// </summary>
+public float hue { get; set; }
+/// <summary>
+///  set the saturation (from 0 to 1) (default 0.5)
+/// </summary>
+public float saturation { get; set; }
+/// <summary>
+///  set the lightness (from 0 to 1) (default 0.5)
+/// </summary>
+public float lightness { get; set; }
+/// <summary>
+///  set the mix of source lightness (from 0 to 1) (default 1)
+/// </summary>
+public float mix { get; set; }
 }
 }

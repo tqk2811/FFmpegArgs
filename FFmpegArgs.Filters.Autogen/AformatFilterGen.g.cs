@@ -45,5 +45,46 @@ public static class AformatFilterGenExtensions
 /// Convert the input audio to one of the specified formats.
 /// </summary>
 public static AformatFilterGen AformatFilterGen(this AudioMap input0) => new AformatFilterGen(input0);
+/// <summary>
+/// Convert the input audio to one of the specified formats.
+/// </summary>
+public static AformatFilterGen AformatFilterGen(this AudioMap input0,AformatFilterGenConfig config)
+{
+var result = new AformatFilterGen(input0);
+if(config?.sample_fmts != null) result.sample_fmts(config.sample_fmts);
+if(config?.f != null) result.f(config.f);
+if(config?.sample_rates != null) result.sample_rates(config.sample_rates);
+if(config?.r != null) result.r(config.r);
+if(config?.channel_layouts != null) result.channel_layouts(config.channel_layouts);
+if(config?.cl != null) result.cl(config.cl);
+return result;
+}
+}
+public class AformatFilterGenConfig
+{
+/// <summary>
+///  A '|'-separated list of sample formats.
+/// </summary>
+public string sample_fmts { get; set; }
+/// <summary>
+///  A '|'-separated list of sample formats.
+/// </summary>
+public string f { get; set; }
+/// <summary>
+///  A '|'-separated list of sample rates.
+/// </summary>
+public string sample_rates { get; set; }
+/// <summary>
+///  A '|'-separated list of sample rates.
+/// </summary>
+public string r { get; set; }
+/// <summary>
+///  A '|'-separated list of channel layouts.
+/// </summary>
+public string channel_layouts { get; set; }
+/// <summary>
+///  A '|'-separated list of channel layouts.
+/// </summary>
+public string cl { get; set; }
 }
 }

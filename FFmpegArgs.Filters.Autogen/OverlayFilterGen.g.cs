@@ -33,7 +33,7 @@ public OverlayFilterGen eval(OverlayFilterGenEval eval) => this.SetOption("eval"
 /// <summary>
 ///  force termination when the shortest input terminates (default false)
 /// </summary>
-public OverlayFilterGen shortest(bool flag) => this.SetOption("shortest",flag.ToFFmpegFlag());
+public OverlayFilterGen shortest(bool shortest) => this.SetOption("shortest",shortest.ToFFmpegFlag());
 /// <summary>
 ///  set output format (from 0 to 7) (default yuv420)
 /// </summary>
@@ -41,7 +41,7 @@ public OverlayFilterGen format(OverlayFilterGenFormat format) => this.SetOption(
 /// <summary>
 ///  repeat overlay of the last overlay frame (default true)
 /// </summary>
-public OverlayFilterGen repeatlast(bool flag) => this.SetOption("repeatlast",flag.ToFFmpegFlag());
+public OverlayFilterGen repeatlast(bool repeatlast) => this.SetOption("repeatlast",repeatlast.ToFFmpegFlag());
 /// <summary>
 ///  alpha format (from 0 to 1) (default straight)
 /// </summary>
@@ -53,6 +53,57 @@ public static class OverlayFilterGenExtensions
 /// Overlay a video source on top of the input.
 /// </summary>
 public static OverlayFilterGen OverlayFilterGen(this ImageMap input0, ImageMap input1) => new OverlayFilterGen(input0, input1);
+/// <summary>
+/// Overlay a video source on top of the input.
+/// </summary>
+public static OverlayFilterGen OverlayFilterGen(this ImageMap input0, ImageMap input1,OverlayFilterGenConfig config)
+{
+var result = new OverlayFilterGen(input0, input1);
+if(config?.x != null) result.x(config.x);
+if(config?.y != null) result.y(config.y);
+if(config?.eof_action != null) result.eof_action(config.eof_action);
+if(config?.eval != null) result.eval(config.eval);
+if(config?.shortest != null) result.shortest(config.shortest);
+if(config?.format != null) result.format(config.format);
+if(config?.repeatlast != null) result.repeatlast(config.repeatlast);
+if(config?.alpha != null) result.alpha(config.alpha);
+return result;
+}
+}
+public class OverlayFilterGenConfig
+{
+/// <summary>
+///  set the x expression (default "0")
+/// </summary>
+public string x { get; set; }
+/// <summary>
+///  set the y expression (default "0")
+/// </summary>
+public string y { get; set; }
+/// <summary>
+///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
+/// </summary>
+public OverlayFilterGenEof_action eof_action { get; set; }
+/// <summary>
+///  specify when to evaluate expressions (from 0 to 1) (default frame)
+/// </summary>
+public OverlayFilterGenEval eval { get; set; }
+/// <summary>
+///  force termination when the shortest input terminates (default false)
+/// </summary>
+public bool shortest { get; set; }
+/// <summary>
+///  set output format (from 0 to 7) (default yuv420)
+/// </summary>
+public OverlayFilterGenFormat format { get; set; }
+/// <summary>
+///  repeat overlay of the last overlay frame (default true)
+/// </summary>
+public bool repeatlast { get; set; }
+/// <summary>
+///  alpha format (from 0 to 1) (default straight)
+/// </summary>
+public OverlayFilterGenAlpha alpha { get; set; }
 }
 public enum OverlayFilterGenEof_action
 {

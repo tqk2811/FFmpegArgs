@@ -25,6 +25,22 @@ public static class PhaseFilterGenExtensions
 /// Phase shift fields.
 /// </summary>
 public static PhaseFilterGen PhaseFilterGen(this ImageMap input0) => new PhaseFilterGen(input0);
+/// <summary>
+/// Phase shift fields.
+/// </summary>
+public static PhaseFilterGen PhaseFilterGen(this ImageMap input0,PhaseFilterGenConfig config)
+{
+var result = new PhaseFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+return result;
+}
+}
+public class PhaseFilterGenConfig
+{
+/// <summary>
+///  set phase mode (from 0 to 8) (default A)
+/// </summary>
+public PhaseFilterGenMode mode { get; set; }
 }
 public enum PhaseFilterGenMode
 {

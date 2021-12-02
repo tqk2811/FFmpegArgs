@@ -25,6 +25,22 @@ public static class FieldorderFilterGenExtensions
 /// Set the field order.
 /// </summary>
 public static FieldorderFilterGen FieldorderFilterGen(this ImageMap input0) => new FieldorderFilterGen(input0);
+/// <summary>
+/// Set the field order.
+/// </summary>
+public static FieldorderFilterGen FieldorderFilterGen(this ImageMap input0,FieldorderFilterGenConfig config)
+{
+var result = new FieldorderFilterGen(input0);
+if(config?.order != null) result.order(config.order);
+return result;
+}
+}
+public class FieldorderFilterGenConfig
+{
+/// <summary>
+///  output field order (from 0 to 1) (default tff)
+/// </summary>
+public FieldorderFilterGenOrder order { get; set; }
 }
 public enum FieldorderFilterGenOrder
 {

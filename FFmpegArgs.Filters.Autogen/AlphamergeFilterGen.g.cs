@@ -21,5 +21,16 @@ public static class AlphamergeFilterGenExtensions
 /// Copy the luma value of the second input into the alpha channel of the first input.
 /// </summary>
 public static AlphamergeFilterGen AlphamergeFilterGen(this ImageMap input0, ImageMap input1) => new AlphamergeFilterGen(input0, input1);
+/// <summary>
+/// Copy the luma value of the second input into the alpha channel of the first input.
+/// </summary>
+public static AlphamergeFilterGen AlphamergeFilterGen(this ImageMap input0, ImageMap input1,AlphamergeFilterGenConfig config)
+{
+var result = new AlphamergeFilterGen(input0, input1);
+return result;
+}
+}
+public class AlphamergeFilterGenConfig
+{
 }
 }

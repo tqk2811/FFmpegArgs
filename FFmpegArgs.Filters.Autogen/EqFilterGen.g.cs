@@ -57,6 +57,62 @@ public static class EqFilterGenExtensions
 /// Adjust brightness, contrast, gamma, and saturation.
 /// </summary>
 public static EqFilterGen EqFilterGen(this ImageMap input0) => new EqFilterGen(input0);
+/// <summary>
+/// Adjust brightness, contrast, gamma, and saturation.
+/// </summary>
+public static EqFilterGen EqFilterGen(this ImageMap input0,EqFilterGenConfig config)
+{
+var result = new EqFilterGen(input0);
+if(config?.contrast != null) result.contrast(config.contrast);
+if(config?.brightness != null) result.brightness(config.brightness);
+if(config?.saturation != null) result.saturation(config.saturation);
+if(config?.gamma != null) result.gamma(config.gamma);
+if(config?.gamma_r != null) result.gamma_r(config.gamma_r);
+if(config?.gamma_g != null) result.gamma_g(config.gamma_g);
+if(config?.gamma_b != null) result.gamma_b(config.gamma_b);
+if(config?.gamma_weight != null) result.gamma_weight(config.gamma_weight);
+if(config?.eval != null) result.eval(config.eval);
+return result;
+}
+}
+public class EqFilterGenConfig
+{
+/// <summary>
+///  set the contrast adjustment, negative values give a negative image (default "1.0")
+/// </summary>
+public string contrast { get; set; }
+/// <summary>
+///  set the brightness adjustment (default "0.0")
+/// </summary>
+public string brightness { get; set; }
+/// <summary>
+///  set the saturation adjustment (default "1.0")
+/// </summary>
+public string saturation { get; set; }
+/// <summary>
+///  set the initial gamma value (default "1.0")
+/// </summary>
+public string gamma { get; set; }
+/// <summary>
+///  gamma value for red (default "1.0")
+/// </summary>
+public string gamma_r { get; set; }
+/// <summary>
+///  gamma value for green (default "1.0")
+/// </summary>
+public string gamma_g { get; set; }
+/// <summary>
+///  gamma value for blue (default "1.0")
+/// </summary>
+public string gamma_b { get; set; }
+/// <summary>
+///  set the gamma weight which reduces the effect of gamma on bright areas (default "1.0")
+/// </summary>
+public string gamma_weight { get; set; }
+/// <summary>
+///  specify when to evaluate expressions (from 0 to 1) (default init)
+/// </summary>
+public EqFilterGenEval eval { get; set; }
 }
 public enum EqFilterGenEval
 {

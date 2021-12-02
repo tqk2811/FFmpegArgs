@@ -33,6 +33,32 @@ public static class HwmapFilterGenExtensions
 /// Map hardware frames
 /// </summary>
 public static HwmapFilterGen HwmapFilterGen(this ImageMap input0) => new HwmapFilterGen(input0);
+/// <summary>
+/// Map hardware frames
+/// </summary>
+public static HwmapFilterGen HwmapFilterGen(this ImageMap input0,HwmapFilterGenConfig config)
+{
+var result = new HwmapFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.derive_device != null) result.derive_device(config.derive_device);
+if(config?.reverse != null) result.reverse(config.reverse);
+return result;
+}
+}
+public class HwmapFilterGenConfig
+{
+/// <summary>
+///  Frame mapping mode (default read+write)
+/// </summary>
+public HwmapFilterGenMode mode { get; set; }
+/// <summary>
+///  Derive a new device of this type
+/// </summary>
+public string derive_device { get; set; }
+/// <summary>
+///  Map in reverse (create and allocate in the sink) (from 0 to 1) (default 0)
+/// </summary>
+public int reverse { get; set; }
 }
 public enum HwmapFilterGenMode
 {

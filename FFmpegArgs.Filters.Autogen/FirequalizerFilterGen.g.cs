@@ -37,15 +37,15 @@ public FirequalizerFilterGen wfunc(FirequalizerFilterGenWfunc wfunc) => this.Set
 /// <summary>
 ///  set fixed frame samples (default false)
 /// </summary>
-public FirequalizerFilterGen _fixed(bool flag) => this.SetOption("fixed",flag.ToFFmpegFlag());
+public FirequalizerFilterGen _fixed(bool _fixed) => this.SetOption("fixed",_fixed.ToFFmpegFlag());
 /// <summary>
 ///  set multi channels mode (default false)
 /// </summary>
-public FirequalizerFilterGen multi(bool flag) => this.SetOption("multi",flag.ToFFmpegFlag());
+public FirequalizerFilterGen multi(bool multi) => this.SetOption("multi",multi.ToFFmpegFlag());
 /// <summary>
 ///  set zero phase mode (default false)
 /// </summary>
-public FirequalizerFilterGen zero_phase(bool flag) => this.SetOption("zero_phase",flag.ToFFmpegFlag());
+public FirequalizerFilterGen zero_phase(bool zero_phase) => this.SetOption("zero_phase",zero_phase.ToFFmpegFlag());
 /// <summary>
 ///  set gain scale (from 0 to 3) (default linlog)
 /// </summary>
@@ -61,11 +61,11 @@ public FirequalizerFilterGen dumpscale(FirequalizerFilterGenDumpscale dumpscale)
 /// <summary>
 ///  set 2-channels fft (default false)
 /// </summary>
-public FirequalizerFilterGen fft2(bool flag) => this.SetOption("fft2",flag.ToFFmpegFlag());
+public FirequalizerFilterGen fft2(bool fft2) => this.SetOption("fft2",fft2.ToFFmpegFlag());
 /// <summary>
 ///  set minimum phase mode (default false)
 /// </summary>
-public FirequalizerFilterGen min_phase(bool flag) => this.SetOption("min_phase",flag.ToFFmpegFlag());
+public FirequalizerFilterGen min_phase(bool min_phase) => this.SetOption("min_phase",min_phase.ToFFmpegFlag());
 }
 public static class FirequalizerFilterGenExtensions
 {
@@ -73,6 +73,82 @@ public static class FirequalizerFilterGenExtensions
 /// Finite Impulse Response Equalizer.
 /// </summary>
 public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input0) => new FirequalizerFilterGen(input0);
+/// <summary>
+/// Finite Impulse Response Equalizer.
+/// </summary>
+public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input0,FirequalizerFilterGenConfig config)
+{
+var result = new FirequalizerFilterGen(input0);
+if(config?.gain != null) result.gain(config.gain);
+if(config?.gain_entry != null) result.gain_entry(config.gain_entry);
+if(config?.delay != null) result.delay(config.delay);
+if(config?.accuracy != null) result.accuracy(config.accuracy);
+if(config?.wfunc != null) result.wfunc(config.wfunc);
+if(config?._fixed != null) result._fixed(config._fixed);
+if(config?.multi != null) result.multi(config.multi);
+if(config?.zero_phase != null) result.zero_phase(config.zero_phase);
+if(config?.scale != null) result.scale(config.scale);
+if(config?.dumpfile != null) result.dumpfile(config.dumpfile);
+if(config?.dumpscale != null) result.dumpscale(config.dumpscale);
+if(config?.fft2 != null) result.fft2(config.fft2);
+if(config?.min_phase != null) result.min_phase(config.min_phase);
+return result;
+}
+}
+public class FirequalizerFilterGenConfig
+{
+/// <summary>
+///  set gain curve (default "gain_interpolate(f)")
+/// </summary>
+public string gain { get; set; }
+/// <summary>
+///  set gain entry
+/// </summary>
+public string gain_entry { get; set; }
+/// <summary>
+///  set delay (from 0 to 1e+10) (default 0.01)
+/// </summary>
+public double delay { get; set; }
+/// <summary>
+///  set accuracy (from 0 to 1e+10) (default 5)
+/// </summary>
+public double accuracy { get; set; }
+/// <summary>
+///  set window function (from 0 to 9) (default hann)
+/// </summary>
+public FirequalizerFilterGenWfunc wfunc { get; set; }
+/// <summary>
+///  set fixed frame samples (default false)
+/// </summary>
+public bool _fixed { get; set; }
+/// <summary>
+///  set multi channels mode (default false)
+/// </summary>
+public bool multi { get; set; }
+/// <summary>
+///  set zero phase mode (default false)
+/// </summary>
+public bool zero_phase { get; set; }
+/// <summary>
+///  set gain scale (from 0 to 3) (default linlog)
+/// </summary>
+public FirequalizerFilterGenScale scale { get; set; }
+/// <summary>
+///  set dump file
+/// </summary>
+public string dumpfile { get; set; }
+/// <summary>
+///  set dump scale (from 0 to 3) (default linlog)
+/// </summary>
+public FirequalizerFilterGenDumpscale dumpscale { get; set; }
+/// <summary>
+///  set 2-channels fft (default false)
+/// </summary>
+public bool fft2 { get; set; }
+/// <summary>
+///  set minimum phase mode (default false)
+/// </summary>
+public bool min_phase { get; set; }
 }
 public enum FirequalizerFilterGenWfunc
 {

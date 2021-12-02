@@ -29,6 +29,27 @@ public static class RemapFilterGenExtensions
 /// Remap pixels.
 /// </summary>
 public static RemapFilterGen RemapFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2) => new RemapFilterGen(input0, input1, input2);
+/// <summary>
+/// Remap pixels.
+/// </summary>
+public static RemapFilterGen RemapFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2,RemapFilterGenConfig config)
+{
+var result = new RemapFilterGen(input0, input1, input2);
+if(config?.format != null) result.format(config.format);
+if(config?.fill != null) result.fill(config.fill);
+return result;
+}
+}
+public class RemapFilterGenConfig
+{
+/// <summary>
+///  set output format (from 0 to 1) (default color)
+/// </summary>
+public RemapFilterGenFormat format { get; set; }
+/// <summary>
+///  set the color of the unmapped pixels (default "black")
+/// </summary>
+public Color fill { get; set; }
 }
 public enum RemapFilterGenFormat
 {

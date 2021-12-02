@@ -69,5 +69,76 @@ public static class SabFilterGenExtensions
 /// Apply shape adaptive blur.
 /// </summary>
 public static SabFilterGen SabFilterGen(this ImageMap input0) => new SabFilterGen(input0);
+/// <summary>
+/// Apply shape adaptive blur.
+/// </summary>
+public static SabFilterGen SabFilterGen(this ImageMap input0,SabFilterGenConfig config)
+{
+var result = new SabFilterGen(input0);
+if(config?.luma_radius != null) result.luma_radius(config.luma_radius);
+if(config?.lr != null) result.lr(config.lr);
+if(config?.luma_pre_filter_radius != null) result.luma_pre_filter_radius(config.luma_pre_filter_radius);
+if(config?.lpfr != null) result.lpfr(config.lpfr);
+if(config?.luma_strength != null) result.luma_strength(config.luma_strength);
+if(config?.ls != null) result.ls(config.ls);
+if(config?.chroma_radius != null) result.chroma_radius(config.chroma_radius);
+if(config?.cr != null) result.cr(config.cr);
+if(config?.chroma_pre_filter_radius != null) result.chroma_pre_filter_radius(config.chroma_pre_filter_radius);
+if(config?.cpfr != null) result.cpfr(config.cpfr);
+if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength);
+if(config?.cs != null) result.cs(config.cs);
+return result;
+}
+}
+public class SabFilterGenConfig
+{
+/// <summary>
+///  set luma radius (from 0.1 to 4) (default 1)
+/// </summary>
+public float luma_radius { get; set; }
+/// <summary>
+///  set luma radius (from 0.1 to 4) (default 1)
+/// </summary>
+public float lr { get; set; }
+/// <summary>
+///  set luma pre-filter radius (from 0.1 to 2) (default 1)
+/// </summary>
+public float luma_pre_filter_radius { get; set; }
+/// <summary>
+///  set luma pre-filter radius (from 0.1 to 2) (default 1)
+/// </summary>
+public float lpfr { get; set; }
+/// <summary>
+///  set luma strength (from 0.1 to 100) (default 1)
+/// </summary>
+public float luma_strength { get; set; }
+/// <summary>
+///  set luma strength (from 0.1 to 100) (default 1)
+/// </summary>
+public float ls { get; set; }
+/// <summary>
+///  set chroma radius (from -0.9 to 4) (default -0.9)
+/// </summary>
+public float chroma_radius { get; set; }
+/// <summary>
+///  set chroma radius (from -0.9 to 4) (default -0.9)
+/// </summary>
+public float cr { get; set; }
+/// <summary>
+///  set chroma pre-filter radius (from -0.9 to 2) (default -0.9)
+/// </summary>
+public float chroma_pre_filter_radius { get; set; }
+/// <summary>
+///  set chroma pre-filter radius (from -0.9 to 2) (default -0.9)
+/// </summary>
+public float cpfr { get; set; }
+/// <summary>
+///  set chroma strength (from -0.9 to 100) (default -0.9)
+/// </summary>
+public float chroma_strength { get; set; }
+/// <summary>
+///  set chroma strength (from -0.9 to 100) (default -0.9)
+/// </summary>
+public float cs { get; set; }
 }
 }

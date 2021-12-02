@@ -25,5 +25,21 @@ public static class DrmeterFilterGenExtensions
 /// Measure audio dynamic range.
 /// </summary>
 public static DrmeterFilterGen DrmeterFilterGen(this AudioMap input0) => new DrmeterFilterGen(input0);
+/// <summary>
+/// Measure audio dynamic range.
+/// </summary>
+public static DrmeterFilterGen DrmeterFilterGen(this AudioMap input0,DrmeterFilterGenConfig config)
+{
+var result = new DrmeterFilterGen(input0);
+if(config?.length != null) result.length(config.length);
+return result;
+}
+}
+public class DrmeterFilterGenConfig
+{
+/// <summary>
+///  set the window length (from 0.01 to 10) (default 3)
+/// </summary>
+public double length { get; set; }
 }
 }

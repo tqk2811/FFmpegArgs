@@ -33,6 +33,32 @@ public static class YadifFilterGenExtensions
 /// Deinterlace the input image.
 /// </summary>
 public static YadifFilterGen YadifFilterGen(this ImageMap input0) => new YadifFilterGen(input0);
+/// <summary>
+/// Deinterlace the input image.
+/// </summary>
+public static YadifFilterGen YadifFilterGen(this ImageMap input0,YadifFilterGenConfig config)
+{
+var result = new YadifFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.parity != null) result.parity(config.parity);
+if(config?.deint != null) result.deint(config.deint);
+return result;
+}
+}
+public class YadifFilterGenConfig
+{
+/// <summary>
+///  specify the interlacing mode (from 0 to 3) (default send_frame)
+/// </summary>
+public YadifFilterGenMode mode { get; set; }
+/// <summary>
+///  specify the assumed picture field parity (from -1 to 1) (default auto)
+/// </summary>
+public YadifFilterGenParity parity { get; set; }
+/// <summary>
+///  specify which frames to deinterlace (from 0 to 1) (default all)
+/// </summary>
+public YadifFilterGenDeint deint { get; set; }
 }
 public enum YadifFilterGenMode
 {

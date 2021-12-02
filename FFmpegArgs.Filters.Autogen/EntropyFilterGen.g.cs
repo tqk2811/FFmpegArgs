@@ -25,6 +25,22 @@ public static class EntropyFilterGenExtensions
 /// Measure video frames entropy.
 /// </summary>
 public static EntropyFilterGen EntropyFilterGen(this ImageMap input0) => new EntropyFilterGen(input0);
+/// <summary>
+/// Measure video frames entropy.
+/// </summary>
+public static EntropyFilterGen EntropyFilterGen(this ImageMap input0,EntropyFilterGenConfig config)
+{
+var result = new EntropyFilterGen(input0);
+if(config?.mode != null) result.mode(config.mode);
+return result;
+}
+}
+public class EntropyFilterGenConfig
+{
+/// <summary>
+///  set kind of histogram entropy measurement (from 0 to 1) (default normal)
+/// </summary>
+public EntropyFilterGenMode mode { get; set; }
 }
 public enum EntropyFilterGenMode
 {

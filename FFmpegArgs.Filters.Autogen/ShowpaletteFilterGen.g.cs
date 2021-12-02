@@ -25,5 +25,21 @@ public static class ShowpaletteFilterGenExtensions
 /// Display frame palette.
 /// </summary>
 public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input0) => new ShowpaletteFilterGen(input0);
+/// <summary>
+/// Display frame palette.
+/// </summary>
+public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input0,ShowpaletteFilterGenConfig config)
+{
+var result = new ShowpaletteFilterGen(input0);
+if(config?.s != null) result.s(config.s);
+return result;
+}
+}
+public class ShowpaletteFilterGenConfig
+{
+/// <summary>
+///  set pixel box size (from 1 to 100) (default 30)
+/// </summary>
+public int s { get; set; }
 }
 }

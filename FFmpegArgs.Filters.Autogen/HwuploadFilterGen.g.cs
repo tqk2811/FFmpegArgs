@@ -25,5 +25,21 @@ public static class HwuploadFilterGenExtensions
 /// Upload a normal frame to a hardware frame
 /// </summary>
 public static HwuploadFilterGen HwuploadFilterGen(this ImageMap input0) => new HwuploadFilterGen(input0);
+/// <summary>
+/// Upload a normal frame to a hardware frame
+/// </summary>
+public static HwuploadFilterGen HwuploadFilterGen(this ImageMap input0,HwuploadFilterGenConfig config)
+{
+var result = new HwuploadFilterGen(input0);
+if(config?.derive_device != null) result.derive_device(config.derive_device);
+return result;
+}
+}
+public class HwuploadFilterGenConfig
+{
+/// <summary>
+///  Derive a new device of this type
+/// </summary>
+public string derive_device { get; set; }
 }
 }

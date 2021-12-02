@@ -33,5 +33,31 @@ public static class YaepblurFilterGenExtensions
 /// Yet another edge preserving blur filter.
 /// </summary>
 public static YaepblurFilterGen YaepblurFilterGen(this ImageMap input0) => new YaepblurFilterGen(input0);
+/// <summary>
+/// Yet another edge preserving blur filter.
+/// </summary>
+public static YaepblurFilterGen YaepblurFilterGen(this ImageMap input0,YaepblurFilterGenConfig config)
+{
+var result = new YaepblurFilterGen(input0);
+if(config?.radius != null) result.radius(config.radius);
+if(config?.planes != null) result.planes(config.planes);
+if(config?.sigma != null) result.sigma(config.sigma);
+return result;
+}
+}
+public class YaepblurFilterGenConfig
+{
+/// <summary>
+///  set window radius (from 0 to INT_MAX) (default 3)
+/// </summary>
+public int radius { get; set; }
+/// <summary>
+///  set planes to filter (from 0 to 15) (default 1)
+/// </summary>
+public int planes { get; set; }
+/// <summary>
+///  set blur strength (from 1 to INT_MAX) (default 128)
+/// </summary>
+public int sigma { get; set; }
 }
 }

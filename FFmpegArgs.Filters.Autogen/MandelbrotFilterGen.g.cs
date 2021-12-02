@@ -77,6 +77,87 @@ public static class MandelbrotFilterGenExtensions
 /// Render a Mandelbrot fractal.
 /// </summary>
 public static MandelbrotFilterGen MandelbrotFilterGen(this FilterGraph input0) => new MandelbrotFilterGen(input0);
+/// <summary>
+/// Render a Mandelbrot fractal.
+/// </summary>
+public static MandelbrotFilterGen MandelbrotFilterGen(this FilterGraph input0,MandelbrotFilterGenConfig config)
+{
+var result = new MandelbrotFilterGen(input0);
+if(config?.size != null) result.size(config.size);
+if(config?.rate != null) result.rate(config.rate);
+if(config?.maxiter != null) result.maxiter(config.maxiter);
+if(config?.start_x != null) result.start_x(config.start_x);
+if(config?.start_y != null) result.start_y(config.start_y);
+if(config?.start_scale != null) result.start_scale(config.start_scale);
+if(config?.end_scale != null) result.end_scale(config.end_scale);
+if(config?.end_pts != null) result.end_pts(config.end_pts);
+if(config?.bailout != null) result.bailout(config.bailout);
+if(config?.morphxf != null) result.morphxf(config.morphxf);
+if(config?.morphyf != null) result.morphyf(config.morphyf);
+if(config?.morphamp != null) result.morphamp(config.morphamp);
+if(config?.outer != null) result.outer(config.outer);
+if(config?.inner != null) result.inner(config.inner);
+return result;
+}
+}
+public class MandelbrotFilterGenConfig
+{
+/// <summary>
+///  set frame size (default "640x480")
+/// </summary>
+public Size size { get; set; }
+/// <summary>
+///  set frame rate (default "25")
+/// </summary>
+public Rational rate { get; set; }
+/// <summary>
+///  set max iterations number (from 1 to INT_MAX) (default 7189)
+/// </summary>
+public int maxiter { get; set; }
+/// <summary>
+///  set the initial x position (from -100 to 100) (default -0.743644)
+/// </summary>
+public double start_x { get; set; }
+/// <summary>
+///  set the initial y position (from -100 to 100) (default -0.131826)
+/// </summary>
+public double start_y { get; set; }
+/// <summary>
+///  set the initial scale value (from 0 to FLT_MAX) (default 3)
+/// </summary>
+public double start_scale { get; set; }
+/// <summary>
+///  set the terminal scale value (from 0 to FLT_MAX) (default 0.3)
+/// </summary>
+public double end_scale { get; set; }
+/// <summary>
+///  set the terminal pts value (from 0 to I64_MAX) (default 400)
+/// </summary>
+public double end_pts { get; set; }
+/// <summary>
+///  set the bailout value (from 0 to FLT_MAX) (default 10)
+/// </summary>
+public double bailout { get; set; }
+/// <summary>
+///  set morph x frequency (from -FLT_MAX to FLT_MAX) (default 0.01)
+/// </summary>
+public double morphxf { get; set; }
+/// <summary>
+///  set morph y frequency (from -FLT_MAX to FLT_MAX) (default 0.0123)
+/// </summary>
+public double morphyf { get; set; }
+/// <summary>
+///  set morph amplitude (from -FLT_MAX to FLT_MAX) (default 0)
+/// </summary>
+public double morphamp { get; set; }
+/// <summary>
+///  set outer coloring mode (from 0 to INT_MAX) (default normalized_iteration_count)
+/// </summary>
+public MandelbrotFilterGenOuter outer { get; set; }
+/// <summary>
+///  set inner coloring mode (from 0 to INT_MAX) (default mincol)
+/// </summary>
+public MandelbrotFilterGenInner inner { get; set; }
 }
 public enum MandelbrotFilterGenOuter
 {

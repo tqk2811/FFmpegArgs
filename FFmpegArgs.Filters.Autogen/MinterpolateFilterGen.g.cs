@@ -61,6 +61,67 @@ public static class MinterpolateFilterGenExtensions
 /// Frame rate conversion using Motion Interpolation.
 /// </summary>
 public static MinterpolateFilterGen MinterpolateFilterGen(this ImageMap input0) => new MinterpolateFilterGen(input0);
+/// <summary>
+/// Frame rate conversion using Motion Interpolation.
+/// </summary>
+public static MinterpolateFilterGen MinterpolateFilterGen(this ImageMap input0,MinterpolateFilterGenConfig config)
+{
+var result = new MinterpolateFilterGen(input0);
+if(config?.fps != null) result.fps(config.fps);
+if(config?.mi_mode != null) result.mi_mode(config.mi_mode);
+if(config?.mc_mode != null) result.mc_mode(config.mc_mode);
+if(config?.me_mode != null) result.me_mode(config.me_mode);
+if(config?.me != null) result.me(config.me);
+if(config?.mb_size != null) result.mb_size(config.mb_size);
+if(config?.search_param != null) result.search_param(config.search_param);
+if(config?.vsbmc != null) result.vsbmc(config.vsbmc);
+if(config?.scd != null) result.scd(config.scd);
+if(config?.scd_threshold != null) result.scd_threshold(config.scd_threshold);
+return result;
+}
+}
+public class MinterpolateFilterGenConfig
+{
+/// <summary>
+///  output's frame rate (default "60")
+/// </summary>
+public Rational fps { get; set; }
+/// <summary>
+///  motion interpolation mode (from 0 to 2) (default mci)
+/// </summary>
+public MinterpolateFilterGenMi_mode mi_mode { get; set; }
+/// <summary>
+///  motion compensation mode (from 0 to 1) (default obmc)
+/// </summary>
+public MinterpolateFilterGenMc_mode mc_mode { get; set; }
+/// <summary>
+///  motion estimation mode (from 0 to 1) (default bilat)
+/// </summary>
+public MinterpolateFilterGenMe_mode me_mode { get; set; }
+/// <summary>
+///  motion estimation method (from 1 to 9) (default epzs)
+/// </summary>
+public MinterpolateFilterGenMe me { get; set; }
+/// <summary>
+///  macroblock size (from 4 to 16) (default 16)
+/// </summary>
+public int mb_size { get; set; }
+/// <summary>
+///  search parameter (from 4 to INT_MAX) (default 32)
+/// </summary>
+public int search_param { get; set; }
+/// <summary>
+///  variable-size block motion compensation (from 0 to 1) (default 0)
+/// </summary>
+public int vsbmc { get; set; }
+/// <summary>
+///  scene change detection method (from 0 to 1) (default fdiff)
+/// </summary>
+public MinterpolateFilterGenScd scd { get; set; }
+/// <summary>
+///  scene change threshold (from 0 to 100) (default 10)
+/// </summary>
+public double scd_threshold { get; set; }
 }
 public enum MinterpolateFilterGenMi_mode
 {

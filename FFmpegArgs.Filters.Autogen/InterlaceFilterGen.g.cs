@@ -29,6 +29,27 @@ public static class InterlaceFilterGenExtensions
 /// Convert progressive video into interlaced.
 /// </summary>
 public static InterlaceFilterGen InterlaceFilterGen(this ImageMap input0) => new InterlaceFilterGen(input0);
+/// <summary>
+/// Convert progressive video into interlaced.
+/// </summary>
+public static InterlaceFilterGen InterlaceFilterGen(this ImageMap input0,InterlaceFilterGenConfig config)
+{
+var result = new InterlaceFilterGen(input0);
+if(config?.scan != null) result.scan(config.scan);
+if(config?.lowpass != null) result.lowpass(config.lowpass);
+return result;
+}
+}
+public class InterlaceFilterGenConfig
+{
+/// <summary>
+///  scanning mode (from 0 to 1) (default tff)
+/// </summary>
+public InterlaceFilterGenScan scan { get; set; }
+/// <summary>
+///  set vertical low-pass filter (from 0 to 2) (default linear)
+/// </summary>
+public InterlaceFilterGenLowpass lowpass { get; set; }
 }
 public enum InterlaceFilterGenScan
 {

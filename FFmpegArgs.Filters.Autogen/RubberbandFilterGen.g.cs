@@ -61,6 +61,67 @@ public static class RubberbandFilterGenExtensions
 /// Apply time-stretching and pitch-shifting.
 /// </summary>
 public static RubberbandFilterGen RubberbandFilterGen(this AudioMap input0) => new RubberbandFilterGen(input0);
+/// <summary>
+/// Apply time-stretching and pitch-shifting.
+/// </summary>
+public static RubberbandFilterGen RubberbandFilterGen(this AudioMap input0,RubberbandFilterGenConfig config)
+{
+var result = new RubberbandFilterGen(input0);
+if(config?.tempo != null) result.tempo(config.tempo);
+if(config?.pitch != null) result.pitch(config.pitch);
+if(config?.transients != null) result.transients(config.transients);
+if(config?.detector != null) result.detector(config.detector);
+if(config?.phase != null) result.phase(config.phase);
+if(config?.window != null) result.window(config.window);
+if(config?.smoothing != null) result.smoothing(config.smoothing);
+if(config?.formant != null) result.formant(config.formant);
+if(config?.pitchq != null) result.pitchq(config.pitchq);
+if(config?.channels != null) result.channels(config.channels);
+return result;
+}
+}
+public class RubberbandFilterGenConfig
+{
+/// <summary>
+///  set tempo scale factor (from 0.01 to 100) (default 1)
+/// </summary>
+public double tempo { get; set; }
+/// <summary>
+///  set pitch scale factor (from 0.01 to 100) (default 1)
+/// </summary>
+public double pitch { get; set; }
+/// <summary>
+///  set transients (from 0 to INT_MAX) (default crisp)
+/// </summary>
+public RubberbandFilterGenTransients transients { get; set; }
+/// <summary>
+///  set detector (from 0 to INT_MAX) (default compound)
+/// </summary>
+public RubberbandFilterGenDetector detector { get; set; }
+/// <summary>
+///  set phase (from 0 to INT_MAX) (default laminar)
+/// </summary>
+public RubberbandFilterGenPhase phase { get; set; }
+/// <summary>
+///  set window (from 0 to INT_MAX) (default standard)
+/// </summary>
+public RubberbandFilterGenWindow window { get; set; }
+/// <summary>
+///  set smoothing (from 0 to INT_MAX) (default off)
+/// </summary>
+public RubberbandFilterGenSmoothing smoothing { get; set; }
+/// <summary>
+///  set formant (from 0 to INT_MAX) (default shifted)
+/// </summary>
+public RubberbandFilterGenFormant formant { get; set; }
+/// <summary>
+///  set pitch quality (from 0 to INT_MAX) (default speed)
+/// </summary>
+public RubberbandFilterGenPitchq pitchq { get; set; }
+/// <summary>
+///  set channels (from 0 to INT_MAX) (default apart)
+/// </summary>
+public RubberbandFilterGenChannels channels { get; set; }
 }
 public enum RubberbandFilterGenTransients
 {

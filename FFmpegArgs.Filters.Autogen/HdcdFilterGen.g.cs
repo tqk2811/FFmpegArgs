@@ -17,11 +17,11 @@ internal HdcdFilterGen(AudioMap input) : base("hdcd",input) { AddMapOut(); }
 /// <summary>
 ///  Disable any format conversion or resampling in the filter graph. (default true)
 /// </summary>
-public HdcdFilterGen disable_autoconvert(bool flag) => this.SetOption("disable_autoconvert",flag.ToFFmpegFlag());
+public HdcdFilterGen disable_autoconvert(bool disable_autoconvert) => this.SetOption("disable_autoconvert",disable_autoconvert.ToFFmpegFlag());
 /// <summary>
 ///  Process stereo channels together. Only apply target_gain when both channels match. (default true)
 /// </summary>
-public HdcdFilterGen process_stereo(bool flag) => this.SetOption("process_stereo",flag.ToFFmpegFlag());
+public HdcdFilterGen process_stereo(bool process_stereo) => this.SetOption("process_stereo",process_stereo.ToFFmpegFlag());
 /// <summary>
 ///  Code detect timer period in ms. (from 100 to 60000) (default 2000)
 /// </summary>
@@ -29,7 +29,7 @@ public HdcdFilterGen cdt_ms(int cdt_ms) => this.SetOptionRange("cdt_ms", cdt_ms,
 /// <summary>
 ///  Always extend peaks above -3dBFS even when PE is not signaled. (default false)
 /// </summary>
-public HdcdFilterGen force_pe(bool flag) => this.SetOption("force_pe",flag.ToFFmpegFlag());
+public HdcdFilterGen force_pe(bool force_pe) => this.SetOption("force_pe",force_pe.ToFFmpegFlag());
 /// <summary>
 ///  Replace audio with solid tone and signal some processing aspect in the amplitude. (from 0 to 4) (default off)
 /// </summary>
@@ -45,6 +45,47 @@ public static class HdcdFilterGenExtensions
 /// Apply High Definition Compatible Digital (HDCD) decoding.
 /// </summary>
 public static HdcdFilterGen HdcdFilterGen(this AudioMap input0) => new HdcdFilterGen(input0);
+/// <summary>
+/// Apply High Definition Compatible Digital (HDCD) decoding.
+/// </summary>
+public static HdcdFilterGen HdcdFilterGen(this AudioMap input0,HdcdFilterGenConfig config)
+{
+var result = new HdcdFilterGen(input0);
+if(config?.disable_autoconvert != null) result.disable_autoconvert(config.disable_autoconvert);
+if(config?.process_stereo != null) result.process_stereo(config.process_stereo);
+if(config?.cdt_ms != null) result.cdt_ms(config.cdt_ms);
+if(config?.force_pe != null) result.force_pe(config.force_pe);
+if(config?.analyze_mode != null) result.analyze_mode(config.analyze_mode);
+if(config?.bits_per_sample != null) result.bits_per_sample(config.bits_per_sample);
+return result;
+}
+}
+public class HdcdFilterGenConfig
+{
+/// <summary>
+///  Disable any format conversion or resampling in the filter graph. (default true)
+/// </summary>
+public bool disable_autoconvert { get; set; }
+/// <summary>
+///  Process stereo channels together. Only apply target_gain when both channels match. (default true)
+/// </summary>
+public bool process_stereo { get; set; }
+/// <summary>
+///  Code detect timer period in ms. (from 100 to 60000) (default 2000)
+/// </summary>
+public int cdt_ms { get; set; }
+/// <summary>
+///  Always extend peaks above -3dBFS even when PE is not signaled. (default false)
+/// </summary>
+public bool force_pe { get; set; }
+/// <summary>
+///  Replace audio with solid tone and signal some processing aspect in the amplitude. (from 0 to 4) (default off)
+/// </summary>
+public HdcdFilterGenAnalyze_mode analyze_mode { get; set; }
+/// <summary>
+///  Valid bits per sample (location of the true LSB). (from 16 to 24) (default 16)
+/// </summary>
+public HdcdFilterGenBits_per_sample bits_per_sample { get; set; }
 }
 public enum HdcdFilterGenAnalyze_mode
 {

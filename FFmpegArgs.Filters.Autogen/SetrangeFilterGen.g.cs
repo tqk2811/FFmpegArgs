@@ -25,6 +25,22 @@ public static class SetrangeFilterGenExtensions
 /// Force color range for the output video frame.
 /// </summary>
 public static SetrangeFilterGen SetrangeFilterGen(this ImageMap input0) => new SetrangeFilterGen(input0);
+/// <summary>
+/// Force color range for the output video frame.
+/// </summary>
+public static SetrangeFilterGen SetrangeFilterGen(this ImageMap input0,SetrangeFilterGenConfig config)
+{
+var result = new SetrangeFilterGen(input0);
+if(config?.range != null) result.range(config.range);
+return result;
+}
+}
+public class SetrangeFilterGenConfig
+{
+/// <summary>
+///  select color range (from -1 to 2) (default auto)
+/// </summary>
+public SetrangeFilterGenRange range { get; set; }
 }
 public enum SetrangeFilterGenRange
 {

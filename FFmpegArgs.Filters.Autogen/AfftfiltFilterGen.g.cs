@@ -41,6 +41,42 @@ public static class AfftfiltFilterGenExtensions
 /// Apply arbitrary expressions to samples in frequency domain.
 /// </summary>
 public static AfftfiltFilterGen AfftfiltFilterGen(this AudioMap input0) => new AfftfiltFilterGen(input0);
+/// <summary>
+/// Apply arbitrary expressions to samples in frequency domain.
+/// </summary>
+public static AfftfiltFilterGen AfftfiltFilterGen(this AudioMap input0,AfftfiltFilterGenConfig config)
+{
+var result = new AfftfiltFilterGen(input0);
+if(config?.real != null) result.real(config.real);
+if(config?.imag != null) result.imag(config.imag);
+if(config?.win_size != null) result.win_size(config.win_size);
+if(config?.win_func != null) result.win_func(config.win_func);
+if(config?.overlap != null) result.overlap(config.overlap);
+return result;
+}
+}
+public class AfftfiltFilterGenConfig
+{
+/// <summary>
+///  set channels real expressions (default "re")
+/// </summary>
+public string real { get; set; }
+/// <summary>
+///  set channels imaginary expressions (default "im")
+/// </summary>
+public string imag { get; set; }
+/// <summary>
+///  set window size (from 16 to 131072) (default 4096)
+/// </summary>
+public int win_size { get; set; }
+/// <summary>
+///  set window function (from 0 to 19) (default hann)
+/// </summary>
+public AfftfiltFilterGenWin_func win_func { get; set; }
+/// <summary>
+///  set window overlap (from 0 to 1) (default 0.75)
+/// </summary>
+public float overlap { get; set; }
 }
 public enum AfftfiltFilterGenWin_func
 {

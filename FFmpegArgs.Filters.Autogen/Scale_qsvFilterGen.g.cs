@@ -37,6 +37,37 @@ public static class Scale_qsvFilterGenExtensions
 /// QuickSync video scaling and format conversion
 /// </summary>
 public static Scale_qsvFilterGen Scale_qsvFilterGen(this ImageMap input0) => new Scale_qsvFilterGen(input0);
+/// <summary>
+/// QuickSync video scaling and format conversion
+/// </summary>
+public static Scale_qsvFilterGen Scale_qsvFilterGen(this ImageMap input0,Scale_qsvFilterGenConfig config)
+{
+var result = new Scale_qsvFilterGen(input0);
+if(config?.w != null) result.w(config.w);
+if(config?.h != null) result.h(config.h);
+if(config?.format != null) result.format(config.format);
+if(config?.mode != null) result.mode(config.mode);
+return result;
+}
+}
+public class Scale_qsvFilterGenConfig
+{
+/// <summary>
+///  Output video width (default "iw")
+/// </summary>
+public string w { get; set; }
+/// <summary>
+///  Output video height (default "ih")
+/// </summary>
+public string h { get; set; }
+/// <summary>
+///  Output pixel format (default "same")
+/// </summary>
+public string format { get; set; }
+/// <summary>
+///  set scaling mode (from 0 to 2) (default 0)
+/// </summary>
+public Scale_qsvFilterGenMode mode { get; set; }
 }
 public enum Scale_qsvFilterGenMode
 {

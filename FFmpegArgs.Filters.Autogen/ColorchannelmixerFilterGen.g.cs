@@ -89,5 +89,101 @@ public static class ColorchannelmixerFilterGenExtensions
 /// Adjust colors by mixing color channels.
 /// </summary>
 public static ColorchannelmixerFilterGen ColorchannelmixerFilterGen(this ImageMap input0) => new ColorchannelmixerFilterGen(input0);
+/// <summary>
+/// Adjust colors by mixing color channels.
+/// </summary>
+public static ColorchannelmixerFilterGen ColorchannelmixerFilterGen(this ImageMap input0,ColorchannelmixerFilterGenConfig config)
+{
+var result = new ColorchannelmixerFilterGen(input0);
+if(config?.rr != null) result.rr(config.rr);
+if(config?.rg != null) result.rg(config.rg);
+if(config?.rb != null) result.rb(config.rb);
+if(config?.ra != null) result.ra(config.ra);
+if(config?.gr != null) result.gr(config.gr);
+if(config?.gg != null) result.gg(config.gg);
+if(config?.gb != null) result.gb(config.gb);
+if(config?.ga != null) result.ga(config.ga);
+if(config?.br != null) result.br(config.br);
+if(config?.bg != null) result.bg(config.bg);
+if(config?.bb != null) result.bb(config.bb);
+if(config?.ba != null) result.ba(config.ba);
+if(config?.ar != null) result.ar(config.ar);
+if(config?.ag != null) result.ag(config.ag);
+if(config?.ab != null) result.ab(config.ab);
+if(config?.aa != null) result.aa(config.aa);
+if(config?.pl != null) result.pl(config.pl);
+return result;
+}
+}
+public class ColorchannelmixerFilterGenConfig
+{
+/// <summary>
+///  set the red gain for the red channel (from -2 to 2) (default 1)
+/// </summary>
+public double rr { get; set; }
+/// <summary>
+///  set the green gain for the red channel (from -2 to 2) (default 0)
+/// </summary>
+public double rg { get; set; }
+/// <summary>
+///  set the blue gain for the red channel (from -2 to 2) (default 0)
+/// </summary>
+public double rb { get; set; }
+/// <summary>
+///  set the alpha gain for the red channel (from -2 to 2) (default 0)
+/// </summary>
+public double ra { get; set; }
+/// <summary>
+///  set the red gain for the green channel (from -2 to 2) (default 0)
+/// </summary>
+public double gr { get; set; }
+/// <summary>
+///  set the green gain for the green channel (from -2 to 2) (default 1)
+/// </summary>
+public double gg { get; set; }
+/// <summary>
+///  set the blue gain for the green channel (from -2 to 2) (default 0)
+/// </summary>
+public double gb { get; set; }
+/// <summary>
+///  set the alpha gain for the green channel (from -2 to 2) (default 0)
+/// </summary>
+public double ga { get; set; }
+/// <summary>
+///  set the red gain for the blue channel (from -2 to 2) (default 0)
+/// </summary>
+public double br { get; set; }
+/// <summary>
+///  set the green gain for the blue channel (from -2 to 2) (default 0)
+/// </summary>
+public double bg { get; set; }
+/// <summary>
+///  set the blue gain for the blue channel (from -2 to 2) (default 1)
+/// </summary>
+public double bb { get; set; }
+/// <summary>
+///  set the alpha gain for the blue channel (from -2 to 2) (default 0)
+/// </summary>
+public double ba { get; set; }
+/// <summary>
+///  set the red gain for the alpha channel (from -2 to 2) (default 0)
+/// </summary>
+public double ar { get; set; }
+/// <summary>
+///  set the green gain for the alpha channel (from -2 to 2) (default 0)
+/// </summary>
+public double ag { get; set; }
+/// <summary>
+///  set the blue gain for the alpha channel (from -2 to 2) (default 0)
+/// </summary>
+public double ab { get; set; }
+/// <summary>
+///  set the alpha gain for the alpha channel (from -2 to 2) (default 1)
+/// </summary>
+public double aa { get; set; }
+/// <summary>
+///  preserve lightness (from 0 to 1) (default 0)
+/// </summary>
+public double pl { get; set; }
 }
 }

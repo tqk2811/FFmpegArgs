@@ -29,5 +29,26 @@ public static class AsettbFilterGenExtensions
 /// Set timebase for the audio output link.
 /// </summary>
 public static AsettbFilterGen AsettbFilterGen(this AudioMap input0) => new AsettbFilterGen(input0);
+/// <summary>
+/// Set timebase for the audio output link.
+/// </summary>
+public static AsettbFilterGen AsettbFilterGen(this AudioMap input0,AsettbFilterGenConfig config)
+{
+var result = new AsettbFilterGen(input0);
+if(config?.expr != null) result.expr(config.expr);
+if(config?.tb != null) result.tb(config.tb);
+return result;
+}
+}
+public class AsettbFilterGenConfig
+{
+/// <summary>
+///  set expression determining the output timebase (default "intb")
+/// </summary>
+public string expr { get; set; }
+/// <summary>
+///  set expression determining the output timebase (default "intb")
+/// </summary>
+public string tb { get; set; }
 }
 }

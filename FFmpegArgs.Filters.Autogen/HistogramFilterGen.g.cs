@@ -53,6 +53,57 @@ public static class HistogramFilterGenExtensions
 /// Compute and draw a histogram.
 /// </summary>
 public static HistogramFilterGen HistogramFilterGen(this ImageMap input0) => new HistogramFilterGen(input0);
+/// <summary>
+/// Compute and draw a histogram.
+/// </summary>
+public static HistogramFilterGen HistogramFilterGen(this ImageMap input0,HistogramFilterGenConfig config)
+{
+var result = new HistogramFilterGen(input0);
+if(config?.level_height != null) result.level_height(config.level_height);
+if(config?.scale_height != null) result.scale_height(config.scale_height);
+if(config?.display_mode != null) result.display_mode(config.display_mode);
+if(config?.levels_mode != null) result.levels_mode(config.levels_mode);
+if(config?.m != null) result.m(config.m);
+if(config?.components != null) result.components(config.components);
+if(config?.fgopacity != null) result.fgopacity(config.fgopacity);
+if(config?.bgopacity != null) result.bgopacity(config.bgopacity);
+return result;
+}
+}
+public class HistogramFilterGenConfig
+{
+/// <summary>
+///  set level height (from 50 to 2048) (default 200)
+/// </summary>
+public int level_height { get; set; }
+/// <summary>
+///  set scale height (from 0 to 40) (default 12)
+/// </summary>
+public int scale_height { get; set; }
+/// <summary>
+///  set display mode (from 0 to 2) (default stack)
+/// </summary>
+public HistogramFilterGenDisplay_mode display_mode { get; set; }
+/// <summary>
+///  set levels mode (from 0 to 1) (default linear)
+/// </summary>
+public HistogramFilterGenLevels_mode levels_mode { get; set; }
+/// <summary>
+///  set levels mode (from 0 to 1) (default linear)
+/// </summary>
+public HistogramFilterGenM m { get; set; }
+/// <summary>
+///  set color components to display (from 1 to 15) (default 7)
+/// </summary>
+public int components { get; set; }
+/// <summary>
+///  set foreground opacity (from 0 to 1) (default 0.7)
+/// </summary>
+public float fgopacity { get; set; }
+/// <summary>
+///  set background opacity (from 0 to 1) (default 0.5)
+/// </summary>
+public float bgopacity { get; set; }
 }
 public enum HistogramFilterGenDisplay_mode
 {

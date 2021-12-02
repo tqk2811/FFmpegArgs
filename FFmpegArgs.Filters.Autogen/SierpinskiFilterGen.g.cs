@@ -41,6 +41,42 @@ public static class SierpinskiFilterGenExtensions
 /// Render a Sierpinski fractal.
 /// </summary>
 public static SierpinskiFilterGen SierpinskiFilterGen(this FilterGraph input0) => new SierpinskiFilterGen(input0);
+/// <summary>
+/// Render a Sierpinski fractal.
+/// </summary>
+public static SierpinskiFilterGen SierpinskiFilterGen(this FilterGraph input0,SierpinskiFilterGenConfig config)
+{
+var result = new SierpinskiFilterGen(input0);
+if(config?.size != null) result.size(config.size);
+if(config?.rate != null) result.rate(config.rate);
+if(config?.seed != null) result.seed(config.seed);
+if(config?.jump != null) result.jump(config.jump);
+if(config?.type != null) result.type(config.type);
+return result;
+}
+}
+public class SierpinskiFilterGenConfig
+{
+/// <summary>
+///  set frame size (default "640x480")
+/// </summary>
+public Size size { get; set; }
+/// <summary>
+///  set frame rate (default "25")
+/// </summary>
+public Rational rate { get; set; }
+/// <summary>
+///  set the seed (from -1 to UINT32_MAX) (default -1)
+/// </summary>
+public long seed { get; set; }
+/// <summary>
+///  set the jump (from 1 to 10000) (default 100)
+/// </summary>
+public int jump { get; set; }
+/// <summary>
+///  set fractal type (from 0 to 1) (default carpet)
+/// </summary>
+public SierpinskiFilterGenType type { get; set; }
 }
 public enum SierpinskiFilterGenType
 {

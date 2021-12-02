@@ -53,6 +53,57 @@ public static class CurvesFilterGenExtensions
 /// Adjust components curves.
 /// </summary>
 public static CurvesFilterGen CurvesFilterGen(this ImageMap input0) => new CurvesFilterGen(input0);
+/// <summary>
+/// Adjust components curves.
+/// </summary>
+public static CurvesFilterGen CurvesFilterGen(this ImageMap input0,CurvesFilterGenConfig config)
+{
+var result = new CurvesFilterGen(input0);
+if(config?.preset != null) result.preset(config.preset);
+if(config?.master != null) result.master(config.master);
+if(config?.red != null) result.red(config.red);
+if(config?.green != null) result.green(config.green);
+if(config?.blue != null) result.blue(config.blue);
+if(config?.all != null) result.all(config.all);
+if(config?.psfile != null) result.psfile(config.psfile);
+if(config?.plot != null) result.plot(config.plot);
+return result;
+}
+}
+public class CurvesFilterGenConfig
+{
+/// <summary>
+///  select a color curves preset (from 0 to 10) (default none)
+/// </summary>
+public CurvesFilterGenPreset preset { get; set; }
+/// <summary>
+///  set master points coordinates
+/// </summary>
+public string master { get; set; }
+/// <summary>
+///  set red points coordinates
+/// </summary>
+public string red { get; set; }
+/// <summary>
+///  set green points coordinates
+/// </summary>
+public string green { get; set; }
+/// <summary>
+///  set blue points coordinates
+/// </summary>
+public string blue { get; set; }
+/// <summary>
+///  set points coordinates for all components
+/// </summary>
+public string all { get; set; }
+/// <summary>
+///  set Photoshop curves file name
+/// </summary>
+public string psfile { get; set; }
+/// <summary>
+///  save Gnuplot script of the curves in specified file
+/// </summary>
+public string plot { get; set; }
 }
 public enum CurvesFilterGenPreset
 {

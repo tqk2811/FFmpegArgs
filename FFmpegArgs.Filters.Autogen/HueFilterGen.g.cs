@@ -37,5 +37,36 @@ public static class HueFilterGenExtensions
 /// Adjust the hue and saturation of the input video.
 /// </summary>
 public static HueFilterGen HueFilterGen(this ImageMap input0) => new HueFilterGen(input0);
+/// <summary>
+/// Adjust the hue and saturation of the input video.
+/// </summary>
+public static HueFilterGen HueFilterGen(this ImageMap input0,HueFilterGenConfig config)
+{
+var result = new HueFilterGen(input0);
+if(config?.h != null) result.h(config.h);
+if(config?.s != null) result.s(config.s);
+if(config?.H != null) result.H(config.H);
+if(config?.b != null) result.b(config.b);
+return result;
+}
+}
+public class HueFilterGenConfig
+{
+/// <summary>
+///  set the hue angle degrees expression
+/// </summary>
+public string h { get; set; }
+/// <summary>
+///  set the saturation expression (default "1")
+/// </summary>
+public string s { get; set; }
+/// <summary>
+///  set the hue angle radians expression
+/// </summary>
+public string H { get; set; }
+/// <summary>
+///  set the brightness expression (default "0")
+/// </summary>
+public string b { get; set; }
 }
 }

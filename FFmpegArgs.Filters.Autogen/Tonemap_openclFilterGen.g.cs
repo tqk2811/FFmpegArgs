@@ -61,6 +61,67 @@ public static class Tonemap_openclFilterGenExtensions
 /// Perform HDR to SDR conversion with tonemapping.
 /// </summary>
 public static Tonemap_openclFilterGen Tonemap_openclFilterGen(this ImageMap input0) => new Tonemap_openclFilterGen(input0);
+/// <summary>
+/// Perform HDR to SDR conversion with tonemapping.
+/// </summary>
+public static Tonemap_openclFilterGen Tonemap_openclFilterGen(this ImageMap input0,Tonemap_openclFilterGenConfig config)
+{
+var result = new Tonemap_openclFilterGen(input0);
+if(config?.tonemap != null) result.tonemap(config.tonemap);
+if(config?.transfer != null) result.transfer(config.transfer);
+if(config?.matrix != null) result.matrix(config.matrix);
+if(config?.primaries != null) result.primaries(config.primaries);
+if(config?.range != null) result.range(config.range);
+if(config?.format != null) result.format(config.format);
+if(config?.peak != null) result.peak(config.peak);
+if(config?.param != null) result.param(config.param);
+if(config?.desat != null) result.desat(config.desat);
+if(config?.threshold != null) result.threshold(config.threshold);
+return result;
+}
+}
+public class Tonemap_openclFilterGenConfig
+{
+/// <summary>
+///  tonemap algorithm selection (from 0 to 6) (default none)
+/// </summary>
+public Tonemap_openclFilterGenTonemap tonemap { get; set; }
+/// <summary>
+///  set transfer characteristic (from -1 to INT_MAX) (default bt709)
+/// </summary>
+public Tonemap_openclFilterGenTransfer transfer { get; set; }
+/// <summary>
+///  set colorspace matrix (from -1 to INT_MAX) (default -1)
+/// </summary>
+public Tonemap_openclFilterGenMatrix matrix { get; set; }
+/// <summary>
+///  set color primaries (from -1 to INT_MAX) (default -1)
+/// </summary>
+public Tonemap_openclFilterGenPrimaries primaries { get; set; }
+/// <summary>
+///  set color range (from -1 to INT_MAX) (default -1)
+/// </summary>
+public Tonemap_openclFilterGenRange range { get; set; }
+/// <summary>
+///  output pixel format (default none)
+/// </summary>
+public PixFmt format { get; set; }
+/// <summary>
+///  signal peak override (from 0 to DBL_MAX) (default 0)
+/// </summary>
+public double peak { get; set; }
+/// <summary>
+///  tonemap parameter (from DBL_MIN to DBL_MAX) (default nan)
+/// </summary>
+public double param { get; set; }
+/// <summary>
+///  desaturation parameter (from 0 to DBL_MAX) (default 0.5)
+/// </summary>
+public double desat { get; set; }
+/// <summary>
+///  scene detection threshold (from 0 to DBL_MAX) (default 0.2)
+/// </summary>
+public double threshold { get; set; }
 }
 public enum Tonemap_openclFilterGenTonemap
 {

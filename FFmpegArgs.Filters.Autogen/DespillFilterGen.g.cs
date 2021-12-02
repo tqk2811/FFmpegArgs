@@ -45,7 +45,7 @@ public DespillFilterGen brightness(float brightness) => this.SetOptionRange("bri
 /// <summary>
 ///  change alpha component (default false)
 /// </summary>
-public DespillFilterGen alpha(bool flag) => this.SetOption("alpha",flag.ToFFmpegFlag());
+public DespillFilterGen alpha(bool alpha) => this.SetOption("alpha",alpha.ToFFmpegFlag());
 }
 public static class DespillFilterGenExtensions
 {
@@ -53,6 +53,57 @@ public static class DespillFilterGenExtensions
 /// Despill video.
 /// </summary>
 public static DespillFilterGen DespillFilterGen(this ImageMap input0) => new DespillFilterGen(input0);
+/// <summary>
+/// Despill video.
+/// </summary>
+public static DespillFilterGen DespillFilterGen(this ImageMap input0,DespillFilterGenConfig config)
+{
+var result = new DespillFilterGen(input0);
+if(config?.type != null) result.type(config.type);
+if(config?.mix != null) result.mix(config.mix);
+if(config?.expand != null) result.expand(config.expand);
+if(config?.red != null) result.red(config.red);
+if(config?.green != null) result.green(config.green);
+if(config?.blue != null) result.blue(config.blue);
+if(config?.brightness != null) result.brightness(config.brightness);
+if(config?.alpha != null) result.alpha(config.alpha);
+return result;
+}
+}
+public class DespillFilterGenConfig
+{
+/// <summary>
+///  set the screen type (from 0 to 1) (default green)
+/// </summary>
+public DespillFilterGenType type { get; set; }
+/// <summary>
+///  set the spillmap mix (from 0 to 1) (default 0.5)
+/// </summary>
+public float mix { get; set; }
+/// <summary>
+///  set the spillmap expand (from 0 to 1) (default 0)
+/// </summary>
+public float expand { get; set; }
+/// <summary>
+///  set red scale (from -100 to 100) (default 0)
+/// </summary>
+public float red { get; set; }
+/// <summary>
+///  set green scale (from -100 to 100) (default -1)
+/// </summary>
+public float green { get; set; }
+/// <summary>
+///  set blue scale (from -100 to 100) (default 0)
+/// </summary>
+public float blue { get; set; }
+/// <summary>
+///  set brightness (from -10 to 10) (default 0)
+/// </summary>
+public float brightness { get; set; }
+/// <summary>
+///  change alpha component (default false)
+/// </summary>
+public bool alpha { get; set; }
 }
 public enum DespillFilterGenType
 {

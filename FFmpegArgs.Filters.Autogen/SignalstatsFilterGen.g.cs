@@ -33,6 +33,32 @@ public static class SignalstatsFilterGenExtensions
 /// Generate statistics from video analysis.
 /// </summary>
 public static SignalstatsFilterGen SignalstatsFilterGen(this ImageMap input0) => new SignalstatsFilterGen(input0);
+/// <summary>
+/// Generate statistics from video analysis.
+/// </summary>
+public static SignalstatsFilterGen SignalstatsFilterGen(this ImageMap input0,SignalstatsFilterGenConfig config)
+{
+var result = new SignalstatsFilterGen(input0);
+if(config?.stat != null) result.stat(config.stat);
+if(config?._out != null) result._out(config._out);
+if(config?.color != null) result.color(config.color);
+return result;
+}
+}
+public class SignalstatsFilterGenConfig
+{
+/// <summary>
+///  set statistics filters (default 0)
+/// </summary>
+public SignalstatsFilterGenStat stat { get; set; }
+/// <summary>
+///  set video filter (from -1 to 2) (default -1)
+/// </summary>
+public SignalstatsFilterGenOut _out { get; set; }
+/// <summary>
+///  set highlight color (default "yellow")
+/// </summary>
+public Color color { get; set; }
 }
 public enum SignalstatsFilterGenStat
 {

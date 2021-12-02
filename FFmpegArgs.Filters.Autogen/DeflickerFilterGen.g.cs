@@ -25,7 +25,7 @@ public DeflickerFilterGen mode(DeflickerFilterGenMode mode) => this.SetOption("m
 /// <summary>
 ///  leave frames unchanged (default false)
 /// </summary>
-public DeflickerFilterGen bypass(bool flag) => this.SetOption("bypass",flag.ToFFmpegFlag());
+public DeflickerFilterGen bypass(bool bypass) => this.SetOption("bypass",bypass.ToFFmpegFlag());
 }
 public static class DeflickerFilterGenExtensions
 {
@@ -33,6 +33,32 @@ public static class DeflickerFilterGenExtensions
 /// Remove temporal frame luminance variations.
 /// </summary>
 public static DeflickerFilterGen DeflickerFilterGen(this ImageMap input0) => new DeflickerFilterGen(input0);
+/// <summary>
+/// Remove temporal frame luminance variations.
+/// </summary>
+public static DeflickerFilterGen DeflickerFilterGen(this ImageMap input0,DeflickerFilterGenConfig config)
+{
+var result = new DeflickerFilterGen(input0);
+if(config?.size != null) result.size(config.size);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.bypass != null) result.bypass(config.bypass);
+return result;
+}
+}
+public class DeflickerFilterGenConfig
+{
+/// <summary>
+///  set how many frames to use (from 2 to 129) (default 5)
+/// </summary>
+public int size { get; set; }
+/// <summary>
+///  set how to smooth luminance (from 0 to 6) (default am)
+/// </summary>
+public DeflickerFilterGenMode mode { get; set; }
+/// <summary>
+///  leave frames unchanged (default false)
+/// </summary>
+public bool bypass { get; set; }
 }
 public enum DeflickerFilterGenMode
 {

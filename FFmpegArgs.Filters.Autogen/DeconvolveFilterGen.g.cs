@@ -33,6 +33,32 @@ public static class DeconvolveFilterGenExtensions
 /// Deconvolve first video stream with second video stream.
 /// </summary>
 public static DeconvolveFilterGen DeconvolveFilterGen(this ImageMap input0, ImageMap input1) => new DeconvolveFilterGen(input0, input1);
+/// <summary>
+/// Deconvolve first video stream with second video stream.
+/// </summary>
+public static DeconvolveFilterGen DeconvolveFilterGen(this ImageMap input0, ImageMap input1,DeconvolveFilterGenConfig config)
+{
+var result = new DeconvolveFilterGen(input0, input1);
+if(config?.planes != null) result.planes(config.planes);
+if(config?.impulse != null) result.impulse(config.impulse);
+if(config?.noise != null) result.noise(config.noise);
+return result;
+}
+}
+public class DeconvolveFilterGenConfig
+{
+/// <summary>
+///  set planes to deconvolve (from 0 to 15) (default 7)
+/// </summary>
+public int planes { get; set; }
+/// <summary>
+///  when to process impulses (from 0 to 1) (default all)
+/// </summary>
+public DeconvolveFilterGenImpulse impulse { get; set; }
+/// <summary>
+///  set noise (from 0 to 1) (default 1e-07)
+/// </summary>
+public float noise { get; set; }
 }
 public enum DeconvolveFilterGenImpulse
 {

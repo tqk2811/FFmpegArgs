@@ -69,6 +69,77 @@ public static class SidechaincompressFilterGenExtensions
 /// Sidechain compressor.
 /// </summary>
 public static SidechaincompressFilterGen SidechaincompressFilterGen(this AudioMap input0, AudioMap input1) => new SidechaincompressFilterGen(input0, input1);
+/// <summary>
+/// Sidechain compressor.
+/// </summary>
+public static SidechaincompressFilterGen SidechaincompressFilterGen(this AudioMap input0, AudioMap input1,SidechaincompressFilterGenConfig config)
+{
+var result = new SidechaincompressFilterGen(input0, input1);
+if(config?.level_in != null) result.level_in(config.level_in);
+if(config?.mode != null) result.mode(config.mode);
+if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.ratio != null) result.ratio(config.ratio);
+if(config?.attack != null) result.attack(config.attack);
+if(config?.release != null) result.release(config.release);
+if(config?.makeup != null) result.makeup(config.makeup);
+if(config?.knee != null) result.knee(config.knee);
+if(config?.link != null) result.link(config.link);
+if(config?.detection != null) result.detection(config.detection);
+if(config?.level_sc != null) result.level_sc(config.level_sc);
+if(config?.mix != null) result.mix(config.mix);
+return result;
+}
+}
+public class SidechaincompressFilterGenConfig
+{
+/// <summary>
+///  set input gain (from 0.015625 to 64) (default 1)
+/// </summary>
+public double level_in { get; set; }
+/// <summary>
+///  set mode (from 0 to 1) (default downward)
+/// </summary>
+public SidechaincompressFilterGenMode mode { get; set; }
+/// <summary>
+///  set threshold (from 0.000976563 to 1) (default 0.125)
+/// </summary>
+public double threshold { get; set; }
+/// <summary>
+///  set ratio (from 1 to 20) (default 2)
+/// </summary>
+public double ratio { get; set; }
+/// <summary>
+///  set attack (from 0.01 to 2000) (default 20)
+/// </summary>
+public double attack { get; set; }
+/// <summary>
+///  set release (from 0.01 to 9000) (default 250)
+/// </summary>
+public double release { get; set; }
+/// <summary>
+///  set make up gain (from 1 to 64) (default 1)
+/// </summary>
+public double makeup { get; set; }
+/// <summary>
+///  set knee (from 1 to 8) (default 2.82843)
+/// </summary>
+public double knee { get; set; }
+/// <summary>
+///  set link type (from 0 to 1) (default average)
+/// </summary>
+public SidechaincompressFilterGenLink link { get; set; }
+/// <summary>
+///  set detection (from 0 to 1) (default rms)
+/// </summary>
+public SidechaincompressFilterGenDetection detection { get; set; }
+/// <summary>
+///  set sidechain gain (from 0.015625 to 64) (default 1)
+/// </summary>
+public double level_sc { get; set; }
+/// <summary>
+///  set mix (from 0 to 1) (default 1)
+/// </summary>
+public double mix { get; set; }
 }
 public enum SidechaincompressFilterGenMode
 {

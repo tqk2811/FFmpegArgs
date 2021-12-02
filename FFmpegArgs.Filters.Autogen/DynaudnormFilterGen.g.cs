@@ -41,23 +41,23 @@ public DynaudnormFilterGen r(double r) => this.SetOptionRange("r", r,0,1);
 /// <summary>
 ///  set channel coupling (default true)
 /// </summary>
-public DynaudnormFilterGen coupling(bool flag) => this.SetOption("coupling",flag.ToFFmpegFlag());
+public DynaudnormFilterGen coupling(bool coupling) => this.SetOption("coupling",coupling.ToFFmpegFlag());
 /// <summary>
 ///  set channel coupling (default true)
 /// </summary>
-public DynaudnormFilterGen n(bool flag) => this.SetOption("n",flag.ToFFmpegFlag());
+public DynaudnormFilterGen n(bool n) => this.SetOption("n",n.ToFFmpegFlag());
 /// <summary>
 ///  set DC correction (default false)
 /// </summary>
-public DynaudnormFilterGen correctdc(bool flag) => this.SetOption("correctdc",flag.ToFFmpegFlag());
+public DynaudnormFilterGen correctdc(bool correctdc) => this.SetOption("correctdc",correctdc.ToFFmpegFlag());
 /// <summary>
 ///  set alternative boundary mode (default false)
 /// </summary>
-public DynaudnormFilterGen altboundary(bool flag) => this.SetOption("altboundary",flag.ToFFmpegFlag());
+public DynaudnormFilterGen altboundary(bool altboundary) => this.SetOption("altboundary",altboundary.ToFFmpegFlag());
 /// <summary>
 ///  set alternative boundary mode (default false)
 /// </summary>
-public DynaudnormFilterGen b(bool flag) => this.SetOption("b",flag.ToFFmpegFlag());
+public DynaudnormFilterGen b(bool b) => this.SetOption("b",b.ToFFmpegFlag());
 /// <summary>
 ///  set the compress factor (from 0 to 30) (default 0)
 /// </summary>
@@ -77,5 +77,86 @@ public static class DynaudnormFilterGenExtensions
 /// Dynamic Audio Normalizer.
 /// </summary>
 public static DynaudnormFilterGen DynaudnormFilterGen(this AudioMap input0) => new DynaudnormFilterGen(input0);
+/// <summary>
+/// Dynamic Audio Normalizer.
+/// </summary>
+public static DynaudnormFilterGen DynaudnormFilterGen(this AudioMap input0,DynaudnormFilterGenConfig config)
+{
+var result = new DynaudnormFilterGen(input0);
+if(config?.framelen != null) result.framelen(config.framelen);
+if(config?.gausssize != null) result.gausssize(config.gausssize);
+if(config?.peak != null) result.peak(config.peak);
+if(config?.maxgain != null) result.maxgain(config.maxgain);
+if(config?.targetrms != null) result.targetrms(config.targetrms);
+if(config?.r != null) result.r(config.r);
+if(config?.coupling != null) result.coupling(config.coupling);
+if(config?.n != null) result.n(config.n);
+if(config?.correctdc != null) result.correctdc(config.correctdc);
+if(config?.altboundary != null) result.altboundary(config.altboundary);
+if(config?.b != null) result.b(config.b);
+if(config?.compress != null) result.compress(config.compress);
+if(config?.s != null) result.s(config.s);
+if(config?.threshold != null) result.threshold(config.threshold);
+return result;
+}
+}
+public class DynaudnormFilterGenConfig
+{
+/// <summary>
+///  set the frame length in msec (from 10 to 8000) (default 500)
+/// </summary>
+public int framelen { get; set; }
+/// <summary>
+///  set the filter size (from 3 to 301) (default 31)
+/// </summary>
+public int gausssize { get; set; }
+/// <summary>
+///  set the peak value (from 0 to 1) (default 0.95)
+/// </summary>
+public double peak { get; set; }
+/// <summary>
+///  set the max amplification (from 1 to 100) (default 10)
+/// </summary>
+public double maxgain { get; set; }
+/// <summary>
+///  set the target RMS (from 0 to 1) (default 0)
+/// </summary>
+public double targetrms { get; set; }
+/// <summary>
+///  set the target RMS (from 0 to 1) (default 0)
+/// </summary>
+public double r { get; set; }
+/// <summary>
+///  set channel coupling (default true)
+/// </summary>
+public bool coupling { get; set; }
+/// <summary>
+///  set channel coupling (default true)
+/// </summary>
+public bool n { get; set; }
+/// <summary>
+///  set DC correction (default false)
+/// </summary>
+public bool correctdc { get; set; }
+/// <summary>
+///  set alternative boundary mode (default false)
+/// </summary>
+public bool altboundary { get; set; }
+/// <summary>
+///  set alternative boundary mode (default false)
+/// </summary>
+public bool b { get; set; }
+/// <summary>
+///  set the compress factor (from 0 to 30) (default 0)
+/// </summary>
+public double compress { get; set; }
+/// <summary>
+///  set the compress factor (from 0 to 30) (default 0)
+/// </summary>
+public double s { get; set; }
+/// <summary>
+///  set the threshold value (from 0 to 1) (default 0)
+/// </summary>
+public double threshold { get; set; }
 }
 }

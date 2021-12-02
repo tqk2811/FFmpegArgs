@@ -29,5 +29,26 @@ public static class DcshiftFilterGenExtensions
 /// Apply a DC shift to the audio.
 /// </summary>
 public static DcshiftFilterGen DcshiftFilterGen(this AudioMap input0) => new DcshiftFilterGen(input0);
+/// <summary>
+/// Apply a DC shift to the audio.
+/// </summary>
+public static DcshiftFilterGen DcshiftFilterGen(this AudioMap input0,DcshiftFilterGenConfig config)
+{
+var result = new DcshiftFilterGen(input0);
+if(config?.shift != null) result.shift(config.shift);
+if(config?.limitergain != null) result.limitergain(config.limitergain);
+return result;
+}
+}
+public class DcshiftFilterGenConfig
+{
+/// <summary>
+///  set DC shift (from -1 to 1) (default 0)
+/// </summary>
+public double shift { get; set; }
+/// <summary>
+///  set limiter gain (from 0 to 1) (default 0)
+/// </summary>
+public double limitergain { get; set; }
 }
 }

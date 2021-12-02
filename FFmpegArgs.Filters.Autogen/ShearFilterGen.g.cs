@@ -41,6 +41,42 @@ public static class ShearFilterGenExtensions
 /// Shear transform the input image.
 /// </summary>
 public static ShearFilterGen ShearFilterGen(this ImageMap input0) => new ShearFilterGen(input0);
+/// <summary>
+/// Shear transform the input image.
+/// </summary>
+public static ShearFilterGen ShearFilterGen(this ImageMap input0,ShearFilterGenConfig config)
+{
+var result = new ShearFilterGen(input0);
+if(config?.shx != null) result.shx(config.shx);
+if(config?.shy != null) result.shy(config.shy);
+if(config?.fillcolor != null) result.fillcolor(config.fillcolor);
+if(config?.c != null) result.c(config.c);
+if(config?.interp != null) result.interp(config.interp);
+return result;
+}
+}
+public class ShearFilterGenConfig
+{
+/// <summary>
+///  set x shear factor (from -2 to 2) (default 0)
+/// </summary>
+public float shx { get; set; }
+/// <summary>
+///  set y shear factor (from -2 to 2) (default 0)
+/// </summary>
+public float shy { get; set; }
+/// <summary>
+///  set background fill color (default "black")
+/// </summary>
+public string fillcolor { get; set; }
+/// <summary>
+///  set background fill color (default "black")
+/// </summary>
+public string c { get; set; }
+/// <summary>
+///  set interpolation (from 0 to 1) (default bilinear)
+/// </summary>
+public ShearFilterGenInterp interp { get; set; }
 }
 public enum ShearFilterGenInterp
 {

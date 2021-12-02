@@ -45,7 +45,7 @@ public AexciterFilterGen ceil(double ceil) => this.SetOptionRange("ceil", ceil,9
 /// <summary>
 ///  enable listen mode (default false)
 /// </summary>
-public AexciterFilterGen listen(bool flag) => this.SetOption("listen",flag.ToFFmpegFlag());
+public AexciterFilterGen listen(bool listen) => this.SetOption("listen",listen.ToFFmpegFlag());
 }
 public static class AexciterFilterGenExtensions
 {
@@ -53,5 +53,56 @@ public static class AexciterFilterGenExtensions
 /// Enhance high frequency part of audio.
 /// </summary>
 public static AexciterFilterGen AexciterFilterGen(this AudioMap input0) => new AexciterFilterGen(input0);
+/// <summary>
+/// Enhance high frequency part of audio.
+/// </summary>
+public static AexciterFilterGen AexciterFilterGen(this AudioMap input0,AexciterFilterGenConfig config)
+{
+var result = new AexciterFilterGen(input0);
+if(config?.level_in != null) result.level_in(config.level_in);
+if(config?.level_out != null) result.level_out(config.level_out);
+if(config?.amount != null) result.amount(config.amount);
+if(config?.drive != null) result.drive(config.drive);
+if(config?.blend != null) result.blend(config.blend);
+if(config?.freq != null) result.freq(config.freq);
+if(config?.ceil != null) result.ceil(config.ceil);
+if(config?.listen != null) result.listen(config.listen);
+return result;
+}
+}
+public class AexciterFilterGenConfig
+{
+/// <summary>
+///  set level in (from 0 to 64) (default 1)
+/// </summary>
+public double level_in { get; set; }
+/// <summary>
+///  set level out (from 0 to 64) (default 1)
+/// </summary>
+public double level_out { get; set; }
+/// <summary>
+///  set amount (from 0 to 64) (default 1)
+/// </summary>
+public double amount { get; set; }
+/// <summary>
+///  set harmonics (from 0.1 to 10) (default 8.5)
+/// </summary>
+public double drive { get; set; }
+/// <summary>
+///  set blend harmonics (from -10 to 10) (default 0)
+/// </summary>
+public double blend { get; set; }
+/// <summary>
+///  set scope (from 2000 to 12000) (default 7500)
+/// </summary>
+public double freq { get; set; }
+/// <summary>
+///  set ceiling (from 9999 to 20000) (default 9999)
+/// </summary>
+public double ceil { get; set; }
+/// <summary>
+///  enable listen mode (default false)
+/// </summary>
+public bool listen { get; set; }
 }
 }

@@ -29,6 +29,27 @@ public static class TransposeFilterGenExtensions
 /// Transpose input video.
 /// </summary>
 public static TransposeFilterGen TransposeFilterGen(this ImageMap input0) => new TransposeFilterGen(input0);
+/// <summary>
+/// Transpose input video.
+/// </summary>
+public static TransposeFilterGen TransposeFilterGen(this ImageMap input0,TransposeFilterGenConfig config)
+{
+var result = new TransposeFilterGen(input0);
+if(config?.dir != null) result.dir(config.dir);
+if(config?.passthrough != null) result.passthrough(config.passthrough);
+return result;
+}
+}
+public class TransposeFilterGenConfig
+{
+/// <summary>
+///  set transpose direction (from 0 to 7) (default cclock_flip)
+/// </summary>
+public TransposeFilterGenDir dir { get; set; }
+/// <summary>
+///  do not apply transposition if the input matches the specified geometry (from 0 to INT_MAX) (default none)
+/// </summary>
+public TransposeFilterGenPassthrough passthrough { get; set; }
 }
 public enum TransposeFilterGenDir
 {

@@ -21,7 +21,7 @@ public AssFilterGen filename(string filename) => this.SetOption("filename",filen
 /// <summary>
 ///  set the size of the original video (used to scale fonts)
 /// </summary>
-public AssFilterGen original_size(Size size) => this.SetOption("original_size",$"{size.Width}x{size.Height}");
+public AssFilterGen original_size(Size original_size) => this.SetOption("original_size",$"{original_size.Width}x{original_size.Height}");
 /// <summary>
 ///  set the directory containing the fonts to read
 /// </summary>
@@ -29,7 +29,7 @@ public AssFilterGen fontsdir(string fontsdir) => this.SetOption("fontsdir",fonts
 /// <summary>
 ///  enable processing of alpha channel (default false)
 /// </summary>
-public AssFilterGen alpha(bool flag) => this.SetOption("alpha",flag.ToFFmpegFlag());
+public AssFilterGen alpha(bool alpha) => this.SetOption("alpha",alpha.ToFFmpegFlag());
 /// <summary>
 ///  set shaping engine (from -1 to 1) (default auto)
 /// </summary>
@@ -41,6 +41,42 @@ public static class AssFilterGenExtensions
 /// Render ASS subtitles onto input video using the libass library.
 /// </summary>
 public static AssFilterGen AssFilterGen(this ImageMap input0) => new AssFilterGen(input0);
+/// <summary>
+/// Render ASS subtitles onto input video using the libass library.
+/// </summary>
+public static AssFilterGen AssFilterGen(this ImageMap input0,AssFilterGenConfig config)
+{
+var result = new AssFilterGen(input0);
+if(config?.filename != null) result.filename(config.filename);
+if(config?.original_size != null) result.original_size(config.original_size);
+if(config?.fontsdir != null) result.fontsdir(config.fontsdir);
+if(config?.alpha != null) result.alpha(config.alpha);
+if(config?.shaping != null) result.shaping(config.shaping);
+return result;
+}
+}
+public class AssFilterGenConfig
+{
+/// <summary>
+///  set the filename of file to read
+/// </summary>
+public string filename { get; set; }
+/// <summary>
+///  set the size of the original video (used to scale fonts)
+/// </summary>
+public Size original_size { get; set; }
+/// <summary>
+///  set the directory containing the fonts to read
+/// </summary>
+public string fontsdir { get; set; }
+/// <summary>
+///  enable processing of alpha channel (default false)
+/// </summary>
+public bool alpha { get; set; }
+/// <summary>
+///  set shaping engine (from -1 to 1) (default auto)
+/// </summary>
+public AssFilterGenShaping shaping { get; set; }
 }
 public enum AssFilterGenShaping
 {

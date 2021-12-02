@@ -49,5 +49,51 @@ public static class Find_rectFilterGenExtensions
 /// Find a user specified object.
 /// </summary>
 public static Find_rectFilterGen Find_rectFilterGen(this ImageMap input0) => new Find_rectFilterGen(input0);
+/// <summary>
+/// Find a user specified object.
+/// </summary>
+public static Find_rectFilterGen Find_rectFilterGen(this ImageMap input0,Find_rectFilterGenConfig config)
+{
+var result = new Find_rectFilterGen(input0);
+if(config?._object != null) result._object(config._object);
+if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.mipmaps != null) result.mipmaps(config.mipmaps);
+if(config?.xmin != null) result.xmin(config.xmin);
+if(config?.ymin != null) result.ymin(config.ymin);
+if(config?.xmax != null) result.xmax(config.xmax);
+if(config?.ymax != null) result.ymax(config.ymax);
+return result;
+}
+}
+public class Find_rectFilterGenConfig
+{
+/// <summary>
+///  object bitmap filename
+/// </summary>
+public string _object { get; set; }
+/// <summary>
+///  set threshold (from 0 to 1) (default 0.5)
+/// </summary>
+public float threshold { get; set; }
+/// <summary>
+///  set mipmaps (from 1 to 5) (default 3)
+/// </summary>
+public int mipmaps { get; set; }
+/// <summary>
+///   (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int xmin { get; set; }
+/// <summary>
+///   (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int ymin { get; set; }
+/// <summary>
+///   (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int xmax { get; set; }
+/// <summary>
+///   (from 0 to INT_MAX) (default 0)
+/// </summary>
+public int ymax { get; set; }
 }
 }

@@ -25,5 +25,21 @@ public static class Thumbnail_cudaFilterGenExtensions
 /// Select the most representative frame in a given sequence of consecutive frames.
 /// </summary>
 public static Thumbnail_cudaFilterGen Thumbnail_cudaFilterGen(this ImageMap input0) => new Thumbnail_cudaFilterGen(input0);
+/// <summary>
+/// Select the most representative frame in a given sequence of consecutive frames.
+/// </summary>
+public static Thumbnail_cudaFilterGen Thumbnail_cudaFilterGen(this ImageMap input0,Thumbnail_cudaFilterGenConfig config)
+{
+var result = new Thumbnail_cudaFilterGen(input0);
+if(config?.n != null) result.n(config.n);
+return result;
+}
+}
+public class Thumbnail_cudaFilterGenConfig
+{
+/// <summary>
+///  set the frames batch size (from 2 to INT_MAX) (default 100)
+/// </summary>
+public int n { get; set; }
 }
 }
