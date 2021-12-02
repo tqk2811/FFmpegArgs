@@ -9,11 +9,19 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class ColorKeyFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
-        internal ColorKeyFilter(Color color, ImageMap imageMap) : base("colorkey", imageMap)
+        internal ColorKeyFilter(ImageMap imageMap) : base("colorkey", imageMap)
         {
             AddMapOut();
-            this.SetOption("color", color.ToHexStringRGB());
         }
+
+        /// <summary>
+        /// Set the color for which alpha will be set to 0 (full transparency). 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public ColorKeyFilter Color(Color color)
+          => this.SetOption("color", color.ToHexStringRGBA());
+
 
         /// <summary>
         /// Similarity percentage with the key color.<br></br>
@@ -44,6 +52,44 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="color">The color which will be replaced with transparency.</param>
         /// <returns></returns>
         public static ColorKeyFilter ColorKeyFilter(this ImageMap parent, Color color)
-          => new ColorKeyFilter(color, parent);
+          => new ColorKeyFilter(parent).Color(color);
+
+        /// <summary>
+        /// RGB colorspace color keying.
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <returns></returns>
+        public static ColorKeyFilter ColorKeyFilter(this ImageMap parent)
+          => new ColorKeyFilter(parent);
+
+        /// <summary>
+        /// RGB colorspace color keying.
+        /// </summary>
+        public static ColorKeyFilter ColorkeyFilterGen(this ImageMap input0, ColorkeyFilterConfig config)
+        {
+            var result = new ColorKeyFilter(input0);
+            if (config?.Color != null) result.Color(config.Color.Value);
+            if (config?.Similarity != null) result.Similarity(config.Similarity.Value);
+            if (config?.Blend != null) result.Blend(config.Blend.Value);
+            if (!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
+            return result;
+        }
+    }
+
+    public class ColorkeyFilterConfig : ITimelineSupportConfig
+    {
+        /// <summary>
+        ///  set the colorkey key color (default "black")
+        /// </summary>
+        public Color? Color { get; set; }
+        /// <summary>
+        ///  set the colorkey similarity value (from 0.01 to 1) (default 0.01)
+        /// </summary>
+        public float? Similarity { get; set; }
+        /// <summary>
+        ///  set the colorkey key blend value (from 0 to 1) (default 0)
+        /// </summary>
+        public float? Blend { get; set; }
+        public string TimelineSupport { get; set; }
     }
 }
