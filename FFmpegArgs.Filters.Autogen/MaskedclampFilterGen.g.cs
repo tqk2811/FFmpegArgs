@@ -42,7 +42,7 @@ var result = new MaskedclampFilterGen(input0, input1, input2);
 if(config?.undershoot != null) result.undershoot(config.undershoot.Value);
 if(config?.overshoot != null) result.overshoot(config.overshoot.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

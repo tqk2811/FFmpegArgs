@@ -87,7 +87,7 @@ if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strengt
 if(config?.cs != null) result.cs(config.cs.Value);
 if(config?.chroma_threshold != null) result.chroma_threshold(config.chroma_threshold.Value);
 if(config?.ct != null) result.ct(config.ct.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

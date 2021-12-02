@@ -82,7 +82,7 @@ if(!string.IsNullOrWhiteSpace(config?.whites)) result.whites(config.whites);
 if(!string.IsNullOrWhiteSpace(config?.neutrals)) result.neutrals(config.neutrals);
 if(!string.IsNullOrWhiteSpace(config?.blacks)) result.blacks(config.blacks);
 if(!string.IsNullOrWhiteSpace(config?.psfile)) result.psfile(config.psfile);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

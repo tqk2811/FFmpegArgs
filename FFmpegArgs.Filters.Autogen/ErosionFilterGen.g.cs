@@ -52,7 +52,7 @@ if(config?.threshold0 != null) result.threshold0(config.threshold0.Value);
 if(config?.threshold1 != null) result.threshold1(config.threshold1.Value);
 if(config?.threshold2 != null) result.threshold2(config.threshold2.Value);
 if(config?.threshold3 != null) result.threshold3(config.threshold3.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

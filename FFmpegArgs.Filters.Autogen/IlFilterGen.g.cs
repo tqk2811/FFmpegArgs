@@ -72,7 +72,7 @@ if(config?.chroma_swap != null) result.chroma_swap(config.chroma_swap.Value);
 if(config?.cs != null) result.cs(config.cs.Value);
 if(config?.alpha_swap != null) result.alpha_swap(config.alpha_swap.Value);
 if(config?._as != null) result._as(config._as.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

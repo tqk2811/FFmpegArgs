@@ -37,7 +37,7 @@ public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input0,Cry
 var result = new CrystalizerFilterGen(input0);
 if(config?.i != null) result.i(config.i.Value);
 if(config?.c != null) result.c(config.c.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

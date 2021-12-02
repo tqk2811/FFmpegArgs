@@ -32,7 +32,7 @@ public static PpFilterGen PpFilterGen(this ImageMap input0,PpFilterGenConfig con
 {
 var result = new PpFilterGen(input0);
 if(!string.IsNullOrWhiteSpace(config?.subfilters)) result.subfilters(config.subfilters);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

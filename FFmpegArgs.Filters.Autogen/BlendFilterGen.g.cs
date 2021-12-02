@@ -102,7 +102,7 @@ if(config?.c1_opacity != null) result.c1_opacity(config.c1_opacity.Value);
 if(config?.c2_opacity != null) result.c2_opacity(config.c2_opacity.Value);
 if(config?.c3_opacity != null) result.c3_opacity(config.c3_opacity.Value);
 if(config?.all_opacity != null) result.all_opacity(config.all_opacity.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

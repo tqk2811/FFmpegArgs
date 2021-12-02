@@ -42,7 +42,7 @@ var result = new AvgblurFilterGen(input0);
 if(config?.sizeX != null) result.sizeX(config.sizeX.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.sizeY != null) result.sizeY(config.sizeY.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

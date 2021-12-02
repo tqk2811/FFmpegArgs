@@ -57,7 +57,7 @@ if(config?.nsteps != null) result.nsteps(config.nsteps.Value);
 if(config?.percent != null) result.percent(config.percent.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.type != null) result.type(config.type.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

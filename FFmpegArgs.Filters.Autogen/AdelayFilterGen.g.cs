@@ -37,7 +37,7 @@ public static AdelayFilterGen AdelayFilterGen(this AudioMap input0,AdelayFilterG
 var result = new AdelayFilterGen(input0);
 if(!string.IsNullOrWhiteSpace(config?.delays)) result.delays(config.delays);
 if(config?.all != null) result.all(config.all.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

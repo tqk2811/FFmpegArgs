@@ -37,7 +37,7 @@ public static SidedataFilterGen SidedataFilterGen(this ImageMap input0,SidedataF
 var result = new SidedataFilterGen(input0);
 if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.type != null) result.type(config.type.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

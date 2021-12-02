@@ -37,7 +37,7 @@ public static ApermsFilterGen ApermsFilterGen(this AudioMap input0,ApermsFilterG
 var result = new ApermsFilterGen(input0);
 if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.seed != null) result.seed(config.seed.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

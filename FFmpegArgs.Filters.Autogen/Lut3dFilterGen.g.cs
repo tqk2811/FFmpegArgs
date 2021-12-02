@@ -37,7 +37,7 @@ public static Lut3dFilterGen Lut3dFilterGen(this ImageMap input0,Lut3dFilterGenC
 var result = new Lut3dFilterGen(input0);
 if(!string.IsNullOrWhiteSpace(config?.file)) result.file(config.file);
 if(config?.interp != null) result.interp(config.interp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

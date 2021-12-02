@@ -62,7 +62,7 @@ if(config?.alpha != null) result.alpha(config.alpha.Value);
 if(config?.start_time != null) result.start_time(config.start_time.Value);
 if(config?.duration != null) result.duration(config.duration.Value);
 if(config?.color != null) result.color(config.color.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

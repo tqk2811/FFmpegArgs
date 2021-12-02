@@ -57,7 +57,7 @@ if(config?.mv_type != null) result.mv_type(config.mv_type.Value);
 if(config?.mvt != null) result.mvt(config.mvt.Value);
 if(config?.frame_type != null) result.frame_type(config.frame_type.Value);
 if(config?.ft != null) result.ft(config.ft.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

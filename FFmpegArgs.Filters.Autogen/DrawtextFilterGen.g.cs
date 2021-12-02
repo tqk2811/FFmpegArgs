@@ -187,7 +187,7 @@ if(config?.fix_bounds != null) result.fix_bounds(config.fix_bounds.Value);
 if(config?.start_number != null) result.start_number(config.start_number.Value);
 if(config?.text_shaping != null) result.text_shaping(config.text_shaping.Value);
 if(config?.ft_load_flags != null) result.ft_load_flags(config.ft_load_flags.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

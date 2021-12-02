@@ -42,7 +42,7 @@ var result = new HisteqFilterGen(input0);
 if(config?.strength != null) result.strength(config.strength.Value);
 if(config?.intensity != null) result.intensity(config.intensity.Value);
 if(config?.antibanding != null) result.antibanding(config.antibanding.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

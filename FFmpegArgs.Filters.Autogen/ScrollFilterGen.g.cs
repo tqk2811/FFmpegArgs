@@ -47,7 +47,7 @@ if(config?.horizontal != null) result.horizontal(config.horizontal.Value);
 if(config?.vertical != null) result.vertical(config.vertical.Value);
 if(config?.hpos != null) result.hpos(config.hpos.Value);
 if(config?.vpos != null) result.vpos(config.vpos.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

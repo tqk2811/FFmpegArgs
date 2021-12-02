@@ -32,7 +32,7 @@ public static FramestepFilterGen FramestepFilterGen(this ImageMap input0,Framest
 {
 var result = new FramestepFilterGen(input0);
 if(config?.step != null) result.step(config.step.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

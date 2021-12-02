@@ -47,7 +47,7 @@ if(config?.level_in != null) result.level_in(config.level_in.Value);
 if(config?.level_out != null) result.level_out(config.level_out.Value);
 if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.type != null) result.type(config.type.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

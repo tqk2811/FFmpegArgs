@@ -67,7 +67,7 @@ if(config?.range != null) result.range(config.range.Value);
 if(config?.direction != null) result.direction(config.direction.Value);
 if(config?.blur != null) result.blur(config.blur.Value);
 if(config?.coupling != null) result.coupling(config.coupling.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

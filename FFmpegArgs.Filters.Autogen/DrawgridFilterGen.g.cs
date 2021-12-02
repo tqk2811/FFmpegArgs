@@ -62,7 +62,7 @@ if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
 if(!string.IsNullOrWhiteSpace(config?.color)) result.color(config.color);
 if(!string.IsNullOrWhiteSpace(config?.thickness)) result.thickness(config.thickness);
 if(config?.replace != null) result.replace(config.replace.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

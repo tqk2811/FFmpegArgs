@@ -67,7 +67,7 @@ if(config?.shortest != null) result.shortest(config.shortest.Value);
 if(config?.format != null) result.format(config.format.Value);
 if(config?.repeatlast != null) result.repeatlast(config.repeatlast.Value);
 if(config?.alpha != null) result.alpha(config.alpha.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

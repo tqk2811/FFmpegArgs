@@ -42,7 +42,7 @@ var result = new UsppFilterGen(input0);
 if(config?.quality != null) result.quality(config.quality.Value);
 if(config?.qp != null) result.qp(config.qp.Value);
 if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -37,7 +37,7 @@ public static ExposureFilterGen ExposureFilterGen(this ImageMap input0,ExposureF
 var result = new ExposureFilterGen(input0);
 if(config?.exposure != null) result.exposure(config.exposure.Value);
 if(config?.black != null) result.black(config.black.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

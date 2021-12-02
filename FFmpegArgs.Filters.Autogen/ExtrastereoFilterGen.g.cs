@@ -37,7 +37,7 @@ public static ExtrastereoFilterGen ExtrastereoFilterGen(this AudioMap input0,Ext
 var result = new ExtrastereoFilterGen(input0);
 if(config?.m != null) result.m(config.m.Value);
 if(config?.c != null) result.c(config.c.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -32,7 +32,7 @@ public static DisplaceFilterGen DisplaceFilterGen(this ImageMap input0, ImageMap
 {
 var result = new DisplaceFilterGen(input0, input1, input2);
 if(config?.edge != null) result.edge(config.edge.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

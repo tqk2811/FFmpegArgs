@@ -57,7 +57,7 @@ if(config?.top != null) result.top(config.top.Value);
 if(config?.bottom != null) result.bottom(config.bottom.Value);
 if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.color != null) result.color(config.color.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

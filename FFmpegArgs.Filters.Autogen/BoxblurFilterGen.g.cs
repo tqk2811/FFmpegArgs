@@ -87,7 +87,7 @@ if(!string.IsNullOrWhiteSpace(config?.alpha_radius)) result.alpha_radius(config.
 if(!string.IsNullOrWhiteSpace(config?.ar)) result.ar(config.ar);
 if(config?.alpha_power != null) result.alpha_power(config.alpha_power.Value);
 if(config?.ap != null) result.ap(config.ap.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

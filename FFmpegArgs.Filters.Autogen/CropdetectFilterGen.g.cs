@@ -52,7 +52,7 @@ if(config?.round != null) result.round(config.round.Value);
 if(config?.skip != null) result.skip(config.skip.Value);
 if(config?.reset_count != null) result.reset_count(config.reset_count.Value);
 if(config?.max_outliers != null) result.max_outliers(config.max_outliers.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -37,7 +37,7 @@ public static Pp7FilterGen Pp7FilterGen(this ImageMap input0,Pp7FilterGenConfig 
 var result = new Pp7FilterGen(input0);
 if(config?.qp != null) result.qp(config.qp.Value);
 if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

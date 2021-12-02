@@ -32,7 +32,7 @@ public static ThumbnailFilterGen ThumbnailFilterGen(this ImageMap input0,Thumbna
 {
 var result = new ThumbnailFilterGen(input0);
 if(config?.n != null) result.n(config.n.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

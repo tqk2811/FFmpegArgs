@@ -42,7 +42,7 @@ var result = new BilateralFilterGen(input0);
 if(config?.sigmaS != null) result.sigmaS(config.sigmaS.Value);
 if(config?.sigmaR != null) result.sigmaR(config.sigmaR.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -62,7 +62,7 @@ if(config?.feedback != null) result.feedback(config.feedback.Value);
 if(config?.cutoff != null) result.cutoff(config.cutoff.Value);
 if(config?.slope != null) result.slope(config.slope.Value);
 if(config?.delay != null) result.delay(config.delay.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

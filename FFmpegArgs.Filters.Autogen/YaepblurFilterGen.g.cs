@@ -42,7 +42,7 @@ var result = new YaepblurFilterGen(input0);
 if(config?.radius != null) result.radius(config.radius.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.sigma != null) result.sigma(config.sigma.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

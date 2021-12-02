@@ -42,7 +42,7 @@ var result = new DeconvolveFilterGen(input0, input1);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.impulse != null) result.impulse(config.impulse.Value);
 if(config?.noise != null) result.noise(config.noise.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

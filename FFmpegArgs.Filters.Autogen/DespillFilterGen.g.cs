@@ -67,7 +67,7 @@ if(config?.green != null) result.green(config.green.Value);
 if(config?.blue != null) result.blue(config.blue.Value);
 if(config?.brightness != null) result.brightness(config.brightness.Value);
 if(config?.alpha != null) result.alpha(config.alpha.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

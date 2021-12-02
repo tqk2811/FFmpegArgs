@@ -52,7 +52,7 @@ if(config?.scan_max != null) result.scan_max(config.scan_max.Value);
 if(config?.spw != null) result.spw(config.spw.Value);
 if(config?.chp != null) result.chp(config.chp.Value);
 if(config?.lp != null) result.lp(config.lp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

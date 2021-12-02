@@ -52,7 +52,7 @@ if(config?.threshold != null) result.threshold(config.threshold.Value);
 if(config?.output != null) result.output(config.output.Value);
 if(config?.param != null) result.param(config.param.Value);
 if(config?.oversample != null) result.oversample(config.oversample.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

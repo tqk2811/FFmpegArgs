@@ -47,7 +47,7 @@ if(config?.map0 != null) result.map0(config.map0.Value);
 if(config?.map1 != null) result.map1(config.map1.Value);
 if(config?.map2 != null) result.map2(config.map2.Value);
 if(config?.map3 != null) result.map3(config.map3.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

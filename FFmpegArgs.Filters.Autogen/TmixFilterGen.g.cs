@@ -42,7 +42,7 @@ var result = new TmixFilterGen(input0);
 if(config?.frames != null) result.frames(config.frames.Value);
 if(!string.IsNullOrWhiteSpace(config?.weights)) result.weights(config.weights);
 if(config?.scale != null) result.scale(config.scale.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

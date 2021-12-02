@@ -62,7 +62,7 @@ if(config?.tolerance != null) result.tolerance(config.tolerance.Value);
 if(config?.low != null) result.low(config.low.Value);
 if(config?.high != null) result.high(config.high.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

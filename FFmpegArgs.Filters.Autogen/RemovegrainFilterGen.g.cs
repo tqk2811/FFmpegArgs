@@ -47,7 +47,7 @@ if(config?.m0 != null) result.m0(config.m0.Value);
 if(config?.m1 != null) result.m1(config.m1.Value);
 if(config?.m2 != null) result.m2(config.m2.Value);
 if(config?.m3 != null) result.m3(config.m3.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

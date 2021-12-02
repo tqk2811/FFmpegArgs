@@ -27,7 +27,7 @@ public static MsadFilterGen MsadFilterGen(this ImageMap input0, ImageMap input1)
 public static MsadFilterGen MsadFilterGen(this ImageMap input0, ImageMap input1,MsadFilterGenConfig config)
 {
 var result = new MsadFilterGen(input0, input1);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

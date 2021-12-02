@@ -32,7 +32,7 @@ public static MidequalizerFilterGen MidequalizerFilterGen(this ImageMap input0, 
 {
 var result = new MidequalizerFilterGen(input0, input1);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

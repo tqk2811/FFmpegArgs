@@ -62,7 +62,7 @@ if(config?.function != null) result.function(config.function.Value);
 if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
 if(!string.IsNullOrWhiteSpace(config?.file)) result.file(config.file);
 if(config?.direct != null) result.direct(config.direct.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

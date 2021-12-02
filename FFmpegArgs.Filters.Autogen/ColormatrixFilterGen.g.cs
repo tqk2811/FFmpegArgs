@@ -37,7 +37,7 @@ public static ColormatrixFilterGen ColormatrixFilterGen(this ImageMap input0,Col
 var result = new ColormatrixFilterGen(input0);
 if(config?.src != null) result.src(config.src.Value);
 if(config?.dst != null) result.dst(config.dst.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

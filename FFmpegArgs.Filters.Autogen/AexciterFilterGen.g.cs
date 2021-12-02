@@ -67,7 +67,7 @@ if(config?.blend != null) result.blend(config.blend.Value);
 if(config?.freq != null) result.freq(config.freq.Value);
 if(config?.ceil != null) result.ceil(config.ceil.Value);
 if(config?.listen != null) result.listen(config.listen.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

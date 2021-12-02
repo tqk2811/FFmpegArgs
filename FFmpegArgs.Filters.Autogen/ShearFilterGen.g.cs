@@ -52,7 +52,7 @@ if(config?.shy != null) result.shy(config.shy.Value);
 if(!string.IsNullOrWhiteSpace(config?.fillcolor)) result.fillcolor(config.fillcolor);
 if(!string.IsNullOrWhiteSpace(config?.c)) result.c(config.c);
 if(config?.interp != null) result.interp(config.interp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

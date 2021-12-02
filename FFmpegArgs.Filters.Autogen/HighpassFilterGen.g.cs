@@ -87,7 +87,7 @@ if(config?.transform != null) result.transform(config.transform.Value);
 if(config?.a != null) result.a(config.a.Value);
 if(config?.precision != null) result.precision(config.precision.Value);
 if(config?.r != null) result.r(config.r.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

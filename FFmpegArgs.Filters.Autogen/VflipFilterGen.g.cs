@@ -27,7 +27,7 @@ public static VflipFilterGen VflipFilterGen(this ImageMap input0) => new VflipFi
 public static VflipFilterGen VflipFilterGen(this ImageMap input0,VflipFilterGenConfig config)
 {
 var result = new VflipFilterGen(input0);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

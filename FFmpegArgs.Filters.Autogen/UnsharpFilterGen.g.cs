@@ -92,7 +92,7 @@ if(config?.cy != null) result.cy(config.cy.Value);
 if(config?.chroma_amount != null) result.chroma_amount(config.chroma_amount.Value);
 if(config?.ca != null) result.ca(config.ca.Value);
 if(config?.opencl != null) result.opencl(config.opencl.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

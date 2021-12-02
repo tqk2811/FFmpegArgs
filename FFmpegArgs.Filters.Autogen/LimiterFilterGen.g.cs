@@ -42,7 +42,7 @@ var result = new LimiterFilterGen(input0);
 if(config?.min != null) result.min(config.min.Value);
 if(config?.max != null) result.max(config.max.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

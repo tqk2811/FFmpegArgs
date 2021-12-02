@@ -47,7 +47,7 @@ if(config?.luma_spatial != null) result.luma_spatial(config.luma_spatial.Value);
 if(config?.chroma_spatial != null) result.chroma_spatial(config.chroma_spatial.Value);
 if(config?.luma_tmp != null) result.luma_tmp(config.luma_tmp.Value);
 if(config?.chroma_tmp != null) result.chroma_tmp(config.chroma_tmp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

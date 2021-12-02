@@ -37,7 +37,7 @@ public static CasFilterGen CasFilterGen(this ImageMap input0,CasFilterGenConfig 
 var result = new CasFilterGen(input0);
 if(config?.strength != null) result.strength(config.strength.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

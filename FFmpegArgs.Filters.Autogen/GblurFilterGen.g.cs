@@ -47,7 +47,7 @@ if(config?.sigma != null) result.sigma(config.sigma.Value);
 if(config?.steps != null) result.steps(config.steps.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.sigmaV != null) result.sigmaV(config.sigmaV.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

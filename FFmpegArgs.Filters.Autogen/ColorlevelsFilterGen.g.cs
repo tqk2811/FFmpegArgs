@@ -107,7 +107,7 @@ if(config?.romax != null) result.romax(config.romax.Value);
 if(config?.gomax != null) result.gomax(config.gomax.Value);
 if(config?.bomax != null) result.bomax(config.bomax.Value);
 if(config?.aomax != null) result.aomax(config.aomax.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

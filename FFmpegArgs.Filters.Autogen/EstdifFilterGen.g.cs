@@ -57,7 +57,7 @@ if(config?.deint != null) result.deint(config.deint.Value);
 if(config?.rslope != null) result.rslope(config.rslope.Value);
 if(config?.redge != null) result.redge(config.redge.Value);
 if(config?.interp != null) result.interp(config.interp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

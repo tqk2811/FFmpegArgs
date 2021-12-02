@@ -37,7 +37,7 @@ public static HysteresisFilterGen HysteresisFilterGen(this ImageMap input0, Imag
 var result = new HysteresisFilterGen(input0, input1);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.threshold != null) result.threshold(config.threshold.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

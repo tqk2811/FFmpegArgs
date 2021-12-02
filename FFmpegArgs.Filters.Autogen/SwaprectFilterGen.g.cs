@@ -57,7 +57,7 @@ if(!string.IsNullOrWhiteSpace(config?.x1)) result.x1(config.x1);
 if(!string.IsNullOrWhiteSpace(config?.y1)) result.y1(config.y1);
 if(!string.IsNullOrWhiteSpace(config?.x2)) result.x2(config.x2);
 if(!string.IsNullOrWhiteSpace(config?.y2)) result.y2(config.y2);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

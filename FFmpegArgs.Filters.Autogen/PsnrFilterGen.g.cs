@@ -47,7 +47,7 @@ if(!string.IsNullOrWhiteSpace(config?.stats_file)) result.stats_file(config.stat
 if(!string.IsNullOrWhiteSpace(config?.f)) result.f(config.f);
 if(config?.stats_version != null) result.stats_version(config.stats_version.Value);
 if(config?.output_max != null) result.output_max(config.output_max.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

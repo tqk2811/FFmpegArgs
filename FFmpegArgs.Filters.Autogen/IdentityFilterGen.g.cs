@@ -27,7 +27,7 @@ public static IdentityFilterGen IdentityFilterGen(this ImageMap input0, ImageMap
 public static IdentityFilterGen IdentityFilterGen(this ImageMap input0, ImageMap input1,IdentityFilterGenConfig config)
 {
 var result = new IdentityFilterGen(input0, input1);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

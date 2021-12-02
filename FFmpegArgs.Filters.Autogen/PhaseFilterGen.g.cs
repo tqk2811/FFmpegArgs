@@ -32,7 +32,7 @@ public static PhaseFilterGen PhaseFilterGen(this ImageMap input0,PhaseFilterGenC
 {
 var result = new PhaseFilterGen(input0);
 if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

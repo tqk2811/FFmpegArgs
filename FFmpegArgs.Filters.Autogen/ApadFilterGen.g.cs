@@ -52,7 +52,7 @@ if(config?.pad_len != null) result.pad_len(config.pad_len.Value);
 if(config?.whole_len != null) result.whole_len(config.whole_len.Value);
 if(config?.pad_dur != null) result.pad_dur(config.pad_dur.Value);
 if(config?.whole_dur != null) result.whole_dur(config.whole_dur.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -82,7 +82,7 @@ if(!string.IsNullOrWhiteSpace(config?.y3)) result.y3(config.y3);
 if(config?.interpolation != null) result.interpolation(config.interpolation.Value);
 if(config?.sense != null) result.sense(config.sense.Value);
 if(config?.eval != null) result.eval(config.eval.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

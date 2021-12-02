@@ -47,7 +47,7 @@ if(config?.sigma != null) result.sigma(config.sigma.Value);
 if(config?.overlap != null) result.overlap(config.overlap.Value);
 if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
 if(config?.n != null) result.n(config.n.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

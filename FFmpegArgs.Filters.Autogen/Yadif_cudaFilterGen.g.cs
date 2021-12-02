@@ -42,7 +42,7 @@ var result = new Yadif_cudaFilterGen(input0);
 if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.parity != null) result.parity(config.parity.Value);
 if(config?.deint != null) result.deint(config.deint.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -47,7 +47,7 @@ if(config?.delay != null) result.delay(config.delay.Value);
 if(config?.feedback != null) result.feedback(config.feedback.Value);
 if(config?.crossfeed != null) result.crossfeed(config.crossfeed.Value);
 if(config?.drymix != null) result.drymix(config.drymix.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -72,7 +72,7 @@ if(config?.nns != null) result.nns(config.nns.Value);
 if(config?.qual != null) result.qual(config.qual.Value);
 if(config?.etype != null) result.etype(config.etype.Value);
 if(config?.pscrn != null) result.pscrn(config.pscrn.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

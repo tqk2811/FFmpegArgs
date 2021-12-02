@@ -32,7 +32,7 @@ public static BboxFilterGen BboxFilterGen(this ImageMap input0,BboxFilterGenConf
 {
 var result = new BboxFilterGen(input0);
 if(config?.min_val != null) result.min_val(config.min_val.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

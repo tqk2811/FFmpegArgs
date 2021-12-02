@@ -37,7 +37,7 @@ public static LagfunFilterGen LagfunFilterGen(this ImageMap input0,LagfunFilterG
 var result = new LagfunFilterGen(input0);
 if(config?.decay != null) result.decay(config.decay.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

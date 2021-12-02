@@ -77,7 +77,7 @@ if(config?.rh != null) result.rh(config.rh.Value);
 if(config?.gh != null) result.gh(config.gh.Value);
 if(config?.bh != null) result.bh(config.bh.Value);
 if(config?.pl != null) result.pl(config.pl.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -27,7 +27,7 @@ public static AlphamergeFilterGen AlphamergeFilterGen(this ImageMap input0, Imag
 public static AlphamergeFilterGen AlphamergeFilterGen(this ImageMap input0, ImageMap input1,AlphamergeFilterGenConfig config)
 {
 var result = new AlphamergeFilterGen(input0, input1);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

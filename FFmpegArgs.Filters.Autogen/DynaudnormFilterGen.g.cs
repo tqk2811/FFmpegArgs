@@ -97,7 +97,7 @@ if(config?.b != null) result.b(config.b.Value);
 if(config?.compress != null) result.compress(config.compress.Value);
 if(config?.s != null) result.s(config.s.Value);
 if(config?.threshold != null) result.threshold(config.threshold.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

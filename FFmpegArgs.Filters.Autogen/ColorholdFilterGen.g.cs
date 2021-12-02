@@ -42,7 +42,7 @@ var result = new ColorholdFilterGen(input0);
 if(config?.color != null) result.color(config.color.Value);
 if(config?.similarity != null) result.similarity(config.similarity.Value);
 if(config?.blend != null) result.blend(config.blend.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -52,7 +52,7 @@ if(config?.luma_strength != null) result.luma_strength(config.luma_strength.Valu
 if(config?.ls != null) result.ls(config.ls.Value);
 if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength.Value);
 if(config?.cs != null) result.cs(config.cs.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

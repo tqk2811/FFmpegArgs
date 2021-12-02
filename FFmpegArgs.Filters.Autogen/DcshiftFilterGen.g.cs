@@ -37,7 +37,7 @@ public static DcshiftFilterGen DcshiftFilterGen(this AudioMap input0,DcshiftFilt
 var result = new DcshiftFilterGen(input0);
 if(config?.shift != null) result.shift(config.shift.Value);
 if(config?.limitergain != null) result.limitergain(config.limitergain.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

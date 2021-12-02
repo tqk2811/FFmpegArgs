@@ -112,7 +112,7 @@ if(config?.ag != null) result.ag(config.ag.Value);
 if(config?.ab != null) result.ab(config.ab.Value);
 if(config?.aa != null) result.aa(config.aa.Value);
 if(config?.pl != null) result.pl(config.pl.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

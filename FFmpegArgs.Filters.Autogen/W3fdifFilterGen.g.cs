@@ -47,7 +47,7 @@ if(config?.filter != null) result.filter(config.filter.Value);
 if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.parity != null) result.parity(config.parity.Value);
 if(config?.deint != null) result.deint(config.deint.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

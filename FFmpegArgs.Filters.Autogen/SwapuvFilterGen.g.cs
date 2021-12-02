@@ -27,7 +27,7 @@ public static SwapuvFilterGen SwapuvFilterGen(this ImageMap input0) => new Swapu
 public static SwapuvFilterGen SwapuvFilterGen(this ImageMap input0,SwapuvFilterGenConfig config)
 {
 var result = new SwapuvFilterGen(input0);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

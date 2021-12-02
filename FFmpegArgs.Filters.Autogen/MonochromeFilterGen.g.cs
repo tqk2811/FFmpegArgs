@@ -47,7 +47,7 @@ if(config?.cb != null) result.cb(config.cb.Value);
 if(config?.cr != null) result.cr(config.cr.Value);
 if(config?.size != null) result.size(config.size.Value);
 if(config?.high != null) result.high(config.high.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

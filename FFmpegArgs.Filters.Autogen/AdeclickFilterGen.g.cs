@@ -57,7 +57,7 @@ if(config?.arorder != null) result.arorder(config.arorder.Value);
 if(config?.threshold != null) result.threshold(config.threshold.Value);
 if(config?.burst != null) result.burst(config.burst.Value);
 if(config?.method != null) result.method(config.method.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

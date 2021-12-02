@@ -42,7 +42,7 @@ var result = new LumakeyFilterGen(input0);
 if(config?.threshold != null) result.threshold(config.threshold.Value);
 if(config?.tolerance != null) result.tolerance(config.tolerance.Value);
 if(config?.softness != null) result.softness(config.softness.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

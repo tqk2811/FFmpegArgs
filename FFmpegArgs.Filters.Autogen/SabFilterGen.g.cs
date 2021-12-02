@@ -87,7 +87,7 @@ if(config?.chroma_pre_filter_radius != null) result.chroma_pre_filter_radius(con
 if(config?.cpfr != null) result.cpfr(config.cpfr.Value);
 if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength.Value);
 if(config?.cs != null) result.cs(config.cs.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

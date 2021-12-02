@@ -42,7 +42,7 @@ var result = new GreyedgeFilterGen(input0);
 if(config?.difford != null) result.difford(config.difford.Value);
 if(config?.minknorm != null) result.minknorm(config.minknorm.Value);
 if(config?.sigma != null) result.sigma(config.sigma.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

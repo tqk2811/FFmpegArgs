@@ -107,7 +107,7 @@ if(config?._0mode != null) result._0mode(config._0mode.Value);
 if(config?._1mode != null) result._1mode(config._1mode.Value);
 if(config?._2mode != null) result._2mode(config._2mode.Value);
 if(config?._3mode != null) result._3mode(config._3mode.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -62,7 +62,7 @@ if(config?.overlap != null) result.overlap(config.overlap.Value);
 if(config?.prev != null) result.prev(config.prev.Value);
 if(config?.next != null) result.next(config.next.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

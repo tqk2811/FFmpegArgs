@@ -37,7 +37,7 @@ public static SsimFilterGen SsimFilterGen(this ImageMap input0, ImageMap input1,
 var result = new SsimFilterGen(input0, input1);
 if(!string.IsNullOrWhiteSpace(config?.stats_file)) result.stats_file(config.stats_file);
 if(!string.IsNullOrWhiteSpace(config?.f)) result.f(config.f);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

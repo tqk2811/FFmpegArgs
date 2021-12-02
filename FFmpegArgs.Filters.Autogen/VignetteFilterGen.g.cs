@@ -62,7 +62,7 @@ if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.eval != null) result.eval(config.eval.Value);
 if(config?.dither != null) result.dither(config.dither.Value);
 if(config?.aspect != null) result.aspect(config.aspect);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

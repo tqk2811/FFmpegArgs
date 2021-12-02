@@ -62,7 +62,7 @@ if(config?.beta != null) result.beta(config.beta.Value);
 if(config?.gamma != null) result.gamma(config.gamma.Value);
 if(config?.delta != null) result.delta(config.delta.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

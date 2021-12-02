@@ -152,7 +152,7 @@ if(config?.c3_strength != null) result.c3_strength(config.c3_strength.Value);
 if(config?.c3s != null) result.c3s(config.c3s.Value);
 if(config?.c3_flags != null) result.c3_flags(config.c3_flags.Value);
 if(config?.c3f != null) result.c3f(config.c3f.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

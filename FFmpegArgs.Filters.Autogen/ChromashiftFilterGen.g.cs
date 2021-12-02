@@ -52,7 +52,7 @@ if(config?.cbv != null) result.cbv(config.cbv.Value);
 if(config?.crh != null) result.crh(config.crh.Value);
 if(config?.crv != null) result.crv(config.crv.Value);
 if(config?.edge != null) result.edge(config.edge.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

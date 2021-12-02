@@ -42,7 +42,7 @@ var result = new ColortemperatureFilterGen(input0);
 if(config?.temperature != null) result.temperature(config.temperature.Value);
 if(config?.mix != null) result.mix(config.mix.Value);
 if(config?.pl != null) result.pl(config.pl.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

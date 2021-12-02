@@ -32,7 +32,7 @@ public static MaskedmaxFilterGen MaskedmaxFilterGen(this ImageMap input0, ImageM
 {
 var result = new MaskedmaxFilterGen(input0, input1, input2);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

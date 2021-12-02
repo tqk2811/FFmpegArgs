@@ -386,7 +386,7 @@ namespace FFmpegArgs.Autogens
                     }
                     if(interfaces.Contains(nameof(ITimelineSupport)))
                     {
-                        streamWriter.WriteLine($"if(config?.{nameof(ITimelineSupport).Substring(1)} != null) result.{nameof(TimelineSupportExtension.Enable)}(config.{nameof(ITimelineSupport).Substring(1)});");
+                        streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{nameof(ITimelineSupport).Substring(1)})) result.{nameof(TimelineSupportExtension.Enable)}(config.{nameof(ITimelineSupport).Substring(1)});");
                     }
                     streamWriter.WriteLine("return result;");
                     streamWriter.WriteLine("}");

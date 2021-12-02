@@ -32,7 +32,7 @@ public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap
 {
 var result = new HaldclutFilterGen(input0, input1);
 if(config?.interp != null) result.interp(config.interp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

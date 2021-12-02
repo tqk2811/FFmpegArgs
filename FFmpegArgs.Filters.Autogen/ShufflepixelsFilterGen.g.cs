@@ -52,7 +52,7 @@ if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.width != null) result.width(config.width.Value);
 if(config?.height != null) result.height(config.height.Value);
 if(config?.seed != null) result.seed(config.seed.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

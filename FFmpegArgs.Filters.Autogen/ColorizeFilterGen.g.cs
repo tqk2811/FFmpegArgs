@@ -47,7 +47,7 @@ if(config?.hue != null) result.hue(config.hue.Value);
 if(config?.saturation != null) result.saturation(config.saturation.Value);
 if(config?.lightness != null) result.lightness(config.lightness.Value);
 if(config?.mix != null) result.mix(config.mix.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

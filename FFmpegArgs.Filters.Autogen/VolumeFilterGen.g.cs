@@ -57,7 +57,7 @@ if(config?.eval != null) result.eval(config.eval.Value);
 if(config?.replaygain != null) result.replaygain(config.replaygain.Value);
 if(config?.replaygain_preamp != null) result.replaygain_preamp(config.replaygain_preamp.Value);
 if(config?.replaygain_noclip != null) result.replaygain_noclip(config.replaygain_noclip.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -52,7 +52,7 @@ if(config?.whitept != null) result.whitept(config.whitept.Value);
 if(config?.smoothing != null) result.smoothing(config.smoothing.Value);
 if(config?.independence != null) result.independence(config.independence.Value);
 if(config?.strength != null) result.strength(config.strength.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

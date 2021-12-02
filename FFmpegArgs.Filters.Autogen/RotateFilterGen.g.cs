@@ -67,7 +67,7 @@ if(!string.IsNullOrWhiteSpace(config?.oh)) result.oh(config.oh);
 if(!string.IsNullOrWhiteSpace(config?.fillcolor)) result.fillcolor(config.fillcolor);
 if(!string.IsNullOrWhiteSpace(config?.c)) result.c(config.c);
 if(config?.bilinear != null) result.bilinear(config.bilinear.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

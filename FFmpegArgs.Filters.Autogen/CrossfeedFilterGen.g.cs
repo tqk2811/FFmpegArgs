@@ -52,7 +52,7 @@ if(config?.range != null) result.range(config.range.Value);
 if(config?.slope != null) result.slope(config.slope.Value);
 if(config?.level_in != null) result.level_in(config.level_in.Value);
 if(config?.level_out != null) result.level_out(config.level_out.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -97,7 +97,7 @@ if(config?.ispace != null) result.ispace(config.ispace.Value);
 if(config?.irange != null) result.irange(config.irange.Value);
 if(config?.iprimaries != null) result.iprimaries(config.iprimaries.Value);
 if(config?.itrc != null) result.itrc(config.itrc.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

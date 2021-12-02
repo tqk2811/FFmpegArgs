@@ -62,7 +62,7 @@ if(config?.h != null) result.h(config.h.Value);
 if(config?.o != null) result.o(config.o.Value);
 if(config?.wx != null) result.wx(config.wx.Value);
 if(config?.wy != null) result.wy(config.wy.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -47,7 +47,7 @@ if(config?.centerf != null) result.centerf(config.centerf.Value);
 if(config?.order != null) result.order(config.order.Value);
 if(config?.qfactor != null) result.qfactor(config.qfactor.Value);
 if(config?.level != null) result.level(config.level.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

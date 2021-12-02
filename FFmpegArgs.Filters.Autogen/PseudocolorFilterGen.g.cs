@@ -62,7 +62,7 @@ if(!string.IsNullOrWhiteSpace(config?.c3)) result.c3(config.c3);
 if(config?.index != null) result.index(config.index.Value);
 if(config?.preset != null) result.preset(config.preset.Value);
 if(config?.opacity != null) result.opacity(config.opacity.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

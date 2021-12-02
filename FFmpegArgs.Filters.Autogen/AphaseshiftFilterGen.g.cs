@@ -37,7 +37,7 @@ public static AphaseshiftFilterGen AphaseshiftFilterGen(this AudioMap input0,Aph
 var result = new AphaseshiftFilterGen(input0);
 if(config?.shift != null) result.shift(config.shift.Value);
 if(config?.level != null) result.level(config.level.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

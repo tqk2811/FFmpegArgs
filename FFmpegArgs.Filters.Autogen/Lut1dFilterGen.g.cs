@@ -37,7 +37,7 @@ public static Lut1dFilterGen Lut1dFilterGen(this ImageMap input0,Lut1dFilterGenC
 var result = new Lut1dFilterGen(input0);
 if(!string.IsNullOrWhiteSpace(config?.file)) result.file(config.file);
 if(config?.interp != null) result.interp(config.interp.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

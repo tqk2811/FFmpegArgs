@@ -42,7 +42,7 @@ var result = new AsubcutFilterGen(input0);
 if(config?.cutoff != null) result.cutoff(config.cutoff.Value);
 if(config?.order != null) result.order(config.order.Value);
 if(config?.level != null) result.level(config.level.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

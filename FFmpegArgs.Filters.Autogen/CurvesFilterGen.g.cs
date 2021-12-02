@@ -67,7 +67,7 @@ if(!string.IsNullOrWhiteSpace(config?.blue)) result.blue(config.blue);
 if(!string.IsNullOrWhiteSpace(config?.all)) result.all(config.all);
 if(!string.IsNullOrWhiteSpace(config?.psfile)) result.psfile(config.psfile);
 if(!string.IsNullOrWhiteSpace(config?.plot)) result.plot(config.plot);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

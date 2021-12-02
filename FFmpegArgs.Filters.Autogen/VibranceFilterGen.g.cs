@@ -67,7 +67,7 @@ if(config?.rlum != null) result.rlum(config.rlum.Value);
 if(config?.glum != null) result.glum(config.glum.Value);
 if(config?.blum != null) result.blum(config.blum.Value);
 if(config?.alternate != null) result.alternate(config.alternate.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

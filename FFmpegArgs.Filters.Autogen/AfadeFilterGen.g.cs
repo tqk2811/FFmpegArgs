@@ -67,7 +67,7 @@ if(config?.ns != null) result.ns(config.ns.Value);
 if(config?.start_time != null) result.start_time(config.start_time.Value);
 if(config?.duration != null) result.duration(config.duration.Value);
 if(config?.curve != null) result.curve(config.curve.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

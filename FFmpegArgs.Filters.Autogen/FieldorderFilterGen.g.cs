@@ -32,7 +32,7 @@ public static FieldorderFilterGen FieldorderFilterGen(this ImageMap input0,Field
 {
 var result = new FieldorderFilterGen(input0);
 if(config?.order != null) result.order(config.order.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

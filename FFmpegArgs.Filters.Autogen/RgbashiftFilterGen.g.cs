@@ -72,7 +72,7 @@ if(config?.bv != null) result.bv(config.bv.Value);
 if(config?.ah != null) result.ah(config.ah.Value);
 if(config?.av != null) result.av(config.av.Value);
 if(config?.edge != null) result.edge(config.edge.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

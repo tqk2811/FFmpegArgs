@@ -42,7 +42,7 @@ var result = new SobelFilterGen(input0);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.scale != null) result.scale(config.scale.Value);
 if(config?.delta != null) result.delta(config.delta.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

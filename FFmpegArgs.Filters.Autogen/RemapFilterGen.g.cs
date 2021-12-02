@@ -37,7 +37,7 @@ public static RemapFilterGen RemapFilterGen(this ImageMap input0, ImageMap input
 var result = new RemapFilterGen(input0, input1, input2);
 if(config?.format != null) result.format(config.format.Value);
 if(config?.fill != null) result.fill(config.fill.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -37,7 +37,7 @@ public static BitplanenoiseFilterGen BitplanenoiseFilterGen(this ImageMap input0
 var result = new BitplanenoiseFilterGen(input0);
 if(config?.bitplane != null) result.bitplane(config.bitplane.Value);
 if(config?.filter != null) result.filter(config.filter.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

@@ -27,7 +27,7 @@ public static HflipFilterGen HflipFilterGen(this ImageMap input0) => new HflipFi
 public static HflipFilterGen HflipFilterGen(this ImageMap input0,HflipFilterGenConfig config)
 {
 var result = new HflipFilterGen(input0);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

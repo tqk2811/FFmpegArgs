@@ -37,7 +37,7 @@ public static GradfunFilterGen GradfunFilterGen(this ImageMap input0,GradfunFilt
 var result = new GradfunFilterGen(input0);
 if(config?.strength != null) result.strength(config.strength.Value);
 if(config?.radius != null) result.radius(config.radius.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

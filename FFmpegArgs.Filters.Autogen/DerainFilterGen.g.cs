@@ -52,7 +52,7 @@ if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend.Value);
 if(!string.IsNullOrWhiteSpace(config?.model)) result.model(config.model);
 if(!string.IsNullOrWhiteSpace(config?.input)) result.input(config.input);
 if(!string.IsNullOrWhiteSpace(config?.output)) result.output(config.output);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

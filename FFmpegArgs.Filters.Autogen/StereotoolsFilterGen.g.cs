@@ -127,7 +127,7 @@ if(config?.sclevel != null) result.sclevel(config.sclevel.Value);
 if(config?.phase != null) result.phase(config.phase.Value);
 if(config?.bmode_in != null) result.bmode_in(config.bmode_in.Value);
 if(config?.bmode_out != null) result.bmode_out(config.bmode_out.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

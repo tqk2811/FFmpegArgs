@@ -67,7 +67,7 @@ if(config?.steph != null) result.steph(config.steph.Value);
 if(config?.threy != null) result.threy(config.threy.Value);
 if(config?.threu != null) result.threu(config.threu.Value);
 if(config?.threv != null) result.threv(config.threv.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

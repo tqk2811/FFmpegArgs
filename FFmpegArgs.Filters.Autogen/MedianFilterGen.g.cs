@@ -47,7 +47,7 @@ if(config?.radius != null) result.radius(config.radius.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.radiusV != null) result.radiusV(config.radiusV.Value);
 if(config?.percentile != null) result.percentile(config.percentile.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

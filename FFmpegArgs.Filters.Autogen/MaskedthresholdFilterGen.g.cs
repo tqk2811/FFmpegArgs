@@ -37,7 +37,7 @@ public static MaskedthresholdFilterGen MaskedthresholdFilterGen(this ImageMap in
 var result = new MaskedthresholdFilterGen(input0, input1);
 if(config?.threshold != null) result.threshold(config.threshold.Value);
 if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

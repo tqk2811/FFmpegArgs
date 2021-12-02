@@ -87,7 +87,7 @@ if(config?.knee != null) result.knee(config.knee.Value);
 if(config?.detection != null) result.detection(config.detection.Value);
 if(config?.link != null) result.link(config.link.Value);
 if(config?.level_sc != null) result.level_sc(config.level_sc.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

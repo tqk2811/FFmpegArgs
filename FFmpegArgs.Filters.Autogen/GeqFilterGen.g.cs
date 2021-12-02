@@ -67,7 +67,7 @@ if(!string.IsNullOrWhiteSpace(config?.red_expr)) result.red_expr(config.red_expr
 if(!string.IsNullOrWhiteSpace(config?.green_expr)) result.green_expr(config.green_expr);
 if(!string.IsNullOrWhiteSpace(config?.blue_expr)) result.blue_expr(config.blue_expr);
 if(config?.interpolation != null) result.interpolation(config.interpolation.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }

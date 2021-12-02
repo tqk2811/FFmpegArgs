@@ -62,7 +62,7 @@ if(!string.IsNullOrWhiteSpace(config?.weight_Y)) result.weight_Y(config.weight_Y
 if(!string.IsNullOrWhiteSpace(config?.weight_U)) result.weight_U(config.weight_U);
 if(!string.IsNullOrWhiteSpace(config?.weight_V)) result.weight_V(config.weight_V);
 if(config?.eval != null) result.eval(config.eval.Value);
-if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
+if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
 return result;
 }
 }
