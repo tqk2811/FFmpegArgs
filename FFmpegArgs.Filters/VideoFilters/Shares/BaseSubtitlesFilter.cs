@@ -11,15 +11,24 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="filterName"></param>
         /// <param name="imageMap"></param>
-        internal BaseSubtitlesFilter(string fileName, string filterName, ImageMap imageMap) : base(filterName, imageMap)
+        internal BaseSubtitlesFilter(string filterName, ImageMap imageMap) : base(filterName, imageMap)
         {
             AddMapOut();
-            this.SetOption("f", fileName);
         }
     }
 
     public static class BaseSubtitlesFilterExtension
     {
+        /// <summary>
+        /// File name or full path
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        public static T FileName<T>(this T t,string fileName) where T : BaseSubtitlesFilter
+            => t.SetOption("f", fileName);
+
         /// <summary>
         /// Specify the size of the original video, the video for which the ASS file was composed.<br>
         /// </br>Due to a misdesign in ASS aspect ratio arithmetic, this is necessary to correctly scale the fonts if the aspect ratio has been changed.
