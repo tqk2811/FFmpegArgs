@@ -47,6 +47,7 @@ if(config?.stats_file != null) result.stats_file(config.stats_file);
 if(config?.f != null) result.f(config.f);
 if(config?.stats_version != null) result.stats_version(config.stats_version);
 if(config?.output_max != null) result.output_max(config.output_max);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public int stats_version { get; set; }
 ///  Add raw stats (max values) to the output log. (default false)
 /// </summary>
 public bool output_max { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -107,6 +107,7 @@ if(config?._0mode != null) result._0mode(config._0mode);
 if(config?._1mode != null) result._1mode(config._1mode);
 if(config?._2mode != null) result._2mode(config._2mode);
 if(config?._3mode != null) result._3mode(config._3mode);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -176,6 +177,7 @@ public ConvolutionFilterGen_2mode _2mode { get; set; }
 ///  set matrix mode for 4th plane (from 0 to 2) (default square)
 /// </summary>
 public ConvolutionFilterGen_3mode _3mode { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum ConvolutionFilterGen_0mode
 {

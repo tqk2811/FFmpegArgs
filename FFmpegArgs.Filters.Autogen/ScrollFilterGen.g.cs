@@ -47,6 +47,7 @@ if(config?.horizontal != null) result.horizontal(config.horizontal);
 if(config?.vertical != null) result.vertical(config.vertical);
 if(config?.hpos != null) result.hpos(config.hpos);
 if(config?.vpos != null) result.vpos(config.vpos);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public float hpos { get; set; }
 ///  set initial vertical position (from 0 to 1) (default 0)
 /// </summary>
 public float vpos { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

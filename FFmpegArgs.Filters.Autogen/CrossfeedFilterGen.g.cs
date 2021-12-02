@@ -52,6 +52,7 @@ if(config?.range != null) result.range(config.range);
 if(config?.slope != null) result.slope(config.slope);
 if(config?.level_in != null) result.level_in(config.level_in);
 if(config?.level_out != null) result.level_out(config.level_out);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public double level_in { get; set; }
 ///  set level out (from 0 to 1) (default 1)
 /// </summary>
 public double level_out { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

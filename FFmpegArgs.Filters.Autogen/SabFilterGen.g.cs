@@ -87,6 +87,7 @@ if(config?.chroma_pre_filter_radius != null) result.chroma_pre_filter_radius(con
 if(config?.cpfr != null) result.cpfr(config.cpfr);
 if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength);
 if(config?.cs != null) result.cs(config.cs);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -140,5 +141,6 @@ public float chroma_strength { get; set; }
 ///  set chroma strength (from -0.9 to 100) (default -0.9)
 /// </summary>
 public float cs { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

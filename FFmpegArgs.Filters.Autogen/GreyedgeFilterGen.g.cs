@@ -42,6 +42,7 @@ var result = new GreyedgeFilterGen(input0);
 if(config?.difford != null) result.difford(config.difford);
 if(config?.minknorm != null) result.minknorm(config.minknorm);
 if(config?.sigma != null) result.sigma(config.sigma);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public int minknorm { get; set; }
 ///  set sigma (from 0 to 1024) (default 1)
 /// </summary>
 public double sigma { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

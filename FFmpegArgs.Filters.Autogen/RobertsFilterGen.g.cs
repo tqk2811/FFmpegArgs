@@ -42,6 +42,7 @@ var result = new RobertsFilterGen(input0);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.scale != null) result.scale(config.scale);
 if(config?.delta != null) result.delta(config.delta);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public float scale { get; set; }
 ///  set delta (from -65535 to 65535) (default 0)
 /// </summary>
 public float delta { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

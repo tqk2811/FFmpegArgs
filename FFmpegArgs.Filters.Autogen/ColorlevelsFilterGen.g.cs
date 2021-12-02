@@ -107,6 +107,7 @@ if(config?.romax != null) result.romax(config.romax);
 if(config?.gomax != null) result.gomax(config.gomax);
 if(config?.bomax != null) result.bomax(config.bomax);
 if(config?.aomax != null) result.aomax(config.aomax);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -176,5 +177,6 @@ public double bomax { get; set; }
 ///  set output alpha white point (from 0 to 1) (default 1)
 /// </summary>
 public double aomax { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -42,6 +42,7 @@ var result = new ColorholdFilterGen(input0);
 if(config?.color != null) result.color(config.color);
 if(config?.similarity != null) result.similarity(config.similarity);
 if(config?.blend != null) result.blend(config.blend);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public float similarity { get; set; }
 ///  set the colorhold blend value (from 0 to 1) (default 0)
 /// </summary>
 public float blend { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

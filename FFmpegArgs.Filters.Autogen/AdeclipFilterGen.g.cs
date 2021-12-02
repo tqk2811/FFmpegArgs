@@ -62,6 +62,7 @@ if(config?.threshold != null) result.threshold(config.threshold);
 if(config?.hsize != null) result.hsize(config.hsize);
 if(config?.n != null) result.n(config.n);
 if(config?.method != null) result.method(config.method);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public int n { get; set; }
 ///  set overlap method (from 0 to 1) (default add)
 /// </summary>
 public AdeclipFilterGenMethod method { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AdeclipFilterGenMethod
 {

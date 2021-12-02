@@ -47,6 +47,7 @@ if(config?.radius != null) result.radius(config.radius);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.radiusV != null) result.radiusV(config.radiusV);
 if(config?.percentile != null) result.percentile(config.percentile);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public int radiusV { get; set; }
 ///  set median percentile (from 0 to 1) (default 0.5)
 /// </summary>
 public float percentile { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

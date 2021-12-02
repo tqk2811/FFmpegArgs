@@ -37,6 +37,7 @@ public static PermsFilterGen PermsFilterGen(this ImageMap input0,PermsFilterGenC
 var result = new PermsFilterGen(input0);
 if(config?.mode != null) result.mode(config.mode);
 if(config?.seed != null) result.seed(config.seed);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public PermsFilterGenMode mode { get; set; }
 ///  set the seed for the random mode (from -1 to UINT32_MAX) (default -1)
 /// </summary>
 public long seed { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum PermsFilterGenMode
 {

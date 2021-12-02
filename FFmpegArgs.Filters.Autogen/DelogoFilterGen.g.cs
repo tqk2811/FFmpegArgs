@@ -52,6 +52,7 @@ if(config?.y != null) result.y(config.y);
 if(config?.w != null) result.w(config.w);
 if(config?.h != null) result.h(config.h);
 if(config?.show != null) result.show(config.show);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public string h { get; set; }
 ///  show delogo area (default false)
 /// </summary>
 public bool show { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

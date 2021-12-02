@@ -37,6 +37,7 @@ public static HysteresisFilterGen HysteresisFilterGen(this ImageMap input0, Imag
 var result = new HysteresisFilterGen(input0, input1);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public int planes { get; set; }
 ///  set threshold (from 0 to 65535) (default 0)
 /// </summary>
 public int threshold { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

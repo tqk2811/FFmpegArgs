@@ -52,6 +52,7 @@ if(config?.high != null) result.high(config.high);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.fill != null) result.fill(config.fill);
 if(config?.sum != null) result.sum(config.sum);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public int fill { get; set; }
 ///  set sum value (from 0 to 65535) (default 10)
 /// </summary>
 public int sum { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -152,6 +152,7 @@ if(config?.c3_strength != null) result.c3_strength(config.c3_strength);
 if(config?.c3s != null) result.c3s(config.c3s);
 if(config?.c3_flags != null) result.c3_flags(config.c3_flags);
 if(config?.c3f != null) result.c3f(config.c3f);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -257,6 +258,7 @@ public NoiseFilterGenC3_flags c3_flags { get; set; }
 ///  set component #3 flags (default 0)
 /// </summary>
 public NoiseFilterGenC3f c3f { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum NoiseFilterGenAll_flags
 {

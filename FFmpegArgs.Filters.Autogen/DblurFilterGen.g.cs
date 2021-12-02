@@ -42,6 +42,7 @@ var result = new DblurFilterGen(input0);
 if(config?.angle != null) result.angle(config.angle);
 if(config?.radius != null) result.radius(config.radius);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public float radius { get; set; }
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

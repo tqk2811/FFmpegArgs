@@ -37,6 +37,7 @@ public static LagfunFilterGen LagfunFilterGen(this ImageMap input0,LagfunFilterG
 var result = new LagfunFilterGen(input0);
 if(config?.decay != null) result.decay(config.decay);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public float decay { get; set; }
 ///  set what planes to filter (default F)
 /// </summary>
 public LagfunFilterGenPlanes planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum LagfunFilterGenPlanes
 {

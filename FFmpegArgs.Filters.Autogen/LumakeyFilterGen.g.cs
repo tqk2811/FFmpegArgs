@@ -42,6 +42,7 @@ var result = new LumakeyFilterGen(input0);
 if(config?.threshold != null) result.threshold(config.threshold);
 if(config?.tolerance != null) result.tolerance(config.tolerance);
 if(config?.softness != null) result.softness(config.softness);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public double tolerance { get; set; }
 ///  set the softness value (from 0 to 1) (default 0)
 /// </summary>
 public double softness { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

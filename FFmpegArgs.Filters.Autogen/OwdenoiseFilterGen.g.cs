@@ -52,6 +52,7 @@ if(config?.luma_strength != null) result.luma_strength(config.luma_strength);
 if(config?.ls != null) result.ls(config.ls);
 if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength);
 if(config?.cs != null) result.cs(config.cs);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public double chroma_strength { get; set; }
 ///  set chroma strength (from 0 to 1000) (default 1)
 /// </summary>
 public double cs { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -52,6 +52,7 @@ if(config?.lt != null) result.lt(config.lt);
 if(config?.tl != null) result.tl(config.tl);
 if(config?.tc != null) result.tc(config.tc);
 if(config?.ct != null) result.ct(config.ct);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,6 +78,7 @@ public float tc { get; set; }
 ///  set temporal chroma threshold (from 0 to 1) (default 0.019)
 /// </summary>
 public float ct { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DedotFilterGenM
 {

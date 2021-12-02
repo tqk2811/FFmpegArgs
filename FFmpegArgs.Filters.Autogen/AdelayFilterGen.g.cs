@@ -37,6 +37,7 @@ public static AdelayFilterGen AdelayFilterGen(this AudioMap input0,AdelayFilterG
 var result = new AdelayFilterGen(input0);
 if(config?.delays != null) result.delays(config.delays);
 if(config?.all != null) result.all(config.all);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public string delays { get; set; }
 ///  use last available delay for remained channels (default false)
 /// </summary>
 public bool all { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -52,6 +52,7 @@ if(config?.p != null) result.p(config.p);
 if(config?.r != null) result.r(config.r);
 if(config?.o != null) result.o(config.o);
 if(config?.m != null) result.m(config.m);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,6 +78,7 @@ public AnlmdnFilterGenO o { get; set; }
 ///  set smooth factor (from 1 to 15) (default 11)
 /// </summary>
 public float m { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AnlmdnFilterGenO
 {

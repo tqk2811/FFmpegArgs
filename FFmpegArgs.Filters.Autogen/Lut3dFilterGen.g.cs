@@ -37,6 +37,7 @@ public static Lut3dFilterGen Lut3dFilterGen(this ImageMap input0,Lut3dFilterGenC
 var result = new Lut3dFilterGen(input0);
 if(config?.file != null) result.file(config.file);
 if(config?.interp != null) result.interp(config.interp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public string file { get; set; }
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)
 /// </summary>
 public Lut3dFilterGenInterp interp { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum Lut3dFilterGenInterp
 {

@@ -47,6 +47,7 @@ if(config?.c0 != null) result.c0(config.c0);
 if(config?.c1 != null) result.c1(config.c1);
 if(config?.c2 != null) result.c2(config.c2);
 if(config?.c3 != null) result.c3(config.c3);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public string c2 { get; set; }
 ///  set component #3 expression (default "x")
 /// </summary>
 public string c3 { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

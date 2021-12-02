@@ -52,6 +52,7 @@ if(config?.whitept != null) result.whitept(config.whitept);
 if(config?.smoothing != null) result.smoothing(config.smoothing);
 if(config?.independence != null) result.independence(config.independence);
 if(config?.strength != null) result.strength(config.strength);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public float independence { get; set; }
 ///  strength of filter, from no effect to full normalization (from 0 to 1) (default 1)
 /// </summary>
 public float strength { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -52,6 +52,7 @@ if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend);
 if(config?.model != null) result.model(config.model);
 if(config?.input != null) result.input(config.input);
 if(config?.output != null) result.output(config.output);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,6 +78,7 @@ public string input { get; set; }
 ///  output name of the model (default "y")
 /// </summary>
 public string output { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DerainFilterGenFilter_type
 {

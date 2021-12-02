@@ -37,6 +37,7 @@ public static SsimFilterGen SsimFilterGen(this ImageMap input0, ImageMap input1,
 var result = new SsimFilterGen(input0, input1);
 if(config?.stats_file != null) result.stats_file(config.stats_file);
 if(config?.f != null) result.f(config.f);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public string stats_file { get; set; }
 ///  Set file where to store per-frame difference information
 /// </summary>
 public string f { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

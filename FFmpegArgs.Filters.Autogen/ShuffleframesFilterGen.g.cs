@@ -32,6 +32,7 @@ public static ShuffleframesFilterGen ShuffleframesFilterGen(this ImageMap input0
 {
 var result = new ShuffleframesFilterGen(input0);
 if(config?.mapping != null) result.mapping(config.mapping);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,5 +42,6 @@ public class ShuffleframesFilterGenConfig
 ///  set destination indexes of input frames (default "0")
 /// </summary>
 public string mapping { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -47,6 +47,7 @@ if(config?.centerf != null) result.centerf(config.centerf);
 if(config?.order != null) result.order(config.order);
 if(config?.qfactor != null) result.qfactor(config.qfactor);
 if(config?.level != null) result.level(config.level);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public double qfactor { get; set; }
 ///  set input level (from 0 to 2) (default 1)
 /// </summary>
 public double level { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

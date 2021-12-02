@@ -67,6 +67,7 @@ if(config?.rlum != null) result.rlum(config.rlum);
 if(config?.glum != null) result.glum(config.glum);
 if(config?.blum != null) result.blum(config.blum);
 if(config?.alternate != null) result.alternate(config.alternate);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,5 +105,6 @@ public float blum { get; set; }
 ///  use alternate colors (default false)
 /// </summary>
 public bool alternate { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -57,6 +57,7 @@ if(config?.top != null) result.top(config.top);
 if(config?.bottom != null) result.bottom(config.bottom);
 if(config?.mode != null) result.mode(config.mode);
 if(config?.color != null) result.color(config.color);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,6 +87,7 @@ public FillbordersFilterGenMode mode { get; set; }
 ///  set the color for the fixed/fade mode (default "black")
 /// </summary>
 public Color color { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum FillbordersFilterGenMode
 {

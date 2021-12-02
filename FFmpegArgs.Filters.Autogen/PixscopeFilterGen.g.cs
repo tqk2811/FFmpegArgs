@@ -62,6 +62,7 @@ if(config?.h != null) result.h(config.h);
 if(config?.o != null) result.o(config.o);
 if(config?.wx != null) result.wx(config.wx);
 if(config?.wy != null) result.wy(config.wy);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,5 +96,6 @@ public float wx { get; set; }
 ///  set window y offset (from -1 to 1) (default -1)
 /// </summary>
 public float wy { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

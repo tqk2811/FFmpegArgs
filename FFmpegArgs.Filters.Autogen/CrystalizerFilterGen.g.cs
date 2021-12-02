@@ -37,6 +37,7 @@ public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input0,Cry
 var result = new CrystalizerFilterGen(input0);
 if(config?.i != null) result.i(config.i);
 if(config?.c != null) result.c(config.c);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public float i { get; set; }
 ///  enable clipping (default true)
 /// </summary>
 public bool c { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

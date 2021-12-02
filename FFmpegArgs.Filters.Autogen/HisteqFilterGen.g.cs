@@ -42,6 +42,7 @@ var result = new HisteqFilterGen(input0);
 if(config?.strength != null) result.strength(config.strength);
 if(config?.intensity != null) result.intensity(config.intensity);
 if(config?.antibanding != null) result.antibanding(config.antibanding);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,6 +60,7 @@ public float intensity { get; set; }
 ///  set the antibanding level (from 0 to 2) (default none)
 /// </summary>
 public HisteqFilterGenAntibanding antibanding { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum HisteqFilterGenAntibanding
 {

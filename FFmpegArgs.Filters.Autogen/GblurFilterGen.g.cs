@@ -47,6 +47,7 @@ if(config?.sigma != null) result.sigma(config.sigma);
 if(config?.steps != null) result.steps(config.steps);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.sigmaV != null) result.sigmaV(config.sigmaV);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public int planes { get; set; }
 ///  set vertical sigma (from -1 to 1024) (default -1)
 /// </summary>
 public float sigmaV { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

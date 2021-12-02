@@ -27,10 +27,12 @@ public static VifFilterGen VifFilterGen(this ImageMap input0, ImageMap input1) =
 public static VifFilterGen VifFilterGen(this ImageMap input0, ImageMap input1,VifFilterGenConfig config)
 {
 var result = new VifFilterGen(input0, input1);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
 public class VifFilterGenConfig
 {
+public string TimelineSupport { get; set; }
 }
 }

@@ -42,6 +42,7 @@ var result = new AsupercutFilterGen(input0);
 if(config?.cutoff != null) result.cutoff(config.cutoff);
 if(config?.order != null) result.order(config.order);
 if(config?.level != null) result.level(config.level);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public int order { get; set; }
 ///  set input level (from 0 to 1) (default 1)
 /// </summary>
 public double level { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

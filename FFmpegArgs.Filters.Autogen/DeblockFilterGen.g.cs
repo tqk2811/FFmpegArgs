@@ -62,6 +62,7 @@ if(config?.beta != null) result.beta(config.beta);
 if(config?.gamma != null) result.gamma(config.gamma);
 if(config?.delta != null) result.delta(config.delta);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public float delta { get; set; }
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DeblockFilterGenFilter
 {

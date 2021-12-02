@@ -92,6 +92,7 @@ if(config?.transform != null) result.transform(config.transform);
 if(config?.a != null) result.a(config.a);
 if(config?.precision != null) result.precision(config.precision);
 if(config?.r != null) result.r(config.r);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -149,6 +150,7 @@ public TrebleFilterGenPrecision precision { get; set; }
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
 public TrebleFilterGenR r { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum TrebleFilterGenWidth_type
 {

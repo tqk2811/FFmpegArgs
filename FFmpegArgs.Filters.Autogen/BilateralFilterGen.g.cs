@@ -42,6 +42,7 @@ var result = new BilateralFilterGen(input0);
 if(config?.sigmaS != null) result.sigmaS(config.sigmaS);
 if(config?.sigmaR != null) result.sigmaR(config.sigmaR);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public float sigmaR { get; set; }
 ///  set planes to filter (from 0 to 15) (default 1)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -52,6 +52,7 @@ if(config?.threshold != null) result.threshold(config.threshold);
 if(config?.output != null) result.output(config.output);
 if(config?.param != null) result.param(config.param);
 if(config?.oversample != null) result.oversample(config.oversample);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,6 +78,7 @@ public double param { get; set; }
 ///  set oversample factor (from 1 to 32) (default 1)
 /// </summary>
 public int oversample { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AsoftclipFilterGenType
 {

@@ -42,6 +42,7 @@ var result = new MaskedclampFilterGen(input0, input1, input2);
 if(config?.undershoot != null) result.undershoot(config.undershoot);
 if(config?.overshoot != null) result.overshoot(config.overshoot);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public int overshoot { get; set; }
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

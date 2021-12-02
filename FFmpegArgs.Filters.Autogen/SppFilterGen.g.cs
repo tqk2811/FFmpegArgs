@@ -47,6 +47,7 @@ if(config?.quality != null) result.quality(config.quality);
 if(config?.qp != null) result.qp(config.qp);
 if(config?.mode != null) result.mode(config.mode);
 if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,6 +69,7 @@ public SppFilterGenMode mode { get; set; }
 ///  use B-frames' QP (default false)
 /// </summary>
 public bool use_bframe_qp { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum SppFilterGenMode
 {

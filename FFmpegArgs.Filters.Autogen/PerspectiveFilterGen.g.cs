@@ -82,6 +82,7 @@ if(config?.y3 != null) result.y3(config.y3);
 if(config?.interpolation != null) result.interpolation(config.interpolation);
 if(config?.sense != null) result.sense(config.sense);
 if(config?.eval != null) result.eval(config.eval);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -131,6 +132,7 @@ public PerspectiveFilterGenSense sense { get; set; }
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
 public PerspectiveFilterGenEval eval { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum PerspectiveFilterGenInterpolation
 {

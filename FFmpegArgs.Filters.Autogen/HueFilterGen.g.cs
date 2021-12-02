@@ -47,6 +47,7 @@ if(config?.h != null) result.h(config.h);
 if(config?.s != null) result.s(config.s);
 if(config?.H != null) result.H(config.H);
 if(config?.b != null) result.b(config.b);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public string H { get; set; }
 ///  set the brightness expression (default "0")
 /// </summary>
 public string b { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

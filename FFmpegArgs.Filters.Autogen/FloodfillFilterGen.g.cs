@@ -77,6 +77,7 @@ if(config?.d0 != null) result.d0(config.d0);
 if(config?.d1 != null) result.d1(config.d1);
 if(config?.d2 != null) result.d2(config.d2);
 if(config?.d3 != null) result.d3(config.d3);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -122,5 +123,6 @@ public int d2 { get; set; }
 ///  set destination #3 component value (from 0 to 65535) (default 0)
 /// </summary>
 public int d3 { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

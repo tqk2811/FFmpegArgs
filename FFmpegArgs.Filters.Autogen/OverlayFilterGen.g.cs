@@ -67,6 +67,7 @@ if(config?.shortest != null) result.shortest(config.shortest);
 if(config?.format != null) result.format(config.format);
 if(config?.repeatlast != null) result.repeatlast(config.repeatlast);
 if(config?.alpha != null) result.alpha(config.alpha);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,6 +105,7 @@ public bool repeatlast { get; set; }
 ///  alpha format (from 0 to 1) (default straight)
 /// </summary>
 public OverlayFilterGenAlpha alpha { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum OverlayFilterGenEof_action
 {

@@ -72,6 +72,7 @@ if(config?.bv != null) result.bv(config.bv);
 if(config?.ah != null) result.ah(config.ah);
 if(config?.av != null) result.av(config.av);
 if(config?.edge != null) result.edge(config.edge);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -113,6 +114,7 @@ public int av { get; set; }
 ///  set edge operation (from 0 to 1) (default smear)
 /// </summary>
 public RgbashiftFilterGenEdge edge { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum RgbashiftFilterGenEdge
 {

@@ -52,6 +52,7 @@ if(config?.p != null) result.p(config.p);
 if(config?.pc != null) result.pc(config.pc);
 if(config?.r != null) result.r(config.r);
 if(config?.rc != null) result.rc(config.rc);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public int r { get; set; }
 ///  research window for chroma planes (from 0 to 99) (default 0)
 /// </summary>
 public int rc { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

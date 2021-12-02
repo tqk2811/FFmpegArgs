@@ -57,6 +57,7 @@ if(config?.k1 != null) result.k1(config.k1);
 if(config?.k2 != null) result.k2(config.k2);
 if(config?.i != null) result.i(config.i);
 if(config?.fc != null) result.fc(config.fc);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,6 +87,7 @@ public LenscorrectionFilterGenI i { get; set; }
 ///  set the color of the unmapped pixels (default "black@0")
 /// </summary>
 public Color fc { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum LenscorrectionFilterGenI
 {

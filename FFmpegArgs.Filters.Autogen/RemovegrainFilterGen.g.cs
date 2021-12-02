@@ -47,6 +47,7 @@ if(config?.m0 != null) result.m0(config.m0);
 if(config?.m1 != null) result.m1(config.m1);
 if(config?.m2 != null) result.m2(config.m2);
 if(config?.m3 != null) result.m3(config.m3);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public int m2 { get; set; }
 ///  set mode for 4th plane (from 0 to 24) (default 0)
 /// </summary>
 public int m3 { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -42,6 +42,7 @@ var result = new TmedianFilterGen(input0);
 if(config?.radius != null) result.radius(config.radius);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.percentile != null) result.percentile(config.percentile);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public int planes { get; set; }
 ///  set percentile (from 0 to 1) (default 0.5)
 /// </summary>
 public float percentile { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

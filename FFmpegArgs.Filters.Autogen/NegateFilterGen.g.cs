@@ -32,6 +32,7 @@ public static NegateFilterGen NegateFilterGen(this ImageMap input0,NegateFilterG
 {
 var result = new NegateFilterGen(input0);
 if(config?.negate_alpha != null) result.negate_alpha(config.negate_alpha);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,5 +42,6 @@ public class NegateFilterGenConfig
 ///  (default false)
 /// </summary>
 public bool negate_alpha { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

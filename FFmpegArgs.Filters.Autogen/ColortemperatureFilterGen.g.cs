@@ -42,6 +42,7 @@ var result = new ColortemperatureFilterGen(input0);
 if(config?.temperature != null) result.temperature(config.temperature);
 if(config?.mix != null) result.mix(config.mix);
 if(config?.pl != null) result.pl(config.pl);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public float mix { get; set; }
 ///  set the amount of preserving lightness (from 0 to 1) (default 0)
 /// </summary>
 public float pl { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -82,6 +82,7 @@ if(config?.r != null) result.r(config.r);
 if(config?.g != null) result.g(config.g);
 if(config?.b != null) result.b(config.b);
 if(config?.a != null) result.a(config.a);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -131,5 +132,6 @@ public string b { get; set; }
 ///  set A expression (default "clipval")
 /// </summary>
 public string a { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

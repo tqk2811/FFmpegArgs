@@ -62,6 +62,7 @@ if(config?.mode != null) result.mode(config.mode);
 if(config?.eval != null) result.eval(config.eval);
 if(config?.dither != null) result.dither(config.dither);
 if(config?.aspect != null) result.aspect(config.aspect);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public bool dither { get; set; }
 ///  set aspect ratio (from 0 to DBL_MAX) (default 1/1)
 /// </summary>
 public Rational aspect { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum VignetteFilterGenMode
 {

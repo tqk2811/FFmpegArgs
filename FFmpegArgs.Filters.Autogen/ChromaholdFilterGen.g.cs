@@ -47,6 +47,7 @@ if(config?.color != null) result.color(config.color);
 if(config?.similarity != null) result.similarity(config.similarity);
 if(config?.blend != null) result.blend(config.blend);
 if(config?.yuv != null) result.yuv(config.yuv);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public float blend { get; set; }
 ///  color parameter is in yuv instead of rgb (default false)
 /// </summary>
 public bool yuv { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

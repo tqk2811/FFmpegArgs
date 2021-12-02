@@ -32,6 +32,7 @@ public static RemovelogoFilterGen RemovelogoFilterGen(this ImageMap input0,Remov
 {
 var result = new RemovelogoFilterGen(input0);
 if(config?.filename != null) result.filename(config.filename);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,5 +42,6 @@ public class RemovelogoFilterGenConfig
 ///  set bitmap filename
 /// </summary>
 public string filename { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

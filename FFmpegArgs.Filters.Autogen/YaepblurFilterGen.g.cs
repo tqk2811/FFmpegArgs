@@ -42,6 +42,7 @@ var result = new YaepblurFilterGen(input0);
 if(config?.radius != null) result.radius(config.radius);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.sigma != null) result.sigma(config.sigma);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public int planes { get; set; }
 ///  set blur strength (from 1 to INT_MAX) (default 128)
 /// </summary>
 public int sigma { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

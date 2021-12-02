@@ -47,6 +47,7 @@ if(config?.hue != null) result.hue(config.hue);
 if(config?.saturation != null) result.saturation(config.saturation);
 if(config?.lightness != null) result.lightness(config.lightness);
 if(config?.mix != null) result.mix(config.mix);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public float lightness { get; set; }
 ///  set the mix of source lightness (from 0 to 1) (default 1)
 /// </summary>
 public float mix { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

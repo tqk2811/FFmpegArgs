@@ -67,6 +67,7 @@ if(config?.red_expr != null) result.red_expr(config.red_expr);
 if(config?.green_expr != null) result.green_expr(config.green_expr);
 if(config?.blue_expr != null) result.blue_expr(config.blue_expr);
 if(config?.interpolation != null) result.interpolation(config.interpolation);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,6 +105,7 @@ public string blue_expr { get; set; }
 ///  set interpolation method (from 0 to 1) (default bilinear)
 /// </summary>
 public GeqFilterGenInterpolation interpolation { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum GeqFilterGenInterpolation
 {

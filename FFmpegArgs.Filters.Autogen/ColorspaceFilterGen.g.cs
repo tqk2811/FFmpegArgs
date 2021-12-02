@@ -97,6 +97,7 @@ if(config?.ispace != null) result.ispace(config.ispace);
 if(config?.irange != null) result.irange(config.irange);
 if(config?.iprimaries != null) result.iprimaries(config.iprimaries);
 if(config?.itrc != null) result.itrc(config.itrc);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -158,6 +159,7 @@ public ColorspaceFilterGenIprimaries iprimaries { get; set; }
 ///  Input transfer characteristics (from 0 to 18) (default 2)
 /// </summary>
 public ColorspaceFilterGenItrc itrc { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum ColorspaceFilterGenAll
 {

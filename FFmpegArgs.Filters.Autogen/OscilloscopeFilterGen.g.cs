@@ -92,6 +92,7 @@ if(config?.c != null) result.c(config.c);
 if(config?.g != null) result.g(config.g);
 if(config?.st != null) result.st(config.st);
 if(config?.sc != null) result.sc(config.sc);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -149,5 +150,6 @@ public bool st { get; set; }
 ///  draw scope (default true)
 /// </summary>
 public bool sc { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

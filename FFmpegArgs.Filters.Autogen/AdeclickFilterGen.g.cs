@@ -57,6 +57,7 @@ if(config?.arorder != null) result.arorder(config.arorder);
 if(config?.threshold != null) result.threshold(config.threshold);
 if(config?.burst != null) result.burst(config.burst);
 if(config?.method != null) result.method(config.method);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,6 +87,7 @@ public double burst { get; set; }
 ///  set overlap method (from 0 to 1) (default add)
 /// </summary>
 public AdeclickFilterGenMethod method { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AdeclickFilterGenMethod
 {

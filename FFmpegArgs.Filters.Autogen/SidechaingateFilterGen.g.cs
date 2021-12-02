@@ -87,6 +87,7 @@ if(config?.knee != null) result.knee(config.knee);
 if(config?.detection != null) result.detection(config.detection);
 if(config?.link != null) result.link(config.link);
 if(config?.level_sc != null) result.level_sc(config.level_sc);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -140,6 +141,7 @@ public SidechaingateFilterGenLink link { get; set; }
 ///  set sidechain gain (from 0.015625 to 64) (default 1)
 /// </summary>
 public double level_sc { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum SidechaingateFilterGenMode
 {

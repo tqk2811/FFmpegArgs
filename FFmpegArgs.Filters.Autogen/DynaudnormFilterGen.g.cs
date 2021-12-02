@@ -97,6 +97,7 @@ if(config?.b != null) result.b(config.b);
 if(config?.compress != null) result.compress(config.compress);
 if(config?.s != null) result.s(config.s);
 if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -158,5 +159,6 @@ public double s { get; set; }
 ///  set the threshold value (from 0 to 1) (default 0)
 /// </summary>
 public double threshold { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

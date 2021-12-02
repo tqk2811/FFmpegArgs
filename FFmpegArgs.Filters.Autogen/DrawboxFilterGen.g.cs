@@ -62,6 +62,7 @@ if(config?.height != null) result.height(config.height);
 if(config?.color != null) result.color(config.color);
 if(config?.thickness != null) result.thickness(config.thickness);
 if(config?.replace != null) result.replace(config.replace);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,5 +96,6 @@ public string thickness { get; set; }
 ///  replace color & alpha (default false)
 /// </summary>
 public bool replace { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

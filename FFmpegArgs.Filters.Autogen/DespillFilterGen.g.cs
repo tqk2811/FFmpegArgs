@@ -67,6 +67,7 @@ if(config?.green != null) result.green(config.green);
 if(config?.blue != null) result.blue(config.blue);
 if(config?.brightness != null) result.brightness(config.brightness);
 if(config?.alpha != null) result.alpha(config.alpha);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,6 +105,7 @@ public float brightness { get; set; }
 ///  change alpha component (default false)
 /// </summary>
 public bool alpha { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DespillFilterGenType
 {

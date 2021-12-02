@@ -187,6 +187,7 @@ if(config?.fix_bounds != null) result.fix_bounds(config.fix_bounds);
 if(config?.start_number != null) result.start_number(config.start_number);
 if(config?.text_shaping != null) result.text_shaping(config.text_shaping);
 if(config?.ft_load_flags != null) result.ft_load_flags(config.ft_load_flags);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -320,6 +321,7 @@ public bool text_shaping { get; set; }
 ///  set font loading flags for libfreetype (default 0)
 /// </summary>
 public DrawtextFilterGenFt_load_flags ft_load_flags { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DrawtextFilterGenExpansion
 {

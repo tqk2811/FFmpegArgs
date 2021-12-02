@@ -32,6 +32,7 @@ public static MidequalizerFilterGen MidequalizerFilterGen(this ImageMap input0, 
 {
 var result = new MidequalizerFilterGen(input0, input1);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,5 +42,6 @@ public class MidequalizerFilterGenConfig
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

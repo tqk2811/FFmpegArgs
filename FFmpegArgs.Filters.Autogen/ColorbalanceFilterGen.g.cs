@@ -77,6 +77,7 @@ if(config?.rh != null) result.rh(config.rh);
 if(config?.gh != null) result.gh(config.gh);
 if(config?.bh != null) result.bh(config.bh);
 if(config?.pl != null) result.pl(config.pl);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -122,5 +123,6 @@ public float bh { get; set; }
 ///  preserve lightness (default false)
 /// </summary>
 public bool pl { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

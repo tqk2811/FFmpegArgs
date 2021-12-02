@@ -57,6 +57,7 @@ if(config?.nsteps != null) result.nsteps(config.nsteps);
 if(config?.percent != null) result.percent(config.percent);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.type != null) result.type(config.type);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,6 +87,7 @@ public int planes { get; set; }
 ///  set threshold type (from 0 to 1) (default universal)
 /// </summary>
 public VaguedenoiserFilterGenType type { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum VaguedenoiserFilterGenMethod
 {

@@ -37,6 +37,7 @@ public static Pp7FilterGen Pp7FilterGen(this ImageMap input0,Pp7FilterGenConfig 
 var result = new Pp7FilterGen(input0);
 if(config?.qp != null) result.qp(config.qp);
 if(config?.mode != null) result.mode(config.mode);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public int qp { get; set; }
 ///  set thresholding mode (from 0 to 2) (default medium)
 /// </summary>
 public Pp7FilterGenMode mode { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum Pp7FilterGenMode
 {

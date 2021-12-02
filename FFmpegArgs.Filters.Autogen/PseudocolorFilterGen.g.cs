@@ -62,6 +62,7 @@ if(config?.c3 != null) result.c3(config.c3);
 if(config?.index != null) result.index(config.index);
 if(config?.preset != null) result.preset(config.preset);
 if(config?.opacity != null) result.opacity(config.opacity);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public PseudocolorFilterGenPreset preset { get; set; }
 ///  set pseudocolor opacity (from 0 to 1) (default 1)
 /// </summary>
 public float opacity { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum PseudocolorFilterGenPreset
 {

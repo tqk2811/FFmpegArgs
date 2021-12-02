@@ -52,6 +52,7 @@ if(config?.shy != null) result.shy(config.shy);
 if(config?.fillcolor != null) result.fillcolor(config.fillcolor);
 if(config?.c != null) result.c(config.c);
 if(config?.interp != null) result.interp(config.interp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,6 +78,7 @@ public string c { get; set; }
 ///  set interpolation (from 0 to 1) (default bilinear)
 /// </summary>
 public ShearFilterGenInterp interp { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum ShearFilterGenInterp
 {

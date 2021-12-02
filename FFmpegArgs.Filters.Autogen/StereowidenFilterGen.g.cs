@@ -47,6 +47,7 @@ if(config?.delay != null) result.delay(config.delay);
 if(config?.feedback != null) result.feedback(config.feedback);
 if(config?.crossfeed != null) result.crossfeed(config.crossfeed);
 if(config?.drymix != null) result.drymix(config.drymix);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public float crossfeed { get; set; }
 ///  set dry-mix (from 0 to 1) (default 0.8)
 /// </summary>
 public float drymix { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

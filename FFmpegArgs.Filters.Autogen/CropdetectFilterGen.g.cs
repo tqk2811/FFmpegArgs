@@ -52,6 +52,7 @@ if(config?.round != null) result.round(config.round);
 if(config?.skip != null) result.skip(config.skip);
 if(config?.reset_count != null) result.reset_count(config.reset_count);
 if(config?.max_outliers != null) result.max_outliers(config.max_outliers);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public int reset_count { get; set; }
 ///  Threshold count of outliers (from 0 to INT_MAX) (default 0)
 /// </summary>
 public int max_outliers { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

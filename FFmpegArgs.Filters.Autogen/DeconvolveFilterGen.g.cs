@@ -42,6 +42,7 @@ var result = new DeconvolveFilterGen(input0, input1);
 if(config?.planes != null) result.planes(config.planes);
 if(config?.impulse != null) result.impulse(config.impulse);
 if(config?.noise != null) result.noise(config.noise);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,6 +60,7 @@ public DeconvolveFilterGenImpulse impulse { get; set; }
 ///  set noise (from 0 to 1) (default 1e-07)
 /// </summary>
 public float noise { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DeconvolveFilterGenImpulse
 {

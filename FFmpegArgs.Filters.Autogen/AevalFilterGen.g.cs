@@ -37,6 +37,7 @@ public static AevalFilterGen AevalFilterGen(this AudioMap input0,AevalFilterGenC
 var result = new AevalFilterGen(input0);
 if(config?.exprs != null) result.exprs(config.exprs);
 if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public string exprs { get; set; }
 ///  set channel layout
 /// </summary>
 public string channel_layout { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

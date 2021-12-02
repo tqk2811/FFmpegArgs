@@ -47,6 +47,7 @@ if(config?.sigma != null) result.sigma(config.sigma);
 if(config?.overlap != null) result.overlap(config.overlap);
 if(config?.expr != null) result.expr(config.expr);
 if(config?.n != null) result.n(config.n);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public string expr { get; set; }
 ///  set the block size, expressed in bits (from 3 to 4) (default 3)
 /// </summary>
 public int n { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

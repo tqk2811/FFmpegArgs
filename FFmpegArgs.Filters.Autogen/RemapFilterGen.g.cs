@@ -37,6 +37,7 @@ public static RemapFilterGen RemapFilterGen(this ImageMap input0, ImageMap input
 var result = new RemapFilterGen(input0, input1, input2);
 if(config?.format != null) result.format(config.format);
 if(config?.fill != null) result.fill(config.fill);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public RemapFilterGenFormat format { get; set; }
 ///  set the color of the unmapped pixels (default "black")
 /// </summary>
 public Color fill { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum RemapFilterGenFormat
 {

@@ -67,6 +67,7 @@ if(config?.rf != null) result.rf(config.rf);
 if(config?.tn != null) result.tn(config.tn);
 if(config?.tr != null) result.tr(config.tr);
 if(config?.om != null) result.om(config.om);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,6 +105,7 @@ public bool tr { get; set; }
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
 public AfftdnFilterGenOm om { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AfftdnFilterGenNt
 {

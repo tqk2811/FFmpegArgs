@@ -67,6 +67,7 @@ if(config?.blue != null) result.blue(config.blue);
 if(config?.all != null) result.all(config.all);
 if(config?.psfile != null) result.psfile(config.psfile);
 if(config?.plot != null) result.plot(config.plot);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,6 +105,7 @@ public string psfile { get; set; }
 ///  save Gnuplot script of the curves in specified file
 /// </summary>
 public string plot { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum CurvesFilterGenPreset
 {

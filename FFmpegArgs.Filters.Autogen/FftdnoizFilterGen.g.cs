@@ -62,6 +62,7 @@ if(config?.overlap != null) result.overlap(config.overlap);
 if(config?.prev != null) result.prev(config.prev);
 if(config?.next != null) result.next(config.next);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,5 +96,6 @@ public int next { get; set; }
 ///  set planes to filter (from 0 to 15) (default 7)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

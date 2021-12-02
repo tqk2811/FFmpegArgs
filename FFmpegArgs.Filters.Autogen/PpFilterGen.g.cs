@@ -32,6 +32,7 @@ public static PpFilterGen PpFilterGen(this ImageMap input0,PpFilterGenConfig con
 {
 var result = new PpFilterGen(input0);
 if(config?.subfilters != null) result.subfilters(config.subfilters);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,5 +42,6 @@ public class PpFilterGenConfig
 ///  set postprocess subfilters (default "de")
 /// </summary>
 public string subfilters { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

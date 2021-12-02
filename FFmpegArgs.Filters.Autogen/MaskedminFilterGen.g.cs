@@ -32,6 +32,7 @@ public static MaskedminFilterGen MaskedminFilterGen(this ImageMap input0, ImageM
 {
 var result = new MaskedminFilterGen(input0, input1, input2);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,5 +42,6 @@ public class MaskedminFilterGenConfig
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

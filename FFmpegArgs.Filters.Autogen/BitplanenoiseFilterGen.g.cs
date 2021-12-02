@@ -37,6 +37,7 @@ public static BitplanenoiseFilterGen BitplanenoiseFilterGen(this ImageMap input0
 var result = new BitplanenoiseFilterGen(input0);
 if(config?.bitplane != null) result.bitplane(config.bitplane);
 if(config?.filter != null) result.filter(config.filter);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public int bitplane { get; set; }
 ///  show noisy pixels (default false)
 /// </summary>
 public bool filter { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -52,6 +52,7 @@ if(config?.cbv != null) result.cbv(config.cbv);
 if(config?.crh != null) result.crh(config.crh);
 if(config?.crv != null) result.crv(config.crv);
 if(config?.edge != null) result.edge(config.edge);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,6 +78,7 @@ public int crv { get; set; }
 ///  set edge operation (from 0 to 1) (default smear)
 /// </summary>
 public ChromashiftFilterGenEdge edge { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum ChromashiftFilterGenEdge
 {

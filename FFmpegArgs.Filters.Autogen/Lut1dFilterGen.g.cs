@@ -37,6 +37,7 @@ public static Lut1dFilterGen Lut1dFilterGen(this ImageMap input0,Lut1dFilterGenC
 var result = new Lut1dFilterGen(input0);
 if(config?.file != null) result.file(config.file);
 if(config?.interp != null) result.interp(config.interp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public string file { get; set; }
 ///  select interpolation mode (from 0 to 4) (default linear)
 /// </summary>
 public Lut1dFilterGenInterp interp { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum Lut1dFilterGenInterp
 {

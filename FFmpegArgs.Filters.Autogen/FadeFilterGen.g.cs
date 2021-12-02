@@ -62,6 +62,7 @@ if(config?.alpha != null) result.alpha(config.alpha);
 if(config?.start_time != null) result.start_time(config.start_time);
 if(config?.duration != null) result.duration(config.duration);
 if(config?.color != null) result.color(config.color);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public TimeSpan duration { get; set; }
 ///  set color (default "black")
 /// </summary>
 public Color color { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum FadeFilterGenType
 {

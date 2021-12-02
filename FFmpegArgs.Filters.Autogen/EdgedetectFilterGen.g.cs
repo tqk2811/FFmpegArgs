@@ -47,6 +47,7 @@ if(config?.high != null) result.high(config.high);
 if(config?.low != null) result.low(config.low);
 if(config?.mode != null) result.mode(config.mode);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,6 +69,7 @@ public EdgedetectFilterGenMode mode { get; set; }
 ///  set planes to filter (default y+u+v+r+g+b)
 /// </summary>
 public EdgedetectFilterGenPlanes planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum EdgedetectFilterGenMode
 {

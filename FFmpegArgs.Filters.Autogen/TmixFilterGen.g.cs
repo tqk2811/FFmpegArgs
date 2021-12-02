@@ -42,6 +42,7 @@ var result = new TmixFilterGen(input0);
 if(config?.frames != null) result.frames(config.frames);
 if(config?.weights != null) result.weights(config.weights);
 if(config?.scale != null) result.scale(config.scale);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public string weights { get; set; }
 ///  set scale (from 0 to 32767) (default 0)
 /// </summary>
 public float scale { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

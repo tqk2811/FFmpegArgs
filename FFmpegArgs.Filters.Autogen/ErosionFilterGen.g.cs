@@ -52,6 +52,7 @@ if(config?.threshold0 != null) result.threshold0(config.threshold0);
 if(config?.threshold1 != null) result.threshold1(config.threshold1);
 if(config?.threshold2 != null) result.threshold2(config.threshold2);
 if(config?.threshold3 != null) result.threshold3(config.threshold3);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public int threshold2 { get; set; }
 ///  set threshold for 4th plane (from 0 to 65535) (default 65535)
 /// </summary>
 public int threshold3 { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

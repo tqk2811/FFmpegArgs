@@ -52,6 +52,7 @@ if(config?.c1 != null) result.c1(config.c1);
 if(config?.c2 != null) result.c2(config.c2);
 if(config?.c3 != null) result.c3(config.c3);
 if(config?.d != null) result.d(config.d);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public string c3 { get; set; }
 ///  set output depth (from 0 to 16) (default 0)
 /// </summary>
 public int d { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

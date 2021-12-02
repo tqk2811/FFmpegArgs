@@ -27,10 +27,12 @@ public static HflipFilterGen HflipFilterGen(this ImageMap input0) => new HflipFi
 public static HflipFilterGen HflipFilterGen(this ImageMap input0,HflipFilterGenConfig config)
 {
 var result = new HflipFilterGen(input0);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
 public class HflipFilterGenConfig
 {
+public string TimelineSupport { get; set; }
 }
 }

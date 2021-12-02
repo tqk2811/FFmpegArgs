@@ -52,6 +52,7 @@ if(config?.scan_max != null) result.scan_max(config.scan_max);
 if(config?.spw != null) result.spw(config.spw);
 if(config?.chp != null) result.chp(config.chp);
 if(config?.lp != null) result.lp(config.lp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public bool chp { get; set; }
 ///  lowpass line prior to processing (default true)
 /// </summary>
 public bool lp { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

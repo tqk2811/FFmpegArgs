@@ -37,6 +37,7 @@ public static ColormatrixFilterGen ColormatrixFilterGen(this ImageMap input0,Col
 var result = new ColormatrixFilterGen(input0);
 if(config?.src != null) result.src(config.src);
 if(config?.dst != null) result.dst(config.dst);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public ColormatrixFilterGenSrc src { get; set; }
 ///  set destination color matrix (from -1 to 4) (default -1)
 /// </summary>
 public ColormatrixFilterGenDst dst { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum ColormatrixFilterGenSrc
 {

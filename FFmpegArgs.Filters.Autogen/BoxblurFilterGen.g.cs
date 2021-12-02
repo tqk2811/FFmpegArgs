@@ -87,6 +87,7 @@ if(config?.alpha_radius != null) result.alpha_radius(config.alpha_radius);
 if(config?.ar != null) result.ar(config.ar);
 if(config?.alpha_power != null) result.alpha_power(config.alpha_power);
 if(config?.ap != null) result.ap(config.ap);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -140,5 +141,6 @@ public int alpha_power { get; set; }
 ///  How many times should the boxblur be applied to alpha (from -1 to INT_MAX) (default -1)
 /// </summary>
 public int ap { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

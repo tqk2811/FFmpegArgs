@@ -47,6 +47,7 @@ if(config?.map0 != null) result.map0(config.map0);
 if(config?.map1 != null) result.map1(config.map1);
 if(config?.map2 != null) result.map2(config.map2);
 if(config?.map3 != null) result.map3(config.map3);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public int map2 { get; set; }
 ///  Index of the input plane to be used as the fourth output plane  (from 0 to 3) (default 3)
 /// </summary>
 public int map3 { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

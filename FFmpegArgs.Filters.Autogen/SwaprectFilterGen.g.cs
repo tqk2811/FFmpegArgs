@@ -57,6 +57,7 @@ if(config?.x1 != null) result.x1(config.x1);
 if(config?.y1 != null) result.y1(config.y1);
 if(config?.x2 != null) result.x2(config.x2);
 if(config?.y2 != null) result.y2(config.y2);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,5 +87,6 @@ public string x2 { get; set; }
 ///  set 2nd rect y top left coordinate (default "0")
 /// </summary>
 public string y2 { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

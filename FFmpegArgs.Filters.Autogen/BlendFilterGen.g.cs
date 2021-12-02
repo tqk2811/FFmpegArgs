@@ -102,6 +102,7 @@ if(config?.c1_opacity != null) result.c1_opacity(config.c1_opacity);
 if(config?.c2_opacity != null) result.c2_opacity(config.c2_opacity);
 if(config?.c3_opacity != null) result.c3_opacity(config.c3_opacity);
 if(config?.all_opacity != null) result.all_opacity(config.all_opacity);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -167,6 +168,7 @@ public double c3_opacity { get; set; }
 ///  set opacity for all color components (from 0 to 1) (default 1)
 /// </summary>
 public double all_opacity { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum BlendFilterGenC0_mode
 {

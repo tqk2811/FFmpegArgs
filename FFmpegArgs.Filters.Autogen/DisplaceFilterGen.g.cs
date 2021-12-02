@@ -32,6 +32,7 @@ public static DisplaceFilterGen DisplaceFilterGen(this ImageMap input0, ImageMap
 {
 var result = new DisplaceFilterGen(input0, input1, input2);
 if(config?.edge != null) result.edge(config.edge);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,6 +42,7 @@ public class DisplaceFilterGenConfig
 ///  set edge mode (from 0 to 3) (default smear)
 /// </summary>
 public DisplaceFilterGenEdge edge { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DisplaceFilterGenEdge
 {

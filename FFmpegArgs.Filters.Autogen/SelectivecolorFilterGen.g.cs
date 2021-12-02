@@ -82,6 +82,7 @@ if(config?.whites != null) result.whites(config.whites);
 if(config?.neutrals != null) result.neutrals(config.neutrals);
 if(config?.blacks != null) result.blacks(config.blacks);
 if(config?.psfile != null) result.psfile(config.psfile);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -131,6 +132,7 @@ public string blacks { get; set; }
 ///  set Photoshop selectivecolor file name
 /// </summary>
 public string psfile { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum SelectivecolorFilterGenCorrection_method
 {

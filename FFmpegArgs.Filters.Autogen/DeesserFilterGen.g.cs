@@ -47,6 +47,7 @@ if(config?.i != null) result.i(config.i);
 if(config?.m != null) result.m(config.m);
 if(config?.f != null) result.f(config.f);
 if(config?.s != null) result.s(config.s);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,6 +69,7 @@ public double f { get; set; }
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
 public DeesserFilterGenS s { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum DeesserFilterGenS
 {

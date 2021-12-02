@@ -57,6 +57,7 @@ if(config?.mv_type != null) result.mv_type(config.mv_type);
 if(config?.mvt != null) result.mvt(config.mvt);
 if(config?.frame_type != null) result.frame_type(config.frame_type);
 if(config?.ft != null) result.ft(config.ft);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,6 +87,7 @@ public CodecviewFilterGenFrame_type frame_type { get; set; }
 ///  set frame types to visualize motion vectors of (default 0)
 /// </summary>
 public CodecviewFilterGenFt ft { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum CodecviewFilterGenMv
 {

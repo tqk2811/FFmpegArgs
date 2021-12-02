@@ -37,6 +37,7 @@ public static AfreqshiftFilterGen AfreqshiftFilterGen(this AudioMap input0,Afreq
 var result = new AfreqshiftFilterGen(input0);
 if(config?.shift != null) result.shift(config.shift);
 if(config?.level != null) result.level(config.level);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public double shift { get; set; }
 ///  set output level (from 0 to 1) (default 1)
 /// </summary>
 public double level { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

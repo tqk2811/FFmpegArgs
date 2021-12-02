@@ -52,6 +52,7 @@ if(config?.bl != null) result.bl(config.bl);
 if(config?.rh != null) result.rh(config.rh);
 if(config?.bh != null) result.bh(config.bh);
 if(config?.saturation != null) result.saturation(config.saturation);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public float bh { get; set; }
 ///  set the amount of saturation (from -3 to 3) (default 1)
 /// </summary>
 public float saturation { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

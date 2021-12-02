@@ -87,6 +87,7 @@ if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strengt
 if(config?.cs != null) result.cs(config.cs);
 if(config?.chroma_threshold != null) result.chroma_threshold(config.chroma_threshold);
 if(config?.ct != null) result.ct(config.ct);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -140,5 +141,6 @@ public int chroma_threshold { get; set; }
 ///  set chroma threshold (from -31 to 30) (default -31)
 /// </summary>
 public int ct { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -72,6 +72,7 @@ if(config?.nns != null) result.nns(config.nns);
 if(config?.qual != null) result.qual(config.qual);
 if(config?.etype != null) result.etype(config.etype);
 if(config?.pscrn != null) result.pscrn(config.pscrn);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -113,6 +114,7 @@ public NnediFilterGenEtype etype { get; set; }
 ///  set prescreening (from 0 to 4) (default new)
 /// </summary>
 public NnediFilterGenPscrn pscrn { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum NnediFilterGenDeint
 {

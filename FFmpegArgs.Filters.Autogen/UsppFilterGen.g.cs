@@ -42,6 +42,7 @@ var result = new UsppFilterGen(input0);
 if(config?.quality != null) result.quality(config.quality);
 if(config?.qp != null) result.qp(config.qp);
 if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public int qp { get; set; }
 ///  use B-frames' QP (default false)
 /// </summary>
 public bool use_bframe_qp { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

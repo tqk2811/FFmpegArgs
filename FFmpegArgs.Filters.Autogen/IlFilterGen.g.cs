@@ -72,6 +72,7 @@ if(config?.chroma_swap != null) result.chroma_swap(config.chroma_swap);
 if(config?.cs != null) result.cs(config.cs);
 if(config?.alpha_swap != null) result.alpha_swap(config.alpha_swap);
 if(config?._as != null) result._as(config._as);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -113,6 +114,7 @@ public bool alpha_swap { get; set; }
 ///  swap alpha fields (default false)
 /// </summary>
 public bool _as { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum IlFilterGenLuma_mode
 {

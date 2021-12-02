@@ -42,6 +42,7 @@ var result = new BwdifFilterGen(input0);
 if(config?.mode != null) result.mode(config.mode);
 if(config?.parity != null) result.parity(config.parity);
 if(config?.deint != null) result.deint(config.deint);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,6 +60,7 @@ public BwdifFilterGenParity parity { get; set; }
 ///  specify which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
 public BwdifFilterGenDeint deint { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum BwdifFilterGenMode
 {

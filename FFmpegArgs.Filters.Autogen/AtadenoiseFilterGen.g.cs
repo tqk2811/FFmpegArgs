@@ -87,6 +87,7 @@ if(config?.a != null) result.a(config.a);
 if(config?._0s != null) result._0s(config._0s);
 if(config?._1s != null) result._1s(config._1s);
 if(config?._2s != null) result._2s(config._2s);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -140,6 +141,7 @@ public float _1s { get; set; }
 ///  set sigma for 3rd plane (from 0 to 32767) (default 32767)
 /// </summary>
 public float _2s { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AtadenoiseFilterGenP
 {

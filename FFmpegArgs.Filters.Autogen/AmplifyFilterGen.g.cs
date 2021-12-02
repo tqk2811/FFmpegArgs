@@ -62,6 +62,7 @@ if(config?.tolerance != null) result.tolerance(config.tolerance);
 if(config?.low != null) result.low(config.low);
 if(config?.high != null) result.high(config.high);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public int high { get; set; }
 ///  set what planes to filter (default 7)
 /// </summary>
 public AmplifyFilterGenPlanes planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AmplifyFilterGenPlanes
 {

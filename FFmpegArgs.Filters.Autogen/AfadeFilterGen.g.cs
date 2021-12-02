@@ -67,6 +67,7 @@ if(config?.ns != null) result.ns(config.ns);
 if(config?.start_time != null) result.start_time(config.start_time);
 if(config?.duration != null) result.duration(config.duration);
 if(config?.curve != null) result.curve(config.curve);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,6 +105,7 @@ public TimeSpan duration { get; set; }
 ///  set fade curve type (from -1 to 18) (default tri)
 /// </summary>
 public AfadeFilterGenCurve curve { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AfadeFilterGenType
 {

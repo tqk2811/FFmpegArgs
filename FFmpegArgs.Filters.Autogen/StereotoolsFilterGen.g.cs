@@ -127,6 +127,7 @@ if(config?.sclevel != null) result.sclevel(config.sclevel);
 if(config?.phase != null) result.phase(config.phase);
 if(config?.bmode_in != null) result.bmode_in(config.bmode_in);
 if(config?.bmode_out != null) result.bmode_out(config.bmode_out);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -212,6 +213,7 @@ public StereotoolsFilterGenBmode_in bmode_in { get; set; }
 ///  set balance out mode (from 0 to 2) (default balance)
 /// </summary>
 public StereotoolsFilterGenBmode_out bmode_out { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum StereotoolsFilterGenMode
 {

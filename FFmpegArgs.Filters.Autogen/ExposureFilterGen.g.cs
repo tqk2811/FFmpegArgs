@@ -37,6 +37,7 @@ public static ExposureFilterGen ExposureFilterGen(this ImageMap input0,ExposureF
 var result = new ExposureFilterGen(input0);
 if(config?.exposure != null) result.exposure(config.exposure);
 if(config?.black != null) result.black(config.black);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public float exposure { get; set; }
 ///  set the black level correction (from -1 to 1) (default 0)
 /// </summary>
 public float black { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

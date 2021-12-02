@@ -62,6 +62,7 @@ if(config?.rcw != null) result.rcw(config.rcw);
 if(config?.gmw != null) result.gmw(config.gmw);
 if(config?.byw != null) result.byw(config.byw);
 if(config?.pl != null) result.pl(config.pl);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,5 +96,6 @@ public float byw { get; set; }
 ///  set the amount of preserving lightness (from 0 to 1) (default 0)
 /// </summary>
 public float pl { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

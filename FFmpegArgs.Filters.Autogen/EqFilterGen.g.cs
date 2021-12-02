@@ -72,6 +72,7 @@ if(config?.gamma_g != null) result.gamma_g(config.gamma_g);
 if(config?.gamma_b != null) result.gamma_b(config.gamma_b);
 if(config?.gamma_weight != null) result.gamma_weight(config.gamma_weight);
 if(config?.eval != null) result.eval(config.eval);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -113,6 +114,7 @@ public string gamma_weight { get; set; }
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
 public EqFilterGenEval eval { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum EqFilterGenEval
 {

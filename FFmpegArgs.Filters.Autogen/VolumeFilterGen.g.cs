@@ -57,6 +57,7 @@ if(config?.eval != null) result.eval(config.eval);
 if(config?.replaygain != null) result.replaygain(config.replaygain);
 if(config?.replaygain_preamp != null) result.replaygain_preamp(config.replaygain_preamp);
 if(config?.replaygain_noclip != null) result.replaygain_noclip(config.replaygain_noclip);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,6 +87,7 @@ public double replaygain_preamp { get; set; }
 ///  Apply replaygain clipping prevention (default true)
 /// </summary>
 public bool replaygain_noclip { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum VolumeFilterGenPrecision
 {

@@ -52,6 +52,7 @@ if(config?.mode != null) result.mode(config.mode);
 if(config?.width != null) result.width(config.width);
 if(config?.height != null) result.height(config.height);
 if(config?.seed != null) result.seed(config.seed);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,6 +78,7 @@ public int height { get; set; }
 ///  set random seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
 public long seed { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum ShufflepixelsFilterGenDirection
 {

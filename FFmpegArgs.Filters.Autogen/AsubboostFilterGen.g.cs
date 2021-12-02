@@ -62,6 +62,7 @@ if(config?.feedback != null) result.feedback(config.feedback);
 if(config?.cutoff != null) result.cutoff(config.cutoff);
 if(config?.slope != null) result.slope(config.slope);
 if(config?.delay != null) result.delay(config.delay);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,5 +96,6 @@ public double slope { get; set; }
 ///  set delay (from 1 to 100) (default 20)
 /// </summary>
 public double delay { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

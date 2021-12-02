@@ -67,6 +67,7 @@ if(config?.range != null) result.range(config.range);
 if(config?.direction != null) result.direction(config.direction);
 if(config?.blur != null) result.blur(config.blur);
 if(config?.coupling != null) result.coupling(config.coupling);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,5 +105,6 @@ public bool blur { get; set; }
 ///  set plane coupling (default false)
 /// </summary>
 public bool coupling { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

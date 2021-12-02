@@ -47,6 +47,7 @@ if(config?.cb != null) result.cb(config.cb);
 if(config?.cr != null) result.cr(config.cr);
 if(config?.size != null) result.size(config.size);
 if(config?.high != null) result.high(config.high);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public float size { get; set; }
 ///  set the highlights strength (from 0 to 1) (default 0)
 /// </summary>
 public float high { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

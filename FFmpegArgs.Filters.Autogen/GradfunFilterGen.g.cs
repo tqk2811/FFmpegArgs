@@ -37,6 +37,7 @@ public static GradfunFilterGen GradfunFilterGen(this ImageMap input0,GradfunFilt
 var result = new GradfunFilterGen(input0);
 if(config?.strength != null) result.strength(config.strength);
 if(config?.radius != null) result.radius(config.radius);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public float strength { get; set; }
 ///  The neighborhood to fit the gradient to. (from 4 to 32) (default 16)
 /// </summary>
 public int radius { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

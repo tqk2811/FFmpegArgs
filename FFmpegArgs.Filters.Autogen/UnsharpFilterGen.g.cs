@@ -92,6 +92,7 @@ if(config?.cy != null) result.cy(config.cy);
 if(config?.chroma_amount != null) result.chroma_amount(config.chroma_amount);
 if(config?.ca != null) result.ca(config.ca);
 if(config?.opencl != null) result.opencl(config.opencl);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -149,5 +150,6 @@ public float ca { get; set; }
 ///  ignored (default false)
 /// </summary>
 public bool opencl { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

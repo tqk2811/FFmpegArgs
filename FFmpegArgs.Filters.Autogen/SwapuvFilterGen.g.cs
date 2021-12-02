@@ -27,10 +27,12 @@ public static SwapuvFilterGen SwapuvFilterGen(this ImageMap input0) => new Swapu
 public static SwapuvFilterGen SwapuvFilterGen(this ImageMap input0,SwapuvFilterGenConfig config)
 {
 var result = new SwapuvFilterGen(input0);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
 public class SwapuvFilterGenConfig
 {
+public string TimelineSupport { get; set; }
 }
 }

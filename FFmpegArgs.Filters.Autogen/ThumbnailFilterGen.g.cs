@@ -32,6 +32,7 @@ public static ThumbnailFilterGen ThumbnailFilterGen(this ImageMap input0,Thumbna
 {
 var result = new ThumbnailFilterGen(input0);
 if(config?.n != null) result.n(config.n);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,5 +42,6 @@ public class ThumbnailFilterGenConfig
 ///  set the frames batch size (from 2 to INT_MAX) (default 100)
 /// </summary>
 public int n { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

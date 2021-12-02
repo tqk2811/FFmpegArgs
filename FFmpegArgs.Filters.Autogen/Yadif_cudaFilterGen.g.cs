@@ -42,6 +42,7 @@ var result = new Yadif_cudaFilterGen(input0);
 if(config?.mode != null) result.mode(config.mode);
 if(config?.parity != null) result.parity(config.parity);
 if(config?.deint != null) result.deint(config.deint);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,6 +60,7 @@ public Yadif_cudaFilterGenParity parity { get; set; }
 ///  specify which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
 public Yadif_cudaFilterGenDeint deint { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum Yadif_cudaFilterGenMode
 {

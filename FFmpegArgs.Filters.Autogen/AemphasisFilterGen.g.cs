@@ -47,6 +47,7 @@ if(config?.level_in != null) result.level_in(config.level_in);
 if(config?.level_out != null) result.level_out(config.level_out);
 if(config?.mode != null) result.mode(config.mode);
 if(config?.type != null) result.type(config.type);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,6 +69,7 @@ public AemphasisFilterGenMode mode { get; set; }
 ///  set filter type (from 0 to 8) (default cd)
 /// </summary>
 public AemphasisFilterGenType type { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum AemphasisFilterGenMode
 {

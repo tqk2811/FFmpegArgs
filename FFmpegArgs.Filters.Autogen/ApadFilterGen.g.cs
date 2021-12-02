@@ -52,6 +52,7 @@ if(config?.pad_len != null) result.pad_len(config.pad_len);
 if(config?.whole_len != null) result.whole_len(config.whole_len);
 if(config?.pad_dur != null) result.pad_dur(config.pad_dur);
 if(config?.whole_dur != null) result.whole_dur(config.whole_dur);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -77,5 +78,6 @@ public TimeSpan pad_dur { get; set; }
 ///  set minimum target duration in the audio stream (default 0)
 /// </summary>
 public TimeSpan whole_dur { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

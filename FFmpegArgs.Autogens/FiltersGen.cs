@@ -369,6 +369,10 @@ namespace FFmpegArgs.Autogens
                     {
                         streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
                     }
+                    if(interfaces.Contains(nameof(ITimelineSupport)))
+                    {
+                        streamWriter.WriteLine($"if(config?.{nameof(ITimelineSupport).Substring(1)} != null) result.{nameof(TimelineSupportExtension.Enable)}(config.{nameof(ITimelineSupport).Substring(1)});");
+                    }
                     streamWriter.WriteLine("return result;");
                     streamWriter.WriteLine("}");
                     streamWriter.WriteLine("}");
@@ -380,6 +384,10 @@ namespace FFmpegArgs.Autogens
                     {
                         streamWriter.WriteSummary(filterFunction.Description);
                         streamWriter.WriteLine($"public {filterFunction.FunctionParamType} {filterFunction.FunctionName} {{ get; set; }}");
+                    }
+                    if (interfaces.Contains(nameof(ITimelineSupport)))
+                    {
+                        streamWriter.WriteLine($"public string {nameof(ITimelineSupport).Substring(1)} {{ get; set; }}");
                     }
                     streamWriter.WriteLine("}");
 

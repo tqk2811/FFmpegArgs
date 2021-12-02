@@ -57,6 +57,7 @@ if(config?.deint != null) result.deint(config.deint);
 if(config?.rslope != null) result.rslope(config.rslope);
 if(config?.redge != null) result.redge(config.redge);
 if(config?.interp != null) result.interp(config.interp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -86,6 +87,7 @@ public int redge { get; set; }
 ///  specify the type of interpolation (from 0 to 2) (default 4p)
 /// </summary>
 public EstdifFilterGenInterp interp { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum EstdifFilterGenMode
 {

@@ -62,6 +62,7 @@ if(config?.function != null) result.function(config.function);
 if(config?.expr != null) result.expr(config.expr);
 if(config?.file != null) result.file(config.file);
 if(config?.direct != null) result.direct(config.direct);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public string file { get; set; }
 ///  reduce buffering when printing to user-set file or pipe (default false)
 /// </summary>
 public bool direct { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum MetadataFilterGenMode
 {

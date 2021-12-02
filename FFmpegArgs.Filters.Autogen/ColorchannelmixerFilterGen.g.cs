@@ -112,6 +112,7 @@ if(config?.ag != null) result.ag(config.ag);
 if(config?.ab != null) result.ab(config.ab);
 if(config?.aa != null) result.aa(config.aa);
 if(config?.pl != null) result.pl(config.pl);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -185,5 +186,6 @@ public double aa { get; set; }
 ///  preserve lightness (from 0 to 1) (default 0)
 /// </summary>
 public double pl { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

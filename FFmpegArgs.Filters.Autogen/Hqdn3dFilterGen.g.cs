@@ -47,6 +47,7 @@ if(config?.luma_spatial != null) result.luma_spatial(config.luma_spatial);
 if(config?.chroma_spatial != null) result.chroma_spatial(config.chroma_spatial);
 if(config?.luma_tmp != null) result.luma_tmp(config.luma_tmp);
 if(config?.chroma_tmp != null) result.chroma_tmp(config.chroma_tmp);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -68,5 +69,6 @@ public double luma_tmp { get; set; }
 ///  temporal chroma strength (from 0 to DBL_MAX) (default 0)
 /// </summary>
 public double chroma_tmp { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

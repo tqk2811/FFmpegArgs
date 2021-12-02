@@ -67,6 +67,7 @@ if(config?.oh != null) result.oh(config.oh);
 if(config?.fillcolor != null) result.fillcolor(config.fillcolor);
 if(config?.c != null) result.c(config.c);
 if(config?.bilinear != null) result.bilinear(config.bilinear);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,5 +105,6 @@ public string c { get; set; }
 ///  use bilinear interpolation (default true)
 /// </summary>
 public bool bilinear { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

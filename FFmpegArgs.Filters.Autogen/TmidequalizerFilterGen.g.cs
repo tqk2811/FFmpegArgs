@@ -42,6 +42,7 @@ var result = new TmidequalizerFilterGen(input0);
 if(config?.radius != null) result.radius(config.radius);
 if(config?.sigma != null) result.sigma(config.sigma);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -59,5 +60,6 @@ public float sigma { get; set; }
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
 public int planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

@@ -62,6 +62,7 @@ if(config?.weight_Y != null) result.weight_Y(config.weight_Y);
 if(config?.weight_U != null) result.weight_U(config.weight_U);
 if(config?.weight_V != null) result.weight_V(config.weight_V);
 if(config?.eval != null) result.eval(config.eval);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -95,6 +96,7 @@ public string weight_V { get; set; }
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
 public FftfiltFilterGenEval eval { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum FftfiltFilterGenEval
 {

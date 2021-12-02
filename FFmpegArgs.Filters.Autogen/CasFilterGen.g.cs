@@ -37,6 +37,7 @@ public static CasFilterGen CasFilterGen(this ImageMap input0,CasFilterGenConfig 
 var result = new CasFilterGen(input0);
 if(config?.strength != null) result.strength(config.strength);
 if(config?.planes != null) result.planes(config.planes);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,6 +51,7 @@ public float strength { get; set; }
 ///  set what planes to filter (default 7)
 /// </summary>
 public CasFilterGenPlanes planes { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum CasFilterGenPlanes
 {

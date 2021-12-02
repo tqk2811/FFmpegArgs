@@ -37,6 +37,7 @@ public static ExtrastereoFilterGen ExtrastereoFilterGen(this AudioMap input0,Ext
 var result = new ExtrastereoFilterGen(input0);
 if(config?.m != null) result.m(config.m);
 if(config?.c != null) result.c(config.c);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -50,5 +51,6 @@ public float m { get; set; }
 ///  enable clipping (default true)
 /// </summary>
 public bool c { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

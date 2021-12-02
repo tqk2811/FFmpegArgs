@@ -32,6 +32,7 @@ public static FieldorderFilterGen FieldorderFilterGen(this ImageMap input0,Field
 {
 var result = new FieldorderFilterGen(input0);
 if(config?.order != null) result.order(config.order);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -41,6 +42,7 @@ public class FieldorderFilterGenConfig
 ///  output field order (from 0 to 1) (default tff)
 /// </summary>
 public FieldorderFilterGenOrder order { get; set; }
+public string TimelineSupport { get; set; }
 }
 public enum FieldorderFilterGenOrder
 {

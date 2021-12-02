@@ -67,6 +67,7 @@ if(config?.steph != null) result.steph(config.steph);
 if(config?.threy != null) result.threy(config.threy);
 if(config?.threu != null) result.threu(config.threu);
 if(config?.threv != null) result.threv(config.threv);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,5 +105,6 @@ public float threu { get; set; }
 ///  set v threshold (from 1 to 200) (default 200)
 /// </summary>
 public float threv { get; set; }
+public string TimelineSupport { get; set; }
 }
 }

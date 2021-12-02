@@ -67,6 +67,7 @@ if(config?.blend != null) result.blend(config.blend);
 if(config?.freq != null) result.freq(config.freq);
 if(config?.ceil != null) result.ceil(config.ceil);
 if(config?.listen != null) result.listen(config.listen);
+if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
 }
@@ -104,5 +105,6 @@ public double ceil { get; set; }
 ///  enable listen mode (default false)
 /// </summary>
 public bool listen { get; set; }
+public string TimelineSupport { get; set; }
 }
 }
