@@ -136,9 +136,62 @@ namespace FFmpegArgs.Filters.VideoFilters
 
         public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, string x, string y)
             => new OverlayFilter(bottom, top).X(x).Y(y);
+
+        /// <summary>
+        /// Overlay a video source on top of the input.
+        /// </summary>
+        public static OverlayFilter OverlayFilterGen(this ImageMap top, ImageMap bottom, OverlayFilterConfig config)
+        {
+            var result = new OverlayFilter(bottom, top);
+            if (!string.IsNullOrWhiteSpace(config?.X)) result.X(config.X);
+            if (!string.IsNullOrWhiteSpace(config?.Y)) result.Y(config.Y);
+            if (config?.EofAction != null) result.EofAction(config.EofAction.Value);
+            if (config?.Eval != null) result.Eval(config.Eval.Value);
+            if (config?.Shortest != null) result.Shortest(config.Shortest.Value);
+            if (config?.Format != null) result.Format(config.Format.Value);
+            if (config?.Repeatlast != null) result.Repeatlast(config.Repeatlast.Value);
+            if (config?.Alpha != null) result.Alpha(config.Alpha.Value);
+            if (!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
+            return result;
+        }
     }
 
-
+    public class OverlayFilterConfig : ITimelineSupportConfig
+    {
+        /// <summary>
+        ///  set the x expression (default "0")
+        /// </summary>
+        public string X { get; set; }
+        /// <summary>
+        ///  set the y expression (default "0")
+        /// </summary>
+        public string Y { get; set; }
+        /// <summary>
+        ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
+        /// </summary>
+        public EofAction? EofAction { get; set; }
+        /// <summary>
+        ///  specify when to evaluate expressions (from 0 to 1) (default frame)
+        /// </summary>
+        public OverlayEval? Eval { get; set; }
+        /// <summary>
+        ///  force termination when the shortest input terminates (default false)
+        /// </summary>
+        public bool? Shortest { get; set; }
+        /// <summary>
+        ///  set output format (from 0 to 7) (default yuv420)
+        /// </summary>
+        public OverlayPixFmt? Format { get; set; }
+        /// <summary>
+        ///  repeat overlay of the last overlay frame (default true)
+        /// </summary>
+        public bool? Repeatlast { get; set; }
+        /// <summary>
+        ///  alpha format (from 0 to 1) (default straight)
+        /// </summary>
+        public OverlayAlpha? Alpha { get; set; }
+        public string TimelineSupport { get; set; }
+    }
     public enum OverlayAlpha
     {
         Straight,
