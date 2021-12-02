@@ -39,9 +39,9 @@ public static DblurFilterGen DblurFilterGen(this ImageMap input0) => new DblurFi
 public static DblurFilterGen DblurFilterGen(this ImageMap input0,DblurFilterGenConfig config)
 {
 var result = new DblurFilterGen(input0);
-if(config?.angle != null) result.angle(config.angle);
-if(config?.radius != null) result.radius(config.radius);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.angle != null) result.angle(config.angle.Value);
+if(config?.radius != null) result.radius(config.radius.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class DblurFilterGenConfig
 /// <summary>
 ///  set angle (from 0 to 360) (default 45)
 /// </summary>
-public float angle { get; set; }
+public float? angle { get; set; }
 /// <summary>
 ///  set radius (from 1 to 8192) (default 5)
 /// </summary>
-public float radius { get; set; }
+public float? radius { get; set; }
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

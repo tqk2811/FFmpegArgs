@@ -59,14 +59,14 @@ public static GeqFilterGen GeqFilterGen(this ImageMap input0) => new GeqFilterGe
 public static GeqFilterGen GeqFilterGen(this ImageMap input0,GeqFilterGenConfig config)
 {
 var result = new GeqFilterGen(input0);
-if(config?.lum_expr != null) result.lum_expr(config.lum_expr);
-if(config?.cb_expr != null) result.cb_expr(config.cb_expr);
-if(config?.cr_expr != null) result.cr_expr(config.cr_expr);
-if(config?.alpha_expr != null) result.alpha_expr(config.alpha_expr);
-if(config?.red_expr != null) result.red_expr(config.red_expr);
-if(config?.green_expr != null) result.green_expr(config.green_expr);
-if(config?.blue_expr != null) result.blue_expr(config.blue_expr);
-if(config?.interpolation != null) result.interpolation(config.interpolation);
+if(!string.IsNullOrWhiteSpace(config?.lum_expr)) result.lum_expr(config.lum_expr);
+if(!string.IsNullOrWhiteSpace(config?.cb_expr)) result.cb_expr(config.cb_expr);
+if(!string.IsNullOrWhiteSpace(config?.cr_expr)) result.cr_expr(config.cr_expr);
+if(!string.IsNullOrWhiteSpace(config?.alpha_expr)) result.alpha_expr(config.alpha_expr);
+if(!string.IsNullOrWhiteSpace(config?.red_expr)) result.red_expr(config.red_expr);
+if(!string.IsNullOrWhiteSpace(config?.green_expr)) result.green_expr(config.green_expr);
+if(!string.IsNullOrWhiteSpace(config?.blue_expr)) result.blue_expr(config.blue_expr);
+if(config?.interpolation != null) result.interpolation(config.interpolation.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -104,7 +104,7 @@ public string blue_expr { get; set; }
 /// <summary>
 ///  set interpolation method (from 0 to 1) (default bilinear)
 /// </summary>
-public GeqFilterGenInterpolation interpolation { get; set; }
+public GeqFilterGenInterpolation? interpolation { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum GeqFilterGenInterpolation

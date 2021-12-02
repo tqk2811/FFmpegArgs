@@ -35,8 +35,8 @@ public static SendcmdFilterGen SendcmdFilterGen(this ImageMap input0) => new Sen
 public static SendcmdFilterGen SendcmdFilterGen(this ImageMap input0,SendcmdFilterGenConfig config)
 {
 var result = new SendcmdFilterGen(input0);
-if(config?.commands != null) result.commands(config.commands);
-if(config?.filename != null) result.filename(config.filename);
+if(!string.IsNullOrWhiteSpace(config?.commands)) result.commands(config.commands);
+if(!string.IsNullOrWhiteSpace(config?.filename)) result.filename(config.filename);
 return result;
 }
 }

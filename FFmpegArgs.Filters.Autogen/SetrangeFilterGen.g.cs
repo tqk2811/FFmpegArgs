@@ -31,7 +31,7 @@ public static SetrangeFilterGen SetrangeFilterGen(this ImageMap input0) => new S
 public static SetrangeFilterGen SetrangeFilterGen(this ImageMap input0,SetrangeFilterGenConfig config)
 {
 var result = new SetrangeFilterGen(input0);
-if(config?.range != null) result.range(config.range);
+if(config?.range != null) result.range(config.range.Value);
 return result;
 }
 }
@@ -40,7 +40,7 @@ public class SetrangeFilterGenConfig
 /// <summary>
 ///  select color range (from -1 to 2) (default auto)
 /// </summary>
-public SetrangeFilterGenRange range { get; set; }
+public SetrangeFilterGenRange? range { get; set; }
 }
 public enum SetrangeFilterGenRange
 {

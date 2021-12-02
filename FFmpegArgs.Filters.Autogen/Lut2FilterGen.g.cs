@@ -47,11 +47,11 @@ public static Lut2FilterGen Lut2FilterGen(this ImageMap input0, ImageMap input1)
 public static Lut2FilterGen Lut2FilterGen(this ImageMap input0, ImageMap input1,Lut2FilterGenConfig config)
 {
 var result = new Lut2FilterGen(input0, input1);
-if(config?.c0 != null) result.c0(config.c0);
-if(config?.c1 != null) result.c1(config.c1);
-if(config?.c2 != null) result.c2(config.c2);
-if(config?.c3 != null) result.c3(config.c3);
-if(config?.d != null) result.d(config.d);
+if(!string.IsNullOrWhiteSpace(config?.c0)) result.c0(config.c0);
+if(!string.IsNullOrWhiteSpace(config?.c1)) result.c1(config.c1);
+if(!string.IsNullOrWhiteSpace(config?.c2)) result.c2(config.c2);
+if(!string.IsNullOrWhiteSpace(config?.c3)) result.c3(config.c3);
+if(config?.d != null) result.d(config.d.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -77,7 +77,7 @@ public string c3 { get; set; }
 /// <summary>
 ///  set output depth (from 0 to 16) (default 0)
 /// </summary>
-public int d { get; set; }
+public int? d { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

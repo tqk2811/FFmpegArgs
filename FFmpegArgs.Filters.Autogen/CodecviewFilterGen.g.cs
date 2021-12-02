@@ -51,12 +51,12 @@ public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input0) => new
 public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input0,CodecviewFilterGenConfig config)
 {
 var result = new CodecviewFilterGen(input0);
-if(config?.mv != null) result.mv(config.mv);
-if(config?.qp != null) result.qp(config.qp);
-if(config?.mv_type != null) result.mv_type(config.mv_type);
-if(config?.mvt != null) result.mvt(config.mvt);
-if(config?.frame_type != null) result.frame_type(config.frame_type);
-if(config?.ft != null) result.ft(config.ft);
+if(config?.mv != null) result.mv(config.mv.Value);
+if(config?.qp != null) result.qp(config.qp.Value);
+if(config?.mv_type != null) result.mv_type(config.mv_type.Value);
+if(config?.mvt != null) result.mvt(config.mvt.Value);
+if(config?.frame_type != null) result.frame_type(config.frame_type.Value);
+if(config?.ft != null) result.ft(config.ft.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -66,27 +66,27 @@ public class CodecviewFilterGenConfig
 /// <summary>
 ///  set motion vectors to visualize (default 0)
 /// </summary>
-public CodecviewFilterGenMv mv { get; set; }
+public CodecviewFilterGenMv? mv { get; set; }
 /// <summary>
 ///  (default false)
 /// </summary>
-public bool qp { get; set; }
+public bool? qp { get; set; }
 /// <summary>
 ///  set motion vectors type (default 0)
 /// </summary>
-public CodecviewFilterGenMv_type mv_type { get; set; }
+public CodecviewFilterGenMv_type? mv_type { get; set; }
 /// <summary>
 ///  set motion vectors type (default 0)
 /// </summary>
-public CodecviewFilterGenMvt mvt { get; set; }
+public CodecviewFilterGenMvt? mvt { get; set; }
 /// <summary>
 ///  set frame types to visualize motion vectors of (default 0)
 /// </summary>
-public CodecviewFilterGenFrame_type frame_type { get; set; }
+public CodecviewFilterGenFrame_type? frame_type { get; set; }
 /// <summary>
 ///  set frame types to visualize motion vectors of (default 0)
 /// </summary>
-public CodecviewFilterGenFt ft { get; set; }
+public CodecviewFilterGenFt? ft { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum CodecviewFilterGenMv

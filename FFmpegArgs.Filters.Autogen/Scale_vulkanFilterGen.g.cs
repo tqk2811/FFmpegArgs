@@ -47,11 +47,11 @@ public static Scale_vulkanFilterGen Scale_vulkanFilterGen(this ImageMap input0) 
 public static Scale_vulkanFilterGen Scale_vulkanFilterGen(this ImageMap input0,Scale_vulkanFilterGenConfig config)
 {
 var result = new Scale_vulkanFilterGen(input0);
-if(config?.w != null) result.w(config.w);
-if(config?.h != null) result.h(config.h);
-if(config?.scaler != null) result.scaler(config.scaler);
-if(config?.format != null) result.format(config.format);
-if(config?.out_range != null) result.out_range(config.out_range);
+if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
+if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
+if(config?.scaler != null) result.scaler(config.scaler.Value);
+if(!string.IsNullOrWhiteSpace(config?.format)) result.format(config.format);
+if(config?.out_range != null) result.out_range(config.out_range.Value);
 return result;
 }
 }
@@ -68,7 +68,7 @@ public string h { get; set; }
 /// <summary>
 ///  Scaler function (from 0 to 2) (default bilinear)
 /// </summary>
-public Scale_vulkanFilterGenScaler scaler { get; set; }
+public Scale_vulkanFilterGenScaler? scaler { get; set; }
 /// <summary>
 ///  Output video format (software format of hardware frames)
 /// </summary>
@@ -76,7 +76,7 @@ public string format { get; set; }
 /// <summary>
 ///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
 /// </summary>
-public Scale_vulkanFilterGenOut_range out_range { get; set; }
+public Scale_vulkanFilterGenOut_range? out_range { get; set; }
 }
 public enum Scale_vulkanFilterGenScaler
 {

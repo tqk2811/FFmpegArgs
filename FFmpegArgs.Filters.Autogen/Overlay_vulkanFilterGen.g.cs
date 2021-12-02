@@ -35,8 +35,8 @@ public static Overlay_vulkanFilterGen Overlay_vulkanFilterGen(this ImageMap inpu
 public static Overlay_vulkanFilterGen Overlay_vulkanFilterGen(this ImageMap input0, ImageMap input1,Overlay_vulkanFilterGenConfig config)
 {
 var result = new Overlay_vulkanFilterGen(input0, input1);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
+if(config?.x != null) result.x(config.x.Value);
+if(config?.y != null) result.y(config.y.Value);
 return result;
 }
 }
@@ -45,10 +45,10 @@ public class Overlay_vulkanFilterGenConfig
 /// <summary>
 ///  Set horizontal offset (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int x { get; set; }
+public int? x { get; set; }
 /// <summary>
 ///  Set vertical offset (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int y { get; set; }
+public int? y { get; set; }
 }
 }

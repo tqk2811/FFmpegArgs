@@ -35,8 +35,8 @@ public static RealtimeFilterGen RealtimeFilterGen(this ImageMap input0) => new R
 public static RealtimeFilterGen RealtimeFilterGen(this ImageMap input0,RealtimeFilterGenConfig config)
 {
 var result = new RealtimeFilterGen(input0);
-if(config?.limit != null) result.limit(config.limit);
-if(config?.speed != null) result.speed(config.speed);
+if(config?.limit != null) result.limit(config.limit.Value);
+if(config?.speed != null) result.speed(config.speed.Value);
 return result;
 }
 }
@@ -45,10 +45,10 @@ public class RealtimeFilterGenConfig
 /// <summary>
 ///  sleep time limit (default 2)
 /// </summary>
-public TimeSpan limit { get; set; }
+public TimeSpan? limit { get; set; }
 /// <summary>
 ///  speed factor (from DBL_MIN to DBL_MAX) (default 1)
 /// </summary>
-public double speed { get; set; }
+public double? speed { get; set; }
 }
 }

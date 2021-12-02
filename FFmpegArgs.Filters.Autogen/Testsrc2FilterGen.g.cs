@@ -47,11 +47,11 @@ public static Testsrc2FilterGen Testsrc2FilterGen(this FilterGraph input0) => ne
 public static Testsrc2FilterGen Testsrc2FilterGen(this FilterGraph input0,Testsrc2FilterGenConfig config)
 {
 var result = new Testsrc2FilterGen(input0);
-if(config?.size != null) result.size(config.size);
+if(config?.size != null) result.size(config.size.Value);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.duration != null) result.duration(config.duration);
+if(config?.duration != null) result.duration(config.duration.Value);
 if(config?.sar != null) result.sar(config.sar);
-if(config?.alpha != null) result.alpha(config.alpha);
+if(config?.alpha != null) result.alpha(config.alpha.Value);
 return result;
 }
 }
@@ -60,7 +60,7 @@ public class Testsrc2FilterGenConfig
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
@@ -68,7 +68,7 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>
@@ -76,6 +76,6 @@ public Rational sar { get; set; }
 /// <summary>
 ///  set global alpha (opacity) (from 0 to 255) (default 255)
 /// </summary>
-public int alpha { get; set; }
+public int? alpha { get; set; }
 }
 }

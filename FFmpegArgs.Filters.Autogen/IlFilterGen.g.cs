@@ -63,15 +63,15 @@ public static IlFilterGen IlFilterGen(this ImageMap input0) => new IlFilterGen(i
 public static IlFilterGen IlFilterGen(this ImageMap input0,IlFilterGenConfig config)
 {
 var result = new IlFilterGen(input0);
-if(config?.luma_mode != null) result.luma_mode(config.luma_mode);
-if(config?.chroma_mode != null) result.chroma_mode(config.chroma_mode);
-if(config?.alpha_mode != null) result.alpha_mode(config.alpha_mode);
-if(config?.luma_swap != null) result.luma_swap(config.luma_swap);
-if(config?.ls != null) result.ls(config.ls);
-if(config?.chroma_swap != null) result.chroma_swap(config.chroma_swap);
-if(config?.cs != null) result.cs(config.cs);
-if(config?.alpha_swap != null) result.alpha_swap(config.alpha_swap);
-if(config?._as != null) result._as(config._as);
+if(config?.luma_mode != null) result.luma_mode(config.luma_mode.Value);
+if(config?.chroma_mode != null) result.chroma_mode(config.chroma_mode.Value);
+if(config?.alpha_mode != null) result.alpha_mode(config.alpha_mode.Value);
+if(config?.luma_swap != null) result.luma_swap(config.luma_swap.Value);
+if(config?.ls != null) result.ls(config.ls.Value);
+if(config?.chroma_swap != null) result.chroma_swap(config.chroma_swap.Value);
+if(config?.cs != null) result.cs(config.cs.Value);
+if(config?.alpha_swap != null) result.alpha_swap(config.alpha_swap.Value);
+if(config?._as != null) result._as(config._as.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -81,39 +81,39 @@ public class IlFilterGenConfig
 /// <summary>
 ///  select luma mode (from 0 to 2) (default none)
 /// </summary>
-public IlFilterGenLuma_mode luma_mode { get; set; }
+public IlFilterGenLuma_mode? luma_mode { get; set; }
 /// <summary>
 ///  select chroma mode (from 0 to 2) (default none)
 /// </summary>
-public IlFilterGenChroma_mode chroma_mode { get; set; }
+public IlFilterGenChroma_mode? chroma_mode { get; set; }
 /// <summary>
 ///  select alpha mode (from 0 to 2) (default none)
 /// </summary>
-public IlFilterGenAlpha_mode alpha_mode { get; set; }
+public IlFilterGenAlpha_mode? alpha_mode { get; set; }
 /// <summary>
 ///  swap luma fields (default false)
 /// </summary>
-public bool luma_swap { get; set; }
+public bool? luma_swap { get; set; }
 /// <summary>
 ///  swap luma fields (default false)
 /// </summary>
-public bool ls { get; set; }
+public bool? ls { get; set; }
 /// <summary>
 ///  swap chroma fields (default false)
 /// </summary>
-public bool chroma_swap { get; set; }
+public bool? chroma_swap { get; set; }
 /// <summary>
 ///  swap chroma fields (default false)
 /// </summary>
-public bool cs { get; set; }
+public bool? cs { get; set; }
 /// <summary>
 ///  swap alpha fields (default false)
 /// </summary>
-public bool alpha_swap { get; set; }
+public bool? alpha_swap { get; set; }
 /// <summary>
 ///  swap alpha fields (default false)
 /// </summary>
-public bool _as { get; set; }
+public bool? _as { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum IlFilterGenLuma_mode

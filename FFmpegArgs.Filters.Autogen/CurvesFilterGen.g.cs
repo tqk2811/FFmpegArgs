@@ -59,14 +59,14 @@ public static CurvesFilterGen CurvesFilterGen(this ImageMap input0) => new Curve
 public static CurvesFilterGen CurvesFilterGen(this ImageMap input0,CurvesFilterGenConfig config)
 {
 var result = new CurvesFilterGen(input0);
-if(config?.preset != null) result.preset(config.preset);
-if(config?.master != null) result.master(config.master);
-if(config?.red != null) result.red(config.red);
-if(config?.green != null) result.green(config.green);
-if(config?.blue != null) result.blue(config.blue);
-if(config?.all != null) result.all(config.all);
-if(config?.psfile != null) result.psfile(config.psfile);
-if(config?.plot != null) result.plot(config.plot);
+if(config?.preset != null) result.preset(config.preset.Value);
+if(!string.IsNullOrWhiteSpace(config?.master)) result.master(config.master);
+if(!string.IsNullOrWhiteSpace(config?.red)) result.red(config.red);
+if(!string.IsNullOrWhiteSpace(config?.green)) result.green(config.green);
+if(!string.IsNullOrWhiteSpace(config?.blue)) result.blue(config.blue);
+if(!string.IsNullOrWhiteSpace(config?.all)) result.all(config.all);
+if(!string.IsNullOrWhiteSpace(config?.psfile)) result.psfile(config.psfile);
+if(!string.IsNullOrWhiteSpace(config?.plot)) result.plot(config.plot);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -76,7 +76,7 @@ public class CurvesFilterGenConfig
 /// <summary>
 ///  select a color curves preset (from 0 to 10) (default none)
 /// </summary>
-public CurvesFilterGenPreset preset { get; set; }
+public CurvesFilterGenPreset? preset { get; set; }
 /// <summary>
 ///  set master points coordinates
 /// </summary>

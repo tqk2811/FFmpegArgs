@@ -39,9 +39,9 @@ public static LumakeyFilterGen LumakeyFilterGen(this ImageMap input0) => new Lum
 public static LumakeyFilterGen LumakeyFilterGen(this ImageMap input0,LumakeyFilterGenConfig config)
 {
 var result = new LumakeyFilterGen(input0);
-if(config?.threshold != null) result.threshold(config.threshold);
-if(config?.tolerance != null) result.tolerance(config.tolerance);
-if(config?.softness != null) result.softness(config.softness);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
+if(config?.tolerance != null) result.tolerance(config.tolerance.Value);
+if(config?.softness != null) result.softness(config.softness.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class LumakeyFilterGenConfig
 /// <summary>
 ///  set the threshold value (from 0 to 1) (default 0)
 /// </summary>
-public double threshold { get; set; }
+public double? threshold { get; set; }
 /// <summary>
 ///  set the tolerance value (from 0 to 1) (default 0.01)
 /// </summary>
-public double tolerance { get; set; }
+public double? tolerance { get; set; }
 /// <summary>
 ///  set the softness value (from 0 to 1) (default 0)
 /// </summary>
-public double softness { get; set; }
+public double? softness { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

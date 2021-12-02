@@ -35,8 +35,8 @@ public static Transpose_openclFilterGen Transpose_openclFilterGen(this ImageMap 
 public static Transpose_openclFilterGen Transpose_openclFilterGen(this ImageMap input0,Transpose_openclFilterGenConfig config)
 {
 var result = new Transpose_openclFilterGen(input0);
-if(config?.dir != null) result.dir(config.dir);
-if(config?.passthrough != null) result.passthrough(config.passthrough);
+if(config?.dir != null) result.dir(config.dir.Value);
+if(config?.passthrough != null) result.passthrough(config.passthrough.Value);
 return result;
 }
 }
@@ -45,11 +45,11 @@ public class Transpose_openclFilterGenConfig
 /// <summary>
 ///  set transpose direction (from 0 to 3) (default cclock_flip)
 /// </summary>
-public Transpose_openclFilterGenDir dir { get; set; }
+public Transpose_openclFilterGenDir? dir { get; set; }
 /// <summary>
 ///  do not apply transposition if the input matches the specified geometry (from 0 to INT_MAX) (default none)
 /// </summary>
-public Transpose_openclFilterGenPassthrough passthrough { get; set; }
+public Transpose_openclFilterGenPassthrough? passthrough { get; set; }
 }
 public enum Transpose_openclFilterGenDir
 {

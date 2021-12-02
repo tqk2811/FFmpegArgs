@@ -31,7 +31,7 @@ public static FramestepFilterGen FramestepFilterGen(this ImageMap input0) => new
 public static FramestepFilterGen FramestepFilterGen(this ImageMap input0,FramestepFilterGenConfig config)
 {
 var result = new FramestepFilterGen(input0);
-if(config?.step != null) result.step(config.step);
+if(config?.step != null) result.step(config.step.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -41,7 +41,7 @@ public class FramestepFilterGenConfig
 /// <summary>
 ///  set frame step (from 1 to INT_MAX) (default 1)
 /// </summary>
-public int step { get; set; }
+public int? step { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

@@ -59,14 +59,14 @@ public static FlangerFilterGen FlangerFilterGen(this AudioMap input0) => new Fla
 public static FlangerFilterGen FlangerFilterGen(this AudioMap input0,FlangerFilterGenConfig config)
 {
 var result = new FlangerFilterGen(input0);
-if(config?.delay != null) result.delay(config.delay);
-if(config?.depth != null) result.depth(config.depth);
-if(config?.regen != null) result.regen(config.regen);
-if(config?.width != null) result.width(config.width);
-if(config?.speed != null) result.speed(config.speed);
-if(config?.shape != null) result.shape(config.shape);
-if(config?.phase != null) result.phase(config.phase);
-if(config?.interp != null) result.interp(config.interp);
+if(config?.delay != null) result.delay(config.delay.Value);
+if(config?.depth != null) result.depth(config.depth.Value);
+if(config?.regen != null) result.regen(config.regen.Value);
+if(config?.width != null) result.width(config.width.Value);
+if(config?.speed != null) result.speed(config.speed.Value);
+if(config?.shape != null) result.shape(config.shape.Value);
+if(config?.phase != null) result.phase(config.phase.Value);
+if(config?.interp != null) result.interp(config.interp.Value);
 return result;
 }
 }
@@ -75,35 +75,35 @@ public class FlangerFilterGenConfig
 /// <summary>
 ///  base delay in milliseconds (from 0 to 30) (default 0)
 /// </summary>
-public double delay { get; set; }
+public double? delay { get; set; }
 /// <summary>
 ///  added swept delay in milliseconds (from 0 to 10) (default 2)
 /// </summary>
-public double depth { get; set; }
+public double? depth { get; set; }
 /// <summary>
 ///  percentage regeneration (delayed signal feedback) (from -95 to 95) (default 0)
 /// </summary>
-public double regen { get; set; }
+public double? regen { get; set; }
 /// <summary>
 ///  percentage of delayed signal mixed with original (from 0 to 100) (default 71)
 /// </summary>
-public double width { get; set; }
+public double? width { get; set; }
 /// <summary>
 ///  sweeps per second (Hz) (from 0.1 to 10) (default 0.5)
 /// </summary>
-public double speed { get; set; }
+public double? speed { get; set; }
 /// <summary>
 ///  swept wave shape (from 0 to 1) (default sinusoidal)
 /// </summary>
-public FlangerFilterGenShape shape { get; set; }
+public FlangerFilterGenShape? shape { get; set; }
 /// <summary>
 ///  swept wave percentage phase-shift for multi-channel (from 0 to 100) (default 25)
 /// </summary>
-public double phase { get; set; }
+public double? phase { get; set; }
 /// <summary>
 ///  delay-line interpolation (from 0 to 1) (default linear)
 /// </summary>
-public FlangerFilterGenInterp interp { get; set; }
+public FlangerFilterGenInterp? interp { get; set; }
 }
 public enum FlangerFilterGenShape
 {

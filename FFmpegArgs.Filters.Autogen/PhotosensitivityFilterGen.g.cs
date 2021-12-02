@@ -43,10 +43,10 @@ public static PhotosensitivityFilterGen PhotosensitivityFilterGen(this ImageMap 
 public static PhotosensitivityFilterGen PhotosensitivityFilterGen(this ImageMap input0,PhotosensitivityFilterGenConfig config)
 {
 var result = new PhotosensitivityFilterGen(input0);
-if(config?.frames != null) result.frames(config.frames);
-if(config?.threshold != null) result.threshold(config.threshold);
-if(config?.skip != null) result.skip(config.skip);
-if(config?.bypass != null) result.bypass(config.bypass);
+if(config?.frames != null) result.frames(config.frames.Value);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
+if(config?.skip != null) result.skip(config.skip.Value);
+if(config?.bypass != null) result.bypass(config.bypass.Value);
 return result;
 }
 }
@@ -55,18 +55,18 @@ public class PhotosensitivityFilterGenConfig
 /// <summary>
 ///  set how many frames to use (from 2 to 240) (default 30)
 /// </summary>
-public int frames { get; set; }
+public int? frames { get; set; }
 /// <summary>
 ///  set detection threshold factor (lower is stricter) (from 0.1 to FLT_MAX) (default 1)
 /// </summary>
-public float threshold { get; set; }
+public float? threshold { get; set; }
 /// <summary>
 ///  set pixels to skip when sampling frames (from 1 to 1024) (default 1)
 /// </summary>
-public int skip { get; set; }
+public int? skip { get; set; }
 /// <summary>
 ///  leave frames unchanged (default false)
 /// </summary>
-public bool bypass { get; set; }
+public bool? bypass { get; set; }
 }
 }

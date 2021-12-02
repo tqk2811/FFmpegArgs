@@ -31,7 +31,7 @@ public static ShowinfoFilterGen ShowinfoFilterGen(this ImageMap input0) => new S
 public static ShowinfoFilterGen ShowinfoFilterGen(this ImageMap input0,ShowinfoFilterGenConfig config)
 {
 var result = new ShowinfoFilterGen(input0);
-if(config?.checksum != null) result.checksum(config.checksum);
+if(config?.checksum != null) result.checksum(config.checksum.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class ShowinfoFilterGenConfig
 /// <summary>
 ///  calculate checksums (default true)
 /// </summary>
-public bool checksum { get; set; }
+public bool? checksum { get; set; }
 }
 }

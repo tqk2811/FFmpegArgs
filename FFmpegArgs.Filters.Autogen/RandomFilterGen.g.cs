@@ -35,8 +35,8 @@ public static RandomFilterGen RandomFilterGen(this ImageMap input0) => new Rando
 public static RandomFilterGen RandomFilterGen(this ImageMap input0,RandomFilterGenConfig config)
 {
 var result = new RandomFilterGen(input0);
-if(config?.frames != null) result.frames(config.frames);
-if(config?.seed != null) result.seed(config.seed);
+if(config?.frames != null) result.frames(config.frames.Value);
+if(config?.seed != null) result.seed(config.seed.Value);
 return result;
 }
 }
@@ -45,10 +45,10 @@ public class RandomFilterGenConfig
 /// <summary>
 ///  set number of frames in cache (from 2 to 512) (default 30)
 /// </summary>
-public int frames { get; set; }
+public int? frames { get; set; }
 /// <summary>
 ///  set the seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 }
 }

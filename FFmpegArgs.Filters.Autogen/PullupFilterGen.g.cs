@@ -51,12 +51,12 @@ public static PullupFilterGen PullupFilterGen(this ImageMap input0) => new Pullu
 public static PullupFilterGen PullupFilterGen(this ImageMap input0,PullupFilterGenConfig config)
 {
 var result = new PullupFilterGen(input0);
-if(config?.jl != null) result.jl(config.jl);
-if(config?.jr != null) result.jr(config.jr);
-if(config?.jt != null) result.jt(config.jt);
-if(config?.jb != null) result.jb(config.jb);
-if(config?.sb != null) result.sb(config.sb);
-if(config?.mp != null) result.mp(config.mp);
+if(config?.jl != null) result.jl(config.jl.Value);
+if(config?.jr != null) result.jr(config.jr.Value);
+if(config?.jt != null) result.jt(config.jt.Value);
+if(config?.jb != null) result.jb(config.jb.Value);
+if(config?.sb != null) result.sb(config.sb.Value);
+if(config?.mp != null) result.mp(config.mp.Value);
 return result;
 }
 }
@@ -65,27 +65,27 @@ public class PullupFilterGenConfig
 /// <summary>
 ///  set left junk size (from 0 to INT_MAX) (default 1)
 /// </summary>
-public int jl { get; set; }
+public int? jl { get; set; }
 /// <summary>
 ///  set right junk size (from 0 to INT_MAX) (default 1)
 /// </summary>
-public int jr { get; set; }
+public int? jr { get; set; }
 /// <summary>
 ///  set top junk size (from 1 to INT_MAX) (default 4)
 /// </summary>
-public int jt { get; set; }
+public int? jt { get; set; }
 /// <summary>
 ///  set bottom junk size (from 1 to INT_MAX) (default 4)
 /// </summary>
-public int jb { get; set; }
+public int? jb { get; set; }
 /// <summary>
 ///  set strict breaks (default false)
 /// </summary>
-public bool sb { get; set; }
+public bool? sb { get; set; }
 /// <summary>
 ///  set metric plane (from 0 to 2) (default y)
 /// </summary>
-public PullupFilterGenMp mp { get; set; }
+public PullupFilterGenMp? mp { get; set; }
 }
 public enum PullupFilterGenMp
 {

@@ -55,13 +55,13 @@ public static AmetadataFilterGen AmetadataFilterGen(this AudioMap input0) => new
 public static AmetadataFilterGen AmetadataFilterGen(this AudioMap input0,AmetadataFilterGenConfig config)
 {
 var result = new AmetadataFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.key != null) result.key(config.key);
-if(config?.value != null) result.value(config.value);
-if(config?.function != null) result.function(config.function);
-if(config?.expr != null) result.expr(config.expr);
-if(config?.file != null) result.file(config.file);
-if(config?.direct != null) result.direct(config.direct);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(!string.IsNullOrWhiteSpace(config?.key)) result.key(config.key);
+if(!string.IsNullOrWhiteSpace(config?.value)) result.value(config.value);
+if(config?.function != null) result.function(config.function.Value);
+if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
+if(!string.IsNullOrWhiteSpace(config?.file)) result.file(config.file);
+if(config?.direct != null) result.direct(config.direct.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -71,7 +71,7 @@ public class AmetadataFilterGenConfig
 /// <summary>
 ///  set a mode of operation (from 0 to 4) (default select)
 /// </summary>
-public AmetadataFilterGenMode mode { get; set; }
+public AmetadataFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set metadata key
 /// </summary>
@@ -83,7 +83,7 @@ public string value { get; set; }
 /// <summary>
 ///  function for comparing values (from 0 to 6) (default same_str)
 /// </summary>
-public AmetadataFilterGenFunction function { get; set; }
+public AmetadataFilterGenFunction? function { get; set; }
 /// <summary>
 ///  set expression for expr function
 /// </summary>
@@ -95,7 +95,7 @@ public string file { get; set; }
 /// <summary>
 ///  reduce buffering when printing to user-set file or pipe (default false)
 /// </summary>
-public bool direct { get; set; }
+public bool? direct { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum AmetadataFilterGenMode

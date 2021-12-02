@@ -35,8 +35,8 @@ public static AdenormFilterGen AdenormFilterGen(this AudioMap input0) => new Ade
 public static AdenormFilterGen AdenormFilterGen(this AudioMap input0,AdenormFilterGenConfig config)
 {
 var result = new AdenormFilterGen(input0);
-if(config?.level != null) result.level(config.level);
-if(config?.type != null) result.type(config.type);
+if(config?.level != null) result.level(config.level.Value);
+if(config?.type != null) result.type(config.type.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class AdenormFilterGenConfig
 /// <summary>
 ///  set level (from -451 to -90) (default -351)
 /// </summary>
-public double level { get; set; }
+public double? level { get; set; }
 /// <summary>
 ///  set type (from 0 to 3) (default dc)
 /// </summary>
-public AdenormFilterGenType type { get; set; }
+public AdenormFilterGenType? type { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum AdenormFilterGenType

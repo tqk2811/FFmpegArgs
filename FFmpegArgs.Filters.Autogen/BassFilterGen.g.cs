@@ -79,19 +79,19 @@ public static BassFilterGen BassFilterGen(this AudioMap input0) => new BassFilte
 public static BassFilterGen BassFilterGen(this AudioMap input0,BassFilterGenConfig config)
 {
 var result = new BassFilterGen(input0);
-if(config?.frequency != null) result.frequency(config.frequency);
-if(config?.width_type != null) result.width_type(config.width_type);
-if(config?.t != null) result.t(config.t);
-if(config?.width != null) result.width(config.width);
-if(config?.gain != null) result.gain(config.gain);
-if(config?.poles != null) result.poles(config.poles);
-if(config?.mix != null) result.mix(config.mix);
-if(config?.channels != null) result.channels(config.channels);
-if(config?.normalize != null) result.normalize(config.normalize);
-if(config?.transform != null) result.transform(config.transform);
-if(config?.a != null) result.a(config.a);
-if(config?.precision != null) result.precision(config.precision);
-if(config?.r != null) result.r(config.r);
+if(config?.frequency != null) result.frequency(config.frequency.Value);
+if(config?.width_type != null) result.width_type(config.width_type.Value);
+if(config?.t != null) result.t(config.t.Value);
+if(config?.width != null) result.width(config.width.Value);
+if(config?.gain != null) result.gain(config.gain.Value);
+if(config?.poles != null) result.poles(config.poles.Value);
+if(config?.mix != null) result.mix(config.mix.Value);
+if(config?.channels != null) result.channels(config.channels.Value);
+if(config?.normalize != null) result.normalize(config.normalize.Value);
+if(config?.transform != null) result.transform(config.transform.Value);
+if(config?.a != null) result.a(config.a.Value);
+if(config?.precision != null) result.precision(config.precision.Value);
+if(config?.r != null) result.r(config.r.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -101,55 +101,55 @@ public class BassFilterGenConfig
 /// <summary>
 ///  set central frequency (from 0 to 999999) (default 100)
 /// </summary>
-public double frequency { get; set; }
+public double? frequency { get; set; }
 /// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
-public BassFilterGenWidth_type width_type { get; set; }
+public BassFilterGenWidth_type? width_type { get; set; }
 /// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
-public BassFilterGenT t { get; set; }
+public BassFilterGenT? t { get; set; }
 /// <summary>
 ///  set shelf transition steep (from 0 to 99999) (default 0.5)
 /// </summary>
-public double width { get; set; }
+public double? width { get; set; }
 /// <summary>
 ///  set gain (from -900 to 900) (default 0)
 /// </summary>
-public double gain { get; set; }
+public double? gain { get; set; }
 /// <summary>
 ///  set number of poles (from 1 to 2) (default 2)
 /// </summary>
-public int poles { get; set; }
+public int? poles { get; set; }
 /// <summary>
 ///  set mix (from 0 to 1) (default 1)
 /// </summary>
-public double mix { get; set; }
+public double? mix { get; set; }
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public AV_CH_LAYOUT channels { get; set; }
+public AV_CH_LAYOUT? channels { get; set; }
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
-public bool normalize { get; set; }
+public bool? normalize { get; set; }
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public BassFilterGenTransform transform { get; set; }
+public BassFilterGenTransform? transform { get; set; }
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public BassFilterGenA a { get; set; }
+public BassFilterGenA? a { get; set; }
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public BassFilterGenPrecision precision { get; set; }
+public BassFilterGenPrecision? precision { get; set; }
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public BassFilterGenR r { get; set; }
+public BassFilterGenR? r { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum BassFilterGenWidth_type

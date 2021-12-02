@@ -71,17 +71,17 @@ public static LutyuvFilterGen LutyuvFilterGen(this ImageMap input0) => new Lutyu
 public static LutyuvFilterGen LutyuvFilterGen(this ImageMap input0,LutyuvFilterGenConfig config)
 {
 var result = new LutyuvFilterGen(input0);
-if(config?.c0 != null) result.c0(config.c0);
-if(config?.c1 != null) result.c1(config.c1);
-if(config?.c2 != null) result.c2(config.c2);
-if(config?.c3 != null) result.c3(config.c3);
-if(config?.y != null) result.y(config.y);
-if(config?.u != null) result.u(config.u);
-if(config?.v != null) result.v(config.v);
-if(config?.r != null) result.r(config.r);
-if(config?.g != null) result.g(config.g);
-if(config?.b != null) result.b(config.b);
-if(config?.a != null) result.a(config.a);
+if(!string.IsNullOrWhiteSpace(config?.c0)) result.c0(config.c0);
+if(!string.IsNullOrWhiteSpace(config?.c1)) result.c1(config.c1);
+if(!string.IsNullOrWhiteSpace(config?.c2)) result.c2(config.c2);
+if(!string.IsNullOrWhiteSpace(config?.c3)) result.c3(config.c3);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(!string.IsNullOrWhiteSpace(config?.u)) result.u(config.u);
+if(!string.IsNullOrWhiteSpace(config?.v)) result.v(config.v);
+if(!string.IsNullOrWhiteSpace(config?.r)) result.r(config.r);
+if(!string.IsNullOrWhiteSpace(config?.g)) result.g(config.g);
+if(!string.IsNullOrWhiteSpace(config?.b)) result.b(config.b);
+if(!string.IsNullOrWhiteSpace(config?.a)) result.a(config.a);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }

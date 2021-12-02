@@ -43,10 +43,10 @@ public static SetsarFilterGen SetsarFilterGen(this ImageMap input0) => new Setsa
 public static SetsarFilterGen SetsarFilterGen(this ImageMap input0,SetsarFilterGenConfig config)
 {
 var result = new SetsarFilterGen(input0);
-if(config?.sar != null) result.sar(config.sar);
-if(config?.ratio != null) result.ratio(config.ratio);
-if(config?.r != null) result.r(config.r);
-if(config?.max != null) result.max(config.max);
+if(!string.IsNullOrWhiteSpace(config?.sar)) result.sar(config.sar);
+if(!string.IsNullOrWhiteSpace(config?.ratio)) result.ratio(config.ratio);
+if(!string.IsNullOrWhiteSpace(config?.r)) result.r(config.r);
+if(config?.max != null) result.max(config.max.Value);
 return result;
 }
 }
@@ -67,6 +67,6 @@ public string r { get; set; }
 /// <summary>
 ///  set max value for nominator or denominator in the ratio (from 1 to INT_MAX) (default 100)
 /// </summary>
-public int max { get; set; }
+public int? max { get; set; }
 }
 }

@@ -39,9 +39,9 @@ public static HisteqFilterGen HisteqFilterGen(this ImageMap input0) => new Histe
 public static HisteqFilterGen HisteqFilterGen(this ImageMap input0,HisteqFilterGenConfig config)
 {
 var result = new HisteqFilterGen(input0);
-if(config?.strength != null) result.strength(config.strength);
-if(config?.intensity != null) result.intensity(config.intensity);
-if(config?.antibanding != null) result.antibanding(config.antibanding);
+if(config?.strength != null) result.strength(config.strength.Value);
+if(config?.intensity != null) result.intensity(config.intensity.Value);
+if(config?.antibanding != null) result.antibanding(config.antibanding.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class HisteqFilterGenConfig
 /// <summary>
 ///  set the strength (from 0 to 1) (default 0.2)
 /// </summary>
-public float strength { get; set; }
+public float? strength { get; set; }
 /// <summary>
 ///  set the intensity (from 0 to 1) (default 0.21)
 /// </summary>
-public float intensity { get; set; }
+public float? intensity { get; set; }
 /// <summary>
 ///  set the antibanding level (from 0 to 2) (default none)
 /// </summary>
-public HisteqFilterGenAntibanding antibanding { get; set; }
+public HisteqFilterGenAntibanding? antibanding { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum HisteqFilterGenAntibanding

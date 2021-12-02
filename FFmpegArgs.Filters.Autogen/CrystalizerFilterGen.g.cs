@@ -35,8 +35,8 @@ public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input0) =>
 public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input0,CrystalizerFilterGenConfig config)
 {
 var result = new CrystalizerFilterGen(input0);
-if(config?.i != null) result.i(config.i);
-if(config?.c != null) result.c(config.c);
+if(config?.i != null) result.i(config.i.Value);
+if(config?.c != null) result.c(config.c.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class CrystalizerFilterGenConfig
 /// <summary>
 ///  set intensity (from -10 to 10) (default 2)
 /// </summary>
-public float i { get; set; }
+public float? i { get; set; }
 /// <summary>
 ///  enable clipping (default true)
 /// </summary>
-public bool c { get; set; }
+public bool? c { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

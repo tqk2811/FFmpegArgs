@@ -39,9 +39,9 @@ public static FreezeframesFilterGen FreezeframesFilterGen(this ImageMap input0, 
 public static FreezeframesFilterGen FreezeframesFilterGen(this ImageMap input0, ImageMap input1,FreezeframesFilterGenConfig config)
 {
 var result = new FreezeframesFilterGen(input0, input1);
-if(config?.first != null) result.first(config.first);
-if(config?.last != null) result.last(config.last);
-if(config?.replace != null) result.replace(config.replace);
+if(config?.first != null) result.first(config.first.Value);
+if(config?.last != null) result.last(config.last.Value);
+if(config?.replace != null) result.replace(config.replace.Value);
 return result;
 }
 }
@@ -50,14 +50,14 @@ public class FreezeframesFilterGenConfig
 /// <summary>
 ///  set first frame to freeze (from 0 to I64_MAX) (default 0)
 /// </summary>
-public long first { get; set; }
+public long? first { get; set; }
 /// <summary>
 ///  set last frame to freeze (from 0 to I64_MAX) (default 0)
 /// </summary>
-public long last { get; set; }
+public long? last { get; set; }
 /// <summary>
 ///  set frame to replace (from 0 to I64_MAX) (default 0)
 /// </summary>
-public long replace { get; set; }
+public long? replace { get; set; }
 }
 }

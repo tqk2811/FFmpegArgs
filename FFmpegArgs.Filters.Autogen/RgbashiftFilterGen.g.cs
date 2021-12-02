@@ -63,15 +63,15 @@ public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input0) => new
 public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input0,RgbashiftFilterGenConfig config)
 {
 var result = new RgbashiftFilterGen(input0);
-if(config?.rh != null) result.rh(config.rh);
-if(config?.rv != null) result.rv(config.rv);
-if(config?.gh != null) result.gh(config.gh);
-if(config?.gv != null) result.gv(config.gv);
-if(config?.bh != null) result.bh(config.bh);
-if(config?.bv != null) result.bv(config.bv);
-if(config?.ah != null) result.ah(config.ah);
-if(config?.av != null) result.av(config.av);
-if(config?.edge != null) result.edge(config.edge);
+if(config?.rh != null) result.rh(config.rh.Value);
+if(config?.rv != null) result.rv(config.rv.Value);
+if(config?.gh != null) result.gh(config.gh.Value);
+if(config?.gv != null) result.gv(config.gv.Value);
+if(config?.bh != null) result.bh(config.bh.Value);
+if(config?.bv != null) result.bv(config.bv.Value);
+if(config?.ah != null) result.ah(config.ah.Value);
+if(config?.av != null) result.av(config.av.Value);
+if(config?.edge != null) result.edge(config.edge.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -81,39 +81,39 @@ public class RgbashiftFilterGenConfig
 /// <summary>
 ///  shift red horizontally (from -255 to 255) (default 0)
 /// </summary>
-public int rh { get; set; }
+public int? rh { get; set; }
 /// <summary>
 ///  shift red vertically (from -255 to 255) (default 0)
 /// </summary>
-public int rv { get; set; }
+public int? rv { get; set; }
 /// <summary>
 ///  shift green horizontally (from -255 to 255) (default 0)
 /// </summary>
-public int gh { get; set; }
+public int? gh { get; set; }
 /// <summary>
 ///  shift green vertically (from -255 to 255) (default 0)
 /// </summary>
-public int gv { get; set; }
+public int? gv { get; set; }
 /// <summary>
 ///  shift blue horizontally (from -255 to 255) (default 0)
 /// </summary>
-public int bh { get; set; }
+public int? bh { get; set; }
 /// <summary>
 ///  shift blue vertically (from -255 to 255) (default 0)
 /// </summary>
-public int bv { get; set; }
+public int? bv { get; set; }
 /// <summary>
 ///  shift alpha horizontally (from -255 to 255) (default 0)
 /// </summary>
-public int ah { get; set; }
+public int? ah { get; set; }
 /// <summary>
 ///  shift alpha vertically (from -255 to 255) (default 0)
 /// </summary>
-public int av { get; set; }
+public int? av { get; set; }
 /// <summary>
 ///  set edge operation (from 0 to 1) (default smear)
 /// </summary>
-public RgbashiftFilterGenEdge edge { get; set; }
+public RgbashiftFilterGenEdge? edge { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum RgbashiftFilterGenEdge

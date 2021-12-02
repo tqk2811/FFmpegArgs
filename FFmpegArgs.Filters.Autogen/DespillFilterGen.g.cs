@@ -59,14 +59,14 @@ public static DespillFilterGen DespillFilterGen(this ImageMap input0) => new Des
 public static DespillFilterGen DespillFilterGen(this ImageMap input0,DespillFilterGenConfig config)
 {
 var result = new DespillFilterGen(input0);
-if(config?.type != null) result.type(config.type);
-if(config?.mix != null) result.mix(config.mix);
-if(config?.expand != null) result.expand(config.expand);
-if(config?.red != null) result.red(config.red);
-if(config?.green != null) result.green(config.green);
-if(config?.blue != null) result.blue(config.blue);
-if(config?.brightness != null) result.brightness(config.brightness);
-if(config?.alpha != null) result.alpha(config.alpha);
+if(config?.type != null) result.type(config.type.Value);
+if(config?.mix != null) result.mix(config.mix.Value);
+if(config?.expand != null) result.expand(config.expand.Value);
+if(config?.red != null) result.red(config.red.Value);
+if(config?.green != null) result.green(config.green.Value);
+if(config?.blue != null) result.blue(config.blue.Value);
+if(config?.brightness != null) result.brightness(config.brightness.Value);
+if(config?.alpha != null) result.alpha(config.alpha.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -76,35 +76,35 @@ public class DespillFilterGenConfig
 /// <summary>
 ///  set the screen type (from 0 to 1) (default green)
 /// </summary>
-public DespillFilterGenType type { get; set; }
+public DespillFilterGenType? type { get; set; }
 /// <summary>
 ///  set the spillmap mix (from 0 to 1) (default 0.5)
 /// </summary>
-public float mix { get; set; }
+public float? mix { get; set; }
 /// <summary>
 ///  set the spillmap expand (from 0 to 1) (default 0)
 /// </summary>
-public float expand { get; set; }
+public float? expand { get; set; }
 /// <summary>
 ///  set red scale (from -100 to 100) (default 0)
 /// </summary>
-public float red { get; set; }
+public float? red { get; set; }
 /// <summary>
 ///  set green scale (from -100 to 100) (default -1)
 /// </summary>
-public float green { get; set; }
+public float? green { get; set; }
 /// <summary>
 ///  set blue scale (from -100 to 100) (default 0)
 /// </summary>
-public float blue { get; set; }
+public float? blue { get; set; }
 /// <summary>
 ///  set brightness (from -10 to 10) (default 0)
 /// </summary>
-public float brightness { get; set; }
+public float? brightness { get; set; }
 /// <summary>
 ///  change alpha component (default false)
 /// </summary>
-public bool alpha { get; set; }
+public bool? alpha { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum DespillFilterGenType

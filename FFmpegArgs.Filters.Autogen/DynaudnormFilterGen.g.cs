@@ -83,20 +83,20 @@ public static DynaudnormFilterGen DynaudnormFilterGen(this AudioMap input0) => n
 public static DynaudnormFilterGen DynaudnormFilterGen(this AudioMap input0,DynaudnormFilterGenConfig config)
 {
 var result = new DynaudnormFilterGen(input0);
-if(config?.framelen != null) result.framelen(config.framelen);
-if(config?.gausssize != null) result.gausssize(config.gausssize);
-if(config?.peak != null) result.peak(config.peak);
-if(config?.maxgain != null) result.maxgain(config.maxgain);
-if(config?.targetrms != null) result.targetrms(config.targetrms);
-if(config?.r != null) result.r(config.r);
-if(config?.coupling != null) result.coupling(config.coupling);
-if(config?.n != null) result.n(config.n);
-if(config?.correctdc != null) result.correctdc(config.correctdc);
-if(config?.altboundary != null) result.altboundary(config.altboundary);
-if(config?.b != null) result.b(config.b);
-if(config?.compress != null) result.compress(config.compress);
-if(config?.s != null) result.s(config.s);
-if(config?.threshold != null) result.threshold(config.threshold);
+if(config?.framelen != null) result.framelen(config.framelen.Value);
+if(config?.gausssize != null) result.gausssize(config.gausssize.Value);
+if(config?.peak != null) result.peak(config.peak.Value);
+if(config?.maxgain != null) result.maxgain(config.maxgain.Value);
+if(config?.targetrms != null) result.targetrms(config.targetrms.Value);
+if(config?.r != null) result.r(config.r.Value);
+if(config?.coupling != null) result.coupling(config.coupling.Value);
+if(config?.n != null) result.n(config.n.Value);
+if(config?.correctdc != null) result.correctdc(config.correctdc.Value);
+if(config?.altboundary != null) result.altboundary(config.altboundary.Value);
+if(config?.b != null) result.b(config.b.Value);
+if(config?.compress != null) result.compress(config.compress.Value);
+if(config?.s != null) result.s(config.s.Value);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -106,59 +106,59 @@ public class DynaudnormFilterGenConfig
 /// <summary>
 ///  set the frame length in msec (from 10 to 8000) (default 500)
 /// </summary>
-public int framelen { get; set; }
+public int? framelen { get; set; }
 /// <summary>
 ///  set the filter size (from 3 to 301) (default 31)
 /// </summary>
-public int gausssize { get; set; }
+public int? gausssize { get; set; }
 /// <summary>
 ///  set the peak value (from 0 to 1) (default 0.95)
 /// </summary>
-public double peak { get; set; }
+public double? peak { get; set; }
 /// <summary>
 ///  set the max amplification (from 1 to 100) (default 10)
 /// </summary>
-public double maxgain { get; set; }
+public double? maxgain { get; set; }
 /// <summary>
 ///  set the target RMS (from 0 to 1) (default 0)
 /// </summary>
-public double targetrms { get; set; }
+public double? targetrms { get; set; }
 /// <summary>
 ///  set the target RMS (from 0 to 1) (default 0)
 /// </summary>
-public double r { get; set; }
+public double? r { get; set; }
 /// <summary>
 ///  set channel coupling (default true)
 /// </summary>
-public bool coupling { get; set; }
+public bool? coupling { get; set; }
 /// <summary>
 ///  set channel coupling (default true)
 /// </summary>
-public bool n { get; set; }
+public bool? n { get; set; }
 /// <summary>
 ///  set DC correction (default false)
 /// </summary>
-public bool correctdc { get; set; }
+public bool? correctdc { get; set; }
 /// <summary>
 ///  set alternative boundary mode (default false)
 /// </summary>
-public bool altboundary { get; set; }
+public bool? altboundary { get; set; }
 /// <summary>
 ///  set alternative boundary mode (default false)
 /// </summary>
-public bool b { get; set; }
+public bool? b { get; set; }
 /// <summary>
 ///  set the compress factor (from 0 to 30) (default 0)
 /// </summary>
-public double compress { get; set; }
+public double? compress { get; set; }
 /// <summary>
 ///  set the compress factor (from 0 to 30) (default 0)
 /// </summary>
-public double s { get; set; }
+public double? s { get; set; }
 /// <summary>
 ///  set the threshold value (from 0 to 1) (default 0)
 /// </summary>
-public double threshold { get; set; }
+public double? threshold { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

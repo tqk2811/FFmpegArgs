@@ -35,8 +35,8 @@ public static ApermsFilterGen ApermsFilterGen(this AudioMap input0) => new Aperm
 public static ApermsFilterGen ApermsFilterGen(this AudioMap input0,ApermsFilterGenConfig config)
 {
 var result = new ApermsFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.seed != null) result.seed(config.seed);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.seed != null) result.seed(config.seed.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class ApermsFilterGenConfig
 /// <summary>
 ///  select permissions mode (from 0 to 4) (default none)
 /// </summary>
-public ApermsFilterGenMode mode { get; set; }
+public ApermsFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set the seed for the random mode (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum ApermsFilterGenMode

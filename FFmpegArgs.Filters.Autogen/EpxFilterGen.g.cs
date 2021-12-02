@@ -31,7 +31,7 @@ public static EpxFilterGen EpxFilterGen(this ImageMap input0) => new EpxFilterGe
 public static EpxFilterGen EpxFilterGen(this ImageMap input0,EpxFilterGenConfig config)
 {
 var result = new EpxFilterGen(input0);
-if(config?.n != null) result.n(config.n);
+if(config?.n != null) result.n(config.n.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class EpxFilterGenConfig
 /// <summary>
 ///  set scale factor (from 2 to 3) (default 3)
 /// </summary>
-public int n { get; set; }
+public int? n { get; set; }
 }
 }

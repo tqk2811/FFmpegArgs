@@ -31,7 +31,7 @@ public static DejudderFilterGen DejudderFilterGen(this ImageMap input0) => new D
 public static DejudderFilterGen DejudderFilterGen(this ImageMap input0,DejudderFilterGenConfig config)
 {
 var result = new DejudderFilterGen(input0);
-if(config?.cycle != null) result.cycle(config.cycle);
+if(config?.cycle != null) result.cycle(config.cycle.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class DejudderFilterGenConfig
 /// <summary>
 ///  set the length of the cycle to use for dejuddering (from 2 to 240) (default 4)
 /// </summary>
-public int cycle { get; set; }
+public int? cycle { get; set; }
 }
 }

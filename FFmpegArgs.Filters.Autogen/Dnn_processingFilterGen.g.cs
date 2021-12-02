@@ -55,13 +55,13 @@ public static Dnn_processingFilterGen Dnn_processingFilterGen(this ImageMap inpu
 public static Dnn_processingFilterGen Dnn_processingFilterGen(this ImageMap input0,Dnn_processingFilterGenConfig config)
 {
 var result = new Dnn_processingFilterGen(input0);
-if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend);
-if(config?.model != null) result.model(config.model);
-if(config?.input != null) result.input(config.input);
-if(config?.output != null) result.output(config.output);
-if(config?.backend_configs != null) result.backend_configs(config.backend_configs);
-if(config?.options != null) result.options(config.options);
-if(config?.async != null) result.async(config.async);
+if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend.Value);
+if(!string.IsNullOrWhiteSpace(config?.model)) result.model(config.model);
+if(!string.IsNullOrWhiteSpace(config?.input)) result.input(config.input);
+if(!string.IsNullOrWhiteSpace(config?.output)) result.output(config.output);
+if(!string.IsNullOrWhiteSpace(config?.backend_configs)) result.backend_configs(config.backend_configs);
+if(!string.IsNullOrWhiteSpace(config?.options)) result.options(config.options);
+if(config?.async != null) result.async(config.async.Value);
 return result;
 }
 }
@@ -70,7 +70,7 @@ public class Dnn_processingFilterGenConfig
 /// <summary>
 ///  DNN backend (from INT_MIN to INT_MAX) (default native)
 /// </summary>
-public Dnn_processingFilterGenDnn_backend dnn_backend { get; set; }
+public Dnn_processingFilterGenDnn_backend? dnn_backend { get; set; }
 /// <summary>
 ///  path to model file
 /// </summary>
@@ -94,7 +94,7 @@ public string options { get; set; }
 /// <summary>
 ///  use DNN async inference (default true)
 /// </summary>
-public bool async { get; set; }
+public bool? async { get; set; }
 }
 public enum Dnn_processingFilterGenDnn_backend
 {

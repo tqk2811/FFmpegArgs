@@ -39,9 +39,9 @@ public static BwdifFilterGen BwdifFilterGen(this ImageMap input0) => new BwdifFi
 public static BwdifFilterGen BwdifFilterGen(this ImageMap input0,BwdifFilterGenConfig config)
 {
 var result = new BwdifFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.parity != null) result.parity(config.parity);
-if(config?.deint != null) result.deint(config.deint);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.parity != null) result.parity(config.parity.Value);
+if(config?.deint != null) result.deint(config.deint.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class BwdifFilterGenConfig
 /// <summary>
 ///  specify the interlacing mode (from 0 to 1) (default send_field)
 /// </summary>
-public BwdifFilterGenMode mode { get; set; }
+public BwdifFilterGenMode? mode { get; set; }
 /// <summary>
 ///  specify the assumed picture field parity (from -1 to 1) (default auto)
 /// </summary>
-public BwdifFilterGenParity parity { get; set; }
+public BwdifFilterGenParity? parity { get; set; }
 /// <summary>
 ///  specify which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
-public BwdifFilterGenDeint deint { get; set; }
+public BwdifFilterGenDeint? deint { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum BwdifFilterGenMode

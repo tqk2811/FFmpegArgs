@@ -55,13 +55,13 @@ public static AtrimFilterGen AtrimFilterGen(this AudioMap input0) => new AtrimFi
 public static AtrimFilterGen AtrimFilterGen(this AudioMap input0,AtrimFilterGenConfig config)
 {
 var result = new AtrimFilterGen(input0);
-if(config?.starti != null) result.starti(config.starti);
-if(config?.endi != null) result.endi(config.endi);
-if(config?.start_pts != null) result.start_pts(config.start_pts);
-if(config?.end_pts != null) result.end_pts(config.end_pts);
-if(config?.durationi != null) result.durationi(config.durationi);
-if(config?.start_sample != null) result.start_sample(config.start_sample);
-if(config?.end_sample != null) result.end_sample(config.end_sample);
+if(config?.starti != null) result.starti(config.starti.Value);
+if(config?.endi != null) result.endi(config.endi.Value);
+if(config?.start_pts != null) result.start_pts(config.start_pts.Value);
+if(config?.end_pts != null) result.end_pts(config.end_pts.Value);
+if(config?.durationi != null) result.durationi(config.durationi.Value);
+if(config?.start_sample != null) result.start_sample(config.start_sample.Value);
+if(config?.end_sample != null) result.end_sample(config.end_sample.Value);
 return result;
 }
 }
@@ -70,30 +70,30 @@ public class AtrimFilterGenConfig
 /// <summary>
 ///  Timestamp of the first frame that should be passed (default INT64_MAX)
 /// </summary>
-public TimeSpan starti { get; set; }
+public TimeSpan? starti { get; set; }
 /// <summary>
 ///  Timestamp of the first frame that should be dropped again (default INT64_MAX)
 /// </summary>
-public TimeSpan endi { get; set; }
+public TimeSpan? endi { get; set; }
 /// <summary>
 ///  Timestamp of the first frame that should be  passed (from I64_MIN to I64_MAX) (default I64_MIN)
 /// </summary>
-public long start_pts { get; set; }
+public long? start_pts { get; set; }
 /// <summary>
 ///  Timestamp of the first frame that should be dropped again (from I64_MIN to I64_MAX) (default I64_MIN)
 /// </summary>
-public long end_pts { get; set; }
+public long? end_pts { get; set; }
 /// <summary>
 ///  Maximum duration of the output (default 0)
 /// </summary>
-public TimeSpan durationi { get; set; }
+public TimeSpan? durationi { get; set; }
 /// <summary>
 ///  Number of the first audio sample that should be passed to the output (from -1 to I64_MAX) (default -1)
 /// </summary>
-public long start_sample { get; set; }
+public long? start_sample { get; set; }
 /// <summary>
 ///  Number of the first audio sample that should be dropped again (from 0 to I64_MAX) (default I64_MAX)
 /// </summary>
-public long end_sample { get; set; }
+public long? end_sample { get; set; }
 }
 }

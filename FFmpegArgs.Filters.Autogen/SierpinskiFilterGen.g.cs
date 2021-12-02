@@ -47,11 +47,11 @@ public static SierpinskiFilterGen SierpinskiFilterGen(this FilterGraph input0) =
 public static SierpinskiFilterGen SierpinskiFilterGen(this FilterGraph input0,SierpinskiFilterGenConfig config)
 {
 var result = new SierpinskiFilterGen(input0);
-if(config?.size != null) result.size(config.size);
+if(config?.size != null) result.size(config.size.Value);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.seed != null) result.seed(config.seed);
-if(config?.jump != null) result.jump(config.jump);
-if(config?.type != null) result.type(config.type);
+if(config?.seed != null) result.seed(config.seed.Value);
+if(config?.jump != null) result.jump(config.jump.Value);
+if(config?.type != null) result.type(config.type.Value);
 return result;
 }
 }
@@ -60,7 +60,7 @@ public class SierpinskiFilterGenConfig
 /// <summary>
 ///  set frame size (default "640x480")
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
@@ -68,15 +68,15 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set the seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 /// <summary>
 ///  set the jump (from 1 to 10000) (default 100)
 /// </summary>
-public int jump { get; set; }
+public int? jump { get; set; }
 /// <summary>
 ///  set fractal type (from 0 to 1) (default carpet)
 /// </summary>
-public SierpinskiFilterGenType type { get; set; }
+public SierpinskiFilterGenType? type { get; set; }
 }
 public enum SierpinskiFilterGenType
 {

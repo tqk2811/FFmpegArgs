@@ -43,10 +43,10 @@ public static MedianFilterGen MedianFilterGen(this ImageMap input0) => new Media
 public static MedianFilterGen MedianFilterGen(this ImageMap input0,MedianFilterGenConfig config)
 {
 var result = new MedianFilterGen(input0);
-if(config?.radius != null) result.radius(config.radius);
-if(config?.planes != null) result.planes(config.planes);
-if(config?.radiusV != null) result.radiusV(config.radiusV);
-if(config?.percentile != null) result.percentile(config.percentile);
+if(config?.radius != null) result.radius(config.radius.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
+if(config?.radiusV != null) result.radiusV(config.radiusV.Value);
+if(config?.percentile != null) result.percentile(config.percentile.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class MedianFilterGenConfig
 /// <summary>
 ///  set median radius (from 1 to 127) (default 1)
 /// </summary>
-public int radius { get; set; }
+public int? radius { get; set; }
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 /// <summary>
 ///  set median vertical radius (from 0 to 127) (default 0)
 /// </summary>
-public int radiusV { get; set; }
+public int? radiusV { get; set; }
 /// <summary>
 ///  set median percentile (from 0 to 1) (default 0.5)
 /// </summary>
-public float percentile { get; set; }
+public float? percentile { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

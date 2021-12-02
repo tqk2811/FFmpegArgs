@@ -31,7 +31,7 @@ public static BboxFilterGen BboxFilterGen(this ImageMap input0) => new BboxFilte
 public static BboxFilterGen BboxFilterGen(this ImageMap input0,BboxFilterGenConfig config)
 {
 var result = new BboxFilterGen(input0);
-if(config?.min_val != null) result.min_val(config.min_val);
+if(config?.min_val != null) result.min_val(config.min_val.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -41,7 +41,7 @@ public class BboxFilterGenConfig
 /// <summary>
 ///  set minimum luminance value for bounding box (from 0 to 65535) (default 16)
 /// </summary>
-public int min_val { get; set; }
+public int? min_val { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

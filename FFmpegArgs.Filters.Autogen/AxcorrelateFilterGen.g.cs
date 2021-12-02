@@ -35,8 +35,8 @@ public static AxcorrelateFilterGen AxcorrelateFilterGen(this AudioMap input0, Au
 public static AxcorrelateFilterGen AxcorrelateFilterGen(this AudioMap input0, AudioMap input1,AxcorrelateFilterGenConfig config)
 {
 var result = new AxcorrelateFilterGen(input0, input1);
-if(config?.size != null) result.size(config.size);
-if(config?.algo != null) result.algo(config.algo);
+if(config?.size != null) result.size(config.size.Value);
+if(config?.algo != null) result.algo(config.algo.Value);
 return result;
 }
 }
@@ -45,11 +45,11 @@ public class AxcorrelateFilterGenConfig
 /// <summary>
 ///  set segment size (from 2 to 131072) (default 256)
 /// </summary>
-public int size { get; set; }
+public int? size { get; set; }
 /// <summary>
 ///  set alghorithm (from 0 to 1) (default slow)
 /// </summary>
-public AxcorrelateFilterGenAlgo algo { get; set; }
+public AxcorrelateFilterGenAlgo? algo { get; set; }
 }
 public enum AxcorrelateFilterGenAlgo
 {

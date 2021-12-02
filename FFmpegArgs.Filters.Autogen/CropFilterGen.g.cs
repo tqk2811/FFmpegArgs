@@ -59,14 +59,14 @@ public static CropFilterGen CropFilterGen(this ImageMap input0) => new CropFilte
 public static CropFilterGen CropFilterGen(this ImageMap input0,CropFilterGenConfig config)
 {
 var result = new CropFilterGen(input0);
-if(config?.out_w != null) result.out_w(config.out_w);
-if(config?.w != null) result.w(config.w);
-if(config?.out_h != null) result.out_h(config.out_h);
-if(config?.h != null) result.h(config.h);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.keep_aspect != null) result.keep_aspect(config.keep_aspect);
-if(config?.exact != null) result.exact(config.exact);
+if(!string.IsNullOrWhiteSpace(config?.out_w)) result.out_w(config.out_w);
+if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
+if(!string.IsNullOrWhiteSpace(config?.out_h)) result.out_h(config.out_h);
+if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(config?.keep_aspect != null) result.keep_aspect(config.keep_aspect.Value);
+if(config?.exact != null) result.exact(config.exact.Value);
 return result;
 }
 }
@@ -99,10 +99,10 @@ public string y { get; set; }
 /// <summary>
 ///  keep aspect ratio (default false)
 /// </summary>
-public bool keep_aspect { get; set; }
+public bool? keep_aspect { get; set; }
 /// <summary>
 ///  do exact cropping (default false)
 /// </summary>
-public bool exact { get; set; }
+public bool? exact { get; set; }
 }
 }

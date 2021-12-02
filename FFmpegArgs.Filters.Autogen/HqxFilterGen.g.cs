@@ -31,7 +31,7 @@ public static HqxFilterGen HqxFilterGen(this ImageMap input0) => new HqxFilterGe
 public static HqxFilterGen HqxFilterGen(this ImageMap input0,HqxFilterGenConfig config)
 {
 var result = new HqxFilterGen(input0);
-if(config?.n != null) result.n(config.n);
+if(config?.n != null) result.n(config.n.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class HqxFilterGenConfig
 /// <summary>
 ///  set scale factor (from 2 to 4) (default 3)
 /// </summary>
-public int n { get; set; }
+public int? n { get; set; }
 }
 }

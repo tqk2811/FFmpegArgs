@@ -43,10 +43,10 @@ public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input0) => new W3fdi
 public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input0,W3fdifFilterGenConfig config)
 {
 var result = new W3fdifFilterGen(input0);
-if(config?.filter != null) result.filter(config.filter);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.parity != null) result.parity(config.parity);
-if(config?.deint != null) result.deint(config.deint);
+if(config?.filter != null) result.filter(config.filter.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.parity != null) result.parity(config.parity.Value);
+if(config?.deint != null) result.deint(config.deint.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class W3fdifFilterGenConfig
 /// <summary>
 ///  specify the filter (from 0 to 1) (default complex)
 /// </summary>
-public W3fdifFilterGenFilter filter { get; set; }
+public W3fdifFilterGenFilter? filter { get; set; }
 /// <summary>
 ///  specify the interlacing mode (from 0 to 1) (default field)
 /// </summary>
-public W3fdifFilterGenMode mode { get; set; }
+public W3fdifFilterGenMode? mode { get; set; }
 /// <summary>
 ///  specify the assumed picture field parity (from -1 to 1) (default auto)
 /// </summary>
-public W3fdifFilterGenParity parity { get; set; }
+public W3fdifFilterGenParity? parity { get; set; }
 /// <summary>
 ///  specify which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
-public W3fdifFilterGenDeint deint { get; set; }
+public W3fdifFilterGenDeint? deint { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum W3fdifFilterGenFilter

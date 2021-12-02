@@ -43,10 +43,10 @@ public static AechoFilterGen AechoFilterGen(this AudioMap input0) => new AechoFi
 public static AechoFilterGen AechoFilterGen(this AudioMap input0,AechoFilterGenConfig config)
 {
 var result = new AechoFilterGen(input0);
-if(config?.in_gain != null) result.in_gain(config.in_gain);
-if(config?.out_gain != null) result.out_gain(config.out_gain);
-if(config?.delays != null) result.delays(config.delays);
-if(config?.decays != null) result.decays(config.decays);
+if(config?.in_gain != null) result.in_gain(config.in_gain.Value);
+if(config?.out_gain != null) result.out_gain(config.out_gain.Value);
+if(!string.IsNullOrWhiteSpace(config?.delays)) result.delays(config.delays);
+if(!string.IsNullOrWhiteSpace(config?.decays)) result.decays(config.decays);
 return result;
 }
 }
@@ -55,11 +55,11 @@ public class AechoFilterGenConfig
 /// <summary>
 ///  set signal input gain (from 0 to 1) (default 0.6)
 /// </summary>
-public float in_gain { get; set; }
+public float? in_gain { get; set; }
 /// <summary>
 ///  set signal output gain (from 0 to 1) (default 0.3)
 /// </summary>
-public float out_gain { get; set; }
+public float? out_gain { get; set; }
 /// <summary>
 ///  set list of signal delays (default "1000")
 /// </summary>

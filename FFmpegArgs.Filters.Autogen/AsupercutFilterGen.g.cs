@@ -39,9 +39,9 @@ public static AsupercutFilterGen AsupercutFilterGen(this AudioMap input0) => new
 public static AsupercutFilterGen AsupercutFilterGen(this AudioMap input0,AsupercutFilterGenConfig config)
 {
 var result = new AsupercutFilterGen(input0);
-if(config?.cutoff != null) result.cutoff(config.cutoff);
-if(config?.order != null) result.order(config.order);
-if(config?.level != null) result.level(config.level);
+if(config?.cutoff != null) result.cutoff(config.cutoff.Value);
+if(config?.order != null) result.order(config.order.Value);
+if(config?.level != null) result.level(config.level.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class AsupercutFilterGenConfig
 /// <summary>
 ///  set cutoff frequency (from 20000 to 192000) (default 20000)
 /// </summary>
-public double cutoff { get; set; }
+public double? cutoff { get; set; }
 /// <summary>
 ///  set filter order (from 3 to 20) (default 10)
 /// </summary>
-public int order { get; set; }
+public int? order { get; set; }
 /// <summary>
 ///  set input level (from 0 to 1) (default 1)
 /// </summary>
-public double level { get; set; }
+public double? level { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

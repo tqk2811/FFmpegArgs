@@ -55,13 +55,13 @@ public static Find_rectFilterGen Find_rectFilterGen(this ImageMap input0) => new
 public static Find_rectFilterGen Find_rectFilterGen(this ImageMap input0,Find_rectFilterGenConfig config)
 {
 var result = new Find_rectFilterGen(input0);
-if(config?._object != null) result._object(config._object);
-if(config?.threshold != null) result.threshold(config.threshold);
-if(config?.mipmaps != null) result.mipmaps(config.mipmaps);
-if(config?.xmin != null) result.xmin(config.xmin);
-if(config?.ymin != null) result.ymin(config.ymin);
-if(config?.xmax != null) result.xmax(config.xmax);
-if(config?.ymax != null) result.ymax(config.ymax);
+if(!string.IsNullOrWhiteSpace(config?._object)) result._object(config._object);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
+if(config?.mipmaps != null) result.mipmaps(config.mipmaps.Value);
+if(config?.xmin != null) result.xmin(config.xmin.Value);
+if(config?.ymin != null) result.ymin(config.ymin.Value);
+if(config?.xmax != null) result.xmax(config.xmax.Value);
+if(config?.ymax != null) result.ymax(config.ymax.Value);
 return result;
 }
 }
@@ -74,26 +74,26 @@ public string _object { get; set; }
 /// <summary>
 ///  set threshold (from 0 to 1) (default 0.5)
 /// </summary>
-public float threshold { get; set; }
+public float? threshold { get; set; }
 /// <summary>
 ///  set mipmaps (from 1 to 5) (default 3)
 /// </summary>
-public int mipmaps { get; set; }
+public int? mipmaps { get; set; }
 /// <summary>
 ///   (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int xmin { get; set; }
+public int? xmin { get; set; }
 /// <summary>
 ///   (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int ymin { get; set; }
+public int? ymin { get; set; }
 /// <summary>
 ///   (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int xmax { get; set; }
+public int? xmax { get; set; }
 /// <summary>
 ///   (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int ymax { get; set; }
+public int? ymax { get; set; }
 }
 }

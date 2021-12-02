@@ -31,7 +31,7 @@ public static PhaseFilterGen PhaseFilterGen(this ImageMap input0) => new PhaseFi
 public static PhaseFilterGen PhaseFilterGen(this ImageMap input0,PhaseFilterGenConfig config)
 {
 var result = new PhaseFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
+if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -41,7 +41,7 @@ public class PhaseFilterGenConfig
 /// <summary>
 ///  set phase mode (from 0 to 8) (default A)
 /// </summary>
-public PhaseFilterGenMode mode { get; set; }
+public PhaseFilterGenMode? mode { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum PhaseFilterGenMode

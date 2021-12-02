@@ -43,10 +43,10 @@ public static HueFilterGen HueFilterGen(this ImageMap input0) => new HueFilterGe
 public static HueFilterGen HueFilterGen(this ImageMap input0,HueFilterGenConfig config)
 {
 var result = new HueFilterGen(input0);
-if(config?.h != null) result.h(config.h);
-if(config?.s != null) result.s(config.s);
-if(config?.H != null) result.H(config.H);
-if(config?.b != null) result.b(config.b);
+if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
+if(!string.IsNullOrWhiteSpace(config?.s)) result.s(config.s);
+if(!string.IsNullOrWhiteSpace(config?.H)) result.H(config.H);
+if(!string.IsNullOrWhiteSpace(config?.b)) result.b(config.b);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }

@@ -51,11 +51,11 @@ public static ZoompanFilterGen ZoompanFilterGen(this ImageMap input0) => new Zoo
 public static ZoompanFilterGen ZoompanFilterGen(this ImageMap input0,ZoompanFilterGenConfig config)
 {
 var result = new ZoompanFilterGen(input0);
-if(config?.zoom != null) result.zoom(config.zoom);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.d != null) result.d(config.d);
-if(config?.s != null) result.s(config.s);
+if(!string.IsNullOrWhiteSpace(config?.zoom)) result.zoom(config.zoom);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(!string.IsNullOrWhiteSpace(config?.d)) result.d(config.d);
+if(config?.s != null) result.s(config.s.Value);
 if(config?.fps != null) result.fps(config.fps);
 return result;
 }
@@ -81,7 +81,7 @@ public string d { get; set; }
 /// <summary>
 ///  set the output image size (default "hd720")
 /// </summary>
-public Size s { get; set; }
+public Size? s { get; set; }
 /// <summary>
 ///  set the output framerate (default "25")
 /// </summary>

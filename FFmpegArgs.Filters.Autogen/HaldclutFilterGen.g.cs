@@ -31,7 +31,7 @@ public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap
 public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap input1,HaldclutFilterGenConfig config)
 {
 var result = new HaldclutFilterGen(input0, input1);
-if(config?.interp != null) result.interp(config.interp);
+if(config?.interp != null) result.interp(config.interp.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -41,7 +41,7 @@ public class HaldclutFilterGenConfig
 /// <summary>
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)
 /// </summary>
-public HaldclutFilterGenInterp interp { get; set; }
+public HaldclutFilterGenInterp? interp { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum HaldclutFilterGenInterp

@@ -39,9 +39,9 @@ public static MaskedclampFilterGen MaskedclampFilterGen(this ImageMap input0, Im
 public static MaskedclampFilterGen MaskedclampFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2,MaskedclampFilterGenConfig config)
 {
 var result = new MaskedclampFilterGen(input0, input1, input2);
-if(config?.undershoot != null) result.undershoot(config.undershoot);
-if(config?.overshoot != null) result.overshoot(config.overshoot);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.undershoot != null) result.undershoot(config.undershoot.Value);
+if(config?.overshoot != null) result.overshoot(config.overshoot.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class MaskedclampFilterGenConfig
 /// <summary>
 ///  set undershoot (from 0 to 65535) (default 0)
 /// </summary>
-public int undershoot { get; set; }
+public int? undershoot { get; set; }
 /// <summary>
 ///  set overshoot (from 0 to 65535) (default 0)
 /// </summary>
-public int overshoot { get; set; }
+public int? overshoot { get; set; }
 /// <summary>
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

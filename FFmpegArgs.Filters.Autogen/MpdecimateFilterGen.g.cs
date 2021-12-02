@@ -43,10 +43,10 @@ public static MpdecimateFilterGen MpdecimateFilterGen(this ImageMap input0) => n
 public static MpdecimateFilterGen MpdecimateFilterGen(this ImageMap input0,MpdecimateFilterGenConfig config)
 {
 var result = new MpdecimateFilterGen(input0);
-if(config?.max != null) result.max(config.max);
-if(config?.hi != null) result.hi(config.hi);
-if(config?.lo != null) result.lo(config.lo);
-if(config?.frac != null) result.frac(config.frac);
+if(config?.max != null) result.max(config.max.Value);
+if(config?.hi != null) result.hi(config.hi.Value);
+if(config?.lo != null) result.lo(config.lo.Value);
+if(config?.frac != null) result.frac(config.frac.Value);
 return result;
 }
 }
@@ -55,18 +55,18 @@ public class MpdecimateFilterGenConfig
 /// <summary>
 ///  set the maximum number of consecutive dropped frames (positive), or the minimum interval between dropped frames (negative) (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public int max { get; set; }
+public int? max { get; set; }
 /// <summary>
 ///  set high dropping threshold (from INT_MIN to INT_MAX) (default 768)
 /// </summary>
-public int hi { get; set; }
+public int? hi { get; set; }
 /// <summary>
 ///  set low dropping threshold (from INT_MIN to INT_MAX) (default 320)
 /// </summary>
-public int lo { get; set; }
+public int? lo { get; set; }
 /// <summary>
 ///  set fraction dropping threshold (from 0 to 1) (default 0.33)
 /// </summary>
-public float frac { get; set; }
+public float? frac { get; set; }
 }
 }

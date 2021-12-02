@@ -71,17 +71,17 @@ public static SelectivecolorFilterGen SelectivecolorFilterGen(this ImageMap inpu
 public static SelectivecolorFilterGen SelectivecolorFilterGen(this ImageMap input0,SelectivecolorFilterGenConfig config)
 {
 var result = new SelectivecolorFilterGen(input0);
-if(config?.correction_method != null) result.correction_method(config.correction_method);
-if(config?.reds != null) result.reds(config.reds);
-if(config?.yellows != null) result.yellows(config.yellows);
-if(config?.greens != null) result.greens(config.greens);
-if(config?.cyans != null) result.cyans(config.cyans);
-if(config?.blues != null) result.blues(config.blues);
-if(config?.magentas != null) result.magentas(config.magentas);
-if(config?.whites != null) result.whites(config.whites);
-if(config?.neutrals != null) result.neutrals(config.neutrals);
-if(config?.blacks != null) result.blacks(config.blacks);
-if(config?.psfile != null) result.psfile(config.psfile);
+if(config?.correction_method != null) result.correction_method(config.correction_method.Value);
+if(!string.IsNullOrWhiteSpace(config?.reds)) result.reds(config.reds);
+if(!string.IsNullOrWhiteSpace(config?.yellows)) result.yellows(config.yellows);
+if(!string.IsNullOrWhiteSpace(config?.greens)) result.greens(config.greens);
+if(!string.IsNullOrWhiteSpace(config?.cyans)) result.cyans(config.cyans);
+if(!string.IsNullOrWhiteSpace(config?.blues)) result.blues(config.blues);
+if(!string.IsNullOrWhiteSpace(config?.magentas)) result.magentas(config.magentas);
+if(!string.IsNullOrWhiteSpace(config?.whites)) result.whites(config.whites);
+if(!string.IsNullOrWhiteSpace(config?.neutrals)) result.neutrals(config.neutrals);
+if(!string.IsNullOrWhiteSpace(config?.blacks)) result.blacks(config.blacks);
+if(!string.IsNullOrWhiteSpace(config?.psfile)) result.psfile(config.psfile);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -91,7 +91,7 @@ public class SelectivecolorFilterGenConfig
 /// <summary>
 ///  select correction method (from 0 to 1) (default absolute)
 /// </summary>
-public SelectivecolorFilterGenCorrection_method correction_method { get; set; }
+public SelectivecolorFilterGenCorrection_method? correction_method { get; set; }
 /// <summary>
 ///  adjust red regions
 /// </summary>

@@ -75,18 +75,18 @@ public static SidechaingateFilterGen SidechaingateFilterGen(this AudioMap input0
 public static SidechaingateFilterGen SidechaingateFilterGen(this AudioMap input0, AudioMap input1,SidechaingateFilterGenConfig config)
 {
 var result = new SidechaingateFilterGen(input0, input1);
-if(config?.level_in != null) result.level_in(config.level_in);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.range != null) result.range(config.range);
-if(config?.threshold != null) result.threshold(config.threshold);
-if(config?.ratio != null) result.ratio(config.ratio);
-if(config?.attack != null) result.attack(config.attack);
-if(config?.release != null) result.release(config.release);
-if(config?.makeup != null) result.makeup(config.makeup);
-if(config?.knee != null) result.knee(config.knee);
-if(config?.detection != null) result.detection(config.detection);
-if(config?.link != null) result.link(config.link);
-if(config?.level_sc != null) result.level_sc(config.level_sc);
+if(config?.level_in != null) result.level_in(config.level_in.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.range != null) result.range(config.range.Value);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
+if(config?.ratio != null) result.ratio(config.ratio.Value);
+if(config?.attack != null) result.attack(config.attack.Value);
+if(config?.release != null) result.release(config.release.Value);
+if(config?.makeup != null) result.makeup(config.makeup.Value);
+if(config?.knee != null) result.knee(config.knee.Value);
+if(config?.detection != null) result.detection(config.detection.Value);
+if(config?.link != null) result.link(config.link.Value);
+if(config?.level_sc != null) result.level_sc(config.level_sc.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -96,51 +96,51 @@ public class SidechaingateFilterGenConfig
 /// <summary>
 ///  set input level (from 0.015625 to 64) (default 1)
 /// </summary>
-public double level_in { get; set; }
+public double? level_in { get; set; }
 /// <summary>
 ///  set mode (from 0 to 1) (default downward)
 /// </summary>
-public SidechaingateFilterGenMode mode { get; set; }
+public SidechaingateFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set max gain reduction (from 0 to 1) (default 0.06125)
 /// </summary>
-public double range { get; set; }
+public double? range { get; set; }
 /// <summary>
 ///  set threshold (from 0 to 1) (default 0.125)
 /// </summary>
-public double threshold { get; set; }
+public double? threshold { get; set; }
 /// <summary>
 ///  set ratio (from 1 to 9000) (default 2)
 /// </summary>
-public double ratio { get; set; }
+public double? ratio { get; set; }
 /// <summary>
 ///  set attack (from 0.01 to 9000) (default 20)
 /// </summary>
-public double attack { get; set; }
+public double? attack { get; set; }
 /// <summary>
 ///  set release (from 0.01 to 9000) (default 250)
 /// </summary>
-public double release { get; set; }
+public double? release { get; set; }
 /// <summary>
 ///  set makeup gain (from 1 to 64) (default 1)
 /// </summary>
-public double makeup { get; set; }
+public double? makeup { get; set; }
 /// <summary>
 ///  set knee (from 1 to 8) (default 2.82843)
 /// </summary>
-public double knee { get; set; }
+public double? knee { get; set; }
 /// <summary>
 ///  set detection (from 0 to 1) (default rms)
 /// </summary>
-public SidechaingateFilterGenDetection detection { get; set; }
+public SidechaingateFilterGenDetection? detection { get; set; }
 /// <summary>
 ///  set link (from 0 to 1) (default average)
 /// </summary>
-public SidechaingateFilterGenLink link { get; set; }
+public SidechaingateFilterGenLink? link { get; set; }
 /// <summary>
 ///  set sidechain gain (from 0.015625 to 64) (default 1)
 /// </summary>
-public double level_sc { get; set; }
+public double? level_sc { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum SidechaingateFilterGenMode

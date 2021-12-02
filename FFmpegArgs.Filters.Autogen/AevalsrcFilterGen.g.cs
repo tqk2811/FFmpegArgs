@@ -47,11 +47,11 @@ public static AevalsrcFilterGen AevalsrcFilterGen(this FilterGraph input0) => ne
 public static AevalsrcFilterGen AevalsrcFilterGen(this FilterGraph input0,AevalsrcFilterGenConfig config)
 {
 var result = new AevalsrcFilterGen(input0);
-if(config?.exprs != null) result.exprs(config.exprs);
-if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.duration != null) result.duration(config.duration);
-if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
+if(!string.IsNullOrWhiteSpace(config?.exprs)) result.exprs(config.exprs);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples.Value);
+if(!string.IsNullOrWhiteSpace(config?.sample_rate)) result.sample_rate(config.sample_rate);
+if(config?.duration != null) result.duration(config.duration.Value);
+if(!string.IsNullOrWhiteSpace(config?.channel_layout)) result.channel_layout(config.channel_layout);
 return result;
 }
 }
@@ -64,7 +64,7 @@ public string exprs { get; set; }
 /// <summary>
 ///  set the number of samples per requested frame (from 0 to INT_MAX) (default 1024)
 /// </summary>
-public int nb_samples { get; set; }
+public int? nb_samples { get; set; }
 /// <summary>
 ///  set the sample rate (default "44100")
 /// </summary>
@@ -72,7 +72,7 @@ public string sample_rate { get; set; }
 /// <summary>
 ///  set audio duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set channel layout
 /// </summary>

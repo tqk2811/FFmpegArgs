@@ -51,12 +51,12 @@ public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input0) => ne
 public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input0,AnullsrcFilterGenConfig config)
 {
 var result = new AnullsrcFilterGen(input0);
-if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
-if(config?.cl != null) result.cl(config.cl);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.r != null) result.r(config.r);
-if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
-if(config?.duration != null) result.duration(config.duration);
+if(!string.IsNullOrWhiteSpace(config?.channel_layout)) result.channel_layout(config.channel_layout);
+if(!string.IsNullOrWhiteSpace(config?.cl)) result.cl(config.cl);
+if(!string.IsNullOrWhiteSpace(config?.sample_rate)) result.sample_rate(config.sample_rate);
+if(!string.IsNullOrWhiteSpace(config?.r)) result.r(config.r);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples.Value);
+if(config?.duration != null) result.duration(config.duration.Value);
 return result;
 }
 }
@@ -81,10 +81,10 @@ public string r { get; set; }
 /// <summary>
 ///  set the number of samples per requested frame (from 1 to 65535) (default 1024)
 /// </summary>
-public int nb_samples { get; set; }
+public int? nb_samples { get; set; }
 /// <summary>
 ///  set the audio duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 }
 }

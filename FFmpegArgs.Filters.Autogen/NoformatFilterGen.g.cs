@@ -31,7 +31,7 @@ public static NoformatFilterGen NoformatFilterGen(this ImageMap input0) => new N
 public static NoformatFilterGen NoformatFilterGen(this ImageMap input0,NoformatFilterGenConfig config)
 {
 var result = new NoformatFilterGen(input0);
-if(config?.pix_fmts != null) result.pix_fmts(config.pix_fmts);
+if(!string.IsNullOrWhiteSpace(config?.pix_fmts)) result.pix_fmts(config.pix_fmts);
 return result;
 }
 }

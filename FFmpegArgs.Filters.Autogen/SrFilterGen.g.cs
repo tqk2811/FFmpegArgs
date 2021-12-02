@@ -47,11 +47,11 @@ public static SrFilterGen SrFilterGen(this ImageMap input0) => new SrFilterGen(i
 public static SrFilterGen SrFilterGen(this ImageMap input0,SrFilterGenConfig config)
 {
 var result = new SrFilterGen(input0);
-if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend);
-if(config?.scale_factor != null) result.scale_factor(config.scale_factor);
-if(config?.model != null) result.model(config.model);
-if(config?.input != null) result.input(config.input);
-if(config?.output != null) result.output(config.output);
+if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend.Value);
+if(config?.scale_factor != null) result.scale_factor(config.scale_factor.Value);
+if(!string.IsNullOrWhiteSpace(config?.model)) result.model(config.model);
+if(!string.IsNullOrWhiteSpace(config?.input)) result.input(config.input);
+if(!string.IsNullOrWhiteSpace(config?.output)) result.output(config.output);
 return result;
 }
 }
@@ -60,11 +60,11 @@ public class SrFilterGenConfig
 /// <summary>
 ///  DNN backend used for model execution (from 0 to 1) (default native)
 /// </summary>
-public SrFilterGenDnn_backend dnn_backend { get; set; }
+public SrFilterGenDnn_backend? dnn_backend { get; set; }
 /// <summary>
 ///  scale factor for SRCNN model (from 2 to 4) (default 2)
 /// </summary>
-public int scale_factor { get; set; }
+public int? scale_factor { get; set; }
 /// <summary>
 ///  path to model file specifying network architecture and its parameters
 /// </summary>

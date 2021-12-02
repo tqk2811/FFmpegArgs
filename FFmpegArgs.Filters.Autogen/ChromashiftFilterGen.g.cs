@@ -47,11 +47,11 @@ public static ChromashiftFilterGen ChromashiftFilterGen(this ImageMap input0) =>
 public static ChromashiftFilterGen ChromashiftFilterGen(this ImageMap input0,ChromashiftFilterGenConfig config)
 {
 var result = new ChromashiftFilterGen(input0);
-if(config?.cbh != null) result.cbh(config.cbh);
-if(config?.cbv != null) result.cbv(config.cbv);
-if(config?.crh != null) result.crh(config.crh);
-if(config?.crv != null) result.crv(config.crv);
-if(config?.edge != null) result.edge(config.edge);
+if(config?.cbh != null) result.cbh(config.cbh.Value);
+if(config?.cbv != null) result.cbv(config.cbv.Value);
+if(config?.crh != null) result.crh(config.crh.Value);
+if(config?.crv != null) result.crv(config.crv.Value);
+if(config?.edge != null) result.edge(config.edge.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -61,23 +61,23 @@ public class ChromashiftFilterGenConfig
 /// <summary>
 ///  shift chroma-blue horizontally (from -255 to 255) (default 0)
 /// </summary>
-public int cbh { get; set; }
+public int? cbh { get; set; }
 /// <summary>
 ///  shift chroma-blue vertically (from -255 to 255) (default 0)
 /// </summary>
-public int cbv { get; set; }
+public int? cbv { get; set; }
 /// <summary>
 ///  shift chroma-red horizontally (from -255 to 255) (default 0)
 /// </summary>
-public int crh { get; set; }
+public int? crh { get; set; }
 /// <summary>
 ///  shift chroma-red vertically (from -255 to 255) (default 0)
 /// </summary>
-public int crv { get; set; }
+public int? crv { get; set; }
 /// <summary>
 ///  set edge operation (from 0 to 1) (default smear)
 /// </summary>
-public ChromashiftFilterGenEdge edge { get; set; }
+public ChromashiftFilterGenEdge? edge { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum ChromashiftFilterGenEdge

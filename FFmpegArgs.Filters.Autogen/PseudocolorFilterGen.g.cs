@@ -55,13 +55,13 @@ public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input0) =>
 public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input0,PseudocolorFilterGenConfig config)
 {
 var result = new PseudocolorFilterGen(input0);
-if(config?.c0 != null) result.c0(config.c0);
-if(config?.c1 != null) result.c1(config.c1);
-if(config?.c2 != null) result.c2(config.c2);
-if(config?.c3 != null) result.c3(config.c3);
-if(config?.index != null) result.index(config.index);
-if(config?.preset != null) result.preset(config.preset);
-if(config?.opacity != null) result.opacity(config.opacity);
+if(!string.IsNullOrWhiteSpace(config?.c0)) result.c0(config.c0);
+if(!string.IsNullOrWhiteSpace(config?.c1)) result.c1(config.c1);
+if(!string.IsNullOrWhiteSpace(config?.c2)) result.c2(config.c2);
+if(!string.IsNullOrWhiteSpace(config?.c3)) result.c3(config.c3);
+if(config?.index != null) result.index(config.index.Value);
+if(config?.preset != null) result.preset(config.preset.Value);
+if(config?.opacity != null) result.opacity(config.opacity.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -87,15 +87,15 @@ public string c3 { get; set; }
 /// <summary>
 ///  set component as base (from 0 to 3) (default 0)
 /// </summary>
-public int index { get; set; }
+public int? index { get; set; }
 /// <summary>
 ///  set preset (from -1 to 9) (default none)
 /// </summary>
-public PseudocolorFilterGenPreset preset { get; set; }
+public PseudocolorFilterGenPreset? preset { get; set; }
 /// <summary>
 ///  set pseudocolor opacity (from 0 to 1) (default 1)
 /// </summary>
-public float opacity { get; set; }
+public float? opacity { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum PseudocolorFilterGenPreset

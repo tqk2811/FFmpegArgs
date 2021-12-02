@@ -39,9 +39,9 @@ public static LimiterFilterGen LimiterFilterGen(this ImageMap input0) => new Lim
 public static LimiterFilterGen LimiterFilterGen(this ImageMap input0,LimiterFilterGenConfig config)
 {
 var result = new LimiterFilterGen(input0);
-if(config?.min != null) result.min(config.min);
-if(config?.max != null) result.max(config.max);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.min != null) result.min(config.min.Value);
+if(config?.max != null) result.max(config.max.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class LimiterFilterGenConfig
 /// <summary>
 ///  set min value (from 0 to 65535) (default 0)
 /// </summary>
-public int min { get; set; }
+public int? min { get; set; }
 /// <summary>
 ///  set max value (from 0 to 65535) (default 65535)
 /// </summary>
-public int max { get; set; }
+public int? max { get; set; }
 /// <summary>
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

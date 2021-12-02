@@ -95,23 +95,23 @@ public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input0) => new Vpp
 public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input0,Vpp_qsvFilterGenConfig config)
 {
 var result = new Vpp_qsvFilterGen(input0);
-if(config?.deinterlace != null) result.deinterlace(config.deinterlace);
-if(config?.denoise != null) result.denoise(config.denoise);
-if(config?.detail != null) result.detail(config.detail);
+if(config?.deinterlace != null) result.deinterlace(config.deinterlace.Value);
+if(config?.denoise != null) result.denoise(config.denoise.Value);
+if(config?.detail != null) result.detail(config.detail.Value);
 if(config?.framerate != null) result.framerate(config.framerate);
-if(config?.procamp != null) result.procamp(config.procamp);
-if(config?.hue != null) result.hue(config.hue);
-if(config?.saturation != null) result.saturation(config.saturation);
-if(config?.contrast != null) result.contrast(config.contrast);
-if(config?.brightness != null) result.brightness(config.brightness);
-if(config?.transpose != null) result.transpose(config.transpose);
-if(config?.cw != null) result.cw(config.cw);
-if(config?.ch != null) result.ch(config.ch);
-if(config?.cx != null) result.cx(config.cx);
-if(config?.cy != null) result.cy(config.cy);
-if(config?.width != null) result.width(config.width);
-if(config?.height != null) result.height(config.height);
-if(config?.format != null) result.format(config.format);
+if(config?.procamp != null) result.procamp(config.procamp.Value);
+if(config?.hue != null) result.hue(config.hue.Value);
+if(config?.saturation != null) result.saturation(config.saturation.Value);
+if(config?.contrast != null) result.contrast(config.contrast.Value);
+if(config?.brightness != null) result.brightness(config.brightness.Value);
+if(config?.transpose != null) result.transpose(config.transpose.Value);
+if(!string.IsNullOrWhiteSpace(config?.cw)) result.cw(config.cw);
+if(!string.IsNullOrWhiteSpace(config?.ch)) result.ch(config.ch);
+if(!string.IsNullOrWhiteSpace(config?.cx)) result.cx(config.cx);
+if(!string.IsNullOrWhiteSpace(config?.cy)) result.cy(config.cy);
+if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
+if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
+if(!string.IsNullOrWhiteSpace(config?.format)) result.format(config.format);
 return result;
 }
 }
@@ -120,15 +120,15 @@ public class Vpp_qsvFilterGenConfig
 /// <summary>
 ///  deinterlace mode: 0=off, 1=bob, 2=advanced (from 0 to 2) (default 0)
 /// </summary>
-public Vpp_qsvFilterGenDeinterlace deinterlace { get; set; }
+public Vpp_qsvFilterGenDeinterlace? deinterlace { get; set; }
 /// <summary>
 ///  denoise level [0, 100] (from 0 to 100) (default 0)
 /// </summary>
-public int denoise { get; set; }
+public int? denoise { get; set; }
 /// <summary>
 ///  enhancement level [0, 100] (from 0 to 100) (default 0)
 /// </summary>
-public int detail { get; set; }
+public int? detail { get; set; }
 /// <summary>
 ///  output framerate (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
@@ -136,27 +136,27 @@ public Rational framerate { get; set; }
 /// <summary>
 ///  Enable ProcAmp (from 0 to 1) (default 0)
 /// </summary>
-public int procamp { get; set; }
+public int? procamp { get; set; }
 /// <summary>
 ///  ProcAmp hue (from -180 to 180) (default 0)
 /// </summary>
-public float hue { get; set; }
+public float? hue { get; set; }
 /// <summary>
 ///  ProcAmp saturation (from 0 to 10) (default 1)
 /// </summary>
-public float saturation { get; set; }
+public float? saturation { get; set; }
 /// <summary>
 ///  ProcAmp contrast (from 0 to 10) (default 1)
 /// </summary>
-public float contrast { get; set; }
+public float? contrast { get; set; }
 /// <summary>
 ///  ProcAmp brightness (from -100 to 100) (default 0)
 /// </summary>
-public float brightness { get; set; }
+public float? brightness { get; set; }
 /// <summary>
 ///  set transpose direction (from -1 to 6) (default -1)
 /// </summary>
-public Vpp_qsvFilterGenTranspose transpose { get; set; }
+public Vpp_qsvFilterGenTranspose? transpose { get; set; }
 /// <summary>
 ///  set the width crop area expression (default "iw")
 /// </summary>

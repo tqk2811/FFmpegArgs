@@ -55,13 +55,13 @@ public static DeblockFilterGen DeblockFilterGen(this ImageMap input0) => new Deb
 public static DeblockFilterGen DeblockFilterGen(this ImageMap input0,DeblockFilterGenConfig config)
 {
 var result = new DeblockFilterGen(input0);
-if(config?.filter != null) result.filter(config.filter);
-if(config?.block != null) result.block(config.block);
-if(config?.alpha != null) result.alpha(config.alpha);
-if(config?.beta != null) result.beta(config.beta);
-if(config?.gamma != null) result.gamma(config.gamma);
-if(config?.delta != null) result.delta(config.delta);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.filter != null) result.filter(config.filter.Value);
+if(config?.block != null) result.block(config.block.Value);
+if(config?.alpha != null) result.alpha(config.alpha.Value);
+if(config?.beta != null) result.beta(config.beta.Value);
+if(config?.gamma != null) result.gamma(config.gamma.Value);
+if(config?.delta != null) result.delta(config.delta.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -71,31 +71,31 @@ public class DeblockFilterGenConfig
 /// <summary>
 ///  set type of filter (from 0 to 1) (default strong)
 /// </summary>
-public DeblockFilterGenFilter filter { get; set; }
+public DeblockFilterGenFilter? filter { get; set; }
 /// <summary>
 ///  set size of block (from 4 to 512) (default 8)
 /// </summary>
-public int block { get; set; }
+public int? block { get; set; }
 /// <summary>
 ///  set 1st detection threshold (from 0 to 1) (default 0.098)
 /// </summary>
-public float alpha { get; set; }
+public float? alpha { get; set; }
 /// <summary>
 ///  set 2nd detection threshold (from 0 to 1) (default 0.05)
 /// </summary>
-public float beta { get; set; }
+public float? beta { get; set; }
 /// <summary>
 ///  set 3rd detection threshold (from 0 to 1) (default 0.05)
 /// </summary>
-public float gamma { get; set; }
+public float? gamma { get; set; }
 /// <summary>
 ///  set 4th detection threshold (from 0 to 1) (default 0.05)
 /// </summary>
-public float delta { get; set; }
+public float? delta { get; set; }
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum DeblockFilterGenFilter

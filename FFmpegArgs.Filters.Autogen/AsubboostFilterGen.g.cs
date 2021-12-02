@@ -55,13 +55,13 @@ public static AsubboostFilterGen AsubboostFilterGen(this AudioMap input0) => new
 public static AsubboostFilterGen AsubboostFilterGen(this AudioMap input0,AsubboostFilterGenConfig config)
 {
 var result = new AsubboostFilterGen(input0);
-if(config?.dry != null) result.dry(config.dry);
-if(config?.wet != null) result.wet(config.wet);
-if(config?.decay != null) result.decay(config.decay);
-if(config?.feedback != null) result.feedback(config.feedback);
-if(config?.cutoff != null) result.cutoff(config.cutoff);
-if(config?.slope != null) result.slope(config.slope);
-if(config?.delay != null) result.delay(config.delay);
+if(config?.dry != null) result.dry(config.dry.Value);
+if(config?.wet != null) result.wet(config.wet.Value);
+if(config?.decay != null) result.decay(config.decay.Value);
+if(config?.feedback != null) result.feedback(config.feedback.Value);
+if(config?.cutoff != null) result.cutoff(config.cutoff.Value);
+if(config?.slope != null) result.slope(config.slope.Value);
+if(config?.delay != null) result.delay(config.delay.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -71,31 +71,31 @@ public class AsubboostFilterGenConfig
 /// <summary>
 ///  set dry gain (from 0 to 1) (default 0.7)
 /// </summary>
-public double dry { get; set; }
+public double? dry { get; set; }
 /// <summary>
 ///  set wet gain (from 0 to 1) (default 0.7)
 /// </summary>
-public double wet { get; set; }
+public double? wet { get; set; }
 /// <summary>
 ///  set decay (from 0 to 1) (default 0.7)
 /// </summary>
-public double decay { get; set; }
+public double? decay { get; set; }
 /// <summary>
 ///  set feedback (from 0 to 1) (default 0.9)
 /// </summary>
-public double feedback { get; set; }
+public double? feedback { get; set; }
 /// <summary>
 ///  set cutoff (from 50 to 900) (default 100)
 /// </summary>
-public double cutoff { get; set; }
+public double? cutoff { get; set; }
 /// <summary>
 ///  set slope (from 0.0001 to 1) (default 0.5)
 /// </summary>
-public double slope { get; set; }
+public double? slope { get; set; }
 /// <summary>
 ///  set delay (from 1 to 100) (default 20)
 /// </summary>
-public double delay { get; set; }
+public double? delay { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

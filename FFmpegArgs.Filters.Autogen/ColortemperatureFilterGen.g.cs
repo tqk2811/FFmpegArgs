@@ -39,9 +39,9 @@ public static ColortemperatureFilterGen ColortemperatureFilterGen(this ImageMap 
 public static ColortemperatureFilterGen ColortemperatureFilterGen(this ImageMap input0,ColortemperatureFilterGenConfig config)
 {
 var result = new ColortemperatureFilterGen(input0);
-if(config?.temperature != null) result.temperature(config.temperature);
-if(config?.mix != null) result.mix(config.mix);
-if(config?.pl != null) result.pl(config.pl);
+if(config?.temperature != null) result.temperature(config.temperature.Value);
+if(config?.mix != null) result.mix(config.mix.Value);
+if(config?.pl != null) result.pl(config.pl.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class ColortemperatureFilterGenConfig
 /// <summary>
 ///  set the temperature in Kelvin (from 1000 to 40000) (default 6500)
 /// </summary>
-public float temperature { get; set; }
+public float? temperature { get; set; }
 /// <summary>
 ///  set the mix with filtered output (from 0 to 1) (default 1)
 /// </summary>
-public float mix { get; set; }
+public float? mix { get; set; }
 /// <summary>
 ///  set the amount of preserving lightness (from 0 to 1) (default 0)
 /// </summary>
-public float pl { get; set; }
+public float? pl { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

@@ -59,14 +59,14 @@ public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input0) => new Afftd
 public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input0,AfftdnFilterGenConfig config)
 {
 var result = new AfftdnFilterGen(input0);
-if(config?.nr != null) result.nr(config.nr);
-if(config?.nf != null) result.nf(config.nf);
-if(config?.nt != null) result.nt(config.nt);
-if(config?.bn != null) result.bn(config.bn);
-if(config?.rf != null) result.rf(config.rf);
-if(config?.tn != null) result.tn(config.tn);
-if(config?.tr != null) result.tr(config.tr);
-if(config?.om != null) result.om(config.om);
+if(config?.nr != null) result.nr(config.nr.Value);
+if(config?.nf != null) result.nf(config.nf.Value);
+if(config?.nt != null) result.nt(config.nt.Value);
+if(!string.IsNullOrWhiteSpace(config?.bn)) result.bn(config.bn);
+if(config?.rf != null) result.rf(config.rf.Value);
+if(config?.tn != null) result.tn(config.tn.Value);
+if(config?.tr != null) result.tr(config.tr.Value);
+if(config?.om != null) result.om(config.om.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -76,15 +76,15 @@ public class AfftdnFilterGenConfig
 /// <summary>
 ///  set the noise reduction (from 0.01 to 97) (default 12)
 /// </summary>
-public float nr { get; set; }
+public float? nr { get; set; }
 /// <summary>
 ///  set the noise floor (from -80 to -20) (default -50)
 /// </summary>
-public float nf { get; set; }
+public float? nf { get; set; }
 /// <summary>
 ///  set the noise type (from 0 to 3) (default w)
 /// </summary>
-public AfftdnFilterGenNt nt { get; set; }
+public AfftdnFilterGenNt? nt { get; set; }
 /// <summary>
 ///  set the custom bands noise
 /// </summary>
@@ -92,19 +92,19 @@ public string bn { get; set; }
 /// <summary>
 ///  set the residual floor (from -80 to -20) (default -38)
 /// </summary>
-public float rf { get; set; }
+public float? rf { get; set; }
 /// <summary>
 ///  track noise (default false)
 /// </summary>
-public bool tn { get; set; }
+public bool? tn { get; set; }
 /// <summary>
 ///  track residual (default false)
 /// </summary>
-public bool tr { get; set; }
+public bool? tr { get; set; }
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
-public AfftdnFilterGenOm om { get; set; }
+public AfftdnFilterGenOm? om { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum AfftdnFilterGenNt

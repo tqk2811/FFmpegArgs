@@ -51,12 +51,12 @@ public static EstdifFilterGen EstdifFilterGen(this ImageMap input0) => new Estdi
 public static EstdifFilterGen EstdifFilterGen(this ImageMap input0,EstdifFilterGenConfig config)
 {
 var result = new EstdifFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.parity != null) result.parity(config.parity);
-if(config?.deint != null) result.deint(config.deint);
-if(config?.rslope != null) result.rslope(config.rslope);
-if(config?.redge != null) result.redge(config.redge);
-if(config?.interp != null) result.interp(config.interp);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.parity != null) result.parity(config.parity.Value);
+if(config?.deint != null) result.deint(config.deint.Value);
+if(config?.rslope != null) result.rslope(config.rslope.Value);
+if(config?.redge != null) result.redge(config.redge.Value);
+if(config?.interp != null) result.interp(config.interp.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -66,27 +66,27 @@ public class EstdifFilterGenConfig
 /// <summary>
 ///  specify the mode (from 0 to 1) (default field)
 /// </summary>
-public EstdifFilterGenMode mode { get; set; }
+public EstdifFilterGenMode? mode { get; set; }
 /// <summary>
 ///  specify the assumed picture field parity (from -1 to 1) (default auto)
 /// </summary>
-public EstdifFilterGenParity parity { get; set; }
+public EstdifFilterGenParity? parity { get; set; }
 /// <summary>
 ///  specify which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
-public EstdifFilterGenDeint deint { get; set; }
+public EstdifFilterGenDeint? deint { get; set; }
 /// <summary>
 ///  specify the search radius for edge slope tracing (from 1 to 15) (default 1)
 /// </summary>
-public int rslope { get; set; }
+public int? rslope { get; set; }
 /// <summary>
 ///  specify the search radius for best edge matching (from 0 to 15) (default 2)
 /// </summary>
-public int redge { get; set; }
+public int? redge { get; set; }
 /// <summary>
 ///  specify the type of interpolation (from 0 to 2) (default 4p)
 /// </summary>
-public EstdifFilterGenInterp interp { get; set; }
+public EstdifFilterGenInterp? interp { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum EstdifFilterGenMode

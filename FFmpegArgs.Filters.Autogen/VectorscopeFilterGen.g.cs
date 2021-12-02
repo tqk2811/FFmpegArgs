@@ -91,22 +91,22 @@ public static VectorscopeFilterGen VectorscopeFilterGen(this ImageMap input0) =>
 public static VectorscopeFilterGen VectorscopeFilterGen(this ImageMap input0,VectorscopeFilterGenConfig config)
 {
 var result = new VectorscopeFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.intensity != null) result.intensity(config.intensity);
-if(config?.envelope != null) result.envelope(config.envelope);
-if(config?.graticule != null) result.graticule(config.graticule);
-if(config?.opacity != null) result.opacity(config.opacity);
-if(config?.flags != null) result.flags(config.flags);
-if(config?.bgopacity != null) result.bgopacity(config.bgopacity);
-if(config?.lthreshold != null) result.lthreshold(config.lthreshold);
-if(config?.hthreshold != null) result.hthreshold(config.hthreshold);
-if(config?.colorspace != null) result.colorspace(config.colorspace);
-if(config?.tint0 != null) result.tint0(config.tint0);
-if(config?.t0 != null) result.t0(config.t0);
-if(config?.tint1 != null) result.tint1(config.tint1);
-if(config?.t1 != null) result.t1(config.t1);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.x != null) result.x(config.x.Value);
+if(config?.y != null) result.y(config.y.Value);
+if(config?.intensity != null) result.intensity(config.intensity.Value);
+if(config?.envelope != null) result.envelope(config.envelope.Value);
+if(config?.graticule != null) result.graticule(config.graticule.Value);
+if(config?.opacity != null) result.opacity(config.opacity.Value);
+if(config?.flags != null) result.flags(config.flags.Value);
+if(config?.bgopacity != null) result.bgopacity(config.bgopacity.Value);
+if(config?.lthreshold != null) result.lthreshold(config.lthreshold.Value);
+if(config?.hthreshold != null) result.hthreshold(config.hthreshold.Value);
+if(config?.colorspace != null) result.colorspace(config.colorspace.Value);
+if(config?.tint0 != null) result.tint0(config.tint0.Value);
+if(config?.t0 != null) result.t0(config.t0.Value);
+if(config?.tint1 != null) result.tint1(config.tint1.Value);
+if(config?.t1 != null) result.t1(config.t1.Value);
 return result;
 }
 }
@@ -115,67 +115,67 @@ public class VectorscopeFilterGenConfig
 /// <summary>
 ///  set vectorscope mode (from 0 to 5) (default gray)
 /// </summary>
-public VectorscopeFilterGenMode mode { get; set; }
+public VectorscopeFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set color component on X axis (from 0 to 2) (default 1)
 /// </summary>
-public int x { get; set; }
+public int? x { get; set; }
 /// <summary>
 ///  set color component on Y axis (from 0 to 2) (default 2)
 /// </summary>
-public int y { get; set; }
+public int? y { get; set; }
 /// <summary>
 ///  set intensity (from 0 to 1) (default 0.004)
 /// </summary>
-public float intensity { get; set; }
+public float? intensity { get; set; }
 /// <summary>
 ///  set envelope (from 0 to 3) (default none)
 /// </summary>
-public VectorscopeFilterGenEnvelope envelope { get; set; }
+public VectorscopeFilterGenEnvelope? envelope { get; set; }
 /// <summary>
 ///  set graticule (from 0 to 3) (default none)
 /// </summary>
-public VectorscopeFilterGenGraticule graticule { get; set; }
+public VectorscopeFilterGenGraticule? graticule { get; set; }
 /// <summary>
 ///  set graticule opacity (from 0 to 1) (default 0.75)
 /// </summary>
-public float opacity { get; set; }
+public float? opacity { get; set; }
 /// <summary>
 ///  set graticule flags (default name)
 /// </summary>
-public VectorscopeFilterGenFlags flags { get; set; }
+public VectorscopeFilterGenFlags? flags { get; set; }
 /// <summary>
 ///  set background opacity (from 0 to 1) (default 0.3)
 /// </summary>
-public float bgopacity { get; set; }
+public float? bgopacity { get; set; }
 /// <summary>
 ///  set low threshold (from 0 to 1) (default 0)
 /// </summary>
-public float lthreshold { get; set; }
+public float? lthreshold { get; set; }
 /// <summary>
 ///  set high threshold (from 0 to 1) (default 1)
 /// </summary>
-public float hthreshold { get; set; }
+public float? hthreshold { get; set; }
 /// <summary>
 ///  set colorspace (from 0 to 2) (default auto)
 /// </summary>
-public VectorscopeFilterGenColorspace colorspace { get; set; }
+public VectorscopeFilterGenColorspace? colorspace { get; set; }
 /// <summary>
 ///  set 1st tint (from -1 to 1) (default 0)
 /// </summary>
-public float tint0 { get; set; }
+public float? tint0 { get; set; }
 /// <summary>
 ///  set 1st tint (from -1 to 1) (default 0)
 /// </summary>
-public float t0 { get; set; }
+public float? t0 { get; set; }
 /// <summary>
 ///  set 2nd tint (from -1 to 1) (default 0)
 /// </summary>
-public float tint1 { get; set; }
+public float? tint1 { get; set; }
 /// <summary>
 ///  set 2nd tint (from -1 to 1) (default 0)
 /// </summary>
-public float t1 { get; set; }
+public float? t1 { get; set; }
 }
 public enum VectorscopeFilterGenMode
 {

@@ -35,8 +35,8 @@ public static AsidedataFilterGen AsidedataFilterGen(this AudioMap input0) => new
 public static AsidedataFilterGen AsidedataFilterGen(this AudioMap input0,AsidedataFilterGenConfig config)
 {
 var result = new AsidedataFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.type != null) result.type(config.type);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.type != null) result.type(config.type.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class AsidedataFilterGenConfig
 /// <summary>
 ///  set a mode of operation (from 0 to 1) (default select)
 /// </summary>
-public AsidedataFilterGenMode mode { get; set; }
+public AsidedataFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set side data type (from -1 to INT_MAX) (default -1)
 /// </summary>
-public AsidedataFilterGenType type { get; set; }
+public AsidedataFilterGenType? type { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum AsidedataFilterGenMode

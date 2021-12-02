@@ -43,10 +43,10 @@ public static Hqdn3dFilterGen Hqdn3dFilterGen(this ImageMap input0) => new Hqdn3
 public static Hqdn3dFilterGen Hqdn3dFilterGen(this ImageMap input0,Hqdn3dFilterGenConfig config)
 {
 var result = new Hqdn3dFilterGen(input0);
-if(config?.luma_spatial != null) result.luma_spatial(config.luma_spatial);
-if(config?.chroma_spatial != null) result.chroma_spatial(config.chroma_spatial);
-if(config?.luma_tmp != null) result.luma_tmp(config.luma_tmp);
-if(config?.chroma_tmp != null) result.chroma_tmp(config.chroma_tmp);
+if(config?.luma_spatial != null) result.luma_spatial(config.luma_spatial.Value);
+if(config?.chroma_spatial != null) result.chroma_spatial(config.chroma_spatial.Value);
+if(config?.luma_tmp != null) result.luma_tmp(config.luma_tmp.Value);
+if(config?.chroma_tmp != null) result.chroma_tmp(config.chroma_tmp.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class Hqdn3dFilterGenConfig
 /// <summary>
 ///  spatial luma strength (from 0 to DBL_MAX) (default 0)
 /// </summary>
-public double luma_spatial { get; set; }
+public double? luma_spatial { get; set; }
 /// <summary>
 ///  spatial chroma strength (from 0 to DBL_MAX) (default 0)
 /// </summary>
-public double chroma_spatial { get; set; }
+public double? chroma_spatial { get; set; }
 /// <summary>
 ///  temporal luma strength (from 0 to DBL_MAX) (default 0)
 /// </summary>
-public double luma_tmp { get; set; }
+public double? luma_tmp { get; set; }
 /// <summary>
 ///  temporal chroma strength (from 0 to DBL_MAX) (default 0)
 /// </summary>
-public double chroma_tmp { get; set; }
+public double? chroma_tmp { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

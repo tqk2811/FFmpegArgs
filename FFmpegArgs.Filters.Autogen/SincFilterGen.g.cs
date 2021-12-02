@@ -71,17 +71,17 @@ public static SincFilterGen SincFilterGen(this FilterGraph input0) => new SincFi
 public static SincFilterGen SincFilterGen(this FilterGraph input0,SincFilterGenConfig config)
 {
 var result = new SincFilterGen(input0);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.r != null) result.r(config.r);
-if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
-if(config?.hp != null) result.hp(config.hp);
-if(config?.lp != null) result.lp(config.lp);
-if(config?.phase != null) result.phase(config.phase);
-if(config?.beta != null) result.beta(config.beta);
-if(config?.att != null) result.att(config.att);
-if(config?.round != null) result.round(config.round);
-if(config?.hptaps != null) result.hptaps(config.hptaps);
-if(config?.lptaps != null) result.lptaps(config.lptaps);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
+if(config?.r != null) result.r(config.r.Value);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples.Value);
+if(config?.hp != null) result.hp(config.hp.Value);
+if(config?.lp != null) result.lp(config.lp.Value);
+if(config?.phase != null) result.phase(config.phase.Value);
+if(config?.beta != null) result.beta(config.beta.Value);
+if(config?.att != null) result.att(config.att.Value);
+if(config?.round != null) result.round(config.round.Value);
+if(config?.hptaps != null) result.hptaps(config.hptaps.Value);
+if(config?.lptaps != null) result.lptaps(config.lptaps.Value);
 return result;
 }
 }
@@ -90,46 +90,46 @@ public class SincFilterGenConfig
 /// <summary>
 ///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int sample_rate { get; set; }
+public int? sample_rate { get; set; }
 /// <summary>
 ///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int r { get; set; }
+public int? r { get; set; }
 /// <summary>
 ///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
 /// </summary>
-public int nb_samples { get; set; }
+public int? nb_samples { get; set; }
 /// <summary>
 ///  set high-pass filter frequency (from 0 to INT_MAX) (default 0)
 /// </summary>
-public float hp { get; set; }
+public float? hp { get; set; }
 /// <summary>
 ///  set low-pass filter frequency (from 0 to INT_MAX) (default 0)
 /// </summary>
-public float lp { get; set; }
+public float? lp { get; set; }
 /// <summary>
 ///  set filter phase response (from 0 to 100) (default 50)
 /// </summary>
-public float phase { get; set; }
+public float? phase { get; set; }
 /// <summary>
 ///  set kaiser window beta (from -1 to 256) (default -1)
 /// </summary>
-public float beta { get; set; }
+public float? beta { get; set; }
 /// <summary>
 ///  set stop-band attenuation (from 40 to 180) (default 120)
 /// </summary>
-public float att { get; set; }
+public float? att { get; set; }
 /// <summary>
 ///  enable rounding (default false)
 /// </summary>
-public bool round { get; set; }
+public bool? round { get; set; }
 /// <summary>
 ///  set number of taps for high-pass filter (from 0 to 32768) (default 0)
 /// </summary>
-public int hptaps { get; set; }
+public int? hptaps { get; set; }
 /// <summary>
 ///  set number of taps for low-pass filter (from 0 to 32768) (default 0)
 /// </summary>
-public int lptaps { get; set; }
+public int? lptaps { get; set; }
 }
 }

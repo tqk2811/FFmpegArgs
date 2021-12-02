@@ -79,19 +79,19 @@ public static BiquadFilterGen BiquadFilterGen(this AudioMap input0) => new Biqua
 public static BiquadFilterGen BiquadFilterGen(this AudioMap input0,BiquadFilterGenConfig config)
 {
 var result = new BiquadFilterGen(input0);
-if(config?.a0 != null) result.a0(config.a0);
-if(config?.a1 != null) result.a1(config.a1);
-if(config?.a2 != null) result.a2(config.a2);
-if(config?.b0 != null) result.b0(config.b0);
-if(config?.b1 != null) result.b1(config.b1);
-if(config?.b2 != null) result.b2(config.b2);
-if(config?.mix != null) result.mix(config.mix);
-if(config?.channels != null) result.channels(config.channels);
-if(config?.normalize != null) result.normalize(config.normalize);
-if(config?.transform != null) result.transform(config.transform);
-if(config?.a != null) result.a(config.a);
-if(config?.precision != null) result.precision(config.precision);
-if(config?.r != null) result.r(config.r);
+if(config?.a0 != null) result.a0(config.a0.Value);
+if(config?.a1 != null) result.a1(config.a1.Value);
+if(config?.a2 != null) result.a2(config.a2.Value);
+if(config?.b0 != null) result.b0(config.b0.Value);
+if(config?.b1 != null) result.b1(config.b1.Value);
+if(config?.b2 != null) result.b2(config.b2.Value);
+if(config?.mix != null) result.mix(config.mix.Value);
+if(config?.channels != null) result.channels(config.channels.Value);
+if(config?.normalize != null) result.normalize(config.normalize.Value);
+if(config?.transform != null) result.transform(config.transform.Value);
+if(config?.a != null) result.a(config.a.Value);
+if(config?.precision != null) result.precision(config.precision.Value);
+if(config?.r != null) result.r(config.r.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -101,55 +101,55 @@ public class BiquadFilterGenConfig
 /// <summary>
 ///  (from INT_MIN to INT_MAX) (default 1)
 /// </summary>
-public double a0 { get; set; }
+public double? a0 { get; set; }
 /// <summary>
 ///  (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public double a1 { get; set; }
+public double? a1 { get; set; }
 /// <summary>
 ///  (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public double a2 { get; set; }
+public double? a2 { get; set; }
 /// <summary>
 ///  (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public double b0 { get; set; }
+public double? b0 { get; set; }
 /// <summary>
 ///  (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public double b1 { get; set; }
+public double? b1 { get; set; }
 /// <summary>
 ///  (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public double b2 { get; set; }
+public double? b2 { get; set; }
 /// <summary>
 ///  set mix (from 0 to 1) (default 1)
 /// </summary>
-public double mix { get; set; }
+public double? mix { get; set; }
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public AV_CH_LAYOUT channels { get; set; }
+public AV_CH_LAYOUT? channels { get; set; }
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
-public bool normalize { get; set; }
+public bool? normalize { get; set; }
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public BiquadFilterGenTransform transform { get; set; }
+public BiquadFilterGenTransform? transform { get; set; }
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public BiquadFilterGenA a { get; set; }
+public BiquadFilterGenA? a { get; set; }
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public BiquadFilterGenPrecision precision { get; set; }
+public BiquadFilterGenPrecision? precision { get; set; }
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public BiquadFilterGenR r { get; set; }
+public BiquadFilterGenR? r { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum BiquadFilterGenTransform

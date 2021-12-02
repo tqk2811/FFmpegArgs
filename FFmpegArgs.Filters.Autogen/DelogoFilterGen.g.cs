@@ -47,11 +47,11 @@ public static DelogoFilterGen DelogoFilterGen(this ImageMap input0) => new Delog
 public static DelogoFilterGen DelogoFilterGen(this ImageMap input0,DelogoFilterGenConfig config)
 {
 var result = new DelogoFilterGen(input0);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.w != null) result.w(config.w);
-if(config?.h != null) result.h(config.h);
-if(config?.show != null) result.show(config.show);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
+if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
+if(config?.show != null) result.show(config.show.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -77,7 +77,7 @@ public string h { get; set; }
 /// <summary>
 ///  show delogo area (default false)
 /// </summary>
-public bool show { get; set; }
+public bool? show { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

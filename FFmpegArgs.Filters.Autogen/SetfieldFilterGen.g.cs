@@ -31,7 +31,7 @@ public static SetfieldFilterGen SetfieldFilterGen(this ImageMap input0) => new S
 public static SetfieldFilterGen SetfieldFilterGen(this ImageMap input0,SetfieldFilterGenConfig config)
 {
 var result = new SetfieldFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
+if(config?.mode != null) result.mode(config.mode.Value);
 return result;
 }
 }
@@ -40,7 +40,7 @@ public class SetfieldFilterGenConfig
 /// <summary>
 ///  select interlace mode (from -1 to 2) (default auto)
 /// </summary>
-public SetfieldFilterGenMode mode { get; set; }
+public SetfieldFilterGenMode? mode { get; set; }
 }
 public enum SetfieldFilterGenMode
 {

@@ -31,7 +31,7 @@ public static DrmeterFilterGen DrmeterFilterGen(this AudioMap input0) => new Drm
 public static DrmeterFilterGen DrmeterFilterGen(this AudioMap input0,DrmeterFilterGenConfig config)
 {
 var result = new DrmeterFilterGen(input0);
-if(config?.length != null) result.length(config.length);
+if(config?.length != null) result.length(config.length.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class DrmeterFilterGenConfig
 /// <summary>
 ///  set the window length (from 0.01 to 10) (default 3)
 /// </summary>
-public double length { get; set; }
+public double? length { get; set; }
 }
 }

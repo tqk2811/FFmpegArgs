@@ -51,12 +51,12 @@ public static HdcdFilterGen HdcdFilterGen(this AudioMap input0) => new HdcdFilte
 public static HdcdFilterGen HdcdFilterGen(this AudioMap input0,HdcdFilterGenConfig config)
 {
 var result = new HdcdFilterGen(input0);
-if(config?.disable_autoconvert != null) result.disable_autoconvert(config.disable_autoconvert);
-if(config?.process_stereo != null) result.process_stereo(config.process_stereo);
-if(config?.cdt_ms != null) result.cdt_ms(config.cdt_ms);
-if(config?.force_pe != null) result.force_pe(config.force_pe);
-if(config?.analyze_mode != null) result.analyze_mode(config.analyze_mode);
-if(config?.bits_per_sample != null) result.bits_per_sample(config.bits_per_sample);
+if(config?.disable_autoconvert != null) result.disable_autoconvert(config.disable_autoconvert.Value);
+if(config?.process_stereo != null) result.process_stereo(config.process_stereo.Value);
+if(config?.cdt_ms != null) result.cdt_ms(config.cdt_ms.Value);
+if(config?.force_pe != null) result.force_pe(config.force_pe.Value);
+if(config?.analyze_mode != null) result.analyze_mode(config.analyze_mode.Value);
+if(config?.bits_per_sample != null) result.bits_per_sample(config.bits_per_sample.Value);
 return result;
 }
 }
@@ -65,27 +65,27 @@ public class HdcdFilterGenConfig
 /// <summary>
 ///  Disable any format conversion or resampling in the filter graph. (default true)
 /// </summary>
-public bool disable_autoconvert { get; set; }
+public bool? disable_autoconvert { get; set; }
 /// <summary>
 ///  Process stereo channels together. Only apply target_gain when both channels match. (default true)
 /// </summary>
-public bool process_stereo { get; set; }
+public bool? process_stereo { get; set; }
 /// <summary>
 ///  Code detect timer period in ms. (from 100 to 60000) (default 2000)
 /// </summary>
-public int cdt_ms { get; set; }
+public int? cdt_ms { get; set; }
 /// <summary>
 ///  Always extend peaks above -3dBFS even when PE is not signaled. (default false)
 /// </summary>
-public bool force_pe { get; set; }
+public bool? force_pe { get; set; }
 /// <summary>
 ///  Replace audio with solid tone and signal some processing aspect in the amplitude. (from 0 to 4) (default off)
 /// </summary>
-public HdcdFilterGenAnalyze_mode analyze_mode { get; set; }
+public HdcdFilterGenAnalyze_mode? analyze_mode { get; set; }
 /// <summary>
 ///  Valid bits per sample (location of the true LSB). (from 16 to 24) (default 16)
 /// </summary>
-public HdcdFilterGenBits_per_sample bits_per_sample { get; set; }
+public HdcdFilterGenBits_per_sample? bits_per_sample { get; set; }
 }
 public enum HdcdFilterGenAnalyze_mode
 {

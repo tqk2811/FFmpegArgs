@@ -35,8 +35,8 @@ public static ChannelmapFilterGen ChannelmapFilterGen(this AudioMap input0) => n
 public static ChannelmapFilterGen ChannelmapFilterGen(this AudioMap input0,ChannelmapFilterGenConfig config)
 {
 var result = new ChannelmapFilterGen(input0);
-if(config?.map != null) result.map(config.map);
-if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
+if(!string.IsNullOrWhiteSpace(config?.map)) result.map(config.map);
+if(!string.IsNullOrWhiteSpace(config?.channel_layout)) result.channel_layout(config.channel_layout);
 return result;
 }
 }

@@ -59,14 +59,14 @@ public static DebandFilterGen DebandFilterGen(this ImageMap input0) => new Deban
 public static DebandFilterGen DebandFilterGen(this ImageMap input0,DebandFilterGenConfig config)
 {
 var result = new DebandFilterGen(input0);
-if(config?._1thr != null) result._1thr(config._1thr);
-if(config?._2thr != null) result._2thr(config._2thr);
-if(config?._3thr != null) result._3thr(config._3thr);
-if(config?._4thr != null) result._4thr(config._4thr);
-if(config?.range != null) result.range(config.range);
-if(config?.direction != null) result.direction(config.direction);
-if(config?.blur != null) result.blur(config.blur);
-if(config?.coupling != null) result.coupling(config.coupling);
+if(config?._1thr != null) result._1thr(config._1thr.Value);
+if(config?._2thr != null) result._2thr(config._2thr.Value);
+if(config?._3thr != null) result._3thr(config._3thr.Value);
+if(config?._4thr != null) result._4thr(config._4thr.Value);
+if(config?.range != null) result.range(config.range.Value);
+if(config?.direction != null) result.direction(config.direction.Value);
+if(config?.blur != null) result.blur(config.blur.Value);
+if(config?.coupling != null) result.coupling(config.coupling.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -76,35 +76,35 @@ public class DebandFilterGenConfig
 /// <summary>
 ///  set 1st plane threshold (from 3e-05 to 0.5) (default 0.02)
 /// </summary>
-public float _1thr { get; set; }
+public float? _1thr { get; set; }
 /// <summary>
 ///  set 2nd plane threshold (from 3e-05 to 0.5) (default 0.02)
 /// </summary>
-public float _2thr { get; set; }
+public float? _2thr { get; set; }
 /// <summary>
 ///  set 3rd plane threshold (from 3e-05 to 0.5) (default 0.02)
 /// </summary>
-public float _3thr { get; set; }
+public float? _3thr { get; set; }
 /// <summary>
 ///  set 4th plane threshold (from 3e-05 to 0.5) (default 0.02)
 /// </summary>
-public float _4thr { get; set; }
+public float? _4thr { get; set; }
 /// <summary>
 ///  set range (from INT_MIN to INT_MAX) (default 16)
 /// </summary>
-public int range { get; set; }
+public int? range { get; set; }
 /// <summary>
 ///  set direction (from -6.28319 to 6.28319) (default 6.28319)
 /// </summary>
-public float direction { get; set; }
+public float? direction { get; set; }
 /// <summary>
 ///  set blur (default true)
 /// </summary>
-public bool blur { get; set; }
+public bool? blur { get; set; }
 /// <summary>
 ///  set plane coupling (default false)
 /// </summary>
-public bool coupling { get; set; }
+public bool? coupling { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

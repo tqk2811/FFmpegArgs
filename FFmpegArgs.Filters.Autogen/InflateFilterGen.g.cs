@@ -43,10 +43,10 @@ public static InflateFilterGen InflateFilterGen(this ImageMap input0) => new Inf
 public static InflateFilterGen InflateFilterGen(this ImageMap input0,InflateFilterGenConfig config)
 {
 var result = new InflateFilterGen(input0);
-if(config?.threshold0 != null) result.threshold0(config.threshold0);
-if(config?.threshold1 != null) result.threshold1(config.threshold1);
-if(config?.threshold2 != null) result.threshold2(config.threshold2);
-if(config?.threshold3 != null) result.threshold3(config.threshold3);
+if(config?.threshold0 != null) result.threshold0(config.threshold0.Value);
+if(config?.threshold1 != null) result.threshold1(config.threshold1.Value);
+if(config?.threshold2 != null) result.threshold2(config.threshold2.Value);
+if(config?.threshold3 != null) result.threshold3(config.threshold3.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class InflateFilterGenConfig
 /// <summary>
 ///  set threshold for 1st plane (from 0 to 65535) (default 65535)
 /// </summary>
-public int threshold0 { get; set; }
+public int? threshold0 { get; set; }
 /// <summary>
 ///  set threshold for 2nd plane (from 0 to 65535) (default 65535)
 /// </summary>
-public int threshold1 { get; set; }
+public int? threshold1 { get; set; }
 /// <summary>
 ///  set threshold for 3rd plane (from 0 to 65535) (default 65535)
 /// </summary>
-public int threshold2 { get; set; }
+public int? threshold2 { get; set; }
 /// <summary>
 ///  set threshold for 4th plane (from 0 to 65535) (default 65535)
 /// </summary>
-public int threshold3 { get; set; }
+public int? threshold3 { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

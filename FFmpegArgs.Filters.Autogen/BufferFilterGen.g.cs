@@ -63,15 +63,15 @@ public static BufferFilterGen BufferFilterGen(this FilterGraph input0) => new Bu
 public static BufferFilterGen BufferFilterGen(this FilterGraph input0,BufferFilterGenConfig config)
 {
 var result = new BufferFilterGen(input0);
-if(config?.width != null) result.width(config.width);
-if(config?.video_size != null) result.video_size(config.video_size);
-if(config?.height != null) result.height(config.height);
-if(config?.pix_fmt != null) result.pix_fmt(config.pix_fmt);
+if(config?.width != null) result.width(config.width.Value);
+if(config?.video_size != null) result.video_size(config.video_size.Value);
+if(config?.height != null) result.height(config.height.Value);
+if(config?.pix_fmt != null) result.pix_fmt(config.pix_fmt.Value);
 if(config?.sar != null) result.sar(config.sar);
 if(config?.pixel_aspect != null) result.pixel_aspect(config.pixel_aspect);
 if(config?.time_base != null) result.time_base(config.time_base);
 if(config?.frame_rate != null) result.frame_rate(config.frame_rate);
-if(config?.sws_param != null) result.sws_param(config.sws_param);
+if(!string.IsNullOrWhiteSpace(config?.sws_param)) result.sws_param(config.sws_param);
 return result;
 }
 }
@@ -80,19 +80,19 @@ public class BufferFilterGenConfig
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int width { get; set; }
+public int? width { get; set; }
 /// <summary>
 /// 
 /// </summary>
-public Size video_size { get; set; }
+public Size? video_size { get; set; }
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int height { get; set; }
+public int? height { get; set; }
 /// <summary>
 ///  (default none)
 /// </summary>
-public PixFmt pix_fmt { get; set; }
+public PixFmt? pix_fmt { get; set; }
 /// <summary>
 ///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
 /// </summary>

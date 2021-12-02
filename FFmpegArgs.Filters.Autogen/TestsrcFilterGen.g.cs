@@ -51,12 +51,12 @@ public static TestsrcFilterGen TestsrcFilterGen(this FilterGraph input0) => new 
 public static TestsrcFilterGen TestsrcFilterGen(this FilterGraph input0,TestsrcFilterGenConfig config)
 {
 var result = new TestsrcFilterGen(input0);
-if(config?.size != null) result.size(config.size);
+if(config?.size != null) result.size(config.size.Value);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.duration != null) result.duration(config.duration);
+if(config?.duration != null) result.duration(config.duration.Value);
 if(config?.sar != null) result.sar(config.sar);
-if(config?.decimals != null) result.decimals(config.decimals);
-if(config?.n != null) result.n(config.n);
+if(config?.decimals != null) result.decimals(config.decimals.Value);
+if(config?.n != null) result.n(config.n.Value);
 return result;
 }
 }
@@ -65,7 +65,7 @@ public class TestsrcFilterGenConfig
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
@@ -73,7 +73,7 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>
@@ -81,10 +81,10 @@ public Rational sar { get; set; }
 /// <summary>
 ///  set number of decimals to show (from 0 to 17) (default 0)
 /// </summary>
-public int decimals { get; set; }
+public int? decimals { get; set; }
 /// <summary>
 ///  set number of decimals to show (from 0 to 17) (default 0)
 /// </summary>
-public int n { get; set; }
+public int? n { get; set; }
 }
 }

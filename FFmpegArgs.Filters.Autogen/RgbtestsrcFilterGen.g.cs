@@ -47,11 +47,11 @@ public static RgbtestsrcFilterGen RgbtestsrcFilterGen(this FilterGraph input0) =
 public static RgbtestsrcFilterGen RgbtestsrcFilterGen(this FilterGraph input0,RgbtestsrcFilterGenConfig config)
 {
 var result = new RgbtestsrcFilterGen(input0);
-if(config?.size != null) result.size(config.size);
+if(config?.size != null) result.size(config.size.Value);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.duration != null) result.duration(config.duration);
+if(config?.duration != null) result.duration(config.duration.Value);
 if(config?.sar != null) result.sar(config.sar);
-if(config?.complement != null) result.complement(config.complement);
+if(config?.complement != null) result.complement(config.complement.Value);
 return result;
 }
 }
@@ -60,7 +60,7 @@ public class RgbtestsrcFilterGenConfig
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
@@ -68,7 +68,7 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>
@@ -76,6 +76,6 @@ public Rational sar { get; set; }
 /// <summary>
 ///  set complement colors (default false)
 /// </summary>
-public bool complement { get; set; }
+public bool? complement { get; set; }
 }
 }

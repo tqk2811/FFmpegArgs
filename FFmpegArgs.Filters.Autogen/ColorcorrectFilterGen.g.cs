@@ -47,11 +47,11 @@ public static ColorcorrectFilterGen ColorcorrectFilterGen(this ImageMap input0) 
 public static ColorcorrectFilterGen ColorcorrectFilterGen(this ImageMap input0,ColorcorrectFilterGenConfig config)
 {
 var result = new ColorcorrectFilterGen(input0);
-if(config?.rl != null) result.rl(config.rl);
-if(config?.bl != null) result.bl(config.bl);
-if(config?.rh != null) result.rh(config.rh);
-if(config?.bh != null) result.bh(config.bh);
-if(config?.saturation != null) result.saturation(config.saturation);
+if(config?.rl != null) result.rl(config.rl.Value);
+if(config?.bl != null) result.bl(config.bl.Value);
+if(config?.rh != null) result.rh(config.rh.Value);
+if(config?.bh != null) result.bh(config.bh.Value);
+if(config?.saturation != null) result.saturation(config.saturation.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -61,23 +61,23 @@ public class ColorcorrectFilterGenConfig
 /// <summary>
 ///  set the red shadow spot (from -1 to 1) (default 0)
 /// </summary>
-public float rl { get; set; }
+public float? rl { get; set; }
 /// <summary>
 ///  set the blue shadow spot (from -1 to 1) (default 0)
 /// </summary>
-public float bl { get; set; }
+public float? bl { get; set; }
 /// <summary>
 ///  set the red highlight spot (from -1 to 1) (default 0)
 /// </summary>
-public float rh { get; set; }
+public float? rh { get; set; }
 /// <summary>
 ///  set the blue highlight spot (from -1 to 1) (default 0)
 /// </summary>
-public float bh { get; set; }
+public float? bh { get; set; }
 /// <summary>
 ///  set the amount of saturation (from -3 to 3) (default 1)
 /// </summary>
-public float saturation { get; set; }
+public float? saturation { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

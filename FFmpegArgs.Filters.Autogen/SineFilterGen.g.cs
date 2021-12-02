@@ -51,12 +51,12 @@ public static SineFilterGen SineFilterGen(this FilterGraph input0) => new SineFi
 public static SineFilterGen SineFilterGen(this FilterGraph input0,SineFilterGenConfig config)
 {
 var result = new SineFilterGen(input0);
-if(config?.frequency != null) result.frequency(config.frequency);
-if(config?.beep_factor != null) result.beep_factor(config.beep_factor);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.r != null) result.r(config.r);
-if(config?.duration != null) result.duration(config.duration);
-if(config?.samples_per_frame != null) result.samples_per_frame(config.samples_per_frame);
+if(config?.frequency != null) result.frequency(config.frequency.Value);
+if(config?.beep_factor != null) result.beep_factor(config.beep_factor.Value);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
+if(config?.r != null) result.r(config.r.Value);
+if(config?.duration != null) result.duration(config.duration.Value);
+if(!string.IsNullOrWhiteSpace(config?.samples_per_frame)) result.samples_per_frame(config.samples_per_frame);
 return result;
 }
 }
@@ -65,23 +65,23 @@ public class SineFilterGenConfig
 /// <summary>
 ///  set the sine frequency (from 0 to DBL_MAX) (default 440)
 /// </summary>
-public double frequency { get; set; }
+public double? frequency { get; set; }
 /// <summary>
 ///  set the beep frequency factor (from 0 to DBL_MAX) (default 0)
 /// </summary>
-public double beep_factor { get; set; }
+public double? beep_factor { get; set; }
 /// <summary>
 ///  set the sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int sample_rate { get; set; }
+public int? sample_rate { get; set; }
 /// <summary>
 ///  set the sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int r { get; set; }
+public int? r { get; set; }
 /// <summary>
 ///  set the audio duration (default 0)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set the number of samples per frame (default "1024")
 /// </summary>

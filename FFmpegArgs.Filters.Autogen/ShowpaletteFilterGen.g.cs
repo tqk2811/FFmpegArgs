@@ -31,7 +31,7 @@ public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input0) =>
 public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input0,ShowpaletteFilterGenConfig config)
 {
 var result = new ShowpaletteFilterGen(input0);
-if(config?.s != null) result.s(config.s);
+if(config?.s != null) result.s(config.s.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class ShowpaletteFilterGenConfig
 /// <summary>
 ///  set pixel box size (from 1 to 100) (default 30)
 /// </summary>
-public int s { get; set; }
+public int? s { get; set; }
 }
 }

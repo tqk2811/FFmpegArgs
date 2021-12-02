@@ -135,33 +135,33 @@ public static ZscaleFilterGen ZscaleFilterGen(this ImageMap input0) => new Zscal
 public static ZscaleFilterGen ZscaleFilterGen(this ImageMap input0,ZscaleFilterGenConfig config)
 {
 var result = new ZscaleFilterGen(input0);
-if(config?.width != null) result.width(config.width);
-if(config?.height != null) result.height(config.height);
-if(config?.size != null) result.size(config.size);
-if(config?.dither != null) result.dither(config.dither);
-if(config?.filter != null) result.filter(config.filter);
-if(config?.out_range != null) result.out_range(config.out_range);
-if(config?.range != null) result.range(config.range);
-if(config?.r != null) result.r(config.r);
-if(config?.primaries != null) result.primaries(config.primaries);
-if(config?.transfer != null) result.transfer(config.transfer);
-if(config?.matrix != null) result.matrix(config.matrix);
-if(config?.in_range != null) result.in_range(config.in_range);
-if(config?.rangein != null) result.rangein(config.rangein);
-if(config?.rin != null) result.rin(config.rin);
-if(config?.primariesin != null) result.primariesin(config.primariesin);
-if(config?.pin != null) result.pin(config.pin);
-if(config?.transferin != null) result.transferin(config.transferin);
-if(config?.tin != null) result.tin(config.tin);
-if(config?.matrixin != null) result.matrixin(config.matrixin);
-if(config?.min != null) result.min(config.min);
-if(config?.chromal != null) result.chromal(config.chromal);
-if(config?.chromalin != null) result.chromalin(config.chromalin);
-if(config?.cin != null) result.cin(config.cin);
-if(config?.npl != null) result.npl(config.npl);
-if(config?.agamma != null) result.agamma(config.agamma);
-if(config?.param_a != null) result.param_a(config.param_a);
-if(config?.param_b != null) result.param_b(config.param_b);
+if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
+if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
+if(!string.IsNullOrWhiteSpace(config?.size)) result.size(config.size);
+if(config?.dither != null) result.dither(config.dither.Value);
+if(config?.filter != null) result.filter(config.filter.Value);
+if(config?.out_range != null) result.out_range(config.out_range.Value);
+if(config?.range != null) result.range(config.range.Value);
+if(config?.r != null) result.r(config.r.Value);
+if(config?.primaries != null) result.primaries(config.primaries.Value);
+if(config?.transfer != null) result.transfer(config.transfer.Value);
+if(config?.matrix != null) result.matrix(config.matrix.Value);
+if(config?.in_range != null) result.in_range(config.in_range.Value);
+if(config?.rangein != null) result.rangein(config.rangein.Value);
+if(config?.rin != null) result.rin(config.rin.Value);
+if(config?.primariesin != null) result.primariesin(config.primariesin.Value);
+if(config?.pin != null) result.pin(config.pin.Value);
+if(config?.transferin != null) result.transferin(config.transferin.Value);
+if(config?.tin != null) result.tin(config.tin.Value);
+if(config?.matrixin != null) result.matrixin(config.matrixin.Value);
+if(config?.min != null) result.min(config.min.Value);
+if(config?.chromal != null) result.chromal(config.chromal.Value);
+if(config?.chromalin != null) result.chromalin(config.chromalin.Value);
+if(config?.cin != null) result.cin(config.cin.Value);
+if(config?.npl != null) result.npl(config.npl.Value);
+if(config?.agamma != null) result.agamma(config.agamma.Value);
+if(config?.param_a != null) result.param_a(config.param_a.Value);
+if(config?.param_b != null) result.param_b(config.param_b.Value);
 return result;
 }
 }
@@ -182,99 +182,99 @@ public string size { get; set; }
 /// <summary>
 ///  set dither type (from 0 to 3) (default none)
 /// </summary>
-public ZscaleFilterGenDither dither { get; set; }
+public ZscaleFilterGenDither? dither { get; set; }
 /// <summary>
 ///  set filter type (from 0 to 5) (default bilinear)
 /// </summary>
-public ZscaleFilterGenFilter filter { get; set; }
+public ZscaleFilterGenFilter? filter { get; set; }
 /// <summary>
 ///  set color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGenOut_range out_range { get; set; }
+public ZscaleFilterGenOut_range? out_range { get; set; }
 /// <summary>
 ///  set color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGenRange range { get; set; }
+public ZscaleFilterGenRange? range { get; set; }
 /// <summary>
 ///  set color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGenR r { get; set; }
+public ZscaleFilterGenR? r { get; set; }
 /// <summary>
 ///  set color primaries (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenPrimaries primaries { get; set; }
+public ZscaleFilterGenPrimaries? primaries { get; set; }
 /// <summary>
 ///  set transfer characteristic (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenTransfer transfer { get; set; }
+public ZscaleFilterGenTransfer? transfer { get; set; }
 /// <summary>
 ///  set colorspace matrix (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenMatrix matrix { get; set; }
+public ZscaleFilterGenMatrix? matrix { get; set; }
 /// <summary>
 ///  set input color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGenIn_range in_range { get; set; }
+public ZscaleFilterGenIn_range? in_range { get; set; }
 /// <summary>
 ///  set input color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGenRangein rangein { get; set; }
+public ZscaleFilterGenRangein? rangein { get; set; }
 /// <summary>
 ///  set input color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGenRin rin { get; set; }
+public ZscaleFilterGenRin? rin { get; set; }
 /// <summary>
 ///  set input color primaries (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenPrimariesin primariesin { get; set; }
+public ZscaleFilterGenPrimariesin? primariesin { get; set; }
 /// <summary>
 ///  set input color primaries (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenPin pin { get; set; }
+public ZscaleFilterGenPin? pin { get; set; }
 /// <summary>
 ///  set input transfer characteristic (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenTransferin transferin { get; set; }
+public ZscaleFilterGenTransferin? transferin { get; set; }
 /// <summary>
 ///  set input transfer characteristic (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenTin tin { get; set; }
+public ZscaleFilterGenTin? tin { get; set; }
 /// <summary>
 ///  set input colorspace matrix (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenMatrixin matrixin { get; set; }
+public ZscaleFilterGenMatrixin? matrixin { get; set; }
 /// <summary>
 ///  set input colorspace matrix (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGenMin min { get; set; }
+public ZscaleFilterGenMin? min { get; set; }
 /// <summary>
 ///  set output chroma location (from -1 to 5) (default input)
 /// </summary>
-public ZscaleFilterGenChromal chromal { get; set; }
+public ZscaleFilterGenChromal? chromal { get; set; }
 /// <summary>
 ///  set input chroma location (from -1 to 5) (default input)
 /// </summary>
-public ZscaleFilterGenChromalin chromalin { get; set; }
+public ZscaleFilterGenChromalin? chromalin { get; set; }
 /// <summary>
 ///  set input chroma location (from -1 to 5) (default input)
 /// </summary>
-public ZscaleFilterGenCin cin { get; set; }
+public ZscaleFilterGenCin? cin { get; set; }
 /// <summary>
 ///  set nominal peak luminance (from 0 to DBL_MAX) (default nan)
 /// </summary>
-public double npl { get; set; }
+public double? npl { get; set; }
 /// <summary>
 ///  allow approximate gamma (default true)
 /// </summary>
-public bool agamma { get; set; }
+public bool? agamma { get; set; }
 /// <summary>
 ///  parameter A, which is parameter "b" for bicubic, and the number of filter taps for lanczos (from -DBL_MAX to DBL_MAX) (default nan)
 /// </summary>
-public double param_a { get; set; }
+public double? param_a { get; set; }
 /// <summary>
 ///  parameter B, which is parameter "c" for bicubic (from -DBL_MAX to DBL_MAX) (default nan)
 /// </summary>
-public double param_b { get; set; }
+public double? param_b { get; set; }
 }
 public enum ZscaleFilterGenDither
 {

@@ -31,7 +31,7 @@ public static WeaveFilterGen WeaveFilterGen(this ImageMap input0) => new WeaveFi
 public static WeaveFilterGen WeaveFilterGen(this ImageMap input0,WeaveFilterGenConfig config)
 {
 var result = new WeaveFilterGen(input0);
-if(config?.first_field != null) result.first_field(config.first_field);
+if(config?.first_field != null) result.first_field(config.first_field.Value);
 return result;
 }
 }
@@ -40,7 +40,7 @@ public class WeaveFilterGenConfig
 /// <summary>
 ///  set first field (from 0 to 1) (default top)
 /// </summary>
-public WeaveFilterGenFirst_field first_field { get; set; }
+public WeaveFilterGenFirst_field? first_field { get; set; }
 }
 public enum WeaveFilterGenFirst_field
 {

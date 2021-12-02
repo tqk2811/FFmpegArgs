@@ -35,8 +35,8 @@ public static MaskedthresholdFilterGen MaskedthresholdFilterGen(this ImageMap in
 public static MaskedthresholdFilterGen MaskedthresholdFilterGen(this ImageMap input0, ImageMap input1,MaskedthresholdFilterGenConfig config)
 {
 var result = new MaskedthresholdFilterGen(input0, input1);
-if(config?.threshold != null) result.threshold(config.threshold);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class MaskedthresholdFilterGenConfig
 /// <summary>
 ///  set threshold (from 0 to 65535) (default 1)
 /// </summary>
-public int threshold { get; set; }
+public int? threshold { get; set; }
 /// <summary>
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

@@ -31,7 +31,7 @@ public static AsetptsFilterGen AsetptsFilterGen(this AudioMap input0) => new Ase
 public static AsetptsFilterGen AsetptsFilterGen(this AudioMap input0,AsetptsFilterGenConfig config)
 {
 var result = new AsetptsFilterGen(input0);
-if(config?.expr != null) result.expr(config.expr);
+if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
 return result;
 }
 }

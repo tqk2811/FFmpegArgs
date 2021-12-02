@@ -44,9 +44,9 @@ public static FpsFilterGen FpsFilterGen(this ImageMap input0,FpsFilterGenConfig 
 {
 var result = new FpsFilterGen(input0);
 if(config?.fps != null) result.fps(config.fps);
-if(config?.start_time != null) result.start_time(config.start_time);
-if(config?.round != null) result.round(config.round);
-if(config?.eof_action != null) result.eof_action(config.eof_action);
+if(config?.start_time != null) result.start_time(config.start_time.Value);
+if(config?.round != null) result.round(config.round.Value);
+if(config?.eof_action != null) result.eof_action(config.eof_action.Value);
 return result;
 }
 }
@@ -59,15 +59,15 @@ public Rational fps { get; set; }
 /// <summary>
 ///  Assume the first PTS should be this value. (from -DBL_MAX to DBL_MAX) (default DBL_MAX)
 /// </summary>
-public double start_time { get; set; }
+public double? start_time { get; set; }
 /// <summary>
 ///  set rounding method for timestamps (from 0 to 5) (default near)
 /// </summary>
-public FpsFilterGenRound round { get; set; }
+public FpsFilterGenRound? round { get; set; }
 /// <summary>
 ///  action performed for last frame (from 0 to 1) (default round)
 /// </summary>
-public FpsFilterGenEof_action eof_action { get; set; }
+public FpsFilterGenEof_action? eof_action { get; set; }
 }
 public enum FpsFilterGenRound
 {

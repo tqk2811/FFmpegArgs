@@ -43,10 +43,10 @@ public static Tlut2FilterGen Tlut2FilterGen(this ImageMap input0) => new Tlut2Fi
 public static Tlut2FilterGen Tlut2FilterGen(this ImageMap input0,Tlut2FilterGenConfig config)
 {
 var result = new Tlut2FilterGen(input0);
-if(config?.c0 != null) result.c0(config.c0);
-if(config?.c1 != null) result.c1(config.c1);
-if(config?.c2 != null) result.c2(config.c2);
-if(config?.c3 != null) result.c3(config.c3);
+if(!string.IsNullOrWhiteSpace(config?.c0)) result.c0(config.c0);
+if(!string.IsNullOrWhiteSpace(config?.c1)) result.c1(config.c1);
+if(!string.IsNullOrWhiteSpace(config?.c2)) result.c2(config.c2);
+if(!string.IsNullOrWhiteSpace(config?.c3)) result.c3(config.c3);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }

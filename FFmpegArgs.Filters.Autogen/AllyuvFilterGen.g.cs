@@ -40,7 +40,7 @@ public static AllyuvFilterGen AllyuvFilterGen(this FilterGraph input0,AllyuvFilt
 {
 var result = new AllyuvFilterGen(input0);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.duration != null) result.duration(config.duration);
+if(config?.duration != null) result.duration(config.duration.Value);
 if(config?.sar != null) result.sar(config.sar);
 return result;
 }
@@ -54,7 +54,7 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
 /// </summary>

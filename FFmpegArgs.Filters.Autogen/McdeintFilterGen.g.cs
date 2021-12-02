@@ -39,9 +39,9 @@ public static McdeintFilterGen McdeintFilterGen(this ImageMap input0) => new Mcd
 public static McdeintFilterGen McdeintFilterGen(this ImageMap input0,McdeintFilterGenConfig config)
 {
 var result = new McdeintFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.parity != null) result.parity(config.parity);
-if(config?.qp != null) result.qp(config.qp);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.parity != null) result.parity(config.parity.Value);
+if(config?.qp != null) result.qp(config.qp.Value);
 return result;
 }
 }
@@ -50,15 +50,15 @@ public class McdeintFilterGenConfig
 /// <summary>
 ///  set mode (from 0 to 3) (default fast)
 /// </summary>
-public McdeintFilterGenMode mode { get; set; }
+public McdeintFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set the assumed picture field parity (from -1 to 1) (default bff)
 /// </summary>
-public McdeintFilterGenParity parity { get; set; }
+public McdeintFilterGenParity? parity { get; set; }
 /// <summary>
 ///  set qp (from INT_MIN to INT_MAX) (default 1)
 /// </summary>
-public int qp { get; set; }
+public int? qp { get; set; }
 }
 public enum McdeintFilterGenMode
 {

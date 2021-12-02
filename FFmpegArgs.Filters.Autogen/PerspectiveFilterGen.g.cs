@@ -71,17 +71,17 @@ public static PerspectiveFilterGen PerspectiveFilterGen(this ImageMap input0) =>
 public static PerspectiveFilterGen PerspectiveFilterGen(this ImageMap input0,PerspectiveFilterGenConfig config)
 {
 var result = new PerspectiveFilterGen(input0);
-if(config?.x0 != null) result.x0(config.x0);
-if(config?.y0 != null) result.y0(config.y0);
-if(config?.x1 != null) result.x1(config.x1);
-if(config?.y1 != null) result.y1(config.y1);
-if(config?.x2 != null) result.x2(config.x2);
-if(config?.y2 != null) result.y2(config.y2);
-if(config?.x3 != null) result.x3(config.x3);
-if(config?.y3 != null) result.y3(config.y3);
-if(config?.interpolation != null) result.interpolation(config.interpolation);
-if(config?.sense != null) result.sense(config.sense);
-if(config?.eval != null) result.eval(config.eval);
+if(!string.IsNullOrWhiteSpace(config?.x0)) result.x0(config.x0);
+if(!string.IsNullOrWhiteSpace(config?.y0)) result.y0(config.y0);
+if(!string.IsNullOrWhiteSpace(config?.x1)) result.x1(config.x1);
+if(!string.IsNullOrWhiteSpace(config?.y1)) result.y1(config.y1);
+if(!string.IsNullOrWhiteSpace(config?.x2)) result.x2(config.x2);
+if(!string.IsNullOrWhiteSpace(config?.y2)) result.y2(config.y2);
+if(!string.IsNullOrWhiteSpace(config?.x3)) result.x3(config.x3);
+if(!string.IsNullOrWhiteSpace(config?.y3)) result.y3(config.y3);
+if(config?.interpolation != null) result.interpolation(config.interpolation.Value);
+if(config?.sense != null) result.sense(config.sense.Value);
+if(config?.eval != null) result.eval(config.eval.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -123,15 +123,15 @@ public string y3 { get; set; }
 /// <summary>
 ///  set interpolation (from 0 to 1) (default linear)
 /// </summary>
-public PerspectiveFilterGenInterpolation interpolation { get; set; }
+public PerspectiveFilterGenInterpolation? interpolation { get; set; }
 /// <summary>
 ///  specify the sense of the coordinates (from 0 to 1) (default source)
 /// </summary>
-public PerspectiveFilterGenSense sense { get; set; }
+public PerspectiveFilterGenSense? sense { get; set; }
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public PerspectiveFilterGenEval eval { get; set; }
+public PerspectiveFilterGenEval? eval { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum PerspectiveFilterGenInterpolation

@@ -51,12 +51,12 @@ public static Deshake_openclFilterGen Deshake_openclFilterGen(this ImageMap inpu
 public static Deshake_openclFilterGen Deshake_openclFilterGen(this ImageMap input0,Deshake_openclFilterGenConfig config)
 {
 var result = new Deshake_openclFilterGen(input0);
-if(config?.tripod != null) result.tripod(config.tripod);
-if(config?.debug != null) result.debug(config.debug);
-if(config?.adaptive_crop != null) result.adaptive_crop(config.adaptive_crop);
-if(config?.refine_features != null) result.refine_features(config.refine_features);
-if(config?.smooth_strength != null) result.smooth_strength(config.smooth_strength);
-if(config?.smooth_window_multiplier != null) result.smooth_window_multiplier(config.smooth_window_multiplier);
+if(config?.tripod != null) result.tripod(config.tripod.Value);
+if(config?.debug != null) result.debug(config.debug.Value);
+if(config?.adaptive_crop != null) result.adaptive_crop(config.adaptive_crop.Value);
+if(config?.refine_features != null) result.refine_features(config.refine_features.Value);
+if(config?.smooth_strength != null) result.smooth_strength(config.smooth_strength.Value);
+if(config?.smooth_window_multiplier != null) result.smooth_window_multiplier(config.smooth_window_multiplier.Value);
 return result;
 }
 }
@@ -65,26 +65,26 @@ public class Deshake_openclFilterGenConfig
 /// <summary>
 ///  simulates a tripod by preventing any camera movement whatsoever from the original frame (default false)
 /// </summary>
-public bool tripod { get; set; }
+public bool? tripod { get; set; }
 /// <summary>
 ///  turn on additional debugging information (default false)
 /// </summary>
-public bool debug { get; set; }
+public bool? debug { get; set; }
 /// <summary>
 ///  attempt to subtly crop borders to reduce mirrored content (default true)
 /// </summary>
-public bool adaptive_crop { get; set; }
+public bool? adaptive_crop { get; set; }
 /// <summary>
 ///  refine feature point locations at a sub-pixel level (default true)
 /// </summary>
-public bool refine_features { get; set; }
+public bool? refine_features { get; set; }
 /// <summary>
 ///  smoothing strength (0 attempts to adaptively determine optimal strength) (from 0 to 1) (default 0)
 /// </summary>
-public float smooth_strength { get; set; }
+public float? smooth_strength { get; set; }
 /// <summary>
 ///  multiplier for number of frames to buffer for motion data (from 0.1 to 10) (default 2)
 /// </summary>
-public float smooth_window_multiplier { get; set; }
+public float? smooth_window_multiplier { get; set; }
 }
 }

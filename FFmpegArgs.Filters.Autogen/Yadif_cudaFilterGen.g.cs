@@ -39,9 +39,9 @@ public static Yadif_cudaFilterGen Yadif_cudaFilterGen(this ImageMap input0) => n
 public static Yadif_cudaFilterGen Yadif_cudaFilterGen(this ImageMap input0,Yadif_cudaFilterGenConfig config)
 {
 var result = new Yadif_cudaFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.parity != null) result.parity(config.parity);
-if(config?.deint != null) result.deint(config.deint);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.parity != null) result.parity(config.parity.Value);
+if(config?.deint != null) result.deint(config.deint.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class Yadif_cudaFilterGenConfig
 /// <summary>
 ///  specify the interlacing mode (from 0 to 3) (default send_frame)
 /// </summary>
-public Yadif_cudaFilterGenMode mode { get; set; }
+public Yadif_cudaFilterGenMode? mode { get; set; }
 /// <summary>
 ///  specify the assumed picture field parity (from -1 to 1) (default auto)
 /// </summary>
-public Yadif_cudaFilterGenParity parity { get; set; }
+public Yadif_cudaFilterGenParity? parity { get; set; }
 /// <summary>
 ///  specify which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
-public Yadif_cudaFilterGenDeint deint { get; set; }
+public Yadif_cudaFilterGenDeint? deint { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum Yadif_cudaFilterGenMode

@@ -31,7 +31,7 @@ public static PanFilterGen PanFilterGen(this AudioMap input0) => new PanFilterGe
 public static PanFilterGen PanFilterGen(this AudioMap input0,PanFilterGenConfig config)
 {
 var result = new PanFilterGen(input0);
-if(config?.args != null) result.args(config.args);
+if(!string.IsNullOrWhiteSpace(config?.args)) result.args(config.args);
 return result;
 }
 }

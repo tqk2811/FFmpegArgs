@@ -35,8 +35,8 @@ public static AsetrateFilterGen AsetrateFilterGen(this AudioMap input0) => new A
 public static AsetrateFilterGen AsetrateFilterGen(this AudioMap input0,AsetrateFilterGenConfig config)
 {
 var result = new AsetrateFilterGen(input0);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.r != null) result.r(config.r);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
+if(config?.r != null) result.r(config.r.Value);
 return result;
 }
 }
@@ -45,10 +45,10 @@ public class AsetrateFilterGenConfig
 /// <summary>
 ///  set the sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int sample_rate { get; set; }
+public int? sample_rate { get; set; }
 /// <summary>
 ///  set the sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int r { get; set; }
+public int? r { get; set; }
 }
 }

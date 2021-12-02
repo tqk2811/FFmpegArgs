@@ -47,11 +47,11 @@ public static DerainFilterGen DerainFilterGen(this ImageMap input0) => new Derai
 public static DerainFilterGen DerainFilterGen(this ImageMap input0,DerainFilterGenConfig config)
 {
 var result = new DerainFilterGen(input0);
-if(config?.filter_type != null) result.filter_type(config.filter_type);
-if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend);
-if(config?.model != null) result.model(config.model);
-if(config?.input != null) result.input(config.input);
-if(config?.output != null) result.output(config.output);
+if(config?.filter_type != null) result.filter_type(config.filter_type.Value);
+if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend.Value);
+if(!string.IsNullOrWhiteSpace(config?.model)) result.model(config.model);
+if(!string.IsNullOrWhiteSpace(config?.input)) result.input(config.input);
+if(!string.IsNullOrWhiteSpace(config?.output)) result.output(config.output);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -61,11 +61,11 @@ public class DerainFilterGenConfig
 /// <summary>
 ///  filter type(derain/dehaze) (from 0 to 1) (default derain)
 /// </summary>
-public DerainFilterGenFilter_type filter_type { get; set; }
+public DerainFilterGenFilter_type? filter_type { get; set; }
 /// <summary>
 ///  DNN backend (from 0 to 1) (default native)
 /// </summary>
-public DerainFilterGenDnn_backend dnn_backend { get; set; }
+public DerainFilterGenDnn_backend? dnn_backend { get; set; }
 /// <summary>
 ///  path to model file
 /// </summary>

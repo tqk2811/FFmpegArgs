@@ -55,13 +55,13 @@ public static TileFilterGen TileFilterGen(this ImageMap input0) => new TileFilte
 public static TileFilterGen TileFilterGen(this ImageMap input0,TileFilterGenConfig config)
 {
 var result = new TileFilterGen(input0);
-if(config?.layout != null) result.layout(config.layout);
-if(config?.nb_frames != null) result.nb_frames(config.nb_frames);
-if(config?.margin != null) result.margin(config.margin);
-if(config?.padding != null) result.padding(config.padding);
-if(config?.color != null) result.color(config.color);
-if(config?.overlap != null) result.overlap(config.overlap);
-if(config?.init_padding != null) result.init_padding(config.init_padding);
+if(config?.layout != null) result.layout(config.layout.Value);
+if(config?.nb_frames != null) result.nb_frames(config.nb_frames.Value);
+if(config?.margin != null) result.margin(config.margin.Value);
+if(config?.padding != null) result.padding(config.padding.Value);
+if(config?.color != null) result.color(config.color.Value);
+if(config?.overlap != null) result.overlap(config.overlap.Value);
+if(config?.init_padding != null) result.init_padding(config.init_padding.Value);
 return result;
 }
 }
@@ -70,30 +70,30 @@ public class TileFilterGenConfig
 /// <summary>
 ///  set grid size (default "6x5")
 /// </summary>
-public Size layout { get; set; }
+public Size? layout { get; set; }
 /// <summary>
 ///  set maximum number of frame to render (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int nb_frames { get; set; }
+public int? nb_frames { get; set; }
 /// <summary>
 ///  set outer border margin in pixels (from 0 to 1024) (default 0)
 /// </summary>
-public int margin { get; set; }
+public int? margin { get; set; }
 /// <summary>
 ///  set inner border thickness in pixels (from 0 to 1024) (default 0)
 /// </summary>
-public int padding { get; set; }
+public int? padding { get; set; }
 /// <summary>
 ///  set the color of the unused area (default "black")
 /// </summary>
-public Color color { get; set; }
+public Color? color { get; set; }
 /// <summary>
 ///  set how many frames to overlap for each render (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int overlap { get; set; }
+public int? overlap { get; set; }
 /// <summary>
 ///  set how many frames to initially pad (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int init_padding { get; set; }
+public int? init_padding { get; set; }
 }
 }

@@ -79,19 +79,19 @@ public static HaasFilterGen HaasFilterGen(this AudioMap input0) => new HaasFilte
 public static HaasFilterGen HaasFilterGen(this AudioMap input0,HaasFilterGenConfig config)
 {
 var result = new HaasFilterGen(input0);
-if(config?.level_in != null) result.level_in(config.level_in);
-if(config?.level_out != null) result.level_out(config.level_out);
-if(config?.side_gain != null) result.side_gain(config.side_gain);
-if(config?.middle_source != null) result.middle_source(config.middle_source);
-if(config?.middle_phase != null) result.middle_phase(config.middle_phase);
-if(config?.left_delay != null) result.left_delay(config.left_delay);
-if(config?.left_balance != null) result.left_balance(config.left_balance);
-if(config?.left_gain != null) result.left_gain(config.left_gain);
-if(config?.left_phase != null) result.left_phase(config.left_phase);
-if(config?.right_delay != null) result.right_delay(config.right_delay);
-if(config?.right_balance != null) result.right_balance(config.right_balance);
-if(config?.right_gain != null) result.right_gain(config.right_gain);
-if(config?.right_phase != null) result.right_phase(config.right_phase);
+if(config?.level_in != null) result.level_in(config.level_in.Value);
+if(config?.level_out != null) result.level_out(config.level_out.Value);
+if(config?.side_gain != null) result.side_gain(config.side_gain.Value);
+if(config?.middle_source != null) result.middle_source(config.middle_source.Value);
+if(config?.middle_phase != null) result.middle_phase(config.middle_phase.Value);
+if(config?.left_delay != null) result.left_delay(config.left_delay.Value);
+if(config?.left_balance != null) result.left_balance(config.left_balance.Value);
+if(config?.left_gain != null) result.left_gain(config.left_gain.Value);
+if(config?.left_phase != null) result.left_phase(config.left_phase.Value);
+if(config?.right_delay != null) result.right_delay(config.right_delay.Value);
+if(config?.right_balance != null) result.right_balance(config.right_balance.Value);
+if(config?.right_gain != null) result.right_gain(config.right_gain.Value);
+if(config?.right_phase != null) result.right_phase(config.right_phase.Value);
 return result;
 }
 }
@@ -100,55 +100,55 @@ public class HaasFilterGenConfig
 /// <summary>
 ///  set level in (from 0.015625 to 64) (default 1)
 /// </summary>
-public double level_in { get; set; }
+public double? level_in { get; set; }
 /// <summary>
 ///  set level out (from 0.015625 to 64) (default 1)
 /// </summary>
-public double level_out { get; set; }
+public double? level_out { get; set; }
 /// <summary>
 ///  set side gain (from 0.015625 to 64) (default 1)
 /// </summary>
-public double side_gain { get; set; }
+public double? side_gain { get; set; }
 /// <summary>
 ///  set middle source (from 0 to 3) (default mid)
 /// </summary>
-public HaasFilterGenMiddle_source middle_source { get; set; }
+public HaasFilterGenMiddle_source? middle_source { get; set; }
 /// <summary>
 ///  set middle phase (default false)
 /// </summary>
-public bool middle_phase { get; set; }
+public bool? middle_phase { get; set; }
 /// <summary>
 ///  set left delay (from 0 to 40) (default 2.05)
 /// </summary>
-public double left_delay { get; set; }
+public double? left_delay { get; set; }
 /// <summary>
 ///  set left balance (from -1 to 1) (default -1)
 /// </summary>
-public double left_balance { get; set; }
+public double? left_balance { get; set; }
 /// <summary>
 ///  set left gain (from 0.015625 to 64) (default 1)
 /// </summary>
-public double left_gain { get; set; }
+public double? left_gain { get; set; }
 /// <summary>
 ///  set left phase (default false)
 /// </summary>
-public bool left_phase { get; set; }
+public bool? left_phase { get; set; }
 /// <summary>
 ///  set right delay (from 0 to 40) (default 2.12)
 /// </summary>
-public double right_delay { get; set; }
+public double? right_delay { get; set; }
 /// <summary>
 ///  set right balance (from -1 to 1) (default 1)
 /// </summary>
-public double right_balance { get; set; }
+public double? right_balance { get; set; }
 /// <summary>
 ///  set right gain (from 0.015625 to 64) (default 1)
 /// </summary>
-public double right_gain { get; set; }
+public double? right_gain { get; set; }
 /// <summary>
 ///  set right phase (default true)
 /// </summary>
-public bool right_phase { get; set; }
+public bool? right_phase { get; set; }
 }
 public enum HaasFilterGenMiddle_source
 {

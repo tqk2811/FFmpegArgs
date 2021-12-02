@@ -107,26 +107,26 @@ public static StereotoolsFilterGen StereotoolsFilterGen(this AudioMap input0) =>
 public static StereotoolsFilterGen StereotoolsFilterGen(this AudioMap input0,StereotoolsFilterGenConfig config)
 {
 var result = new StereotoolsFilterGen(input0);
-if(config?.level_in != null) result.level_in(config.level_in);
-if(config?.level_out != null) result.level_out(config.level_out);
-if(config?.balance_in != null) result.balance_in(config.balance_in);
-if(config?.balance_out != null) result.balance_out(config.balance_out);
-if(config?.softclip != null) result.softclip(config.softclip);
-if(config?.mutel != null) result.mutel(config.mutel);
-if(config?.muter != null) result.muter(config.muter);
-if(config?.phasel != null) result.phasel(config.phasel);
-if(config?.phaser != null) result.phaser(config.phaser);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.slev != null) result.slev(config.slev);
-if(config?.sbal != null) result.sbal(config.sbal);
-if(config?.mlev != null) result.mlev(config.mlev);
-if(config?.mpan != null) result.mpan(config.mpan);
-if(config?._base != null) result._base(config._base);
-if(config?.delay != null) result.delay(config.delay);
-if(config?.sclevel != null) result.sclevel(config.sclevel);
-if(config?.phase != null) result.phase(config.phase);
-if(config?.bmode_in != null) result.bmode_in(config.bmode_in);
-if(config?.bmode_out != null) result.bmode_out(config.bmode_out);
+if(config?.level_in != null) result.level_in(config.level_in.Value);
+if(config?.level_out != null) result.level_out(config.level_out.Value);
+if(config?.balance_in != null) result.balance_in(config.balance_in.Value);
+if(config?.balance_out != null) result.balance_out(config.balance_out.Value);
+if(config?.softclip != null) result.softclip(config.softclip.Value);
+if(config?.mutel != null) result.mutel(config.mutel.Value);
+if(config?.muter != null) result.muter(config.muter.Value);
+if(config?.phasel != null) result.phasel(config.phasel.Value);
+if(config?.phaser != null) result.phaser(config.phaser.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.slev != null) result.slev(config.slev.Value);
+if(config?.sbal != null) result.sbal(config.sbal.Value);
+if(config?.mlev != null) result.mlev(config.mlev.Value);
+if(config?.mpan != null) result.mpan(config.mpan.Value);
+if(config?._base != null) result._base(config._base.Value);
+if(config?.delay != null) result.delay(config.delay.Value);
+if(config?.sclevel != null) result.sclevel(config.sclevel.Value);
+if(config?.phase != null) result.phase(config.phase.Value);
+if(config?.bmode_in != null) result.bmode_in(config.bmode_in.Value);
+if(config?.bmode_out != null) result.bmode_out(config.bmode_out.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -136,83 +136,83 @@ public class StereotoolsFilterGenConfig
 /// <summary>
 ///  set level in (from 0.015625 to 64) (default 1)
 /// </summary>
-public double level_in { get; set; }
+public double? level_in { get; set; }
 /// <summary>
 ///  set level out (from 0.015625 to 64) (default 1)
 /// </summary>
-public double level_out { get; set; }
+public double? level_out { get; set; }
 /// <summary>
 ///  set balance in (from -1 to 1) (default 0)
 /// </summary>
-public double balance_in { get; set; }
+public double? balance_in { get; set; }
 /// <summary>
 ///  set balance out (from -1 to 1) (default 0)
 /// </summary>
-public double balance_out { get; set; }
+public double? balance_out { get; set; }
 /// <summary>
 ///  enable softclip (default false)
 /// </summary>
-public bool softclip { get; set; }
+public bool? softclip { get; set; }
 /// <summary>
 ///  mute L (default false)
 /// </summary>
-public bool mutel { get; set; }
+public bool? mutel { get; set; }
 /// <summary>
 ///  mute R (default false)
 /// </summary>
-public bool muter { get; set; }
+public bool? muter { get; set; }
 /// <summary>
 ///  phase L (default false)
 /// </summary>
-public bool phasel { get; set; }
+public bool? phasel { get; set; }
 /// <summary>
 ///  phase R (default false)
 /// </summary>
-public bool phaser { get; set; }
+public bool? phaser { get; set; }
 /// <summary>
 ///  set stereo mode (from 0 to 10) (default lr>lr)
 /// </summary>
-public StereotoolsFilterGenMode mode { get; set; }
+public StereotoolsFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set side level (from 0.015625 to 64) (default 1)
 /// </summary>
-public double slev { get; set; }
+public double? slev { get; set; }
 /// <summary>
 ///  set side balance (from -1 to 1) (default 0)
 /// </summary>
-public double sbal { get; set; }
+public double? sbal { get; set; }
 /// <summary>
 ///  set middle level (from 0.015625 to 64) (default 1)
 /// </summary>
-public double mlev { get; set; }
+public double? mlev { get; set; }
 /// <summary>
 ///  set middle pan (from -1 to 1) (default 0)
 /// </summary>
-public double mpan { get; set; }
+public double? mpan { get; set; }
 /// <summary>
 ///  set stereo base (from -1 to 1) (default 0)
 /// </summary>
-public double _base { get; set; }
+public double? _base { get; set; }
 /// <summary>
 ///  set delay (from -20 to 20) (default 0)
 /// </summary>
-public double delay { get; set; }
+public double? delay { get; set; }
 /// <summary>
 ///  set S/C level (from 1 to 100) (default 1)
 /// </summary>
-public double sclevel { get; set; }
+public double? sclevel { get; set; }
 /// <summary>
 ///  set stereo phase (from 0 to 360) (default 0)
 /// </summary>
-public double phase { get; set; }
+public double? phase { get; set; }
 /// <summary>
 ///  set balance in mode (from 0 to 2) (default balance)
 /// </summary>
-public StereotoolsFilterGenBmode_in bmode_in { get; set; }
+public StereotoolsFilterGenBmode_in? bmode_in { get; set; }
 /// <summary>
 ///  set balance out mode (from 0 to 2) (default balance)
 /// </summary>
-public StereotoolsFilterGenBmode_out bmode_out { get; set; }
+public StereotoolsFilterGenBmode_out? bmode_out { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum StereotoolsFilterGenMode

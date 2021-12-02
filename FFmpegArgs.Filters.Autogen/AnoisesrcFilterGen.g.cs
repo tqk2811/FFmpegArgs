@@ -63,15 +63,15 @@ public static AnoisesrcFilterGen AnoisesrcFilterGen(this FilterGraph input0) => 
 public static AnoisesrcFilterGen AnoisesrcFilterGen(this FilterGraph input0,AnoisesrcFilterGenConfig config)
 {
 var result = new AnoisesrcFilterGen(input0);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.r != null) result.r(config.r);
-if(config?.amplitude != null) result.amplitude(config.amplitude);
-if(config?.duration != null) result.duration(config.duration);
-if(config?.color != null) result.color(config.color);
-if(config?.colour != null) result.colour(config.colour);
-if(config?.c != null) result.c(config.c);
-if(config?.seed != null) result.seed(config.seed);
-if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
+if(config?.r != null) result.r(config.r.Value);
+if(config?.amplitude != null) result.amplitude(config.amplitude.Value);
+if(config?.duration != null) result.duration(config.duration.Value);
+if(config?.color != null) result.color(config.color.Value);
+if(config?.colour != null) result.colour(config.colour.Value);
+if(config?.c != null) result.c(config.c.Value);
+if(config?.seed != null) result.seed(config.seed.Value);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples.Value);
 return result;
 }
 }
@@ -80,39 +80,39 @@ public class AnoisesrcFilterGenConfig
 /// <summary>
 ///  set sample rate (from 15 to INT_MAX) (default 48000)
 /// </summary>
-public int sample_rate { get; set; }
+public int? sample_rate { get; set; }
 /// <summary>
 ///  set sample rate (from 15 to INT_MAX) (default 48000)
 /// </summary>
-public int r { get; set; }
+public int? r { get; set; }
 /// <summary>
 ///  set amplitude (from 0 to 1) (default 1)
 /// </summary>
-public double amplitude { get; set; }
+public double? amplitude { get; set; }
 /// <summary>
 ///  set duration (default 0)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
-public AnoisesrcFilterGenColor color { get; set; }
+public AnoisesrcFilterGenColor? color { get; set; }
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
-public AnoisesrcFilterGenColour colour { get; set; }
+public AnoisesrcFilterGenColour? colour { get; set; }
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
-public AnoisesrcFilterGenC c { get; set; }
+public AnoisesrcFilterGenC? c { get; set; }
 /// <summary>
 ///  set random seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 /// <summary>
 ///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
 /// </summary>
-public int nb_samples { get; set; }
+public int? nb_samples { get; set; }
 }
 public enum AnoisesrcFilterGenColor
 {

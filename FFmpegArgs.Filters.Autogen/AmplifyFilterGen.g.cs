@@ -55,13 +55,13 @@ public static AmplifyFilterGen AmplifyFilterGen(this ImageMap input0) => new Amp
 public static AmplifyFilterGen AmplifyFilterGen(this ImageMap input0,AmplifyFilterGenConfig config)
 {
 var result = new AmplifyFilterGen(input0);
-if(config?.radius != null) result.radius(config.radius);
-if(config?.factor != null) result.factor(config.factor);
-if(config?.threshold != null) result.threshold(config.threshold);
-if(config?.tolerance != null) result.tolerance(config.tolerance);
-if(config?.low != null) result.low(config.low);
-if(config?.high != null) result.high(config.high);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.radius != null) result.radius(config.radius.Value);
+if(config?.factor != null) result.factor(config.factor.Value);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
+if(config?.tolerance != null) result.tolerance(config.tolerance.Value);
+if(config?.low != null) result.low(config.low.Value);
+if(config?.high != null) result.high(config.high.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -71,31 +71,31 @@ public class AmplifyFilterGenConfig
 /// <summary>
 ///  set radius (from 1 to 63) (default 2)
 /// </summary>
-public int radius { get; set; }
+public int? radius { get; set; }
 /// <summary>
 ///  set factor (from 0 to 65535) (default 2)
 /// </summary>
-public float factor { get; set; }
+public float? factor { get; set; }
 /// <summary>
 ///  set threshold (from 0 to 65535) (default 10)
 /// </summary>
-public float threshold { get; set; }
+public float? threshold { get; set; }
 /// <summary>
 ///  set tolerance (from 0 to 65535) (default 0)
 /// </summary>
-public float tolerance { get; set; }
+public float? tolerance { get; set; }
 /// <summary>
 ///  set low limit for amplification (from 0 to 65535) (default 65535)
 /// </summary>
-public int low { get; set; }
+public int? low { get; set; }
 /// <summary>
 ///  set high limit for amplification (from 0 to 65535) (default 65535)
 /// </summary>
-public int high { get; set; }
+public int? high { get; set; }
 /// <summary>
 ///  set what planes to filter (default 7)
 /// </summary>
-public AmplifyFilterGenPlanes planes { get; set; }
+public AmplifyFilterGenPlanes? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum AmplifyFilterGenPlanes

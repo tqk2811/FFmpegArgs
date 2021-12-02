@@ -43,10 +43,10 @@ public static PsnrFilterGen PsnrFilterGen(this ImageMap input0, ImageMap input1)
 public static PsnrFilterGen PsnrFilterGen(this ImageMap input0, ImageMap input1,PsnrFilterGenConfig config)
 {
 var result = new PsnrFilterGen(input0, input1);
-if(config?.stats_file != null) result.stats_file(config.stats_file);
-if(config?.f != null) result.f(config.f);
-if(config?.stats_version != null) result.stats_version(config.stats_version);
-if(config?.output_max != null) result.output_max(config.output_max);
+if(!string.IsNullOrWhiteSpace(config?.stats_file)) result.stats_file(config.stats_file);
+if(!string.IsNullOrWhiteSpace(config?.f)) result.f(config.f);
+if(config?.stats_version != null) result.stats_version(config.stats_version.Value);
+if(config?.output_max != null) result.output_max(config.output_max.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -64,11 +64,11 @@ public string f { get; set; }
 /// <summary>
 ///  Set the format version for the stats file. (from 1 to 2) (default 1)
 /// </summary>
-public int stats_version { get; set; }
+public int? stats_version { get; set; }
 /// <summary>
 ///  Add raw stats (max values) to the output log. (default false)
 /// </summary>
-public bool output_max { get; set; }
+public bool? output_max { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

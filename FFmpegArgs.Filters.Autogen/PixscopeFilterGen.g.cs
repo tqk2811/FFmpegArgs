@@ -55,13 +55,13 @@ public static PixscopeFilterGen PixscopeFilterGen(this ImageMap input0) => new P
 public static PixscopeFilterGen PixscopeFilterGen(this ImageMap input0,PixscopeFilterGenConfig config)
 {
 var result = new PixscopeFilterGen(input0);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.w != null) result.w(config.w);
-if(config?.h != null) result.h(config.h);
-if(config?.o != null) result.o(config.o);
-if(config?.wx != null) result.wx(config.wx);
-if(config?.wy != null) result.wy(config.wy);
+if(config?.x != null) result.x(config.x.Value);
+if(config?.y != null) result.y(config.y.Value);
+if(config?.w != null) result.w(config.w.Value);
+if(config?.h != null) result.h(config.h.Value);
+if(config?.o != null) result.o(config.o.Value);
+if(config?.wx != null) result.wx(config.wx.Value);
+if(config?.wy != null) result.wy(config.wy.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -71,31 +71,31 @@ public class PixscopeFilterGenConfig
 /// <summary>
 ///  set scope x offset (from 0 to 1) (default 0.5)
 /// </summary>
-public float x { get; set; }
+public float? x { get; set; }
 /// <summary>
 ///  set scope y offset (from 0 to 1) (default 0.5)
 /// </summary>
-public float y { get; set; }
+public float? y { get; set; }
 /// <summary>
 ///  set scope width (from 1 to 80) (default 7)
 /// </summary>
-public int w { get; set; }
+public int? w { get; set; }
 /// <summary>
 ///  set scope height (from 1 to 80) (default 7)
 /// </summary>
-public int h { get; set; }
+public int? h { get; set; }
 /// <summary>
 ///  set window opacity (from 0 to 1) (default 0.5)
 /// </summary>
-public float o { get; set; }
+public float? o { get; set; }
 /// <summary>
 ///  set window x offset (from -1 to 1) (default -1)
 /// </summary>
-public float wx { get; set; }
+public float? wx { get; set; }
 /// <summary>
 ///  set window y offset (from -1 to 1) (default -1)
 /// </summary>
-public float wy { get; set; }
+public float? wy { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

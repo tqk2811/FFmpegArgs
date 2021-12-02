@@ -43,10 +43,10 @@ public static GblurFilterGen GblurFilterGen(this ImageMap input0) => new GblurFi
 public static GblurFilterGen GblurFilterGen(this ImageMap input0,GblurFilterGenConfig config)
 {
 var result = new GblurFilterGen(input0);
-if(config?.sigma != null) result.sigma(config.sigma);
-if(config?.steps != null) result.steps(config.steps);
-if(config?.planes != null) result.planes(config.planes);
-if(config?.sigmaV != null) result.sigmaV(config.sigmaV);
+if(config?.sigma != null) result.sigma(config.sigma.Value);
+if(config?.steps != null) result.steps(config.steps.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
+if(config?.sigmaV != null) result.sigmaV(config.sigmaV.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class GblurFilterGenConfig
 /// <summary>
 ///  set sigma (from 0 to 1024) (default 0.5)
 /// </summary>
-public float sigma { get; set; }
+public float? sigma { get; set; }
 /// <summary>
 ///  set number of steps (from 1 to 6) (default 1)
 /// </summary>
-public int steps { get; set; }
+public int? steps { get; set; }
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 /// <summary>
 ///  set vertical sigma (from -1 to 1024) (default -1)
 /// </summary>
-public float sigmaV { get; set; }
+public float? sigmaV { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

@@ -99,24 +99,24 @@ public static ScaleFilterGen ScaleFilterGen(this ImageMap input0) => new ScaleFi
 public static ScaleFilterGen ScaleFilterGen(this ImageMap input0,ScaleFilterGenConfig config)
 {
 var result = new ScaleFilterGen(input0);
-if(config?.width != null) result.width(config.width);
-if(config?.height != null) result.height(config.height);
-if(config?.flags != null) result.flags(config.flags);
-if(config?.interl != null) result.interl(config.interl);
-if(config?.in_color_matrix != null) result.in_color_matrix(config.in_color_matrix);
-if(config?.out_color_matrix != null) result.out_color_matrix(config.out_color_matrix);
-if(config?.in_range != null) result.in_range(config.in_range);
-if(config?.out_range != null) result.out_range(config.out_range);
-if(config?.in_v_chr_pos != null) result.in_v_chr_pos(config.in_v_chr_pos);
-if(config?.in_h_chr_pos != null) result.in_h_chr_pos(config.in_h_chr_pos);
-if(config?.out_v_chr_pos != null) result.out_v_chr_pos(config.out_v_chr_pos);
-if(config?.out_h_chr_pos != null) result.out_h_chr_pos(config.out_h_chr_pos);
-if(config?.force_original_aspect_ratio != null) result.force_original_aspect_ratio(config.force_original_aspect_ratio);
-if(config?.force_divisible_by != null) result.force_divisible_by(config.force_divisible_by);
-if(config?.param0 != null) result.param0(config.param0);
-if(config?.param1 != null) result.param1(config.param1);
-if(config?.nb_slices != null) result.nb_slices(config.nb_slices);
-if(config?.eval != null) result.eval(config.eval);
+if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
+if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
+if(!string.IsNullOrWhiteSpace(config?.flags)) result.flags(config.flags);
+if(config?.interl != null) result.interl(config.interl.Value);
+if(!string.IsNullOrWhiteSpace(config?.in_color_matrix)) result.in_color_matrix(config.in_color_matrix);
+if(!string.IsNullOrWhiteSpace(config?.out_color_matrix)) result.out_color_matrix(config.out_color_matrix);
+if(config?.in_range != null) result.in_range(config.in_range.Value);
+if(config?.out_range != null) result.out_range(config.out_range.Value);
+if(config?.in_v_chr_pos != null) result.in_v_chr_pos(config.in_v_chr_pos.Value);
+if(config?.in_h_chr_pos != null) result.in_h_chr_pos(config.in_h_chr_pos.Value);
+if(config?.out_v_chr_pos != null) result.out_v_chr_pos(config.out_v_chr_pos.Value);
+if(config?.out_h_chr_pos != null) result.out_h_chr_pos(config.out_h_chr_pos.Value);
+if(config?.force_original_aspect_ratio != null) result.force_original_aspect_ratio(config.force_original_aspect_ratio.Value);
+if(config?.force_divisible_by != null) result.force_divisible_by(config.force_divisible_by.Value);
+if(config?.param0 != null) result.param0(config.param0.Value);
+if(config?.param1 != null) result.param1(config.param1.Value);
+if(config?.nb_slices != null) result.nb_slices(config.nb_slices.Value);
+if(config?.eval != null) result.eval(config.eval.Value);
 return result;
 }
 }
@@ -137,7 +137,7 @@ public string flags { get; set; }
 /// <summary>
 ///  set interlacing (default false)
 /// </summary>
-public bool interl { get; set; }
+public bool? interl { get; set; }
 /// <summary>
 ///  set input YCbCr type (default "auto")
 /// </summary>
@@ -149,51 +149,51 @@ public string out_color_matrix { get; set; }
 /// <summary>
 ///  set input color range (from 0 to 2) (default auto)
 /// </summary>
-public ScaleFilterGenIn_range in_range { get; set; }
+public ScaleFilterGenIn_range? in_range { get; set; }
 /// <summary>
 ///  set output color range (from 0 to 2) (default auto)
 /// </summary>
-public ScaleFilterGenOut_range out_range { get; set; }
+public ScaleFilterGenOut_range? out_range { get; set; }
 /// <summary>
 ///  input vertical chroma position in luma grid/256 (from -513 to 512) (default -513)
 /// </summary>
-public int in_v_chr_pos { get; set; }
+public int? in_v_chr_pos { get; set; }
 /// <summary>
 ///  input horizontal chroma position in luma grid/256 (from -513 to 512) (default -513)
 /// </summary>
-public int in_h_chr_pos { get; set; }
+public int? in_h_chr_pos { get; set; }
 /// <summary>
 ///  output vertical chroma position in luma grid/256 (from -513 to 512) (default -513)
 /// </summary>
-public int out_v_chr_pos { get; set; }
+public int? out_v_chr_pos { get; set; }
 /// <summary>
 ///  output horizontal chroma position in luma grid/256 (from -513 to 512) (default -513)
 /// </summary>
-public int out_h_chr_pos { get; set; }
+public int? out_h_chr_pos { get; set; }
 /// <summary>
 ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
 /// </summary>
-public ScaleFilterGenForce_original_aspect_ratio force_original_aspect_ratio { get; set; }
+public ScaleFilterGenForce_original_aspect_ratio? force_original_aspect_ratio { get; set; }
 /// <summary>
 ///  enforce that the output resolution is divisible by a defined integer when force_original_aspect_ratio is used (from 1 to 256) (default 1)
 /// </summary>
-public int force_divisible_by { get; set; }
+public int? force_divisible_by { get; set; }
 /// <summary>
 ///  Scaler param 0 (from INT_MIN to INT_MAX) (default 123456)
 /// </summary>
-public double param0 { get; set; }
+public double? param0 { get; set; }
 /// <summary>
 ///  Scaler param 1 (from INT_MIN to INT_MAX) (default 123456)
 /// </summary>
-public double param1 { get; set; }
+public double? param1 { get; set; }
 /// <summary>
 ///  set the number of slices (debug purpose only) (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int nb_slices { get; set; }
+public int? nb_slices { get; set; }
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public ScaleFilterGenEval eval { get; set; }
+public ScaleFilterGenEval? eval { get; set; }
 }
 public enum ScaleFilterGenIn_range
 {

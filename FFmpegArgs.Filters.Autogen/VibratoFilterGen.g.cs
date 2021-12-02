@@ -35,8 +35,8 @@ public static VibratoFilterGen VibratoFilterGen(this AudioMap input0) => new Vib
 public static VibratoFilterGen VibratoFilterGen(this AudioMap input0,VibratoFilterGenConfig config)
 {
 var result = new VibratoFilterGen(input0);
-if(config?.f != null) result.f(config.f);
-if(config?.d != null) result.d(config.d);
+if(config?.f != null) result.f(config.f.Value);
+if(config?.d != null) result.d(config.d.Value);
 return result;
 }
 }
@@ -45,10 +45,10 @@ public class VibratoFilterGenConfig
 /// <summary>
 ///  set frequency in hertz (from 0.1 to 20000) (default 5)
 /// </summary>
-public double f { get; set; }
+public double? f { get; set; }
 /// <summary>
 ///  set depth as percentage (from 0 to 1) (default 0.5)
 /// </summary>
-public double d { get; set; }
+public double? d { get; set; }
 }
 }

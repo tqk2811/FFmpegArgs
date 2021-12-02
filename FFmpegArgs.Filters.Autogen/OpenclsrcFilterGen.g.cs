@@ -47,10 +47,10 @@ public static OpenclsrcFilterGen OpenclsrcFilterGen(this FilterGraph input0) => 
 public static OpenclsrcFilterGen OpenclsrcFilterGen(this FilterGraph input0,OpenclsrcFilterGenConfig config)
 {
 var result = new OpenclsrcFilterGen(input0);
-if(config?.source != null) result.source(config.source);
-if(config?.kernel != null) result.kernel(config.kernel);
-if(config?.size != null) result.size(config.size);
-if(config?.format != null) result.format(config.format);
+if(!string.IsNullOrWhiteSpace(config?.source)) result.source(config.source);
+if(!string.IsNullOrWhiteSpace(config?.kernel)) result.kernel(config.kernel);
+if(config?.size != null) result.size(config.size.Value);
+if(config?.format != null) result.format(config.format.Value);
 if(config?.rate != null) result.rate(config.rate);
 return result;
 }
@@ -68,11 +68,11 @@ public string kernel { get; set; }
 /// <summary>
 ///  Video size
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  Video format (default none)
 /// </summary>
-public PixFmt format { get; set; }
+public PixFmt? format { get; set; }
 /// <summary>
 ///  Video frame rate (default "25")
 /// </summary>

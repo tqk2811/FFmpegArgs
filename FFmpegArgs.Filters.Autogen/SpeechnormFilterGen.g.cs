@@ -67,16 +67,16 @@ public static SpeechnormFilterGen SpeechnormFilterGen(this AudioMap input0) => n
 public static SpeechnormFilterGen SpeechnormFilterGen(this AudioMap input0,SpeechnormFilterGenConfig config)
 {
 var result = new SpeechnormFilterGen(input0);
-if(config?.peak != null) result.peak(config.peak);
-if(config?.expansion != null) result.expansion(config.expansion);
-if(config?.compression != null) result.compression(config.compression);
-if(config?.threshold != null) result.threshold(config.threshold);
-if(config?.raise != null) result.raise(config.raise);
-if(config?.fall != null) result.fall(config.fall);
-if(config?.channels != null) result.channels(config.channels);
-if(config?.h != null) result.h(config.h);
-if(config?.invert != null) result.invert(config.invert);
-if(config?.link != null) result.link(config.link);
+if(config?.peak != null) result.peak(config.peak.Value);
+if(config?.expansion != null) result.expansion(config.expansion.Value);
+if(config?.compression != null) result.compression(config.compression.Value);
+if(config?.threshold != null) result.threshold(config.threshold.Value);
+if(config?.raise != null) result.raise(config.raise.Value);
+if(config?.fall != null) result.fall(config.fall.Value);
+if(config?.channels != null) result.channels(config.channels.Value);
+if(config?.h != null) result.h(config.h.Value);
+if(config?.invert != null) result.invert(config.invert.Value);
+if(config?.link != null) result.link(config.link.Value);
 return result;
 }
 }
@@ -85,42 +85,42 @@ public class SpeechnormFilterGenConfig
 /// <summary>
 ///  set the peak value (from 0 to 1) (default 0.95)
 /// </summary>
-public double peak { get; set; }
+public double? peak { get; set; }
 /// <summary>
 ///  set the max expansion factor (from 1 to 50) (default 2)
 /// </summary>
-public double expansion { get; set; }
+public double? expansion { get; set; }
 /// <summary>
 ///  set the max compression factor (from 1 to 50) (default 2)
 /// </summary>
-public double compression { get; set; }
+public double? compression { get; set; }
 /// <summary>
 ///  set the threshold value (from 0 to 1) (default 0)
 /// </summary>
-public double threshold { get; set; }
+public double? threshold { get; set; }
 /// <summary>
 ///  set the expansion raising amount (from 0 to 1) (default 0.001)
 /// </summary>
-public double raise { get; set; }
+public double? raise { get; set; }
 /// <summary>
 ///  set the compression raising amount (from 0 to 1) (default 0.001)
 /// </summary>
-public double fall { get; set; }
+public double? fall { get; set; }
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public AV_CH_LAYOUT channels { get; set; }
+public AV_CH_LAYOUT? channels { get; set; }
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public AV_CH_LAYOUT h { get; set; }
+public AV_CH_LAYOUT? h { get; set; }
 /// <summary>
 ///  set inverted filtering (default false)
 /// </summary>
-public bool invert { get; set; }
+public bool? invert { get; set; }
 /// <summary>
 ///  set linked channels filtering (default false)
 /// </summary>
-public bool link { get; set; }
+public bool? link { get; set; }
 }
 }

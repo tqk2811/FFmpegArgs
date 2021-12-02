@@ -47,11 +47,11 @@ public static DedotFilterGen DedotFilterGen(this ImageMap input0) => new DedotFi
 public static DedotFilterGen DedotFilterGen(this ImageMap input0,DedotFilterGenConfig config)
 {
 var result = new DedotFilterGen(input0);
-if(config?.m != null) result.m(config.m);
-if(config?.lt != null) result.lt(config.lt);
-if(config?.tl != null) result.tl(config.tl);
-if(config?.tc != null) result.tc(config.tc);
-if(config?.ct != null) result.ct(config.ct);
+if(config?.m != null) result.m(config.m.Value);
+if(config?.lt != null) result.lt(config.lt.Value);
+if(config?.tl != null) result.tl(config.tl.Value);
+if(config?.tc != null) result.tc(config.tc.Value);
+if(config?.ct != null) result.ct(config.ct.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -61,23 +61,23 @@ public class DedotFilterGenConfig
 /// <summary>
 ///  set filtering mode (default dotcrawl+rainbows)
 /// </summary>
-public DedotFilterGenM m { get; set; }
+public DedotFilterGenM? m { get; set; }
 /// <summary>
 ///  set spatial luma threshold (from 0 to 1) (default 0.079)
 /// </summary>
-public float lt { get; set; }
+public float? lt { get; set; }
 /// <summary>
 ///  set tolerance for temporal luma (from 0 to 1) (default 0.079)
 /// </summary>
-public float tl { get; set; }
+public float? tl { get; set; }
 /// <summary>
 ///  set tolerance for chroma temporal variation (from 0 to 1) (default 0.058)
 /// </summary>
-public float tc { get; set; }
+public float? tc { get; set; }
 /// <summary>
 ///  set temporal chroma threshold (from 0 to 1) (default 0.019)
 /// </summary>
-public float ct { get; set; }
+public float? ct { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum DedotFilterGenM

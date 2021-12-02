@@ -79,19 +79,19 @@ public static CellautoFilterGen CellautoFilterGen(this FilterGraph input0) => ne
 public static CellautoFilterGen CellautoFilterGen(this FilterGraph input0,CellautoFilterGenConfig config)
 {
 var result = new CellautoFilterGen(input0);
-if(config?.filename != null) result.filename(config.filename);
-if(config?.pattern != null) result.pattern(config.pattern);
+if(!string.IsNullOrWhiteSpace(config?.filename)) result.filename(config.filename);
+if(!string.IsNullOrWhiteSpace(config?.pattern)) result.pattern(config.pattern);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.size != null) result.size(config.size);
-if(config?.rule != null) result.rule(config.rule);
-if(config?.random_fill_ratio != null) result.random_fill_ratio(config.random_fill_ratio);
-if(config?.ratio != null) result.ratio(config.ratio);
-if(config?.random_seed != null) result.random_seed(config.random_seed);
-if(config?.seed != null) result.seed(config.seed);
-if(config?.scroll != null) result.scroll(config.scroll);
-if(config?.start_full != null) result.start_full(config.start_full);
-if(config?.full != null) result.full(config.full);
-if(config?.stitch != null) result.stitch(config.stitch);
+if(config?.size != null) result.size(config.size.Value);
+if(config?.rule != null) result.rule(config.rule.Value);
+if(config?.random_fill_ratio != null) result.random_fill_ratio(config.random_fill_ratio.Value);
+if(config?.ratio != null) result.ratio(config.ratio.Value);
+if(config?.random_seed != null) result.random_seed(config.random_seed.Value);
+if(config?.seed != null) result.seed(config.seed.Value);
+if(config?.scroll != null) result.scroll(config.scroll.Value);
+if(config?.start_full != null) result.start_full(config.start_full.Value);
+if(config?.full != null) result.full(config.full.Value);
+if(config?.stitch != null) result.stitch(config.stitch.Value);
 return result;
 }
 }
@@ -112,42 +112,42 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set video size
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  set rule (from 0 to 255) (default 110)
 /// </summary>
-public int rule { get; set; }
+public int? rule { get; set; }
 /// <summary>
 ///  set fill ratio for filling initial grid randomly (from 0 to 1) (default 0.618034)
 /// </summary>
-public double random_fill_ratio { get; set; }
+public double? random_fill_ratio { get; set; }
 /// <summary>
 ///  set fill ratio for filling initial grid randomly (from 0 to 1) (default 0.618034)
 /// </summary>
-public double ratio { get; set; }
+public double? ratio { get; set; }
 /// <summary>
 ///  set the seed for filling the initial grid randomly (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long random_seed { get; set; }
+public long? random_seed { get; set; }
 /// <summary>
 ///  set the seed for filling the initial grid randomly (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 /// <summary>
 ///  scroll pattern downward (default true)
 /// </summary>
-public bool scroll { get; set; }
+public bool? scroll { get; set; }
 /// <summary>
 ///  start filling the whole video (default false)
 /// </summary>
-public bool start_full { get; set; }
+public bool? start_full { get; set; }
 /// <summary>
 ///  start filling the whole video (default true)
 /// </summary>
-public bool full { get; set; }
+public bool? full { get; set; }
 /// <summary>
 ///  stitch boundaries (default true)
 /// </summary>
-public bool stitch { get; set; }
+public bool? stitch { get; set; }
 }
 }

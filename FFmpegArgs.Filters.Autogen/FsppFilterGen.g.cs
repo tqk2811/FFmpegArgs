@@ -43,10 +43,10 @@ public static FsppFilterGen FsppFilterGen(this ImageMap input0) => new FsppFilte
 public static FsppFilterGen FsppFilterGen(this ImageMap input0,FsppFilterGenConfig config)
 {
 var result = new FsppFilterGen(input0);
-if(config?.quality != null) result.quality(config.quality);
-if(config?.qp != null) result.qp(config.qp);
-if(config?.strength != null) result.strength(config.strength);
-if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp);
+if(config?.quality != null) result.quality(config.quality.Value);
+if(config?.qp != null) result.qp(config.qp.Value);
+if(config?.strength != null) result.strength(config.strength.Value);
+if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class FsppFilterGenConfig
 /// <summary>
 ///  set quality (from 4 to 5) (default 4)
 /// </summary>
-public int quality { get; set; }
+public int? quality { get; set; }
 /// <summary>
 ///  force a constant quantizer parameter (from 0 to 64) (default 0)
 /// </summary>
-public int qp { get; set; }
+public int? qp { get; set; }
 /// <summary>
 ///  set filter strength (from -15 to 32) (default 0)
 /// </summary>
-public int strength { get; set; }
+public int? strength { get; set; }
 /// <summary>
 ///  use B-frames' QP (default false)
 /// </summary>
-public bool use_bframe_qp { get; set; }
+public bool? use_bframe_qp { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

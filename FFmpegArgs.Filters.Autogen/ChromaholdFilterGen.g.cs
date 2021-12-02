@@ -43,10 +43,10 @@ public static ChromaholdFilterGen ChromaholdFilterGen(this ImageMap input0) => n
 public static ChromaholdFilterGen ChromaholdFilterGen(this ImageMap input0,ChromaholdFilterGenConfig config)
 {
 var result = new ChromaholdFilterGen(input0);
-if(config?.color != null) result.color(config.color);
-if(config?.similarity != null) result.similarity(config.similarity);
-if(config?.blend != null) result.blend(config.blend);
-if(config?.yuv != null) result.yuv(config.yuv);
+if(config?.color != null) result.color(config.color.Value);
+if(config?.similarity != null) result.similarity(config.similarity.Value);
+if(config?.blend != null) result.blend(config.blend.Value);
+if(config?.yuv != null) result.yuv(config.yuv.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class ChromaholdFilterGenConfig
 /// <summary>
 ///  set the chromahold key color (default "black")
 /// </summary>
-public Color color { get; set; }
+public Color? color { get; set; }
 /// <summary>
 ///  set the chromahold similarity value (from 0.01 to 1) (default 0.01)
 /// </summary>
-public float similarity { get; set; }
+public float? similarity { get; set; }
 /// <summary>
 ///  set the chromahold blend value (from 0 to 1) (default 0)
 /// </summary>
-public float blend { get; set; }
+public float? blend { get; set; }
 /// <summary>
 ///  color parameter is in yuv instead of rgb (default false)
 /// </summary>
-public bool yuv { get; set; }
+public bool? yuv { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

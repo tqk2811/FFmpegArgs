@@ -51,12 +51,12 @@ public static AddroiFilterGen AddroiFilterGen(this ImageMap input0) => new Addro
 public static AddroiFilterGen AddroiFilterGen(this ImageMap input0,AddroiFilterGenConfig config)
 {
 var result = new AddroiFilterGen(input0);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.w != null) result.w(config.w);
-if(config?.h != null) result.h(config.h);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
+if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
 if(config?.qoffset != null) result.qoffset(config.qoffset);
-if(config?.clear != null) result.clear(config.clear);
+if(config?.clear != null) result.clear(config.clear.Value);
 return result;
 }
 }
@@ -85,6 +85,6 @@ public Rational qoffset { get; set; }
 /// <summary>
 ///  Remove any existing regions of interest before adding the new one. (default false)
 /// </summary>
-public bool clear { get; set; }
+public bool? clear { get; set; }
 }
 }

@@ -43,10 +43,10 @@ public static DctdnoizFilterGen DctdnoizFilterGen(this ImageMap input0) => new D
 public static DctdnoizFilterGen DctdnoizFilterGen(this ImageMap input0,DctdnoizFilterGenConfig config)
 {
 var result = new DctdnoizFilterGen(input0);
-if(config?.sigma != null) result.sigma(config.sigma);
-if(config?.overlap != null) result.overlap(config.overlap);
-if(config?.expr != null) result.expr(config.expr);
-if(config?.n != null) result.n(config.n);
+if(config?.sigma != null) result.sigma(config.sigma.Value);
+if(config?.overlap != null) result.overlap(config.overlap.Value);
+if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
+if(config?.n != null) result.n(config.n.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,11 +56,11 @@ public class DctdnoizFilterGenConfig
 /// <summary>
 ///  set noise sigma constant (from 0 to 999) (default 0)
 /// </summary>
-public float sigma { get; set; }
+public float? sigma { get; set; }
 /// <summary>
 ///  set number of block overlapping pixels (from -1 to 15) (default -1)
 /// </summary>
-public int overlap { get; set; }
+public int? overlap { get; set; }
 /// <summary>
 ///  set coefficient factor expression
 /// </summary>
@@ -68,7 +68,7 @@ public string expr { get; set; }
 /// <summary>
 ///  set the block size, expressed in bits (from 3 to 4) (default 3)
 /// </summary>
-public int n { get; set; }
+public int? n { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

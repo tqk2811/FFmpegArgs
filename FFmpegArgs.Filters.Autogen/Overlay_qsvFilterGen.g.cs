@@ -59,14 +59,14 @@ public static Overlay_qsvFilterGen Overlay_qsvFilterGen(this ImageMap input0, Im
 public static Overlay_qsvFilterGen Overlay_qsvFilterGen(this ImageMap input0, ImageMap input1,Overlay_qsvFilterGenConfig config)
 {
 var result = new Overlay_qsvFilterGen(input0, input1);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.w != null) result.w(config.w);
-if(config?.h != null) result.h(config.h);
-if(config?.alpha != null) result.alpha(config.alpha);
-if(config?.eof_action != null) result.eof_action(config.eof_action);
-if(config?.shortest != null) result.shortest(config.shortest);
-if(config?.repeatlast != null) result.repeatlast(config.repeatlast);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
+if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
+if(config?.alpha != null) result.alpha(config.alpha.Value);
+if(config?.eof_action != null) result.eof_action(config.eof_action.Value);
+if(config?.shortest != null) result.shortest(config.shortest.Value);
+if(config?.repeatlast != null) result.repeatlast(config.repeatlast.Value);
 return result;
 }
 }
@@ -91,19 +91,19 @@ public string h { get; set; }
 /// <summary>
 ///  Overlay global alpha (from 0 to 255) (default 255)
 /// </summary>
-public int alpha { get; set; }
+public int? alpha { get; set; }
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>
-public Overlay_qsvFilterGenEof_action eof_action { get; set; }
+public Overlay_qsvFilterGenEof_action? eof_action { get; set; }
 /// <summary>
 ///  force termination when the shortest input terminates (default false)
 /// </summary>
-public bool shortest { get; set; }
+public bool? shortest { get; set; }
 /// <summary>
 ///  repeat overlay of the last overlay frame (default true)
 /// </summary>
-public bool repeatlast { get; set; }
+public bool? repeatlast { get; set; }
 }
 public enum Overlay_qsvFilterGenEof_action
 {

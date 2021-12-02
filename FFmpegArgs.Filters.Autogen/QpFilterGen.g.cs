@@ -31,7 +31,7 @@ public static QpFilterGen QpFilterGen(this ImageMap input0) => new QpFilterGen(i
 public static QpFilterGen QpFilterGen(this ImageMap input0,QpFilterGenConfig config)
 {
 var result = new QpFilterGen(input0);
-if(config?.qp != null) result.qp(config.qp);
+if(!string.IsNullOrWhiteSpace(config?.qp)) result.qp(config.qp);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }

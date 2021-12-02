@@ -39,9 +39,9 @@ public static DeconvolveFilterGen DeconvolveFilterGen(this ImageMap input0, Imag
 public static DeconvolveFilterGen DeconvolveFilterGen(this ImageMap input0, ImageMap input1,DeconvolveFilterGenConfig config)
 {
 var result = new DeconvolveFilterGen(input0, input1);
-if(config?.planes != null) result.planes(config.planes);
-if(config?.impulse != null) result.impulse(config.impulse);
-if(config?.noise != null) result.noise(config.noise);
+if(config?.planes != null) result.planes(config.planes.Value);
+if(config?.impulse != null) result.impulse(config.impulse.Value);
+if(config?.noise != null) result.noise(config.noise.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class DeconvolveFilterGenConfig
 /// <summary>
 ///  set planes to deconvolve (from 0 to 15) (default 7)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 /// <summary>
 ///  when to process impulses (from 0 to 1) (default all)
 /// </summary>
-public DeconvolveFilterGenImpulse impulse { get; set; }
+public DeconvolveFilterGenImpulse? impulse { get; set; }
 /// <summary>
 ///  set noise (from 0 to 1) (default 1e-07)
 /// </summary>
-public float noise { get; set; }
+public float? noise { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum DeconvolveFilterGenImpulse

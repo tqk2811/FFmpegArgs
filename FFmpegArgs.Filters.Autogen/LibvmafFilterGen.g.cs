@@ -75,18 +75,18 @@ public static LibvmafFilterGen LibvmafFilterGen(this ImageMap input0, ImageMap i
 public static LibvmafFilterGen LibvmafFilterGen(this ImageMap input0, ImageMap input1,LibvmafFilterGenConfig config)
 {
 var result = new LibvmafFilterGen(input0, input1);
-if(config?.model_path != null) result.model_path(config.model_path);
-if(config?.log_path != null) result.log_path(config.log_path);
-if(config?.log_fmt != null) result.log_fmt(config.log_fmt);
-if(config?.enable_transform != null) result.enable_transform(config.enable_transform);
-if(config?.phone_model != null) result.phone_model(config.phone_model);
-if(config?.psnr != null) result.psnr(config.psnr);
-if(config?.ssim != null) result.ssim(config.ssim);
-if(config?.ms_ssim != null) result.ms_ssim(config.ms_ssim);
-if(config?.pool != null) result.pool(config.pool);
-if(config?.n_threads != null) result.n_threads(config.n_threads);
-if(config?.n_subsample != null) result.n_subsample(config.n_subsample);
-if(config?.enable_conf_interval != null) result.enable_conf_interval(config.enable_conf_interval);
+if(!string.IsNullOrWhiteSpace(config?.model_path)) result.model_path(config.model_path);
+if(!string.IsNullOrWhiteSpace(config?.log_path)) result.log_path(config.log_path);
+if(!string.IsNullOrWhiteSpace(config?.log_fmt)) result.log_fmt(config.log_fmt);
+if(config?.enable_transform != null) result.enable_transform(config.enable_transform.Value);
+if(config?.phone_model != null) result.phone_model(config.phone_model.Value);
+if(config?.psnr != null) result.psnr(config.psnr.Value);
+if(config?.ssim != null) result.ssim(config.ssim.Value);
+if(config?.ms_ssim != null) result.ms_ssim(config.ms_ssim.Value);
+if(!string.IsNullOrWhiteSpace(config?.pool)) result.pool(config.pool);
+if(config?.n_threads != null) result.n_threads(config.n_threads.Value);
+if(config?.n_subsample != null) result.n_subsample(config.n_subsample.Value);
+if(config?.enable_conf_interval != null) result.enable_conf_interval(config.enable_conf_interval.Value);
 return result;
 }
 }
@@ -107,23 +107,23 @@ public string log_fmt { get; set; }
 /// <summary>
 ///  Enables transform for computing vmaf. (default false)
 /// </summary>
-public bool enable_transform { get; set; }
+public bool? enable_transform { get; set; }
 /// <summary>
 ///  Invokes the phone model that will generate higher VMAF scores. (default false)
 /// </summary>
-public bool phone_model { get; set; }
+public bool? phone_model { get; set; }
 /// <summary>
 ///  Enables computing psnr along with vmaf. (default false)
 /// </summary>
-public bool psnr { get; set; }
+public bool? psnr { get; set; }
 /// <summary>
 ///  Enables computing ssim along with vmaf. (default false)
 /// </summary>
-public bool ssim { get; set; }
+public bool? ssim { get; set; }
 /// <summary>
 ///  Enables computing ms-ssim along with vmaf. (default false)
 /// </summary>
-public bool ms_ssim { get; set; }
+public bool? ms_ssim { get; set; }
 /// <summary>
 ///  Set the pool method to be used for computing vmaf.
 /// </summary>
@@ -131,14 +131,14 @@ public string pool { get; set; }
 /// <summary>
 ///  Set number of threads to be used when computing vmaf. (from 0 to UINT32_MAX) (default 0)
 /// </summary>
-public int n_threads { get; set; }
+public int? n_threads { get; set; }
 /// <summary>
 ///  Set interval for frame subsampling used when computing vmaf. (from 1 to UINT32_MAX) (default 1)
 /// </summary>
-public int n_subsample { get; set; }
+public int? n_subsample { get; set; }
 /// <summary>
 ///  Enables confidence interval. (default false)
 /// </summary>
-public bool enable_conf_interval { get; set; }
+public bool? enable_conf_interval { get; set; }
 }
 }

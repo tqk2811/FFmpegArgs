@@ -35,8 +35,8 @@ public static InterlaceFilterGen InterlaceFilterGen(this ImageMap input0) => new
 public static InterlaceFilterGen InterlaceFilterGen(this ImageMap input0,InterlaceFilterGenConfig config)
 {
 var result = new InterlaceFilterGen(input0);
-if(config?.scan != null) result.scan(config.scan);
-if(config?.lowpass != null) result.lowpass(config.lowpass);
+if(config?.scan != null) result.scan(config.scan.Value);
+if(config?.lowpass != null) result.lowpass(config.lowpass.Value);
 return result;
 }
 }
@@ -45,11 +45,11 @@ public class InterlaceFilterGenConfig
 /// <summary>
 ///  scanning mode (from 0 to 1) (default tff)
 /// </summary>
-public InterlaceFilterGenScan scan { get; set; }
+public InterlaceFilterGenScan? scan { get; set; }
 /// <summary>
 ///  set vertical low-pass filter (from 0 to 2) (default linear)
 /// </summary>
-public InterlaceFilterGenLowpass lowpass { get; set; }
+public InterlaceFilterGenLowpass? lowpass { get; set; }
 }
 public enum InterlaceFilterGenScan
 {

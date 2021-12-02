@@ -31,7 +31,7 @@ public static SetptsFilterGen SetptsFilterGen(this ImageMap input0) => new Setpt
 public static SetptsFilterGen SetptsFilterGen(this ImageMap input0,SetptsFilterGenConfig config)
 {
 var result = new SetptsFilterGen(input0);
-if(config?.expr != null) result.expr(config.expr);
+if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
 return result;
 }
 }

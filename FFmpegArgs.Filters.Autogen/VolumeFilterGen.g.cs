@@ -51,12 +51,12 @@ public static VolumeFilterGen VolumeFilterGen(this AudioMap input0) => new Volum
 public static VolumeFilterGen VolumeFilterGen(this AudioMap input0,VolumeFilterGenConfig config)
 {
 var result = new VolumeFilterGen(input0);
-if(config?.volume != null) result.volume(config.volume);
-if(config?.precision != null) result.precision(config.precision);
-if(config?.eval != null) result.eval(config.eval);
-if(config?.replaygain != null) result.replaygain(config.replaygain);
-if(config?.replaygain_preamp != null) result.replaygain_preamp(config.replaygain_preamp);
-if(config?.replaygain_noclip != null) result.replaygain_noclip(config.replaygain_noclip);
+if(!string.IsNullOrWhiteSpace(config?.volume)) result.volume(config.volume);
+if(config?.precision != null) result.precision(config.precision.Value);
+if(config?.eval != null) result.eval(config.eval.Value);
+if(config?.replaygain != null) result.replaygain(config.replaygain.Value);
+if(config?.replaygain_preamp != null) result.replaygain_preamp(config.replaygain_preamp.Value);
+if(config?.replaygain_noclip != null) result.replaygain_noclip(config.replaygain_noclip.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -70,23 +70,23 @@ public string volume { get; set; }
 /// <summary>
 ///  select mathematical precision (from 0 to 2) (default float)
 /// </summary>
-public VolumeFilterGenPrecision precision { get; set; }
+public VolumeFilterGenPrecision? precision { get; set; }
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default once)
 /// </summary>
-public VolumeFilterGenEval eval { get; set; }
+public VolumeFilterGenEval? eval { get; set; }
 /// <summary>
 ///  Apply replaygain side data when present (from 0 to 3) (default drop)
 /// </summary>
-public VolumeFilterGenReplaygain replaygain { get; set; }
+public VolumeFilterGenReplaygain? replaygain { get; set; }
 /// <summary>
 ///  Apply replaygain pre-amplification (from -15 to 15) (default 0)
 /// </summary>
-public double replaygain_preamp { get; set; }
+public double? replaygain_preamp { get; set; }
 /// <summary>
 ///  Apply replaygain clipping prevention (default true)
 /// </summary>
-public bool replaygain_noclip { get; set; }
+public bool? replaygain_noclip { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum VolumeFilterGenPrecision

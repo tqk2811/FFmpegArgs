@@ -47,10 +47,10 @@ public static GraphmonitorFilterGen GraphmonitorFilterGen(this ImageMap input0) 
 public static GraphmonitorFilterGen GraphmonitorFilterGen(this ImageMap input0,GraphmonitorFilterGenConfig config)
 {
 var result = new GraphmonitorFilterGen(input0);
-if(config?.size != null) result.size(config.size);
-if(config?.opacity != null) result.opacity(config.opacity);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.flags != null) result.flags(config.flags);
+if(config?.size != null) result.size(config.size.Value);
+if(config?.opacity != null) result.opacity(config.opacity.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.flags != null) result.flags(config.flags.Value);
 if(config?.rate != null) result.rate(config.rate);
 return result;
 }
@@ -60,19 +60,19 @@ public class GraphmonitorFilterGenConfig
 /// <summary>
 ///  set monitor size (default "hd720")
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  set video opacity (from 0 to 1) (default 0.9)
 /// </summary>
-public float opacity { get; set; }
+public float? opacity { get; set; }
 /// <summary>
 ///  set mode (from 0 to 1) (default full)
 /// </summary>
-public GraphmonitorFilterGenMode mode { get; set; }
+public GraphmonitorFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set flags (default queue)
 /// </summary>
-public GraphmonitorFilterGenFlags flags { get; set; }
+public GraphmonitorFilterGenFlags? flags { get; set; }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>

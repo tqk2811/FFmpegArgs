@@ -59,14 +59,14 @@ public static RotateFilterGen RotateFilterGen(this ImageMap input0) => new Rotat
 public static RotateFilterGen RotateFilterGen(this ImageMap input0,RotateFilterGenConfig config)
 {
 var result = new RotateFilterGen(input0);
-if(config?.angle != null) result.angle(config.angle);
-if(config?.out_w != null) result.out_w(config.out_w);
-if(config?.ow != null) result.ow(config.ow);
-if(config?.out_h != null) result.out_h(config.out_h);
-if(config?.oh != null) result.oh(config.oh);
-if(config?.fillcolor != null) result.fillcolor(config.fillcolor);
-if(config?.c != null) result.c(config.c);
-if(config?.bilinear != null) result.bilinear(config.bilinear);
+if(!string.IsNullOrWhiteSpace(config?.angle)) result.angle(config.angle);
+if(!string.IsNullOrWhiteSpace(config?.out_w)) result.out_w(config.out_w);
+if(!string.IsNullOrWhiteSpace(config?.ow)) result.ow(config.ow);
+if(!string.IsNullOrWhiteSpace(config?.out_h)) result.out_h(config.out_h);
+if(!string.IsNullOrWhiteSpace(config?.oh)) result.oh(config.oh);
+if(!string.IsNullOrWhiteSpace(config?.fillcolor)) result.fillcolor(config.fillcolor);
+if(!string.IsNullOrWhiteSpace(config?.c)) result.c(config.c);
+if(config?.bilinear != null) result.bilinear(config.bilinear.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -104,7 +104,7 @@ public string c { get; set; }
 /// <summary>
 ///  use bilinear interpolation (default true)
 /// </summary>
-public bool bilinear { get; set; }
+public bool? bilinear { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

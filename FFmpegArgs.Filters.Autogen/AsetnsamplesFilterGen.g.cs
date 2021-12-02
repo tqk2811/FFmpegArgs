@@ -35,8 +35,8 @@ public static AsetnsamplesFilterGen AsetnsamplesFilterGen(this AudioMap input0) 
 public static AsetnsamplesFilterGen AsetnsamplesFilterGen(this AudioMap input0,AsetnsamplesFilterGenConfig config)
 {
 var result = new AsetnsamplesFilterGen(input0);
-if(config?.nb_out_samples != null) result.nb_out_samples(config.nb_out_samples);
-if(config?.pad != null) result.pad(config.pad);
+if(config?.nb_out_samples != null) result.nb_out_samples(config.nb_out_samples.Value);
+if(config?.pad != null) result.pad(config.pad.Value);
 return result;
 }
 }
@@ -45,10 +45,10 @@ public class AsetnsamplesFilterGenConfig
 /// <summary>
 ///  set the number of per-frame output samples (from 1 to INT_MAX) (default 1024)
 /// </summary>
-public int nb_out_samples { get; set; }
+public int? nb_out_samples { get; set; }
 /// <summary>
 ///  pad last frame with zeros (default true)
 /// </summary>
-public bool pad { get; set; }
+public bool? pad { get; set; }
 }
 }

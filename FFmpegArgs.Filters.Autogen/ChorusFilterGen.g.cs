@@ -51,12 +51,12 @@ public static ChorusFilterGen ChorusFilterGen(this AudioMap input0) => new Choru
 public static ChorusFilterGen ChorusFilterGen(this AudioMap input0,ChorusFilterGenConfig config)
 {
 var result = new ChorusFilterGen(input0);
-if(config?.in_gain != null) result.in_gain(config.in_gain);
-if(config?.out_gain != null) result.out_gain(config.out_gain);
-if(config?.delays != null) result.delays(config.delays);
-if(config?.decays != null) result.decays(config.decays);
-if(config?.speeds != null) result.speeds(config.speeds);
-if(config?.depths != null) result.depths(config.depths);
+if(config?.in_gain != null) result.in_gain(config.in_gain.Value);
+if(config?.out_gain != null) result.out_gain(config.out_gain.Value);
+if(!string.IsNullOrWhiteSpace(config?.delays)) result.delays(config.delays);
+if(!string.IsNullOrWhiteSpace(config?.decays)) result.decays(config.decays);
+if(!string.IsNullOrWhiteSpace(config?.speeds)) result.speeds(config.speeds);
+if(!string.IsNullOrWhiteSpace(config?.depths)) result.depths(config.depths);
 return result;
 }
 }
@@ -65,11 +65,11 @@ public class ChorusFilterGenConfig
 /// <summary>
 ///  set input gain (from 0 to 1) (default 0.4)
 /// </summary>
-public float in_gain { get; set; }
+public float? in_gain { get; set; }
 /// <summary>
 ///  set output gain (from 0 to 1) (default 0.4)
 /// </summary>
-public float out_gain { get; set; }
+public float? out_gain { get; set; }
 /// <summary>
 ///  set delays
 /// </summary>

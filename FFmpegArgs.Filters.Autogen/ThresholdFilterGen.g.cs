@@ -31,7 +31,7 @@ public static ThresholdFilterGen ThresholdFilterGen(this ImageMap input0, ImageM
 public static ThresholdFilterGen ThresholdFilterGen(this ImageMap input0, ImageMap input1, ImageMap input2, ImageMap input3,ThresholdFilterGenConfig config)
 {
 var result = new ThresholdFilterGen(input0, input1, input2, input3);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -41,7 +41,7 @@ public class ThresholdFilterGenConfig
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

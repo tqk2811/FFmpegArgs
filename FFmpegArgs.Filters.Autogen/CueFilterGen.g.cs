@@ -39,9 +39,9 @@ public static CueFilterGen CueFilterGen(this ImageMap input0) => new CueFilterGe
 public static CueFilterGen CueFilterGen(this ImageMap input0,CueFilterGenConfig config)
 {
 var result = new CueFilterGen(input0);
-if(config?.cue != null) result.cue(config.cue);
-if(config?.preroll != null) result.preroll(config.preroll);
-if(config?.buffer != null) result.buffer(config.buffer);
+if(config?.cue != null) result.cue(config.cue.Value);
+if(config?.preroll != null) result.preroll(config.preroll.Value);
+if(config?.buffer != null) result.buffer(config.buffer.Value);
 return result;
 }
 }
@@ -50,14 +50,14 @@ public class CueFilterGenConfig
 /// <summary>
 ///  cue unix timestamp in microseconds (from 0 to I64_MAX) (default 0)
 /// </summary>
-public long cue { get; set; }
+public long? cue { get; set; }
 /// <summary>
 ///  preroll duration in seconds (default 0)
 /// </summary>
-public TimeSpan preroll { get; set; }
+public TimeSpan? preroll { get; set; }
 /// <summary>
 ///  buffer duration in seconds (default 0)
 /// </summary>
-public TimeSpan buffer { get; set; }
+public TimeSpan? buffer { get; set; }
 }
 }

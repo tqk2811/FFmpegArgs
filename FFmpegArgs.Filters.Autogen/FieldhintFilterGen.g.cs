@@ -35,8 +35,8 @@ public static FieldhintFilterGen FieldhintFilterGen(this ImageMap input0) => new
 public static FieldhintFilterGen FieldhintFilterGen(this ImageMap input0,FieldhintFilterGenConfig config)
 {
 var result = new FieldhintFilterGen(input0);
-if(config?.hint != null) result.hint(config.hint);
-if(config?.mode != null) result.mode(config.mode);
+if(!string.IsNullOrWhiteSpace(config?.hint)) result.hint(config.hint);
+if(config?.mode != null) result.mode(config.mode.Value);
 return result;
 }
 }
@@ -49,7 +49,7 @@ public string hint { get; set; }
 /// <summary>
 ///  set hint mode (from 0 to 1) (default absolute)
 /// </summary>
-public FieldhintFilterGenMode mode { get; set; }
+public FieldhintFilterGenMode? mode { get; set; }
 }
 public enum FieldhintFilterGenMode
 {

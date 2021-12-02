@@ -63,15 +63,15 @@ public static NnediFilterGen NnediFilterGen(this ImageMap input0) => new NnediFi
 public static NnediFilterGen NnediFilterGen(this ImageMap input0,NnediFilterGenConfig config)
 {
 var result = new NnediFilterGen(input0);
-if(config?.weights != null) result.weights(config.weights);
-if(config?.deint != null) result.deint(config.deint);
-if(config?.field != null) result.field(config.field);
-if(config?.planes != null) result.planes(config.planes);
-if(config?.nsize != null) result.nsize(config.nsize);
-if(config?.nns != null) result.nns(config.nns);
-if(config?.qual != null) result.qual(config.qual);
-if(config?.etype != null) result.etype(config.etype);
-if(config?.pscrn != null) result.pscrn(config.pscrn);
+if(!string.IsNullOrWhiteSpace(config?.weights)) result.weights(config.weights);
+if(config?.deint != null) result.deint(config.deint.Value);
+if(config?.field != null) result.field(config.field.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
+if(config?.nsize != null) result.nsize(config.nsize.Value);
+if(config?.nns != null) result.nns(config.nns.Value);
+if(config?.qual != null) result.qual(config.qual.Value);
+if(config?.etype != null) result.etype(config.etype.Value);
+if(config?.pscrn != null) result.pscrn(config.pscrn.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -85,35 +85,35 @@ public string weights { get; set; }
 /// <summary>
 ///  set which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
-public NnediFilterGenDeint deint { get; set; }
+public NnediFilterGenDeint? deint { get; set; }
 /// <summary>
 ///  set mode of operation (from -2 to 3) (default a)
 /// </summary>
-public NnediFilterGenField field { get; set; }
+public NnediFilterGenField? field { get; set; }
 /// <summary>
 ///  set which planes to process (from 0 to 15) (default 7)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 /// <summary>
 ///  set size of local neighborhood around each pixel, used by the predictor neural network (from 0 to 6) (default s32x4)
 /// </summary>
-public NnediFilterGenNsize nsize { get; set; }
+public NnediFilterGenNsize? nsize { get; set; }
 /// <summary>
 ///  set number of neurons in predictor neural network (from 0 to 4) (default n32)
 /// </summary>
-public NnediFilterGenNns nns { get; set; }
+public NnediFilterGenNns? nns { get; set; }
 /// <summary>
 ///  set quality (from 1 to 2) (default fast)
 /// </summary>
-public NnediFilterGenQual qual { get; set; }
+public NnediFilterGenQual? qual { get; set; }
 /// <summary>
 ///  set which set of weights to use in the predictor (from 0 to 1) (default a)
 /// </summary>
-public NnediFilterGenEtype etype { get; set; }
+public NnediFilterGenEtype? etype { get; set; }
 /// <summary>
 ///  set prescreening (from 0 to 4) (default new)
 /// </summary>
-public NnediFilterGenPscrn pscrn { get; set; }
+public NnediFilterGenPscrn? pscrn { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum NnediFilterGenDeint

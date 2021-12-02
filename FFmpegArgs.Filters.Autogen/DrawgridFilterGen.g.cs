@@ -55,13 +55,13 @@ public static DrawgridFilterGen DrawgridFilterGen(this ImageMap input0) => new D
 public static DrawgridFilterGen DrawgridFilterGen(this ImageMap input0,DrawgridFilterGenConfig config)
 {
 var result = new DrawgridFilterGen(input0);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.width != null) result.width(config.width);
-if(config?.height != null) result.height(config.height);
-if(config?.color != null) result.color(config.color);
-if(config?.thickness != null) result.thickness(config.thickness);
-if(config?.replace != null) result.replace(config.replace);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
+if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
+if(!string.IsNullOrWhiteSpace(config?.color)) result.color(config.color);
+if(!string.IsNullOrWhiteSpace(config?.thickness)) result.thickness(config.thickness);
+if(config?.replace != null) result.replace(config.replace.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -95,7 +95,7 @@ public string thickness { get; set; }
 /// <summary>
 ///  replace color & alpha (default false)
 /// </summary>
-public bool replace { get; set; }
+public bool? replace { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

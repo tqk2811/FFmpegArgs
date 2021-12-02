@@ -44,9 +44,9 @@ public static MptestsrcFilterGen MptestsrcFilterGen(this FilterGraph input0,Mpte
 {
 var result = new MptestsrcFilterGen(input0);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.duration != null) result.duration(config.duration);
-if(config?.test != null) result.test(config.test);
-if(config?.max_frames != null) result.max_frames(config.max_frames);
+if(config?.duration != null) result.duration(config.duration.Value);
+if(config?.test != null) result.test(config.test.Value);
+if(config?.max_frames != null) result.max_frames(config.max_frames.Value);
 return result;
 }
 }
@@ -59,15 +59,15 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set test to perform (from 0 to INT_MAX) (default all)
 /// </summary>
-public MptestsrcFilterGenTest test { get; set; }
+public MptestsrcFilterGenTest? test { get; set; }
 /// <summary>
 ///  Set the maximum number of frames generated for each test (from 1 to I64_MAX) (default 30)
 /// </summary>
-public long max_frames { get; set; }
+public long? max_frames { get; set; }
 }
 public enum MptestsrcFilterGenTest
 {

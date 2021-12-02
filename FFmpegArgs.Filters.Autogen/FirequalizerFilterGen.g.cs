@@ -79,19 +79,19 @@ public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input0) 
 public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input0,FirequalizerFilterGenConfig config)
 {
 var result = new FirequalizerFilterGen(input0);
-if(config?.gain != null) result.gain(config.gain);
-if(config?.gain_entry != null) result.gain_entry(config.gain_entry);
-if(config?.delay != null) result.delay(config.delay);
-if(config?.accuracy != null) result.accuracy(config.accuracy);
-if(config?.wfunc != null) result.wfunc(config.wfunc);
-if(config?._fixed != null) result._fixed(config._fixed);
-if(config?.multi != null) result.multi(config.multi);
-if(config?.zero_phase != null) result.zero_phase(config.zero_phase);
-if(config?.scale != null) result.scale(config.scale);
-if(config?.dumpfile != null) result.dumpfile(config.dumpfile);
-if(config?.dumpscale != null) result.dumpscale(config.dumpscale);
-if(config?.fft2 != null) result.fft2(config.fft2);
-if(config?.min_phase != null) result.min_phase(config.min_phase);
+if(!string.IsNullOrWhiteSpace(config?.gain)) result.gain(config.gain);
+if(!string.IsNullOrWhiteSpace(config?.gain_entry)) result.gain_entry(config.gain_entry);
+if(config?.delay != null) result.delay(config.delay.Value);
+if(config?.accuracy != null) result.accuracy(config.accuracy.Value);
+if(config?.wfunc != null) result.wfunc(config.wfunc.Value);
+if(config?._fixed != null) result._fixed(config._fixed.Value);
+if(config?.multi != null) result.multi(config.multi.Value);
+if(config?.zero_phase != null) result.zero_phase(config.zero_phase.Value);
+if(config?.scale != null) result.scale(config.scale.Value);
+if(!string.IsNullOrWhiteSpace(config?.dumpfile)) result.dumpfile(config.dumpfile);
+if(config?.dumpscale != null) result.dumpscale(config.dumpscale.Value);
+if(config?.fft2 != null) result.fft2(config.fft2.Value);
+if(config?.min_phase != null) result.min_phase(config.min_phase.Value);
 return result;
 }
 }
@@ -108,31 +108,31 @@ public string gain_entry { get; set; }
 /// <summary>
 ///  set delay (from 0 to 1e+10) (default 0.01)
 /// </summary>
-public double delay { get; set; }
+public double? delay { get; set; }
 /// <summary>
 ///  set accuracy (from 0 to 1e+10) (default 5)
 /// </summary>
-public double accuracy { get; set; }
+public double? accuracy { get; set; }
 /// <summary>
 ///  set window function (from 0 to 9) (default hann)
 /// </summary>
-public FirequalizerFilterGenWfunc wfunc { get; set; }
+public FirequalizerFilterGenWfunc? wfunc { get; set; }
 /// <summary>
 ///  set fixed frame samples (default false)
 /// </summary>
-public bool _fixed { get; set; }
+public bool? _fixed { get; set; }
 /// <summary>
 ///  set multi channels mode (default false)
 /// </summary>
-public bool multi { get; set; }
+public bool? multi { get; set; }
 /// <summary>
 ///  set zero phase mode (default false)
 /// </summary>
-public bool zero_phase { get; set; }
+public bool? zero_phase { get; set; }
 /// <summary>
 ///  set gain scale (from 0 to 3) (default linlog)
 /// </summary>
-public FirequalizerFilterGenScale scale { get; set; }
+public FirequalizerFilterGenScale? scale { get; set; }
 /// <summary>
 ///  set dump file
 /// </summary>
@@ -140,15 +140,15 @@ public string dumpfile { get; set; }
 /// <summary>
 ///  set dump scale (from 0 to 3) (default linlog)
 /// </summary>
-public FirequalizerFilterGenDumpscale dumpscale { get; set; }
+public FirequalizerFilterGenDumpscale? dumpscale { get; set; }
 /// <summary>
 ///  set 2-channels fft (default false)
 /// </summary>
-public bool fft2 { get; set; }
+public bool? fft2 { get; set; }
 /// <summary>
 ///  set minimum phase mode (default false)
 /// </summary>
-public bool min_phase { get; set; }
+public bool? min_phase { get; set; }
 }
 public enum FirequalizerFilterGenWfunc
 {

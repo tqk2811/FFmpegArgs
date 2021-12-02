@@ -43,10 +43,10 @@ public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input0) => n
 public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input0,MonochromeFilterGenConfig config)
 {
 var result = new MonochromeFilterGen(input0);
-if(config?.cb != null) result.cb(config.cb);
-if(config?.cr != null) result.cr(config.cr);
-if(config?.size != null) result.size(config.size);
-if(config?.high != null) result.high(config.high);
+if(config?.cb != null) result.cb(config.cb.Value);
+if(config?.cr != null) result.cr(config.cr.Value);
+if(config?.size != null) result.size(config.size.Value);
+if(config?.high != null) result.high(config.high.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class MonochromeFilterGenConfig
 /// <summary>
 ///  set the chroma blue spot (from -1 to 1) (default 0)
 /// </summary>
-public float cb { get; set; }
+public float? cb { get; set; }
 /// <summary>
 ///  set the chroma red spot (from -1 to 1) (default 0)
 /// </summary>
-public float cr { get; set; }
+public float? cr { get; set; }
 /// <summary>
 ///  set the color filter size (from 0.1 to 10) (default 1)
 /// </summary>
-public float size { get; set; }
+public float? size { get; set; }
 /// <summary>
 ///  set the highlights strength (from 0 to 1) (default 0)
 /// </summary>
-public float high { get; set; }
+public float? high { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

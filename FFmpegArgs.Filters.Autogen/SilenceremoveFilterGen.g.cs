@@ -75,18 +75,18 @@ public static SilenceremoveFilterGen SilenceremoveFilterGen(this AudioMap input0
 public static SilenceremoveFilterGen SilenceremoveFilterGen(this AudioMap input0,SilenceremoveFilterGenConfig config)
 {
 var result = new SilenceremoveFilterGen(input0);
-if(config?.start_periods != null) result.start_periods(config.start_periods);
-if(config?.start_duration != null) result.start_duration(config.start_duration);
-if(config?.start_threshold != null) result.start_threshold(config.start_threshold);
-if(config?.start_silence != null) result.start_silence(config.start_silence);
-if(config?.start_mode != null) result.start_mode(config.start_mode);
-if(config?.stop_periods != null) result.stop_periods(config.stop_periods);
-if(config?.stop_duration != null) result.stop_duration(config.stop_duration);
-if(config?.stop_threshold != null) result.stop_threshold(config.stop_threshold);
-if(config?.stop_silence != null) result.stop_silence(config.stop_silence);
-if(config?.stop_mode != null) result.stop_mode(config.stop_mode);
-if(config?.detection != null) result.detection(config.detection);
-if(config?.window != null) result.window(config.window);
+if(config?.start_periods != null) result.start_periods(config.start_periods.Value);
+if(config?.start_duration != null) result.start_duration(config.start_duration.Value);
+if(config?.start_threshold != null) result.start_threshold(config.start_threshold.Value);
+if(config?.start_silence != null) result.start_silence(config.start_silence.Value);
+if(config?.start_mode != null) result.start_mode(config.start_mode.Value);
+if(config?.stop_periods != null) result.stop_periods(config.stop_periods.Value);
+if(config?.stop_duration != null) result.stop_duration(config.stop_duration.Value);
+if(config?.stop_threshold != null) result.stop_threshold(config.stop_threshold.Value);
+if(config?.stop_silence != null) result.stop_silence(config.stop_silence.Value);
+if(config?.stop_mode != null) result.stop_mode(config.stop_mode.Value);
+if(config?.detection != null) result.detection(config.detection.Value);
+if(config?.window != null) result.window(config.window.Value);
 return result;
 }
 }
@@ -95,51 +95,51 @@ public class SilenceremoveFilterGenConfig
 /// <summary>
 ///  (from 0 to 9000) (default 0)
 /// </summary>
-public int start_periods { get; set; }
+public int? start_periods { get; set; }
 /// <summary>
 ///  set start duration of non-silence part (default 0)
 /// </summary>
-public TimeSpan start_duration { get; set; }
+public TimeSpan? start_duration { get; set; }
 /// <summary>
 ///  set threshold for start silence detection (from 0 to DBL_MAX) (default 0)
 /// </summary>
-public double start_threshold { get; set; }
+public double? start_threshold { get; set; }
 /// <summary>
 ///  set start duration of silence part to keep (default 0)
 /// </summary>
-public TimeSpan start_silence { get; set; }
+public TimeSpan? start_silence { get; set; }
 /// <summary>
 ///  set which channel will trigger trimming from start (from 0 to 1) (default any)
 /// </summary>
-public SilenceremoveFilterGenStart_mode start_mode { get; set; }
+public SilenceremoveFilterGenStart_mode? start_mode { get; set; }
 /// <summary>
 ///  (from -9000 to 9000) (default 0)
 /// </summary>
-public int stop_periods { get; set; }
+public int? stop_periods { get; set; }
 /// <summary>
 ///  set stop duration of non-silence part (default 0)
 /// </summary>
-public TimeSpan stop_duration { get; set; }
+public TimeSpan? stop_duration { get; set; }
 /// <summary>
 ///  set threshold for stop silence detection (from 0 to DBL_MAX) (default 0)
 /// </summary>
-public double stop_threshold { get; set; }
+public double? stop_threshold { get; set; }
 /// <summary>
 ///  set stop duration of silence part to keep (default 0)
 /// </summary>
-public TimeSpan stop_silence { get; set; }
+public TimeSpan? stop_silence { get; set; }
 /// <summary>
 ///  set which channel will trigger trimming from end (from 0 to 1) (default any)
 /// </summary>
-public SilenceremoveFilterGenStop_mode stop_mode { get; set; }
+public SilenceremoveFilterGenStop_mode? stop_mode { get; set; }
 /// <summary>
 ///  set how silence is detected (from 0 to 1) (default rms)
 /// </summary>
-public SilenceremoveFilterGenDetection detection { get; set; }
+public SilenceremoveFilterGenDetection? detection { get; set; }
 /// <summary>
 ///  set duration of window in seconds (from 0 to 10) (default 0.02)
 /// </summary>
-public double window { get; set; }
+public double? window { get; set; }
 }
 public enum SilenceremoveFilterGenStart_mode
 {

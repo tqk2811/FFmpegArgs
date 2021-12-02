@@ -99,24 +99,24 @@ public static GradientsFilterGen GradientsFilterGen(this FilterGraph input0) => 
 public static GradientsFilterGen GradientsFilterGen(this FilterGraph input0,GradientsFilterGenConfig config)
 {
 var result = new GradientsFilterGen(input0);
-if(config?.size != null) result.size(config.size);
+if(config?.size != null) result.size(config.size.Value);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.c0 != null) result.c0(config.c0);
-if(config?.c1 != null) result.c1(config.c1);
-if(config?.c2 != null) result.c2(config.c2);
-if(config?.c3 != null) result.c3(config.c3);
-if(config?.c4 != null) result.c4(config.c4);
-if(config?.c5 != null) result.c5(config.c5);
-if(config?.c6 != null) result.c6(config.c6);
-if(config?.c7 != null) result.c7(config.c7);
-if(config?.x0 != null) result.x0(config.x0);
-if(config?.y0 != null) result.y0(config.y0);
-if(config?.x1 != null) result.x1(config.x1);
-if(config?.y1 != null) result.y1(config.y1);
-if(config?.nb_colors != null) result.nb_colors(config.nb_colors);
-if(config?.seed != null) result.seed(config.seed);
-if(config?.duration != null) result.duration(config.duration);
-if(config?.speed != null) result.speed(config.speed);
+if(config?.c0 != null) result.c0(config.c0.Value);
+if(config?.c1 != null) result.c1(config.c1.Value);
+if(config?.c2 != null) result.c2(config.c2.Value);
+if(config?.c3 != null) result.c3(config.c3.Value);
+if(config?.c4 != null) result.c4(config.c4.Value);
+if(config?.c5 != null) result.c5(config.c5.Value);
+if(config?.c6 != null) result.c6(config.c6.Value);
+if(config?.c7 != null) result.c7(config.c7.Value);
+if(config?.x0 != null) result.x0(config.x0.Value);
+if(config?.y0 != null) result.y0(config.y0.Value);
+if(config?.x1 != null) result.x1(config.x1.Value);
+if(config?.y1 != null) result.y1(config.y1.Value);
+if(config?.nb_colors != null) result.nb_colors(config.nb_colors.Value);
+if(config?.seed != null) result.seed(config.seed.Value);
+if(config?.duration != null) result.duration(config.duration.Value);
+if(config?.speed != null) result.speed(config.speed.Value);
 return result;
 }
 }
@@ -125,7 +125,7 @@ public class GradientsFilterGenConfig
 /// <summary>
 ///  set frame size (default "640x480")
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 /// <summary>
 ///  set frame rate (default "25")
 /// </summary>
@@ -133,66 +133,66 @@ public Rational rate { get; set; }
 /// <summary>
 ///  set 1st color (default "random")
 /// </summary>
-public Color c0 { get; set; }
+public Color? c0 { get; set; }
 /// <summary>
 ///  set 2nd color (default "random")
 /// </summary>
-public Color c1 { get; set; }
+public Color? c1 { get; set; }
 /// <summary>
 ///  set 3rd color (default "random")
 /// </summary>
-public Color c2 { get; set; }
+public Color? c2 { get; set; }
 /// <summary>
 ///  set 4th color (default "random")
 /// </summary>
-public Color c3 { get; set; }
+public Color? c3 { get; set; }
 /// <summary>
 ///  set 5th color (default "random")
 /// </summary>
-public Color c4 { get; set; }
+public Color? c4 { get; set; }
 /// <summary>
 ///  set 6th color (default "random")
 /// </summary>
-public Color c5 { get; set; }
+public Color? c5 { get; set; }
 /// <summary>
 ///  set 7th color (default "random")
 /// </summary>
-public Color c6 { get; set; }
+public Color? c6 { get; set; }
 /// <summary>
 ///  set 8th color (default "random")
 /// </summary>
-public Color c7 { get; set; }
+public Color? c7 { get; set; }
 /// <summary>
 ///  set gradient line source x0 (from -1 to INT_MAX) (default -1)
 /// </summary>
-public int x0 { get; set; }
+public int? x0 { get; set; }
 /// <summary>
 ///  set gradient line source y0 (from -1 to INT_MAX) (default -1)
 /// </summary>
-public int y0 { get; set; }
+public int? y0 { get; set; }
 /// <summary>
 ///  set gradient line destination x1 (from -1 to INT_MAX) (default -1)
 /// </summary>
-public int x1 { get; set; }
+public int? x1 { get; set; }
 /// <summary>
 ///  set gradient line destination y1 (from -1 to INT_MAX) (default -1)
 /// </summary>
-public int y1 { get; set; }
+public int? y1 { get; set; }
 /// <summary>
 ///  set the number of colors (from 2 to 8) (default 2)
 /// </summary>
-public int nb_colors { get; set; }
+public int? nb_colors { get; set; }
 /// <summary>
 ///  set the seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 /// <summary>
 ///  set video duration (default -0.000001)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set gradients rotation speed (from 1e-05 to 1) (default 0.01)
 /// </summary>
-public float speed { get; set; }
+public float? speed { get; set; }
 }
 }

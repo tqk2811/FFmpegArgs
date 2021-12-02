@@ -35,8 +35,8 @@ public static ArnndnFilterGen ArnndnFilterGen(this AudioMap input0) => new Arnnd
 public static ArnndnFilterGen ArnndnFilterGen(this AudioMap input0,ArnndnFilterGenConfig config)
 {
 var result = new ArnndnFilterGen(input0);
-if(config?.model != null) result.model(config.model);
-if(config?.mix != null) result.mix(config.mix);
+if(!string.IsNullOrWhiteSpace(config?.model)) result.model(config.model);
+if(config?.mix != null) result.mix(config.mix.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -50,7 +50,7 @@ public string model { get; set; }
 /// <summary>
 ///  set output vs input mix (from -1 to 1) (default 1)
 /// </summary>
-public float mix { get; set; }
+public float? mix { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

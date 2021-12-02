@@ -31,7 +31,7 @@ public static RemovelogoFilterGen RemovelogoFilterGen(this ImageMap input0) => n
 public static RemovelogoFilterGen RemovelogoFilterGen(this ImageMap input0,RemovelogoFilterGenConfig config)
 {
 var result = new RemovelogoFilterGen(input0);
-if(config?.filename != null) result.filename(config.filename);
+if(!string.IsNullOrWhiteSpace(config?.filename)) result.filename(config.filename);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }

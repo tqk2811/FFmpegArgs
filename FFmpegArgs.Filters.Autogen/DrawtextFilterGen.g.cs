@@ -155,38 +155,38 @@ public static DrawtextFilterGen DrawtextFilterGen(this ImageMap input0) => new D
 public static DrawtextFilterGen DrawtextFilterGen(this ImageMap input0,DrawtextFilterGenConfig config)
 {
 var result = new DrawtextFilterGen(input0);
-if(config?.fontfile != null) result.fontfile(config.fontfile);
-if(config?.text != null) result.text(config.text);
-if(config?.textfile != null) result.textfile(config.textfile);
-if(config?.fontcolor != null) result.fontcolor(config.fontcolor);
-if(config?.fontcolor_expr != null) result.fontcolor_expr(config.fontcolor_expr);
-if(config?.boxcolor != null) result.boxcolor(config.boxcolor);
-if(config?.bordercolor != null) result.bordercolor(config.bordercolor);
-if(config?.shadowcolor != null) result.shadowcolor(config.shadowcolor);
-if(config?.box != null) result.box(config.box);
-if(config?.boxborderw != null) result.boxborderw(config.boxborderw);
-if(config?.line_spacing != null) result.line_spacing(config.line_spacing);
-if(config?.fontsize != null) result.fontsize(config.fontsize);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.shadowx != null) result.shadowx(config.shadowx);
-if(config?.shadowy != null) result.shadowy(config.shadowy);
-if(config?.borderw != null) result.borderw(config.borderw);
-if(config?.tabsize != null) result.tabsize(config.tabsize);
-if(config?.basetime != null) result.basetime(config.basetime);
-if(config?.font != null) result.font(config.font);
-if(config?.expansion != null) result.expansion(config.expansion);
-if(config?.timecode != null) result.timecode(config.timecode);
-if(config?.tc24hmax != null) result.tc24hmax(config.tc24hmax);
+if(!string.IsNullOrWhiteSpace(config?.fontfile)) result.fontfile(config.fontfile);
+if(!string.IsNullOrWhiteSpace(config?.text)) result.text(config.text);
+if(!string.IsNullOrWhiteSpace(config?.textfile)) result.textfile(config.textfile);
+if(config?.fontcolor != null) result.fontcolor(config.fontcolor.Value);
+if(!string.IsNullOrWhiteSpace(config?.fontcolor_expr)) result.fontcolor_expr(config.fontcolor_expr);
+if(config?.boxcolor != null) result.boxcolor(config.boxcolor.Value);
+if(config?.bordercolor != null) result.bordercolor(config.bordercolor.Value);
+if(config?.shadowcolor != null) result.shadowcolor(config.shadowcolor.Value);
+if(config?.box != null) result.box(config.box.Value);
+if(config?.boxborderw != null) result.boxborderw(config.boxborderw.Value);
+if(config?.line_spacing != null) result.line_spacing(config.line_spacing.Value);
+if(!string.IsNullOrWhiteSpace(config?.fontsize)) result.fontsize(config.fontsize);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(config?.shadowx != null) result.shadowx(config.shadowx.Value);
+if(config?.shadowy != null) result.shadowy(config.shadowy.Value);
+if(config?.borderw != null) result.borderw(config.borderw.Value);
+if(config?.tabsize != null) result.tabsize(config.tabsize.Value);
+if(config?.basetime != null) result.basetime(config.basetime.Value);
+if(!string.IsNullOrWhiteSpace(config?.font)) result.font(config.font);
+if(config?.expansion != null) result.expansion(config.expansion.Value);
+if(!string.IsNullOrWhiteSpace(config?.timecode)) result.timecode(config.timecode);
+if(config?.tc24hmax != null) result.tc24hmax(config.tc24hmax.Value);
 if(config?.timecode_rate != null) result.timecode_rate(config.timecode_rate);
 if(config?.r != null) result.r(config.r);
 if(config?.rate != null) result.rate(config.rate);
-if(config?.reload != null) result.reload(config.reload);
-if(config?.alpha != null) result.alpha(config.alpha);
-if(config?.fix_bounds != null) result.fix_bounds(config.fix_bounds);
-if(config?.start_number != null) result.start_number(config.start_number);
-if(config?.text_shaping != null) result.text_shaping(config.text_shaping);
-if(config?.ft_load_flags != null) result.ft_load_flags(config.ft_load_flags);
+if(config?.reload != null) result.reload(config.reload.Value);
+if(!string.IsNullOrWhiteSpace(config?.alpha)) result.alpha(config.alpha);
+if(config?.fix_bounds != null) result.fix_bounds(config.fix_bounds.Value);
+if(config?.start_number != null) result.start_number(config.start_number.Value);
+if(config?.text_shaping != null) result.text_shaping(config.text_shaping.Value);
+if(config?.ft_load_flags != null) result.ft_load_flags(config.ft_load_flags.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -208,7 +208,7 @@ public string textfile { get; set; }
 /// <summary>
 ///  set foreground color (default "black")
 /// </summary>
-public Color fontcolor { get; set; }
+public Color? fontcolor { get; set; }
 /// <summary>
 ///  set foreground color expression (default "")
 /// </summary>
@@ -216,27 +216,27 @@ public string fontcolor_expr { get; set; }
 /// <summary>
 ///  set box color (default "white")
 /// </summary>
-public Color boxcolor { get; set; }
+public Color? boxcolor { get; set; }
 /// <summary>
 ///  set border color (default "black")
 /// </summary>
-public Color bordercolor { get; set; }
+public Color? bordercolor { get; set; }
 /// <summary>
 ///  set shadow color (default "black")
 /// </summary>
-public Color shadowcolor { get; set; }
+public Color? shadowcolor { get; set; }
 /// <summary>
 ///  set box (default false)
 /// </summary>
-public bool box { get; set; }
+public bool? box { get; set; }
 /// <summary>
 ///  set box border width (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public int boxborderw { get; set; }
+public int? boxborderw { get; set; }
 /// <summary>
 ///  set line spacing in pixels (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public int line_spacing { get; set; }
+public int? line_spacing { get; set; }
 /// <summary>
 ///  set font size
 /// </summary>
@@ -252,23 +252,23 @@ public string y { get; set; }
 /// <summary>
 ///  set shadow x offset (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public int shadowx { get; set; }
+public int? shadowx { get; set; }
 /// <summary>
 ///  set shadow y offset (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public int shadowy { get; set; }
+public int? shadowy { get; set; }
 /// <summary>
 ///  set border width (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
-public int borderw { get; set; }
+public int? borderw { get; set; }
 /// <summary>
 ///  set tab size (from 0 to INT_MAX) (default 4)
 /// </summary>
-public int tabsize { get; set; }
+public int? tabsize { get; set; }
 /// <summary>
 ///  set base time (from I64_MIN to I64_MAX) (default I64_MIN)
 /// </summary>
-public long basetime { get; set; }
+public long? basetime { get; set; }
 /// <summary>
 ///  Font name (default "Sans")
 /// </summary>
@@ -276,7 +276,7 @@ public string font { get; set; }
 /// <summary>
 ///  set the expansion mode (from 0 to 2) (default normal)
 /// </summary>
-public DrawtextFilterGenExpansion expansion { get; set; }
+public DrawtextFilterGenExpansion? expansion { get; set; }
 /// <summary>
 ///  set initial timecode
 /// </summary>
@@ -284,7 +284,7 @@ public string timecode { get; set; }
 /// <summary>
 ///  set 24 hours max (timecode only) (default false)
 /// </summary>
-public bool tc24hmax { get; set; }
+public bool? tc24hmax { get; set; }
 /// <summary>
 ///  set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
 /// </summary>
@@ -300,7 +300,7 @@ public Rational rate { get; set; }
 /// <summary>
 ///  reload text file for each frame (default false)
 /// </summary>
-public bool reload { get; set; }
+public bool? reload { get; set; }
 /// <summary>
 ///  apply alpha while rendering (default "1")
 /// </summary>
@@ -308,19 +308,19 @@ public string alpha { get; set; }
 /// <summary>
 ///  check and fix text coords to avoid clipping (default false)
 /// </summary>
-public bool fix_bounds { get; set; }
+public bool? fix_bounds { get; set; }
 /// <summary>
 ///  start frame number for n/frame_num variable (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int start_number { get; set; }
+public int? start_number { get; set; }
 /// <summary>
 ///  attempt to shape text before drawing (default true)
 /// </summary>
-public bool text_shaping { get; set; }
+public bool? text_shaping { get; set; }
 /// <summary>
 ///  set font loading flags for libfreetype (default 0)
 /// </summary>
-public DrawtextFilterGenFt_load_flags ft_load_flags { get; set; }
+public DrawtextFilterGenFt_load_flags? ft_load_flags { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum DrawtextFilterGenExpansion

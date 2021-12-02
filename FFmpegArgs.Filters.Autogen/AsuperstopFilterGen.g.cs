@@ -43,10 +43,10 @@ public static AsuperstopFilterGen AsuperstopFilterGen(this AudioMap input0) => n
 public static AsuperstopFilterGen AsuperstopFilterGen(this AudioMap input0,AsuperstopFilterGenConfig config)
 {
 var result = new AsuperstopFilterGen(input0);
-if(config?.centerf != null) result.centerf(config.centerf);
-if(config?.order != null) result.order(config.order);
-if(config?.qfactor != null) result.qfactor(config.qfactor);
-if(config?.level != null) result.level(config.level);
+if(config?.centerf != null) result.centerf(config.centerf.Value);
+if(config?.order != null) result.order(config.order.Value);
+if(config?.qfactor != null) result.qfactor(config.qfactor.Value);
+if(config?.level != null) result.level(config.level.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class AsuperstopFilterGenConfig
 /// <summary>
 ///  set center frequency (from 2 to 999999) (default 1000)
 /// </summary>
-public double centerf { get; set; }
+public double? centerf { get; set; }
 /// <summary>
 ///  set filter order (from 4 to 20) (default 4)
 /// </summary>
-public int order { get; set; }
+public int? order { get; set; }
 /// <summary>
 ///  set Q-factor (from 0.01 to 100) (default 1)
 /// </summary>
-public double qfactor { get; set; }
+public double? qfactor { get; set; }
 /// <summary>
 ///  set input level (from 0 to 2) (default 1)
 /// </summary>
-public double level { get; set; }
+public double? level { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

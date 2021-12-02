@@ -75,18 +75,18 @@ public static Unsharp_openclFilterGen Unsharp_openclFilterGen(this ImageMap inpu
 public static Unsharp_openclFilterGen Unsharp_openclFilterGen(this ImageMap input0,Unsharp_openclFilterGenConfig config)
 {
 var result = new Unsharp_openclFilterGen(input0);
-if(config?.luma_msize_x != null) result.luma_msize_x(config.luma_msize_x);
-if(config?.lx != null) result.lx(config.lx);
-if(config?.luma_msize_y != null) result.luma_msize_y(config.luma_msize_y);
-if(config?.ly != null) result.ly(config.ly);
-if(config?.luma_amount != null) result.luma_amount(config.luma_amount);
-if(config?.la != null) result.la(config.la);
-if(config?.chroma_msize_x != null) result.chroma_msize_x(config.chroma_msize_x);
-if(config?.cx != null) result.cx(config.cx);
-if(config?.chroma_msize_y != null) result.chroma_msize_y(config.chroma_msize_y);
-if(config?.cy != null) result.cy(config.cy);
-if(config?.chroma_amount != null) result.chroma_amount(config.chroma_amount);
-if(config?.ca != null) result.ca(config.ca);
+if(config?.luma_msize_x != null) result.luma_msize_x(config.luma_msize_x.Value);
+if(config?.lx != null) result.lx(config.lx.Value);
+if(config?.luma_msize_y != null) result.luma_msize_y(config.luma_msize_y.Value);
+if(config?.ly != null) result.ly(config.ly.Value);
+if(config?.luma_amount != null) result.luma_amount(config.luma_amount.Value);
+if(config?.la != null) result.la(config.la.Value);
+if(config?.chroma_msize_x != null) result.chroma_msize_x(config.chroma_msize_x.Value);
+if(config?.cx != null) result.cx(config.cx.Value);
+if(config?.chroma_msize_y != null) result.chroma_msize_y(config.chroma_msize_y.Value);
+if(config?.cy != null) result.cy(config.cy.Value);
+if(config?.chroma_amount != null) result.chroma_amount(config.chroma_amount.Value);
+if(config?.ca != null) result.ca(config.ca.Value);
 return result;
 }
 }
@@ -95,50 +95,50 @@ public class Unsharp_openclFilterGenConfig
 /// <summary>
 ///  Set luma mask horizontal diameter (pixels) (from 1 to 23) (default 5)
 /// </summary>
-public float luma_msize_x { get; set; }
+public float? luma_msize_x { get; set; }
 /// <summary>
 ///  Set luma mask horizontal diameter (pixels) (from 1 to 23) (default 5)
 /// </summary>
-public float lx { get; set; }
+public float? lx { get; set; }
 /// <summary>
 ///  Set luma mask vertical diameter (pixels) (from 1 to 23) (default 5)
 /// </summary>
-public float luma_msize_y { get; set; }
+public float? luma_msize_y { get; set; }
 /// <summary>
 ///  Set luma mask vertical diameter (pixels) (from 1 to 23) (default 5)
 /// </summary>
-public float ly { get; set; }
+public float? ly { get; set; }
 /// <summary>
 ///  Set luma amount (multiplier) (from -10 to 10) (default 1)
 /// </summary>
-public float luma_amount { get; set; }
+public float? luma_amount { get; set; }
 /// <summary>
 ///  Set luma amount (multiplier) (from -10 to 10) (default 1)
 /// </summary>
-public float la { get; set; }
+public float? la { get; set; }
 /// <summary>
 ///  Set chroma mask horizontal diameter (pixels after subsampling) (from 1 to 23) (default 5)
 /// </summary>
-public float chroma_msize_x { get; set; }
+public float? chroma_msize_x { get; set; }
 /// <summary>
 ///  Set chroma mask horizontal diameter (pixels after subsampling) (from 1 to 23) (default 5)
 /// </summary>
-public float cx { get; set; }
+public float? cx { get; set; }
 /// <summary>
 ///  Set chroma mask vertical diameter (pixels after subsampling) (from 1 to 23) (default 5)
 /// </summary>
-public float chroma_msize_y { get; set; }
+public float? chroma_msize_y { get; set; }
 /// <summary>
 ///  Set chroma mask vertical diameter (pixels after subsampling) (from 1 to 23) (default 5)
 /// </summary>
-public float cy { get; set; }
+public float? cy { get; set; }
 /// <summary>
 ///  Set chroma amount (multiplier) (from -10 to 10) (default 0)
 /// </summary>
-public float chroma_amount { get; set; }
+public float? chroma_amount { get; set; }
 /// <summary>
 ///  Set chroma amount (multiplier) (from -10 to 10) (default 0)
 /// </summary>
-public float ca { get; set; }
+public float? ca { get; set; }
 }
 }

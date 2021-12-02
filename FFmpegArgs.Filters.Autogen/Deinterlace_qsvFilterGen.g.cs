@@ -31,7 +31,7 @@ public static Deinterlace_qsvFilterGen Deinterlace_qsvFilterGen(this ImageMap in
 public static Deinterlace_qsvFilterGen Deinterlace_qsvFilterGen(this ImageMap input0,Deinterlace_qsvFilterGenConfig config)
 {
 var result = new Deinterlace_qsvFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
+if(config?.mode != null) result.mode(config.mode.Value);
 return result;
 }
 }
@@ -40,7 +40,7 @@ public class Deinterlace_qsvFilterGenConfig
 /// <summary>
 ///  set deinterlace mode (from 1 to 2) (default advanced)
 /// </summary>
-public Deinterlace_qsvFilterGenMode mode { get; set; }
+public Deinterlace_qsvFilterGenMode? mode { get; set; }
 }
 public enum Deinterlace_qsvFilterGenMode
 {

@@ -35,8 +35,8 @@ public static GradfunFilterGen GradfunFilterGen(this ImageMap input0) => new Gra
 public static GradfunFilterGen GradfunFilterGen(this ImageMap input0,GradfunFilterGenConfig config)
 {
 var result = new GradfunFilterGen(input0);
-if(config?.strength != null) result.strength(config.strength);
-if(config?.radius != null) result.radius(config.radius);
+if(config?.strength != null) result.strength(config.strength.Value);
+if(config?.radius != null) result.radius(config.radius.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class GradfunFilterGenConfig
 /// <summary>
 ///  The maximum amount by which the filter will change any one pixel. (from 0.51 to 64) (default 1.2)
 /// </summary>
-public float strength { get; set; }
+public float? strength { get; set; }
 /// <summary>
 ///  The neighborhood to fit the gradient to. (from 4 to 32) (default 16)
 /// </summary>
-public int radius { get; set; }
+public int? radius { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

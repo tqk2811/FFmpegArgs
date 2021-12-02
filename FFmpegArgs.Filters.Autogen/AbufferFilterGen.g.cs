@@ -48,10 +48,10 @@ public static AbufferFilterGen AbufferFilterGen(this FilterGraph input0,AbufferF
 {
 var result = new AbufferFilterGen(input0);
 if(config?.time_base != null) result.time_base(config.time_base);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.sample_fmt != null) result.sample_fmt(config.sample_fmt);
-if(config?.channel_layout != null) result.channel_layout(config.channel_layout);
-if(config?.channels != null) result.channels(config.channels);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
+if(config?.sample_fmt != null) result.sample_fmt(config.sample_fmt.Value);
+if(!string.IsNullOrWhiteSpace(config?.channel_layout)) result.channel_layout(config.channel_layout);
+if(config?.channels != null) result.channels(config.channels.Value);
 return result;
 }
 }
@@ -64,11 +64,11 @@ public Rational time_base { get; set; }
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int sample_rate { get; set; }
+public int? sample_rate { get; set; }
 /// <summary>
 ///  (default none)
 /// </summary>
-public AVSampleFormat sample_fmt { get; set; }
+public AVSampleFormat? sample_fmt { get; set; }
 /// <summary>
 /// 
 /// </summary>
@@ -76,6 +76,6 @@ public string channel_layout { get; set; }
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int channels { get; set; }
+public int? channels { get; set; }
 }
 }

@@ -35,8 +35,8 @@ public static AsendcmdFilterGen AsendcmdFilterGen(this AudioMap input0) => new A
 public static AsendcmdFilterGen AsendcmdFilterGen(this AudioMap input0,AsendcmdFilterGenConfig config)
 {
 var result = new AsendcmdFilterGen(input0);
-if(config?.commands != null) result.commands(config.commands);
-if(config?.filename != null) result.filename(config.filename);
+if(!string.IsNullOrWhiteSpace(config?.commands)) result.commands(config.commands);
+if(!string.IsNullOrWhiteSpace(config?.filename)) result.filename(config.filename);
 return result;
 }
 }

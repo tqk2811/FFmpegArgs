@@ -43,10 +43,10 @@ public static SppFilterGen SppFilterGen(this ImageMap input0) => new SppFilterGe
 public static SppFilterGen SppFilterGen(this ImageMap input0,SppFilterGenConfig config)
 {
 var result = new SppFilterGen(input0);
-if(config?.quality != null) result.quality(config.quality);
-if(config?.qp != null) result.qp(config.qp);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp);
+if(config?.quality != null) result.quality(config.quality.Value);
+if(config?.qp != null) result.qp(config.qp.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.use_bframe_qp != null) result.use_bframe_qp(config.use_bframe_qp.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class SppFilterGenConfig
 /// <summary>
 ///  set quality (from 0 to 6) (default 3)
 /// </summary>
-public int quality { get; set; }
+public int? quality { get; set; }
 /// <summary>
 ///  force a constant quantizer parameter (from 0 to 63) (default 0)
 /// </summary>
-public int qp { get; set; }
+public int? qp { get; set; }
 /// <summary>
 ///  set thresholding mode (from 0 to 1) (default hard)
 /// </summary>
-public SppFilterGenMode mode { get; set; }
+public SppFilterGenMode? mode { get; set; }
 /// <summary>
 ///  use B-frames' QP (default false)
 /// </summary>
-public bool use_bframe_qp { get; set; }
+public bool? use_bframe_qp { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum SppFilterGenMode

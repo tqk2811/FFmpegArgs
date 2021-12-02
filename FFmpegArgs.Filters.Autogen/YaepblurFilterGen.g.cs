@@ -39,9 +39,9 @@ public static YaepblurFilterGen YaepblurFilterGen(this ImageMap input0) => new Y
 public static YaepblurFilterGen YaepblurFilterGen(this ImageMap input0,YaepblurFilterGenConfig config)
 {
 var result = new YaepblurFilterGen(input0);
-if(config?.radius != null) result.radius(config.radius);
-if(config?.planes != null) result.planes(config.planes);
-if(config?.sigma != null) result.sigma(config.sigma);
+if(config?.radius != null) result.radius(config.radius.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
+if(config?.sigma != null) result.sigma(config.sigma.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class YaepblurFilterGenConfig
 /// <summary>
 ///  set window radius (from 0 to INT_MAX) (default 3)
 /// </summary>
-public int radius { get; set; }
+public int? radius { get; set; }
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 1)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 /// <summary>
 ///  set blur strength (from 1 to INT_MAX) (default 128)
 /// </summary>
-public int sigma { get; set; }
+public int? sigma { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

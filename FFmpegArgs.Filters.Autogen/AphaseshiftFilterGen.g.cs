@@ -35,8 +35,8 @@ public static AphaseshiftFilterGen AphaseshiftFilterGen(this AudioMap input0) =>
 public static AphaseshiftFilterGen AphaseshiftFilterGen(this AudioMap input0,AphaseshiftFilterGenConfig config)
 {
 var result = new AphaseshiftFilterGen(input0);
-if(config?.shift != null) result.shift(config.shift);
-if(config?.level != null) result.level(config.level);
+if(config?.shift != null) result.shift(config.shift.Value);
+if(config?.level != null) result.level(config.level.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class AphaseshiftFilterGenConfig
 /// <summary>
 ///  set phase shift (from -1 to 1) (default 0)
 /// </summary>
-public double shift { get; set; }
+public double? shift { get; set; }
 /// <summary>
 ///  set output level (from 0 to 1) (default 1)
 /// </summary>
-public double level { get; set; }
+public double? level { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

@@ -51,11 +51,11 @@ public static Pad_openclFilterGen Pad_openclFilterGen(this ImageMap input0) => n
 public static Pad_openclFilterGen Pad_openclFilterGen(this ImageMap input0,Pad_openclFilterGenConfig config)
 {
 var result = new Pad_openclFilterGen(input0);
-if(config?.width != null) result.width(config.width);
-if(config?.height != null) result.height(config.height);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.color != null) result.color(config.color);
+if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
+if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(config?.color != null) result.color(config.color.Value);
 if(config?.aspect != null) result.aspect(config.aspect);
 return result;
 }
@@ -81,7 +81,7 @@ public string y { get; set; }
 /// <summary>
 ///  set the color of the padded area border (default "black")
 /// </summary>
-public Color color { get; set; }
+public Color? color { get; set; }
 /// <summary>
 ///  pad to fit an aspect instead of a resolution (from 0 to 32767) (default 0/1)
 /// </summary>

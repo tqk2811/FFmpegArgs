@@ -47,11 +47,11 @@ public static AssFilterGen AssFilterGen(this ImageMap input0) => new AssFilterGe
 public static AssFilterGen AssFilterGen(this ImageMap input0,AssFilterGenConfig config)
 {
 var result = new AssFilterGen(input0);
-if(config?.filename != null) result.filename(config.filename);
-if(config?.original_size != null) result.original_size(config.original_size);
-if(config?.fontsdir != null) result.fontsdir(config.fontsdir);
-if(config?.alpha != null) result.alpha(config.alpha);
-if(config?.shaping != null) result.shaping(config.shaping);
+if(!string.IsNullOrWhiteSpace(config?.filename)) result.filename(config.filename);
+if(config?.original_size != null) result.original_size(config.original_size.Value);
+if(!string.IsNullOrWhiteSpace(config?.fontsdir)) result.fontsdir(config.fontsdir);
+if(config?.alpha != null) result.alpha(config.alpha.Value);
+if(config?.shaping != null) result.shaping(config.shaping.Value);
 return result;
 }
 }
@@ -64,7 +64,7 @@ public string filename { get; set; }
 /// <summary>
 ///  set the size of the original video (used to scale fonts)
 /// </summary>
-public Size original_size { get; set; }
+public Size? original_size { get; set; }
 /// <summary>
 ///  set the directory containing the fonts to read
 /// </summary>
@@ -72,11 +72,11 @@ public string fontsdir { get; set; }
 /// <summary>
 ///  enable processing of alpha channel (default false)
 /// </summary>
-public bool alpha { get; set; }
+public bool? alpha { get; set; }
 /// <summary>
 ///  set shaping engine (from -1 to 1) (default auto)
 /// </summary>
-public AssFilterGenShaping shaping { get; set; }
+public AssFilterGenShaping? shaping { get; set; }
 }
 public enum AssFilterGenShaping
 {

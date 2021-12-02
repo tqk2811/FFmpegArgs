@@ -55,12 +55,12 @@ public static VignetteFilterGen VignetteFilterGen(this ImageMap input0) => new V
 public static VignetteFilterGen VignetteFilterGen(this ImageMap input0,VignetteFilterGenConfig config)
 {
 var result = new VignetteFilterGen(input0);
-if(config?.angle != null) result.angle(config.angle);
-if(config?.x0 != null) result.x0(config.x0);
-if(config?.y0 != null) result.y0(config.y0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.eval != null) result.eval(config.eval);
-if(config?.dither != null) result.dither(config.dither);
+if(!string.IsNullOrWhiteSpace(config?.angle)) result.angle(config.angle);
+if(!string.IsNullOrWhiteSpace(config?.x0)) result.x0(config.x0);
+if(!string.IsNullOrWhiteSpace(config?.y0)) result.y0(config.y0);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.eval != null) result.eval(config.eval.Value);
+if(config?.dither != null) result.dither(config.dither.Value);
 if(config?.aspect != null) result.aspect(config.aspect);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
@@ -83,15 +83,15 @@ public string y0 { get; set; }
 /// <summary>
 ///  set forward/backward mode (from 0 to 1) (default forward)
 /// </summary>
-public VignetteFilterGenMode mode { get; set; }
+public VignetteFilterGenMode? mode { get; set; }
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public VignetteFilterGenEval eval { get; set; }
+public VignetteFilterGenEval? eval { get; set; }
 /// <summary>
 ///  set dithering (default true)
 /// </summary>
-public bool dither { get; set; }
+public bool? dither { get; set; }
 /// <summary>
 ///  set aspect ratio (from 0 to DBL_MAX) (default 1/1)
 /// </summary>

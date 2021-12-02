@@ -31,7 +31,7 @@ public static HwuploadFilterGen HwuploadFilterGen(this ImageMap input0) => new H
 public static HwuploadFilterGen HwuploadFilterGen(this ImageMap input0,HwuploadFilterGenConfig config)
 {
 var result = new HwuploadFilterGen(input0);
-if(config?.derive_device != null) result.derive_device(config.derive_device);
+if(!string.IsNullOrWhiteSpace(config?.derive_device)) result.derive_device(config.derive_device);
 return result;
 }
 }

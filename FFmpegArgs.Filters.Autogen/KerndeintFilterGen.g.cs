@@ -47,11 +47,11 @@ public static KerndeintFilterGen KerndeintFilterGen(this ImageMap input0) => new
 public static KerndeintFilterGen KerndeintFilterGen(this ImageMap input0,KerndeintFilterGenConfig config)
 {
 var result = new KerndeintFilterGen(input0);
-if(config?.thresh != null) result.thresh(config.thresh);
-if(config?.map != null) result.map(config.map);
-if(config?.order != null) result.order(config.order);
-if(config?.sharp != null) result.sharp(config.sharp);
-if(config?.twoway != null) result.twoway(config.twoway);
+if(config?.thresh != null) result.thresh(config.thresh.Value);
+if(config?.map != null) result.map(config.map.Value);
+if(config?.order != null) result.order(config.order.Value);
+if(config?.sharp != null) result.sharp(config.sharp.Value);
+if(config?.twoway != null) result.twoway(config.twoway.Value);
 return result;
 }
 }
@@ -60,22 +60,22 @@ public class KerndeintFilterGenConfig
 /// <summary>
 ///  set the threshold (from 0 to 255) (default 10)
 /// </summary>
-public int thresh { get; set; }
+public int? thresh { get; set; }
 /// <summary>
 ///  set the map (default false)
 /// </summary>
-public bool map { get; set; }
+public bool? map { get; set; }
 /// <summary>
 ///  set the order (default false)
 /// </summary>
-public bool order { get; set; }
+public bool? order { get; set; }
 /// <summary>
 ///  set sharpening (default false)
 /// </summary>
-public bool sharp { get; set; }
+public bool? sharp { get; set; }
 /// <summary>
 ///  set twoway (default false)
 /// </summary>
-public bool twoway { get; set; }
+public bool? twoway { get; set; }
 }
 }

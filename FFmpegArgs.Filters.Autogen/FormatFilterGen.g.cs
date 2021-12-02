@@ -31,7 +31,7 @@ public static FormatFilterGen FormatFilterGen(this ImageMap input0) => new Forma
 public static FormatFilterGen FormatFilterGen(this ImageMap input0,FormatFilterGenConfig config)
 {
 var result = new FormatFilterGen(input0);
-if(config?.pix_fmts != null) result.pix_fmts(config.pix_fmts);
+if(!string.IsNullOrWhiteSpace(config?.pix_fmts)) result.pix_fmts(config.pix_fmts);
 return result;
 }
 }

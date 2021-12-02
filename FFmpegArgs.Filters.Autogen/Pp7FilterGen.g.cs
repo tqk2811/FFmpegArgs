@@ -35,8 +35,8 @@ public static Pp7FilterGen Pp7FilterGen(this ImageMap input0) => new Pp7FilterGe
 public static Pp7FilterGen Pp7FilterGen(this ImageMap input0,Pp7FilterGenConfig config)
 {
 var result = new Pp7FilterGen(input0);
-if(config?.qp != null) result.qp(config.qp);
-if(config?.mode != null) result.mode(config.mode);
+if(config?.qp != null) result.qp(config.qp.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class Pp7FilterGenConfig
 /// <summary>
 ///  force a constant quantizer parameter (from 0 to 64) (default 0)
 /// </summary>
-public int qp { get; set; }
+public int? qp { get; set; }
 /// <summary>
 ///  set thresholding mode (from 0 to 2) (default medium)
 /// </summary>
-public Pp7FilterGenMode mode { get; set; }
+public Pp7FilterGenMode? mode { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum Pp7FilterGenMode

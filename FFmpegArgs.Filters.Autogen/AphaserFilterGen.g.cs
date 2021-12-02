@@ -51,12 +51,12 @@ public static AphaserFilterGen AphaserFilterGen(this AudioMap input0) => new Aph
 public static AphaserFilterGen AphaserFilterGen(this AudioMap input0,AphaserFilterGenConfig config)
 {
 var result = new AphaserFilterGen(input0);
-if(config?.in_gain != null) result.in_gain(config.in_gain);
-if(config?.out_gain != null) result.out_gain(config.out_gain);
-if(config?.delay != null) result.delay(config.delay);
-if(config?.decay != null) result.decay(config.decay);
-if(config?.speed != null) result.speed(config.speed);
-if(config?.type != null) result.type(config.type);
+if(config?.in_gain != null) result.in_gain(config.in_gain.Value);
+if(config?.out_gain != null) result.out_gain(config.out_gain.Value);
+if(config?.delay != null) result.delay(config.delay.Value);
+if(config?.decay != null) result.decay(config.decay.Value);
+if(config?.speed != null) result.speed(config.speed.Value);
+if(config?.type != null) result.type(config.type.Value);
 return result;
 }
 }
@@ -65,27 +65,27 @@ public class AphaserFilterGenConfig
 /// <summary>
 ///  set input gain (from 0 to 1) (default 0.4)
 /// </summary>
-public double in_gain { get; set; }
+public double? in_gain { get; set; }
 /// <summary>
 ///  set output gain (from 0 to 1e+09) (default 0.74)
 /// </summary>
-public double out_gain { get; set; }
+public double? out_gain { get; set; }
 /// <summary>
 ///  set delay in milliseconds (from 0 to 5) (default 3)
 /// </summary>
-public double delay { get; set; }
+public double? delay { get; set; }
 /// <summary>
 ///  set decay (from 0 to 0.99) (default 0.4)
 /// </summary>
-public double decay { get; set; }
+public double? decay { get; set; }
 /// <summary>
 ///  set modulation speed (from 0.1 to 2) (default 0.5)
 /// </summary>
-public double speed { get; set; }
+public double? speed { get; set; }
 /// <summary>
 ///  set modulation type (from 0 to 1) (default triangular)
 /// </summary>
-public AphaserFilterGenType type { get; set; }
+public AphaserFilterGenType? type { get; set; }
 }
 public enum AphaserFilterGenType
 {

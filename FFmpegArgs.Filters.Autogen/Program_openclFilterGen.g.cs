@@ -43,10 +43,10 @@ public static Program_openclFilterGen Program_openclFilterGen(this FilterGraph i
 public static Program_openclFilterGen Program_openclFilterGen(this FilterGraph input0,Program_openclFilterGenConfig config)
 {
 var result = new Program_openclFilterGen(input0);
-if(config?.source != null) result.source(config.source);
-if(config?.kernel != null) result.kernel(config.kernel);
-if(config?.inputs != null) result.inputs(config.inputs);
-if(config?.size != null) result.size(config.size);
+if(!string.IsNullOrWhiteSpace(config?.source)) result.source(config.source);
+if(!string.IsNullOrWhiteSpace(config?.kernel)) result.kernel(config.kernel);
+if(config?.inputs != null) result.inputs(config.inputs.Value);
+if(config?.size != null) result.size(config.size.Value);
 return result;
 }
 }
@@ -63,10 +63,10 @@ public string kernel { get; set; }
 /// <summary>
 ///  Number of inputs (from 1 to INT_MAX) (default 1)
 /// </summary>
-public int inputs { get; set; }
+public int? inputs { get; set; }
 /// <summary>
 ///  Video size
 /// </summary>
-public Size size { get; set; }
+public Size? size { get; set; }
 }
 }

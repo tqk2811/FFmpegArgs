@@ -59,14 +59,14 @@ public static OverlayFilterGen OverlayFilterGen(this ImageMap input0, ImageMap i
 public static OverlayFilterGen OverlayFilterGen(this ImageMap input0, ImageMap input1,OverlayFilterGenConfig config)
 {
 var result = new OverlayFilterGen(input0, input1);
-if(config?.x != null) result.x(config.x);
-if(config?.y != null) result.y(config.y);
-if(config?.eof_action != null) result.eof_action(config.eof_action);
-if(config?.eval != null) result.eval(config.eval);
-if(config?.shortest != null) result.shortest(config.shortest);
-if(config?.format != null) result.format(config.format);
-if(config?.repeatlast != null) result.repeatlast(config.repeatlast);
-if(config?.alpha != null) result.alpha(config.alpha);
+if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
+if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
+if(config?.eof_action != null) result.eof_action(config.eof_action.Value);
+if(config?.eval != null) result.eval(config.eval.Value);
+if(config?.shortest != null) result.shortest(config.shortest.Value);
+if(config?.format != null) result.format(config.format.Value);
+if(config?.repeatlast != null) result.repeatlast(config.repeatlast.Value);
+if(config?.alpha != null) result.alpha(config.alpha.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -84,27 +84,27 @@ public string y { get; set; }
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>
-public OverlayFilterGenEof_action eof_action { get; set; }
+public OverlayFilterGenEof_action? eof_action { get; set; }
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default frame)
 /// </summary>
-public OverlayFilterGenEval eval { get; set; }
+public OverlayFilterGenEval? eval { get; set; }
 /// <summary>
 ///  force termination when the shortest input terminates (default false)
 /// </summary>
-public bool shortest { get; set; }
+public bool? shortest { get; set; }
 /// <summary>
 ///  set output format (from 0 to 7) (default yuv420)
 /// </summary>
-public OverlayFilterGenFormat format { get; set; }
+public OverlayFilterGenFormat? format { get; set; }
 /// <summary>
 ///  repeat overlay of the last overlay frame (default true)
 /// </summary>
-public bool repeatlast { get; set; }
+public bool? repeatlast { get; set; }
 /// <summary>
 ///  alpha format (from 0 to 1) (default straight)
 /// </summary>
-public OverlayFilterGenAlpha alpha { get; set; }
+public OverlayFilterGenAlpha? alpha { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum OverlayFilterGenEof_action

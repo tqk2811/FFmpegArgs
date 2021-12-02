@@ -31,7 +31,7 @@ public static AtempoFilterGen AtempoFilterGen(this AudioMap input0) => new Atemp
 public static AtempoFilterGen AtempoFilterGen(this AudioMap input0,AtempoFilterGenConfig config)
 {
 var result = new AtempoFilterGen(input0);
-if(config?.tempo != null) result.tempo(config.tempo);
+if(config?.tempo != null) result.tempo(config.tempo.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class AtempoFilterGenConfig
 /// <summary>
 ///  set tempo scale factor (from 0.5 to 100) (default 1)
 /// </summary>
-public double tempo { get; set; }
+public double? tempo { get; set; }
 }
 }

@@ -51,12 +51,12 @@ public static SwaprectFilterGen SwaprectFilterGen(this ImageMap input0) => new S
 public static SwaprectFilterGen SwaprectFilterGen(this ImageMap input0,SwaprectFilterGenConfig config)
 {
 var result = new SwaprectFilterGen(input0);
-if(config?.w != null) result.w(config.w);
-if(config?.h != null) result.h(config.h);
-if(config?.x1 != null) result.x1(config.x1);
-if(config?.y1 != null) result.y1(config.y1);
-if(config?.x2 != null) result.x2(config.x2);
-if(config?.y2 != null) result.y2(config.y2);
+if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
+if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
+if(!string.IsNullOrWhiteSpace(config?.x1)) result.x1(config.x1);
+if(!string.IsNullOrWhiteSpace(config?.y1)) result.y1(config.y1);
+if(!string.IsNullOrWhiteSpace(config?.x2)) result.x2(config.x2);
+if(!string.IsNullOrWhiteSpace(config?.y2)) result.y2(config.y2);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }

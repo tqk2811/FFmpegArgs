@@ -47,11 +47,11 @@ public static Xfade_openclFilterGen Xfade_openclFilterGen(this ImageMap input0, 
 public static Xfade_openclFilterGen Xfade_openclFilterGen(this ImageMap input0, ImageMap input1,Xfade_openclFilterGenConfig config)
 {
 var result = new Xfade_openclFilterGen(input0, input1);
-if(config?.transition != null) result.transition(config.transition);
-if(config?.source != null) result.source(config.source);
-if(config?.kernel != null) result.kernel(config.kernel);
-if(config?.duration != null) result.duration(config.duration);
-if(config?.offset != null) result.offset(config.offset);
+if(config?.transition != null) result.transition(config.transition.Value);
+if(!string.IsNullOrWhiteSpace(config?.source)) result.source(config.source);
+if(!string.IsNullOrWhiteSpace(config?.kernel)) result.kernel(config.kernel);
+if(config?.duration != null) result.duration(config.duration.Value);
+if(config?.offset != null) result.offset(config.offset.Value);
 return result;
 }
 }
@@ -60,7 +60,7 @@ public class Xfade_openclFilterGenConfig
 /// <summary>
 ///  set cross fade transition (from 0 to 9) (default fade)
 /// </summary>
-public Xfade_openclFilterGenTransition transition { get; set; }
+public Xfade_openclFilterGenTransition? transition { get; set; }
 /// <summary>
 ///  set OpenCL program source file for custom transition
 /// </summary>
@@ -72,11 +72,11 @@ public string kernel { get; set; }
 /// <summary>
 ///  set cross fade duration (default 1)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set cross fade start relative to first input stream (default 0)
 /// </summary>
-public TimeSpan offset { get; set; }
+public TimeSpan? offset { get; set; }
 }
 public enum Xfade_openclFilterGenTransition
 {

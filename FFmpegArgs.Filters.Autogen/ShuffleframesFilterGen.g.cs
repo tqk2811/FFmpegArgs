@@ -31,7 +31,7 @@ public static ShuffleframesFilterGen ShuffleframesFilterGen(this ImageMap input0
 public static ShuffleframesFilterGen ShuffleframesFilterGen(this ImageMap input0,ShuffleframesFilterGenConfig config)
 {
 var result = new ShuffleframesFilterGen(input0);
-if(config?.mapping != null) result.mapping(config.mapping);
+if(!string.IsNullOrWhiteSpace(config?.mapping)) result.mapping(config.mapping);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }

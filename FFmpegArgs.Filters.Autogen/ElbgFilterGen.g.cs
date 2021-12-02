@@ -47,11 +47,11 @@ public static ElbgFilterGen ElbgFilterGen(this ImageMap input0) => new ElbgFilte
 public static ElbgFilterGen ElbgFilterGen(this ImageMap input0,ElbgFilterGenConfig config)
 {
 var result = new ElbgFilterGen(input0);
-if(config?.codebook_length != null) result.codebook_length(config.codebook_length);
-if(config?.l != null) result.l(config.l);
-if(config?.nb_steps != null) result.nb_steps(config.nb_steps);
-if(config?.seed != null) result.seed(config.seed);
-if(config?.pal8 != null) result.pal8(config.pal8);
+if(config?.codebook_length != null) result.codebook_length(config.codebook_length.Value);
+if(config?.l != null) result.l(config.l.Value);
+if(config?.nb_steps != null) result.nb_steps(config.nb_steps.Value);
+if(config?.seed != null) result.seed(config.seed.Value);
+if(config?.pal8 != null) result.pal8(config.pal8.Value);
 return result;
 }
 }
@@ -60,22 +60,22 @@ public class ElbgFilterGenConfig
 /// <summary>
 ///  set codebook length (from 1 to INT_MAX) (default 256)
 /// </summary>
-public int codebook_length { get; set; }
+public int? codebook_length { get; set; }
 /// <summary>
 ///  set codebook length (from 1 to INT_MAX) (default 256)
 /// </summary>
-public int l { get; set; }
+public int? l { get; set; }
 /// <summary>
 ///  set max number of steps used to compute the mapping (from 1 to INT_MAX) (default 1)
 /// </summary>
-public int nb_steps { get; set; }
+public int? nb_steps { get; set; }
 /// <summary>
 ///  set the random seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 /// <summary>
 ///  set the pal8 output (default false)
 /// </summary>
-public bool pal8 { get; set; }
+public bool? pal8 { get; set; }
 }
 }

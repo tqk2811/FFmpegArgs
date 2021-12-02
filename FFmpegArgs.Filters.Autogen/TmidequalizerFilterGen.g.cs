@@ -39,9 +39,9 @@ public static TmidequalizerFilterGen TmidequalizerFilterGen(this ImageMap input0
 public static TmidequalizerFilterGen TmidequalizerFilterGen(this ImageMap input0,TmidequalizerFilterGenConfig config)
 {
 var result = new TmidequalizerFilterGen(input0);
-if(config?.radius != null) result.radius(config.radius);
-if(config?.sigma != null) result.sigma(config.sigma);
-if(config?.planes != null) result.planes(config.planes);
+if(config?.radius != null) result.radius(config.radius.Value);
+if(config?.sigma != null) result.sigma(config.sigma.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class TmidequalizerFilterGenConfig
 /// <summary>
 ///  set radius (from 1 to 127) (default 5)
 /// </summary>
-public int radius { get; set; }
+public int? radius { get; set; }
 /// <summary>
 ///  set sigma (from 0 to 1) (default 0.5)
 /// </summary>
-public float sigma { get; set; }
+public float? sigma { get; set; }
 /// <summary>
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

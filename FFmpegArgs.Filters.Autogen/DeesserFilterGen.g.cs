@@ -43,10 +43,10 @@ public static DeesserFilterGen DeesserFilterGen(this AudioMap input0) => new Dee
 public static DeesserFilterGen DeesserFilterGen(this AudioMap input0,DeesserFilterGenConfig config)
 {
 var result = new DeesserFilterGen(input0);
-if(config?.i != null) result.i(config.i);
-if(config?.m != null) result.m(config.m);
-if(config?.f != null) result.f(config.f);
-if(config?.s != null) result.s(config.s);
+if(config?.i != null) result.i(config.i.Value);
+if(config?.m != null) result.m(config.m.Value);
+if(config?.f != null) result.f(config.f.Value);
+if(config?.s != null) result.s(config.s.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class DeesserFilterGenConfig
 /// <summary>
 ///  set intensity (from 0 to 1) (default 0)
 /// </summary>
-public double i { get; set; }
+public double? i { get; set; }
 /// <summary>
 ///  set max deessing (from 0 to 1) (default 0.5)
 /// </summary>
-public double m { get; set; }
+public double? m { get; set; }
 /// <summary>
 ///  set frequency (from 0 to 1) (default 0.5)
 /// </summary>
-public double f { get; set; }
+public double? f { get; set; }
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
-public DeesserFilterGenS s { get; set; }
+public DeesserFilterGenS? s { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum DeesserFilterGenS

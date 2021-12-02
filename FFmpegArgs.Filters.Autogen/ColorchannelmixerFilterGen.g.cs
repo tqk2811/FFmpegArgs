@@ -95,23 +95,23 @@ public static ColorchannelmixerFilterGen ColorchannelmixerFilterGen(this ImageMa
 public static ColorchannelmixerFilterGen ColorchannelmixerFilterGen(this ImageMap input0,ColorchannelmixerFilterGenConfig config)
 {
 var result = new ColorchannelmixerFilterGen(input0);
-if(config?.rr != null) result.rr(config.rr);
-if(config?.rg != null) result.rg(config.rg);
-if(config?.rb != null) result.rb(config.rb);
-if(config?.ra != null) result.ra(config.ra);
-if(config?.gr != null) result.gr(config.gr);
-if(config?.gg != null) result.gg(config.gg);
-if(config?.gb != null) result.gb(config.gb);
-if(config?.ga != null) result.ga(config.ga);
-if(config?.br != null) result.br(config.br);
-if(config?.bg != null) result.bg(config.bg);
-if(config?.bb != null) result.bb(config.bb);
-if(config?.ba != null) result.ba(config.ba);
-if(config?.ar != null) result.ar(config.ar);
-if(config?.ag != null) result.ag(config.ag);
-if(config?.ab != null) result.ab(config.ab);
-if(config?.aa != null) result.aa(config.aa);
-if(config?.pl != null) result.pl(config.pl);
+if(config?.rr != null) result.rr(config.rr.Value);
+if(config?.rg != null) result.rg(config.rg.Value);
+if(config?.rb != null) result.rb(config.rb.Value);
+if(config?.ra != null) result.ra(config.ra.Value);
+if(config?.gr != null) result.gr(config.gr.Value);
+if(config?.gg != null) result.gg(config.gg.Value);
+if(config?.gb != null) result.gb(config.gb.Value);
+if(config?.ga != null) result.ga(config.ga.Value);
+if(config?.br != null) result.br(config.br.Value);
+if(config?.bg != null) result.bg(config.bg.Value);
+if(config?.bb != null) result.bb(config.bb.Value);
+if(config?.ba != null) result.ba(config.ba.Value);
+if(config?.ar != null) result.ar(config.ar.Value);
+if(config?.ag != null) result.ag(config.ag.Value);
+if(config?.ab != null) result.ab(config.ab.Value);
+if(config?.aa != null) result.aa(config.aa.Value);
+if(config?.pl != null) result.pl(config.pl.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -121,71 +121,71 @@ public class ColorchannelmixerFilterGenConfig
 /// <summary>
 ///  set the red gain for the red channel (from -2 to 2) (default 1)
 /// </summary>
-public double rr { get; set; }
+public double? rr { get; set; }
 /// <summary>
 ///  set the green gain for the red channel (from -2 to 2) (default 0)
 /// </summary>
-public double rg { get; set; }
+public double? rg { get; set; }
 /// <summary>
 ///  set the blue gain for the red channel (from -2 to 2) (default 0)
 /// </summary>
-public double rb { get; set; }
+public double? rb { get; set; }
 /// <summary>
 ///  set the alpha gain for the red channel (from -2 to 2) (default 0)
 /// </summary>
-public double ra { get; set; }
+public double? ra { get; set; }
 /// <summary>
 ///  set the red gain for the green channel (from -2 to 2) (default 0)
 /// </summary>
-public double gr { get; set; }
+public double? gr { get; set; }
 /// <summary>
 ///  set the green gain for the green channel (from -2 to 2) (default 1)
 /// </summary>
-public double gg { get; set; }
+public double? gg { get; set; }
 /// <summary>
 ///  set the blue gain for the green channel (from -2 to 2) (default 0)
 /// </summary>
-public double gb { get; set; }
+public double? gb { get; set; }
 /// <summary>
 ///  set the alpha gain for the green channel (from -2 to 2) (default 0)
 /// </summary>
-public double ga { get; set; }
+public double? ga { get; set; }
 /// <summary>
 ///  set the red gain for the blue channel (from -2 to 2) (default 0)
 /// </summary>
-public double br { get; set; }
+public double? br { get; set; }
 /// <summary>
 ///  set the green gain for the blue channel (from -2 to 2) (default 0)
 /// </summary>
-public double bg { get; set; }
+public double? bg { get; set; }
 /// <summary>
 ///  set the blue gain for the blue channel (from -2 to 2) (default 1)
 /// </summary>
-public double bb { get; set; }
+public double? bb { get; set; }
 /// <summary>
 ///  set the alpha gain for the blue channel (from -2 to 2) (default 0)
 /// </summary>
-public double ba { get; set; }
+public double? ba { get; set; }
 /// <summary>
 ///  set the red gain for the alpha channel (from -2 to 2) (default 0)
 /// </summary>
-public double ar { get; set; }
+public double? ar { get; set; }
 /// <summary>
 ///  set the green gain for the alpha channel (from -2 to 2) (default 0)
 /// </summary>
-public double ag { get; set; }
+public double? ag { get; set; }
 /// <summary>
 ///  set the blue gain for the alpha channel (from -2 to 2) (default 0)
 /// </summary>
-public double ab { get; set; }
+public double? ab { get; set; }
 /// <summary>
 ///  set the alpha gain for the alpha channel (from -2 to 2) (default 1)
 /// </summary>
-public double aa { get; set; }
+public double? aa { get; set; }
 /// <summary>
 ///  preserve lightness (from 0 to 1) (default 0)
 /// </summary>
-public double pl { get; set; }
+public double? pl { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

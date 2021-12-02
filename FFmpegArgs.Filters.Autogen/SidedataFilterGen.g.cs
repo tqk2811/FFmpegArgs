@@ -35,8 +35,8 @@ public static SidedataFilterGen SidedataFilterGen(this ImageMap input0) => new S
 public static SidedataFilterGen SidedataFilterGen(this ImageMap input0,SidedataFilterGenConfig config)
 {
 var result = new SidedataFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.type != null) result.type(config.type);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.type != null) result.type(config.type.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -46,11 +46,11 @@ public class SidedataFilterGenConfig
 /// <summary>
 ///  set a mode of operation (from 0 to 1) (default select)
 /// </summary>
-public SidedataFilterGenMode mode { get; set; }
+public SidedataFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set side data type (from -1 to INT_MAX) (default -1)
 /// </summary>
-public SidedataFilterGenType type { get; set; }
+public SidedataFilterGenType? type { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum SidedataFilterGenMode

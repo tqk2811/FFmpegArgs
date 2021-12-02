@@ -39,9 +39,9 @@ public static Avgblur_openclFilterGen Avgblur_openclFilterGen(this ImageMap inpu
 public static Avgblur_openclFilterGen Avgblur_openclFilterGen(this ImageMap input0,Avgblur_openclFilterGenConfig config)
 {
 var result = new Avgblur_openclFilterGen(input0);
-if(config?.sizeX != null) result.sizeX(config.sizeX);
-if(config?.planes != null) result.planes(config.planes);
-if(config?.sizeY != null) result.sizeY(config.sizeY);
+if(config?.sizeX != null) result.sizeX(config.sizeX.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
+if(config?.sizeY != null) result.sizeY(config.sizeY.Value);
 return result;
 }
 }
@@ -50,14 +50,14 @@ public class Avgblur_openclFilterGenConfig
 /// <summary>
 ///  set horizontal size (from 1 to 1024) (default 1)
 /// </summary>
-public int sizeX { get; set; }
+public int? sizeX { get; set; }
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 /// <summary>
 ///  set vertical size (from 0 to 1024) (default 0)
 /// </summary>
-public int sizeY { get; set; }
+public int? sizeY { get; set; }
 }
 }

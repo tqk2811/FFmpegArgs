@@ -63,15 +63,15 @@ public static EqFilterGen EqFilterGen(this ImageMap input0) => new EqFilterGen(i
 public static EqFilterGen EqFilterGen(this ImageMap input0,EqFilterGenConfig config)
 {
 var result = new EqFilterGen(input0);
-if(config?.contrast != null) result.contrast(config.contrast);
-if(config?.brightness != null) result.brightness(config.brightness);
-if(config?.saturation != null) result.saturation(config.saturation);
-if(config?.gamma != null) result.gamma(config.gamma);
-if(config?.gamma_r != null) result.gamma_r(config.gamma_r);
-if(config?.gamma_g != null) result.gamma_g(config.gamma_g);
-if(config?.gamma_b != null) result.gamma_b(config.gamma_b);
-if(config?.gamma_weight != null) result.gamma_weight(config.gamma_weight);
-if(config?.eval != null) result.eval(config.eval);
+if(!string.IsNullOrWhiteSpace(config?.contrast)) result.contrast(config.contrast);
+if(!string.IsNullOrWhiteSpace(config?.brightness)) result.brightness(config.brightness);
+if(!string.IsNullOrWhiteSpace(config?.saturation)) result.saturation(config.saturation);
+if(!string.IsNullOrWhiteSpace(config?.gamma)) result.gamma(config.gamma);
+if(!string.IsNullOrWhiteSpace(config?.gamma_r)) result.gamma_r(config.gamma_r);
+if(!string.IsNullOrWhiteSpace(config?.gamma_g)) result.gamma_g(config.gamma_g);
+if(!string.IsNullOrWhiteSpace(config?.gamma_b)) result.gamma_b(config.gamma_b);
+if(!string.IsNullOrWhiteSpace(config?.gamma_weight)) result.gamma_weight(config.gamma_weight);
+if(config?.eval != null) result.eval(config.eval.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -113,7 +113,7 @@ public string gamma_weight { get; set; }
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public EqFilterGenEval eval { get; set; }
+public EqFilterGenEval? eval { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum EqFilterGenEval

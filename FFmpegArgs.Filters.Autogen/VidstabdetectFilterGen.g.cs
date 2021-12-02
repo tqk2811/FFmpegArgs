@@ -55,13 +55,13 @@ public static VidstabdetectFilterGen VidstabdetectFilterGen(this ImageMap input0
 public static VidstabdetectFilterGen VidstabdetectFilterGen(this ImageMap input0,VidstabdetectFilterGenConfig config)
 {
 var result = new VidstabdetectFilterGen(input0);
-if(config?.result != null) result.result(config.result);
-if(config?.shakiness != null) result.shakiness(config.shakiness);
-if(config?.accuracy != null) result.accuracy(config.accuracy);
-if(config?.stepsize != null) result.stepsize(config.stepsize);
-if(config?.mincontrast != null) result.mincontrast(config.mincontrast);
-if(config?.show != null) result.show(config.show);
-if(config?.tripod != null) result.tripod(config.tripod);
+if(!string.IsNullOrWhiteSpace(config?.result)) result.result(config.result);
+if(config?.shakiness != null) result.shakiness(config.shakiness.Value);
+if(config?.accuracy != null) result.accuracy(config.accuracy.Value);
+if(config?.stepsize != null) result.stepsize(config.stepsize.Value);
+if(config?.mincontrast != null) result.mincontrast(config.mincontrast.Value);
+if(config?.show != null) result.show(config.show.Value);
+if(config?.tripod != null) result.tripod(config.tripod.Value);
 return result;
 }
 }
@@ -74,26 +74,26 @@ public string result { get; set; }
 /// <summary>
 ///  how shaky is the video and how quick is the camera? 1: little (fast) 10: very strong/quick (slow) (from 1 to 10) (default 5)
 /// </summary>
-public int shakiness { get; set; }
+public int? shakiness { get; set; }
 /// <summary>
 ///  (>=shakiness) 1: low 15: high (slow) (from 1 to 15) (default 15)
 /// </summary>
-public int accuracy { get; set; }
+public int? accuracy { get; set; }
 /// <summary>
 ///  region around minimum is scanned with 1 pixel resolution (from 1 to 32) (default 6)
 /// </summary>
-public int stepsize { get; set; }
+public int? stepsize { get; set; }
 /// <summary>
 ///  below this contrast a field is discarded (0-1) (from 0 to 1) (default 0.25)
 /// </summary>
-public double mincontrast { get; set; }
+public double? mincontrast { get; set; }
 /// <summary>
 ///  0: draw nothing; 1,2: show fields and transforms (from 0 to 2) (default 0)
 /// </summary>
-public int show { get; set; }
+public int? show { get; set; }
 /// <summary>
 ///  virtual tripod mode (if >0): motion is compared to a reference reference frame (frame # is the value) (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int tripod { get; set; }
+public int? tripod { get; set; }
 }
 }

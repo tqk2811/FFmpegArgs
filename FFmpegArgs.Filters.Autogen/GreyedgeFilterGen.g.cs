@@ -39,9 +39,9 @@ public static GreyedgeFilterGen GreyedgeFilterGen(this ImageMap input0) => new G
 public static GreyedgeFilterGen GreyedgeFilterGen(this ImageMap input0,GreyedgeFilterGenConfig config)
 {
 var result = new GreyedgeFilterGen(input0);
-if(config?.difford != null) result.difford(config.difford);
-if(config?.minknorm != null) result.minknorm(config.minknorm);
-if(config?.sigma != null) result.sigma(config.sigma);
+if(config?.difford != null) result.difford(config.difford.Value);
+if(config?.minknorm != null) result.minknorm(config.minknorm.Value);
+if(config?.sigma != null) result.sigma(config.sigma.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -51,15 +51,15 @@ public class GreyedgeFilterGenConfig
 /// <summary>
 ///  set differentiation order (from 0 to 2) (default 1)
 /// </summary>
-public int difford { get; set; }
+public int? difford { get; set; }
 /// <summary>
 ///  set Minkowski norm (from 0 to 20) (default 1)
 /// </summary>
-public int minknorm { get; set; }
+public int? minknorm { get; set; }
 /// <summary>
 ///  set sigma (from 0 to 1024) (default 1)
 /// </summary>
-public double sigma { get; set; }
+public double? sigma { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

@@ -47,11 +47,11 @@ public static OwdenoiseFilterGen OwdenoiseFilterGen(this ImageMap input0) => new
 public static OwdenoiseFilterGen OwdenoiseFilterGen(this ImageMap input0,OwdenoiseFilterGenConfig config)
 {
 var result = new OwdenoiseFilterGen(input0);
-if(config?.depth != null) result.depth(config.depth);
-if(config?.luma_strength != null) result.luma_strength(config.luma_strength);
-if(config?.ls != null) result.ls(config.ls);
-if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength);
-if(config?.cs != null) result.cs(config.cs);
+if(config?.depth != null) result.depth(config.depth.Value);
+if(config?.luma_strength != null) result.luma_strength(config.luma_strength.Value);
+if(config?.ls != null) result.ls(config.ls.Value);
+if(config?.chroma_strength != null) result.chroma_strength(config.chroma_strength.Value);
+if(config?.cs != null) result.cs(config.cs.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -61,23 +61,23 @@ public class OwdenoiseFilterGenConfig
 /// <summary>
 ///  set depth (from 8 to 16) (default 8)
 /// </summary>
-public int depth { get; set; }
+public int? depth { get; set; }
 /// <summary>
 ///  set luma strength (from 0 to 1000) (default 1)
 /// </summary>
-public double luma_strength { get; set; }
+public double? luma_strength { get; set; }
 /// <summary>
 ///  set luma strength (from 0 to 1000) (default 1)
 /// </summary>
-public double ls { get; set; }
+public double? ls { get; set; }
 /// <summary>
 ///  set chroma strength (from 0 to 1000) (default 1)
 /// </summary>
-public double chroma_strength { get; set; }
+public double? chroma_strength { get; set; }
 /// <summary>
 ///  set chroma strength (from 0 to 1000) (default 1)
 /// </summary>
-public double cs { get; set; }
+public double? cs { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

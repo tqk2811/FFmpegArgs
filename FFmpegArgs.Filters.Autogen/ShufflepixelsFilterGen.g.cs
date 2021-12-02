@@ -47,11 +47,11 @@ public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input0
 public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input0,ShufflepixelsFilterGenConfig config)
 {
 var result = new ShufflepixelsFilterGen(input0);
-if(config?.direction != null) result.direction(config.direction);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.width != null) result.width(config.width);
-if(config?.height != null) result.height(config.height);
-if(config?.seed != null) result.seed(config.seed);
+if(config?.direction != null) result.direction(config.direction.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.width != null) result.width(config.width.Value);
+if(config?.height != null) result.height(config.height.Value);
+if(config?.seed != null) result.seed(config.seed.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -61,23 +61,23 @@ public class ShufflepixelsFilterGenConfig
 /// <summary>
 ///  set shuffle direction (from 0 to 1) (default forward)
 /// </summary>
-public ShufflepixelsFilterGenDirection direction { get; set; }
+public ShufflepixelsFilterGenDirection? direction { get; set; }
 /// <summary>
 ///  set shuffle mode (from 0 to 2) (default horizontal)
 /// </summary>
-public ShufflepixelsFilterGenMode mode { get; set; }
+public ShufflepixelsFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set block width (from 1 to 8000) (default 10)
 /// </summary>
-public int width { get; set; }
+public int? width { get; set; }
 /// <summary>
 ///  set block height (from 1 to 8000) (default 10)
 /// </summary>
-public int height { get; set; }
+public int? height { get; set; }
 /// <summary>
 ///  set random seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>
-public long seed { get; set; }
+public long? seed { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum ShufflepixelsFilterGenDirection

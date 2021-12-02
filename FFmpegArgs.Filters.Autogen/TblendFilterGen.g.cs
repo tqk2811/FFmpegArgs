@@ -87,21 +87,21 @@ public static TblendFilterGen TblendFilterGen(this ImageMap input0) => new Tblen
 public static TblendFilterGen TblendFilterGen(this ImageMap input0,TblendFilterGenConfig config)
 {
 var result = new TblendFilterGen(input0);
-if(config?.c0_mode != null) result.c0_mode(config.c0_mode);
-if(config?.c1_mode != null) result.c1_mode(config.c1_mode);
-if(config?.c2_mode != null) result.c2_mode(config.c2_mode);
-if(config?.c3_mode != null) result.c3_mode(config.c3_mode);
-if(config?.all_mode != null) result.all_mode(config.all_mode);
-if(config?.c0_expr != null) result.c0_expr(config.c0_expr);
-if(config?.c1_expr != null) result.c1_expr(config.c1_expr);
-if(config?.c2_expr != null) result.c2_expr(config.c2_expr);
-if(config?.c3_expr != null) result.c3_expr(config.c3_expr);
-if(config?.all_expr != null) result.all_expr(config.all_expr);
-if(config?.c0_opacity != null) result.c0_opacity(config.c0_opacity);
-if(config?.c1_opacity != null) result.c1_opacity(config.c1_opacity);
-if(config?.c2_opacity != null) result.c2_opacity(config.c2_opacity);
-if(config?.c3_opacity != null) result.c3_opacity(config.c3_opacity);
-if(config?.all_opacity != null) result.all_opacity(config.all_opacity);
+if(config?.c0_mode != null) result.c0_mode(config.c0_mode.Value);
+if(config?.c1_mode != null) result.c1_mode(config.c1_mode.Value);
+if(config?.c2_mode != null) result.c2_mode(config.c2_mode.Value);
+if(config?.c3_mode != null) result.c3_mode(config.c3_mode.Value);
+if(config?.all_mode != null) result.all_mode(config.all_mode.Value);
+if(!string.IsNullOrWhiteSpace(config?.c0_expr)) result.c0_expr(config.c0_expr);
+if(!string.IsNullOrWhiteSpace(config?.c1_expr)) result.c1_expr(config.c1_expr);
+if(!string.IsNullOrWhiteSpace(config?.c2_expr)) result.c2_expr(config.c2_expr);
+if(!string.IsNullOrWhiteSpace(config?.c3_expr)) result.c3_expr(config.c3_expr);
+if(!string.IsNullOrWhiteSpace(config?.all_expr)) result.all_expr(config.all_expr);
+if(config?.c0_opacity != null) result.c0_opacity(config.c0_opacity.Value);
+if(config?.c1_opacity != null) result.c1_opacity(config.c1_opacity.Value);
+if(config?.c2_opacity != null) result.c2_opacity(config.c2_opacity.Value);
+if(config?.c3_opacity != null) result.c3_opacity(config.c3_opacity.Value);
+if(config?.all_opacity != null) result.all_opacity(config.all_opacity.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -111,23 +111,23 @@ public class TblendFilterGenConfig
 /// <summary>
 ///  set component #0 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGenC0_mode c0_mode { get; set; }
+public TblendFilterGenC0_mode? c0_mode { get; set; }
 /// <summary>
 ///  set component #1 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGenC1_mode c1_mode { get; set; }
+public TblendFilterGenC1_mode? c1_mode { get; set; }
 /// <summary>
 ///  set component #2 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGenC2_mode c2_mode { get; set; }
+public TblendFilterGenC2_mode? c2_mode { get; set; }
 /// <summary>
 ///  set component #3 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGenC3_mode c3_mode { get; set; }
+public TblendFilterGenC3_mode? c3_mode { get; set; }
 /// <summary>
 ///  set blend mode for all components (from -1 to 32) (default -1)
 /// </summary>
-public TblendFilterGenAll_mode all_mode { get; set; }
+public TblendFilterGenAll_mode? all_mode { get; set; }
 /// <summary>
 ///  set color component #0 expression
 /// </summary>
@@ -151,23 +151,23 @@ public string all_expr { get; set; }
 /// <summary>
 ///  set color component #0 opacity (from 0 to 1) (default 1)
 /// </summary>
-public double c0_opacity { get; set; }
+public double? c0_opacity { get; set; }
 /// <summary>
 ///  set color component #1 opacity (from 0 to 1) (default 1)
 /// </summary>
-public double c1_opacity { get; set; }
+public double? c1_opacity { get; set; }
 /// <summary>
 ///  set color component #2 opacity (from 0 to 1) (default 1)
 /// </summary>
-public double c2_opacity { get; set; }
+public double? c2_opacity { get; set; }
 /// <summary>
 ///  set color component #3 opacity (from 0 to 1) (default 1)
 /// </summary>
-public double c3_opacity { get; set; }
+public double? c3_opacity { get; set; }
 /// <summary>
 ///  set opacity for all color components (from 0 to 1) (default 1)
 /// </summary>
-public double all_opacity { get; set; }
+public double? all_opacity { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum TblendFilterGenC0_mode

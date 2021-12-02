@@ -47,11 +47,11 @@ public static Dilation_openclFilterGen Dilation_openclFilterGen(this ImageMap in
 public static Dilation_openclFilterGen Dilation_openclFilterGen(this ImageMap input0,Dilation_openclFilterGenConfig config)
 {
 var result = new Dilation_openclFilterGen(input0);
-if(config?.threshold0 != null) result.threshold0(config.threshold0);
-if(config?.threshold1 != null) result.threshold1(config.threshold1);
-if(config?.threshold2 != null) result.threshold2(config.threshold2);
-if(config?.threshold3 != null) result.threshold3(config.threshold3);
-if(config?.coordinates != null) result.coordinates(config.coordinates);
+if(config?.threshold0 != null) result.threshold0(config.threshold0.Value);
+if(config?.threshold1 != null) result.threshold1(config.threshold1.Value);
+if(config?.threshold2 != null) result.threshold2(config.threshold2.Value);
+if(config?.threshold3 != null) result.threshold3(config.threshold3.Value);
+if(config?.coordinates != null) result.coordinates(config.coordinates.Value);
 return result;
 }
 }
@@ -60,22 +60,22 @@ public class Dilation_openclFilterGenConfig
 /// <summary>
 ///  set threshold for 1st plane (from 0 to 65535) (default 65535)
 /// </summary>
-public float threshold0 { get; set; }
+public float? threshold0 { get; set; }
 /// <summary>
 ///  set threshold for 2nd plane (from 0 to 65535) (default 65535)
 /// </summary>
-public float threshold1 { get; set; }
+public float? threshold1 { get; set; }
 /// <summary>
 ///  set threshold for 3rd plane (from 0 to 65535) (default 65535)
 /// </summary>
-public float threshold2 { get; set; }
+public float? threshold2 { get; set; }
 /// <summary>
 ///  set threshold for 4th plane (from 0 to 65535) (default 65535)
 /// </summary>
-public float threshold3 { get; set; }
+public float? threshold3 { get; set; }
 /// <summary>
 ///  set coordinates (from 0 to 255) (default 255)
 /// </summary>
-public int coordinates { get; set; }
+public int? coordinates { get; set; }
 }
 }

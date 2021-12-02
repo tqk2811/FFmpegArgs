@@ -43,10 +43,10 @@ public static ShuffleplanesFilterGen ShuffleplanesFilterGen(this ImageMap input0
 public static ShuffleplanesFilterGen ShuffleplanesFilterGen(this ImageMap input0,ShuffleplanesFilterGenConfig config)
 {
 var result = new ShuffleplanesFilterGen(input0);
-if(config?.map0 != null) result.map0(config.map0);
-if(config?.map1 != null) result.map1(config.map1);
-if(config?.map2 != null) result.map2(config.map2);
-if(config?.map3 != null) result.map3(config.map3);
+if(config?.map0 != null) result.map0(config.map0.Value);
+if(config?.map1 != null) result.map1(config.map1.Value);
+if(config?.map2 != null) result.map2(config.map2.Value);
+if(config?.map3 != null) result.map3(config.map3.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class ShuffleplanesFilterGenConfig
 /// <summary>
 ///  Index of the input plane to be used as the first output plane  (from 0 to 3) (default 0)
 /// </summary>
-public int map0 { get; set; }
+public int? map0 { get; set; }
 /// <summary>
 ///  Index of the input plane to be used as the second output plane  (from 0 to 3) (default 1)
 /// </summary>
-public int map1 { get; set; }
+public int? map1 { get; set; }
 /// <summary>
 ///  Index of the input plane to be used as the third output plane  (from 0 to 3) (default 2)
 /// </summary>
-public int map2 { get; set; }
+public int? map2 { get; set; }
 /// <summary>
 ///  Index of the input plane to be used as the fourth output plane  (from 0 to 3) (default 3)
 /// </summary>
-public int map3 { get; set; }
+public int? map3 { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

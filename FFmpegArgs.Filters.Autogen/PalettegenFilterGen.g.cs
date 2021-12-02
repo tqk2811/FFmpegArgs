@@ -43,10 +43,10 @@ public static PalettegenFilterGen PalettegenFilterGen(this ImageMap input0) => n
 public static PalettegenFilterGen PalettegenFilterGen(this ImageMap input0,PalettegenFilterGenConfig config)
 {
 var result = new PalettegenFilterGen(input0);
-if(config?.max_colors != null) result.max_colors(config.max_colors);
-if(config?.reserve_transparent != null) result.reserve_transparent(config.reserve_transparent);
-if(config?.transparency_color != null) result.transparency_color(config.transparency_color);
-if(config?.stats_mode != null) result.stats_mode(config.stats_mode);
+if(config?.max_colors != null) result.max_colors(config.max_colors.Value);
+if(config?.reserve_transparent != null) result.reserve_transparent(config.reserve_transparent.Value);
+if(config?.transparency_color != null) result.transparency_color(config.transparency_color.Value);
+if(config?.stats_mode != null) result.stats_mode(config.stats_mode.Value);
 return result;
 }
 }
@@ -55,19 +55,19 @@ public class PalettegenFilterGenConfig
 /// <summary>
 ///  set the maximum number of colors to use in the palette (from 4 to 256) (default 256)
 /// </summary>
-public int max_colors { get; set; }
+public int? max_colors { get; set; }
 /// <summary>
 ///  reserve a palette entry for transparency (default true)
 /// </summary>
-public bool reserve_transparent { get; set; }
+public bool? reserve_transparent { get; set; }
 /// <summary>
 ///  set a background color for transparency (default "lime")
 /// </summary>
-public Color transparency_color { get; set; }
+public Color? transparency_color { get; set; }
 /// <summary>
 ///  set statistics mode (from 0 to 2) (default full)
 /// </summary>
-public PalettegenFilterGenStats_mode stats_mode { get; set; }
+public PalettegenFilterGenStats_mode? stats_mode { get; set; }
 }
 public enum PalettegenFilterGenStats_mode
 {

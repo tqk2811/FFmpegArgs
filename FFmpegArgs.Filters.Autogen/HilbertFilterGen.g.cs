@@ -47,11 +47,11 @@ public static HilbertFilterGen HilbertFilterGen(this FilterGraph input0) => new 
 public static HilbertFilterGen HilbertFilterGen(this FilterGraph input0,HilbertFilterGenConfig config)
 {
 var result = new HilbertFilterGen(input0);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
-if(config?.r != null) result.r(config.r);
-if(config?.taps != null) result.taps(config.taps);
-if(config?.nb_samples != null) result.nb_samples(config.nb_samples);
-if(config?.win_func != null) result.win_func(config.win_func);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
+if(config?.r != null) result.r(config.r.Value);
+if(config?.taps != null) result.taps(config.taps.Value);
+if(config?.nb_samples != null) result.nb_samples(config.nb_samples.Value);
+if(config?.win_func != null) result.win_func(config.win_func.Value);
 return result;
 }
 }
@@ -60,23 +60,23 @@ public class HilbertFilterGenConfig
 /// <summary>
 ///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int sample_rate { get; set; }
+public int? sample_rate { get; set; }
 /// <summary>
 ///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public int r { get; set; }
+public int? r { get; set; }
 /// <summary>
 ///  set number of taps (from 11 to 65535) (default 22051)
 /// </summary>
-public int taps { get; set; }
+public int? taps { get; set; }
 /// <summary>
 ///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
 /// </summary>
-public int nb_samples { get; set; }
+public int? nb_samples { get; set; }
 /// <summary>
 ///  set window function (from 0 to 19) (default blackman)
 /// </summary>
-public HilbertFilterGenWin_func win_func { get; set; }
+public HilbertFilterGenWin_func? win_func { get; set; }
 }
 public enum HilbertFilterGenWin_func
 {

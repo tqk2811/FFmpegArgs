@@ -31,7 +31,7 @@ public static AresampleFilterGen AresampleFilterGen(this AudioMap input0) => new
 public static AresampleFilterGen AresampleFilterGen(this AudioMap input0,AresampleFilterGenConfig config)
 {
 var result = new AresampleFilterGen(input0);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate);
+if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class AresampleFilterGenConfig
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
-public int sample_rate { get; set; }
+public int? sample_rate { get; set; }
 }
 }

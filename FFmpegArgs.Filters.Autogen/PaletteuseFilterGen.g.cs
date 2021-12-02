@@ -63,15 +63,15 @@ public static PaletteuseFilterGen PaletteuseFilterGen(this ImageMap input0, Imag
 public static PaletteuseFilterGen PaletteuseFilterGen(this ImageMap input0, ImageMap input1,PaletteuseFilterGenConfig config)
 {
 var result = new PaletteuseFilterGen(input0, input1);
-if(config?.dither != null) result.dither(config.dither);
-if(config?.bayer_scale != null) result.bayer_scale(config.bayer_scale);
-if(config?.diff_mode != null) result.diff_mode(config.diff_mode);
-if(config?._new != null) result._new(config._new);
-if(config?.alpha_threshold != null) result.alpha_threshold(config.alpha_threshold);
-if(config?.debug_kdtree != null) result.debug_kdtree(config.debug_kdtree);
-if(config?.color_search != null) result.color_search(config.color_search);
-if(config?.mean_err != null) result.mean_err(config.mean_err);
-if(config?.debug_accuracy != null) result.debug_accuracy(config.debug_accuracy);
+if(config?.dither != null) result.dither(config.dither.Value);
+if(config?.bayer_scale != null) result.bayer_scale(config.bayer_scale.Value);
+if(config?.diff_mode != null) result.diff_mode(config.diff_mode.Value);
+if(config?._new != null) result._new(config._new.Value);
+if(config?.alpha_threshold != null) result.alpha_threshold(config.alpha_threshold.Value);
+if(!string.IsNullOrWhiteSpace(config?.debug_kdtree)) result.debug_kdtree(config.debug_kdtree);
+if(config?.color_search != null) result.color_search(config.color_search.Value);
+if(config?.mean_err != null) result.mean_err(config.mean_err.Value);
+if(config?.debug_accuracy != null) result.debug_accuracy(config.debug_accuracy.Value);
 return result;
 }
 }
@@ -80,23 +80,23 @@ public class PaletteuseFilterGenConfig
 /// <summary>
 ///  select dithering mode (from 0 to 5) (default sierra2_4a)
 /// </summary>
-public PaletteuseFilterGenDither dither { get; set; }
+public PaletteuseFilterGenDither? dither { get; set; }
 /// <summary>
 ///  set scale for bayer dithering (from 0 to 5) (default 2)
 /// </summary>
-public int bayer_scale { get; set; }
+public int? bayer_scale { get; set; }
 /// <summary>
 ///  set frame difference mode (from 0 to 1) (default 0)
 /// </summary>
-public PaletteuseFilterGenDiff_mode diff_mode { get; set; }
+public PaletteuseFilterGenDiff_mode? diff_mode { get; set; }
 /// <summary>
 ///  take new palette for each output frame (default false)
 /// </summary>
-public bool _new { get; set; }
+public bool? _new { get; set; }
 /// <summary>
 ///  set the alpha threshold for transparency (from 0 to 255) (default 128)
 /// </summary>
-public int alpha_threshold { get; set; }
+public int? alpha_threshold { get; set; }
 /// <summary>
 ///  save Graphviz graph of the kdtree in specified file
 /// </summary>
@@ -104,15 +104,15 @@ public string debug_kdtree { get; set; }
 /// <summary>
 ///  set reverse colormap color search method (from 0 to 2) (default nns_iterative)
 /// </summary>
-public PaletteuseFilterGenColor_search color_search { get; set; }
+public PaletteuseFilterGenColor_search? color_search { get; set; }
 /// <summary>
 ///  compute and print mean error (default false)
 /// </summary>
-public bool mean_err { get; set; }
+public bool? mean_err { get; set; }
 /// <summary>
 ///  test color search accuracy (default false)
 /// </summary>
-public bool debug_accuracy { get; set; }
+public bool? debug_accuracy { get; set; }
 }
 public enum PaletteuseFilterGenDither
 {

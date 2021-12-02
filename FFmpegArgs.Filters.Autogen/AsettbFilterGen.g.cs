@@ -35,8 +35,8 @@ public static AsettbFilterGen AsettbFilterGen(this AudioMap input0) => new Asett
 public static AsettbFilterGen AsettbFilterGen(this AudioMap input0,AsettbFilterGenConfig config)
 {
 var result = new AsettbFilterGen(input0);
-if(config?.expr != null) result.expr(config.expr);
-if(config?.tb != null) result.tb(config.tb);
+if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
+if(!string.IsNullOrWhiteSpace(config?.tb)) result.tb(config.tb);
 return result;
 }
 }

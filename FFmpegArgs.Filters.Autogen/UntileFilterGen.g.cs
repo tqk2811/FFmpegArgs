@@ -31,7 +31,7 @@ public static UntileFilterGen UntileFilterGen(this ImageMap input0) => new Until
 public static UntileFilterGen UntileFilterGen(this ImageMap input0,UntileFilterGenConfig config)
 {
 var result = new UntileFilterGen(input0);
-if(config?.layout != null) result.layout(config.layout);
+if(config?.layout != null) result.layout(config.layout.Value);
 return result;
 }
 }
@@ -40,6 +40,6 @@ public class UntileFilterGenConfig
 /// <summary>
 ///  set grid size (default "6x5")
 /// </summary>
-public Size layout { get; set; }
+public Size? layout { get; set; }
 }
 }

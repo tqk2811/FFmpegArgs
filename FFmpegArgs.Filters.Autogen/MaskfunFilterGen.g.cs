@@ -47,11 +47,11 @@ public static MaskfunFilterGen MaskfunFilterGen(this ImageMap input0) => new Mas
 public static MaskfunFilterGen MaskfunFilterGen(this ImageMap input0,MaskfunFilterGenConfig config)
 {
 var result = new MaskfunFilterGen(input0);
-if(config?.low != null) result.low(config.low);
-if(config?.high != null) result.high(config.high);
-if(config?.planes != null) result.planes(config.planes);
-if(config?.fill != null) result.fill(config.fill);
-if(config?.sum != null) result.sum(config.sum);
+if(config?.low != null) result.low(config.low.Value);
+if(config?.high != null) result.high(config.high.Value);
+if(config?.planes != null) result.planes(config.planes.Value);
+if(config?.fill != null) result.fill(config.fill.Value);
+if(config?.sum != null) result.sum(config.sum.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -61,23 +61,23 @@ public class MaskfunFilterGenConfig
 /// <summary>
 ///  set low threshold (from 0 to 65535) (default 10)
 /// </summary>
-public int low { get; set; }
+public int? low { get; set; }
 /// <summary>
 ///  set high threshold (from 0 to 65535) (default 10)
 /// </summary>
-public int high { get; set; }
+public int? high { get; set; }
 /// <summary>
 ///  set planes (from 0 to 15) (default 15)
 /// </summary>
-public int planes { get; set; }
+public int? planes { get; set; }
 /// <summary>
 ///  set fill value (from 0 to 65535) (default 0)
 /// </summary>
-public int fill { get; set; }
+public int? fill { get; set; }
 /// <summary>
 ///  set sum value (from 0 to 65535) (default 10)
 /// </summary>
-public int sum { get; set; }
+public int? sum { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

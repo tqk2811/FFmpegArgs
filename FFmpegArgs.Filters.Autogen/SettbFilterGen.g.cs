@@ -35,8 +35,8 @@ public static SettbFilterGen SettbFilterGen(this ImageMap input0) => new SettbFi
 public static SettbFilterGen SettbFilterGen(this ImageMap input0,SettbFilterGenConfig config)
 {
 var result = new SettbFilterGen(input0);
-if(config?.expr != null) result.expr(config.expr);
-if(config?.tb != null) result.tb(config.tb);
+if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
+if(!string.IsNullOrWhiteSpace(config?.tb)) result.tb(config.tb);
 return result;
 }
 }

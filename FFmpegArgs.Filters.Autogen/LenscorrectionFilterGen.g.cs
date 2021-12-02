@@ -51,12 +51,12 @@ public static LenscorrectionFilterGen LenscorrectionFilterGen(this ImageMap inpu
 public static LenscorrectionFilterGen LenscorrectionFilterGen(this ImageMap input0,LenscorrectionFilterGenConfig config)
 {
 var result = new LenscorrectionFilterGen(input0);
-if(config?.cx != null) result.cx(config.cx);
-if(config?.cy != null) result.cy(config.cy);
-if(config?.k1 != null) result.k1(config.k1);
-if(config?.k2 != null) result.k2(config.k2);
-if(config?.i != null) result.i(config.i);
-if(config?.fc != null) result.fc(config.fc);
+if(config?.cx != null) result.cx(config.cx.Value);
+if(config?.cy != null) result.cy(config.cy.Value);
+if(config?.k1 != null) result.k1(config.k1.Value);
+if(config?.k2 != null) result.k2(config.k2.Value);
+if(config?.i != null) result.i(config.i.Value);
+if(config?.fc != null) result.fc(config.fc.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -66,27 +66,27 @@ public class LenscorrectionFilterGenConfig
 /// <summary>
 ///  set relative center x (from 0 to 1) (default 0.5)
 /// </summary>
-public double cx { get; set; }
+public double? cx { get; set; }
 /// <summary>
 ///  set relative center y (from 0 to 1) (default 0.5)
 /// </summary>
-public double cy { get; set; }
+public double? cy { get; set; }
 /// <summary>
 ///  set quadratic distortion factor (from -1 to 1) (default 0)
 /// </summary>
-public double k1 { get; set; }
+public double? k1 { get; set; }
 /// <summary>
 ///  set double quadratic distortion factor (from -1 to 1) (default 0)
 /// </summary>
-public double k2 { get; set; }
+public double? k2 { get; set; }
 /// <summary>
 ///  set interpolation type (from 0 to 64) (default nearest)
 /// </summary>
-public LenscorrectionFilterGenI i { get; set; }
+public LenscorrectionFilterGenI? i { get; set; }
 /// <summary>
 ///  set the color of the unmapped pixels (default "black@0")
 /// </summary>
-public Color fc { get; set; }
+public Color? fc { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum LenscorrectionFilterGenI

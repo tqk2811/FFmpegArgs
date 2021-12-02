@@ -31,7 +31,7 @@ public static EntropyFilterGen EntropyFilterGen(this ImageMap input0) => new Ent
 public static EntropyFilterGen EntropyFilterGen(this ImageMap input0,EntropyFilterGenConfig config)
 {
 var result = new EntropyFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode);
+if(config?.mode != null) result.mode(config.mode.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -41,7 +41,7 @@ public class EntropyFilterGenConfig
 /// <summary>
 ///  set kind of histogram entropy measurement (from 0 to 1) (default normal)
 /// </summary>
-public EntropyFilterGenMode mode { get; set; }
+public EntropyFilterGenMode? mode { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum EntropyFilterGenMode

@@ -43,10 +43,10 @@ public static AemphasisFilterGen AemphasisFilterGen(this AudioMap input0) => new
 public static AemphasisFilterGen AemphasisFilterGen(this AudioMap input0,AemphasisFilterGenConfig config)
 {
 var result = new AemphasisFilterGen(input0);
-if(config?.level_in != null) result.level_in(config.level_in);
-if(config?.level_out != null) result.level_out(config.level_out);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.type != null) result.type(config.type);
+if(config?.level_in != null) result.level_in(config.level_in.Value);
+if(config?.level_out != null) result.level_out(config.level_out.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.type != null) result.type(config.type.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -56,19 +56,19 @@ public class AemphasisFilterGenConfig
 /// <summary>
 ///  set input gain (from 0 to 64) (default 1)
 /// </summary>
-public double level_in { get; set; }
+public double? level_in { get; set; }
 /// <summary>
 ///  set output gain (from 0 to 64) (default 1)
 /// </summary>
-public double level_out { get; set; }
+public double? level_out { get; set; }
 /// <summary>
 ///  set filter mode (from 0 to 1) (default reproduction)
 /// </summary>
-public AemphasisFilterGenMode mode { get; set; }
+public AemphasisFilterGenMode? mode { get; set; }
 /// <summary>
 ///  set filter type (from 0 to 8) (default cd)
 /// </summary>
-public AemphasisFilterGenType type { get; set; }
+public AemphasisFilterGenType? type { get; set; }
 public string TimelineSupport { get; set; }
 }
 public enum AemphasisFilterGenMode

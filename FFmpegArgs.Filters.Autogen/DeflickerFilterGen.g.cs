@@ -39,9 +39,9 @@ public static DeflickerFilterGen DeflickerFilterGen(this ImageMap input0) => new
 public static DeflickerFilterGen DeflickerFilterGen(this ImageMap input0,DeflickerFilterGenConfig config)
 {
 var result = new DeflickerFilterGen(input0);
-if(config?.size != null) result.size(config.size);
-if(config?.mode != null) result.mode(config.mode);
-if(config?.bypass != null) result.bypass(config.bypass);
+if(config?.size != null) result.size(config.size.Value);
+if(config?.mode != null) result.mode(config.mode.Value);
+if(config?.bypass != null) result.bypass(config.bypass.Value);
 return result;
 }
 }
@@ -50,15 +50,15 @@ public class DeflickerFilterGenConfig
 /// <summary>
 ///  set how many frames to use (from 2 to 129) (default 5)
 /// </summary>
-public int size { get; set; }
+public int? size { get; set; }
 /// <summary>
 ///  set how to smooth luminance (from 0 to 6) (default am)
 /// </summary>
-public DeflickerFilterGenMode mode { get; set; }
+public DeflickerFilterGenMode? mode { get; set; }
 /// <summary>
 ///  leave frames unchanged (default false)
 /// </summary>
-public bool bypass { get; set; }
+public bool? bypass { get; set; }
 }
 public enum DeflickerFilterGenMode
 {

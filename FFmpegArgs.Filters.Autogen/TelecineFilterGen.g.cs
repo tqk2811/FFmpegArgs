@@ -35,8 +35,8 @@ public static TelecineFilterGen TelecineFilterGen(this ImageMap input0) => new T
 public static TelecineFilterGen TelecineFilterGen(this ImageMap input0,TelecineFilterGenConfig config)
 {
 var result = new TelecineFilterGen(input0);
-if(config?.first_field != null) result.first_field(config.first_field);
-if(config?.pattern != null) result.pattern(config.pattern);
+if(config?.first_field != null) result.first_field(config.first_field.Value);
+if(!string.IsNullOrWhiteSpace(config?.pattern)) result.pattern(config.pattern);
 return result;
 }
 }
@@ -45,7 +45,7 @@ public class TelecineFilterGenConfig
 /// <summary>
 ///  select first field (from 0 to 1) (default top)
 /// </summary>
-public TelecineFilterGenFirst_field first_field { get; set; }
+public TelecineFilterGenFirst_field? first_field { get; set; }
 /// <summary>
 ///  pattern that describe for how many fields a frame is to be displayed (default "23")
 /// </summary>

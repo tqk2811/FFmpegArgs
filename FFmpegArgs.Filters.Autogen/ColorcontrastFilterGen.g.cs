@@ -55,13 +55,13 @@ public static ColorcontrastFilterGen ColorcontrastFilterGen(this ImageMap input0
 public static ColorcontrastFilterGen ColorcontrastFilterGen(this ImageMap input0,ColorcontrastFilterGenConfig config)
 {
 var result = new ColorcontrastFilterGen(input0);
-if(config?.rc != null) result.rc(config.rc);
-if(config?.gm != null) result.gm(config.gm);
-if(config?.by != null) result.by(config.by);
-if(config?.rcw != null) result.rcw(config.rcw);
-if(config?.gmw != null) result.gmw(config.gmw);
-if(config?.byw != null) result.byw(config.byw);
-if(config?.pl != null) result.pl(config.pl);
+if(config?.rc != null) result.rc(config.rc.Value);
+if(config?.gm != null) result.gm(config.gm.Value);
+if(config?.by != null) result.by(config.by.Value);
+if(config?.rcw != null) result.rcw(config.rcw.Value);
+if(config?.gmw != null) result.gmw(config.gmw.Value);
+if(config?.byw != null) result.byw(config.byw.Value);
+if(config?.pl != null) result.pl(config.pl.Value);
 if(config?.TimelineSupport != null) result.Enable(config.TimelineSupport);
 return result;
 }
@@ -71,31 +71,31 @@ public class ColorcontrastFilterGenConfig
 /// <summary>
 ///  set the red-cyan contrast (from -1 to 1) (default 0)
 /// </summary>
-public float rc { get; set; }
+public float? rc { get; set; }
 /// <summary>
 ///  set the green-magenta contrast (from -1 to 1) (default 0)
 /// </summary>
-public float gm { get; set; }
+public float? gm { get; set; }
 /// <summary>
 ///  set the blue-yellow contrast (from -1 to 1) (default 0)
 /// </summary>
-public float by { get; set; }
+public float? by { get; set; }
 /// <summary>
 ///  set the red-cyan weight (from 0 to 1) (default 0)
 /// </summary>
-public float rcw { get; set; }
+public float? rcw { get; set; }
 /// <summary>
 ///  set the green-magenta weight (from 0 to 1) (default 0)
 /// </summary>
-public float gmw { get; set; }
+public float? gmw { get; set; }
 /// <summary>
 ///  set the blue-yellow weight (from 0 to 1) (default 0)
 /// </summary>
-public float byw { get; set; }
+public float? byw { get; set; }
 /// <summary>
 ///  set the amount of preserving lightness (from 0 to 1) (default 0)
 /// </summary>
-public float pl { get; set; }
+public float? pl { get; set; }
 public string TimelineSupport { get; set; }
 }
 }

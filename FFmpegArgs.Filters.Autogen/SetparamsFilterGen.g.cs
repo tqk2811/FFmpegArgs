@@ -47,11 +47,11 @@ public static SetparamsFilterGen SetparamsFilterGen(this ImageMap input0) => new
 public static SetparamsFilterGen SetparamsFilterGen(this ImageMap input0,SetparamsFilterGenConfig config)
 {
 var result = new SetparamsFilterGen(input0);
-if(config?.field_mode != null) result.field_mode(config.field_mode);
-if(config?.range != null) result.range(config.range);
-if(config?.color_primaries != null) result.color_primaries(config.color_primaries);
-if(config?.color_trc != null) result.color_trc(config.color_trc);
-if(config?.colorspace != null) result.colorspace(config.colorspace);
+if(config?.field_mode != null) result.field_mode(config.field_mode.Value);
+if(config?.range != null) result.range(config.range.Value);
+if(config?.color_primaries != null) result.color_primaries(config.color_primaries.Value);
+if(config?.color_trc != null) result.color_trc(config.color_trc.Value);
+if(config?.colorspace != null) result.colorspace(config.colorspace.Value);
 return result;
 }
 }
@@ -60,23 +60,23 @@ public class SetparamsFilterGenConfig
 /// <summary>
 ///  select interlace mode (from -1 to 2) (default auto)
 /// </summary>
-public SetparamsFilterGenField_mode field_mode { get; set; }
+public SetparamsFilterGenField_mode? field_mode { get; set; }
 /// <summary>
 ///  select color range (from -1 to 2) (default auto)
 /// </summary>
-public SetparamsFilterGenRange range { get; set; }
+public SetparamsFilterGenRange? range { get; set; }
 /// <summary>
 ///  select color primaries (from -1 to 22) (default auto)
 /// </summary>
-public SetparamsFilterGenColor_primaries color_primaries { get; set; }
+public SetparamsFilterGenColor_primaries? color_primaries { get; set; }
 /// <summary>
 ///  select color transfer (from -1 to 18) (default auto)
 /// </summary>
-public SetparamsFilterGenColor_trc color_trc { get; set; }
+public SetparamsFilterGenColor_trc? color_trc { get; set; }
 /// <summary>
 ///  select colorspace (from -1 to 14) (default auto)
 /// </summary>
-public SetparamsFilterGenColorspace colorspace { get; set; }
+public SetparamsFilterGenColorspace? colorspace { get; set; }
 }
 public enum SetparamsFilterGenField_mode
 {

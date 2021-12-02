@@ -31,7 +31,7 @@ public static McompandFilterGen McompandFilterGen(this AudioMap input0) => new M
 public static McompandFilterGen McompandFilterGen(this AudioMap input0,McompandFilterGenConfig config)
 {
 var result = new McompandFilterGen(input0);
-if(config?.args != null) result.args(config.args);
+if(!string.IsNullOrWhiteSpace(config?.args)) result.args(config.args);
 return result;
 }
 }

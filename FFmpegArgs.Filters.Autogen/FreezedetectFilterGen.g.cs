@@ -35,8 +35,8 @@ public static FreezedetectFilterGen FreezedetectFilterGen(this ImageMap input0) 
 public static FreezedetectFilterGen FreezedetectFilterGen(this ImageMap input0,FreezedetectFilterGenConfig config)
 {
 var result = new FreezedetectFilterGen(input0);
-if(config?.noise != null) result.noise(config.noise);
-if(config?.duration != null) result.duration(config.duration);
+if(config?.noise != null) result.noise(config.noise.Value);
+if(config?.duration != null) result.duration(config.duration.Value);
 return result;
 }
 }
@@ -45,10 +45,10 @@ public class FreezedetectFilterGenConfig
 /// <summary>
 ///  set noise tolerance (from 0 to 1) (default 0.001)
 /// </summary>
-public double noise { get; set; }
+public double? noise { get; set; }
 /// <summary>
 ///  set minimum duration in seconds (default 2)
 /// </summary>
-public TimeSpan duration { get; set; }
+public TimeSpan? duration { get; set; }
 }
 }
