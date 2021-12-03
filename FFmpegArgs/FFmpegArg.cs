@@ -111,11 +111,13 @@ namespace FFmpegArgs
 
         public string GetFullCommandline(bool useChain = true)
         {
+            string filter = FilterGraph.GetFiltersArgs(false, useChain);
+            string filter_complex = string.IsNullOrEmpty(filter) ? filter : $"-filter_complex \"{filter}\"";
             List<string> args = new List<string>()
             {
                 GetGlobalArgs(),
                 GetInputsArgs(),
-                $"-filter_complex \"{FilterGraph.GetFiltersArgs(false,useChain)}\"",
+                filter_complex,
                 GetOutputsArgs()
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
