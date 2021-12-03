@@ -18,7 +18,7 @@ namespace FFmpegArgs.Executes
             CancellationToken token = default)
         {
             build.OnEncodingProgress += onEncodingProgress ?? throw new ArgumentNullException(nameof(onEncodingProgress));
-            return build.Execute(onEncodingProgress, token);
+            return build.Execute(token);
         }
 
         public static FFmpegRenderResult Execute(
@@ -29,7 +29,7 @@ namespace FFmpegArgs.Executes
         {
             build.OnEncodingProgress += onEncodingProgress ?? throw new ArgumentNullException(nameof(onEncodingProgress));
             build.OnOutputDataReceived += onOutputDataReceived ?? throw new ArgumentNullException(nameof(onOutputDataReceived));
-            return build.Execute(onEncodingProgress, token);
+            return build.Execute(token);
         }
 
         public static FFmpegRenderResult Execute(this FFmpegRender build, CancellationToken token = default)
