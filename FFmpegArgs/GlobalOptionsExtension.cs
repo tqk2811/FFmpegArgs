@@ -64,5 +64,13 @@ namespace FFmpegArgs
         public static FFmpegArg noauto_conversion_filters(this FFmpegArg ffmpegArg)
             => ffmpegArg.SetFlag("-noauto_conversion_filters");
 
+        /// <summary>
+        /// Set threads using, default: 0 (auto detect cpu core)
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <param name="threads"></param>
+        /// <returns></returns>
+        public static FFmpegArg Threads(this FFmpegArg ffmpegArg, int threads)
+            => ffmpegArg.SetOptionRange("-threads", threads, 0, int.MaxValue);
     }
 }
