@@ -1,4 +1,5 @@
-﻿using FFmpegArgs.Cores.Outputs;
+﻿using FFmpegArgs.Cores;
+using FFmpegArgs.Cores.Outputs;
 using FFmpegArgs.Filters;
 using System;
 
@@ -101,7 +102,7 @@ namespace FFmpegArgs.Outputs
         /// <param name="output"></param>
         /// <param name="vsync"></param>
         /// <returns></returns>
-        public static T Vframes<T>(this T output, int vsync) where T : ImageOutput
+        public static T Vframes<T>(this T output, int vsync) where T : BaseOutput, IImage
             => output.SetOption("-vframes", vsync);
 
         /// <summary>
@@ -114,7 +115,7 @@ namespace FFmpegArgs.Outputs
         /// <param name="stream_specifier"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static T Fpsmax<T>(this T output, int fps, int? stream_specifier = null) where T : ImageOutput
+        public static T Fpsmax<T>(this T output, int fps, int? stream_specifier = null) where T : BaseOutput, IImage
         {
             if (stream_specifier == null)
             {
@@ -140,7 +141,7 @@ namespace FFmpegArgs.Outputs
         /// <param name="stream_specifier"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static T Aspect<T>(this T output, Rational aspect, int? stream_specifier = null) where T : ImageOutput
+        public static T Aspect<T>(this T output, Rational aspect, int? stream_specifier = null) where T : BaseOutput, IImage
         {
             if (stream_specifier == null)
             {
@@ -155,7 +156,7 @@ namespace FFmpegArgs.Outputs
 
         }
 
-        public static T VCodec<T>(this T output, string codec) where T : ImageOutput
+        public static T VCodec<T>(this T output, string codec) where T : BaseOutput, IImage
             => output.SetOption("-vcodec", codec);
 
         /// <summary>
@@ -165,7 +166,7 @@ namespace FFmpegArgs.Outputs
         /// <param name="output"></param>
         /// <param name="vsync"></param>
         /// <returns></returns>
-        public static T VSync<T>(this T output, VSyncMethod vsync) where T : ImageOutput
+        public static T VSync<T>(this T output, VSyncMethod vsync) where T : BaseOutput, IImage
             => output.SetOption("-vsync", vsync);
 
 
@@ -177,7 +178,7 @@ namespace FFmpegArgs.Outputs
         /// <param name="output"></param>
         /// <param name="aframes"></param>
         /// <returns></returns>
-        public static T Aframes<T>(this T output, int aframes) where T : AudioOutput
+        public static T Aframes<T>(this T output, int aframes) where T : BaseOutput, IAudio
             => output.SetOption("-aframes", aframes);
 
         /// <summary>
@@ -187,7 +188,7 @@ namespace FFmpegArgs.Outputs
         /// <param name="output"></param>
         /// <param name="q"></param>
         /// <returns></returns>
-        public static T AQ<T>(this T output, string q) where T : AudioOutput
+        public static T AQ<T>(this T output, string q) where T : BaseOutput, IAudio
            => output.SetOption("-aq", q);
 
         /// <summary>
@@ -199,7 +200,7 @@ namespace FFmpegArgs.Outputs
         /// <param name="stream_specifier"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
-        public static T SampleFmt<T>(this T output, string sample_fmt, int? stream_specifier = null) where T : AudioOutput
+        public static T SampleFmt<T>(this T output, string sample_fmt, int? stream_specifier = null) where T : BaseOutput, IAudio
         {
             if (stream_specifier == null)
             {
@@ -223,8 +224,14 @@ namespace FFmpegArgs.Outputs
         /// <param name="output"></param>
         /// <param name="async"></param>
         /// <returns></returns>
-        public static T ASync<T>(this T output, int async) where T : AudioOutput
+        public static T ASync<T>(this T output, int async) where T : BaseOutput, IAudio
             => output.SetOption("-async", async);
+
+        public static T VideoBitrate<T>(this T t, long bitRate) where T : BaseOutput, IImage
+            => t.SetOptionRange("-b:v", bitRate, 1, long.MaxValue);
+
+        public static T AudioBitrate<T>(this T t, long bitRate) where T : BaseOutput, IAudio
+            => t.SetOptionRange("-b:a", bitRate, 1, long.MaxValue);
 
     }
 }
