@@ -118,7 +118,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>
-        public static VolumeFilter Volume(this AudioMap audioMap)
+        public static VolumeFilter VolumeFilter(this AudioMap audioMap)
             => new VolumeFilter(audioMap);
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="audioMap"></param>
         /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
         /// <returns></returns>
-        public static VolumeFilter Volume(this AudioMap audioMap, Action<Expression> volume)
+        public static VolumeFilter VolumeFilter(this AudioMap audioMap, Action<Expression> volume)
             => new VolumeFilter(audioMap).Volume(volume);
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="audioMap"></param>
         /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
         /// <returns></returns>
-        public static VolumeFilter Volume(this AudioMap audioMap, string volume)
+        public static VolumeFilter VolumeFilter(this AudioMap audioMap, string volume)
             => new VolumeFilter(audioMap).Volume(volume);
 
 
