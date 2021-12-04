@@ -6,7 +6,7 @@ namespace FFmpegArgs.Executes
     public class RenderProgress
     {
         static readonly Regex regex
-            = new Regex(@"frame= *(\d+) fps= *([0-9.]+).*?size= *([0-9.]+)kB time= *(\d{2}:\d{2}:\d{2}.\d+) bitrate= *([0-9.]+)kbits\/s speed= *([0-9.]+)x");
+            = new Regex(@"frame= *(\d+) fps= *([0-9.]+).*?size= *([0-9.]+)kB time= *(\d{2}:\d{2}:\d{2}\.\d+) bitrate= *([0-9.]+)kbits\/s speed= *([0-9.]+)x");
         public static RenderProgress FromProgressString(string progress)
         {
             if(!string.IsNullOrWhiteSpace(progress))
