@@ -131,7 +131,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Draw a colored box on the input video.
         /// </summary>
-        public static DrawBoxFilter DrawboxFilterGen(this ImageMap input0, DrawboxFilterConfig config)
+        public static DrawBoxFilter DrawboxFilter(this ImageMap input0, DrawboxFilterConfig config)
         {
             var result = new DrawBoxFilter(input0);
             if (!string.IsNullOrWhiteSpace(config?.X)) result.X(config.X);

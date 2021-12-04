@@ -140,7 +140,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Overlay a video source on top of the input.
         /// </summary>
-        public static OverlayFilter OverlayFilterGen(this ImageMap top, ImageMap bottom, OverlayFilterConfig config)
+        public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, OverlayFilterConfig config)
         {
             var result = new OverlayFilter(bottom, top);
             if (!string.IsNullOrWhiteSpace(config?.X)) result.X(config.X);

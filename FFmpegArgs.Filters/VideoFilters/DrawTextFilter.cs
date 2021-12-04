@@ -340,7 +340,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static DrawTextFilter DrawTextFilter(this ImageMap imageMap)
             => new DrawTextFilter(imageMap);
 
-        public static DrawTextFilter DrawtextFilterGen(this ImageMap imageMap, DrawTextFilterConfig config)
+        public static DrawTextFilter DrawtextFilter(this ImageMap imageMap, DrawTextFilterConfig config)
         {
             var result = new DrawTextFilter(imageMap);
             if (!string.IsNullOrWhiteSpace(config?.FontFile)) result.FontFile(config.FontFile);

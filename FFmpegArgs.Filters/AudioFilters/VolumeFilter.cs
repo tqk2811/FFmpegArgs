@@ -143,7 +143,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// Change input volume.
         /// </summary>
-        public static VolumeFilter VolumeFilterGen(this AudioMap audioMap, VolumeFilterConfig config)
+        public static VolumeFilter VolumeFilter(this AudioMap audioMap, VolumeFilterConfig config)
         {
             var result = new VolumeFilter(audioMap);
             if (!string.IsNullOrWhiteSpace(config?.Volume)) result.Volume(config.Volume);

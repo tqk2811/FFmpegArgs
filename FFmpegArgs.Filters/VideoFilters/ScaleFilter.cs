@@ -27,14 +27,55 @@ namespace FFmpegArgs.Filters.VideoFilters
       "pos"
     };
 
-        internal ScaleFilter(Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("scale", imageMap)
+        readonly Expression expression = new Expression(_scalevariables);
+        internal ScaleFilter(ImageMap imageMap) : base("scale", imageMap)
         {
             AddMapOut();
-
-            Expression expression = new Expression(_scalevariables);
-            this.SetOption("w", w.Run(expression));
-            this.SetOption("h", h.Run(expression));
         }
+
+        /// <summary>
+        /// Set the output video dimension expression. Default value is the input dimension.<br></br>
+        /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
+        /// If one and only one of the values is -n with n >= 1, the scale filter will use a value that maintains the aspect ratio of the input image, calculated from the other specified dimension. After that it will, however, make sure that the calculated dimension is divisible by n and adjust the value if necessary.<br></br>
+        /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
+        /// </summary>
+        /// <param name="w"></param>
+        /// <returns></returns>
+        public ScaleFilter Width(Action<Expression> w)
+            => this.SetOption("w", w.Run(expression));
+
+        /// <summary>
+        /// Set the output video dimension expression. Default value is the input dimension.<br></br>
+        /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
+        /// If one and only one of the values is -n with n >= 1, the scale filter will use a value that maintains the aspect ratio of the input image, calculated from the other specified dimension. After that it will, however, make sure that the calculated dimension is divisible by n and adjust the value if necessary.<br></br>
+        /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
+        /// </summary>
+        /// <param name="w"></param>
+        /// <returns></returns>
+        public ScaleFilter Width(string w)
+            => this.Width(w.Expression());
+
+        /// <summary>
+        /// Set the output video dimension expression. Default value is the input dimension.<br></br>
+        /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
+        /// If one and only one of the values is -n with n >= 1, the scale filter will use a value that maintains the aspect ratio of the input image, calculated from the other specified dimension. After that it will, however, make sure that the calculated dimension is divisible by n and adjust the value if necessary.<br></br>
+        /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
+        /// </summary>
+        /// <param name="h"></param>
+        /// <returns></returns>
+        public ScaleFilter Height(Action<Expression> h)
+           => this.SetOption("h", h.Run(expression));
+
+        /// <summary>
+        /// Set the output video dimension expression. Default value is the input dimension.<br></br>
+        /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
+        /// If one and only one of the values is -n with n >= 1, the scale filter will use a value that maintains the aspect ratio of the input image, calculated from the other specified dimension. After that it will, however, make sure that the calculated dimension is divisible by n and adjust the value if necessary.<br></br>
+        /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
+        /// </summary>
+        /// <param name="h"></param>
+        /// <returns></returns>
+        public ScaleFilter Height(string h)
+            => this.Height(h.Expression());
 
 
         /// <summary>
@@ -159,6 +200,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// The filter accepts the following options, or any of the options supported by the libswscale scaler.
         /// </summary>
+        public static ScaleFilter ScaleFilter(this ImageMap imageMap)
+            => new ScaleFilter(imageMap);
+
+        /// <summary>
+        /// The filter accepts the following options, or any of the options supported by the libswscale scaler.
+        /// </summary>
         /// <param name="imageMap"></param>
         /// <param name="w">
         /// Set the output video dimension expression. Default value is the input dimension.<br></br>
@@ -173,7 +220,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
         /// </param>
         public static ScaleFilter ScaleFilter(this ImageMap imageMap, Action<Expression> w, Action<Expression> h)
-            => new ScaleFilter(w, h, imageMap);
+            => new ScaleFilter(imageMap).Width(w).Height(h);
 
         /// <summary>
         /// The filter accepts the following options, or any of the options supported by the libswscale scaler.
@@ -192,11 +239,112 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
         /// </param>
         public static ScaleFilter ScaleFilter(this ImageMap imageMap, string w, string h)
-            => new ScaleFilter(w.Expression(), h.Expression(), imageMap);
+            => new ScaleFilter(imageMap).Width(w).Height(h);
+
+        /// <summary>
+        /// The filter accepts the following options, or any of the options supported by the libswscale scaler.
+        /// </summary>
+        public static ScaleFilter ScaleFilter(this ImageMap input0, ScaleFilterGenConfig config)
+        {
+            var result = new ScaleFilter(input0);
+            if (!string.IsNullOrWhiteSpace(config?.Width)) result.Width(config.Width);
+            if (!string.IsNullOrWhiteSpace(config?.Height)) result.Height(config.Height);
+            if (config?.Flags != null) result.Flags(config.Flags.Value);
+            if (config?.Interl != null) result.Interl(config.Interl.Value);
+            if (config?.InColorMatrix != null) result.InColorMatrix(config.InColorMatrix);
+            if (config?.OutColorMatrix != null) result.OutColorMatrix(config.OutColorMatrix);
+            if (config?.InRange != null) result.InRange(config.InRange.Value);
+            if (config?.OutRange != null) result.OutRange(config.OutRange.Value);
+            //if (config?.in_v_chr_pos != null) result.in_v_chr_pos(config.in_v_chr_pos.Value);
+            //if (config?.in_h_chr_pos != null) result.in_h_chr_pos(config.in_h_chr_pos.Value);
+            //if (config?.out_v_chr_pos != null) result.out_v_chr_pos(config.out_v_chr_pos.Value);
+            //if (config?.out_h_chr_pos != null) result.out_h_chr_pos(config.out_h_chr_pos.Value);
+            if (config?.ForceOriginalAspectRatio != null) result.ForceOriginalAspectRatio(config.ForceOriginalAspectRatio.Value);
+            if (config?.ForceDivisibleBy != null) result.ForceDivisibleBy(config.ForceDivisibleBy.Value);
+            if (config?.Param0 != null) result.Param0(config.Param0.Value);
+            if (config?.Param1 != null) result.Param1(config.Param1.Value);
+            //if (config?.NbSlices != null) result.nb_slices(config.NbSlices.Value);
+            if (config?.Eval != null) result.Eval(config.Eval.Value);
+            return result;
+        }
     }
 
+    public class ScaleFilterGenConfig
+    {
+        /// <summary>
+        ///  Output video width
+        /// </summary>
+        public string Width { get; set; }
+        /// <summary>
+        ///  Output video height
+        /// </summary>
+        public string Height { get; set; }
+        /// <summary>
+        ///  Flags to pass to libswscale (default "bilinear")
+        /// </summary>
+        public SwsFlags? Flags { get; set; }
+        /// <summary>
+        ///  set interlacing (default false)
+        /// </summary>
+        public ScaleInterl? Interl { get; set; }
+        /// <summary>
+        ///  set input YCbCr type (default "auto")
+        /// </summary>
+        public ScaleColorMatrix InColorMatrix { get; set; }
+        /// <summary>
+        ///  set output YCbCr type
+        /// </summary>
+        public ScaleColorMatrix OutColorMatrix { get; set; }
+        /// <summary>
+        ///  set input color range (from 0 to 2) (default auto)
+        /// </summary>
+        public ScaleRange? InRange { get; set; }
+        /// <summary>
+        ///  set output color range (from 0 to 2) (default auto)
+        /// </summary>
+        public ScaleRange? OutRange { get; set; }
+        ///// <summary>
+        /////  input vertical chroma position in luma grid/256 (from -513 to 512) (default -513)
+        ///// </summary>
+        //public int? in_v_chr_pos { get; set; }
+        ///// <summary>
+        /////  input horizontal chroma position in luma grid/256 (from -513 to 512) (default -513)
+        ///// </summary>
+        //public int? in_h_chr_pos { get; set; }
+        ///// <summary>
+        /////  output vertical chroma position in luma grid/256 (from -513 to 512) (default -513)
+        ///// </summary>
+        //public int? out_v_chr_pos { get; set; }
+        ///// <summary>
+        /////  output horizontal chroma position in luma grid/256 (from -513 to 512) (default -513)
+        ///// </summary>
+        //public int? out_h_chr_pos { get; set; }
+        /// <summary>
+        ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
+        /// </summary>
+        public ScaleAspectRatio? ForceOriginalAspectRatio { get; set; }
+        /// <summary>
+        ///  enforce that the output resolution is divisible by a defined integer when force_original_aspect_ratio is used (from 1 to 256) (default 1)
+        /// </summary>
+        public int? ForceDivisibleBy { get; set; }
+        /// <summary>
+        ///  Scaler param 0 (from INT_MIN to INT_MAX) (default 123456)
+        /// </summary>
+        public double? Param0 { get; set; }
+        /// <summary>
+        ///  Scaler param 1 (from INT_MIN to INT_MAX) (default 123456)
+        /// </summary>
+        public double? Param1 { get; set; }
+        ///// <summary>
+        /////  set the number of slices (debug purpose only) (from 0 to INT_MAX) (default 0)
+        ///// </summary>
+        //public int? NbSlices { get; set; }
+        /// <summary>
+        ///  specify when to evaluate expressions (from 0 to 1) (default init)
+        /// </summary>
+        public ScaleEval? Eval { get; set; }
+    }
 
-    #region Enum
     public enum ScaleColorMatrix
     {
         auto,
@@ -263,6 +411,4 @@ namespace FFmpegArgs.Filters.VideoFilters
         limited,
         tv
     }
-    #endregion
-
 }

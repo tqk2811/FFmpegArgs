@@ -36,7 +36,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Same as the <see cref="BaseSubtitlesFilter"/> filter, except that it doesn’t require libavcodec and libavformat to work. On the other hand, it is limited to ASS (Advanced Substation Alpha) subtitles files.
         /// </summary>
-        public static AssFilter AssFilterGen(this ImageMap input0, AssFilterConfig config)
+        public static AssFilter AssFilter(this ImageMap input0, AssFilterConfig config)
         {
             var result = new AssFilter(input0);
             if (!string.IsNullOrWhiteSpace(config?.Filename)) result.FileName(config.Filename);

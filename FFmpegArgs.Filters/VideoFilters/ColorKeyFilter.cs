@@ -65,7 +65,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// RGB colorspace color keying.
         /// </summary>
-        public static ColorKeyFilter ColorkeyFilterGen(this ImageMap input0, ColorkeyFilterConfig config)
+        public static ColorKeyFilter ColorkeyFilter(this ImageMap input0, ColorkeyFilterConfig config)
         {
             var result = new ColorKeyFilter(input0);
             if (config?.Color != null) result.Color(config.Color.Value);

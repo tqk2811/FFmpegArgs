@@ -50,7 +50,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Draw subtitles on top of input video using the libass library.<br>
         /// </br>To enable compilation of this filter you need to configure FFmpeg with --enable-libass.This filter also requires a build with libavcodec and libavformat to convert the passed subtitles file to ASS(Advanced Substation Alpha) subtitles format.
         /// </summary>
-        public static SubtitlesFilter SubtitlesFilterGen(this ImageMap imageMap, SubtitlesFilterConfig config)
+        public static SubtitlesFilter SubtitlesFilter(this ImageMap imageMap, SubtitlesFilterConfig config)
         {
             var result = new SubtitlesFilter(imageMap);
             if (!string.IsNullOrWhiteSpace(config?.Filename)) result.FileName(config.Filename);
