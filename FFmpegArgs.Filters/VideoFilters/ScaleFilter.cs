@@ -244,7 +244,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// The filter accepts the following options, or any of the options supported by the libswscale scaler.
         /// </summary>
-        public static ScaleFilter ScaleFilter(this ImageMap input0, ScaleFilterGenConfig config)
+        public static ScaleFilter ScaleFilter(this ImageMap input0, ScaleFilterConfig config)
         {
             var result = new ScaleFilter(input0);
             if (!string.IsNullOrWhiteSpace(config?.Width)) result.Width(config.Width);
@@ -269,7 +269,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         }
     }
 
-    public class ScaleFilterGenConfig
+    public class ScaleFilterConfig
     {
         /// <summary>
         ///  Output video width
