@@ -38,7 +38,7 @@ namespace FFmpegArgs.Cores.Filters
 
             string body = string.Join(",", chain.Select(x =>
             {
-                string options = string.Join(":", x.Options.Select(x => $"{x.Key}={x.Value.FiltergraphEscapingLv1()}")).FiltergraphEscapingLv2();
+                string options = x.Options.GetFilterOptions();
                 if (!string.IsNullOrEmpty(options)) options = "=" + options;
                 return $"{x.FilterName}{options}";
             }));

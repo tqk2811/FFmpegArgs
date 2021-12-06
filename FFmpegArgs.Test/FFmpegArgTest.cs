@@ -8,6 +8,7 @@ using FFmpegArgs.Outputs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 namespace FFmpegArgs.Test
 {
@@ -111,5 +112,40 @@ namespace FFmpegArgs.Test
 
         }
 
+
+        [TestMethod]
+        public void TestStringEscape()
+        {
+            FFmpegArg ffmpegArg = new FFmpegArg();
+            ffmpegArg.OverWriteOutput();
+
+            FilterInput filterInput = new FilterInput();
+            filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280, 720)).MapOut
+                .FpsFilter(25);
+            var videos = ffmpegArg.AddVideoInput(filterInput, 1, 0);
+
+            var output = videos.ImageMaps.First()
+                .DrawTextFilter()
+                    .Text("this is a 'string': may contain one, [or more], special characters;")
+                    .X("max(main_w-w-n*5,0)")
+                    .Y("(H-h)/2")
+                    .MapOut
+                .DrawTextFilter()
+                    .Text("this is a 'string': may contain one, [or more], special characters;")
+                    .X("max(main_w-w-n*5,0)")
+                    .Y("(H-h)")
+                    .MapOut;
+
+            ImageFileOutput imageFileOutput = new ImageFileOutput("TestStringEscape.mp4", output)
+                .Duration(TimeSpan.FromSeconds(3));
+            ffmpegArg.AddOutput(imageFileOutput);
+
+            FFmpegRender fFmpegRender = ffmpegArg.Render(new FFmpegRenderConfig()
+            {
+                WorkingDirectory = Directory.GetCurrentDirectory()
+            });
+            FFmpegRenderResult renderResult = fFmpegRender.Execute();
+            Assert.IsTrue(renderResult.ExitCode == 0);
+        }
     }
 }

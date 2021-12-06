@@ -56,7 +56,7 @@ namespace FFmpegArgs.Cores.Filters
 
             string outputs = string.Join("", _mapsOut.Select(x => $"[{x.MapName}]"));
 
-            string options = string.Join(":", _options.Select(x => $"{x.Key}={x.Value.FiltergraphEscapingLv1()}")).FiltergraphEscapingLv2();
+            string options = _options.GetFilterOptions();
 
             if (!string.IsNullOrEmpty(options)) options = "=" + options;
             return $"{inputs}{FilterName}{options}{outputs}";
