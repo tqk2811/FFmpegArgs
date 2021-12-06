@@ -7,11 +7,16 @@ using System.Threading.Tasks;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
-    public class AmixFilter : AudioToAudioFilter
+    /// <summary>
+    /// ..C amix              N->A       Audio mixing.<br></br>
+    /// https://ffmpeg.org/ffmpeg-filters.html#amix
+    /// </summary>
+    public class AmixFilter : AudioToAudioFilter, ICommandSupport
     {
         internal AmixFilter(params AudioMap[] audioMaps) : base("amix",audioMaps)
         {
             if (audioMaps.Length < 2) throw new ArgumentException($"audioMaps as least 2 items");
+            AddMapOut();
             this.SetOption("inputs", audioMaps.Length);
         }
 
