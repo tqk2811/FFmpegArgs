@@ -7,6 +7,7 @@ using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -126,15 +127,13 @@ namespace FFmpegArgs.Test
 
             var output = videos.ImageMaps.First()
                 .DrawTextFilter()
-                    .Text("this is a 'string': may contain one, [or more], special characters;")
-                    .X("max(main_w-w-n*5,0)")
-                    .Y("(H-h)/2")
+                    .Text("this is a 'string\\': m\\: \n\t\rabc, [or more], 的 日本国 日本;") 
+                    .X("100")
+                    .Y("100")
+                    .Font("Lucida Sans Unicode")
+                    .FontSize("36")
                     .MapOut
-                .DrawTextFilter()
-                    .Text("this is a 'string': may contain one, [or more], special characters;")
-                    .X("max(main_w-w-n*5,0)")
-                    .Y("(H-h)")
-                    .MapOut;
+                    ;
 
             ImageFileOutput imageFileOutput = new ImageFileOutput("TestStringEscape.mp4", output)
                 .Duration(TimeSpan.FromSeconds(3));
@@ -142,10 +141,12 @@ namespace FFmpegArgs.Test
 
             FFmpegRender fFmpegRender = ffmpegArg.Render(new FFmpegRenderConfig()
             {
-                WorkingDirectory = Directory.GetCurrentDirectory()
+                WorkingDirectory = Directory.GetCurrentDirectory(),
+                //IsForceUseScript = true,
             });
             FFmpegRenderResult renderResult = fFmpegRender.Execute();
             Assert.IsTrue(renderResult.ExitCode == 0);
+            //Process.Start("ffplay", "TestStringEscape.mp4");
         }
     }
 }
