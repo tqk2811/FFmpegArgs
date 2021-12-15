@@ -48,9 +48,9 @@ namespace FFmpegArgs.Executes
             renderResult.Arguments = build.Arguments;
             using Process process = new Process();
             process.ErrorDataReceived += build.ErrorDataReceived;
-            process.ErrorDataReceived += (o, d) => renderResult._ErrorDatas.Add(d?.Data);
+            process.ErrorDataReceived += (o, d) => renderResult._ErrorDatas.Add(d?.Data ?? string.Empty);
             process.OutputDataReceived += build.OutputDataReceived;
-            process.OutputDataReceived += (o, d) => renderResult._OutputDatas.Add(d?.Data);
+            process.OutputDataReceived += (o, d) => renderResult._OutputDatas.Add(d?.Data ?? string.Empty);
             process.StartInfo = info;
             process.Start();
             process.BeginErrorReadLine();
