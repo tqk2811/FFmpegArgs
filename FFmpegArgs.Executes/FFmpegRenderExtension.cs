@@ -7,8 +7,8 @@ namespace FFmpegArgs.Executes
 {
     public static class FFmpegRenderExtension
     {
-        public static FFmpegRender Render(this FFmpegArg ffmpegArg, FFmpegRenderConfig config) => FFmpegRender.FromArgument(ffmpegArg, config);
-        public static FFmpegRender Render(this FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config) => FFmpegRender.FromArgument(ffmpegArg, config);
+        public static FFmpegRender Render(this FFmpegArg ffmpegArg, FFmpegRenderConfig config) => FFmpegRender.FromArguments(ffmpegArg, config);
+        public static FFmpegRender Render(this FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config) => FFmpegRender.FromArguments(ffmpegArg, config);
 
 
 

@@ -42,14 +42,14 @@ namespace FFmpegArgs.Executes
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
-        public static FFmpegRender FromArgument(FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config)
+        public static FFmpegRender FromArguments(FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config)
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
 
             FFmpegRenderConfig buildConfig = new FFmpegRenderConfig();
             config.Invoke(buildConfig);
-            return FromArgument(ffmpegArg, buildConfig);
+            return FromArguments(ffmpegArg, buildConfig);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace FFmpegArgs.Executes
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
-        public static FFmpegRender FromArgument(FFmpegArg ffmpegArg, FFmpegRenderConfig config)
+        public static FFmpegRender FromArguments(FFmpegArg ffmpegArg, FFmpegRenderConfig config)
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
@@ -89,7 +89,7 @@ namespace FFmpegArgs.Executes
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
-        public static FFmpegRender FromArgument(string commands, FFmpegRenderConfig config)
+        public static FFmpegRender FromArguments(string commands, FFmpegRenderConfig config)
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));
@@ -109,14 +109,14 @@ namespace FFmpegArgs.Executes
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
-        public static FFmpegRender FromArgument(string commands, Action<FFmpegRenderConfig> config)
+        public static FFmpegRender FromArguments(string commands, Action<FFmpegRenderConfig> config)
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));            
 
             FFmpegRenderConfig buildConfig = new FFmpegRenderConfig();
             config.Invoke(buildConfig);
-            return FromArgument(commands, buildConfig);
+            return FromArguments(commands, buildConfig);
         }
     }
 }
