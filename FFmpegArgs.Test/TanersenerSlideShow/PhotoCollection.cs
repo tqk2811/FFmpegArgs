@@ -93,7 +93,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
 
 #if RELEASE
-            Assert.IsTrue(ffmpegArg.Build(b => b
+            Assert.IsTrue(ffmpegArg.Render(b => b
                 .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
                 .WithFilterScriptName(filterFile))
                 .Execute().ExitCode == 0);
@@ -173,7 +173,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
 
 #if RELEASE
-            Assert.IsTrue(ffmpegArg.Build(b => b
+            Assert.IsTrue(ffmpegArg.Render(b => b
                 .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
                 .WithFilterScriptName(filterFile))
                 .Execute().ExitCode == 0);
