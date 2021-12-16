@@ -44,7 +44,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="channel_layout"></param>
         /// <returns></returns>
-        public AbufferFilter ChannelLayout(AV_CH_LAYOUT channel_layout)
+        public AbufferFilter ChannelLayout(ChannelLayout channel_layout)
           => this.SetOption("channel_layout", channel_layout.GetAttribute<NameAttribute>().Name);
 
         /// <summary>

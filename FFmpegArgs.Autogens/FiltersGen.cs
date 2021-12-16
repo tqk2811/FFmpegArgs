@@ -142,7 +142,7 @@ namespace FFmpegArgs.Autogens
                         break;
 
                     case "<channel_layout>":
-                        filterFunction.FunctionParamType = nameof(AV_CH_LAYOUT);
+                        filterFunction.FunctionParamType = nameof(ChannelLayout);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         break;
 

@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="channel_layout"></param>
         /// <returns></returns>
-        public AnullsrcFilter ChannelLayout(AV_CH_LAYOUT channel_layout)
+        public AnullsrcFilter ChannelLayout(ChannelLayout channel_layout)
           => this.SetOption("cl", channel_layout.GetAttribute<NameAttribute>().Name);
 
         /// <summary>

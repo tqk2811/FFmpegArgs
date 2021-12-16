@@ -41,11 +41,11 @@ public SpeechnormFilterGen fall(double fall) => this.SetOptionRange("fall", fall
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public SpeechnormFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
+public SpeechnormFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public SpeechnormFilterGen h(AV_CH_LAYOUT h) => this.SetOption("h",h.GetAttribute<NameAttribute>().Name);
+public SpeechnormFilterGen h(ChannelLayout h) => this.SetOption("h",h.GetAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set inverted filtering (default false)
 /// </summary>
@@ -109,11 +109,11 @@ public double? fall { get; set; }
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public AV_CH_LAYOUT? channels { get; set; }
+public ChannelLayout? channels { get; set; }
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public AV_CH_LAYOUT? h { get; set; }
+public ChannelLayout? h { get; set; }
 /// <summary>
 ///  set inverted filtering (default false)
 /// </summary>

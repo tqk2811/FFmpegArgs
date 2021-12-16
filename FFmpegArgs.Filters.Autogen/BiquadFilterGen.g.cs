@@ -45,7 +45,7 @@ public BiquadFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public BiquadFilterGen channels(AV_CH_LAYOUT channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
+public BiquadFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
@@ -130,7 +130,7 @@ public double? mix { get; set; }
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public AV_CH_LAYOUT? channels { get; set; }
+public ChannelLayout? channels { get; set; }
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
