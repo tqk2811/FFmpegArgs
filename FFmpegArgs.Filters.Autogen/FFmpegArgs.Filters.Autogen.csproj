@@ -2,7 +2,7 @@
 
 	<Import Project="..\ProjectBuildProperties.targets" />
 	<PropertyGroup>
-		<FileVersion>1.0.0.3</FileVersion>
+		<FileVersion>1.0.0.4</FileVersion>
 	</PropertyGroup>
 	
 	<ItemGroup>

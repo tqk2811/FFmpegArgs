@@ -23,7 +23,11 @@ var overlay = color_keys.First()
 ffmpegArg.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
 ffmpegArg.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
 
-var args = ffmpegArg.GetFullCommandline();
+var renderResult = ffmpegArg
+    .Render(c => c
+        .WithFFmpegBinaryPath("path to ffmpeg.exe")
+        .WithWorkingDirectory(Directory.GetCurrentDirectory()))
+    .Execute();
 ```
 For more example, see `FFmpegArgs.Test`  
 
