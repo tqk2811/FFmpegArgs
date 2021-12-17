@@ -85,7 +85,10 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static T ForceStyle<T>(this T t, string force_style) where T : BaseSubtitlesFilter
           => t.SetOption("force_style", force_style);
 
-
+        public static string ToHexSubStringRGB(this Color color)
+        {
+            return $"&H{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}";
+        }
 
         public static T BaseSubtitlesFilter<T>(this T t, BaseSubtitlesFilterConfig config) where T : BaseSubtitlesFilter
         {
@@ -235,10 +238,10 @@ namespace FFmpegArgs.Filters.VideoFilters
             if(!string.IsNullOrWhiteSpace(Name)) pairs[nameof(Name)] = Name;
             if (!string.IsNullOrWhiteSpace(Fontname)) pairs[nameof(Fontname)] = Fontname;
             if (Fontsize != null) pairs[nameof(Fontsize)] = Fontsize.Value.ToString();
-            if (PrimaryColour != null) pairs[nameof(PrimaryColour)] = PrimaryColour.Value.ToHexStringRGB();
-            if (SecondaryColour != null) pairs[nameof(SecondaryColour)] = SecondaryColour.Value.ToHexStringRGB();
-            if (OutlineColor != null) pairs[nameof(OutlineColor)] = OutlineColor.Value.ToHexStringRGB();
-            if (BackColour != null) pairs[nameof(BackColour)] = BackColour.Value.ToHexStringRGB();
+            if (PrimaryColour != null) pairs[nameof(PrimaryColour)] = PrimaryColour.Value.ToHexSubStringRGB();
+            if (SecondaryColour != null) pairs[nameof(SecondaryColour)] = SecondaryColour.Value.ToHexSubStringRGB();
+            if (OutlineColor != null) pairs[nameof(OutlineColor)] = OutlineColor.Value.ToHexSubStringRGB();
+            if (BackColour != null) pairs[nameof(BackColour)] = BackColour.Value.ToHexSubStringRGB();
             if (Bold != null) pairs[nameof(Bold)] = (Bold.Value ? -1 : 0).ToString();
             if (Italic != null) pairs[nameof(Italic)] = (Italic.Value ? -1 : 0).ToString();
             if (Underline != null) pairs[nameof(Underline)] = (Underline.Value ? -1 : 0).ToString();
