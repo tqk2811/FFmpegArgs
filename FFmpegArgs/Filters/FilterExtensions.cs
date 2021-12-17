@@ -7,12 +7,16 @@ namespace FFmpegArgs.Filters
 {
     public static class FilterExtensions
     {
-        public static int IsOdd(this int input)
+        public static string ToFFmpegFlag(this bool flag)
+        {
+            return flag ? "1" : "0";
+        }
+        public static int EnsureOdd(this int input)
         {
             if (input % 2 == 0) throw new InvalidOperationException("required input odd");
             return input;
         }
-        public static int IsEven(this int input)
+        public static int EnsureEven(this int input)
         {
             if (input % 2 != 0) throw new InvalidOperationException("required input even");
             return input;

@@ -38,7 +38,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="s"></param>
         /// <returns></returns>
         public AtadenoiseFilter NumberOfFrames(int s)
-          => this.SetOptionRange("s", s.IsOdd(), 5, 129);
+          => this.SetOptionRange("s", s.EnsureOdd(), 5, 129);
 
         /// <summary>
         /// Set what planes of frame filter will use for averaging. Default is all.

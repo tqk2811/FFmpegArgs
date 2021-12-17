@@ -43,7 +43,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="blockx"></param>
         /// <returns></returns>
         public DecimateFilter Blockx(int blockx)
-            => this.SetOptionRange("blockx", blockx.IsEven(), 0, int.MaxValue);
+            => this.SetOptionRange("blockx", blockx.EnsureEven(), 0, int.MaxValue);
 
         /// <summary>
         /// Set the size of the x and y-axis blocks used during metric calculations. Larger blocks give better noise suppression, but also give worse detection of small movements. Must be a power of two. Default is 32.
@@ -51,7 +51,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="blocky"></param>
         /// <returns></returns>
         public DecimateFilter Blocky(int blocky)
-            => this.SetOptionRange("blocky", blocky.IsEven(), 0, int.MaxValue);
+            => this.SetOptionRange("blocky", blocky.EnsureEven(), 0, int.MaxValue);
 
         /// <summary>
         /// Mark main input as a pre-processed input and activate clean source input stream. This allows the input to be pre-processed with various filters to help the metrics calculation while keeping the frame selection lossless. When set to 1, the first stream is for the pre-processed input, and the second stream is the clean source from where the kept frames are chosen. Default is 0.

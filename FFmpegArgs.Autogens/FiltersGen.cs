@@ -103,7 +103,7 @@ namespace FFmpegArgs.Autogens
 
                     case "<boolean>":
                         filterFunction.FunctionParamType = $"bool";
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(Extensions.ToFFmpegFlag)}());";
+                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.ToFFmpegFlag)}());";
                         break;
 
                     case "<string>":
