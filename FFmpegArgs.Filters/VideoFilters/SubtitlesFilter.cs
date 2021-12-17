@@ -53,47 +53,23 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static SubtitlesFilter SubtitlesFilter(this ImageMap imageMap, SubtitlesFilterConfig config)
         {
             var result = new SubtitlesFilter(imageMap);
-            if (!string.IsNullOrWhiteSpace(config?.Filename)) result.FileName(config.Filename);
-            if (config?.OriginalSize != null) result.OriginalSize(config.OriginalSize.Value);
-            if (!string.IsNullOrWhiteSpace(config?.Fontsdir)) result.FontsDir(config.Fontsdir);
-            if (config?.Alpha != null) result.Alpha(config.Alpha.Value);
+            result.BaseSubtitlesFilter(config);
             if (!string.IsNullOrWhiteSpace(config?.Charenc)) result.Charenc(config.Charenc);
             if (config?.StreamIndex != null) result.StreamIndex(config.StreamIndex.Value);
-            if (!string.IsNullOrWhiteSpace(config?.ForceStyle)) result.ForceStyle(config.ForceStyle);
             return result;
         }
     }
 
 
-    public class SubtitlesFilterConfig
+    public class SubtitlesFilterConfig : BaseSubtitlesFilterConfig
     {
         /// <summary>
-        ///  set the filename of file to read
-        /// </summary>
-        public string Filename { get; set; }
-        /// <summary>
-        ///  set the size of the original video (used to scale fonts)
-        /// </summary>
-        public Size? OriginalSize { get; set; }
-        /// <summary>
-        ///  set the directory containing the fonts to read
-        /// </summary>
-        public string Fontsdir { get; set; }
-        /// <summary>
-        ///  enable processing of alpha channel (default false)
-        /// </summary>
-        public bool? Alpha { get; set; }
-        /// <summary>
-        ///  set input character encoding
+        /// set input character encoding
         /// </summary>
         public string Charenc { get; set; }
         /// <summary>
-        ///  set stream index (from -1 to INT_MAX) (default -1)
+        /// set stream index (from -1 to INT_MAX) (default -1)
         /// </summary>
         public int? StreamIndex { get; set; }
-        /// <summary>
-        ///  force subtitle style
-        /// </summary>
-        public string ForceStyle { get; set; }
     }
 }
