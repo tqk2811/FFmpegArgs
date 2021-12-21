@@ -127,10 +127,10 @@ namespace FFmpegArgs.Test
 
             var output = videos.ImageMaps.First()
                 .DrawTextFilter()
-                    .Text("this is a 'string\\': m\\: \n\t\rabc, [or more], 的 日本国 日本;") 
+                    .Text("this is a 'string\\': m\\: \n\t\rabc,\" [or more], 的 日本国 日本;") 
                     .X("100")
                     .Y("100")
-                    .Font("Lucida Sans Unicode")
+                    .FontFile("C:\\Windows\\Fonts\\arial.ttf")
                     .FontSize("36")
                     .MapOut
                     ;
@@ -146,7 +146,7 @@ namespace FFmpegArgs.Test
             });
             FFmpegRenderResult renderResult = fFmpegRender.Execute();
             Assert.IsTrue(renderResult.ExitCode == 0);
-            //Process.Start("ffplay", "TestStringEscape.mp4");
+            Process.Start("ffplay", "TestStringEscape.mp4");
         }
     }
 }
