@@ -32,7 +32,8 @@ namespace FFmpegArgs.Cores.Filters
               ?.Replace(@"[", @"\[")
               ?.Replace(@"]", @"\]")
               ?.Replace(@";", @"\;")
-              ?.Replace(@",", @"\,");
+              ?.Replace(@",", @"\,")
+              ?.Replace("\"", "\\\"");
         }
 
         /// <summary>
