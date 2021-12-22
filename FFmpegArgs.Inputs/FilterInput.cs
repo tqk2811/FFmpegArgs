@@ -20,6 +20,20 @@ namespace FFmpegArgs.Inputs
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        public FilterInput AddFilter(Action<FilterGraph> filterGraph)
+        {
+            if (filterGraph == null)
+                throw new ArgumentNullException(nameof(filterGraph));
+            filterGraph.Invoke(FilterGraph);
+            return this;
+        }
+
         public override string ToString()
         {
             string filter = this._filter_string;
