@@ -45,14 +45,14 @@ namespace FFmpegArgs.Test.FilterTest
                 .DrawTextFilter()
                     .Text("Bản dịch chính xác cho dòng thứ 2: Theo những gì tôi \"nghe ngóng\" được, có thể là Zhongli và Ganyu. Nhưng không có chứng cứ nên phần lớn là Xiao.")
                     .X(x)
-                    .Y($"min({y}+text_h,{videoSize.Height}-text_h)")
+                    .Y($"min(max({y},0),{videoSize.Height}-text_h)")
                     .FontFile("C:\\Windows\\Fonts\\arial.ttf")
                     .FontSize("36")
                     .MapOut
                     ;
 
             ImageFileOutput imageFileOutput = new ImageFileOutput("DrawTextTest.DrawText.mp4", output)
-                .Duration(TimeSpan.FromSeconds(20)).Fps(fps);
+                .Duration(TimeSpan.FromSeconds(30)).Fps(fps);
             ffmpegArg.AddOutput(imageFileOutput);
 
             FFmpegRender fFmpegRender = ffmpegArg.Render(new FFmpegRenderConfig()
