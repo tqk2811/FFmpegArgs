@@ -30,14 +30,14 @@ namespace FFmpegArgs.Filters
             return $"0x{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}{color.A.ToString("X2")}";
         }
 
-        public static Expression Run(this Action<Expression> action, Expression expression)
+        public static FFmpegExpression Run(this Action<FFmpegExpression> action, FFmpegExpression expression)
         {
             action?.Invoke(expression);
             return expression;
         }
 
-        public static Action<Expression> Expression(this string str)
-          => new Action<Expression>(_e => _e.Check(str));
+        public static Action<FFmpegExpression> Expression(this string str)
+          => new Action<FFmpegExpression>(_e => _e.Check(str));
 
         public static TAttribute GetAttribute<TAttribute>(this Enum value) where TAttribute : Attribute
         {

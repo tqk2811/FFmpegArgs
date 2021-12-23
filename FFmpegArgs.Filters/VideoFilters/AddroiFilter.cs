@@ -15,7 +15,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             "iw", "ih",
         };
-        readonly Expression expression = new Expression();
+        readonly FFmpegExpression expression = new FFmpegExpression();
         internal AddroiFilter(ImageMap imageMap) : base("addroi", imageMap)
         {
             AddMapOut();
@@ -36,7 +36,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="x">Region distance in pixels from the left edge of the frame.</param>
         /// <param name="y">Region distance in pixels from the top edge of the frame.</param>
         /// <returns></returns>
-        public AddroiFilter Postion(Action<Expression> x, Action<Expression> y)
+        public AddroiFilter Postion(Action<FFmpegExpression> x, Action<FFmpegExpression> y)
           => this.SetOption("x", x.Run(expression))
           .SetOption("y", y.Run(expression));
 
@@ -56,7 +56,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="w">Region width in pixels.</param>
         /// <param name="h">Region height in pixels.</param>
         /// <returns></returns>
-        public AddroiFilter Size(Action<Expression> w, Action<Expression> h)
+        public AddroiFilter Size(Action<FFmpegExpression> w, Action<FFmpegExpression> h)
           => this.SetOption("w", w.Run(expression))
           .SetOption("h", h.Run(expression));
 

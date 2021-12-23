@@ -21,7 +21,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "TOP", "A",
             "BOTTOM", "B"
         };
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal BlendFilter(ImageMap top, ImageMap bottom) : base("blend", top, bottom)
         {
             AddMapOut();
@@ -111,7 +111,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C0_Expr(Action<Expression> expr)
+        public BlendFilter C0_Expr(Action<FFmpegExpression> expr)
           => this.SetOption("c0_expr", expr.Run(expression));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
@@ -125,7 +125,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C1_Expr(Action<Expression> expr)
+        public BlendFilter C1_Expr(Action<FFmpegExpression> expr)
           => this.SetOption("c1_expr", expr.Run(expression));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
@@ -139,7 +139,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C2_Expr(Action<Expression> expr)
+        public BlendFilter C2_Expr(Action<FFmpegExpression> expr)
           => this.SetOption("c2_expr", expr.Run(expression));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
@@ -153,7 +153,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C3_Expr(Action<Expression> expr)
+        public BlendFilter C3_Expr(Action<FFmpegExpression> expr)
           => this.SetOption("c3_expr", expr.Run(expression));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
@@ -167,7 +167,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter All_Expr(Action<Expression> expr)
+        public BlendFilter All_Expr(Action<FFmpegExpression> expr)
           => this.SetOption("all_expr", expr.Run(expression));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.

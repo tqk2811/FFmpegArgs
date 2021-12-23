@@ -22,7 +22,7 @@ namespace FFmpegArgs.Filters.AudioFilters
             "nb_in_channels", "nb_out_channels",
             "val"
         };
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal AevalFilter(AudioMap audioMap) : base("aeval", audioMap)
         {
             AddMapOut();
@@ -33,7 +33,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="exprs"></param>
         /// <returns></returns>
-        public AevalFilter Exprs(params Action<Expression>[] exprs)
+        public AevalFilter Exprs(params Action<FFmpegExpression>[] exprs)
             => this.SetOption("exprs", string.Join("|", exprs.Select(x => x.Run(expression))));
 
         /// <summary>

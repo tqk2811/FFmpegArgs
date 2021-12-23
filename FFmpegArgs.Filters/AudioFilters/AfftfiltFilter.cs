@@ -27,7 +27,7 @@ namespace FFmpegArgs.Filters.AudioFilters
             new ShuntingYardFunction("real","real_2"),
             new ShuntingYardFunction("imag","imag_2")
         };
-        readonly Expression expression = new Expression(_variables, _functions);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables, _functions);
         internal AfftfiltFilter(AudioMap audioMap) : base("afftfilt", audioMap)
         {
             AddMapOut();
@@ -39,7 +39,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="real"></param>
         /// <returns></returns>
-        public AfftfiltFilter Real(Action<Expression> real)
+        public AfftfiltFilter Real(Action<FFmpegExpression> real)
           => this.SetOption("real", real.Run(expression));
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="imag"></param>
         /// <returns></returns>
-        public AfftfiltFilter Imag(Action<Expression> imag)
+        public AfftfiltFilter Imag(Action<FFmpegExpression> imag)
           => this.SetOption("imag", imag.Run(expression));
 
         /// <summary>

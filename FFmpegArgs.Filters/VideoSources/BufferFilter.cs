@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// </summary>
     public class BufferFilter : SourceImageFilter
     {
-        readonly Expression expression = new Expression();
+        readonly FFmpegExpression expression = new FFmpegExpression();
         internal BufferFilter(FilterGraph filterGraph) : base("buffer", filterGraph)
         {
             AddMapOut();

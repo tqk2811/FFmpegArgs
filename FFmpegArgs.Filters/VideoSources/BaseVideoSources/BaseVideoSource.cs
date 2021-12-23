@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.VideoSources
     }
     public static class BaseVideoSourceExtensions
     {
-        static readonly Expression expression = new Expression();
+        static readonly FFmpegExpression expression = new FFmpegExpression();
 
         /// <summary>
         /// Specify the frame rate of the sourced video, as the number of frames generated per second.<br>
@@ -63,7 +63,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <param name="t"></param>
         /// <param name="sar"></param>
         /// <returns></returns>
-        public static T Sar<T>(this T t, Action<Expression> sar) where T : BaseVideoSource
+        public static T Sar<T>(this T t, Action<FFmpegExpression> sar) where T : BaseVideoSource
          => t.SetOption("sar", sar.Run(expression));
 
 

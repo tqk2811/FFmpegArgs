@@ -15,8 +15,8 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             "n","t","s"
         };
-        readonly Expression expression = new Expression(_variables);
-        internal AevalsrcFilter(FilterGraph filterGraph, params Action<Expression>[] exprs) : base("aevalsrc", filterGraph)
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
+        internal AevalsrcFilter(FilterGraph filterGraph, params Action<FFmpegExpression>[] exprs) : base("aevalsrc", filterGraph)
         {
             this.SetOption("exprs", string.Join("|", exprs.Select(x => x.Run(expression))));
             AddMapOut();
@@ -80,7 +80,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </br> In case the channel_layout option is not specified, the selected channel layout depends on the number of provided expressions.<br>
         /// </br> Otherwise the last specified expression is applied to the remaining output channels.</param>
         /// <returns></returns>
-        public static AevalsrcFilter AevalsrcFilter(this FilterGraph filterGraph, params Action<Expression>[] exprs)
+        public static AevalsrcFilter AevalsrcFilter(this FilterGraph filterGraph, params Action<FFmpegExpression>[] exprs)
           => new AevalsrcFilter(filterGraph, exprs);
     }
 }

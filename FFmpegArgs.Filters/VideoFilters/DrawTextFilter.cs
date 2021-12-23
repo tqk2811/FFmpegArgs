@@ -32,7 +32,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "pkt_size"
         };
 
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal DrawTextFilter(ImageMap imageMap) : base("drawtext", imageMap)
         {
             AddMapOut();
@@ -152,7 +152,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public DrawTextFilter FontColorExpr(Action<Expression> color)
+        public DrawTextFilter FontColorExpr(Action<FFmpegExpression> color)
           => this.SetOption("fontcolor_expr", color.Run(expression));
 
         /// <summary>
@@ -283,7 +283,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
-        public DrawTextFilter X(Action<Expression> x)
+        public DrawTextFilter X(Action<FFmpegExpression> x)
             => this.SetOption("x", x.Run(expression));
 
         /// <summary>
@@ -297,7 +297,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
-        public DrawTextFilter Y(Action<Expression> y)
+        public DrawTextFilter Y(Action<FFmpegExpression> y)
             => this.SetOption("y", y.Run(expression));
 
         /// <summary>
@@ -307,7 +307,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public DrawTextFilter XY(Action<Expression> x, Action<Expression> y)
+        public DrawTextFilter XY(Action<FFmpegExpression> x, Action<FFmpegExpression> y)
           => this.X(x).Y(y);
 
         /// <summary>

@@ -17,7 +17,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "cw","ch",
             "hsub", "vsub"
         };
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal BoxBlurFilter(ImageMap imageMap) : base("boxblur", imageMap)
         {
             AddMapOut();
@@ -30,7 +30,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="lr"></param>
         /// <returns></returns>
-        public BoxBlurFilter LumaRadius(Action<Expression> lr)
+        public BoxBlurFilter LumaRadius(Action<FFmpegExpression> lr)
           => this.SetOption("lr", lr.Run(expression));
         /// <summary>
         /// Set an expression for the box radius in pixels used for blurring the corresponding input plane.<br></br>
@@ -49,7 +49,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="lr"></param>
         /// <returns></returns>
-        public BoxBlurFilter ChromaRadius(Action<Expression> cr)
+        public BoxBlurFilter ChromaRadius(Action<FFmpegExpression> cr)
           => this.SetOption("cr", cr.Run(expression));
         /// <summary>
         /// Set an expression for the box radius in pixels used for blurring the corresponding input plane.<br></br>
@@ -68,7 +68,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="lr"></param>
         /// <returns></returns>
-        public BoxBlurFilter AlphaRadius(Action<Expression> ar)
+        public BoxBlurFilter AlphaRadius(Action<FFmpegExpression> ar)
           => this.SetOption("ar", ar.Run(expression));
         /// <summary>
         /// Set an expression for the box radius in pixels used for blurring the corresponding input plane.<br></br>

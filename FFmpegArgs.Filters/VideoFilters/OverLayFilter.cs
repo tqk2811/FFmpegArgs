@@ -22,7 +22,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "n", "pos","t"
         };
 
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
 
         internal OverlayFilter(ImageMap bottom, ImageMap top) : base("overlay", bottom, top)
         {
@@ -40,7 +40,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="x"></param>
         /// <returns></returns>
-        public OverlayFilter X(Action<Expression> x)
+        public OverlayFilter X(Action<FFmpegExpression> x)
             => this.SetOption("x", x.Run(expression));
         /// <summary>
         /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
@@ -54,7 +54,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="y"></param>
         /// <returns></returns>
-        public OverlayFilter Y(Action<Expression> y)
+        public OverlayFilter Y(Action<FFmpegExpression> y)
             => this.SetOption("y", y.Run(expression));
         /// <summary>
         /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
@@ -71,7 +71,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public OverlayFilter XY(Action<Expression> x, Action<Expression> y)
+        public OverlayFilter XY(Action<FFmpegExpression> x, Action<FFmpegExpression> y)
             => this.X(x).Y(y);
 
 
@@ -121,7 +121,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="x">Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).</param>
         /// <param name="y">Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).</param>
         /// <returns></returns>
-        public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, Action<Expression> x, Action<Expression> y)
+        public static OverlayFilter OverlayFilterOn(this ImageMap top, ImageMap bottom, Action<FFmpegExpression> x, Action<FFmpegExpression> y)
             => new OverlayFilter(bottom, top).X(x).Y(y);
 
         /// <summary>

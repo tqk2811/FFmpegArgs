@@ -2,16 +2,16 @@
 
 namespace FFmpegArgs.Expressions
 {
-    public class TimelineEditingExpression : Expression
+    public class TimelineEditingExpression : FFmpegExpression
     {
         static readonly List<string> variables = new List<string>()
-    {
-      "t",
-      "n",
-      "pos",
-      "w",
-      "h"
-    };
+        {
+          "t",
+          "n",
+          "pos",
+          "w",
+          "h"
+        };
 
 
 

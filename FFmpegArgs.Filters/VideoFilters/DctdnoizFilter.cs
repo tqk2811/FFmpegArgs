@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class DctdnoizFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
-        readonly Expression expression = new Expression();
+        readonly FFmpegExpression expression = new FFmpegExpression();
         internal DctdnoizFilter(ImageMap imageMap) : base("dctdnoiz", imageMap)
         {
             AddMapOut();
@@ -57,7 +57,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="e"></param>
         /// <returns></returns>
-        public DctdnoizFilter Expr(Action<Expression> e)
+        public DctdnoizFilter Expr(Action<FFmpegExpression> e)
             => this.SetOption("e", e.Run(expression));
 
         /// <summary>

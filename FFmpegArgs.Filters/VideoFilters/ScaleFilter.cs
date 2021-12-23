@@ -27,7 +27,7 @@ namespace FFmpegArgs.Filters.VideoFilters
       "pos"
     };
 
-        readonly Expression expression = new Expression(_scalevariables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_scalevariables);
         internal ScaleFilter(ImageMap imageMap) : base("scale", imageMap)
         {
             AddMapOut();
@@ -41,7 +41,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="w"></param>
         /// <returns></returns>
-        public ScaleFilter Width(Action<Expression> w)
+        public ScaleFilter Width(Action<FFmpegExpression> w)
             => this.SetOption("w", w.Run(expression));
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="h"></param>
         /// <returns></returns>
-        public ScaleFilter Height(Action<Expression> h)
+        public ScaleFilter Height(Action<FFmpegExpression> h)
            => this.SetOption("h", h.Run(expression));
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// If one and only one of the values is -n with n >= 1, the scale filter will use a value that maintains the aspect ratio of the input image, calculated from the other specified dimension. After that it will, however, make sure that the calculated dimension is divisible by n and adjust the value if necessary.<br></br>
         /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
         /// </param>
-        public static ScaleFilter ScaleFilter(this ImageMap imageMap, Action<Expression> w, Action<Expression> h)
+        public static ScaleFilter ScaleFilter(this ImageMap imageMap, Action<FFmpegExpression> w, Action<FFmpegExpression> h)
             => new ScaleFilter(imageMap).Width(w).Height(h);
 
         /// <summary>

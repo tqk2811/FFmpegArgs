@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// </summary>
     public class LifeFilter : SourceImageFilter
     {
-        readonly Expression expression = new Expression();
+        readonly FFmpegExpression expression = new FFmpegExpression();
         internal LifeFilter(FilterGraph filterGraph) : base("life", filterGraph)
         {
             AddMapOut();

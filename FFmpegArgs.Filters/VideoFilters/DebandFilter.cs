@@ -9,7 +9,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class DebandFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
-        readonly Expression expression = new Expression();
+        readonly FFmpegExpression expression = new FFmpegExpression();
         internal DebandFilter(ImageMap imageMap) : base("deband", imageMap)
         {
             AddMapOut();

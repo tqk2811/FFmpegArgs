@@ -18,8 +18,8 @@ namespace FFmpegArgs.Filters.VideoFilters
             "dar",
             "hsub", "vsub"
         };
-        readonly Expression expression = new Expression();
-        internal SetDarFilter(Action<Expression> r, ImageMap imageMap) : base("setdar", imageMap)
+        readonly FFmpegExpression expression = new FFmpegExpression();
+        internal SetDarFilter(Action<FFmpegExpression> r, ImageMap imageMap) : base("setdar", imageMap)
         {
             AddMapOut();
             this.SetOption("r", r.Run(expression));
@@ -48,7 +48,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="imageMap"></param>
         /// <param name="r"></param>
         /// <returns></returns>
-        public static SetDarFilter SetDarFilter(this ImageMap imageMap, Action<Expression> r)
+        public static SetDarFilter SetDarFilter(this ImageMap imageMap, Action<FFmpegExpression> r)
         {
             return new SetDarFilter(r, imageMap);
         }

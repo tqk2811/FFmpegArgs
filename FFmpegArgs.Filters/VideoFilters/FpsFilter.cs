@@ -19,7 +19,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "film",
             "ntsc_film"
         };
-        readonly Expression expression = new Expression(_consts);
+        readonly FFmpegExpression expression = new FFmpegExpression(_consts);
         internal FpsFilter(ImageMap imageMap) : base("fps", imageMap)
         {
             AddMapOut();
@@ -50,7 +50,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="fps"></param>
         /// <returns></returns>
-        public FpsFilter Fps(Action<Expression> fps) => this.SetOption("fps", fps.Run(expression));
+        public FpsFilter Fps(Action<FFmpegExpression> fps) => this.SetOption("fps", fps.Run(expression));
 
         /// <summary>
         /// Assume the first PTS should be the given value, in seconds. This allows for padding/trimming at the start of stream. By default, no assumption is made about the first frame’s expected PTS, so no padding or trimming is done. For example, this could be set to 0 to pad the beginning with duplicates of the first frame if a video stream starts after the audio stream or to trim any frames with a negative PTS.
@@ -89,7 +89,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="imageMap"></param>
         /// <param name="fps">The desired output frame rate.</param>
         /// <returns></returns>
-        public static FpsFilter FpsFilter(this ImageMap imageMap, Action<Expression> fps) => new FpsFilter(imageMap).Fps(fps);
+        public static FpsFilter FpsFilter(this ImageMap imageMap, Action<FFmpegExpression> fps) => new FpsFilter(imageMap).Fps(fps);
 
         /// <summary>
         /// Convert the video to specified constant frame rate by duplicating or dropping frames as necessary.

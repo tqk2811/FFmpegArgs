@@ -24,7 +24,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "t"
         };
 
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal DrawBoxFilter(ImageMap imageMap) : base("drawbox", imageMap)
         {
             AddMapOut();
@@ -38,7 +38,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// The expressions which specify the top left corner coordinates of the box. It defaults to 0.
         /// </summary>
-        public DrawBoxFilter X(Action<Expression> x)
+        public DrawBoxFilter X(Action<FFmpegExpression> x)
             => this.SetOption("x", x.Run(expression));
         /// <summary>
         /// The expressions which specify the top left corner coordinates of the box. It defaults to 0.
@@ -48,7 +48,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// The expressions which specify the top left corner coordinates of the box. It defaults to 0.
         /// </summary>
-        public DrawBoxFilter Y(Action<Expression> y)
+        public DrawBoxFilter Y(Action<FFmpegExpression> y)
             => this.SetOption("y", y.Run(expression));
         /// <summary>
         /// The expressions which specify the width and height of the box; if 0 they are interpreted as the input width and height. It defaults to 0.
@@ -58,7 +58,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// The expressions which specify the width and height of the box; if 0 they are interpreted as the input width and height. It defaults to 0.
         /// </summary>
-        public DrawBoxFilter W(Action<Expression> w)
+        public DrawBoxFilter W(Action<FFmpegExpression> w)
             => this.SetOption("w", w.Run(expression));
         /// <summary>
         /// The expressions which specify the width and height of the box; if 0 they are interpreted as the input width and height. It defaults to 0.
@@ -68,7 +68,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// The expressions which specify the width and height of the box; if 0 they are interpreted as the input width and height. It defaults to 0.
         /// </summary>
-        public DrawBoxFilter H(Action<Expression> h)
+        public DrawBoxFilter H(Action<FFmpegExpression> h)
             => this.SetOption("h", h.Run(expression));
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// The expression which sets the thickness of the box edge. A value of fill will create a filled box. Default value is 3.
         /// </summary>
-        public DrawBoxFilter Thickness(Action<Expression> t)
+        public DrawBoxFilter Thickness(Action<FFmpegExpression> t)
           => this.SetOption("t", t.Run(expression));
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Draw a colored box on the input video.
         /// </summary>
         public static DrawBoxFilter DrawBoxFilter(this ImageMap imageMap, Color color,
-          Action<Expression> x, Action<Expression> y, Action<Expression> w, Action<Expression> h)
+          Action<FFmpegExpression> x, Action<FFmpegExpression> y, Action<FFmpegExpression> w, Action<FFmpegExpression> h)
             => new DrawBoxFilter(imageMap ?? throw new ArgumentNullException(nameof(imageMap)))
                 .X(x).Y(y).W(w).H(h).Color(color);
 

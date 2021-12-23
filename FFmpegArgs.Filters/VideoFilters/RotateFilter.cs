@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             new ShuntingYardFunction("rotw","rotw_1"),
             new ShuntingYardFunction("roth","roth_1"),
         };
-        readonly Expression expression = new Expression(_variables, _func);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables, _func);
 
         internal RotateFilter(ImageMap imageMap) : base("rotate", imageMap)
         {
@@ -48,7 +48,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="a"></param>
         /// <returns></returns>
-        public RotateFilter Angle(Action<Expression> a)
+        public RotateFilter Angle(Action<FFmpegExpression> a)
             => this.SetOption("a", a.Run(expression));
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="ow"></param>
         /// <returns></returns>
-        public RotateFilter OW(Action<Expression> ow)
+        public RotateFilter OW(Action<FFmpegExpression> ow)
             => this.SetOption("ow", ow.Run(expression));
         /// <summary>
         /// Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.
@@ -77,12 +77,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="oh"></param>
         /// <returns></returns>
-        public RotateFilter OH(Action<Expression> oh)
+        public RotateFilter OH(Action<FFmpegExpression> oh)
             => this.SetOption("oh", oh.Run(expression));
 
         public RotateFilter OutWH(string ow, string oh)
           => OutWH(ow.Expression(), oh.Expression());
-        public RotateFilter OutWH(Action<Expression> ow, Action<Expression> oh)
+        public RotateFilter OutWH(Action<FFmpegExpression> ow, Action<FFmpegExpression> oh)
           => this.SetOption("ow", ow.Run(expression)).SetOption("oh", oh.Run(expression));
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="angle">Set an expression for the angle by which to rotate the input video clockwise, expressed as a number of radians. A negative value will result in a counter-clockwise rotation. By default it is set to "0".<br>
         /// </br>This expression is evaluated for each frame.</param>
         /// <returns></returns>
-        public static RotateFilter RotateFilter(this ImageMap imageMap, Action<Expression> angle)
+        public static RotateFilter RotateFilter(this ImageMap imageMap, Action<FFmpegExpression> angle)
             => new RotateFilter(imageMap).Angle(angle);
     }
 }

@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             "n", "pts", "t", "TB"
         };
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal SineFilter(FilterGraph filterGraph) : base("sine", filterGraph)
         {
             AddMapOut();
@@ -65,7 +65,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="samples_per_frame">Default is 1024.</param>
         /// <returns></returns>
-        public SineFilter SamplesPerFrame(Action<Expression> samples_per_frame)
+        public SineFilter SamplesPerFrame(Action<FFmpegExpression> samples_per_frame)
           => this.SetOption("samples_per_frame", samples_per_frame.Run(expression));
     }
 

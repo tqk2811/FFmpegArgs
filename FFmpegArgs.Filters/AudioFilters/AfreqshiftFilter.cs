@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     public class AfreqshiftFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
-        readonly Expression expression = new Expression();
+        readonly FFmpegExpression expression = new FFmpegExpression();
         internal AfreqshiftFilter(AudioMap audioMap) : base("afreqshift", audioMap)
         {
             AddMapOut();
@@ -29,7 +29,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="shift"></param>
         /// <returns></returns>
-        public AfreqshiftFilter Shift(Action<Expression> shift)
+        public AfreqshiftFilter Shift(Action<FFmpegExpression> shift)
           => this.SetOption("shift", shift.Run(expression));
 
         /// <summary>

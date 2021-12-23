@@ -32,8 +32,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             "RTCSTART",
             "TB"
         };
-        readonly Expression expression = new Expression(_variables);
-        internal SetPtsFilter(Action<Expression> expr, ImageMap imageMap) : base("setpts", imageMap)
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
+        internal SetPtsFilter(Action<FFmpegExpression> expr, ImageMap imageMap) : base("setpts", imageMap)
         {
             AddMapOut();
             this.SetOption("expr", expr.Run(expression));
@@ -49,7 +49,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// <param name="imageMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
         /// <returns></returns>
-        public static SetPtsFilter SetPtsFilter(this ImageMap imageMap, Action<Expression> expr)
+        public static SetPtsFilter SetPtsFilter(this ImageMap imageMap, Action<FFmpegExpression> expr)
         {
             return new SetPtsFilter(expr, imageMap);
         }

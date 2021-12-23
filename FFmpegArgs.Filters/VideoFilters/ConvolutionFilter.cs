@@ -9,7 +9,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class ConvolutionFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
-        readonly Expression expression = new Expression();
+        readonly FFmpegExpression expression = new FFmpegExpression();
         internal ConvolutionFilter(ImageMap imageMap) : base("convolution", imageMap)
         {
             AddMapOut();

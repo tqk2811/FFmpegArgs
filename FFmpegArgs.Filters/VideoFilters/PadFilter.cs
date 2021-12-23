@@ -19,7 +19,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "x","y","a","sar","dar",
             "hsub", "vsub"
         };
-        readonly Expression expression = new Expression(_variables);
+        readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal PadFilter(ImageMap imageMap) : base("pad", imageMap)
         {
             AddMapOut();
@@ -44,7 +44,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="w"></param>
         /// <param name="h"></param>
         /// <returns></returns>
-        public PadFilter Size(Action<Expression> w, Action<Expression> h)
+        public PadFilter Size(Action<FFmpegExpression> w, Action<FFmpegExpression> h)
           => this.SetOption("w", w.Run(expression)).SetOption("h", h.Run(expression));
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public PadFilter Position(Action<Expression> x, Action<Expression> y)
+        public PadFilter Position(Action<FFmpegExpression> x, Action<FFmpegExpression> y)
           => this.SetOption("x", x.Run(expression)).SetOption("y", y.Run(expression));
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="imageMap"></param>
         /// <param name="w"></param>
         /// <param name="h"></param>
-        public static PadFilter PadFilter(this ImageMap imageMap, Action<Expression> w, Action<Expression> h)
+        public static PadFilter PadFilter(this ImageMap imageMap, Action<FFmpegExpression> w, Action<FFmpegExpression> h)
             => new PadFilter(imageMap).Size(w, h);
         /// <summary>
         /// Add paddings to the input image, and place the original input at the provided x, y coordinates.
