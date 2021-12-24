@@ -25,7 +25,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             int WIDTH = 1280;
             int HEIGHT = 720;
-            double FPS = 60;
+            int FPS = 60;
             double TRANSITION_DURATION = 3;
             ScreenMode screenMode = ScreenMode.Blur;///# 1=CENTER, 2=CROP, 3=SCALE, 4=BLUR
             Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
@@ -91,7 +91,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Blur:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .MakeBlurredBackgroundTemplate(WIDTH, HEIGHT, "100")
+                                .MakeBlurredBackgroundTemplate(WIDTH, HEIGHT, FPS, "100")
                                 .FormatFilter(PixFmt.rgba).MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;

@@ -1,4 +1,5 @@
-﻿using FFmpegArgs.Filters.VideoFilters;
+﻿using FFmpegArgs.Executes;
+using FFmpegArgs.Filters.VideoFilters;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
 using FFmpegArgs.Template;
@@ -37,15 +38,18 @@ namespace FFmpegArgs.Test
             FFmpegArg ffmpegArg = new FFmpegArg();
             ffmpegArg.OverWriteOutput();
 
-            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
+            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.FullName).SetOption("-loop", 1))).ToList();
             var fix_sizesInputmap = images_inputmap.Select(x => x.ScaleFilter($"trunc(iw/2)*2", $"trunc(ih/2)*2").MapOut).ToList();
             var fadeMap = fix_sizesInputmap.MakeFadeInTwoTemplate("1366", "768", 3, 1);
             var output = new ImageFileOutput("FadeInTwoTemplate.mp4", fadeMap);
             ffmpegArg.AddOutput(output);
 
-            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript("filter_script.txt");
-            //string args = FFmpegArg.GetFullCommandline();
+            FFmpegRender fFmpegRender = ffmpegArg.Render(new FFmpegRenderConfig()
+            {
+
+            });
+            FFmpegRenderResult result = fFmpegRender.Execute();
+            Assert.IsTrue(result.ExitCode == 0);
         }
 
         [TestMethod]
