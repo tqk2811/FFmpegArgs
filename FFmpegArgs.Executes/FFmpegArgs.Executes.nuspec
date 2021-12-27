@@ -3,7 +3,7 @@
 	<!--https://docs.microsoft.com/en-us/nuget/reference/nuspec-->
 	<metadata>
 		<id>$id$</id>
-		<version>1.0.1</version>
+		<version>1.1.0</version>
 		<description>Executable for FFmpegArgs</description>
 		<authors>tqk2811</authors>
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
@@ -11,7 +11,7 @@
 		<readme>docs\README.MD</readme>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git" branch="$branch$" commit="$commit$"/>
 		<dependencies>
-			<dependency id="FFmpegArgs" version="1.0.1"/>
+			<dependency id="FFmpegArgs" version="1.1.0"/>
 		</dependencies>
 	</metadata>
 	<files>
