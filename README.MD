@@ -45,15 +45,15 @@ public class PadFilter : ImageToImageFilter
         "x","y","a","sar","dar",
         "hsub", "vsub"
     };
-    readonly Expression expression = new Expression(_variables);
-    internal PadFilter(Action<Expression> w, Action<Expression> h, ImageMap imageMap) : base("pad", imageMap)
+    readonly FFmpegExpression expression = new FFmpegExpression(_variables);
+    internal PadFilter(Action<FFmpegExpression> w, Action<FFmpegExpression> h, ImageMap imageMap) : base("pad", imageMap)
     {
         AddMapOut();
         this.SetOption("w", w.Run(expression));
         this.SetOption("h", h.Run(expression));
     }
 
-    public PadFilter Position(Action<Expression> x, Action<Expression> y)
+    public PadFilter Position(Action<FFmpegExpression> x, Action<FFmpegExpression> y)
         => this.SetOption("x", x.Run(expression)).SetOption("y", y.Run(expression));
 
     public PadFilter Position(string x, string y)
@@ -68,7 +68,7 @@ public class PadFilter : ImageToImageFilter
 
 public static class PadFilterExtension
 {
-    public static PadFilter PadFilter(this ImageMap imageMap, Action<Expression> w, Action<Expression> h)
+    public static PadFilter PadFilter(this ImageMap imageMap, Action<FFmpegExpression> w, Action<FFmpegExpression> h)
     {
         return new PadFilter(w, h, imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }
@@ -76,8 +76,8 @@ public static class PadFilterExtension
 
 
 //input
-public static T FrameRate<T>(this T output, int r) where T : BaseInput
-    => output.SetOption("-r", r);
+public static T FrameRate<T>(this T input, int r) where T : BaseInput
+    => input.SetOption("-r", r);
 
 //output
 public static T VSync<T>(this T output,int vsync) where T : ImageOutput
