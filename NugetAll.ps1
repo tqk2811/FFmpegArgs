@@ -1,15 +1,12 @@
 $key=$env:nugetKey
-$commit=($(git log --format="%H" -n 1) | Out-String).Trim()
-$branch=($(git rev-parse --abbrev-ref HEAD) | Out-String).Trim()
-$p="branch=$($branch);commit=$($commit)".Trim()
-echo $p
+
 function RunCommand
 {
     $numOfArgs = $args.Length
     for ($i=0; $i -lt $numOfArgs; $i++)
     {
         iex $args[$i]
-        if($LASTEXITCODE -eq 0) {
+        if($LASTEXITCODE -eq 0 -or $i -eq 0) {
             Write-Host "$($args[$i]) success"
         }
         else{
@@ -29,7 +26,7 @@ function NugetPack
 
         $result = RunCommand "Remove-Item -Recurse -Force .\$($args[$i])\bin\Release\**" `
             "dotnet build $($args[$i])\$($args[$i]).csproj -c Release" `
-            "nuget pack $($args[$i])\$($args[$i]).nuspec -OutputDirectory .\$($args[$i])\bin\Release -p 'id=$($args[$i]);$($p)'"
+            "nuget pack $($args[$i])\$($args[$i]).nuspec -OutputDirectory .\$($args[$i])\bin\Release -p 'build='"
 
         if($result) {
             Write-Host "$($args[$i]) success"

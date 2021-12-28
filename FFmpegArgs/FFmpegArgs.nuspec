@@ -2,18 +2,32 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<!--https://docs.microsoft.com/en-us/nuget/reference/nuspec-->
 	<metadata>
-		<id>$id$</id>
-		<version>1.1.0</version>
+		<id>FFmpegArgs</id>
+		<version>1.1.0$build$</version>
 		<description>Generate arguments for ffmpeg executable</description>
 		<authors>tqk2811</authors>
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
 		<tags>ffmpeg ffmpeg-command ffmpeg-script</tags>
 		<readme>docs\README.MD</readme>
-		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git" branch="$branch$" commit="$commit$"/>
+		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git"/>
+		<dependencies>
+			<group targetFramework="net462">
+				
+			</group>
+			<group targetFramework="netstandard2.0">
+				
+			</group>
+			<group targetFramework="net5.0">
+
+			</group>
+			<group targetFramework="net6.0">
+
+			</group>
+		</dependencies>
 	</metadata>
 	<files>
 		<file src="..\README.MD" target="docs\" />
-		<file src="bin\Release\**\$id$.dll" target="lib\" />
-		<file src="bin\Release\**\$id$.pdb" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.dll" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.pdb" target="lib\" />
 	</files>
 </package>
