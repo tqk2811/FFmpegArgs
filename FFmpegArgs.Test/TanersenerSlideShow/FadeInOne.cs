@@ -51,7 +51,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             for (int i = 0; i < prepareInputs.Count; i++)
             {
                 overlaids.Add(prepareInputs[i].First()
-                  .PadFilter($"{WIDTH}", $"{HEIGHT}").Position($"({WIDTH} - iw)/2", $"({HEIGHT} - ih)/2").MapOut
+                  .PadFilter($"{WIDTH}", $"{HEIGHT}").Position($"({WIDTH} - iw)/2", $"({HEIGHT} - ih)/2").Color(BACKGROUND_COLOR).MapOut
                   .TrimFilter().Duration(TimeSpan.FromSeconds(IMAGE_DURATION)).MapOut
                   .SelectFilter($"lte(n,{IMAGE_FRAME_COUNT})").MapOut);
             }

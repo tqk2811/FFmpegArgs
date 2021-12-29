@@ -13,9 +13,9 @@ namespace FFmpegArgs.Test
         internal static void TestRender(this FFmpegArg ffmpegArg,string filterFileName, string outputFileName)
         {
 #if Render
-            Assert.IsTrue(ffmpegArg.Render(b => b
-                .WithFilterScriptName(filterFileName))
-                .Execute().ExitCode == 0);
+            var render = ffmpegArg.Render(b => b.WithFilterScriptName(filterFileName));
+            var render_result = render.Execute();
+            Assert.IsTrue(render_result.ExitCode == 0);
 #if Play
             Process.Start("ffplay", outputFileName);
 #endif

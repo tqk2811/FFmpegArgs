@@ -70,7 +70,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 //last create op
 
                 var res = prepareInputs[i].Last()
-                  .PadFilter($"{WIDTH}", $"{HEIGHT}").Position($"({WIDTH}-iw)/2", $"({HEIGHT}-ih)/2").MapOut
+                  .PadFilter($"{WIDTH}", $"{HEIGHT}").Position($"({WIDTH}-iw)/2", $"({HEIGHT}-ih)/2").Color(BACKGROUND_COLOR).MapOut
                   .TrimFilter().Duration(TimeSpan.FromSeconds(TRANSITION_DURATION)).MapOut
                   .SelectFilter($"lte(n,{TRANSITION_FRAME_COUNT})").MapOut;
 
