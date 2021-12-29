@@ -48,12 +48,7 @@ namespace FFmpegArgs.Executes
         /// <summary>
         /// Default: Directory.GetCurrentDirectory()
         /// </summary>
-        public string WorkingDirectory { get; set; }
-#if DEBUG
-        = "D:\\temp\\ffmpeg_encode_test";
-#else
-        = Directory.GetCurrentDirectory();
-#endif
+        public string WorkingDirectory { get; set; } = Directory.GetCurrentDirectory();
 
 
 

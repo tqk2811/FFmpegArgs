@@ -7,10 +7,10 @@ using FFmpegArgs.Filters.VideoFilters;
 using FFmpegArgs.Filters.VideoSources;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
-using FFmpegArgs.Template;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -21,28 +21,46 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
     public class PushVerticalFilm
     {
         [TestMethod]
-        public void PushVerticalFilmTest()
+        public void PushVerticalFilmTest_Blur_BottomToTop()
         {
+            PushVerticalFilmTest(ScreenMode.Blur, VerticalDirection.BottomToTop);
+        }
+        [TestMethod]
+        public void PushVerticalFilmTest_Center_BottomToTop()
+        {
+            PushVerticalFilmTest(ScreenMode.Center, VerticalDirection.BottomToTop);
+        }
+        [TestMethod]
+        public void PushVerticalFilmTest_Crop_BottomToTop()
+        {
+            PushVerticalFilmTest(ScreenMode.Crop, VerticalDirection.BottomToTop);
+        }
+        [TestMethod]
+        public void PushVerticalFilmTest_Scale_BottomToTop()
+        {
+            PushVerticalFilmTest(ScreenMode.Scale, VerticalDirection.BottomToTop);
+        }
+
+        public void PushVerticalFilmTest(ScreenMode screenMode, VerticalDirection direction)
+        {
+            string outputFileName = $"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.mp4";
+            string filterFileName = $"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.txt";
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            var images_inputmap = ffmpegArg.GetImagesInput();
+
             int WIDTH = 1280;
             int HEIGHT = 720;
             int FPS = 60;
             double TRANSITION_DURATION = 3;
-            ScreenMode screenMode = ScreenMode.Blur;
             Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
-            VerticalDirection direction = VerticalDirection.BottomToTop;
 
-            DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
-            var files = directoryInfo.GetFiles("*.jpg");
-            int IMAGE_COUNT = files.Length;
+            int IMAGE_COUNT = images_inputmap.Count;
 
             double TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
-            double TOTAL_DURATION = TRANSITION_DURATION * (IMAGE_COUNT + 1);
+            double TOTAL_DURATION = TRANSITION_DURATION * IMAGE_COUNT;
             double TOTAL_FRAME_COUNT = TOTAL_DURATION * FPS;
 
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
-
-            var film_strip_map = ffmpegArg.AddImageInput(new ImageFileInput("film_strip_vertical.png").SetOption("-loop", 1));
+            var film_strip_map = ffmpegArg.FilmStripV();
 
             var background = ffmpegArg.FilterGraph
                .ColorFilter()
@@ -52,7 +70,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                .FpsFilter($"{FPS}").MapOut;
 
             List<ImageMap> images_Prepare = new List<ImageMap>();
-            for (int i = 0; i < files.Length; i++)
+            for (int i = 0; i < images_inputmap.Count; i++)
             {
                 switch (screenMode)
                 {
@@ -91,7 +109,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Blur:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .MakeBlurredBackgroundTemplate(WIDTH, HEIGHT, FPS, "100")
+                                .MakeBlurredBackground(WIDTH, HEIGHT, FPS, "100")
                                 .FormatFilter(PixFmt.rgba).MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
@@ -142,12 +160,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 }
             }
 
-            var output = lastOverLay
+            var out_map = lastOverLay
                 .TrimFilter().Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
                 .FpsFilter($"{FPS}").MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var videoOut = new ImageFileOutput($"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.mp4", output)
+            var videoOut = new ImageFileOutput(outputFileName, out_map)
                 .VSync(VSyncMethod.vfr)
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
@@ -157,16 +175,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             ffmpegArg.AddOutput(videoOut);
 
-            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string filterFile = $"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.txt";
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
-
-#if RELEASE
-            Assert.IsTrue(ffmpegArg.Render(b => b
-                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
-                .WithFilterScriptName(filterFile))
-                .Execute().ExitCode == 0);
-            #endif
+            ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }
 }

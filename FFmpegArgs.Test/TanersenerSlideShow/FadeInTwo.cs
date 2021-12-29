@@ -21,6 +21,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         [TestMethod]
         public void FadeInTwoTest()
         {
+            string outputFileName = $"{nameof(FadeInTwoTest)}.mp4";
+            string filterFileName = $"{nameof(FadeInTwoTest)}.txt";
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            var images_inputmap = ffmpegArg.GetImagesInput();
+
+
             int WIDTH = 1366;
             int HEIGHT = 768;
             int TRANSITION_DURATION = 3;
@@ -32,13 +38,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
             var files = directoryInfo.GetFiles("*.jpg");
 
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-
-            var inputs = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
-
-
             List<IEnumerable<ImageMap>> splitInputs = new List<IEnumerable<ImageMap>>();
-            splitInputs.AddRange(inputs.Select(x => x
+            splitInputs.AddRange(images_inputmap.Select(x => x
               .SetSarFilter("1/1").MapOut
               .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)",
                             $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
@@ -93,19 +94,21 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 if (i < splitInputs.Count - 1) concatGroups.Add(new ConcatGroup(blendeds[i].SetSarFilter("1/1").MapOut));
             }
             ConcatFilter concatFilter = new ConcatFilter(concatGroups);
-            var mapout = concatFilter.ImageMapsOut.First()
+            var out_map = concatFilter.ImageMapsOut.First()
               .FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var output = new ImageFileOutput($"{nameof(FadeInTwoTest)}.mp4", mapout);
-            ffmpegArg.AddOutput(output);
+            //Output
+            ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
+            imageFileOutput
+              .VSync(VSyncMethod.vfr)
+              .SetOption("-c:v", "libx264")
+              .Fps(FPS)
+              .SetOption("-g", "0")
+              .SetOption("-rc-lookahead", "0");
 
-            FFmpegRender fFmpegRender = ffmpegArg.Render(new FFmpegRenderConfig()
-            {
-                WorkingDirectory = directoryInfo.FullName
-            });
-            FFmpegRenderResult result = fFmpegRender.Execute();
-            Assert.IsTrue(result.ExitCode == 0);
-            Process.Start("ffplay", Path.Combine(directoryInfo.FullName, $"{nameof(FadeInTwoTest)}.mp4"));
+            ffmpegArg.AddOutput(imageFileOutput);
+
+            ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }
 }

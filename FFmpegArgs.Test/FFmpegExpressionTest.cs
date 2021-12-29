@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace FFmpegArgs.Test
 {
     [TestClass]
-    public class ExpressionTest
+    public class FFmpegExpressionTest
     {
         [TestMethod]
         public void Test1()

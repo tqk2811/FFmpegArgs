@@ -8,6 +8,7 @@ using FFmpegArgs.Outputs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -22,10 +23,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         [TestMethod]
         public void BlurredBackgroundTest()
         {
-            DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
-            var files = directoryInfo.GetFiles("*.jpg");
+            string outputFileName = $"{nameof(BlurredBackgroundTest)}.mp4";
+            string filterFileName = $"{nameof(BlurredBackgroundTest)}.txt";
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            var images_inputmap = ffmpegArg.GetImagesInput();
 
-            int IMAGE_COUNT = files.Length;
+
+            int IMAGE_COUNT = images_inputmap.Count;
             int WIDTH = 1366;
             int HEIGHT = 768;
             int FPS = 24;
@@ -36,10 +40,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             double IMAGE_FRAME_COUNT = FPS * IMAGE_DURATION;
             double TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT - TRANSITION_DURATION;
             double TOTAL_FRAME_COUNT = TOTAL_DURATION * FPS;
-
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-
-            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
 
             //PREPARE BLURRED INPUTS
             List<ImageMap> blureds = new List<ImageMap>();
@@ -142,7 +142,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .FormatFilter(PixFmt.yuv420p).MapOut;
 
             //Output
-            ImageFileOutput imageFileOutput = new ImageFileOutput($"{nameof(BlurredBackgroundTest)}.mp4", out_map);
+            ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
               .VSync(VSyncMethod.vfr)
               .SetOption("-c:v", "libx264")
@@ -152,16 +152,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             ffmpegArg.AddOutput(imageFileOutput);
 
-            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string filterFile = $"{nameof(BlurredBackgroundTest)}.txt";
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
-
-#if RELEASE
-            Assert.IsTrue(ffmpegArg.Render(b => b
-                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
-                .WithFilterScriptName(filterFile))
-                .Execute().ExitCode == 0);
-            #endif
+            ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }
 }

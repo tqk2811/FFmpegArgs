@@ -12,6 +12,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using FFmpegArgs.Executes;
+using System.Diagnostics;
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -24,6 +25,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         [TestMethod]
         public void PhotoCollectionCustomTest()
         {
+            string outputFileName = $"{nameof(PhotoCollectionCustomTest)}.mp4";
+            string filterFileName = $"{nameof(PhotoCollectionCustomTest)}.txt";
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            var images_inputmap = ffmpegArg.GetImagesInput();
+
+
             int WIDTH = 1280;
             int HEIGHT = 720;
             int FPS = 24;
@@ -32,18 +39,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             int MAX_IMAGE_ANGLE = 25;
             Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
 
-            DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
-            var files = directoryInfo.GetFiles("*.jpg");
-
-            int IMAGE_COUNT = files.Length;
+            int IMAGE_COUNT = images_inputmap.Count;
             int TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
             int IMAGE_FRAME_COUNT = IMAGE_DURATION * FPS;
-            int TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT - TRANSITION_DURATION;
+            int TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT;
 
             Random random = new Random();
 
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
+
             var background = ffmpegArg.FilterGraph.ColorFilter()
                     .Size(new Size(WIDTH, HEIGHT))
                     .Color(BACKGROUND_COLOR)
@@ -81,30 +84,32 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         "(main_h-overlay_h)/2").MapOut;
             }
 
-            var output = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
+            var out_map = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var videoOut = new ImageFileOutput($"{nameof(PhotoCollectionCustomTest)}.mp4", output);
-            videoOut.VSync(VSyncMethod.vfr).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").Fps(FPS);
+            //Output
+            ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
+            imageFileOutput
+              .VSync(VSyncMethod.vfr)
+              .SetOption("-c:v", "libx264")
+              .Fps(FPS)
+              .SetOption("-g", "0")
+              .SetOption("-rc-lookahead", "0");
 
-            ffmpegArg.AddOutput(videoOut);
+            ffmpegArg.AddOutput(imageFileOutput);
 
-            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string filterFile = $"{nameof(PhotoCollectionCustomTest)}.txt";
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
-
-#if RELEASE
-            Assert.IsTrue(ffmpegArg.Render(b => b
-                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
-                .WithFilterScriptName(filterFile))
-                .Execute().ExitCode == 0);
-            #endif
-
+            ffmpegArg.TestRender(filterFileName, outputFileName);
         }
 
 
         [TestMethod]
         public void PhotoCollectionTest()
         {
+            string outputFileName = $"{nameof(PhotoCollectionTest)}.mp4";
+            string filterFileName = $"{nameof(PhotoCollectionTest)}.txt";
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            var images_inputmap = ffmpegArg.GetImagesInput();
+
+
             int WIDTH = 1280;
             int HEIGHT = 720;
             int FPS = 24;
@@ -113,19 +118,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             int MAX_IMAGE_ANGLE = 25;
             Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
 
-            DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
-            var files = directoryInfo.GetFiles("*.jpg");
-
-            int IMAGE_COUNT = files.Length;
+            int IMAGE_COUNT = images_inputmap.Count;
             int TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
             int IMAGE_FRAME_COUNT = IMAGE_DURATION * FPS;
-            int TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT - TRANSITION_DURATION;
+            int TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT;
 
             Random random = new Random();
 
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-
-            var images_inputmap = files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput(x.Name).SetOption("-loop", 1))).ToList();
 
             var background = ffmpegArg.AddVideoInput(
                 new FilterInput($"color={BACKGROUND_COLOR.ToHexStringRGBA()}:s={WIDTH}x{HEIGHT},fps={FPS}"),1,0)
@@ -161,24 +160,20 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         "(main_h-overlay_h)/2").MapOut;
             }
 
-            var output = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
+            var out_map = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
 
-            var videoOut = new ImageFileOutput($"{nameof(PhotoCollectionTest)}.mp4", output);
-            videoOut.VSync(VSyncMethod.vfr).SetOption("-rc-lookahead", 0).SetOption("-g", 0).SetOption("-c:v", "libx264").Fps(FPS);
+            //Output
+            ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
+            imageFileOutput
+              .VSync(VSyncMethod.vfr)
+              .SetOption("-c:v", "libx264")
+              .Fps(FPS)
+              .SetOption("-g", "0")
+              .SetOption("-rc-lookahead", "0");
 
-            ffmpegArg.AddOutput(videoOut);
+            ffmpegArg.AddOutput(imageFileOutput);
 
-            string filter = ffmpegArg.FilterGraph.GetFiltersArgs(true);
-            string filterFile = $"{nameof(PhotoCollectionTest)}.txt";
-            string args = ffmpegArg.GetFullCommandlineWithFilterScript(filterFile);
-
-#if RELEASE
-            Assert.IsTrue(ffmpegArg.Render(b => b
-                .WithWorkingDirectory(@"D:\temp\ffmpeg_encode_test\ImgsTest")
-                .WithFilterScriptName(filterFile))
-                .Execute().ExitCode == 0);
-            #endif
-
+            ffmpegArg.TestRender(filterFileName, outputFileName);
         }
 
     }

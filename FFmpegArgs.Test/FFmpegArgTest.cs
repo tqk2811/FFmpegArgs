@@ -92,9 +92,9 @@ namespace FFmpegArgs.Test
         [ExpectedException(typeof(InvalidOperationException))]
         public void TestFilterInput()
         {
-            FFmpegArg ffmpegArg = new FFmpegArg();
-            ffmpegArg.OverWriteOutput();
-
+            string outputFileName = $"{nameof(TestFilterInput)}.mp4";
+            string filterFileName = $"{nameof(TestFilterInput)}.txt";
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
 
             FilterInput filterInput = new FilterInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280,720)).MapOut
@@ -106,19 +106,19 @@ namespace FFmpegArgs.Test
 
             var output = videos.ImageMaps.Last().OverlayFilterOn(videos.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
 
-            ImageFileOutput imageFileOutput = new ImageFileOutput("TestFilterInput.mp4", output);
+            ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, output);
             ffmpegArg.AddOutput(imageFileOutput);
 
-            string args = ffmpegArg.GetFullCommandline();
-
+            ffmpegArg.TestRender(filterFileName, outputFileName);
         }
 
 
         [TestMethod]
         public void TestStringEscape()
         {
-            FFmpegArg ffmpegArg = new FFmpegArg();
-            ffmpegArg.OverWriteOutput();
+            string outputFileName = $"{nameof(TestStringEscape)}.mp4";
+            string filterFileName = $"{nameof(TestStringEscape)}.txt";
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
 
             FilterInput filterInput = new FilterInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280, 720)).MapOut
@@ -135,18 +135,11 @@ namespace FFmpegArgs.Test
                     .MapOut
                     ;
 
-            ImageFileOutput imageFileOutput = new ImageFileOutput("TestStringEscape.mp4", output)
+            ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, output)
                 .Duration(TimeSpan.FromSeconds(3));
             ffmpegArg.AddOutput(imageFileOutput);
 
-            FFmpegRender fFmpegRender = ffmpegArg.Render(new FFmpegRenderConfig()
-            {
-                WorkingDirectory = Directory.GetCurrentDirectory(),
-                //IsForceUseScript = true,
-            });
-            FFmpegRenderResult renderResult = fFmpegRender.Execute();
-            Assert.IsTrue(renderResult.ExitCode == 0);
-            Process.Start("ffplay", "TestStringEscape.mp4");
+            ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }
 }
