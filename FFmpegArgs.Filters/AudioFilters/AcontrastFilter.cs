@@ -1,4 +1,8 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+acontrast AVOptions:
+  contrast          <float>      ..F.A...... set contrast (from 0 to 100) (default 33)
+ */
+using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -18,7 +22,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="contrast"></param>
         /// <returns></returns>
-        public AcontrastFilter Contrast(int contrast)
+        public AcontrastFilter Contrast(float contrast)
             => this.SetOptionRange("contrast", contrast, 0, 100);
     }
 
