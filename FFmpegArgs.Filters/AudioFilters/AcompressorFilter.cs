@@ -1,4 +1,25 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+ acompressor AVOptions:
+  level_in          <double>     ..F.A....T. set input gain (from 0.015625 to 64) (default 1)
+  mode              <int>        ..F.A....T. set mode (from 0 to 1) (default downward)
+     downward        0            ..F.A....T.
+     upward          1            ..F.A....T.
+  threshold         <double>     ..F.A....T. set threshold (from 0.000976563 to 1) (default 0.125)
+  ratio             <double>     ..F.A....T. set ratio (from 1 to 20) (default 2)
+  attack            <double>     ..F.A....T. set attack (from 0.01 to 2000) (default 20)
+  release           <double>     ..F.A....T. set release (from 0.01 to 9000) (default 250)
+  makeup            <double>     ..F.A....T. set make up gain (from 1 to 64) (default 1)
+  knee              <double>     ..F.A....T. set knee (from 1 to 8) (default 2.82843)
+  link              <int>        ..F.A....T. set link type (from 0 to 1) (default average)
+     average         0            ..F.A....T.
+     maximum         1            ..F.A....T.
+  detection         <int>        ..F.A....T. set detection (from 0 to 1) (default rms)
+     peak            0            ..F.A....T.
+     rms             1            ..F.A....T.
+  level_sc          <double>     ..F.A....T. set sidechain gain (from 0.015625 to 64) (default 1)
+  mix               <double>     ..F.A....T. set mix (from 0 to 1) (default 1)
+ */
+using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -18,8 +39,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="level_in"></param>
         /// <returns></returns>
-        public AcompressorFilter LevelIn(float level_in)
-          => this.SetOptionRange("level_in", level_in, 0.015625f, 64);
+        public AcompressorFilter LevelIn(double level_in)
+            => this.SetOptionRange("level_in", level_in, 0.015625, 64);
 
         /// <summary>
         /// Set mode of compressor operation
@@ -27,7 +48,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="mode"></param>
         /// <returns></returns>
         public AcompressorFilter Mode(AcompressorMode mode)
-          => this.SetOption("mode", mode.ToString().ToLower());
+            => this.SetOption("mode", mode.ToString().ToLower());
 
         /// <summary>
         /// If a signal of stream rises above this level it will affect the gain reduction.<br></br> 
@@ -35,8 +56,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns></returns>
-        public AcompressorFilter Threshold(float threshold)
-          => this.SetOptionRange("threshold", threshold, 0.00097563f, 1);
+        public AcompressorFilter Threshold(double threshold)
+            => this.SetOptionRange("threshold", threshold, 0.00097563, 1);
 
         /// <summary>
         /// Set a ratio by which the signal is reduced. 1:2 means that if the level rose 4dB above the threshold,<br></br> 
@@ -45,8 +66,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="ratio"></param>
         /// <returns></returns>
-        public AcompressorFilter Ratio(float ratio)
-          => this.SetOptionRange("ratio", ratio, 1, 20);
+        public AcompressorFilter Ratio(double ratio)
+            => this.SetOptionRange("ratio", ratio, 1, 20);
 
 
         /// <summary>
@@ -55,8 +76,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="attack"></param>
         /// <returns></returns>
-        public AcompressorFilter Attack(float attack)
-          => this.SetOptionRange("attack", attack, 0.01f, 2000);
+        public AcompressorFilter Attack(double attack)
+            => this.SetOptionRange("attack", attack, 0.01f, 2000);
 
         /// <summary>
         /// Amount of milliseconds the signal has to fall below the threshold before reduction is decreased again.<br>
@@ -64,8 +85,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="release"></param>
         /// <returns></returns>
-        public AcompressorFilter Release(float release)
-          => this.SetOptionRange("release", release, 0.01f, 9000);
+        public AcompressorFilter Release(double release)
+            => this.SetOptionRange("release", release, 0.01f, 9000);
 
         /// <summary>
         /// Set the amount by how much signal will be amplified after processing.<br>
@@ -73,8 +94,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="makeup"></param>
         /// <returns></returns>
-        public AcompressorFilter Makeup(float makeup)
-          => this.SetOptionRange("makeup", makeup, 1, 64);
+        public AcompressorFilter Makeup(double makeup)
+            => this.SetOptionRange("makeup", makeup, 1, 64);
 
         /// <summary>
         /// Curve the sharp knee around the threshold to enter gain reduction more softly.<br>
@@ -82,8 +103,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="knee"></param>
         /// <returns></returns>
-        public AcompressorFilter Knee(float knee)
-          => this.SetOptionRange("knee", knee, 1, 8);
+        public AcompressorFilter Knee(double knee)
+            => this.SetOptionRange("knee", knee, 1, 8);
 
         /// <summary>
         /// Choose if the average level between all channels of input stream <br>
@@ -93,7 +114,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="link"></param>
         /// <returns></returns>
         public AcompressorFilter Link(AcompressorLink link)
-          => this.SetOption("link", link.ToString().ToLower());
+            => this.SetOption("link", link.ToString().ToLower());
 
         /// <summary>
         /// Should the exact signal be taken in case of peak or an RMS one in case of rms.<br>
@@ -102,7 +123,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="detection"></param>
         /// <returns></returns>
         public AcompressorFilter Detection(AcompressorDetection detection)
-          => this.SetOption("detection", detection.ToString().ToLower());
+            => this.SetOption("detection", detection.ToString().ToLower());
 
         /// <summary>
         /// How much to use compressed signal in output.<br>
@@ -110,8 +131,15 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="mix"></param>
         /// <returns></returns>
-        public AcompressorFilter Mix(float mix)
-          => this.SetOptionRange("mix", mix, 0, 1);
+        public AcompressorFilter Mix(double mix)
+            => this.SetOptionRange("mix", mix, 0, 1);
+
+        /// <summary>
+        /// set sidechain gain (from 0.015625 to 64) (default 1)
+        /// </summary>
+        /// <returns></returns>
+        public AcompressorFilter LevelSc(double level_sc)
+            => this.SetOptionRange("level_sc", level_sc, 0.015625, 64);
     }
 
 
@@ -125,8 +153,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public static AcompressorFilter AcompressorFilter(this AudioMap audioMap) => new AcompressorFilter(audioMap);
     }
-
-
 
     public enum AcompressorMode
     {
