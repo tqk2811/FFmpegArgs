@@ -1,5 +1,6 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Executes;
+using FFmpegArgs.Filters;
 using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
 using FFmpegArgs.Filters.VideoFilters;
@@ -26,83 +27,37 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
-
-            int WIDTH = 1366;
-            int HEIGHT = 768;
-            int TRANSITION_DURATION = 3;
-            int IMAGE_DURATION = 2;
-            int FPS = 24;
-            double TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
-            double IMAGE_FRAME_COUNT = FPS * IMAGE_DURATION;
-            Color backGroundColor = Color.FromArgb(0, 0, 0, 0);
-            DirectoryInfo directoryInfo = new DirectoryInfo(@"D:\temp\ffmpeg_encode_test\ImgsTest");
-            var files = directoryInfo.GetFiles("*.jpg");
+            Config config = new Config();
+            TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
 
             List<IEnumerable<ImageMap>> splitInputs = new List<IEnumerable<ImageMap>>();
             splitInputs.AddRange(images_inputmap.Select(x => x
               .SetSarFilter("1/1").MapOut
-              .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)",
-                            $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
-              .PadFilter($"{WIDTH}", $"{HEIGHT}").Position($"({HEIGHT} - ow)/2", $"({HEIGHT} - oh)/2").Color(backGroundColor).MapOut
-              .FpsFilter($"{FPS}").MapOut
+              .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)",
+                            $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
+              .PadFilter($"{config.Size.Width}", $"{config.Size.Height}").Position($"({config.Size.Height} - ow)/2", $"({config.Size.Height} - oh)/2").Color(config.BackgroundColor).MapOut
+              .FpsFilter($"{config.Fps}").MapOut
               .SetPtsFilter("PTS-STARTPTS").MapOut
               .SplitFilter(2).MapsOut));
 
-            List<ImageMap> startings = new List<ImageMap>();
-            List<ImageMap> endings = new List<ImageMap>();
-            for (int i = 0; i < splitInputs.Count; i++)
-            {
-                var res = splitInputs[i].Last()
-                 .TrimFilter().Duration(TimeSpan.FromSeconds(TRANSITION_DURATION)).MapOut
-                 .SelectFilter($"lte(n,{TRANSITION_FRAME_COUNT})").MapOut;
+            var overlaids = splitInputs.Select(x => x.First()).Overlaids(config);
 
-                if (i == 0)
-                {
-                    endings.Add(res);
-                }
-                else if (i == splitInputs.Count - 1)
-                {
-                    startings.Add(res);
-                }
-                else
-                {
-                    var splits = res.SplitFilter(2).MapsOut;
-                    startings.Add(splits.First());
-                    endings.Add(splits.Last());
-                }
-            }
+            var startEnd = splitInputs.Select(x => x.Last()).ToList().StartEnd(config);
 
-            //CREATE TRANSITION FRAMES
-            List<ImageMap> blendeds = new List<ImageMap>();
-            for (int i = 0; i < startings.Count; i++)
-            {
-                blendeds.Add(startings[i]
-                  .BlendFilterOn(endings[i]).All_Expr(
-                    $"A*(if(gte(T,{TRANSITION_DURATION}),{TRANSITION_DURATION},T/{TRANSITION_DURATION})) + " +
-                    $"B*(1-(if(gte(T,{TRANSITION_DURATION}),{TRANSITION_DURATION},T/{TRANSITION_DURATION})))").MapOut);
-            }
+            var blendeds = startEnd.Blendeds(config, blend => blend
+               .Shortest(true)
+               .All_Expr(
+                    $"A*(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})) + " +
+                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})))"));
 
-            //concat
-            List<ConcatGroup> concatGroups = new List<ConcatGroup>();
-            for (int i = 0; i < splitInputs.Count; i++)
-            {
-                concatGroups.Add(new ConcatGroup(splitInputs[i].First()
-                  .TrimFilter().Duration(TimeSpan.FromSeconds(IMAGE_DURATION)).MapOut
-                  .SelectFilter($"lte(n,{IMAGE_FRAME_COUNT})").MapOut
-                  .SetSarFilter("1/1").MapOut));
-
-                if (i < splitInputs.Count - 1) concatGroups.Add(new ConcatGroup(blendeds[i].SetSarFilter("1/1").MapOut));
-            }
-            ConcatFilter concatFilter = new ConcatFilter(concatGroups);
-            var out_map = concatFilter.ImageMapsOut.First()
-              .FormatFilter(PixFmt.yuv420p).MapOut;
+            var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
 
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
               .VSync(VSyncMethod.vfr)
               .SetOption("-c:v", "libx264")
-              .Fps(FPS)
+              .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
 

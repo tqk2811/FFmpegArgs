@@ -27,7 +27,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\FFmpegArgs.Autogens\FFmpegArgs.Autogens.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Executes\FFmpegArgs.Executes.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters.Autogen\FFmpegArgs.Filters.Autogen.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters\FFmpegArgs.Filters.csproj" />

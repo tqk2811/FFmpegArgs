@@ -1,5 +1,6 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Executes;
+using FFmpegArgs.Filters;
 using FFmpegArgs.Filters.Enums;
 using FFmpegArgs.Filters.MultimediaFilters;
 using FFmpegArgs.Filters.VideoFilters;
@@ -9,6 +10,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 
@@ -21,132 +23,36 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         /// https://github.com/tanersener/ffmpeg-video-slideshow-scripts/blob/master/advanced_scripts/blurred_background.sh
         /// </summary>
         [TestMethod]
-        public void BlurredBackgroundTest()
+        public void BlurredBackgroundTest() //=>FadeInOne
         {
             string outputFileName = $"{nameof(BlurredBackgroundTest)}.mp4";
             string filterFileName = $"{nameof(BlurredBackgroundTest)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
+            Config config = new Config();
+            TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
 
-            int IMAGE_COUNT = images_inputmap.Count;
-            int WIDTH = 1366;
-            int HEIGHT = 768;
-            int FPS = 24;
-            double IMAGE_DURATION = 1;
-            double TRANSITION_DURATION = 1;
+            List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(ScreenMode.Blur, config);
 
-            double TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
-            double IMAGE_FRAME_COUNT = FPS * IMAGE_DURATION;
-            double TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT - TRANSITION_DURATION;
-            double TOTAL_FRAME_COUNT = TOTAL_DURATION * FPS;
+            var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
 
-            //PREPARE BLURRED INPUTS
-            List<ImageMap> blureds = new List<ImageMap>();
-            foreach (var image in images_inputmap)
-            {
-                blureds.Add(image
-                  .ScaleFilter($"{WIDTH}", $"{HEIGHT}").MapOut
-                  .SetSarFilter("1/1").MapOut
-                  .FormatFilter(PixFmt.rgba).MapOut.BoxBlurFilter().LumaRadius($"{100}").MapOut
-                  .SetSarFilter("1/1").MapOut
-                  .FpsFilter($"{FPS}").MapOut);
-            }
+            var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
 
-            //PREPARE INPUTS
-            List<ImageMap> inputs = new List<ImageMap>();
-            foreach (var image in images_inputmap)
-            {
-                inputs.Add(image
-                  .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)", $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
-                  .ScaleFilter($"trunc(iw/2)*2", $"trunc(ih/2)*2").MapOut
-                  .SetSarFilter("1/1").MapOut
-                  .FormatFilter(PixFmt.rgba).MapOut);
-            }
+            var blendeds = startEnd.Blendeds(config, blend => blend
+                .Shortest(true)
+                .All_Expr(
+                    $"A*(if( gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})) + " +
+                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})))"));
 
-            //OVERLAY BLURRED AND SCALED INPUTS
-            List<IEnumerable<ImageMap>> overlays = new List<IEnumerable<ImageMap>>();
-            for (int i = 0; i < blureds.Count; i++)
-            {
-                overlays.Add(inputs[i]
-                  .OverlayFilterOn(blureds[i], "(main_w - overlay_w)/2", "(main_h-overlay_h)/2").MapOut
-                  .FormatFilter(PixFmt.rgba).MapOut
-                  .SetPtsFilter("PTS-STARTPTS").MapOut
-                  .SplitFilter(2).MapsOut);
-            }
-
-            //APPLY PADDING
-            List<ImageMap> overlaids = new List<ImageMap>();
-            for (int i = 0; i < overlays.Count; i++)
-            {
-                overlaids.Add(overlays[i].First()
-                  .PadFilter($"{WIDTH}", $"{HEIGHT}").Position($"({WIDTH} - iw)/2", $"({HEIGHT} - ih)/2").MapOut
-                  .TrimFilter().Duration(TimeSpan.FromSeconds(IMAGE_DURATION)).MapOut
-                  .SelectFilter($"lte(n,{IMAGE_FRAME_COUNT})").MapOut);
-            }
-
-            List<ImageMap> startings = new List<ImageMap>();
-            List<ImageMap> endings = new List<ImageMap>();
-            for (int i = 0; i < overlays.Count; i++)
-            {
-                //first create ed only (if only 1 image -> create ed)
-                //mid: split to ed and op
-                //last create op
-
-                var res = overlays[i].Last()
-                  .PadFilter($"{WIDTH}", $"{HEIGHT}").Position($"({WIDTH}-iw)/2", $"({HEIGHT}-ih)/2").MapOut
-                  .TrimFilter().Duration(TimeSpan.FromSeconds(TRANSITION_DURATION)).MapOut
-                  .SelectFilter($"lte(n,{TRANSITION_FRAME_COUNT})").MapOut;
-
-                if (i == 0)//first
-                {
-                    if (overlays.Count > 1)
-                    {
-                        endings.Add(res);
-                    }
-                }
-                else if (i == overlays.Count - 1)//last
-                {
-                    startings.Add(res);
-                }
-                else//mid
-                {
-                    var splits = res.SplitFilter(2).MapsOut;
-                    startings.Add(splits.First());
-                    endings.Add(splits.Last());
-                }
-            }
-
-
-            //CREATE TRANSITION FRAMES
-            List<ImageMap> blendeds = new List<ImageMap>();
-
-            for (int i = 0; i < startings.Count; i++)
-            {
-                blendeds.Add(startings[i]
-                  .BlendFilterOn(endings[i]).All_Expr(
-                    $"A*(if( gte(T,{TRANSITION_DURATION}),{TRANSITION_DURATION},T/{TRANSITION_DURATION})) + " +
-                    $"B*(1-(if(gte(T,{TRANSITION_DURATION}),{TRANSITION_DURATION},T/{TRANSITION_DURATION})))").MapOut
-                  .SelectFilter($"lte(n,{TRANSITION_FRAME_COUNT})").MapOut);
-            }
-
-            //CONCAT
-            List<ConcatGroup> concatGroups = new List<ConcatGroup>();
-            for (int i = 0; i < overlaids.Count; i++)
-            {
-                concatGroups.Add(new ConcatGroup(overlaids[i]));
-                if (i < overlaids.Count - 1) concatGroups.Add(new ConcatGroup(blendeds[i]));
-            }
-            ConcatFilter concatFilter = new ConcatFilter(concatGroups);
-            var out_map = concatFilter.ImageMapsOut.First()
-              .FormatFilter(PixFmt.yuv420p).MapOut;
+            var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
 
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
               .VSync(VSyncMethod.vfr)
               .SetOption("-c:v", "libx264")
-              .Fps(FPS)
+              .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
 

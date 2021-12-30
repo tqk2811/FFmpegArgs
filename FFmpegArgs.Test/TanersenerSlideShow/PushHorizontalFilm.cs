@@ -31,14 +31,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             PushHorizontalFilmTest(ScreenMode.Center, HorizontalDirection.LeftToRight);
         }
         [TestMethod]
-        public void PushHorizontalFilm_Crop_LeftToRight()
+        public void PushHorizontalFilm_Crop_RightToLeft()
         {
-            PushHorizontalFilmTest(ScreenMode.Crop, HorizontalDirection.LeftToRight);
+            PushHorizontalFilmTest(ScreenMode.Crop, HorizontalDirection.RightToLeft);
         }
         [TestMethod]
-        public void PushHorizontalFilm_Scale_LeftToRight()
+        public void PushHorizontalFilm_Scale_RightToLeft()
         {
-            PushHorizontalFilmTest(ScreenMode.Scale, HorizontalDirection.LeftToRight);
+            PushHorizontalFilmTest(ScreenMode.Scale, HorizontalDirection.RightToLeft);
         }
 
         public void PushHorizontalFilmTest(ScreenMode screenMode, HorizontalDirection direction)
@@ -48,27 +48,17 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
-
-            int WIDTH = 1280;
-            int HEIGHT = 720;
-            int FPS = 60;
-            double TRANSITION_DURATION = 3;
-            Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
-
-            int IMAGE_COUNT = images_inputmap.Count;
-
-            double TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
-            double TOTAL_DURATION = TRANSITION_DURATION * IMAGE_COUNT;
-            double TOTAL_FRAME_COUNT = TOTAL_DURATION * FPS;
+            Config config = new Config();
+            TimeSpan TOTAL_DURATION = config.TransitionDuration * images_inputmap.Count;
 
             var film_strip_map = ffmpegArg.FilmStripH();
 
             var background = ffmpegArg.FilterGraph
                 .ColorFilter()
-                    .Color(BACKGROUND_COLOR)
-                    .Size(new Size(WIDTH, HEIGHT))
-                    .Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
-                .FpsFilter($"{FPS}").MapOut;
+                    .Color(config.BackgroundColor)
+                    .Size(config.Size)
+                    .Duration(TOTAL_DURATION).MapOut
+                .FpsFilter($"{config.Fps}").MapOut;
 
             List<ImageMap> images_Prepare = new List<ImageMap>();
             for (int i = 0; i < images_inputmap.Count; i++)
@@ -78,12 +68,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Center:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)",
-                                                $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
+                                .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)",
+                                                $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
                                 .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
-                                .PadFilter($"{WIDTH}", $"{HEIGHT}")
-                                    .Position($"({WIDTH}-iw)/2", $"({HEIGHT}-ih)/2")
-                                    .Color(BACKGROUND_COLOR).MapOut
+                                .PadFilter($"{config.Size.Width}", $"{config.Size.Height}")
+                                    .Position($"({config.Size.Width}-iw)/2", $"({config.Size.Height}-ih)/2")
+                                    .Color(config.BackgroundColor).MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
                         }
@@ -91,10 +81,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Crop:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,{WIDTH})",
-                                                $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),{HEIGHT},-1)").MapOut
+                                .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,{config.Size.Width})",
+                                                $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),{config.Size.Height},-1)").MapOut
                                 .OverlayFilterOn(film_strip_map, "0", "0").MapOut
-                                .CropFilter().WH($"{WIDTH}", $"{HEIGHT}").MapOut
+                                .CropFilter().WH($"{config.Size.Width}", $"{config.Size.Height}").MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
                         }
@@ -102,7 +92,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Scale:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .ScaleFilter($"{WIDTH}", $"{HEIGHT}").MapOut
+                                .ScaleFilter($"{config.Size.Width}", $"{config.Size.Height}").MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
                         }
@@ -110,7 +100,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Blur:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .MakeBlurredBackground(WIDTH, HEIGHT, FPS, "100")
+                                .MakeBlurredBackground(config.Size.Width, config.Size.Height, config.Fps, "100")
                                 .FormatFilter(PixFmt.rgba).MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
@@ -120,11 +110,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             var strip_images = film_strip_map
                 .SetPtsFilter("PTS-STARTPTS").MapOut
-                .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)",
-                                $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
+                .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)",
+                                $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
                 .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
                 .SetSarFilter("1/1").MapOut
-                .SplitFilter(IMAGE_COUNT).MapsOut.ToList();
+                .SplitFilter(images_inputmap.Count).MapsOut.ToList();
 
             // OVERLAY FILM STRIP ON TOP OF INPUTS
 
@@ -138,31 +128,31 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var lastOverLay = background;
             for (int i = 0; i < images_Prepare.Count; i++)
             {
-                var start = i * TRANSITION_DURATION;
-                var end = start + TRANSITION_DURATION * 2;
+                var start = i * config.TransitionDuration;
+                var end = start + config.TransitionDuration * 2;
                 switch (direction)
                 {
                     case HorizontalDirection.LeftToRight:
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
-                               .OverlayFilterOn(lastOverLay, $"-{WIDTH}+(t-{start})/{TRANSITION_DURATION}*{WIDTH}", "0")//from -WIDTH to +WIDTH
-                                   .Enable($"between(t,{start},{end})").MapOut;
+                               .OverlayFilterOn(lastOverLay, $"-{config.Size.Width}+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}", "0")//from -WIDTH to +WIDTH
+                                   .Enable($"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
 
                     case HorizontalDirection.RightToLeft:
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
-                                .OverlayFilterOn(lastOverLay, $"{WIDTH}-(t-{start})/{TRANSITION_DURATION}*{WIDTH}", "0")//from +WIDTH to -WIDTH
-                                    .Enable($"between(t,{start},{end})").MapOut;
+                                .OverlayFilterOn(lastOverLay, $"{config.Size.Width}-(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}", "0")//from +WIDTH to -WIDTH
+                                    .Enable($"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                 }
             }
 
             var out_map = lastOverLay
-                .TrimFilter().Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
-                .FpsFilter($"{FPS}").MapOut
+                .TrimFilter().Duration(TOTAL_DURATION).MapOut
+                .FpsFilter($"{config.Fps}").MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
 
             var videoOut = new ImageFileOutput(outputFileName, out_map)
@@ -171,7 +161,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .SetOption("-g", 0)
                 .VCodec("libx264")
                 //.SetOption("-b:v", "3000")
-                .Fps((int)FPS);
+                .Fps(config.Fps);
 
             ffmpegArg.AddOutput(videoOut);
 

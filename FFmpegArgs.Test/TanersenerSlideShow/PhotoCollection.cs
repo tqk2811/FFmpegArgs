@@ -30,55 +30,45 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
-
-            int WIDTH = 1280;
-            int HEIGHT = 720;
-            int FPS = 24;
-            int TRANSITION_DURATION = 1;
-            int IMAGE_DURATION = 2;
+            Config config = new Config();
             int MAX_IMAGE_ANGLE = 25;
-            Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
-
-            int IMAGE_COUNT = images_inputmap.Count;
-            int TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
-            int IMAGE_FRAME_COUNT = IMAGE_DURATION * FPS;
-            int TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT;
+            TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
 
             Random random = new Random();
 
 
             var background = ffmpegArg.FilterGraph.ColorFilter()
-                    .Size(new Size(WIDTH, HEIGHT))
-                    .Color(BACKGROUND_COLOR)
-                    .Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut
-                .FpsFilter($"{FPS}").MapOut;
+                    .Size(config.Size)
+                    .Color(config.BackgroundColor)
+                    .Duration(TOTAL_DURATION).MapOut
+                .FpsFilter($"{config.Fps}").MapOut;
 
             var lastOverLay = background;
 
             for(int c = 0; c < images_inputmap.Count; c++)
             {
-                var start = (TRANSITION_DURATION + IMAGE_DURATION) * c;
-                var end = start + TRANSITION_DURATION;
+                var start = (config.TransitionDuration + config.ImageDuration) * c;
+                var end = start + config.TransitionDuration;
                 var ANGLE_RANDOMNESS = random.Next() % MAX_IMAGE_ANGLE + 1;
 
                 lastOverLay = images_inputmap[c]
                     .SetPtsFilter("PTS-STARTPTS").MapOut
-                    .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)", $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
+                    .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)", $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
                     .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
                     .SetSarFilter("1/1").MapOut
-                    .FpsFilter($"{FPS}").MapOut
+                    .FpsFilter($"{config.Fps}").MapOut
                     .FormatFilter(PixFmt.rgba).MapOut
-                    .PadFilter($"{WIDTH * 4}", $"{HEIGHT}").Position($"({WIDTH * 4}-iw)/2", $"({HEIGHT}-ih)/2").Color(BACKGROUND_COLOR).MapOut
-                    .TrimFilter().Duration(TimeSpan.FromSeconds((c + 1) * (TRANSITION_DURATION + IMAGE_DURATION))).MapOut
+                    .PadFilter($"{config.Size.Width * 4}", $"{config.Size.Height}").Position($"({config.Size.Width * 4}-iw)/2", $"({config.Size.Height}-ih)/2").Color(config.BackgroundColor).MapOut
+                    .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
-                    .RotateFilter($"if(between(t,{start},{end})," +
+                    .RotateFilter($"if(between(t,{start.TotalSeconds},{end.TotalSeconds})," +
                                         $"2*PI*t+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*PI/180," +
                                         $"if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*PI/180)")
-                        .OW($"{WIDTH * 4}").FillColor(BACKGROUND_COLOR).MapOut
+                        .OW($"{config.Size.Width * 4}").FillColor(config.BackgroundColor).MapOut
                     .OverlayFilterOn(lastOverLay,
-                        $"if(gt(t,{start})," +
-                            $"if(lt(t,{end})," +
-                                $"{(double)WIDTH * 3 / 2}-w+(t-{start})/{TRANSITION_DURATION}*{WIDTH}," +
+                        $"if(gt(t,{start.TotalSeconds})," +
+                            $"if(lt(t,{end.TotalSeconds})," +
+                                $"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}," +
                                 "(main_w-overlay_w)/2)," +
                             "-w)",
                         "(main_h-overlay_h)/2").MapOut;
@@ -91,7 +81,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             imageFileOutput
               .VSync(VSyncMethod.vfr)
               .SetOption("-c:v", "libx264")
-              .Fps(FPS)
+              .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
 
@@ -109,52 +99,44 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
-
-            int WIDTH = 1280;
-            int HEIGHT = 720;
-            int FPS = 24;
-            int TRANSITION_DURATION = 1;
-            int IMAGE_DURATION = 2;
+            Config config = new Config();
             int MAX_IMAGE_ANGLE = 25;
-            Color BACKGROUND_COLOR = Color.FromArgb(0, 0, 0, 0);
-
-            int IMAGE_COUNT = images_inputmap.Count;
-            int TRANSITION_FRAME_COUNT = TRANSITION_DURATION * FPS;
-            int IMAGE_FRAME_COUNT = IMAGE_DURATION * FPS;
-            int TOTAL_DURATION = (IMAGE_DURATION + TRANSITION_DURATION) * IMAGE_COUNT;
-
+            TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
+            
             Random random = new Random();
 
 
             var background = ffmpegArg.AddVideoInput(
-                new FilterInput($"color={BACKGROUND_COLOR.ToHexStringRGBA()}:s={WIDTH}x{HEIGHT},fps={FPS}"),1,0)
-                .ImageMaps.First().TrimFilter().Duration(TimeSpan.FromSeconds(TOTAL_DURATION)).MapOut;
+                new FilterInput($"color={config.BackgroundColor.ToHexStringRGBA()}:s={config.Size.Width}x{config.Size.Height},fps={config.Fps}"),1,0)
+                .ImageMaps.First().TrimFilter().Duration(TOTAL_DURATION).MapOut;
 
             var lastOverLay = background;
 
             for(int c = 0; c < images_inputmap.Count; c++)
             {
                 var ANGLE_RANDOMNESS = random.Next() % MAX_IMAGE_ANGLE + 1;
+                var start = (config.TransitionDuration + config.ImageDuration) * c;
+                var end = start + config.TransitionDuration;
                 lastOverLay = images_inputmap[c]
                     .SetPtsFilter("PTS-STARTPTS").MapOut
-                    .ScaleFilter($"if(gte(iw/ih,{WIDTH}/{HEIGHT}),min(iw,{WIDTH}),-1)", $"if(gte(iw/ih,{WIDTH}/{HEIGHT}),-1,min(ih,{HEIGHT}))").MapOut
+                    .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)", $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
                     .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
                     .SetSarFilter("1/1").MapOut
-                    .FpsFilter($"{FPS}").MapOut
+                    .FpsFilter($"{config.Fps}").MapOut
                     .FormatFilter(PixFmt.rgba).MapOut
-                    .PadFilter($"{WIDTH * 4}", $"{HEIGHT}").Position($"({WIDTH * 4}-iw)/2", $"({HEIGHT}-ih)/2").Color(BACKGROUND_COLOR).MapOut
-                    .TrimFilter().Duration(TimeSpan.FromSeconds((c + 1) * (TRANSITION_DURATION + IMAGE_DURATION))).MapOut
+                    .PadFilter($"{config.Size.Width * 4}", $"{config.Size.Height}").Position($"({config.Size.Width * 4}-iw)/2", $"({config.Size.Height}-ih)/2").Color(config.BackgroundColor).MapOut
+                    .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
 
 
-                    .RotateFilter($"if(between(t,{(TRANSITION_DURATION +IMAGE_DURATION)*c},{(TRANSITION_DURATION+IMAGE_DURATION)*c+TRANSITION_DURATION})," +
+                    .RotateFilter($"if(between(t,{start.TotalSeconds},{end.TotalSeconds})," +
                                         $"2*PI*t+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*PI/180," +
                                         $"if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*PI/180)")
-                        .OW($"{WIDTH * 4}").FillColor(BACKGROUND_COLOR).MapOut
+                        .OW($"{config.Size.Width * 4}").FillColor(config.BackgroundColor).MapOut
                     .OverlayFilterOn(lastOverLay,
-                        $"if(gt(t,{(TRANSITION_DURATION+IMAGE_DURATION)*c})," +
-                            $"if(lt(t,{(TRANSITION_DURATION+IMAGE_DURATION)*c+TRANSITION_DURATION })," +
-                                $"{(double)WIDTH * 3 / 2}-w+(t-{c*(TRANSITION_DURATION+IMAGE_DURATION)})/{TRANSITION_DURATION}*{WIDTH}," +
+                        $"if(gt(t,{start.TotalSeconds})," +
+                            $"if(lt(t,{end.TotalSeconds})," +
+                                $"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}," +
                                 "(main_w-overlay_w)/2)," +
                             "-w)",
                         "(main_h-overlay_h)/2").MapOut;
@@ -167,7 +149,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             imageFileOutput
               .VSync(VSyncMethod.vfr)
               .SetOption("-c:v", "libx264")
-              .Fps(FPS)
+              .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
 
