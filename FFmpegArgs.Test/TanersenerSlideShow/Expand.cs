@@ -20,15 +20,15 @@ using System.Diagnostics;
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class Collapse
+    public class Expand
     {
         [TestMethod]
-        public void CollapseTest()
+        public void ExpandTest()
         {
             ScreenMode screenMode = ScreenMode.Blur;
             CollapseExpandMode collapseMode = CollapseExpandMode.Circular;
-            string outputFileName = $"{nameof(CollapseTest)}-{screenMode}-{collapseMode}.mp4";
-            string filterFileName = $"{nameof(CollapseTest)}-{screenMode}-{collapseMode}.txt";
+            string outputFileName = $"{nameof(ExpandTest)}-{screenMode}-{collapseMode}.mp4";
+            string filterFileName = $"{nameof(ExpandTest)}-{screenMode}-{collapseMode}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
@@ -44,31 +44,31 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string expr = string.Empty;
 
             double TRANSITION_DURATION = config.TransitionDuration.TotalSeconds;
-            
+
             switch (collapseMode)
             {
                 case CollapseExpandMode.Vertical:
-                    expr = $"if(gte(Y,(H/2)*T/{TRANSITION_DURATION})*lte(Y,H-(H/2)*T/{TRANSITION_DURATION}),B,A)";
+                    expr = $"if(lte(Y,(H/2)-(H/2)*T/{TRANSITION_DURATION})+gte(Y,(H/2)+(H/2)*T/{TRANSITION_DURATION}),B,A)";
                     break;
 
                 case CollapseExpandMode.Horizontal:
-                    expr = $"if(gte(X,(W/2)*T/{TRANSITION_DURATION})*lte(X,W-(W/2)*T/{TRANSITION_DURATION}),B,A)";
+                    expr = $"if(lte(X,(W/2)-(W/2)*T/{TRANSITION_DURATION})+gte(X,(W/2)+(W/2)*T/{TRANSITION_DURATION}),B,A)";
                     break;
 
                 case CollapseExpandMode.Circular:
                     StartEnd _startEnd = new StartEnd();
 
-                    _startEnd.Startings  = startEnd.Startings.Select(x => x
-                        .GeqFilter()
-                            .Lum("p(X,Y)")
-                            .A($"if(lte(pow(sqrt(pow(W/2,2)+pow(H/2,2))-sqrt(pow(T/{TRANSITION_DURATION}*W/2,2)+pow(T/{TRANSITION_DURATION}*H/2,2)),2),pow(X-(W/2),2)+pow(Y-(H/2),2)),255,0)").MapOut).ToList();
+                    _startEnd.Startings = startEnd.Startings.Select(x => x
+                       .GeqFilter()
+                           .Lum("p(X,Y)")
+                           .A($"if(lte(pow(sqrt(pow(T/{TRANSITION_DURATION}*W/2,2)+pow(T/{TRANSITION_DURATION}*H/2,2)),2),pow(X-(W/2),2)+pow(Y-(H/2),2)),0,255)").MapOut).ToList();
                     _startEnd.Endings = startEnd.Endings;
 
                     startEnd = _startEnd;
                     break;
 
                 case CollapseExpandMode.Both:
-                    expr = $"if((gte(X,(W/2)*T/{TRANSITION_DURATION})*gte(Y,(H/2)*T/{TRANSITION_DURATION}))*(lte(X,W-(W/2)*T/{TRANSITION_DURATION})*lte(Y,H-(H/2)*T/{TRANSITION_DURATION})),B,A)";
+                    expr = $"if((lte(X,(W/2)-(W/2)*T/{TRANSITION_DURATION})+lte(Y,(H/2)-(H/2)*T/{TRANSITION_DURATION}))+(gte(X,(W/2)+(W/2)*T/{TRANSITION_DURATION})+gte(Y,(H/2)+(H/2)*T/{TRANSITION_DURATION})),B,A)";
                     break;
             }
 
@@ -78,7 +78,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 case CollapseExpandMode.Circular:
                     {
                         var blendeds = new List<ImageMap>();
-                        for(int i = 0; i < startEnd.Startings.Count; i++)
+                        for (int i = 0; i < startEnd.Startings.Count; i++)
                         {
                             blendeds.Add(startEnd.Startings[i].OverlayFilterOn(startEnd.Endings[i])
                                 .X("0").Y("0").Shortest(true).MapOut);
@@ -98,7 +98,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     }
                     break;
             }
-            
 
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
@@ -114,6 +113,5 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
-
     }
 }
