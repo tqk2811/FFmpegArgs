@@ -11,14 +11,14 @@ var background_video = ffmpegArg.AddVideoInput(new VideoFileInput(@"background.m
     .ToPosition(TimeSpan.FromSeconds(10)));
 
 var color_keys = green_video.ImageMaps.First()
-    .ColorKeyFilter(Color.FromArgb(101, 220, 8)).Similarity(0.25f)//ColorKey
+    .ColorKeyFilter().Color(Color.FromArgb(101, 220, 8)).Similarity(0.25f)//ColorKey
         .Enable("between(t,0,10)").MapOut//ITimelineSupport
-    .ScaleFilter("iw/3", "ih/3").MapOut
+    .ScaleFilter().W("iw/3").H("ih/3").MapOut
     .SplitFilter(2).MapsOut;//Scale
 
 var overlay = color_keys.First()
     //overlay color_key on-center background_video
-    .OverlayFilterOn(background_video.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
+    .OverlayFilterOn(background_video.ImageMaps.First()).X("(W-w)/2").Y("(H-h)/2").MapOut;
 
 ffmpegArg.AddOutput(new VideoFileOutput(@"out.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
 ffmpegArg.AddOutput(new VideoFileOutput(@"out2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
@@ -46,18 +46,16 @@ public class PadFilter : ImageToImageFilter
         "hsub", "vsub"
     };
     readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-    internal PadFilter(Action<FFmpegExpression> w, Action<FFmpegExpression> h, ImageMap imageMap) : base("pad", imageMap)
+    internal PadFilter(ImageMap imageMap) : base("pad", imageMap)
     {
         AddMapOut();
-        this.SetOption("w", w.Run(expression));
-        this.SetOption("h", h.Run(expression));
     }
 
-    public PadFilter Position(Action<FFmpegExpression> x, Action<FFmpegExpression> y)
+    public PadFilter XY(Action<FFmpegExpression> x, Action<FFmpegExpression> y)
         => this.SetOption("x", x.Run(expression)).SetOption("y", y.Run(expression));
 
-    public PadFilter Position(string x, string y)
-        => Position(x.Expression(), y.Expression());
+    public PadFilter XY(string x, string y)
+        => XY(x.Expression(), y.Expression());
 
     public PadFilter Color(Color color)
         => this.SetOption("color", color.ToHexStringRGBA());
@@ -68,9 +66,9 @@ public class PadFilter : ImageToImageFilter
 
 public static class PadFilterExtension
 {
-    public static PadFilter PadFilter(this ImageMap imageMap, Action<FFmpegExpression> w, Action<FFmpegExpression> h)
+    public static PadFilter PadFilter(this ImageMap imageMap)
     {
-        return new PadFilter(w, h, imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
+        return new PadFilter(imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
     }
 }
 
