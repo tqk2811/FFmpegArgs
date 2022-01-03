@@ -1,4 +1,11 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+setsar AVOptions:
+  sar               <string>     ..FV....... set sample (pixel) aspect ratio (default "0")
+  ratio             <string>     ..FV....... set sample (pixel) aspect ratio (default "0")
+  r                 <string>     ..FV....... set sample (pixel) aspect ratio (default "0")
+  max               <int>        ..FV....... set max value for nominator or denominator in the ratio (from 1 to INT_MAX) (default 100)
+ */
+using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
@@ -71,35 +78,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="imageMap"></param>
         /// <returns></returns>
-        public static SetSarFilter SetSarFilter(this ImageMap imageMap)
-            => new SetSarFilter(imageMap);
-
-        /// <summary>
-        /// This is done by changing the specified Sample (aka Pixel) Aspect Ratio, according to the following equation:<br></br>
-        /// <b>DAR = HORIZONTAL_RESOLUTION / VERTICAL_RESOLUTION* SAR</b><br>
-        /// </br>Keep in mind that the setdar filter does not modify the pixel dimensions of the video frame.Also, the display aspect ratio set by this filter may be changed by later filters in the filterchain, e.g. in case of scaling or if another "setdar" or a "setsar" filter is applied.<br>
-        /// </br>The setsar filter sets the Sample(aka Pixel) Aspect Ratio for the filter output video.<br>
-        /// </br>Note that as a consequence of the application of this filter, the output display aspect ratio will change according to the equation above.<br>
-        /// </br>Keep in mind that the sample aspect ratio set by the setsar filter may be changed by later filters in the filterchain, e.g. if another "setsar" or a "setdar" filter is applied.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="r"></param>
-        /// <returns></returns>
-        public static SetSarFilter SetSarFilter(this ImageMap imageMap, Action<FFmpegExpression> r)
-            => new SetSarFilter(imageMap).Ratio(r);
-
-        /// <summary>
-        /// This is done by changing the specified Sample (aka Pixel) Aspect Ratio, according to the following equation:<br></br>
-        /// <b>DAR = HORIZONTAL_RESOLUTION / VERTICAL_RESOLUTION* SAR</b><br>
-        /// </br>Keep in mind that the setdar filter does not modify the pixel dimensions of the video frame.Also, the display aspect ratio set by this filter may be changed by later filters in the filterchain, e.g. in case of scaling or if another "setdar" or a "setsar" filter is applied.<br>
-        /// </br>The setsar filter sets the Sample(aka Pixel) Aspect Ratio for the filter output video.<br>
-        /// </br>Note that as a consequence of the application of this filter, the output display aspect ratio will change according to the equation above.<br>
-        /// </br>Keep in mind that the sample aspect ratio set by the setsar filter may be changed by later filters in the filterchain, e.g. if another "setsar" or a "setdar" filter is applied.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="r"></param>
-        /// <returns></returns>
-        public static SetSarFilter SetSarFilter(this ImageMap imageMap, string r)
-            => new SetSarFilter(imageMap).Ratio(r);
+        public static SetSarFilter SetSarFilter(this ImageMap imageMap) => new SetSarFilter(imageMap);
     }
 }

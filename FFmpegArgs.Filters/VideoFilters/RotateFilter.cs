@@ -1,4 +1,16 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+rotate AVOptions:
+  angle             <string>     ..FV.....T. set angle (in radians) (default "0")
+  a                 <string>     ..FV.....T. set angle (in radians) (default "0")
+  out_w             <string>     ..FV....... set output width expression (default "iw")
+  ow                <string>     ..FV....... set output width expression (default "iw")
+  out_h             <string>     ..FV....... set output height expression (default "ih")
+  oh                <string>     ..FV....... set output height expression (default "ih")
+  fillcolor         <string>     ..FV....... set background fill color (default "black")
+  c                 <string>     ..FV....... set background fill color (default "black")
+  bilinear          <boolean>    ..FV....... use bilinear interpolation (default true)
+ */
+using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
@@ -104,27 +116,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="imageMap"></param>
         /// <returns></returns>
-        public static RotateFilter RotateFilter(this ImageMap imageMap)
-            => new RotateFilter(imageMap);
-
-        /// <summary>
-        /// Rotate video by an arbitrary angle expressed in radians.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="angle">Set an expression for the angle by which to rotate the input video clockwise, expressed as a number of radians. A negative value will result in a counter-clockwise rotation. By default it is set to "0".<br>
-        /// </br>This expression is evaluated for each frame.</param>
-        /// <returns></returns>
-        public static RotateFilter RotateFilter(this ImageMap imageMap, string angle)
-            => new RotateFilter(imageMap).Angle(angle);
-
-        /// <summary>
-        /// Rotate video by an arbitrary angle expressed in radians.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="angle">Set an expression for the angle by which to rotate the input video clockwise, expressed as a number of radians. A negative value will result in a counter-clockwise rotation. By default it is set to "0".<br>
-        /// </br>This expression is evaluated for each frame.</param>
-        /// <returns></returns>
-        public static RotateFilter RotateFilter(this ImageMap imageMap, Action<FFmpegExpression> angle)
-            => new RotateFilter(imageMap).Angle(angle);
+        public static RotateFilter RotateFilter(this ImageMap imageMap) => new RotateFilter(imageMap);
     }
 }

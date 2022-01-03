@@ -52,17 +52,17 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
                 if (input.Equals(fades.First()))
                 {
-                    fadeOuts.Add(temp.FadeFilter(FadeType.Out).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                    fadeOuts.Add(temp.FadeFilter().Type(FadeType.Out).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
                 } 
                 else if (input.Equals(fades.Last()))
                 {
-                    fadeIns.Add(temp.FadeFilter(FadeType.In).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                    fadeIns.Add(temp.FadeFilter().Type(FadeType.In).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
                 }
                 else
                 {
                     var split = temp.SplitFilter(2).MapsOut;
-                    fadeOuts.Add(split.First().FadeFilter(FadeType.Out).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
-                    fadeIns.Add(split.Last().FadeFilter(FadeType.In).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                    fadeOuts.Add(split.First().FadeFilter().Type(FadeType.Out).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                    fadeIns.Add(split.Last().FadeFilter().Type(FadeType.In).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
                 }
             }
 

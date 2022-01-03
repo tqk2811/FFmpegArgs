@@ -98,9 +98,9 @@ namespace FFmpegArgs.Test
 
             FilterInput filterInput = new FilterInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280,720)).MapOut
-                .FpsFilter(25);
+                .FpsFilter().Fps(25);
             filterInput.FilterGraph.ColorFilter().Color(Color.Green).Size(new Size(1280/2, 720/2)).MapOut
-                .FpsFilter(25);
+                .FpsFilter().Fps(25);
 
             var videos = ffmpegArg.AddVideoInput(filterInput, 2, 0);
 
@@ -122,7 +122,7 @@ namespace FFmpegArgs.Test
 
             FilterInput filterInput = new FilterInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280, 720)).MapOut
-                .FpsFilter(25);
+                .FpsFilter().Fps(25);
             var videos = ffmpegArg.AddVideoInput(filterInput, 1, 0);
 
             var output = videos.ImageMaps.First()

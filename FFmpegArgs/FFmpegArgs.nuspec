@@ -11,6 +11,9 @@
 		<readme>docs\README.MD</readme>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git"/>
 		<dependencies>
+			<group>
+				
+			</group>
 			<group targetFramework="net462">
 				
 			</group>

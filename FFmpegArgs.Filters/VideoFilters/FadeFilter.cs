@@ -1,4 +1,24 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+fade AVOptions:
+  type              <int>        ..FV....... set the fade direction (from 0 to 1) (default in)
+     in              0            ..FV....... fade-in
+     out             1            ..FV....... fade-out
+  t                 <int>        ..FV....... set the fade direction (from 0 to 1) (default in)
+     in              0            ..FV....... fade-in
+     out             1            ..FV....... fade-out
+  start_frame       <int>        ..FV....... Number of the first frame to which to apply the effect. (from 0 to INT_MAX) (default 0)
+  s                 <int>        ..FV....... Number of the first frame to which to apply the effect. (from 0 to INT_MAX) (default 0)
+  nb_frames         <int>        ..FV....... Number of frames to which the effect should be applied. (from 1 to INT_MAX) (default 25)
+  n                 <int>        ..FV....... Number of frames to which the effect should be applied. (from 1 to INT_MAX) (default 25)
+  alpha             <boolean>    ..FV....... fade alpha if it is available on the input (default false)
+  start_time        <duration>   ..FV....... Number of seconds of the beginning of the effect. (default 0)
+  st                <duration>   ..FV....... Number of seconds of the beginning of the effect. (default 0)
+  duration          <duration>   ..FV....... Duration of the effect in seconds. (default 0)
+  d                 <duration>   ..FV....... Duration of the effect in seconds. (default 0)
+  color             <color>      ..FV....... set color (default "black")
+  c                 <color>      ..FV....... set color (default "black")
+ */
+using FFmpegArgs.Cores.Maps;
 using System;
 using System.Drawing;
 
@@ -15,6 +35,11 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
 
+        /// <summary>
+        /// The effect type can be either "in" for a fade-in, or "out" for a fade-out effect. Default is in.
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public FadeFilter Type(FadeType t)
             => this.SetOption("t", t.ToString().ToLower());
 
@@ -79,17 +104,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="imageMap"></param>
         /// <returns></returns>
-        public static FadeFilter FadeFilter(this ImageMap imageMap)
-          => new FadeFilter(imageMap);
-
-        /// <summary>
-        /// Apply a fade-in/out effect to the input video.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="type">The effect type can be either "in" for a fade-in, or "out" for a fade-out effect. Default is in.</param>
-        /// <returns></returns>
-        public static FadeFilter FadeFilter(this ImageMap imageMap, FadeType t)
-          => new FadeFilter(imageMap).Type(t);
+        public static FadeFilter FadeFilter(this ImageMap imageMap) => new FadeFilter(imageMap);
     }
 
 

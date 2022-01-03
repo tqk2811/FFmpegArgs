@@ -29,8 +29,9 @@ namespace FFmpegArgs.Test.FilterTest
             ffmpegArg.OverWriteOutput();
 
             FilterInput filterInput = new FilterInput();
-            filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(videoSize).MapOut
-                .FpsFilter(fps);
+            filterInput.FilterGraph
+                .ColorFilter().Color(Color.Red).Size(videoSize).MapOut
+                .FpsFilter().Fps(fps);
             var videos = ffmpegArg.AddVideoInput(filterInput, 1, 0);
 
             string from = $"main_w";

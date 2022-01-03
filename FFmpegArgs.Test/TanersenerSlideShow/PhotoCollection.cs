@@ -48,7 +48,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .Size(config.Size)
                     .Color(config.BackgroundColor)
                     .Duration(TOTAL_DURATION).MapOut
-                .FpsFilter().Fps($"{config.Fps}").MapOut;
+                .FpsFilter().Fps(config.Fps).MapOut;
 
             var lastOverLay = background;
             images_inputmap = images_inputmap.InputScreenMode(ScreenMode.Center, config);

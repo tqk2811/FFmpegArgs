@@ -58,7 +58,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .Color(config.BackgroundColor)
                     .Size(config.Size)
                     .Duration(TOTAL_DURATION).MapOut
-                .FpsFilter($"{config.Fps}").MapOut;
+                .FpsFilter().Fps(config.Fps).MapOut;
 
             List<ImageMap> images_Prepare = new List<ImageMap>();
             for (int i = 0; i < images_inputmap.Count; i++)
@@ -78,7 +78,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                     .X($"({config.Size.Width}-iw)/2")
                                     .Y($"({config.Size.Height}-ih)/2")
                                     .Color(config.BackgroundColor).MapOut
-                                .SetSarFilter().Ratio("1/1").MapOut);
+                                .SetSarFilter().Ratio(1).MapOut);
                             break;
                         }
 
@@ -92,7 +92,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .CropFilter()
                                     .W($"{config.Size.Width}")
                                     .H($"{config.Size.Height}").MapOut
-                                .SetSarFilter("1/1").MapOut);
+                                .SetSarFilter().Ratio(1).MapOut);
                             break;
                         }
 
@@ -100,7 +100,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         {
                             images_Prepare.Add(images_inputmap[i]
                                 .ScaleFilter().W($"{config.Size.Width}").H($"{config.Size.Height}").MapOut
-                                .SetSarFilter("1/1").MapOut);
+                                .SetSarFilter().Ratio(1).MapOut);
                             break;
                         }
 
@@ -109,7 +109,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             images_Prepare.Add(images_inputmap[i]
                                 .MakeBlurredBackground(config.Size.Width, config.Size.Height, config.Fps, "100")
                                 .FormatFilter(PixFmt.rgba).MapOut
-                                .SetSarFilter("1/1").MapOut);
+                                .SetSarFilter().Ratio(1).MapOut);
                             break;
                         }
                 }
@@ -121,7 +121,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .W($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)")
                     .H($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
                 .ScaleFilter().W("trunc(iw/2)*2").H("trunc(ih/2)*2").MapOut
-                .SetSarFilter("1/1").MapOut
+                .SetSarFilter().Ratio(1).MapOut
                 .SplitFilter(images_inputmap.Count).MapsOut.ToList();
 
             // OVERLAY FILM STRIP ON TOP OF INPUTS
@@ -164,7 +164,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             var out_map = lastOverLay
                 .TrimFilter().Duration(TOTAL_DURATION).MapOut
-                .FpsFilter($"{config.Fps}").MapOut
+                .FpsFilter().Fps(config.Fps).MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
 
             var videoOut = new ImageFileOutput(outputFileName, out_map)
