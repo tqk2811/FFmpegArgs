@@ -71,8 +71,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)",
                                                 $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
                                 .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
-                                .PadFilter($"{config.Size.Width}", $"{config.Size.Height}")
-                                    .Position($"({config.Size.Width}-iw)/2", $"({config.Size.Height}-ih)/2")
+                                .PadFilter()
+                                    .WH($"{config.Size.Width}", $"{config.Size.Height}")
+                                    .XY($"({config.Size.Width}-iw)/2", $"({config.Size.Height}-ih)/2")
                                     .Color(config.BackgroundColor).MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;

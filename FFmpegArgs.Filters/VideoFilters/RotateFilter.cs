@@ -73,15 +73,27 @@ namespace FFmpegArgs.Filters.VideoFilters
         public RotateFilter OH(string oh)
             => OH(oh.Expression());
         /// <summary>
-        /// /Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.
+        /// Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.
         /// </summary>
         /// <param name="oh"></param>
         /// <returns></returns>
         public RotateFilter OH(Action<FFmpegExpression> oh)
             => this.SetOption("oh", oh.Run(expression));
 
-        public RotateFilter OutWH(string ow, string oh)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ow">Set the output width expression, default value is "iw". This expression is evaluated just once during configuration.</param>
+        /// <param name="oh">Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.</param>
+        /// <returns></returns>
+        public RotateFilter OutWH(string ow = "iw", string oh = "ih")
           => OutWH(ow.Expression(), oh.Expression());
+
+        /// <summary>
+        /// /Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.
+        /// </summary>
+        /// <param name="oh"></param>
+        /// <returns></returns>
         public RotateFilter OutWH(Action<FFmpegExpression> ow, Action<FFmpegExpression> oh)
           => this.SetOption("ow", ow.Run(expression)).SetOption("oh", oh.Run(expression));
 

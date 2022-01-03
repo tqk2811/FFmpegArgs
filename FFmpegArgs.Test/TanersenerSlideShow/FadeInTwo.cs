@@ -32,13 +32,17 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             List<IEnumerable<ImageMap>> splitInputs = new List<IEnumerable<ImageMap>>();
             splitInputs.AddRange(images_inputmap.Select(x => x
-              .SetSarFilter("1/1").MapOut
-              .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)",
-                            $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
-              .PadFilter($"{config.Size.Width}", $"{config.Size.Height}").Position($"({config.Size.Height} - ow)/2", $"({config.Size.Height} - oh)/2").Color(config.BackgroundColor).MapOut
-              .FpsFilter($"{config.Fps}").MapOut
-              .SetPtsFilter("PTS-STARTPTS").MapOut
-              .SplitFilter(2).MapsOut));
+                .SetSarFilter().Ratio("1/1").MapOut
+                .ScaleFilter()
+                    .Width($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)")
+                    .Height($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
+                .PadFilter()
+                    .WH($"{config.Size.Width}", $"{config.Size.Height}")
+                    .XY($"({config.Size.Height} - ow)/2", $"({config.Size.Height} - oh)/2")
+                    .Color(config.BackgroundColor).MapOut
+                .FpsFilter().Fps($"{config.Fps}").MapOut
+                .SetPtsFilter("PTS-STARTPTS").MapOut
+                .SplitFilter(2).MapsOut));
 
             var overlaids = splitInputs.Select(x => x.First()).Overlaids(config);
 

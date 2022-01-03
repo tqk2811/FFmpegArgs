@@ -64,7 +64,7 @@ namespace FFmpegArgs.Test
             var images = ImageFilesConcatInput.FromFilesSearch(@"D:\temp\ffmpeg_encode_test\ImgsTest\img%d.jpg");
             images.SetOption("-r", 1 / (imageDuration + animationDuration));
             var images_map = ffmpegArg.AddImageInput(images);
-            var pad = images_map.PadFilter("ceil(iw/2)*2", "ceil(ih/2)*2");//fix image size not % 2 = 0
+            var pad = images_map.PadFilter().WH("ceil(iw/2)*2", "ceil(ih/2)*2");//fix image size not % 2 = 0
             var format = pad.MapOut.FormatFilter(PixFmt.rgba);
             var scale = format.MapOut.ScaleFilter($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)", $"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
 
@@ -72,7 +72,7 @@ namespace FFmpegArgs.Test
             string _whenRotate = $"between(t,n*({imageDuration} + {animationDuration}),n *({imageDuration} + {animationDuration})+{animationDuration})";
             string _rotate = $"2*PI*t*{rotateSpeed}";
             string _nonRotate = $"2*PI*{rotateSpeed}*(n+{animationDuration})";
-            var rotate = scale.MapOut.RotateFilter($"if({_whenRotate},{_rotate},{_nonRotate})");
+            var rotate = scale.MapOut.RotateFilter().Angle($"if({_whenRotate},{_rotate},{_nonRotate})");
 
 
             string _whenMove = $"between(t,n*({imageDuration} + {animationDuration}),n *({imageDuration} + {animationDuration})+{animationDuration})";

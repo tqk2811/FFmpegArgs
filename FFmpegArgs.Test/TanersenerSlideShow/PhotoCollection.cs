@@ -48,7 +48,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .Size(config.Size)
                     .Color(config.BackgroundColor)
                     .Duration(TOTAL_DURATION).MapOut
-                .FpsFilter($"{config.Fps}").MapOut;
+                .FpsFilter().Fps($"{config.Fps}").MapOut;
 
             var lastOverLay = background;
             images_inputmap = images_inputmap.InputScreenMode(ScreenMode.Center, config);
@@ -59,17 +59,22 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 var ANGLE_RANDOMNESS = random.Next() % MAX_IMAGE_ANGLE + 1;
 
                 lastOverLay = images_inputmap[c]
-                    .PadFilter($"{WIDTH * 4}", $"{HEIGHT}").Position($"({WIDTH * 4}-iw)/2", $"({HEIGHT}-ih)/2").Color(BACKGROUND_COLOR).MapOut
+                    .PadFilter()
+                        .WH($"{WIDTH * 4}", $"{HEIGHT}")
+                        .XY($"({WIDTH * 4}-iw)/2", $"({HEIGHT}-ih)/2")
+                        .Color(BACKGROUND_COLOR).MapOut
                     .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
 
 
-                    .RotateFilter(  $"if(" +
+                    .RotateFilter()
+                        .Angle(  $"if(" +
                                         $"between(t,{start.TotalSeconds},{end.TotalSeconds})," +
                                         $"{RPS}*2*PI*(t-{end.TotalSeconds})," +
                                         $"0)" +
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
-                        .OW($"{WIDTH * 4}").FillColor(BACKGROUND_COLOR).MapOut
+                        .OW($"{WIDTH * 4}")
+                        .FillColor(BACKGROUND_COLOR).MapOut
                     .OverlayFilterOn(lastOverLay,
                         $"if(gt(t,{start.TotalSeconds})," +
                             $"if(lt(t,{end.TotalSeconds})," +
@@ -125,17 +130,23 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 var start = (config.TransitionDuration + config.ImageDuration) * c;
                 var end = start + config.TransitionDuration;
                 lastOverLay = images_inputmap[c]
-                    .PadFilter($"{config.Size.Width * 4}", $"{config.Size.Height}").Position($"({config.Size.Width * 4}-iw)/2", $"({config.Size.Height}-ih)/2").Color(config.BackgroundColor).MapOut
-                    .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
+                    .PadFilter()
+                        .WH($"{config.Size.Width * 4}", $"{config.Size.Height}")
+                        .XY($"({config.Size.Width * 4}-iw)/2", $"({config.Size.Height}-ih)/2")
+                        .Color(config.BackgroundColor).MapOut
+                    .TrimFilter()
+                        .Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
 
 
-                    .RotateFilter($"if(" +
+                    .RotateFilter()
+                        .Angle($"if(" +
                                         $"between(t,{start.TotalSeconds},{end.TotalSeconds})," +
                                         $"{RPS}*2*PI*(t-{end.TotalSeconds})," +
                                         $"0)" +
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
-                        .OW($"{config.Size.Width * 4}").FillColor(config.BackgroundColor).MapOut
+                        .OW($"{config.Size.Width * 4}")
+                        .FillColor(config.BackgroundColor).MapOut
                     .OverlayFilterOn(lastOverLay,
                         $"if(gt(t,{start.TotalSeconds})," +
                             $"if(lt(t,{end.TotalSeconds})," +

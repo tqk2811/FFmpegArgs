@@ -46,29 +46,32 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 {
                     case ScreenMode.Center:
                         return x
-                            .ScaleFilter(
-                                $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)",
-                                $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
-                            .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
-                            .SetSarFilter("1/1").MapOut
-                            .FpsFilter($"{config.Fps}").MapOut
+                            .ScaleFilter()
+                                .Width($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)")
+                                .Height($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
+                            .ScaleFilter()
+                                .Width("trunc(iw/2)*2")
+                                .Height("trunc(ih/2)*2").MapOut
+                            .SetSarFilter().Ratio("1/1").MapOut
+                            .FpsFilter().Fps($"{config.Fps}").MapOut
                             .FormatFilter(PixFmt.rgba).MapOut;
 
                     case ScreenMode.Crop:
                         return x
-                            .ScaleFilter(
-                                 $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,{config.Size.Width})",
-                                 $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),{config.Size.Height},-1)").MapOut
-                             .CropFilter().WH($"{config.Size.Width}", $"{config.Size.Height}").MapOut
-                             .SetSarFilter("1/1").MapOut
-                             .FpsFilter($"{config.Fps}").MapOut
+                            .ScaleFilter()
+                                .Width($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,{config.Size.Width})")
+                                .Height($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),{config.Size.Height},-1)").MapOut
+                             .CropFilter()
+                                .WH($"{config.Size.Width}", $"{config.Size.Height}").MapOut
+                             .SetSarFilter().Ratio("1/1").MapOut
+                             .FpsFilter().Fps($"{config.Fps}").MapOut
                              .FormatFilter(PixFmt.rgba).MapOut;
 
                     case ScreenMode.Scale:
                         return x
-                            .ScaleFilter($"{config.Size.Width}", $"{config.Size.Height}").MapOut
-                            .SetSarFilter("1/1").MapOut
-                            .FpsFilter($"{config.Fps}").MapOut
+                            .ScaleFilter().Width($"{config.Size.Width}").Height($"{config.Size.Height}").MapOut
+                            .SetSarFilter().Ratio("1/1").MapOut
+                            .FpsFilter().Fps($"{config.Fps}").MapOut
                             .FormatFilter(PixFmt.rgba).MapOut;
 
                     case ScreenMode.Blur:
@@ -94,19 +97,22 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             }
 
             var blurred = inputs.First()
-                .ScaleFilter($"{width}", $"{height}").MapOut
-                .SetSarFilter("1/1").MapOut
-                .FpsFilter(fps).MapOut
+                .ScaleFilter().Width($"{width}").Height($"{height}").MapOut
+                .SetSarFilter().Ratio("1/1").MapOut
+                .FpsFilter().Fps(fps).MapOut
                 .FormatFilter(PixFmt.rgba).MapOut
                 .BoxBlurFilter().LumaRadius($"{lumaRadius}").MapOut
-                .SetSarFilter("1/1").MapOut;
+                .SetSarFilter().Ratio("1/1").MapOut;
 
             var raw = inputs.Last()
-                .ScaleFilter($"if(gte(iw/ih,{width}/{height}),min(iw,{width}),-1)",
-                            $"if(gte(iw/ih,{width}/{height}),-1,min(ih,{height}))").MapOut
-                .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
-                .SetSarFilter("1/1").MapOut
-                .FpsFilter(fps).MapOut
+                .ScaleFilter()
+                    .Width($"if(gte(iw/ih,{width}/{height}),min(iw,{width}),-1)")
+                    .Height($"if(gte(iw/ih,{width}/{height}),-1,min(ih,{height}))").MapOut
+                .ScaleFilter()
+                    .Width("trunc(iw/2)*2")
+                    .Height("trunc(ih/2)*2").MapOut
+                .SetSarFilter().Ratio("1/1").MapOut
+                .FpsFilter().Fps(fps).MapOut
                 .FormatFilter(PixFmt.rgba).MapOut;
 
             return raw
@@ -121,8 +127,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             return inputs.Select(x => x
                 .PadFilter()
-                    .Size(config.Size.Width.ToString(), config.Size.Height.ToString())
-                    .Position($"({config.Size.Width} - iw)/2", $"({config.Size.Height} - ih)/2")
+                    .WH(config.Size.Width.ToString(), config.Size.Height.ToString())
+                    .XY($"({config.Size.Width} - iw)/2", $"({config.Size.Height} - ih)/2")
                     .Color(config.BackgroundColor).MapOut
                 .TrimFilter()
                     .Duration(config.ImageDuration).MapOut).ToList();
@@ -139,8 +145,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
                 var res = inputs[i]
                   .PadFilter()
-                    .Size($"{config.Size.Width}", $"{config.Size.Height}")
-                    .Position($"({config.Size.Width}-iw)/2", $"({config.Size.Height}-ih)/2")
+                    .WH($"{config.Size.Width}", $"{config.Size.Height}")
+                    .XY($"({config.Size.Width}-iw)/2", $"({config.Size.Height}-ih)/2")
                     .Color(config.BackgroundColor).MapOut
                   .TrimFilter()
                     .Duration(config.TransitionDuration).MapOut
