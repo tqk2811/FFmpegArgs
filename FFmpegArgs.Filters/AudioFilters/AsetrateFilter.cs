@@ -38,19 +38,5 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static AsetrateFilter AsetrateFilter(this AudioMap audioMap)
           => new AsetrateFilter(audioMap);
 
-        /// <summary>
-        /// Set the sample rate without altering the PCM data. This will result in a change of speed and pitch.
-        /// </summary>
-        public static AsetrateFilter AsetrateFilter(this AudioMap audioMap, AsetrateFilterConfig config)
-        {
-            var result = new AsetrateFilter(audioMap);
-            if (config?.SampleRate != null) result.SampleRate(config.SampleRate.Value);
-            return result;
-        }
-    }
-
-    public class AsetrateFilterConfig
-    {
-        public int? SampleRate { get; set; }
     }
 }

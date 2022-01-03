@@ -12,11 +12,11 @@
 	</PropertyGroup>
 	
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
-	  <DefineConstants>$(DefineConstants);Render</DefineConstants>
+	  <DefineConstants>$(DefineConstants);Render;Play</DefineConstants>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
-	  <DefineConstants>$(DefineConstants);Render</DefineConstants>
+	  <DefineConstants>$(DefineConstants)</DefineConstants>
 	</PropertyGroup>
 
 	<ItemGroup>

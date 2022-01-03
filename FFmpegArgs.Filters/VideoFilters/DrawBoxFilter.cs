@@ -109,73 +109,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Draw a colored box on the input video.
         /// </summary>
-        public static DrawBoxFilter DrawBoxFilter(this ImageMap imageMap, Color color,
-          Action<FFmpegExpression> x, Action<FFmpegExpression> y, Action<FFmpegExpression> w, Action<FFmpegExpression> h)
-            => new DrawBoxFilter(imageMap ?? throw new ArgumentNullException(nameof(imageMap)))
-                .X(x).Y(y).W(w).H(h).Color(color);
-
-        /// <summary>
-        /// Draw a colored box on the input video.
-        /// </summary>
-        public static DrawBoxFilter DrawBoxFilter(this ImageMap imageMap, Color color,
-         string x = "0", string y = "0", string w = "0", string h = "0")
-            => new DrawBoxFilter(imageMap ?? throw new ArgumentNullException(nameof(imageMap)))
-                .X(x).Y(y).W(w).H(h).Color(color);
-
-        /// <summary>
-        /// Draw a colored box on the input video.
-        /// </summary>
         public static DrawBoxFilter DrawBoxFilter(this ImageMap imageMap)
             => new DrawBoxFilter(imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
-
-        /// <summary>
-        /// Draw a colored box on the input video.
-        /// </summary>
-        public static DrawBoxFilter DrawboxFilter(this ImageMap input0, DrawboxFilterConfig config)
-        {
-            var result = new DrawBoxFilter(input0);
-            if (!string.IsNullOrWhiteSpace(config?.X)) result.X(config.X);
-            if (!string.IsNullOrWhiteSpace(config?.Y)) result.Y(config.Y);
-            if (!string.IsNullOrWhiteSpace(config?.W)) result.W(config.W);
-            if (!string.IsNullOrWhiteSpace(config?.H)) result.H(config.H);
-            if (config?.Color != null) result.Color(config.Color.Value);
-            if (!string.IsNullOrWhiteSpace(config?.Thickness)) result.Thickness(config.Thickness);
-            if (config?.Replace != null) result.Replace(config.Replace.Value);
-            if (!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-            return result;
-        }
-    }
-
-    public class DrawboxFilterConfig : ITimelineSupportConfig
-    {
-        /// <summary>
-        ///  set horizontal position of the left box edge (default "0")
-        /// </summary>
-        public string X { get; set; }
-        /// <summary>
-        ///  set vertical position of the top box edge (default "0")
-        /// </summary>
-        public string Y { get; set; }
-        /// <summary>
-        ///  set width of the box (default "0")
-        /// </summary>
-        public string W { get; set; }
-        /// <summary>
-        ///  set height of the box (default "0")
-        /// </summary>
-        public string H { get; set; }
-        /// <summary>
-        ///  set color of the box (default "black")
-        /// </summary>
-        public Color? Color { get; set; }
-        /// <summary>
-        ///  set the box thickness (default "3")
-        /// </summary>
-        public string Thickness { get; set; }
-        /// <summary>
-        ///  replace color & alpha (default false)
-        /// </summary>
-        public bool? Replace { get; set; }
-        public string TimelineSupport { get; set; }
     }
 }

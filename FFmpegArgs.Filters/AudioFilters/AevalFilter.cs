@@ -68,25 +68,5 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public static AevalFilter AevalFilter(this AudioMap audioMap)
             => new AevalFilter(audioMap);
-
-        /// <summary>
-        /// Modify an audio signal according to the specified expressions.<br>
-        /// </br>This filter accepts one or more expressions(one for each channel), which are evaluated and used to modify a corresponding audio signal.
-        /// </summary>
-        /// <param name="audioMap"></param>
-        /// <returns></returns>
-        public static AevalFilter AevalFilter(this AudioMap audioMap, AevalFilterConfig config)
-        {
-            var result = new AevalFilter(audioMap);
-            if (!string.IsNullOrWhiteSpace(config?.ChannelLayout)) result.ChannelLayout(config.ChannelLayout);
-            if (config.Exprs != null) result.Exprs(config.Exprs.ToArray());
-            return result;
-        }
-    }
-
-    public class AevalFilterConfig
-    {
-        public List<string> Exprs { get; set; }
-        public string ChannelLayout { get; set; }
     }
 }

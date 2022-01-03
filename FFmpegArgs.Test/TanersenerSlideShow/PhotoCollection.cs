@@ -60,8 +60,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
                 lastOverLay = images_inputmap[c]
                     .PadFilter()
-                        .WH($"{WIDTH * 4}", $"{HEIGHT}")
-                        .XY($"({WIDTH * 4}-iw)/2", $"({HEIGHT}-ih)/2")
+                        .W($"{WIDTH * 4}")
+                        .H($"{HEIGHT}")
+                        .X($"({WIDTH * 4}-iw)/2")
+                        .Y($"({HEIGHT}-ih)/2")
                         .Color(BACKGROUND_COLOR).MapOut
                     .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
@@ -75,13 +77,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
                         .OW($"{WIDTH * 4}")
                         .FillColor(BACKGROUND_COLOR).MapOut
-                    .OverlayFilterOn(lastOverLay,
-                        $"if(gt(t,{start.TotalSeconds})," +
-                            $"if(lt(t,{end.TotalSeconds})," +
-                                $"{WIDTH}*3/2 -w+(t-{start.TotalSeconds})/{TRANSITION_DURATION}*{WIDTH}," +
-                                "(main_w-overlay_w)/2)," +
-                            "-w)",
-                        "(main_h-overlay_h)/2").MapOut;
+                    .OverlayFilterOn(lastOverLay)
+                        .X($"if(gt(t,{start.TotalSeconds})," +
+                                $"if(lt(t,{end.TotalSeconds})," +
+                                    $"{WIDTH}*3/2 -w+(t-{start.TotalSeconds})/{TRANSITION_DURATION}*{WIDTH}," +
+                                    "(main_w-overlay_w)/2)," +
+                                "-w)")
+                        .Y("(main_h-overlay_h)/2").MapOut;
             }
 
             var out_map = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
@@ -131,8 +133,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 var end = start + config.TransitionDuration;
                 lastOverLay = images_inputmap[c]
                     .PadFilter()
-                        .WH($"{config.Size.Width * 4}", $"{config.Size.Height}")
-                        .XY($"({config.Size.Width * 4}-iw)/2", $"({config.Size.Height}-ih)/2")
+                        .W($"{config.Size.Width * 4}")
+                        .H($"{config.Size.Height}")
+                        .X($"({config.Size.Width * 4}-iw)/2")
+                        .Y($"({config.Size.Height}-ih)/2")
                         .Color(config.BackgroundColor).MapOut
                     .TrimFilter()
                         .Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
@@ -147,13 +151,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
                         .OW($"{config.Size.Width * 4}")
                         .FillColor(config.BackgroundColor).MapOut
-                    .OverlayFilterOn(lastOverLay,
-                        $"if(gt(t,{start.TotalSeconds})," +
+                    .OverlayFilterOn(lastOverLay)
+                        .X($"if(gt(t,{start.TotalSeconds})," +
                             $"if(lt(t,{end.TotalSeconds})," +
                                 $"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}," +
                                 "(main_w-overlay_w)/2)," +
-                            "-w)",
-                        "(main_h-overlay_h)/2").MapOut;
+                            "-w)")
+                        .Y("(main_h-overlay_h)/2").MapOut;
             }
 
             var out_map = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;

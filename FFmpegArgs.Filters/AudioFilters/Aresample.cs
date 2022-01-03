@@ -29,17 +29,5 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         public static AresampleFilter Aresample(this AudioMap audioMap)
           => new AresampleFilter(audioMap);
-
-        /// <summary>
-        /// Resample the input audio to the specified parameters, using the libswresample library. If none are specified then the filter will automatically convert between its input and output.<br>
-        /// </br>This filter is also able to stretch/squeeze the audio data to make it match the timestamps or to inject silence / cut out audio to make it match the timestamps, do a combination of both or do neither.
-        /// </summary>
-        public static AresampleFilter Aresample(this AudioMap audioMap, AresampleFilterConfig config)
-            => new AresampleFilter(audioMap).ResamplerOptionsFilter(config);
-    }
-
-    public class AresampleFilterConfig : ResamplerOptionsConfig
-    {
-
     }
 }

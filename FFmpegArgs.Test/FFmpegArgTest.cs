@@ -35,7 +35,7 @@ namespace FFmpegArgs.Test
 
             var overlay = color_keys.First()
                 //overlay color_key on-center background_video
-                .OverlayFilterOn(background_video.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
+                .OverlayFilterOn(background_video.ImageMaps.First()).X("(W-w)/2").Y("(H-h)/2").MapOut;
 
             ffmpegArg.AddOutput(new VideoFileOutput($"{nameof(FFmpegArgTest)}-{nameof(Test1)}.mp4", overlay, background_video.AudioMaps.First()).Fps(24));
             ffmpegArg.AddOutput(new VideoFileOutput($"{nameof(FFmpegArgTest)}-{nameof(Test1)}2.mp4", color_keys.Last(), background_video.AudioMaps.First()).Fps(30));
@@ -64,7 +64,7 @@ namespace FFmpegArgs.Test
             var images = ImageFilesConcatInput.FromFilesSearch(@"D:\temp\ffmpeg_encode_test\ImgsTest\img%d.jpg");
             images.SetOption("-r", 1 / (imageDuration + animationDuration));
             var images_map = ffmpegArg.AddImageInput(images);
-            var pad = images_map.PadFilter().WH("ceil(iw/2)*2", "ceil(ih/2)*2");//fix image size not % 2 = 0
+            var pad = images_map.PadFilter().W("ceil(iw/2)*2").H("ceil(ih/2)*2");//fix image size not % 2 = 0
             var format = pad.MapOut.FormatFilter(PixFmt.rgba);
             var scale = format.MapOut.ScaleFilter($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)", $"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
 
@@ -78,7 +78,7 @@ namespace FFmpegArgs.Test
             string _whenMove = $"between(t,n*({imageDuration} + {animationDuration}),n *({imageDuration} + {animationDuration})+{animationDuration})";
             string _move = $"-main_w/2 + main_w * (t - n*({imageDuration} + {animationDuration}))/({imageDuration} + {animationDuration})";
             string _stopMove = $"main_w/2";
-            var overlay = rotate.MapOut.OverlayFilterOn(background.MapOut, $"if({_whenMove},{_move},{_stopMove})", $"main_h/2");
+            var overlay = rotate.MapOut.OverlayFilterOn(background.MapOut).X($"if({_whenMove},{_move},{_stopMove})").Y($"main_h/2");
             overlay.EofAction(EofAction.EndAll);
             var videout = new ImageFileOutput($"{nameof(FFmpegArgTest)}-{nameof(Test2)}.mp4", overlay.MapOut);
             videout.Fps(24);
@@ -104,7 +104,7 @@ namespace FFmpegArgs.Test
 
             var videos = ffmpegArg.AddVideoInput(filterInput, 2, 0);
 
-            var output = videos.ImageMaps.Last().OverlayFilterOn(videos.ImageMaps.First(), "(W-w)/2", "(H-h)/2").MapOut;
+            var output = videos.ImageMaps.Last().OverlayFilterOn(videos.ImageMaps.First()).X("(W-w)/2").Y("(H-h)/2").MapOut;
 
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, output);
             ffmpegArg.AddOutput(imageFileOutput);

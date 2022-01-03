@@ -22,37 +22,59 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         [TestMethod]
         public void FadeInTwoTest()
         {
-            string outputFileName = $"{nameof(FadeInTwoTest)}.mp4";
-            string filterFileName = $"{nameof(FadeInTwoTest)}.txt";
+            ScreenMode screenMode = ScreenMode.Blur;
+            string outputFileName = $"{nameof(FadeInTwoTest)}-{screenMode}.mp4";
+            string filterFileName = $"{nameof(FadeInTwoTest)}-{screenMode}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
 
-            List<IEnumerable<ImageMap>> splitInputs = new List<IEnumerable<ImageMap>>();
-            splitInputs.AddRange(images_inputmap.Select(x => x
-                .SetSarFilter().Ratio("1/1").MapOut
-                .ScaleFilter()
-                    .Width($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)")
-                    .Height($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
-                .PadFilter()
-                    .WH($"{config.Size.Width}", $"{config.Size.Height}")
-                    .XY($"({config.Size.Height} - ow)/2", $"({config.Size.Height} - oh)/2")
-                    .Color(config.BackgroundColor).MapOut
-                .FpsFilter().Fps($"{config.Fps}").MapOut
-                .SetPtsFilter("PTS-STARTPTS").MapOut
-                .SplitFilter(2).MapsOut));
+            var inputs = images_inputmap.InputScreenModes(screenMode, config);
 
-            var overlaids = splitInputs.Select(x => x.First()).Overlaids(config);
+            var overlaids = inputs.Select(x => x.First()).Overlaids(config);
 
-            var startEnd = splitInputs.Select(x => x.Last()).ToList().StartEnd(config);
+            List<ImageMap> fadeIns = new List<ImageMap>();
+            List<ImageMap> fadeOuts = new List<ImageMap>();
+            var fades = inputs.Select(x => x.Last()).ToList();
+            foreach (var input in fades)
+            {
+                var temp = input
+                    .PadFilter()
+                        .W($"{config.Size.Width}")
+                        .H($"{config.Size.Height}")
+                        .X($"({config.Size.Width}-iw)/2")
+                        .Y($"({config.Size.Height}-ih)/2")
+                        .Color(config.BackgroundColor).MapOut
+                    .TrimFilter().Duration(config.TransitionDuration).MapOut
+                    .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
 
-            var blendeds = startEnd.Blendeds(config, blend => blend
-               .Shortest(true)
-               .All_Expr(
-                    $"A*(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})) + " +
-                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})))"));
+                if (input.Equals(fades.First()))
+                {
+                    fadeOuts.Add(temp.FadeFilter(FadeType.Out).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                } 
+                else if (input.Equals(fades.Last()))
+                {
+                    fadeIns.Add(temp.FadeFilter(FadeType.In).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                }
+                else
+                {
+                    var split = temp.SplitFilter(2).MapsOut;
+                    fadeOuts.Add(split.First().FadeFilter(FadeType.Out).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                    fadeIns.Add(split.Last().FadeFilter(FadeType.In).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
+                }
+            }
+
+            List<ImageMap> blendeds = new List<ImageMap>();
+            for(int i = 0; i < fadeIns.Count; i++)
+            {
+                blendeds.Add(fadeOuts[i].OverlayFilterOn(fadeIns[i])
+                        .X($"(main_w-overlay_w)/2")
+                        .Y($"(main_h-overlay_h)/2").MapOut
+                    .TrimFilter().Duration(config.TransitionDuration).MapOut
+                    .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut);
+            }
 
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
 

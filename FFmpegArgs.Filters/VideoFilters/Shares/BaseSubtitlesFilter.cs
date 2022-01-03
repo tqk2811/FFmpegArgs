@@ -85,45 +85,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static T ForceStyle<T>(this T t, string force_style) where T : BaseSubtitlesFilter
           => t.SetOption("force_style", force_style);
 
-        public static string ToHexSubStringRGB(this Color color)
-        {
-            return $"&H{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}";
-        }
-
-        public static T BaseSubtitlesFilter<T>(this T t, BaseSubtitlesFilterConfig config) where T : BaseSubtitlesFilter
-        {
-            if (!string.IsNullOrWhiteSpace(config?.Filename)) t.FileName(config.Filename);
-            if (config?.OriginalSize != null) t.OriginalSize(config.OriginalSize.Value);
-            if (!string.IsNullOrWhiteSpace(config?.Fontsdir)) t.FontsDir(config.Fontsdir);
-            if (config?.Alpha != null) t.Alpha(config.Alpha.Value);
-            var ForceStyle = config?.ForceStyle?.ToString();
-            if (!string.IsNullOrWhiteSpace(ForceStyle)) t.ForceStyle(ForceStyle);
-            return t;
-        }
-    }
-
-    public class BaseSubtitlesFilterConfig
-    {
-        /// <summary>
-        /// set the filename of file to read
-        /// </summary>
-        public string Filename { get; set; }
-        /// <summary>
-        /// set the size of the original video (used to scale fonts)
-        /// </summary>
-        public Size? OriginalSize { get; set; }
-        /// <summary>
-        /// set the directory containing the fonts to read
-        /// </summary>
-        public string Fontsdir { get; set; }
-        /// <summary>
-        /// enable processing of alpha channel (default false)
-        /// </summary>
-        public bool? Alpha { get; set; }
-        /// <summary>
-        /// force subtitle style
-        /// </summary>
-        public SubtitleStyleConfig ForceStyle { get; set; }
+        public static string ToHexSubStringRGB(this Color color) => $"&H{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}";
     }
 
     /// <summary>

@@ -63,22 +63,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CropFilter Y(string y) => Y(y.Expression());
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="x">The horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame.</param>
-        /// <param name="y">The vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame.</param>
-        /// <returns></returns>
-        public CropFilter XY(string x, string y) => X(x).Y(y);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="x">The horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame.</param>
-        /// <param name="y">The vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame.</param>
-        /// <returns></returns>
-        public CropFilter XY(Action<FFmpegExpression> x, Action<FFmpegExpression> y) => X(x).Y(y);
-
-
-        /// <summary>
         /// The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.
         /// </summary>
         /// <param name="w"></param>
@@ -105,41 +89,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CropFilter H(string h) => H(h.Expression());
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="w">The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.</param>
-        /// <param name="h">The height of the output video. It defaults to ih. This expression is evaluated only once during the filter configuration, or when the ‘h’ or ‘out_h’ command is sent.</param>
-        /// <returns></returns>
-        public CropFilter WH(string w, string h) => W(w).H(h);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="w">The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.</param>
-        /// <param name="h">The height of the output video. It defaults to ih. This expression is evaluated only once during the filter configuration, or when the ‘h’ or ‘out_h’ command is sent.</param>
-        /// <returns></returns>
-        public CropFilter WH(Action<FFmpegExpression> w, Action<FFmpegExpression> h) => W(w).H(h);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="x">The horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame.</param>
-        /// <param name="y">The vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame.</param>
-        /// <param name="w">The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.</param>
-        /// <param name="h">The height of the output video. It defaults to ih. This expression is evaluated only once during the filter configuration, or when the ‘h’ or ‘out_h’ command is sent.</param>
-        /// <returns></returns>
-        public CropFilter XYWH(string x, string y, string w, string h) => X(x).Y(y).W(w).H(h);
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="x">The horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame.</param>
-        /// <param name="y">The vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame.</param>
-        /// <param name="w">The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.</param>
-        /// <param name="h">The height of the output video. It defaults to ih. This expression is evaluated only once during the filter configuration, or when the ‘h’ or ‘out_h’ command is sent.</param>
-        /// <returns></returns>
-        public CropFilter XYWH(Action<FFmpegExpression> x, Action<FFmpegExpression> y, Action<FFmpegExpression> w, Action<FFmpegExpression> h) => X(x).Y(y).W(w).H(h);
-
-
-        /// <summary>
         /// If set to 1 will force the output display aspect ratio to be the same of the input, by changing the output sample aspect ratio. It defaults to 0.
         /// </summary>
         /// <param name="flag"></param>
@@ -163,33 +112,5 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static CropFilter CropFilter(this ImageMap imageMap)
             => new CropFilter(imageMap);
-
-        /// <summary>
-        /// Crop the input video to given dimensions.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="x">The horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame.</param>
-        /// <param name="y">The vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame.</param>
-        /// <param name="w">The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.</param>
-        /// <param name="h">The height of the output video. It defaults to ih. This expression is evaluated only once during the filter configuration, or when the ‘h’ or ‘out_h’ command is sent.</param>
-        /// <returns></returns>
-        public static CropFilter CropFilter(this ImageMap imageMap,
-            Action<FFmpegExpression> x, Action<FFmpegExpression> y,
-            Action<FFmpegExpression> w, Action<FFmpegExpression> h)
-            => new CropFilter(imageMap, x, y, w, h);
-
-        /// <summary>
-        /// Crop the input video to given dimensions.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="x">The horizontal position, in the input video, of the left edge of the output video. It defaults to (in_w-out_w)/2. This expression is evaluated per-frame.</param>
-        /// <param name="y">The vertical position, in the input video, of the top edge of the output video. It defaults to (in_h-out_h)/2. This expression is evaluated per-frame.</param>
-        /// <param name="w">The width of the output video. It defaults to iw. This expression is evaluated only once during the filter configuration, or when the ‘w’ or ‘out_w’ command is sent.</param>
-        /// <param name="h">The height of the output video. It defaults to ih. This expression is evaluated only once during the filter configuration, or when the ‘h’ or ‘out_h’ command is sent.</param>
-        /// <returns></returns>
-        public static CropFilter CropFilter(this ImageMap imageMap,
-            string x, string y,
-            string w, string h)
-            => new CropFilter(imageMap, x.Expression(), y.Expression(), w.Expression(), h.Expression());
     }
 }

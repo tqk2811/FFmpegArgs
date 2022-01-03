@@ -84,32 +84,5 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         public static AtrimFilter AtrimFilter(this AudioMap audioMap)
           => new AtrimFilter(audioMap);
-
-        /// <summary>
-        /// Trim the input so that the output contains one continuous subpart of the input.
-        /// </summary>
-        public static AtrimFilter AtrimFilter(this AudioMap audioMap, AtrimFilterConfig config)
-        {
-            var result = new AtrimFilter(audioMap);
-            if (config?.Start != null) result.Start(config.Start.Value);
-            if (config?.End != null) result.End(config.End.Value);
-            if (config?.StartPts != null) result.StartPts(config.StartPts.Value);
-            if (config?.EndPts != null) result.EndPts(config.EndPts.Value);
-            if (config?.Duration != null) result.Duration(config.Duration.Value);
-            if (config?.StartSample != null) result.StartSample(config.StartSample.Value);
-            if (config?.EndSample != null) result.EndSample(config.EndSample.Value);
-            return result;
-        }
-    }
-
-    public class AtrimFilterConfig
-    {
-        public TimeSpan? Start { get; set; }
-        public TimeSpan? End { get; set; }
-        public long? StartPts { get; set; }
-        public long? EndPts { get; set; }
-        public TimeSpan? Duration { get; set; }
-        public long? StartSample { get; set; }
-        public long? EndSample { get; set; }
     }
 }

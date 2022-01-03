@@ -61,35 +61,5 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static ColorKeyFilter ColorKeyFilter(this ImageMap parent)
           => new ColorKeyFilter(parent);
-
-        /// <summary>
-        /// RGB colorspace color keying.
-        /// </summary>
-        public static ColorKeyFilter ColorKeyFilter(this ImageMap input0, ColorkeyFilterConfig config)
-        {
-            var result = new ColorKeyFilter(input0);
-            if (config?.Color != null) result.Color(config.Color.Value);
-            if (config?.Similarity != null) result.Similarity(config.Similarity.Value);
-            if (config?.Blend != null) result.Blend(config.Blend.Value);
-            if (!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-            return result;
-        }
-    }
-
-    public class ColorkeyFilterConfig : ITimelineSupportConfig
-    {
-        /// <summary>
-        ///  set the colorkey key color (default "black")
-        /// </summary>
-        public Color? Color { get; set; }
-        /// <summary>
-        ///  set the colorkey similarity value (from 0.01 to 1) (default 0.01)
-        /// </summary>
-        public float? Similarity { get; set; }
-        /// <summary>
-        ///  set the colorkey key blend value (from 0 to 1) (default 0)
-        /// </summary>
-        public float? Blend { get; set; }
-        public string TimelineSupport { get; set; }
     }
 }

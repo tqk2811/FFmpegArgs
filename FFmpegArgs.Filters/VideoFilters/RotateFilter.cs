@@ -81,23 +81,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             => this.SetOption("oh", oh.Run(expression));
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="ow">Set the output width expression, default value is "iw". This expression is evaluated just once during configuration.</param>
-        /// <param name="oh">Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.</param>
-        /// <returns></returns>
-        public RotateFilter OutWH(string ow = "iw", string oh = "ih")
-          => OutWH(ow.Expression(), oh.Expression());
-
-        /// <summary>
-        /// /Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.
-        /// </summary>
-        /// <param name="oh"></param>
-        /// <returns></returns>
-        public RotateFilter OutWH(Action<FFmpegExpression> ow, Action<FFmpegExpression> oh)
-          => this.SetOption("ow", ow.Run(expression)).SetOption("oh", oh.Run(expression));
-
-        /// <summary>
         /// Enable bilinear interpolation if set to 1, a value of 0 disables it. Default value is 1.
         /// </summary>
         /// <param name="flag"></param>

@@ -138,52 +138,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public static VolumeFilter VolumeFilter(this AudioMap audioMap, string volume)
             => new VolumeFilter(audioMap).Volume(volume);
-
-
-        /// <summary>
-        /// Change input volume.
-        /// </summary>
-        public static VolumeFilter VolumeFilter(this AudioMap audioMap, VolumeFilterConfig config)
-        {
-            var result = new VolumeFilter(audioMap);
-            if (!string.IsNullOrWhiteSpace(config?.Volume)) result.Volume(config.Volume);
-            if (config?.Precision != null) result.Precision(config.Precision.Value);
-            if (config?.Eval != null) result.Eval(config.Eval.Value);
-            if (config?.Replaygain != null) result.ReplayGain(config.Replaygain.Value);
-            if (config?.ReplaygainPreamp != null) result.ReplaygainPreamp(config.ReplaygainPreamp.Value);
-            if (config?.ReplaygainNoclip != null) result.ReplaygainNoclip(config.ReplaygainNoclip.Value);
-            if (!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-            return result;
-        }
-    }
-
-    public class VolumeFilterConfig : ITimelineSupportConfig
-    {
-        /// <summary>
-        ///  set volume adjustment expression (default "1.0")
-        /// </summary>
-        public string Volume { get; set; }
-        /// <summary>
-        ///  select mathematical precision (from 0 to 2) (default float)
-        /// </summary>
-        public VolumeNumberPrecision? Precision { get; set; }
-        /// <summary>
-        ///  specify when to evaluate expressions (from 0 to 1) (default once)
-        /// </summary>
-        public VolumeEval? Eval { get; set; }
-        /// <summary>
-        ///  Apply replaygain side data when present (from 0 to 3) (default drop)
-        /// </summary>
-        public VolumeReplayGain? Replaygain { get; set; }
-        /// <summary>
-        ///  Apply replaygain pre-amplification (from -15 to 15) (default 0)
-        /// </summary>
-        public double? ReplaygainPreamp { get; set; }
-        /// <summary>
-        ///  Apply replaygain clipping prevention (default true)
-        /// </summary>
-        public bool? ReplaygainNoclip { get; set; }
-        public string TimelineSupport { get; set; }
     }
 
 

@@ -10,19 +10,21 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class FadeFilter : ImageToImageFilter
     {
-        internal FadeFilter(ImageMap imageMap, FadeType type) : base("fade", imageMap)
+        internal FadeFilter(ImageMap imageMap) : base("fade", imageMap)
         {
-            this.SetOption("type", type.ToString().ToLower());
             AddMapOut();
         }
+
+        public FadeFilter Type(FadeType t)
+            => this.SetOption("t", t.ToString().ToLower());
 
         /// <summary>
         /// Specify the number of the frame to start applying the fade effect at. (from 0 to INT_MAX) (default 0)
         /// </summary>
         /// <param name="frame"></param>
         /// <returns></returns>
-        public FadeFilter StartFrame(int frame)
-          => this.SetOptionRange("s", frame, 0, int.MaxValue);
+        public FadeFilter StartFrame(int s)
+          => this.SetOptionRange("s", s, 0, int.MaxValue);
 
         /// <summary>
         /// The number of frames that the fade effect lasts. At the end of the fade-in effect, the output video will have the same intensity as the input video.<br>
@@ -76,10 +78,18 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Apply a fade-in/out effect to the input video.
         /// </summary>
         /// <param name="imageMap"></param>
+        /// <returns></returns>
+        public static FadeFilter FadeFilter(this ImageMap imageMap)
+          => new FadeFilter(imageMap);
+
+        /// <summary>
+        /// Apply a fade-in/out effect to the input video.
+        /// </summary>
+        /// <param name="imageMap"></param>
         /// <param name="type">The effect type can be either "in" for a fade-in, or "out" for a fade-out effect. Default is in.</param>
         /// <returns></returns>
-        public static FadeFilter FadeFilter(this ImageMap imageMap, FadeType type = FadeType.In)
-          => new FadeFilter(imageMap, type);
+        public static FadeFilter FadeFilter(this ImageMap imageMap, FadeType t)
+          => new FadeFilter(imageMap).Type(t);
     }
 
 
