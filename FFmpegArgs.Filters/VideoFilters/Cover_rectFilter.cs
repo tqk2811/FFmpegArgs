@@ -1,4 +1,11 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+cover_rect AVOptions:
+  cover             <string>     ..FV....... cover bitmap filename
+  mode              <int>        ..FV....... set removal mode (from 0 to 1) (default blur)
+     cover           0            ..FV....... cover area with bitmap
+     blur            1            ..FV....... blur area
+ */
+using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -8,11 +15,17 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class Cover_rectFilter : ImageToImageFilter
     {
-        internal Cover_rectFilter(string filePathOrName, ImageMap imageMap) : base("cover_rect", imageMap)
+        internal Cover_rectFilter(ImageMap imageMap) : base("cover_rect", imageMap)
         {
             AddMapOut();
-            this.SetOption("cover", filePathOrName);
         }
+
+        /// <summary>
+        /// Filepath of the optional cover image, needs to be in yuv420.
+        /// </summary>
+        /// <param name="filePathOrName"></param>
+        /// <returns></returns>
+        public Cover_rectFilter Cover(string filePathOrName) => this.SetOption("cover", filePathOrName);
 
         /// <summary>
         /// Set covering mode.<br></br>
@@ -20,8 +33,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public Cover_rectFilter Mode(Cover_rectMode mode)
-            => this.SetOption("mode", mode);
+        public Cover_rectFilter Mode(Cover_rectMode mode) => this.SetOption("mode", mode);
     }
 
     public static class Cover_rectFilterExtensions
@@ -29,9 +41,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Cover a rectangular object
         /// </summary>
-        /// <param name="filePathOrName">Filepath of the optional cover image, needs to be in yuv420.</param>
-        public static Cover_rectFilter Cover_rectFilter(this ImageMap imageMap, string filePathOrName)
-          => new Cover_rectFilter(filePathOrName, imageMap);
+        public static Cover_rectFilter Cover_rectFilter(this ImageMap imageMap) => new Cover_rectFilter(imageMap);
     }
 
     public enum Cover_rectMode

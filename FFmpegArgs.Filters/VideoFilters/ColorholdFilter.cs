@@ -1,4 +1,10 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+colorhold AVOptions:
+  color             <color>      ..FV.....T. set the colorhold key color (default "black")
+  similarity        <float>      ..FV.....T. set the colorhold similarity value (from 0.01 to 1) (default 0.01)
+  blend             <float>      ..FV.....T. set the colorhold blend value (from 0 to 1) (default 0)
+*/
+using FFmpegArgs.Cores.Maps;
 using System.Drawing;
 
 namespace FFmpegArgs.Filters.VideoFilters
@@ -9,11 +15,17 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class ColorholdFilter : ImageToImageFilter
     {
-        internal ColorholdFilter(Color color, ImageMap imageMap) : base("colorhold", imageMap)
+        internal ColorholdFilter(ImageMap imageMap) : base("colorhold", imageMap)
         {
             AddMapOut();
-            this.SetOption("color", color.ToHexStringRGB());
         }
+
+        /// <summary>
+        /// The color which will not be replaced with neutral gray.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public ColorholdFilter Color(Color color) => this.SetOption("color", color.ToHexStringRGBA());
 
         /// <summary>
         /// Similarity percentage with the key color.<br></br>
@@ -41,8 +53,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Remove all color information for all RGB colors except for certain one.
         /// </summary>
-        /// <param name="color">The color which will not be replaced with neutral gray.</param>
-        public static ColorholdFilter ColorholdFilter(this ImageMap imageMap, Color color)
-          => new ColorholdFilter(color, imageMap);
+        public static ColorholdFilter ColorholdFilter(this ImageMap imageMap)
+          => new ColorholdFilter(imageMap);
     }
 }

@@ -1,4 +1,12 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+convolve AVOptions:
+  planes            <int>        ..FV....... set planes to convolve (from 0 to 15) (default 7)
+  impulse           <int>        ..FV....... when to process impulses (from 0 to 1) (default all)
+     first           0            ..FV....... process only first impulse, ignore rest
+     all             1            ..FV....... process all impulses
+  noise             <float>      ..FV....... set noise (from 0 to 1) (default 1e-07)
+ */
+using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.VideoFilters
 {
@@ -8,11 +16,17 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class ConvolveFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, IFramesync
     {
-        internal ConvolveFilter(int plane, ImageMap imageMap) : base("convolve", imageMap)
+        internal ConvolveFilter(ImageMap imageMap) : base("convolve", imageMap)
         {
             AddMapOut();
-            this.SetOptionRange("planes", plane, 0, 15);
         }
+
+        /// <summary>
+        /// Set planes to convolve (from 0 to 15) (default 7)
+        /// </summary>
+        /// <param name="planes"></param>
+        /// <returns></returns>
+        public ConvolveFilter Planes(int planes) => this.SetOptionRange("planes", planes, 0, 15);
 
         /// <summary>
         /// Set which impulse video frames will be processed, can be first or all. Default is all.
@@ -37,9 +51,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Apply 2D convolution of video stream in frequency domain using second stream as impulse.
         /// </summary>
-        /// <param name="plane">set planes to convolve (from 0 to 15) (default 7)</param>
-        public static ConvolveFilter ConvolveFilter(this ImageMap imageMap, int plane)
-          => new ConvolveFilter(plane, imageMap);
+        public static ConvolveFilter ConvolveFilter(this ImageMap imageMap) => new ConvolveFilter(imageMap);
     }
 
     public enum ConvolveImpulse

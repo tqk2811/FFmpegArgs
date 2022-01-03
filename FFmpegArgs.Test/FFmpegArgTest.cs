@@ -30,7 +30,7 @@ namespace FFmpegArgs.Test
             var color_keys = green_video.ImageMaps.First()
                 .ColorKeyFilter(Color.FromArgb(101, 220, 8)).Similarity(0.25f)//ColorKey
                     .Enable("between(t,0,10)").MapOut//ITimelineSupport
-                .ScaleFilter("iw/3", "ih/3").MapOut
+                .ScaleFilter().W("iw/3").H("ih/3").MapOut
                 .SplitFilter(2).MapsOut;//Scale
 
             var overlay = color_keys.First()
@@ -66,7 +66,7 @@ namespace FFmpegArgs.Test
             var images_map = ffmpegArg.AddImageInput(images);
             var pad = images_map.PadFilter().W("ceil(iw/2)*2").H("ceil(ih/2)*2");//fix image size not % 2 = 0
             var format = pad.MapOut.FormatFilter(PixFmt.rgba);
-            var scale = format.MapOut.ScaleFilter($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)", $"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
+            var scale = format.MapOut.ScaleFilter().W($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)").H($"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
 
             //rotate {animationDuration} sec and stop rotate {imageDuration} sec
             string _whenRotate = $"between(t,n*({imageDuration} + {animationDuration}),n *({imageDuration} + {animationDuration})+{animationDuration})";

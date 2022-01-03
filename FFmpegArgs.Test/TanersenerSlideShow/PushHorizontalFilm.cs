@@ -85,8 +85,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Crop:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,{config.Size.Width})",
-                                                $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),{config.Size.Height},-1)").MapOut
+                                .ScaleFilter()
+                                    .W($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,{config.Size.Width})")
+                                    .H($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),{config.Size.Height},-1)").MapOut
                                 .OverlayFilterOn(film_strip_map).X("0").Y("0").MapOut
                                 .CropFilter()
                                     .W($"{config.Size.Width}")
@@ -98,7 +99,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case ScreenMode.Scale:
                         {
                             images_Prepare.Add(images_inputmap[i]
-                                .ScaleFilter($"{config.Size.Width}", $"{config.Size.Height}").MapOut
+                                .ScaleFilter().W($"{config.Size.Width}").H($"{config.Size.Height}").MapOut
                                 .SetSarFilter("1/1").MapOut);
                             break;
                         }
@@ -116,9 +117,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
             var strip_images = film_strip_map
                 .SetPtsFilter("PTS-STARTPTS").MapOut
-                .ScaleFilter($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)",
-                                $"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
-                .ScaleFilter("trunc(iw/2)*2", "trunc(ih/2)*2").MapOut
+                .ScaleFilter()
+                    .W($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),min(iw,{config.Size.Width}),-1)")
+                    .H($"if(gte(iw/ih,{config.Size.Width}/{config.Size.Height}),-1,min(ih,{config.Size.Height}))").MapOut
+                .ScaleFilter().W("trunc(iw/2)*2").H("trunc(ih/2)*2").MapOut
                 .SetSarFilter("1/1").MapOut
                 .SplitFilter(images_inputmap.Count).MapsOut.ToList();
 

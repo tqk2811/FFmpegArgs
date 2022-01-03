@@ -1,4 +1,11 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+chromahold AVOptions:
+  color             <color>      ..FV.....T. set the chromahold key color (default "black")
+  similarity        <float>      ..FV.....T. set the chromahold similarity value (from 0.01 to 1) (default 0.01)
+  blend             <float>      ..FV.....T. set the chromahold blend value (from 0 to 1) (default 0)
+  yuv               <boolean>    ..FV.....T. color parameter is in yuv instead of rgb (default false)
+ */
+using FFmpegArgs.Cores.Maps;
 using System.Drawing;
 
 namespace FFmpegArgs.Filters.VideoFilters
@@ -9,11 +16,18 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// </summary>
     public class ChromaholdFilter : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
-        internal ChromaholdFilter(Color color, ImageMap imageMap) : base("chromahold", imageMap)
+        internal ChromaholdFilter(ImageMap imageMap) : base("chromahold", imageMap)
         {
             AddMapOut();
-            this.SetOption("color", color.ToHexStringRGBA());
         }
+
+        /// <summary>
+        /// The color which will not be replaced with neutral chroma.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public ChromaholdFilter Color(Color color)
+          => this.SetOption("color", color.ToHexStringRGBA());
 
         /// <summary>
         /// Similarity percentage with the above color. 0.01 matches only the exact key color, while 1.0 matches everything.
@@ -46,8 +60,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Remove all color information for all colors except for certain one.
         /// </summary>
-        /// <param name="color">The color which will not be replaced with neutral chroma.</param>
-        public static ChromaholdFilter ChromaholdFilter(this ImageMap imageMap, Color color)
-          => new ChromaholdFilter(color, imageMap);
+        public static ChromaholdFilter ChromaholdFilter(this ImageMap imageMap) => new ChromaholdFilter(imageMap);
     }
 }
