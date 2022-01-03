@@ -1,4 +1,15 @@
-﻿using FFmpegArgs.Filters.Enums;
+﻿/*
+anullsrc AVOptions:
+  channel_layout    <string>     ..F.A...... set channel_layout (default "stereo")
+  cl                <string>     ..F.A...... set channel_layout (default "stereo")
+  sample_rate       <string>     ..F.A...... set sample rate (default "44100")
+  r                 <string>     ..F.A...... set sample rate (default "44100")
+  nb_samples        <int>        ..F.A...... set the number of samples per requested frame (from 1 to 65535) (default 1024)
+  n                 <int>        ..F.A...... set the number of samples per requested frame (from 1 to 65535) (default 1024)
+  duration          <duration>   ..F.A...... set the audio duration (default -0.000001)
+  d                 <duration>   ..F.A...... set the audio duration (default -0.000001)
+ */
+using FFmpegArgs.Filters.Enums;
 using System;
 
 namespace FFmpegArgs.Filters.AudioSources
@@ -32,21 +43,22 @@ namespace FFmpegArgs.Filters.AudioSources
           => this.SetOptionRange("r", r, 0, int.MaxValue);
 
         /// <summary>
-        /// Set the number of samples per requested frames.
+        /// Set the number of samples per requested frames. (from 1 to 65535) (default 1024)
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
         public AnullsrcFilter NbSamples(int n)
-          => this.SetOptionRange("n", n, 0, int.MaxValue);
+          => this.SetOptionRange("n", n, 1, 65535);
 
         /// <summary>
         /// Set the duration of the sourced audio<br></br>
         /// If not specified, or the expressed duration is negative, the audio is supposed to be generated forever.
+        /// <br></br>(default -0.000001)
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
         public AnullsrcFilter Duration(TimeSpan d)
-          => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
+          => this.SetOptionRange("d", d, TimeSpan.MinValue, TimeSpan.MaxValue);
     }
 
     public static class AnullsrcFilterExtensions

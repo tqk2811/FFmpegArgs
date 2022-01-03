@@ -1,4 +1,7 @@
-﻿namespace FFmpegArgs.Filters.AudioSources
+﻿/*
+
+ */
+namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     /// <br></br>

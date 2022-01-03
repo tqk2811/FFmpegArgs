@@ -1,4 +1,55 @@
-﻿using FFmpegArgs.Filters.AudioFilters;
+﻿/*
+hilbert AVOptions:
+  sample_rate       <int>        ..F.A...... set sample rate (from 1 to INT_MAX) (default 44100)
+  r                 <int>        ..F.A...... set sample rate (from 1 to INT_MAX) (default 44100)
+  taps              <int>        ..F.A...... set number of taps (from 11 to 65535) (default 22051)
+  t                 <int>        ..F.A...... set number of taps (from 11 to 65535) (default 22051)
+  nb_samples        <int>        ..F.A...... set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
+  n                 <int>        ..F.A...... set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
+  win_func          <int>        ..F.A...... set window function (from 0 to 19) (default blackman)
+     rect            0            ..F.A...... Rectangular
+     bartlett        4            ..F.A...... Bartlett
+     hanning         1            ..F.A...... Hanning
+     hamming         2            ..F.A...... Hamming
+     blackman        3            ..F.A...... Blackman
+     welch           5            ..F.A...... Welch
+     flattop         6            ..F.A...... Flat-top
+     bharris         7            ..F.A...... Blackman-Harris
+     bnuttall        8            ..F.A...... Blackman-Nuttall
+     bhann           11           ..F.A...... Bartlett-Hann
+     sine            9            ..F.A...... Sine
+     nuttall         10           ..F.A...... Nuttall
+     lanczos         12           ..F.A...... Lanczos
+     gauss           13           ..F.A...... Gauss
+     tukey           14           ..F.A...... Tukey
+     dolph           15           ..F.A...... Dolph-Chebyshev
+     cauchy          16           ..F.A...... Cauchy
+     parzen          17           ..F.A...... Parzen
+     poisson         18           ..F.A...... Poisson
+     bohman          19           ..F.A...... Bohman
+  w                 <int>        ..F.A...... set window function (from 0 to 19) (default blackman)
+     rect            0            ..F.A...... Rectangular
+     bartlett        4            ..F.A...... Bartlett
+     hanning         1            ..F.A...... Hanning
+     hamming         2            ..F.A...... Hamming
+     blackman        3            ..F.A...... Blackman
+     welch           5            ..F.A...... Welch
+     flattop         6            ..F.A...... Flat-top
+     bharris         7            ..F.A...... Blackman-Harris
+     bnuttall        8            ..F.A...... Blackman-Nuttall
+     bhann           11           ..F.A...... Bartlett-Hann
+     sine            9            ..F.A...... Sine
+     nuttall         10           ..F.A...... Nuttall
+     lanczos         12           ..F.A...... Lanczos
+     gauss           13           ..F.A...... Gauss
+     tukey           14           ..F.A...... Tukey
+     dolph           15           ..F.A...... Dolph-Chebyshev
+     cauchy          16           ..F.A...... Cauchy
+     parzen          17           ..F.A...... Parzen
+     poisson         18           ..F.A...... Poisson
+     bohman          19           ..F.A...... Bohman
+ */
+using FFmpegArgs.Filters.AudioFilters;
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -13,28 +64,28 @@ namespace FFmpegArgs.Filters.AudioSources
         }
 
         /// <summary>
-        /// Set sample rate, default is 44100.
+        /// Set sample rate, (from 1 to INT_MAX) (default 44100)
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
         public HilbertFilter SampleRate(int r)
-          => this.SetOptionRange("r", r, 0, int.MaxValue);
+          => this.SetOptionRange("r", r, 1, INT_MAX);
 
         /// <summary>
-        /// Set length of FIR filter, default is 22051.
+        /// Set length of FIR filter, (from 11 to 65535) (default 22051)
         /// </summary>
         /// <param name="t"></param>
         /// <returns></returns>
         public HilbertFilter Taps(int t)
-          => this.SetOptionRange("t", t, 0, int.MaxValue);
+          => this.SetOptionRange("t", t, 11, 65535);
 
         /// <summary>
-        /// Set number of samples per each frame.
+        /// Set number of samples per each frame. (from 1 to INT_MAX) (default 1024)
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
         public HilbertFilter NbSamples(int n)
-          => this.SetOptionRange("n", n, 0, int.MaxValue);
+          => this.SetOptionRange("n", n, 1, INT_MAX);
 
         /// <summary>
         /// Set window function to be used when generating FIR coefficients.

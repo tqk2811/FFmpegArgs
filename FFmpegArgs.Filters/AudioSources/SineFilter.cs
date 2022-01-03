@@ -1,4 +1,16 @@
-﻿using FFmpegArgs.Expressions;
+﻿/*
+sine AVOptions:
+  frequency         <double>     ..F.A...... set the sine frequency (from 0 to DBL_MAX) (default 440)
+  f                 <double>     ..F.A...... set the sine frequency (from 0 to DBL_MAX) (default 440)
+  beep_factor       <double>     ..F.A...... set the beep frequency factor (from 0 to DBL_MAX) (default 0)
+  b                 <double>     ..F.A...... set the beep frequency factor (from 0 to DBL_MAX) (default 0)
+  sample_rate       <int>        ..F.A...... set the sample rate (from 1 to INT_MAX) (default 44100)
+  r                 <int>        ..F.A...... set the sample rate (from 1 to INT_MAX) (default 44100)
+  duration          <duration>   ..F.A...... set the audio duration (default 0)
+  d                 <duration>   ..F.A...... set the audio duration (default 0)
+  samples_per_frame <string>     ..F.A...... set the number of samples per frame (default "1024")
+ */
+using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
 
@@ -21,52 +33,45 @@ namespace FFmpegArgs.Filters.AudioSources
         }
 
         /// <summary>
-        /// Set the carrier frequency. Default is 440 Hz.
+        /// Set the carrier frequency. Default is 440 Hz. (from 0 to DBL_MAX) (default 440)
         /// </summary>
         /// <param name="f"></param>
         /// <returns></returns>
-        public SineFilter Frequency(int f)
-          => this.SetOptionRange("f", f, 0, int.MaxValue);
+        public SineFilter Frequency(double f)
+          => this.SetOptionRange("f", f, 0, DBL_MAX);
 
         /// <summary>
         /// Enable a periodic beep every second with frequency beep_factor times the carrier frequency. Default is 0, meaning the beep is disabled.
+        /// <br></br>(from 0 to DBL_MAX) (default 0)
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public SineFilter BeepFactor(bool flag)
-          => this.SetOption("b", flag.ToFFmpegFlag());
+        public SineFilter BeepFactor(double b)
+          => this.SetOptionRange("b", b, 0, DBL_MAX);
 
         /// <summary>
-        /// Specify the sample rate, default is 44100.
+        /// Specify the sample rate, (from 1 to INT_MAX) (default 44100)
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
         public SineFilter SampleRate(int r)
-          => this.SetOptionRange("r", r, 0, int.MaxValue);
+          => this.SetOptionRange("r", r, 1, INT_MAX);
 
         /// <summary>
-        /// Specify the duration of the generated audio stream.
+        /// Specify the duration of the generated audio stream. (default 0)
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
         public SineFilter Duration(TimeSpan d)
-          => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
+          => this.SetOptionRange("d", d, TimeSpan.MinValue, TimeSpan.MaxValue);
 
         /// <summary>
         /// Set the number of samples per output frame.
         /// </summary>
         /// <param name="samples_per_frame">Default is 1024.</param>
         /// <returns></returns>
-        public SineFilter SamplesPerFrame(string samples_per_frame)
-          => this.SetOption("samples_per_frame", samples_per_frame.Expression().Run(expression));
-
-        /// <summary>
-        /// Set the number of samples per output frame.
-        /// </summary>
-        /// <param name="samples_per_frame">Default is 1024.</param>
-        /// <returns></returns>
-        public SineFilter SamplesPerFrame(Action<FFmpegExpression> samples_per_frame)
-          => this.SetOption("samples_per_frame", samples_per_frame.Run(expression));
+        public SineFilter SamplesPerFrame(params int[] samples_per_frame)
+          => this.SetOption("samples_per_frame", string.Join(" ",samples_per_frame));
     }
 
     public static class SineFilterExtensions

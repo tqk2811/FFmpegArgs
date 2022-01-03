@@ -1,4 +1,12 @@
-﻿using FFmpegArgs.Filters.Enums;
+﻿/*
+abuffer AVOptions:
+  time_base         <rational>   ..F.A...... (from 0 to INT_MAX) (default 0/1)
+  sample_rate       <int>        ..F.A...... (from 0 to INT_MAX) (default 0)
+  sample_fmt        <sample_fmt> ..F.A...... (default none)
+  channel_layout    <string>     ..F.A......
+  channels          <int>        ..F.A...... (from 0 to INT_MAX) (default 0)
+ */
+using FFmpegArgs.Filters.Enums;
 
 namespace FFmpegArgs.Filters.AudioSources
 {
@@ -27,7 +35,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <param name="sample_rate"></param>
         /// <returns></returns>
         public AbufferFilter SampleRate(int sample_rate)
-          => this.SetOptionRange("sample_rate", sample_rate, 0, int.MaxValue);
+          => this.SetOptionRange("sample_rate", sample_rate, 0, INT_MAX);
 
         /// <summary>
         /// The sample format of the incoming audio buffers.<br>

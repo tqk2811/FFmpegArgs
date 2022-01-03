@@ -1,4 +1,19 @@
-﻿using FFmpegArgs.Filters.AudioFilters;
+﻿/*
+sinc AVOptions:
+  sample_rate       <int>        ..F.A...... set sample rate (from 1 to INT_MAX) (default 44100)
+  r                 <int>        ..F.A...... set sample rate (from 1 to INT_MAX) (default 44100)
+  nb_samples        <int>        ..F.A...... set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
+  n                 <int>        ..F.A...... set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
+  hp                <float>      ..F.A...... set high-pass filter frequency (from 0 to INT_MAX) (default 0)
+  lp                <float>      ..F.A...... set low-pass filter frequency (from 0 to INT_MAX) (default 0)
+  phase             <float>      ..F.A...... set filter phase response (from 0 to 100) (default 50)
+  beta              <float>      ..F.A...... set kaiser window beta (from -1 to 256) (default -1)
+  att               <float>      ..F.A...... set stop-band attenuation (from 40 to 180) (default 120)
+  round             <boolean>    ..F.A...... enable rounding (default false)
+  hptaps            <int>        ..F.A...... set number of taps for high-pass filter (from 0 to 32768) (default 0)
+  lptaps            <int>        ..F.A...... set number of taps for low-pass filter (from 0 to 32768) (default 0)
+ */
+using FFmpegArgs.Filters.AudioFilters;
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -13,60 +28,60 @@ namespace FFmpegArgs.Filters.AudioSources
         }
 
         /// <summary>
-        /// Set sample rate, default is 44100.
+        /// Set sample rate, (from 1 to INT_MAX) (default 44100)
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
         public SincFilter SampleRate(int r)
-          => this.SetOptionRange("r", r, 0, int.MaxValue);
+          => this.SetOptionRange("r", r, 1, INT_MAX);
 
         /// <summary>
-        /// Set number of samples per each frame. Default is 1024.
+        /// Set number of samples per each frame. (from 1 to INT_MAX) (default 1024)
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
         public SincFilter NbSamples(int n)
-          => this.SetOptionRange("n", n, 0, int.MaxValue);
+          => this.SetOptionRange("n", n, 1, INT_MAX);
 
         /// <summary>
-        /// Set high-pass frequency. Default is 0.
+        /// Set high-pass frequency. (from 0 to INT_MAX) (default 0)
         /// </summary>
         /// <param name="hp"></param>
         /// <returns></returns>
-        public SincFilter HighPass(int hp)
-          => this.SetOptionRange("hp", hp, int.MinValue, int.MaxValue);
+        public SincFilter HighPass(float hp)
+          => this.SetOptionRange("hp", hp, 0, INT_MAX);
 
         /// <summary>
-        /// Set low-pass frequency. Default is 0.<br>
+        /// Set low-pass frequency. (from 0 to INT_MAX) (default 0)<br>
         /// </br> If high-pass frequency is lower than low-pass frequency and low-pass frequency is higher than 0 then filter will create band-pass filter coefficients, otherwise band-reject filter coefficients.
         /// </summary>
         /// <param name="lp"></param>
         /// <returns></returns>
-        public SincFilter LowPass(int lp)
-          => this.SetOptionRange("lp", lp, int.MinValue, int.MaxValue);
+        public SincFilter LowPass(float lp)
+          => this.SetOptionRange("lp", lp, 0, INT_MAX);
 
         /// <summary>
-        /// Set filter phase response. Default is 50. Allowed range is from 0 to 100.
+        /// Set filter phase response. (from 0 to 100) (default 50)
         /// </summary>
         /// <param name="phase"></param>
         /// <returns></returns>
-        public SincFilter Phase(int phase)
+        public SincFilter Phase(float phase)
           => this.SetOptionRange("phase", phase, 0, 100);
 
         /// <summary>
-        /// Set Kaiser window beta.
+        /// Set Kaiser window beta. (from -1 to 256) (default -1)
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public SincFilter Beta(bool flag)
-          => this.SetOption("beta", flag.ToFFmpegFlag());
+        public SincFilter Beta(float beta)
+          => this.SetOptionRange("beta", beta, -1, 256);
 
         /// <summary>
         /// Set stop-band attenuation. Default is 120dB, allowed range is from 40 to 180 dB.
         /// </summary>
         /// <param name="att"></param>
         /// <returns></returns>
-        public SincFilter Att(int att)
+        public SincFilter Att(float att)
           => this.SetOptionRange("att", att, 40, 180);
 
         /// <summary>
@@ -78,20 +93,20 @@ namespace FFmpegArgs.Filters.AudioSources
           => this.SetOption("round", flag.ToFFmpegFlag());
 
         /// <summary>
-        /// Set number of taps for high-pass filter.
+        /// Set number of taps for high-pass filter. (from 0 to 32768) (default 0)
         /// </summary>
         /// <param name="phase"></param>
         /// <returns></returns>
         public SincFilter HpTaps(int phase)
-          => this.SetOptionRange("hptaps", phase, 0, int.MaxValue);
+          => this.SetOptionRange("hptaps", phase, 0, 32768);
 
         /// <summary>
-        /// Set number of taps for low-pass filter.
+        /// Set number of taps for low-pass filter. (from 0 to 32768) (default 0)
         /// </summary>
         /// <param name="phase"></param>
         /// <returns></returns>
         public SincFilter LpTaps(int phase)
-          => this.SetOptionRange("lptaps", phase, 0, int.MaxValue);
+          => this.SetOptionRange("lptaps", phase, 0, 32768);
     }
 
     public static class SincFilterExtensions
