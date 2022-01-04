@@ -187,8 +187,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
 
         public void PushVerticalFilmTest(ScreenMode screenMode, VerticalDirection direction)
         {
-            string outputFileName = $"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.mp4";
-            string filterFileName = $"{nameof(PushVerticalFilm)}-{screenMode}-{direction}.txt";
+            string outputFileName = $"{nameof(PushVerticalFilmTest)}-{screenMode}-{direction}.mp4";
+            string filterFileName = $"{nameof(PushVerticalFilmTest)}-{screenMode}-{direction}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
 
