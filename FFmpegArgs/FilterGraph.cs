@@ -31,7 +31,7 @@ namespace FFmpegArgs
         {
             var filter_not_bind = Filters.FirstOrDefault(x => x.MapsOut.Any(y => !y.IsMapped));
             if (filter_not_bind != null)
-                throw new FilterException($"Have Map in filter {filter_not_bind.FilterName} are not bind");
+                throw new FilterException($"Have Map in filter \"{filter_not_bind.FilterName}\" are not bind");
             if (useChain)
             {
                 var chains = FilterChain.BuildChains(_filters, true);
