@@ -5,6 +5,7 @@
 		<PreserveCompilationContext>false</PreserveCompilationContext>
 		<GenerateDependencyFile>false</GenerateDependencyFile>
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
 		<AssemblyVersion>1.1</AssemblyVersion>
 	</PropertyGroup>
