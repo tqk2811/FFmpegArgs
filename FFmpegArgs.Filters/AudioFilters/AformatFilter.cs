@@ -1,4 +1,15 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+aformat AVOptions:
+  sample_fmts       <string>     ..F.A...... A '|'-separated list of sample formats.
+  f                 <string>     ..F.A...... A '|'-separated list of sample formats.
+  sample_rates      <string>     ..F.A...... A '|'-separated list of sample rates.
+  r                 <string>     ..F.A...... A '|'-separated list of sample rates.
+  channel_layouts   <string>     ..F.A...... A '|'-separated list of channel layouts.
+  cl                <string>     ..F.A...... A '|'-separated list of channel layouts.
+*/
+using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Filters.Enums;
+using System.Linq;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -16,29 +27,32 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// A ’|’-separated list of requested sample formats.
         /// </summary>
-        /// <param name="f"></param>
+        /// <param name="fmts"></param>
         /// <returns></returns>
-        public AformatFilter SampleFmts(params string[] f)
-          => this.SetOption("f", string.Join("|", f));
+        public AformatFilter SampleFmts(params AVSampleFormat[] fmts)
+          => this.SetOption("f", string.Join("|", fmts.Select(x => x.GetAttribute<NameAttribute>().Name)));
 
         /// <summary>
-        /// A ’|’-separated list of requested sample rates.
+        /// list of requested sample rates.
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
-        public AformatFilter SampleRates(params string[] r)
+        public AformatFilter SampleRates(params int[] r)
           => this.SetOption("r", string.Join("|", r));
 
         /// <summary>
         /// A ’|’-separated list of requested channel layouts.<br>
         /// </br>https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax
         /// </summary>
-        /// <param name="cl"></param>
+        /// <param name="cls"></param>
         /// <returns></returns>
-        public AformatFilter ChannelLayouts(params string[] cl)
-          => this.SetOption("cl", string.Join("|", cl));
+        public AformatFilter ChannelLayouts(params ChannelLayout[] cls)
+          => this.SetOption("cl", string.Join("|", cls.Select(x => x.GetAttribute<NameAttribute>().Name)));
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AformatFilterExtensions
     {
         /// <summary>
