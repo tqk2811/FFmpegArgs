@@ -1,4 +1,15 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+amix AVOptions:
+  inputs            <int>        ..F.A...... Number of inputs. (from 1 to 32767) (default 2)
+  duration          <int>        ..F.A...... How to determine the end-of-stream. (from 0 to 2) (default longest)
+     longest         0            ..F.A...... Duration of longest input.
+     shortest        1            ..F.A...... Duration of shortest input.
+     first           2            ..F.A...... Duration of first input.
+  dropout_transition <float>      ..F.A...... Transition time, in seconds, for volume renormalization when an input stream ends. (from 0 to INT_MAX) (default 2)
+  weights           <string>     ..F.A....T. Set weight for each input. (default "1 1")
+  normalize         <boolean>    ..F.A....T. Scale inputs (default true)
+ */
+using FFmpegArgs.Cores.Maps;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +40,7 @@ namespace FFmpegArgs.Filters.AudioFilters
             => this.SetOption("duration", duration);
 
         /// <summary>
-        /// dropout_transition <float>      ..F.A...... Transition time, in seconds, for volume renormalization when an input stream ends. (from 0 to INT_MAX) (default 2)
+        /// Transition time, in seconds, for volume renormalization when an input stream ends. (from 0 to INT_MAX) (default 2)
         /// </summary>
         /// <param name="dropout_transition"></param>
         /// <returns></returns>
@@ -54,7 +65,9 @@ namespace FFmpegArgs.Filters.AudioFilters
             => this.SetOption("normalize", flag.ToFFmpegFlag());
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AmixFilterExtensions
     {
         /// <summary>
@@ -91,7 +104,9 @@ namespace FFmpegArgs.Filters.AudioFilters
             => new AmixFilter(audioMaps);
     }
 
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AmixDuration
     {
         /// <summary>

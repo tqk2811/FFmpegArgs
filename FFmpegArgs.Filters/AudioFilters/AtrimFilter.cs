@@ -55,7 +55,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// The maximum duration of the output in seconds.
         /// </summary>
-        /// <param name="start">..F.A...... Maximum duration of the output (default 0)</param>
+        /// <param name="duration">..F.A...... Maximum duration of the output (default 0)</param>
         /// <returns></returns>
         public AtrimFilter Duration(TimeSpan duration)
            => this.SetOptionRange("duration", duration, TimeSpan.Zero, TimeSpan.MaxValue);
