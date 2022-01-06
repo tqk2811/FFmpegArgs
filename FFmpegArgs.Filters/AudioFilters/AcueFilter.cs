@@ -1,4 +1,11 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+acue AVOptions:
+  cue               <int64>      ..FVA...... cue unix timestamp in microseconds (from 0 to I64_MAX) (default 0)
+  preroll           <duration>   ..FVA...... preroll duration in seconds (default 0)
+  buffer            <duration>   ..FVA...... buffer duration in seconds (default 0)
+ */
+using FFmpegArgs.Cores.Maps;
+using System;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -19,25 +26,28 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="cue"></param>
         /// <returns></returns>
         public AcueFilter Cue(long cue)
-          => this.SetOptionRange("cue", cue, 0, long.MaxValue);
+          => this.SetOptionRange("cue", cue, 0, I64_MAX);
 
         /// <summary>
         /// The duration of content to pass on as preroll expressed in seconds. Default is 0.
         /// </summary>
         /// <param name="preroll"></param>
         /// <returns></returns>
-        public AcueFilter Preroll(int preroll)
-          => this.SetOptionRange("preroll", preroll, 0, long.MaxValue);
+        public AcueFilter Preroll(TimeSpan preroll)
+          => this.SetOptionRange("preroll", preroll, TimeSpan.Zero, TimeSpan.MaxValue);
 
         /// <summary>
         /// The maximum duration of content to buffer before waiting for the cue expressed in seconds. Default is 0.
         /// </summary>
         /// <param name="buffer"></param>
         /// <returns></returns>
-        public AcueFilter Buffer(long buffer)
-          => this.SetOptionRange("buffer", buffer, 0, long.MaxValue);
+        public AcueFilter Buffer(TimeSpan buffer)
+          => this.SetOptionRange("buffer", buffer, TimeSpan.Zero, TimeSpan.MaxValue);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AcueFilterExtension
     {
         /// <summary>

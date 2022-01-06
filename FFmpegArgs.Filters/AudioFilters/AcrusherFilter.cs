@@ -1,4 +1,20 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+acrusher AVOptions:
+  level_in          <double>     ..F.A....T. set level in (from 0.015625 to 64) (default 1)
+  level_out         <double>     ..F.A....T. set level out (from 0.015625 to 64) (default 1)
+  bits              <double>     ..F.A....T. set bit reduction (from 1 to 64) (default 8)
+  mix               <double>     ..F.A....T. set mix (from 0 to 1) (default 0.5)
+  mode              <int>        ..F.A....T. set mode (from 0 to 1) (default lin)
+     lin             0            ..F.A....T. linear
+     log             1            ..F.A....T. logarithmic
+  dc                <double>     ..F.A....T. set DC (from 0.25 to 4) (default 1)
+  aa                <double>     ..F.A....T. set anti-aliasing (from 0 to 1) (default 0.5)
+  samples           <double>     ..F.A....T. set sample reduction (from 1 to 250) (default 1)
+  lfo               <boolean>    ..F.A....T. enable LFO (default false)
+  lforange          <double>     ..F.A....T. set LFO depth (from 1 to 250) (default 20)
+  lforate           <double>     ..F.A....T. set LFO rate (from 0.01 to 200) (default 0.3)
+ */
+using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -6,7 +22,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     ///  ..C acrusher          A->A       Reduce audio bit resolution.<br>
     ///  </br>https://ffmpeg.org/ffmpeg-filters.html#acrusher (need more info)
     /// </summary>
-    public class AcrusherFilter : AudioToAudioFilter
+    public class AcrusherFilter : AudioToAudioFilter, ICommandSupport
     {
         internal AcrusherFilter(AudioMap audioMap) : base("acrusher", audioMap)
         {
@@ -102,6 +118,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         => this.SetOptionRange("lforate", lforate, 0.01, 200);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AcrusherFilterExtension
     {
         /// <summary>
@@ -115,6 +134,9 @@ namespace FFmpegArgs.Filters.AudioFilters
             => new AcrusherFilter(audioMap);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AcrusherMode
     {
         /// <summary>
