@@ -1,4 +1,28 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+afir AVOptions:
+  dry               <float>      ..F.A...... set dry gain (from 0 to 10) (default 1)
+  wet               <float>      ..F.A...... set wet gain (from 0 to 10) (default 1)
+  length            <float>      ..F.A...... set IR length (from 0 to 1) (default 1)
+  gtype             <int>        ..F.A...... set IR auto gain type (from -1 to 2) (default peak)
+     none            -1           ..F.A...... without auto gain
+     peak            0            ..F.A...... peak gain
+     dc              1            ..F.A...... DC gain
+     gn              2            ..F.A...... gain to noise
+  irgain            <float>      ..F.A...... set IR gain (from 0 to 1) (default 1)
+  irfmt             <int>        ..F.A...... set IR format (from 0 to 1) (default input)
+     mono            0            ..F.A...... single channel
+     input           1            ..F.A...... same as input
+  maxir             <float>      ..F.A...... set max IR length (from 0.1 to 60) (default 30)
+  response          <boolean>    ..FV....... show IR frequency response (default false)
+  channel           <int>        ..FV....... set IR channel to display frequency response (from 0 to 1024) (default 0)
+  size              <image_size> ..FV....... set video size (default "hd720")
+  rate              <video_rate> ..FV....... set video rate (default "25")
+  minp              <int>        ..F.A...... set min partition size (from 1 to 32768) (default 8192)
+  maxp              <int>        ..F.A...... set max partition size (from 8 to 32768) (default 8192)
+  nbirs             <int>        ..F.A...... set number of input IRs (from 1 to 32) (default 1)
+  ir                <int>        ..F.A....T. select IR (from 0 to 31) (default 0)
+ */
+using FFmpegArgs.Cores.Maps;
 using System.Drawing;
 
 namespace FFmpegArgs.Filters.AudioFilters
@@ -15,7 +39,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         }
 
         /// <summary>
-        /// dry               <float>      ..F.A...... set dry gain (from 0 to 10) (default 1)
+        /// Set dry gain. This sets input gain. (from 0 to 10) (default 1)
         /// </summary>
         /// <param name="dry"></param>
         /// <returns></returns>
@@ -23,17 +47,17 @@ namespace FFmpegArgs.Filters.AudioFilters
             => this.SetOptionRange("dry", dry, 0, 10);
 
         /// <summary>
-        /// wet               <float>      ..F.A...... set wet gain (from 0 to 10) (default 1)
+        /// Set wet gain. This sets final output gain. (from 0 to 10) (default 1)
         /// </summary>
-        /// <param name="dry"></param>
+        /// <param name="wet"></param>
         /// <returns></returns>
         public AfirFilter Wet(float wet)
             => this.SetOptionRange("wet", wet, 0, 10);
 
         /// <summary>
-        /// length            <float>      ..F.A...... set IR length (from 0 to 1) (default 1)
+        /// Set Impulse Response filter length. Default is 1, which means whole IR is processed. (from 0 to 1) (default 1)
         /// </summary>
-        /// <param name="dry"></param>
+        /// <param name="length"></param>
         /// <returns></returns>
         public AfirFilter Length(float length)
             => this.SetOptionRange("length", length, 0, 1);
@@ -48,8 +72,8 @@ namespace FFmpegArgs.Filters.AudioFilters
           => this.SetOption("gtype", gtype);
 
         /// <summary>
-        /// Set gain to be applied to IR coefficients before filtering. <br>
-        /// </br>Allowed range is 0 to 1. This gain is applied after any gain applied with gtype option.
+        /// Set gain to be applied to IR coefficients before filtering. <br> 
+        /// </br>Allowed range is 0 to 1. This gain is applied after any gain applied with gtype option. (from 0 to 1) (default 1)
         /// </summary>
         /// <param name="irgain"></param>
         /// <returns></returns>
@@ -82,9 +106,9 @@ namespace FFmpegArgs.Filters.AudioFilters
 
         /// <summary>
         /// Set for which IR channel to display frequency response. By default is first channel displayed. This option is used only when response is enabled.
-        /// <br></br>channel           <int>        ..FV....... set IR channel to display frequency response (from 0 to 1024) (default 0)
+        /// <br></br>(from 0 to 1024) (default 0)
         /// </summary>
-        /// <param name="flag"></param>
+        /// <param name="channel"></param>
         /// <returns></returns>
         public AfirFilter Channel(int channel)
           => this.SetOptionRange("channel", channel, 0, 1024);
@@ -142,7 +166,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AfirFilter Ir(int ir)
          => this.SetOptionRange("ir", ir, 0, 31);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AfirFilterExtension
     {
         /// <summary>
@@ -156,7 +182,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static AfirFilter AfirFilter(this AudioMap audioMap)
           => new AfirFilter(audioMap);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AfirGtype
     {
         /// <summary>
@@ -177,9 +205,18 @@ namespace FFmpegArgs.Filters.AudioFilters
         gn
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AfirIrfmt
     {
+        /// <summary>
+        /// single channel
+        /// </summary>
         mono,
+        /// <summary>
+        /// same as input
+        /// </summary>
         input
     }
 

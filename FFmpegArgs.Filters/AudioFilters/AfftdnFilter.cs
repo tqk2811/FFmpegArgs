@@ -1,4 +1,22 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+afftdn AVOptions:
+  nr                <float>      ..F.A....T. set the noise reduction (from 0.01 to 97) (default 12)
+  nf                <float>      ..F.A....T. set the noise floor (from -80 to -20) (default -50)
+  nt                <int>        ..F.A...... set the noise type (from 0 to 3) (default w)
+     w               0            ..F.A...... white noise
+     v               1            ..F.A...... vinyl noise
+     s               2            ..F.A...... shellac noise
+     c               3            ..F.A...... custom noise
+  bn                <string>     ..F.A...... set the custom bands noise
+  rf                <float>      ..F.A....T. set the residual floor (from -80 to -20) (default -38)
+  tn                <boolean>    ..F.A....T. track noise (default false)
+  tr                <boolean>    ..F.A....T. track residual (default false)
+  om                <int>        ..F.A....T. set output mode (from 0 to 2) (default o)
+     i               0            ..F.A....T. input
+     o               1            ..F.A....T. output
+     n               2            ..F.A....T. noise
+ */
+using FFmpegArgs.Cores.Maps;
 
 namespace FFmpegArgs.Filters.AudioFilters
 {
@@ -29,6 +47,11 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AfftdnFilter NF(float nf)
           => this.SetOptionRange("nf", nf, -80, -20);
 
+        /// <summary>
+        /// Set the noise type
+        /// </summary>
+        /// <param name="nt"></param>
+        /// <returns></returns>
         public AfftdnFilter NT(AfftdnNoiseType nt)
           => this.SetOption("nt", nt);
 
@@ -77,6 +100,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         //https://ffmpeg.org/ffmpeg-filters.html#Commands-6
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AfftdnFilterExtension
     {
         /// <summary>
@@ -88,6 +114,9 @@ namespace FFmpegArgs.Filters.AudioFilters
             => new AfftdnFilter(audioMap);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AfftdnNoiseType
     {
         /// <summary>
@@ -108,6 +137,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         c
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AfftdnOutputMode
     {
         /// <summary>

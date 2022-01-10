@@ -1,4 +1,33 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿/*
+afftfilt AVOptions:
+  real              <string>     ..F.A...... set channels real expressions (default "re")
+  imag              <string>     ..F.A...... set channels imaginary expressions (default "im")
+  win_size          <int>        ..F.A...... set window size (from 16 to 131072) (default 4096)
+  win_func          <int>        ..F.A...... set window function (from 0 to 19) (default hann)
+     rect            0            ..F.A...... Rectangular
+     bartlett        4            ..F.A...... Bartlett
+     hann            1            ..F.A...... Hann
+     hanning         1            ..F.A...... Hanning
+     hamming         2            ..F.A...... Hamming
+     blackman        3            ..F.A...... Blackman
+     welch           5            ..F.A...... Welch
+     flattop         6            ..F.A...... Flat-top
+     bharris         7            ..F.A...... Blackman-Harris
+     bnuttall        8            ..F.A...... Blackman-Nuttall
+     bhann           11           ..F.A...... Bartlett-Hann
+     sine            9            ..F.A...... Sine
+     nuttall         10           ..F.A...... Nuttall
+     lanczos         12           ..F.A...... Lanczos
+     gauss           13           ..F.A...... Gauss
+     tukey           14           ..F.A...... Tukey
+     dolph           15           ..F.A...... Dolph-Chebyshev
+     cauchy          16           ..F.A...... Cauchy
+     parzen          17           ..F.A...... Parzen
+     poisson         18           ..F.A...... Poisson
+     bohman          19           ..F.A...... Bohman
+  overlap           <float>      ..F.A...... set window overlap (from 0 to 1) (default 0.75)
+ */
+using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Expressions;
 using System;
 using System.Collections.Generic;
@@ -85,42 +114,116 @@ namespace FFmpegArgs.Filters.AudioFilters
           => this.SetOption("win_func", win_func);
 
         /// <summary>
-        /// Set window overlap. If set to 1, the recommended overlap for selected window function will be picked. Default is 0.75.
+        /// Set window overlap. If set to 1, the recommended overlap for selected window function will be picked. (from 0 to 1) (default 0.75)
         /// </summary>
         /// <param name="overlap"></param>
         /// <returns></returns>
         public AfftfiltFilter Overlap(float overlap)
-          => this.SetOption("overlap", overlap);
+          => this.SetOptionRange("overlap", overlap, 0, 1);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AfftfiltFilterExtension
     {
+        /// <summary>
+        /// Apply arbitrary expressions to samples in frequency domain.
+        /// </summary>
+        /// <param name="audioMap"></param>
+        /// <returns></returns>
         public static AfftfiltFilter AfftfiltFilter(this AudioMap audioMap)
             => new AfftfiltFilter(audioMap);
     }
 
+    /// <summary>
+    /// set window function
+    /// </summary>
     public enum AfftfiltWinFunc
     {
+        /// <summary>
+        /// Rectangular
+        /// </summary>
         rect,
+        /// <summary>
+        /// Bartlett
+        /// </summary>
         bartlett,
+        /// <summary>
+        /// Hann
+        /// </summary>
         hann,
+        /// <summary>
+        /// Hanning
+        /// </summary>
         hanning,
+        /// <summary>
+        /// Hamming
+        /// </summary>
         hamming,
+        /// <summary>
+        /// Blackman
+        /// </summary>
         blackman,
+        /// <summary>
+        /// Welch
+        /// </summary>
         welch,
+        /// <summary>
+        /// Flat-top
+        /// </summary>
         flattop,
+        /// <summary>
+        /// Blackman-Harris
+        /// </summary>
         bharris,
+        /// <summary>
+        /// Blackman-Nuttall
+        /// </summary>
         bnuttall,
+        /// <summary>
+        /// Bartlett-Hann
+        /// </summary>
         bhann,
+        /// <summary>
+        /// Sine
+        /// </summary>
         sine,
+        /// <summary>
+        /// Nuttall
+        /// </summary>
         nuttall,
+        /// <summary>
+        /// Lanczos
+        /// </summary>
         lanczos,
+        /// <summary>
+        /// Gauss
+        /// </summary>
         gauss,
+        /// <summary>
+        /// Tukey
+        /// </summary>
         tukey,
+        /// <summary>
+        /// Dolph-Chebyshev
+        /// </summary>
         dolph,
+        /// <summary>
+        /// Cauchy
+        /// </summary>
         cauchy,
+        /// <summary>
+        /// Parzen
+        /// </summary>
         parzen,
+        /// <summary>
+        /// Poisson
+        /// </summary>
         poisson,
+        /// <summary>
+        /// Bohman
+        /// </summary>
         bohman
     }
 }
