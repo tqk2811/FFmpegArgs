@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AcrusherFilterGen : AudioToAudioFilter,ICommandSupport
@@ -33,7 +22,7 @@ public AcrusherFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
 ///  set mode (from 0 to 1) (default lin)
 /// </summary>
-public AcrusherFilterGen mode(AcrusherFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public AcrusherFilterGen mode(AcrusherFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set DC (from 0.25 to 4) (default 1)
 /// </summary>

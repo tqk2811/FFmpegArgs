@@ -1,18 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Executes;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.MultimediaFilters;
-using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Inputs;
-using FFmpegArgs.Outputs;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
+﻿
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -29,24 +15,17 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(BlurredBackgroundTest)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(ScreenMode.Blur, config);
-
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
-
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
-
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr(
                     $"A*(if( gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})) + " +
                     $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})))"));
-
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -55,9 +34,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }

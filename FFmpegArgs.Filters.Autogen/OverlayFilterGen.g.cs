@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class OverlayFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -25,11 +14,11 @@ public OverlayFilterGen y(string y) => this.SetOption("y",y);
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>
-public OverlayFilterGen eof_action(OverlayFilterGenEof_action eof_action) => this.SetOption("eof_action", eof_action.GetAttribute<NameAttribute>().Name);
+public OverlayFilterGen eof_action(OverlayFilterGenEof_action eof_action) => this.SetOption("eof_action", eof_action.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default frame)
 /// </summary>
-public OverlayFilterGen eval(OverlayFilterGenEval eval) => this.SetOption("eval", eval.GetAttribute<NameAttribute>().Name);
+public OverlayFilterGen eval(OverlayFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  force termination when the shortest input terminates (default false)
 /// </summary>
@@ -37,7 +26,7 @@ public OverlayFilterGen shortest(bool shortest) => this.SetOption("shortest",sho
 /// <summary>
 ///  set output format (from 0 to 7) (default yuv420)
 /// </summary>
-public OverlayFilterGen format(OverlayFilterGenFormat format) => this.SetOption("format", format.GetAttribute<NameAttribute>().Name);
+public OverlayFilterGen format(OverlayFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  repeat overlay of the last overlay frame (default true)
 /// </summary>
@@ -45,7 +34,7 @@ public OverlayFilterGen repeatlast(bool repeatlast) => this.SetOption("repeatlas
 /// <summary>
 ///  alpha format (from 0 to 1) (default straight)
 /// </summary>
-public OverlayFilterGen alpha(OverlayFilterGenAlpha alpha) => this.SetOption("alpha", alpha.GetAttribute<NameAttribute>().Name);
+public OverlayFilterGen alpha(OverlayFilterGenAlpha alpha) => this.SetOption("alpha", alpha.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class OverlayFilterGenExtensions
 {

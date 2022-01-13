@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 namespace FFmpegArgs.Cores.Filters
 {
     internal static class FilterExtensions
@@ -18,7 +18,6 @@ namespace FFmpegArgs.Cores.Filters
                 ?.Replace(@"'", @"\'")
                 ?.Replace(@":", @"\:");
         }
-
         /// <summary>
         /// Filter level
         /// </summary>
@@ -35,7 +34,6 @@ namespace FFmpegArgs.Cores.Filters
               ?.Replace(@",", @"\,")
               ?.Replace("\"", "\\\"");
         }
-
         /// <summary>
         /// OS shell level
         /// </summary>
@@ -46,8 +44,7 @@ namespace FFmpegArgs.Cores.Filters
             return input?.Replace(@"\", @"\\");
         }
 
-
-        internal static string GetFilterOptions(this IEnumerable<KeyValuePair<string,string>> options)
+        internal static string GetFilterOptions(this IEnumerable<KeyValuePair<string, string>> options)
         {
             return string.Join(":", options.Select(x => $"{x.Key}={x.Value.FiltergraphEscapingLv1()}")).FiltergraphEscapingLv2();
         }

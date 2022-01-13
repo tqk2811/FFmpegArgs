@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AdenormFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -21,7 +10,7 @@ public AdenormFilterGen level(double level) => this.SetOptionRange("level", leve
 /// <summary>
 ///  set type (from 0 to 3) (default dc)
 /// </summary>
-public AdenormFilterGen type(AdenormFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public AdenormFilterGen type(AdenormFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AdenormFilterGenExtensions
 {

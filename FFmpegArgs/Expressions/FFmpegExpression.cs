@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-
 namespace FFmpegArgs.Expressions
 {
     /// <summary>
@@ -18,16 +17,13 @@ namespace FFmpegArgs.Expressions
         {
           "+", "-", "*", "/", "^"
         };
-
         static readonly IEnumerable<string> _unaryOperators = new List<string>()
         {
           "+", "-"
         };
         static readonly IEnumerable<string> _prefixes = new List<string>()
         {
-
         };
-
         static readonly IEnumerable<string> _functionName = new List<string>()
         {
           "abs",
@@ -81,7 +77,6 @@ namespace FFmpegArgs.Expressions
           "trunc",
           "while",
         };
-
         static readonly IEnumerable<string> _functionSY = new List<string>()
         {
           "abs_1",
@@ -139,7 +134,6 @@ namespace FFmpegArgs.Expressions
           "trunc_1",
           "while_2",
         };
-
         static readonly IEnumerable<string> _consts = new List<string>()
         {
           "PI",
@@ -148,7 +142,6 @@ namespace FFmpegArgs.Expressions
           "INT_MAX",
           "NAN"
         };
-
         string _expression;
         readonly IEnumerable<string> _adv_variables;
         readonly IEnumerable<string> _adv_functionName;
@@ -159,7 +152,6 @@ namespace FFmpegArgs.Expressions
             this._adv_functionName = advFunctions?.Select(x => x.Name).Concat(_functionName) ?? _functionName;
             this._adv_functionSY = advFunctions?.Select(x => x.SY).Concat(_functionSY) ?? _functionSY;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -172,10 +164,8 @@ namespace FFmpegArgs.Expressions
             //https://en.wikipedia.org/wiki/Shunting-yard_algorithm
             //check....
             string[] tokens = Regex.Split(expression, @"([0-9]+\.[0-9]+|[0-9]+|[*+\-\/(),]|[A-z]+)").Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
-
             Stack<string> stacks = new Stack<string>();
             Queue<string> outputs = new Queue<string>();
-
             for (int i = 0; i < tokens.Length; i++)
             {
                 if (_adv_functionName.Any(x => x.Equals(tokens[i])))
@@ -218,7 +208,6 @@ namespace FFmpegArgs.Expressions
                     {
                         if (stacks.Count == 0)
                             throw new InvalidInputExpressionException($"Surplus )");
-
                         string pop = stacks.Pop();
                         if (pop.Equals("("))
                         {
@@ -237,7 +226,6 @@ namespace FFmpegArgs.Expressions
                 }
             }
             while (stacks.Count > 0) outputs.Enqueue(stacks.Pop());//end Pop entire stack to output
-
             //check invalid
             var invalid_tokens = outputs
               .Except(_adv_functionSY)
@@ -247,17 +235,13 @@ namespace FFmpegArgs.Expressions
               .Where(x => !double.TryParse(x, out double y))
               .ToList();
             if (invalid_tokens.Count > 0) throw new InvalidTokenExpressionException(string.Join(" ", invalid_tokens));
-
             this._expression = expression;
             return string.Join(" ", outputs);
         }
-
         public void NonCheck(string expression)
         {
             this._expression = expression;
         }
-
-
 
         public override string ToString()
         {

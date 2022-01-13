@@ -6,7 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FFmpegArgs.Filters\FFmpegArgs.Filters.csproj" />
+    <ProjectReference Include="..\FFmpegArgs.Filters.Common\FFmpegArgs.Filters.Common.csproj" />
+    <ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
   </ItemGroup>
 
 </Project>

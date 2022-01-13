@@ -10,11 +10,7 @@
     //    {
     //        AddMapOut();
     //    }
-
-
-
     //}
-
     //public static class BuffersinkFilterExtensions
     //{
     //    /// <summary>

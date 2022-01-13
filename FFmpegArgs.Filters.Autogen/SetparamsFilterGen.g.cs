@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SetparamsFilterGen : ImageToImageFilter
@@ -17,23 +6,23 @@ internal SetparamsFilterGen(ImageMap input) : base("setparams",input) { AddMapOu
 /// <summary>
 ///  select interlace mode (from -1 to 2) (default auto)
 /// </summary>
-public SetparamsFilterGen field_mode(SetparamsFilterGenField_mode field_mode) => this.SetOption("field_mode", field_mode.GetAttribute<NameAttribute>().Name);
+public SetparamsFilterGen field_mode(SetparamsFilterGenField_mode field_mode) => this.SetOption("field_mode", field_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  select color range (from -1 to 2) (default auto)
 /// </summary>
-public SetparamsFilterGen range(SetparamsFilterGenRange range) => this.SetOption("range", range.GetAttribute<NameAttribute>().Name);
+public SetparamsFilterGen range(SetparamsFilterGenRange range) => this.SetOption("range", range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  select color primaries (from -1 to 22) (default auto)
 /// </summary>
-public SetparamsFilterGen color_primaries(SetparamsFilterGenColor_primaries color_primaries) => this.SetOption("color_primaries", color_primaries.GetAttribute<NameAttribute>().Name);
+public SetparamsFilterGen color_primaries(SetparamsFilterGenColor_primaries color_primaries) => this.SetOption("color_primaries", color_primaries.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  select color transfer (from -1 to 18) (default auto)
 /// </summary>
-public SetparamsFilterGen color_trc(SetparamsFilterGenColor_trc color_trc) => this.SetOption("color_trc", color_trc.GetAttribute<NameAttribute>().Name);
+public SetparamsFilterGen color_trc(SetparamsFilterGenColor_trc color_trc) => this.SetOption("color_trc", color_trc.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  select colorspace (from -1 to 14) (default auto)
 /// </summary>
-public SetparamsFilterGen colorspace(SetparamsFilterGenColorspace colorspace) => this.SetOption("colorspace", colorspace.GetAttribute<NameAttribute>().Name);
+public SetparamsFilterGen colorspace(SetparamsFilterGenColorspace colorspace) => this.SetOption("colorspace", colorspace.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class SetparamsFilterGenExtensions
 {

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AstatsFilterGen : AudioToAudioFilter,ISliceThreading
@@ -29,11 +18,11 @@ public AstatsFilterGen reset(int reset) => this.SetOptionRange("reset", reset,0,
 /// <summary>
 ///  only measure_perchannel these per-channel statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
 /// </summary>
-public AstatsFilterGen measure_perchannel(AstatsFilterGenMeasure_perchannel measure_perchannel) => this.SetOption("measure_perchannel", measure_perchannel.GetAttribute<NameAttribute>().Name);
+public AstatsFilterGen measure_perchannel(AstatsFilterGenMeasure_perchannel measure_perchannel) => this.SetOption("measure_perchannel", measure_perchannel.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  only measure_perchannel these overall statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
 /// </summary>
-public AstatsFilterGen measure_overall(AstatsFilterGenMeasure_overall measure_overall) => this.SetOption("measure_overall", measure_overall.GetAttribute<NameAttribute>().Name);
+public AstatsFilterGen measure_overall(AstatsFilterGenMeasure_overall measure_overall) => this.SetOption("measure_overall", measure_overall.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AstatsFilterGenExtensions
 {

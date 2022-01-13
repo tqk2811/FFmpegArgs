@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class RgbashiftFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -49,7 +38,7 @@ public RgbashiftFilterGen av(int av) => this.SetOptionRange("av", av,-255,255);
 /// <summary>
 ///  set edge operation (from 0 to 1) (default smear)
 /// </summary>
-public RgbashiftFilterGen edge(RgbashiftFilterGenEdge edge) => this.SetOption("edge", edge.GetAttribute<NameAttribute>().Name);
+public RgbashiftFilterGen edge(RgbashiftFilterGenEdge edge) => this.SetOption("edge", edge.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class RgbashiftFilterGenExtensions
 {

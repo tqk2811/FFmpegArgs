@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DisplaceFilterGen : ImageToImageFilter,ITimelineSupport
@@ -17,7 +6,7 @@ internal DisplaceFilterGen(params ImageMap[] inputs) : base("displace",inputs) {
 /// <summary>
 ///  set edge mode (from 0 to 3) (default smear)
 /// </summary>
-public DisplaceFilterGen edge(DisplaceFilterGenEdge edge) => this.SetOption("edge", edge.GetAttribute<NameAttribute>().Name);
+public DisplaceFilterGen edge(DisplaceFilterGenEdge edge) => this.SetOption("edge", edge.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class DisplaceFilterGenExtensions
 {

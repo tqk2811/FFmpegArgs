@@ -1,21 +1,5 @@
-﻿using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.MultimediaFilters;
-using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Filters.VideoSources;
-using FFmpegArgs.Inputs;
-using FFmpegArgs.Outputs;
-using FFmpegArgs.Filters;
-using FFmpegArgs;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Collections.Generic;
-using System.Collections;
-using FFmpegArgs.Executes;
-using FFmpegArgs.Cores.Maps;
-using System.Diagnostics;
+﻿
+
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -28,31 +12,21 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             Config config = new Config();
             BarsOneVerticalTest(config,ScreenMode.Blur);
         }
-
-
         public void BarsOneVerticalTest(Config config, ScreenMode screenMode)
         {
             string outputFileName = $"{nameof(BarsOneVerticalTest)}-{screenMode}.mp4";
             string filterFileName = $"{nameof(BarsOneVerticalTest)}-{screenMode}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             int BAR_COUNT = 16;
-
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
-
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
-
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
-
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr($"if((lte(mod(X,({config.Size.Width}/{BAR_COUNT})),({config.Size.Width}/{BAR_COUNT})*T/{config.TransitionDuration.TotalSeconds})),A,B)"));
-
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -61,51 +35,30 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
-
-
-
-
-
-
-
-
-
         [TestMethod]
         public void BarsOneHorizontalTest_Blur()
         {
             Config config = new Config();
             BarsOneHorizontalTest(config, ScreenMode.Blur);
         }
-
-
         public void BarsOneHorizontalTest(Config config, ScreenMode screenMode)
         {
             string outputFileName = $"{nameof(BarsOneHorizontalTest)}-{screenMode}.mp4";
             string filterFileName = $"{nameof(BarsOneHorizontalTest)}-{screenMode}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             int BAR_COUNT = 16;
-
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
-
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
-
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
-
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr($"if((lte(mod(Y,({config.Size.Height}/{BAR_COUNT})),({config.Size.Height}/{BAR_COUNT})*T/{config.TransitionDuration.TotalSeconds})),A,B)"));
-
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -114,9 +67,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }

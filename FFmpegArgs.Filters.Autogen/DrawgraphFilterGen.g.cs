@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DrawgraphFilterGen : ImageToImageFilter
@@ -61,11 +50,11 @@ public DrawgraphFilterGen max(float max) => this.SetOptionRange("max", max,INT_M
 /// <summary>
 ///  set graph mode (from 0 to 2) (default line)
 /// </summary>
-public DrawgraphFilterGen mode(DrawgraphFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public DrawgraphFilterGen mode(DrawgraphFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set slide mode (from 0 to 4) (default frame)
 /// </summary>
-public DrawgraphFilterGen slide(DrawgraphFilterGenSlide slide) => this.SetOption("slide", slide.GetAttribute<NameAttribute>().Name);
+public DrawgraphFilterGen slide(DrawgraphFilterGenSlide slide) => this.SetOption("slide", slide.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set graph size (default "900x256")
 /// </summary>

@@ -10,12 +10,6 @@ rotate AVOptions:
   c                 <string>     ..FV....... set background fill color (default "black")
   bilinear          <boolean>    ..FV....... use bilinear interpolation (default true)
  */
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -39,12 +33,10 @@ namespace FFmpegArgs.Filters.VideoFilters
             new ShuntingYardFunction("roth","roth_1"),
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables, _func);
-
         internal RotateFilter(ImageMap imageMap) : base("rotate", imageMap)
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set an expression for the angle by which to rotate the input video clockwise, expressed as a number of radians. A negative value will result in a counter-clockwise rotation. By default it is set to "0".<br>
         /// </br>This expression is evaluated for each frame.
@@ -53,7 +45,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public RotateFilter Angle(string a)
             => Angle(a.Expression());
-
         /// <summary>
         /// Set an expression for the angle by which to rotate the input video clockwise, expressed as a number of radians. A negative value will result in a counter-clockwise rotation. By default it is set to "0".<br>
         /// </br>This expression is evaluated for each frame.
@@ -62,7 +53,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public RotateFilter Angle(Action<FFmpegExpression> a)
             => this.SetOption("a", a.Run(expression));
-
         /// <summary>
         /// Set the output width expression, default value is "iw". This expression is evaluated just once during configuration.
         /// </summary>
@@ -91,7 +81,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public RotateFilter OH(Action<FFmpegExpression> oh)
             => this.SetOption("oh", oh.Run(expression));
-
         /// <summary>
         /// Enable bilinear interpolation if set to 1, a value of 0 disables it. Default value is 1.
         /// </summary>
@@ -99,7 +88,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public RotateFilter Bilinear(bool flag)
           => this.SetOption("bilinear", flag.ToFFmpegFlag());
-
         /// <summary>
         /// Set the color used to fill the output area not covered by the rotated image. If the special value "none" is selected then no background is printed (useful for example if the background is never shown).
         /// </summary>
@@ -108,7 +96,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public RotateFilter FillColor(Color color)
            => this.SetOption("c", color.ToHexStringRGBA());
     }
-
     public static class RotateFilterExtension
     {
         /// <summary>

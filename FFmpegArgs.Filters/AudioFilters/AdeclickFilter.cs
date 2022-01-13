@@ -21,8 +21,6 @@ adeclick AVOptions:
      save            1            ..F.A...... overlap-save
      s               1            ..F.A...... overlap-save
  */
-using FFmpegArgs.Cores.Maps;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -35,7 +33,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set window size, in milliseconds. Allowed range is from 10 to 100. Default value is 55 milliseconds.<br>
         /// </br> This sets size of window which will be processed at once.  (from 10 to 100) (default 55)
@@ -44,7 +41,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AdeclickFilter Window(double window)
           => this.SetOptionRange("w", window, 10, 100);
-
         /// <summary>
         /// Set window overlap, in percentage of window size. Allowed range is from 50 to 95. Default value is 75 percent.<br>
         /// </br> Setting this to a very high value increases impulsive noise removal but makes whole process much slower. (from 50 to 95) (default 75)
@@ -53,7 +49,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AdeclickFilter Overlap(double overlap)
           => this.SetOptionRange("o", overlap, 50, 95);
-
         /// <summary>
         /// Set autoregression order, in percentage of window size.<br>
         /// </br> Allowed range is from 0 to 25. Default value is 2 percent.<br>
@@ -64,7 +59,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AdeclickFilter ArOrder(double arorder)
           => this.SetOptionRange("a", arorder, 0, 25);
-
         /// <summary>
         /// Set threshold value. Allowed range is from 1 to 100. <br>
         /// </br>Default value is 2. This controls the strength of impulsive noise which is going to be removed.<br>
@@ -75,7 +69,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AdeclickFilter Threshold(double threshold)
           => this.SetOptionRange("t", threshold, 1, 100);
-
         /// <summary>
         /// Set burst fusion, in percentage of window size. Allowed range is 0 to 10.  Default value is 2.<br>
         /// </br> If any two samples detected as noise are spaced less than this value then any sample between those two samples will be also detected as noise.<br>
@@ -85,7 +78,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AdeclickFilter Burst(double burst)
           => this.SetOptionRange("b", burst, 0, 10);
-
         /// <summary>
         /// Set overlap method.
         /// </summary>
@@ -94,7 +86,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AdeclickFilter Method(AdeclickMethod method)
           => this.SetOption("m", method.ToString().ToLower());
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -107,7 +98,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public static AdeclickFilter AdeclickFilter(this AudioMap audioMap) => new AdeclickFilter(audioMap);
     }
-
     /// <summary>
     /// 
     /// </summary>

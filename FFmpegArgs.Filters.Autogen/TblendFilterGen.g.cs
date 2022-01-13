@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class TblendFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -17,23 +6,23 @@ internal TblendFilterGen(ImageMap input) : base("tblend",input) { AddMapOut(); }
 /// <summary>
 ///  set component #0 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGen c0_mode(TblendFilterGenC0_mode c0_mode) => this.SetOption("c0_mode", c0_mode.GetAttribute<NameAttribute>().Name);
+public TblendFilterGen c0_mode(TblendFilterGenC0_mode c0_mode) => this.SetOption("c0_mode", c0_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #1 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGen c1_mode(TblendFilterGenC1_mode c1_mode) => this.SetOption("c1_mode", c1_mode.GetAttribute<NameAttribute>().Name);
+public TblendFilterGen c1_mode(TblendFilterGenC1_mode c1_mode) => this.SetOption("c1_mode", c1_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #2 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGen c2_mode(TblendFilterGenC2_mode c2_mode) => this.SetOption("c2_mode", c2_mode.GetAttribute<NameAttribute>().Name);
+public TblendFilterGen c2_mode(TblendFilterGenC2_mode c2_mode) => this.SetOption("c2_mode", c2_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #3 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public TblendFilterGen c3_mode(TblendFilterGenC3_mode c3_mode) => this.SetOption("c3_mode", c3_mode.GetAttribute<NameAttribute>().Name);
+public TblendFilterGen c3_mode(TblendFilterGenC3_mode c3_mode) => this.SetOption("c3_mode", c3_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set blend mode for all components (from -1 to 32) (default -1)
 /// </summary>
-public TblendFilterGen all_mode(TblendFilterGenAll_mode all_mode) => this.SetOption("all_mode", all_mode.GetAttribute<NameAttribute>().Name);
+public TblendFilterGen all_mode(TblendFilterGenAll_mode all_mode) => this.SetOption("all_mode", all_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color component #0 expression
 /// </summary>

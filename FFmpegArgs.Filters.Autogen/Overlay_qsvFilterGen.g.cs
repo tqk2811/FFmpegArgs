@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Overlay_qsvFilterGen : ImageToImageFilter
@@ -37,7 +26,7 @@ public Overlay_qsvFilterGen alpha(int alpha) => this.SetOptionRange("alpha", alp
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>
-public Overlay_qsvFilterGen eof_action(Overlay_qsvFilterGenEof_action eof_action) => this.SetOption("eof_action", eof_action.GetAttribute<NameAttribute>().Name);
+public Overlay_qsvFilterGen eof_action(Overlay_qsvFilterGenEof_action eof_action) => this.SetOption("eof_action", eof_action.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  force termination when the shortest input terminates (default false)
 /// </summary>

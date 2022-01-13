@@ -11,7 +11,6 @@
             AddMapOut();
         }
     }
-
     public static class SmptehdbarsFilterExtensions
     {
         public static SmptehdbarsFilter SmptehdbarsFilter(this FilterGraph filterGraph)

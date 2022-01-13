@@ -1,13 +1,4 @@
-﻿using FFmpegArgs.Executes;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FFmpegArgs.Test
+﻿namespace FFmpegArgs.Test
 {
     internal static class Render
     {
@@ -22,6 +13,5 @@ namespace FFmpegArgs.Test
 #endif
 #endif
         }
-
     }
 }

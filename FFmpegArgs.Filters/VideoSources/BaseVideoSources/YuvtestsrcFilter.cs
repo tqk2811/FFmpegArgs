@@ -11,7 +11,6 @@
             AddMapOut();
         }
     }
-
     public static class YuvtestsrcFilterExtensions
     {
         public static YuvtestsrcFilter YuvtestsrcFilter(this FilterGraph filterGraph)

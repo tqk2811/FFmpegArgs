@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AgateFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
@@ -21,7 +10,7 @@ public AgateFilterGen level_in(double level_in) => this.SetOptionRange("level_in
 /// <summary>
 ///  set mode (from 0 to 1) (default downward)
 /// </summary>
-public AgateFilterGen mode(AgateFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public AgateFilterGen mode(AgateFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set max gain reduction (from 0 to 1) (default 0.06125)
 /// </summary>
@@ -53,11 +42,11 @@ public AgateFilterGen knee(double knee) => this.SetOptionRange("knee", knee,1,8)
 /// <summary>
 ///  set detection (from 0 to 1) (default rms)
 /// </summary>
-public AgateFilterGen detection(AgateFilterGenDetection detection) => this.SetOption("detection", detection.GetAttribute<NameAttribute>().Name);
+public AgateFilterGen detection(AgateFilterGenDetection detection) => this.SetOption("detection", detection.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set link (from 0 to 1) (default average)
 /// </summary>
-public AgateFilterGen link(AgateFilterGenLink link) => this.SetOption("link", link.GetAttribute<NameAttribute>().Name);
+public AgateFilterGen link(AgateFilterGenLink link) => this.SetOption("link", link.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set sidechain gain (from 0.015625 to 64) (default 1)
 /// </summary>

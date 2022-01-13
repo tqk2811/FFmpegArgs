@@ -10,12 +10,9 @@
     //{
     //  internal AbuffersinkFilter()
     //  {
-
     //  }
     //}
-
     //public static class AbuffersinkFilterExtensions
     //{
-
     //}
 }

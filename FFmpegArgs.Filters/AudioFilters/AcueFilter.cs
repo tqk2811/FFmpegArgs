@@ -4,9 +4,6 @@ acue AVOptions:
   preroll           <duration>   ..FVA...... preroll duration in seconds (default 0)
   buffer            <duration>   ..FVA...... buffer duration in seconds (default 0)
  */
-using FFmpegArgs.Cores.Maps;
-using System;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -19,7 +16,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The cue timestamp expressed in a UNIX timestamp in microseconds. Default is 0.
         /// </summary>
@@ -27,7 +23,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AcueFilter Cue(long cue)
           => this.SetOptionRange("cue", cue, 0, I64_MAX);
-
         /// <summary>
         /// The duration of content to pass on as preroll expressed in seconds. Default is 0.
         /// </summary>
@@ -35,7 +30,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AcueFilter Preroll(TimeSpan preroll)
           => this.SetOptionRange("preroll", preroll, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// The maximum duration of content to buffer before waiting for the cue expressed in seconds. Default is 0.
         /// </summary>
@@ -44,7 +38,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AcueFilter Buffer(TimeSpan buffer)
           => this.SetOptionRange("buffer", buffer, TimeSpan.Zero, TimeSpan.MaxValue);
     }
-
     /// <summary>
     /// 
     /// </summary>

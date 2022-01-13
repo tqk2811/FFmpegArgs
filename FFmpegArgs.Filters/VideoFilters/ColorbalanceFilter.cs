@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC colorbalance      V->V       Adjust the color balance<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Allowed ranges for options are [-1.0, 1.0]. Defaults are 0.
         /// </summary>
@@ -21,7 +18,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorbalanceFilter AdjustType(ColorbalanceType type, float val)
           => this.SetOptionRange(type.ToString(), val, -1.0f, 1.0f);
-
         /// <summary>
         /// Preserve lightness when changing color balance. Default is disabled.
         /// </summary>
@@ -30,7 +26,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ColorbalanceFilter PreserveLightness(bool flag)
           => this.SetOption("pl", flag.ToFFmpegFlag());
     }
-
     public static class ColorbalanceFilterExtensions
     {
         /// <summary>
@@ -41,7 +36,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static ColorbalanceFilter ColorbalanceFilter(this ImageMap imageMap)
           => new ColorbalanceFilter(imageMap);
     }
-
     public enum ColorbalanceType
     {
         /// <summary>
@@ -56,8 +50,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Adjust blue shadows (darkest pixels).
         /// </summary>
         bs,
-
-
         /// <summary>
         /// Adjust red midtones (medium pixels).
         /// </summary>
@@ -70,8 +62,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Adjust blue midtones (medium pixels).
         /// </summary>
         bm,
-
-
         /// <summary>
         /// Adjust red highlights (brightest pixels).
         /// </summary>

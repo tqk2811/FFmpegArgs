@@ -58,13 +58,6 @@ scale AVOptions:
      init            0            ..FV....... eval expressions once during initialization
      frame           1            ..FV....... eval expressions during initialization and per-frame
  */
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -86,13 +79,11 @@ namespace FFmpegArgs.Filters.VideoFilters
             "n", "t",
             "pos"
         };
-
         readonly FFmpegExpression expression = new FFmpegExpression(_scalevariables);
         internal ScaleFilter(ImageMap imageMap) : base("scale", imageMap)
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the output video dimension expression. Default value is the input dimension.<br></br>
         /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
@@ -102,7 +93,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="w"></param>
         /// <returns></returns>
         public ScaleFilter W(Action<FFmpegExpression> w) => this.SetOption("w", w.Run(expression));
-
         /// <summary>
         /// Set the output video dimension expression. Default value is the input dimension.<br></br>
         /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
@@ -112,7 +102,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="w"></param>
         /// <returns></returns>
         public ScaleFilter W(string w) => this.W(w.Expression());
-
         /// <summary>
         /// Set the output video dimension expression. Default value is the input dimension.<br></br>
         /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
@@ -122,7 +111,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="h"></param>
         /// <returns></returns>
         public ScaleFilter H(Action<FFmpegExpression> h) => this.SetOption("h", h.Run(expression));
-
         /// <summary>
         /// Set the output video dimension expression. Default value is the input dimension.<br></br>
         /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
@@ -132,8 +120,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="h"></param>
         /// <returns></returns>
         public ScaleFilter H(string h) => this.H(h.Expression());
-
-
         /// <summary>
         /// Set the video size
         /// </summary>
@@ -142,8 +128,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public ScaleFilter Size(VideoSizeUtils videoSize)
-          => this.SetOption("s", videoSize.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("s", videoSize.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Set the video size
         /// </summary>
@@ -153,7 +138,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter Size(Size videoSize)
           => this.SetOption("s", $"{videoSize.Width}x{videoSize.Height}");
-
         /// <summary>
         /// Specify when to evaluate width and height expression.
         /// </summary>
@@ -161,7 +145,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter Eval(ScaleEval eval)
           => this.SetOption("eval", eval.ToString().ToLower());
-
         /// <summary>
         /// Set the interlacing mode
         /// </summary>
@@ -169,7 +152,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter Interl(ScaleInterl interl)
           => this.SetOption("interl", (int)interl);
-
         /// <summary>
         /// Set libswscale scaling flags.
         /// </summary>
@@ -177,7 +159,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter Flags(SwsFlags flag)
           => this.SetOption("flags", flag.ToString());
-
         /// <summary>
         /// Set scaling algorithm parameters. The specified values are specific of some scaling algorithms and ignored by others. The specified values are floating point number values.
         /// </summary>
@@ -185,7 +166,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter Param0(double param0)
             => this.SetOptionRange("param0", param0, INT_MIN, INT_MAX);
-
         /// <summary>
         /// Set scaling algorithm parameters. The specified values are specific of some scaling algorithms and ignored by others. The specified values are floating point number values.
         /// </summary>
@@ -193,7 +173,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter Param1(double param1)
             => this.SetOptionRange("param1", param1, INT_MIN, INT_MAX);
-
         /// <summary>
         /// Set in/output YCbCr color space type.<br></br>
         /// This allows the autodetected value to be overridden as well as allows forcing a specific value used for the output and encoder.<br></br>
@@ -203,7 +182,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter InColorMatrix(ScaleColorMatrix colorMatrix)
           => this.SetOption("in_color_matrix", colorMatrix);
-
         /// <summary>
         /// Set in/output YCbCr color space type.<br></br>
         /// This allows the autodetected value to be overridden as well as allows forcing a specific value used for the output and encoder.<br></br>
@@ -213,7 +191,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter OutColorMatrix(ScaleColorMatrix colorMatrix)
           => this.SetOption("out_color_matrix", colorMatrix);
-
         /// <summary>
         /// Set in/output YCbCr sample range.<br></br>
         /// This allows the autodetected value to be overridden as well as allows forcing a specific value used for the output and encoder.If not specified, the range depends on the pixel format.
@@ -222,7 +199,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ScaleFilter InRange(ScaleRange range)
             => this.SetOption("in_range", range);
-
         /// <summary>
         /// Set in/output YCbCr sample range.<br></br>
         /// This allows the autodetected value to be overridden as well as allows forcing a specific value used for the output and encoder.If not specified, the range depends on the pixel format.
@@ -234,11 +210,10 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Enable decreasing or increasing output video width or height if necessary to keep the original aspect ratio.
         /// </summary>
-        /// <param name="colorMatrix"></param>
+        /// <param name="ratio"></param>
         /// <returns></returns>
         public ScaleFilter ForceOriginalAspectRatio(ScaleAspectRatio ratio)
           => this.SetOption("force_original_aspect_ratio", ratio);
-
         /// <summary>
         /// Ensures that both the output dimensions, width and height, are divisible by the given integer when used together with force_original_aspect_ratio. This works similar to using -n in the w and h options.<br></br>
         /// This option respects the value set for force_original_aspect_ratio, increasing or decreasing the resolution accordingly.The video’s aspect ratio may be slightly modified.<br></br>
@@ -250,7 +225,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ScaleFilter ForceDivisibleBy(int val)
             => this.SetOptionRange("force_divisible_by", val, 1, 256);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ScaleFilterExtension
     {
         /// <summary>
@@ -258,7 +235,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         public static ScaleFilter ScaleFilter(this ImageMap imageMap) => new ScaleFilter(imageMap);
     }
-
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum ScaleColorMatrix
     {
         auto,
@@ -269,14 +246,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         smpte240m,
         bt2020
     }
-
     public enum ScaleAspectRatio
     {
         disable,
         decrease,
         increase
     }
-
     /// <summary>
     /// Set the interlacing mode.
     /// </summary>
@@ -286,18 +261,15 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Force interlaced aware scaling.
         /// </summary>
         ForceInterlacedAwareScaling = 1,
-
         /// <summary>
         /// Do not apply interlaced scaling.
         /// </summary>
         DoNotApplyInterlacedScaling = 0,
-
         /// <summary>
         /// Select interlaced aware scaling depending on whether the source frames are flagged as interlaced or not.
         /// </summary>
         Optional = -1,
     }
-
     /// <summary>
     /// Specify when to evaluate width and height expression.
     /// </summary>
@@ -307,13 +279,11 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// only evaluate expressions once during the filter initialization or when a command is processed
         /// </summary>
         Init,
-
         /// <summary>
         /// evaluate expressions for each incoming frame
         /// </summary>
         Frame
     }
-
     public enum ScaleRange
     {
         auto,
@@ -325,4 +295,5 @@ namespace FFmpegArgs.Filters.VideoFilters
         limited,
         tv
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

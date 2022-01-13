@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Filters.Enums
+﻿namespace FFmpegArgs.Enums
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg-scaler.html#sws_005fflags

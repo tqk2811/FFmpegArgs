@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
-using FFmpegArgs.Filters.Enums;
-using System.Collections.Generic;
-using System.Linq;
-
+﻿
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -19,7 +14,9 @@ namespace FFmpegArgs.Filters.VideoFilters
             this.SetOption("pix_fmts", string.Join("|", pixFmts));
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class FormatFilterExtension
     {
         /// <summary>
@@ -32,7 +29,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             return new FormatFilter(pixFmts.Select(x => x.ToString()), imageMap);
         }
-
         /// <summary>
         /// Convert the input video to one of the specified pixel formats. Libavfilter will try to pick one that is suitable as input to the next filter.
         /// </summary>

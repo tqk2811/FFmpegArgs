@@ -1,8 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
-using System;
-
-namespace FFmpegArgs.Filters.MultimediaFilters
+﻿namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... asplit            A->N       Pass on the audio input to N audio outputs.<br></br>
@@ -17,7 +13,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             this.SetOption("outputs", number);//libavfilter/split.c
         }
     }
-
     public static class ASplitFilterExtension
     {
         /// <summary>

@@ -6,8 +6,6 @@ convolve AVOptions:
      all             1            ..FV....... process all impulses
   noise             <float>      ..FV....... set noise (from 0 to 1) (default 1e-07)
  */
-using FFmpegArgs.Cores.Maps;
-
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -20,14 +18,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set planes to convolve (from 0 to 15) (default 7)
         /// </summary>
         /// <param name="planes"></param>
         /// <returns></returns>
         public ConvolveFilter Planes(int planes) => this.SetOptionRange("planes", planes, 0, 15);
-
         /// <summary>
         /// Set which impulse video frames will be processed, can be first or all. Default is all.
         /// </summary>
@@ -35,7 +31,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ConvolveFilter Impulse(ConvolveImpulse impulse)
             => this.SetOption("impulse", impulse);
-
         /// <summary>
         /// set noise (from 0 to 1) (default 1e-07)
         /// </summary>
@@ -43,9 +38,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ConvolveFilter Noise(float noise)
             => this.SetOptionRange("noise", noise, 0, 1);
-
     }
-
     public static class ConvolveFilterExtensions
     {
         /// <summary>
@@ -53,7 +46,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         public static ConvolveFilter ConvolveFilter(this ImageMap imageMap) => new ConvolveFilter(imageMap);
     }
-
     public enum ConvolveImpulse
     {
         /// <summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AtadenoiseFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -45,11 +34,11 @@ public AtadenoiseFilterGen s(int s) => this.SetOptionRange("s", s,5,129);
 /// <summary>
 ///  set what planes to filter (default 7)
 /// </summary>
-public AtadenoiseFilterGen p(AtadenoiseFilterGenP p) => this.SetOption("p", p.GetAttribute<NameAttribute>().Name);
+public AtadenoiseFilterGen p(AtadenoiseFilterGenP p) => this.SetOption("p", p.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set variant of algorithm (from 0 to 1) (default p)
 /// </summary>
-public AtadenoiseFilterGen a(AtadenoiseFilterGenA a) => this.SetOption("a", a.GetAttribute<NameAttribute>().Name);
+public AtadenoiseFilterGen a(AtadenoiseFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set sigma for 1st plane (from 0 to 32767) (default 32767)
 /// </summary>

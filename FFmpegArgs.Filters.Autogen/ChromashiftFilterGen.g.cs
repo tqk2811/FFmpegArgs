@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ChromashiftFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -33,7 +22,7 @@ public ChromashiftFilterGen crv(int crv) => this.SetOptionRange("crv", crv,-255,
 /// <summary>
 ///  set edge operation (from 0 to 1) (default smear)
 /// </summary>
-public ChromashiftFilterGen edge(ChromashiftFilterGenEdge edge) => this.SetOption("edge", edge.GetAttribute<NameAttribute>().Name);
+public ChromashiftFilterGen edge(ChromashiftFilterGenEdge edge) => this.SetOption("edge", edge.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class ChromashiftFilterGenExtensions
 {

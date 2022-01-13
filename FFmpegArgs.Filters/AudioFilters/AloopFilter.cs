@@ -4,15 +4,6 @@ aloop AVOptions:
   size              <int64>      ..F.A...... max number of samples to loop (from 0 to INT_MAX) (default 0)
   start             <int64>      ..F.A...... set the loop start sample (from 0 to I64_MAX) (default 0)
  */
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -25,30 +16,25 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the number of loops. Setting this value to -1 will result in infinite loops. (from -1 to INT_MAX) (default 0)
         /// </summary>
         /// <param name="loop"></param>
         /// <returns></returns>
         public AloopFilter Loop(int loop) => this.SetOptionRange("loop", loop, -1, INT_MAX);
-
         /// <summary>
         /// Set maximal number of samples. (from 0 to INT_MAX) (default 0)
         /// </summary>
         /// <param name="size"></param>
         /// <returns></returns>
         public AloopFilter Size(long size) => this.SetOptionRange("size", size, 0, INT_MAX);
-
         /// <summary>
         /// Set first sample of loop. (from 0 to I64_MAX) (default 0)
         /// </summary>
         /// <param name="start"></param>
         /// <returns></returns>
         public AloopFilter Start(long start) => this.SetOptionRange("start", start, 0, I64_MAX);
-
     }
-
     /// <summary>
     /// 
     /// </summary>

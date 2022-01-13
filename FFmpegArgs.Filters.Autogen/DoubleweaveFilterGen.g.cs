@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DoubleweaveFilterGen : ImageToImageFilter,ISliceThreading
@@ -17,7 +6,7 @@ internal DoubleweaveFilterGen(ImageMap input) : base("doubleweave",input) { AddM
 /// <summary>
 ///  set first field (from 0 to 1) (default top)
 /// </summary>
-public DoubleweaveFilterGen first_field(DoubleweaveFilterGenFirst_field first_field) => this.SetOption("first_field", first_field.GetAttribute<NameAttribute>().Name);
+public DoubleweaveFilterGen first_field(DoubleweaveFilterGenFirst_field first_field) => this.SetOption("first_field", first_field.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class DoubleweaveFilterGenExtensions
 {

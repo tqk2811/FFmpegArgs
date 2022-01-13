@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DespillFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -17,7 +6,7 @@ internal DespillFilterGen(ImageMap input) : base("despill",input) { AddMapOut();
 /// <summary>
 ///  set the screen type (from 0 to 1) (default green)
 /// </summary>
-public DespillFilterGen type(DespillFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public DespillFilterGen type(DespillFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the spillmap mix (from 0 to 1) (default 0.5)
 /// </summary>

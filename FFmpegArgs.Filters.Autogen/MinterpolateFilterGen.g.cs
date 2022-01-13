@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class MinterpolateFilterGen : ImageToImageFilter
@@ -21,19 +10,19 @@ public MinterpolateFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 /// <summary>
 ///  motion interpolation mode (from 0 to 2) (default mci)
 /// </summary>
-public MinterpolateFilterGen mi_mode(MinterpolateFilterGenMi_mode mi_mode) => this.SetOption("mi_mode", mi_mode.GetAttribute<NameAttribute>().Name);
+public MinterpolateFilterGen mi_mode(MinterpolateFilterGenMi_mode mi_mode) => this.SetOption("mi_mode", mi_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  motion compensation mode (from 0 to 1) (default obmc)
 /// </summary>
-public MinterpolateFilterGen mc_mode(MinterpolateFilterGenMc_mode mc_mode) => this.SetOption("mc_mode", mc_mode.GetAttribute<NameAttribute>().Name);
+public MinterpolateFilterGen mc_mode(MinterpolateFilterGenMc_mode mc_mode) => this.SetOption("mc_mode", mc_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  motion estimation mode (from 0 to 1) (default bilat)
 /// </summary>
-public MinterpolateFilterGen me_mode(MinterpolateFilterGenMe_mode me_mode) => this.SetOption("me_mode", me_mode.GetAttribute<NameAttribute>().Name);
+public MinterpolateFilterGen me_mode(MinterpolateFilterGenMe_mode me_mode) => this.SetOption("me_mode", me_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  motion estimation method (from 1 to 9) (default epzs)
 /// </summary>
-public MinterpolateFilterGen me(MinterpolateFilterGenMe me) => this.SetOption("me", me.GetAttribute<NameAttribute>().Name);
+public MinterpolateFilterGen me(MinterpolateFilterGenMe me) => this.SetOption("me", me.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  macroblock size (from 4 to 16) (default 16)
 /// </summary>
@@ -49,7 +38,7 @@ public MinterpolateFilterGen vsbmc(int vsbmc) => this.SetOptionRange("vsbmc", vs
 /// <summary>
 ///  scene change detection method (from 0 to 1) (default fdiff)
 /// </summary>
-public MinterpolateFilterGen scd(MinterpolateFilterGenScd scd) => this.SetOption("scd", scd.GetAttribute<NameAttribute>().Name);
+public MinterpolateFilterGen scd(MinterpolateFilterGenScd scd) => this.SetOption("scd", scd.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  scene change threshold (from 0 to 100) (default 10)
 /// </summary>

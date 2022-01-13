@@ -1,20 +1,5 @@
-﻿using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.MultimediaFilters;
-using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Filters.VideoSources;
-using FFmpegArgs.Inputs;
-using FFmpegArgs.Outputs;
-using FFmpegArgs.Filters;
-using FFmpegArgs;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Collections.Generic;
-using System.Collections;
-using FFmpegArgs.Executes;
-using FFmpegArgs.Cores.Maps;
+﻿
+
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -26,13 +11,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             PushBoxVerticalTest(VerticalDirection.TopToBottom);
         }
-
         [TestMethod]
         public void PushBoxVerticalBottomToTopTest()
         {
             PushBoxVerticalTest(VerticalDirection.BottomToTop);
         }
-
         public void PushBoxVerticalTest(VerticalDirection verticalDirection)
         {
             ScreenMode screenMode = ScreenMode.Blur;
@@ -40,27 +23,20 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(PushBoxVerticalTest)}-{screenMode}-{verticalDirection}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             config.TransitionDuration = TimeSpan.FromSeconds(1);
             TimeSpan TOTAL_DURATION = (config.ImageDuration + 2 * config.TransitionDuration) * images_inputmap.Count +
                 config.TransitionDuration * 2 * images_inputmap.Count / 5;
-
             TOTAL_DURATION = config.ImageDuration * images_inputmap.Count + (29 * config.TransitionDuration * images_inputmap.Count + 5 * config.TransitionDuration) / 10;
-
             var TRANSITION_PHASE_DURATION = config.TransitionDuration / 2;
             var CHECKPOINT_DURATION = config.TransitionDuration / 5;
-
             FilterInput background_fi = new FilterInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             ImageMap background = ffmpegArg.AddVideoInput(background_fi).ImageMaps.First();
-
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
-
             List<ImageMap> overlaids = prepareInputs.Select(x => x.First()
                 .TrimFilter().Duration(config.ImageDuration).MapOut
                 .SelectFilter($"lte(n,{config.ImageFrameCount})").MapOut).ToList();
-
             List<List<ImageMap>> pres = prepareInputs.Select(x => x.Last()
                 .ScaleFilter()
                     .W($"{config.Size.Width}/2")
@@ -74,7 +50,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .TrimFilter().Duration(config.TransitionDuration).MapOut
                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut
                 .SplitFilter(5).MapsOut.ToList()).ToList();//prephasein, checkpoint, prezoomin, prezoomout, prephaseout
-
             var phaseouts = verticalDirection switch
             {
                 VerticalDirection.TopToBottom => pres.Select(x => x[4]//prephaseout
@@ -83,7 +58,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                     .Y($"t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Height}").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
-
                 VerticalDirection.BottomToTop => pres.Select(x => x[4]//prephaseout
                                 .OverlayFilterOn(background)
                                     .X("0")
@@ -92,7 +66,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()
             };
-
             var phaseins = verticalDirection switch
             {
                 VerticalDirection.TopToBottom => pres.Select(x => x[0]//prephasein
@@ -101,7 +74,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                     .Y($"-h+{config.Size.Height}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
-
                 VerticalDirection.BottomToTop => pres.Select(x => x[0]//prephasein
                                 .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x)-1])//phaseouts.Last()
                                     .X("0")
@@ -110,14 +82,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()
             };
-
             List<List<ImageMap>> checkin_checkout = pres.Select(x => x[1]//checkpoint
                 .TrimFilter().Duration(CHECKPOINT_DURATION).MapOut
                 .SplitFilter(2).MapsOut.ToList()).ToList();
-
             var checkins = checkin_checkout.Select(x => x.First()).ToList();
             var checkouts = checkin_checkout.Select(x => x.Last()).ToList();
-
             var zoomins = pres.Select(x => x[2]
                 .ScaleFilter()
                     .W("iw*5")
@@ -130,7 +99,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .Y("ih/2-(ih/zoom/2)")
                     .S(config.Size).MapOut
                 .SetPtsFilter("0.5*PTS").MapOut).ToList();
-
             var zoomouts = pres.Select(x => x[3]
                 .ScaleFilter()
                     .W("iw*5")
@@ -143,7 +111,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .Y("ih/2-(ih/zoom/2)")
                     .S(config.Size).MapOut
                 .SetPtsFilter("0.5*PTS").MapOut).ToList();
-
             List<ConcatGroup> concatGroups = new List<ConcatGroup>();
             for(int i = 0; i< images_inputmap.Count; i++)
             {
@@ -162,7 +129,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //=ImageDuration * ImageCount + (29*TransitionDuration*ImageCount + 5*TransitionDuration)/10
             ConcatFilter concatFilter = new ConcatFilter(concatGroups);
             var out_map = concatFilter.ImageMapsOut.First().FormatFilter(PixFmt.yuv420p).MapOut;
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -172,52 +138,20 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         [TestMethod]
         public void PushBoxHorizontalTopToBottomTest()
         {
             PushBoxHorizontalTest(HorizontalDirection.LeftToRight);
         }
-
         [TestMethod]
         public void PushBoxHorizontalBottomToTopTest()
         {
             PushBoxHorizontalTest(HorizontalDirection.RightToLeft);
         }
-
         public void PushBoxHorizontalTest(HorizontalDirection horizontalDirection)
         {
             ScreenMode screenMode = ScreenMode.Blur;
@@ -225,27 +159,20 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(PushBoxHorizontalTest)}-{screenMode}-{horizontalDirection}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             config.TransitionDuration = TimeSpan.FromSeconds(1);
             TimeSpan TOTAL_DURATION = (config.ImageDuration + 2 * config.TransitionDuration) * images_inputmap.Count +
                 config.TransitionDuration * 2 * images_inputmap.Count / 5;
-
             TOTAL_DURATION = config.ImageDuration * images_inputmap.Count + (29 * config.TransitionDuration * images_inputmap.Count + 5 * config.TransitionDuration) / 10;
-
             var TRANSITION_PHASE_DURATION = config.TransitionDuration / 2;
             var CHECKPOINT_DURATION = config.TransitionDuration / 5;
-
             FilterInput background_fi = new FilterInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             ImageMap background = ffmpegArg.AddVideoInput(background_fi).ImageMaps.First();
-
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
-
             List<ImageMap> overlaids = prepareInputs.Select(x => x.First()
                 .TrimFilter().Duration(config.ImageDuration).MapOut
                 .SelectFilter($"lte(n,{config.ImageFrameCount})").MapOut).ToList();
-
             List<List<ImageMap>> pres = prepareInputs.Select(x => x.Last()
                 .ScaleFilter()
                     .W($"{config.Size.Width}/2")
@@ -259,7 +186,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .TrimFilter().Duration(config.TransitionDuration).MapOut
                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut
                 .SplitFilter(5).MapsOut.ToList()).ToList();//prephasein, checkpoint, prezoomin, prezoomout, prephaseout
-
             var phaseouts = horizontalDirection switch
             {
                 HorizontalDirection.LeftToRight => pres.Select(x => x[4]//prephaseout
@@ -268,7 +194,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                     .X($"t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Width}").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
-
                 HorizontalDirection.RightToLeft => pres.Select(x => x[4]//prephaseout
                                 .OverlayFilterOn(background)
                                     .Y("0")
@@ -277,7 +202,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()
             };
-
             var phaseins = horizontalDirection switch
             {
                 HorizontalDirection.LeftToRight => pres.Select(x => x[0]//prephasein
@@ -286,7 +210,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                     .X($"-{config.Size.Width}+{config.Size.Width}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
-
                 HorizontalDirection.RightToLeft => pres.Select(x => x[0]//prephasein
                                 .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x) - 1])//phaseouts.Last()
                                     .Y("0")
@@ -295,14 +218,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()
             };
-
             List<List<ImageMap>> checkin_checkout = pres.Select(x => x[1]//checkpoint
                 .TrimFilter().Duration(CHECKPOINT_DURATION).MapOut
                 .SplitFilter(2).MapsOut.ToList()).ToList();
-
             var checkins = checkin_checkout.Select(x => x.First()).ToList();
             var checkouts = checkin_checkout.Select(x => x.Last()).ToList();
-
             var zoomins = pres.Select(x => x[2]
                 .ScaleFilter()
                     .W("iw*5")
@@ -315,7 +235,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .Y("ih/2-(ih/zoom/2)")
                     .S(config.Size).MapOut
                 .SetPtsFilter("0.5*PTS").MapOut).ToList();
-
             var zoomouts = pres.Select(x => x[3]
                 .ScaleFilter()
                     .W("iw*5")
@@ -328,7 +247,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .Y("ih/2-(ih/zoom/2)")
                     .S(config.Size).MapOut
                 .SetPtsFilter("0.5*PTS").MapOut).ToList();
-
             List<ConcatGroup> concatGroups = new List<ConcatGroup>();
             for (int i = 0; i < images_inputmap.Count; i++)
             {
@@ -347,7 +265,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //=ImageDuration * ImageCount + (29*TransitionDuration*ImageCount + 5*TransitionDuration)/10
             ConcatFilter concatFilter = new ConcatFilter(concatGroups);
             var out_map = concatFilter.ImageMapsOut.First().FormatFilter(PixFmt.yuv420p).MapOut;
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -357,9 +274,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }

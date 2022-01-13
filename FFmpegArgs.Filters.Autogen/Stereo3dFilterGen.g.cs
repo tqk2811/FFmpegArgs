@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Stereo3dFilterGen : ImageToImageFilter,ISliceThreading
@@ -17,11 +6,11 @@ internal Stereo3dFilterGen(ImageMap input) : base("stereo3d",input) { AddMapOut(
 /// <summary>
 ///  set input format (from 16 to 32) (default sbsl)
 /// </summary>
-public Stereo3dFilterGen _in(Stereo3dFilterGenIn _in) => this.SetOption("in", _in.GetAttribute<NameAttribute>().Name);
+public Stereo3dFilterGen _in(Stereo3dFilterGenIn _in) => this.SetOption("in", _in.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set output format (from 0 to 32) (default arcd)
 /// </summary>
-public Stereo3dFilterGen _out(Stereo3dFilterGenOut _out) => this.SetOption("out", _out.GetAttribute<NameAttribute>().Name);
+public Stereo3dFilterGen _out(Stereo3dFilterGenOut _out) => this.SetOption("out", _out.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class Stereo3dFilterGenExtensions
 {

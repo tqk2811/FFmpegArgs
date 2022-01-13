@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class EqFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
@@ -49,7 +38,7 @@ public EqFilterGen gamma_weight(string gamma_weight) => this.SetOption("gamma_we
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public EqFilterGen eval(EqFilterGenEval eval) => this.SetOption("eval", eval.GetAttribute<NameAttribute>().Name);
+public EqFilterGen eval(EqFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class EqFilterGenExtensions
 {

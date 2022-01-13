@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ColorspaceFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,27 +6,27 @@ internal ColorspaceFilterGen(ImageMap input) : base("colorspace",input) { AddMap
 /// <summary>
 ///  Set all color properties together (from 0 to 8) (default 0)
 /// </summary>
-public ColorspaceFilterGen all(ColorspaceFilterGenAll all) => this.SetOption("all", all.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen all(ColorspaceFilterGenAll all) => this.SetOption("all", all.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Output colorspace (from 0 to 14) (default 2)
 /// </summary>
-public ColorspaceFilterGen space(ColorspaceFilterGenSpace space) => this.SetOption("space", space.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen space(ColorspaceFilterGenSpace space) => this.SetOption("space", space.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Output color range (from 0 to 2) (default 0)
 /// </summary>
-public ColorspaceFilterGen range(ColorspaceFilterGenRange range) => this.SetOption("range", range.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen range(ColorspaceFilterGenRange range) => this.SetOption("range", range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Output color primaries (from 0 to 22) (default 2)
 /// </summary>
-public ColorspaceFilterGen primaries(ColorspaceFilterGenPrimaries primaries) => this.SetOption("primaries", primaries.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen primaries(ColorspaceFilterGenPrimaries primaries) => this.SetOption("primaries", primaries.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Output transfer characteristics (from 0 to 18) (default 2)
 /// </summary>
-public ColorspaceFilterGen trc(ColorspaceFilterGenTrc trc) => this.SetOption("trc", trc.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen trc(ColorspaceFilterGenTrc trc) => this.SetOption("trc", trc.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Output pixel format (from -1 to 164) (default -1)
 /// </summary>
-public ColorspaceFilterGen format(ColorspaceFilterGenFormat format) => this.SetOption("format", format.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen format(ColorspaceFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Ignore primary chromaticity and gamma correction (default false)
 /// </summary>
@@ -45,31 +34,31 @@ public ColorspaceFilterGen fast(bool fast) => this.SetOption("fast",fast.ToFFmpe
 /// <summary>
 ///  Dithering mode (from 0 to 1) (default none)
 /// </summary>
-public ColorspaceFilterGen dither(ColorspaceFilterGenDither dither) => this.SetOption("dither", dither.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen dither(ColorspaceFilterGenDither dither) => this.SetOption("dither", dither.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Whitepoint adaptation method (from 0 to 2) (default bradford)
 /// </summary>
-public ColorspaceFilterGen wpadapt(ColorspaceFilterGenWpadapt wpadapt) => this.SetOption("wpadapt", wpadapt.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen wpadapt(ColorspaceFilterGenWpadapt wpadapt) => this.SetOption("wpadapt", wpadapt.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Set all input color properties together (from 0 to 8) (default 0)
 /// </summary>
-public ColorspaceFilterGen iall(ColorspaceFilterGenIall iall) => this.SetOption("iall", iall.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen iall(ColorspaceFilterGenIall iall) => this.SetOption("iall", iall.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Input colorspace (from 0 to 22) (default 2)
 /// </summary>
-public ColorspaceFilterGen ispace(ColorspaceFilterGenIspace ispace) => this.SetOption("ispace", ispace.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen ispace(ColorspaceFilterGenIspace ispace) => this.SetOption("ispace", ispace.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Input color range (from 0 to 2) (default 0)
 /// </summary>
-public ColorspaceFilterGen irange(ColorspaceFilterGenIrange irange) => this.SetOption("irange", irange.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen irange(ColorspaceFilterGenIrange irange) => this.SetOption("irange", irange.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Input color primaries (from 0 to 22) (default 2)
 /// </summary>
-public ColorspaceFilterGen iprimaries(ColorspaceFilterGenIprimaries iprimaries) => this.SetOption("iprimaries", iprimaries.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen iprimaries(ColorspaceFilterGenIprimaries iprimaries) => this.SetOption("iprimaries", iprimaries.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Input transfer characteristics (from 0 to 18) (default 2)
 /// </summary>
-public ColorspaceFilterGen itrc(ColorspaceFilterGenItrc itrc) => this.SetOption("itrc", itrc.GetAttribute<NameAttribute>().Name);
+public ColorspaceFilterGen itrc(ColorspaceFilterGenItrc itrc) => this.SetOption("itrc", itrc.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class ColorspaceFilterGenExtensions
 {

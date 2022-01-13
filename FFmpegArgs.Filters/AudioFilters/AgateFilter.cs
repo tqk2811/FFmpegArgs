@@ -19,15 +19,6 @@ agate AVOptions:
      maximum         1            ..F.A....T.
   level_sc          <double>     ..F.A....T. set sidechain gain (from 0.015625 to 64) (default 1)
  */
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -40,7 +31,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set input level before filtering. Default is 1. Allowed range is from 0.015625 to 64.
         /// </summary>
@@ -48,7 +38,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter LevelIn(double level_in)
             => this.SetOptionRange("level_in", level_in, 0.015625, 64);
-
         /// <summary>
         /// Set the mode of operation. Can be upward or downward. Default is downward. If set to upward mode, higher parts of signal will be amplified, expanding dynamic range in upward direction. Otherwise, in case of downward lower parts of signal will be reduced.
         /// </summary>
@@ -56,7 +45,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Mode(AgateMode mode)
             => this.SetOption("mode", mode);
-
         /// <summary>
         /// Set the level of gain reduction when the signal is below the threshold. Default is 0.06125. Allowed range is from 0 to 1. Setting this to 0 disables reduction and then filter behaves like expander.<br>
         /// </br>(from 0 to 1) (default 0.06125)
@@ -65,7 +53,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Range(double range)
             => this.SetOptionRange("range", range, 0, 1);
-
         /// <summary>
         /// If a signal rises above this level the gain reduction is released. Default is 0.125. Allowed range is from 0 to 1.<br>
         /// </br>(from 0 to 1) (default 0.125)
@@ -74,7 +61,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Threshold(double threshold)
             => this.SetOptionRange("threshold", threshold, 0, 1);
-
         /// <summary>
         /// Set a ratio by which the signal is reduced. Default is 2. Allowed range is from 1 to 9000.<br>
         /// </br>(from 1 to 9000) (default 2)
@@ -83,7 +69,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Ratio(double ratio)
             => this.SetOptionRange("ratio", ratio, 1, 9000);
-
         /// <summary>
         /// Amount of milliseconds the signal has to rise above the threshold before gain reduction stops. Default is 20 milliseconds. Allowed range is from 0.01 to 9000.<br>
         /// </br>(from 0.01 to 9000) (default 20)
@@ -92,7 +77,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Attack(double attack)
             => this.SetOptionRange("attack", attack, 0.01, 9000);
-
         /// <summary>
         /// Amount of milliseconds the signal has to fall below the threshold before the reduction is increased again. Default is 250 milliseconds. Allowed range is from 0.01 to 9000.<br>
         /// </br>(from 0.01 to 9000) (default 250)
@@ -101,7 +85,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Release(double release)
             => this.SetOptionRange("release", release, 0.01, 9000);
-
         /// <summary>
         /// Set amount of amplification of signal after processing. Default is 1. Allowed range is from 1 to 64.<br>
         /// </br>(from 1 to 64) (default 1)
@@ -110,7 +93,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter MakeUp(double makeup)
             => this.SetOptionRange("makeup", makeup, 1, 64);
-
         /// <summary>
         /// Curve the sharp knee around the threshold to enter gain reduction more softly. Default is 2.828427125. Allowed range is from 1 to 8.<br>
         /// </br>(from 1 to 8) (default 2.82843)
@@ -119,7 +101,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Knee(double knee)
             => this.SetOptionRange("knee", knee, 1, 8);
-
         /// <summary>
         /// Choose if exact signal should be taken for detection or an RMS like one. Default is rms. Can be peak or rms.<br>
         /// </br>
@@ -128,7 +109,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Detection(AgateDetection detection)
             => this.SetOption("detection", detection);
-
         /// <summary>
         /// Choose if the average level between all channels or the louder channel affects the reduction. Default is average. Can be average or maximum.
         /// </summary>
@@ -136,7 +116,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter Link(AgateLink link)
             => this.SetOption("link", link);
-
         /// <summary>
         /// set sidechain gain (from 0.015625 to 64) (default 1)
         /// </summary>
@@ -144,9 +123,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AgateFilter LevelSc(double level_sc)
             => this.SetOptionRange("level_sc", level_sc, 0.015625, 64);
-
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -160,7 +137,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static AgateFilter AgateFilter(this AudioMap audioMap)
           => new AgateFilter(audioMap);
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -189,7 +165,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         rms
     }
-
     /// <summary>
     /// 
     /// </summary>

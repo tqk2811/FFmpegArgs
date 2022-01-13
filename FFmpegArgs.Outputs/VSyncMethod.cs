@@ -1,5 +1,8 @@
 ﻿namespace FFmpegArgs.Outputs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public enum VSyncMethod
     {
         /// <summary>

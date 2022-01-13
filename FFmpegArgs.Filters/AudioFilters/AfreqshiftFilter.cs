@@ -3,10 +3,6 @@ afreqshift AVOptions:
   shift             <double>     ..F.A....T. set frequency shift (from -2.14748e+09 to INT_MAX) (default 0)
   level             <double>     ..F.A....T. set output level (from 0 to 1) (default 1)
  */
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -19,7 +15,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Specify frequency shift. (from -2.14748e+09 to INT_MAX) (default 0)
         /// </summary>
@@ -27,7 +22,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfreqshiftFilter Shift(double shift)
           => this.SetOptionRange("shift", shift, -2.14748e+09, INT_MAX);
-
         /// <summary>
         /// Set output gain applied to final output. Allowed range is from 0.0 to 1.0. Default value is 1.0.
         /// </summary>
@@ -35,7 +29,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfreqshiftFilter Level(double level)
           => this.SetOptionRange("level", level, 0.0, 1.0);
-
         /// <summary>
         /// Set filter order used for filtering. Allowed range is from 1 to 16. Default value is 8.
         /// </summary>
@@ -44,7 +37,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         //public AfreqshiftFilter Order(int order)
         //  => this.SetOptionRange("order", order, 1, 16);
     }
-
     /// <summary>
     /// 
     /// </summary>

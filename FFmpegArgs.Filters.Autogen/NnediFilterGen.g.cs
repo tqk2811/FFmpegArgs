@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class NnediFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -21,11 +10,11 @@ public NnediFilterGen weights(string weights) => this.SetOption("weights",weight
 /// <summary>
 ///  set which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
-public NnediFilterGen deint(NnediFilterGenDeint deint) => this.SetOption("deint", deint.GetAttribute<NameAttribute>().Name);
+public NnediFilterGen deint(NnediFilterGenDeint deint) => this.SetOption("deint", deint.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set mode of operation (from -2 to 3) (default a)
 /// </summary>
-public NnediFilterGen field(NnediFilterGenField field) => this.SetOption("field", field.GetAttribute<NameAttribute>().Name);
+public NnediFilterGen field(NnediFilterGenField field) => this.SetOption("field", field.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set which planes to process (from 0 to 15) (default 7)
 /// </summary>
@@ -33,23 +22,23 @@ public NnediFilterGen planes(int planes) => this.SetOptionRange("planes", planes
 /// <summary>
 ///  set size of local neighborhood around each pixel, used by the predictor neural network (from 0 to 6) (default s32x4)
 /// </summary>
-public NnediFilterGen nsize(NnediFilterGenNsize nsize) => this.SetOption("nsize", nsize.GetAttribute<NameAttribute>().Name);
+public NnediFilterGen nsize(NnediFilterGenNsize nsize) => this.SetOption("nsize", nsize.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set number of neurons in predictor neural network (from 0 to 4) (default n32)
 /// </summary>
-public NnediFilterGen nns(NnediFilterGenNns nns) => this.SetOption("nns", nns.GetAttribute<NameAttribute>().Name);
+public NnediFilterGen nns(NnediFilterGenNns nns) => this.SetOption("nns", nns.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set quality (from 1 to 2) (default fast)
 /// </summary>
-public NnediFilterGen qual(NnediFilterGenQual qual) => this.SetOption("qual", qual.GetAttribute<NameAttribute>().Name);
+public NnediFilterGen qual(NnediFilterGenQual qual) => this.SetOption("qual", qual.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set which set of weights to use in the predictor (from 0 to 1) (default a)
 /// </summary>
-public NnediFilterGen etype(NnediFilterGenEtype etype) => this.SetOption("etype", etype.GetAttribute<NameAttribute>().Name);
+public NnediFilterGen etype(NnediFilterGenEtype etype) => this.SetOption("etype", etype.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set prescreening (from 0 to 4) (default new)
 /// </summary>
-public NnediFilterGen pscrn(NnediFilterGenPscrn pscrn) => this.SetOption("pscrn", pscrn.GetAttribute<NameAttribute>().Name);
+public NnediFilterGen pscrn(NnediFilterGenPscrn pscrn) => this.SetOption("pscrn", pscrn.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class NnediFilterGenExtensions
 {

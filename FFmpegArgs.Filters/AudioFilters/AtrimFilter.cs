@@ -1,12 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -19,7 +11,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Timestamp (in seconds) of the start of the section to keep. I.e. the audio sample with the timestamp start will be the first sample in the output.
         /// </summary>
@@ -27,7 +18,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AtrimFilter Start(TimeSpan start)
             => this.SetOptionRange("start", start, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Specify time of the first audio sample that will be dropped, i.e. the audio sample immediately preceding the one with the timestamp end will be the last sample in the output.
         /// </summary>
@@ -35,7 +25,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AtrimFilter End(TimeSpan end)
             => this.SetOptionRange("end", end, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Same as start, except this option sets the start timestamp in samples instead of seconds.
         /// </summary>
@@ -43,7 +32,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AtrimFilter StartPts(long start_pts)
             => this.SetOptionRange("start_pts", start_pts, I64_MIN, I64_MAX);
-
         /// <summary>
         /// Same as end, except this option sets the end timestamp in samples instead of seconds.
         /// </summary>
@@ -51,7 +39,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AtrimFilter EndPts(long end_pts)
            => this.SetOptionRange("end_pts", end_pts, I64_MIN, I64_MAX);
-
         /// <summary>
         /// The maximum duration of the output in seconds.
         /// </summary>
@@ -59,7 +46,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AtrimFilter Duration(TimeSpan duration)
            => this.SetOptionRange("duration", duration, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// The number of the first sample that should be output.
         /// </summary>
@@ -67,7 +53,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AtrimFilter StartSample(long start_sample)
            => this.SetOptionRange("start_sample", start_sample, -1, I64_MAX);
-
         /// <summary>
         /// The number of the first sample that should be dropped
         /// </summary>
@@ -76,7 +61,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AtrimFilter EndSample(long end_sample)
            => this.SetOptionRange("end_sample", end_sample, 0, I64_MAX);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AtrimFilterExtensions
     {
         /// <summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class CurvesFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -17,7 +6,7 @@ internal CurvesFilterGen(ImageMap input) : base("curves",input) { AddMapOut(); }
 /// <summary>
 ///  select a color curves preset (from 0 to 10) (default none)
 /// </summary>
-public CurvesFilterGen preset(CurvesFilterGenPreset preset) => this.SetOption("preset", preset.GetAttribute<NameAttribute>().Name);
+public CurvesFilterGen preset(CurvesFilterGenPreset preset) => this.SetOption("preset", preset.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set master points coordinates
 /// </summary>

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\ProjectBuildProperties.targets" />
+	<PropertyGroup>
+		<FileVersion>1.1.0.0</FileVersion>
+		<RootNamespace>$(MSBuildProjectName.Replace(" ", "_").Replace(".Common",""))</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="FilterGraphs\" />
+	</ItemGroup>
+
+</Project>

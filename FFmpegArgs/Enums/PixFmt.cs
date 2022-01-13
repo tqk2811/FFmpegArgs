@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Filters.Enums
+﻿namespace FFmpegArgs.Enums
 {
     /// <summary>
     /// ffmpeg -pix_fmts

@@ -1,10 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
-namespace FFmpegArgs.Filters.MultimediaFilters
+﻿namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... aselect           A->N       Select audio frames to pass in output.<br></br>
@@ -31,7 +25,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             this.SetOption("n", n);
         }
     }
-
     public static class ASelectFilterExtension
     {
         /// <summary>
@@ -43,7 +36,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// <returns></returns>
         public static ASelectFilter ASelectFilter(this AudioMap audioMap, Action<FFmpegExpression> e, int n)
             => new ASelectFilter(e, n, audioMap);
-
         /// <summary>
         /// Select frames to pass in output.
         /// </summary>

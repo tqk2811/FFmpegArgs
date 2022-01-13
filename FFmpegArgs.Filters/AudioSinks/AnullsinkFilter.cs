@@ -10,12 +10,9 @@
     //{
     //  internal AnullsinkFilter()
     //  {
-
     //  }
     //}
-
     //public static class AnullsinkFilterExtensions
     //{
-
     //}
 }

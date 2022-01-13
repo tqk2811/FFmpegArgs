@@ -10,11 +10,6 @@ aevalsrc AVOptions:
   channel_layout    <string>     ..F.A...... set channel layout
   c                 <string>     ..F.A...... set channel layout
  */
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -32,7 +27,6 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the ’|’-separated expressions list for each separate channel. In case the channel_layout option is not specified, the selected channel layout depends on the number of provided expressions. Otherwise the last specified expression is applied to the remaining output channels.
         /// </summary>
@@ -40,7 +34,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AevalsrcFilter Exprs(params string[] exprs)
           => this.SetOption("exprs", string.Join("|", exprs.Select(x => x.Expression().Run(expression).ToString())));
-
         /// <summary>
         /// Set the ’|’-separated expressions list for each separate channel. In case the channel_layout option is not specified, the selected channel layout depends on the number of provided expressions. Otherwise the last specified expression is applied to the remaining output channels.
         /// </summary>
@@ -48,7 +41,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AevalsrcFilter Exprs(params Action<FFmpegExpression>[] exprs)
           => this.SetOption("exprs", string.Join("|", exprs.Select(x => x.Run(expression).ToString())));
-
         // #NeedMoreInfo
         /// <summary>
         /// Set the channel layout. The number of channels in the specified layout must be equal to the number of specified expressions.
@@ -58,7 +50,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AevalsrcFilter ChannelLayout(string c)
           => this.SetOption("c", c);
-
         /// <summary>
         /// Set the minimum duration of the sourced audio.<br>
         /// </br> Note that the resulting duration may be greater than the specified duration, as the generated audio is always cut at the end of a complete frame.
@@ -68,7 +59,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AevalsrcFilter Duration(TimeSpan duration)
           => this.SetOptionRange("d", duration, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Set the number of samples per channel per each output frame, default to 1024.
         /// </summary>
@@ -76,7 +66,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AevalsrcFilter NbSamples(int n)
           => this.SetOptionRange("n", n, 0, INT_MAX);
-
         /// <summary>
         /// Specify the sample rate, default to 44100.
         /// </summary>
@@ -85,7 +74,6 @@ namespace FFmpegArgs.Filters.AudioSources
         public AevalsrcFilter SampleRate(int s)
           => this.SetOptionRange("s", s, 0, INT_MAX);
     }
-
     public static class AevalsrcFilterExtensions
     {
         /// <summary>

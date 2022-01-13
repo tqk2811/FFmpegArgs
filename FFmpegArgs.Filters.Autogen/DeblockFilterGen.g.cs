@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DeblockFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
@@ -17,7 +6,7 @@ internal DeblockFilterGen(ImageMap input) : base("deblock",input) { AddMapOut();
 /// <summary>
 ///  set type of filter (from 0 to 1) (default strong)
 /// </summary>
-public DeblockFilterGen filter(DeblockFilterGenFilter filter) => this.SetOption("filter", filter.GetAttribute<NameAttribute>().Name);
+public DeblockFilterGen filter(DeblockFilterGenFilter filter) => this.SetOption("filter", filter.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set size of block (from 4 to 512) (default 8)
 /// </summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AnlmdnFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -29,7 +18,7 @@ public AnlmdnFilterGen r(TimeSpan r) => this.SetOptionRange("r",r,TimeSpan.Zero,
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
-public AnlmdnFilterGen o(AnlmdnFilterGenO o) => this.SetOption("o", o.GetAttribute<NameAttribute>().Name);
+public AnlmdnFilterGen o(AnlmdnFilterGenO o) => this.SetOption("o", o.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set smooth factor (from 1 to 15) (default 11)
 /// </summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class TonemapFilterGen : ImageToImageFilter,ISliceThreading
@@ -17,7 +6,7 @@ internal TonemapFilterGen(ImageMap input) : base("tonemap",input) { AddMapOut();
 /// <summary>
 ///  tonemap algorithm selection (from 0 to 6) (default none)
 /// </summary>
-public TonemapFilterGen tonemap(TonemapFilterGenTonemap tonemap) => this.SetOption("tonemap", tonemap.GetAttribute<NameAttribute>().Name);
+public TonemapFilterGen tonemap(TonemapFilterGenTonemap tonemap) => this.SetOption("tonemap", tonemap.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  tonemap parameter (from DBL_MIN to DBL_MAX) (default nan)
 /// </summary>

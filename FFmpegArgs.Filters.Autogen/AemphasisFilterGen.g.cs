@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AemphasisFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -25,11 +14,11 @@ public AemphasisFilterGen level_out(double level_out) => this.SetOptionRange("le
 /// <summary>
 ///  set filter mode (from 0 to 1) (default reproduction)
 /// </summary>
-public AemphasisFilterGen mode(AemphasisFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public AemphasisFilterGen mode(AemphasisFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filter type (from 0 to 8) (default cd)
 /// </summary>
-public AemphasisFilterGen type(AemphasisFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public AemphasisFilterGen type(AemphasisFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AemphasisFilterGenExtensions
 {

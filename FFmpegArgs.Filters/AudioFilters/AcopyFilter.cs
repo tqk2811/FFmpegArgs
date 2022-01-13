@@ -1,5 +1,4 @@
 ﻿//using FFmpegArgs.Cores.Maps;
-
 //namespace FFmpegArgs.Filters.AudioFilters
 //{
 //    /// <summary>
@@ -13,7 +12,6 @@
 //            AddMapOut();
 //        }
 //    }
-
 //    public static class AcopyFilterExtension
 //    {
 //        /// <summary>

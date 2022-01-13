@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DeshakeFilterGen : ImageToImageFilter
@@ -41,7 +30,7 @@ public DeshakeFilterGen ry(int ry) => this.SetOptionRange("ry", ry,0,64);
 /// <summary>
 ///  set edge mode (from 0 to 3) (default mirror)
 /// </summary>
-public DeshakeFilterGen edge(DeshakeFilterGenEdge edge) => this.SetOption("edge", edge.GetAttribute<NameAttribute>().Name);
+public DeshakeFilterGen edge(DeshakeFilterGenEdge edge) => this.SetOption("edge", edge.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set motion search blocksize (from 4 to 128) (default 8)
 /// </summary>
@@ -53,7 +42,7 @@ public DeshakeFilterGen contrast(int contrast) => this.SetOptionRange("contrast"
 /// <summary>
 ///  set search strategy (from 0 to 1) (default exhaustive)
 /// </summary>
-public DeshakeFilterGen search(DeshakeFilterGenSearch search) => this.SetOption("search", search.GetAttribute<NameAttribute>().Name);
+public DeshakeFilterGen search(DeshakeFilterGenSearch search) => this.SetOption("search", search.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set motion search detailed log file name
 /// </summary>

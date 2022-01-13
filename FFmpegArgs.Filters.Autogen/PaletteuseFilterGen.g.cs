@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class PaletteuseFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal PaletteuseFilterGen(params ImageMap[] inputs) : base("paletteuse",input
 /// <summary>
 ///  select dithering mode (from 0 to 5) (default sierra2_4a)
 /// </summary>
-public PaletteuseFilterGen dither(PaletteuseFilterGenDither dither) => this.SetOption("dither", dither.GetAttribute<NameAttribute>().Name);
+public PaletteuseFilterGen dither(PaletteuseFilterGenDither dither) => this.SetOption("dither", dither.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set scale for bayer dithering (from 0 to 5) (default 2)
 /// </summary>
@@ -25,7 +14,7 @@ public PaletteuseFilterGen bayer_scale(int bayer_scale) => this.SetOptionRange("
 /// <summary>
 ///  set frame difference mode (from 0 to 1) (default 0)
 /// </summary>
-public PaletteuseFilterGen diff_mode(PaletteuseFilterGenDiff_mode diff_mode) => this.SetOption("diff_mode", diff_mode.GetAttribute<NameAttribute>().Name);
+public PaletteuseFilterGen diff_mode(PaletteuseFilterGenDiff_mode diff_mode) => this.SetOption("diff_mode", diff_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  take new palette for each output frame (default false)
 /// </summary>
@@ -41,7 +30,7 @@ public PaletteuseFilterGen debug_kdtree(string debug_kdtree) => this.SetOption("
 /// <summary>
 ///  set reverse colormap color search method (from 0 to 2) (default nns_iterative)
 /// </summary>
-public PaletteuseFilterGen color_search(PaletteuseFilterGenColor_search color_search) => this.SetOption("color_search", color_search.GetAttribute<NameAttribute>().Name);
+public PaletteuseFilterGen color_search(PaletteuseFilterGenColor_search color_search) => this.SetOption("color_search", color_search.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  compute and print mean error (default false)
 /// </summary>

@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC overlay           VV->V      Overlay a video source on top of the input.<br></br>
@@ -21,9 +16,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             "hsub", "vsub",
             "n", "pos","t"
         };
-
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-
         internal OverlayFilter(ImageMap bottom, ImageMap top) : base("overlay", bottom, top)
         {
             AddMapOut();
@@ -56,7 +49,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public OverlayFilter Y(Action<FFmpegExpression> y)
             => this.SetOption("y", y.Run(expression));
-
         /// <summary>
         /// Set when the expressions for x, and y are evaluated.
         /// </summary>
@@ -64,7 +56,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public OverlayFilter Eval(OverlayEval eval)
           => this.SetOption("eval", eval.ToString().ToLower());
-
         /// <summary>
         /// Set the format for the output video.
         /// </summary>
@@ -72,7 +63,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public OverlayFilter Format(OverlayPixFmt format)
            => this.SetOption("format", format.ToString());
-
         /// <summary>
         /// Set format of alpha of the overlaid video, it can be straight or premultiplied. Default is straight.
         /// </summary>
@@ -81,7 +71,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public OverlayFilter Alpha(OverlayAlpha alpha)
           => this.SetOption("alpha", alpha.ToString().ToLower());
     }
-
     public static class OverlayFilterExtension
     {
         /// <summary>
@@ -93,7 +82,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static OverlayFilter OverlayFilter(this ImageMap first, ImageMap second)
             => new OverlayFilter(first, second);
-
         /// <summary>
         /// Overlay one video on top of another.<br>
         /// </br>It takes two inputs and has one output.The first input is the "main" video on which the second input is overlaid.
@@ -104,13 +92,11 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static OverlayFilter OverlayFilterOn(this ImageMap second, ImageMap first)
             => new OverlayFilter(first, second);
     }
-
     public enum OverlayAlpha
     {
         Straight,
         Premultiplied
     }
-
     public enum OverlayPixFmt
     {
         /// <summary>
@@ -146,7 +132,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         auto
     }
-
     /// <summary>
     /// Set when the expressions for x, and y are evaluated.
     /// </summary>
@@ -156,11 +141,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// only evaluate expressions once during the filter initialization or when a command is processed
         /// </summary>
         Init,
-
         /// <summary>
         /// evaluate expressions for each incoming frame
         /// </summary>
         Frame
     }
-
 }

@@ -1,10 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
-namespace FFmpegArgs.Filters.MultimediaFilters
+﻿namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... select            V->N       Select video frames to pass in output.<br></br>
@@ -31,7 +25,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             this.SetOption("n", n);
         }
     }
-
     public static class SelectFilterExtension
     {
         /// <summary>
@@ -45,7 +38,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         {
             return new SelectFilter(e, n, imageMap);
         }
-
         /// <summary>
         /// Select frames to pass in output.
         /// </summary>

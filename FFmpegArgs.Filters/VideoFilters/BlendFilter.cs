@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TS. blend             VV->V      Blend two video frames into each other.<br></br>
@@ -26,7 +21,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set blend mode for specific pixel component or all pixel components in case of all_mode. Default value is normal.
         /// </summary>
@@ -62,9 +56,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BlendFilter All_Mode(BlendMode blendMode)
           => this.SetOption("all_mode", blendMode);
-
-
-
         /// <summary>
         /// Set blend opacity for specific pixel component or all pixel components in case of all_opacity. Only used in combination with pixel component blend modes.
         /// </summary>
@@ -104,8 +95,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BlendFilter All_Opacity(double opacity)
           => this.SetOptionRange("all_opacity", opacity, 0, 1);
-
-
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
         /// </summary>
@@ -177,9 +166,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public BlendFilter All_Expr(string expr)
          => All_Expr(expr.Expression());
     }
-
-
-
     public static class BlendFilterExtension
     {
         /// <summary>
@@ -195,7 +181,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             return new BlendFilter(top, bottom);
         }
     }
-
     public enum BlendMode
     {
         addition,

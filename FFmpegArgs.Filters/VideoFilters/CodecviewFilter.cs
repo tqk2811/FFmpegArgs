@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.. codecview         V->V       Visualize information about some codecs.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set motion vectors to visualize.
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CodecviewFilter MV(CodecviewMotionVector motionVector)
           => this.SetOption("mf", motionVector);
-
         /// <summary>
         /// Display quantization parameters using the chroma planes.(default false)
         /// </summary>
@@ -28,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CodecviewFilter QP(bool qp)
           => this.SetOption("qp", qp.ToFFmpegFlag());
-
         /// <summary>
         /// Set motion vectors type to visualize. Includes MVs from all frames unless specified by frame_type option.
         /// </summary>
@@ -36,7 +31,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CodecviewFilter MvType(CodecviewMotionVectorType type)
           => this.SetOption("mvt", type);
-
         /// <summary>
         /// Set frame type to visualize motion vectors of.
         /// </summary>
@@ -45,7 +39,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CodecviewFilter FrameType(CodecviewFrameType type)
           => this.SetOption("ft", type);
     }
-
     public static class CodecviewFilterExtensions
     {
         /// <summary>
@@ -55,7 +48,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static CodecviewFilter CodecviewFilter(this ImageMap imageMap)
           => new CodecviewFilter(imageMap);
     }
-
     public enum CodecviewMotionVector
     {
         /// <summary>
@@ -71,7 +63,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         bb
     }
-
     public enum CodecviewMotionVectorType
     {
         /// <summary>
@@ -83,7 +74,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         bp
     }
-
     public enum CodecviewFrameType
     {
         /// <summary>

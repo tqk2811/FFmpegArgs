@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 namespace FFmpegArgs
 {
     public abstract class BaseOptionFlag : BaseOption
@@ -12,7 +11,6 @@ namespace FFmpegArgs
             return string.Join(" ", _flags.Concat(_options.Select(x => $"{x.Key} {x.Value}")));
         }
     }
-
     public static class BaseOptionFlagExtension
     {
         public static T SetFlag<T>(this T baseOptionFlag, string flag) where T : BaseOptionFlag

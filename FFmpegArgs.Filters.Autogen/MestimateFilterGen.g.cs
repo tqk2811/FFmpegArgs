@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class MestimateFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal MestimateFilterGen(ImageMap input) : base("mestimate",input) { AddMapOu
 /// <summary>
 ///  motion estimation method (from 1 to 9) (default esa)
 /// </summary>
-public MestimateFilterGen method(MestimateFilterGenMethod method) => this.SetOption("method", method.GetAttribute<NameAttribute>().Name);
+public MestimateFilterGen method(MestimateFilterGenMethod method) => this.SetOption("method", method.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  macroblock size (from 8 to INT_MAX) (default 16)
 /// </summary>

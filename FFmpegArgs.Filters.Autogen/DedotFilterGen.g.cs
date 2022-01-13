@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DedotFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,7 +6,7 @@ internal DedotFilterGen(ImageMap input) : base("dedot",input) { AddMapOut(); }
 /// <summary>
 ///  set filtering mode (default dotcrawl+rainbows)
 /// </summary>
-public DedotFilterGen m(DedotFilterGenM m) => this.SetOption("m", m.GetAttribute<NameAttribute>().Name);
+public DedotFilterGen m(DedotFilterGenM m) => this.SetOption("m", m.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set spatial luma threshold (from 0 to 1) (default 0.079)
 /// </summary>

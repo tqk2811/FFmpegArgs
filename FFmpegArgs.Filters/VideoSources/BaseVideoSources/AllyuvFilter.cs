@@ -11,7 +11,6 @@
             AddMapOut();
         }
     }
-
     public static class AllyuvFilterExtensions
     {
         public static AllyuvFilter AllyuvFilter(this FilterGraph filterGraph)

@@ -1,11 +1,8 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class BaseSubtitlesFilter : ImageToImageFilter
     {
         /// <summary>
@@ -18,7 +15,9 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class BaseSubtitlesFilterExtension
     {
         /// <summary>
@@ -28,9 +27,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="t"></param>
         /// <param name="fileName"></param>
         /// <returns></returns>
-        public static T FileName<T>(this T t,string fileName) where T : BaseSubtitlesFilter
+        public static T FileName<T>(this T t, string fileName) where T : BaseSubtitlesFilter
             => t.SetOption("f", fileName);
-
         /// <summary>
         /// Specify the size of the original video, the video for which the ASS file was composed.<br>
         /// </br>Due to a misdesign in ASS aspect ratio arithmetic, this is necessary to correctly scale the fonts if the aspect ratio has been changed.
@@ -40,19 +38,17 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public static T OriginalSize<T>(this T t, VideoSizeUtils videoSize) where T : BaseSubtitlesFilter
-          => t.SetOption("original_size", videoSize.GetAttribute<NameAttribute>().Name);
-
+          => t.SetOption("original_size", videoSize.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Specify the size of the original video, the video for which the ASS file was composed.<br>
         /// </br>Due to a misdesign in ASS aspect ratio arithmetic, this is necessary to correctly scale the fonts if the aspect ratio has been changed.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
-        /// <param name="videoSize"></param>
+        /// <param name="size"></param>
         /// <returns></returns>
         public static T OriginalSize<T>(this T t, Size size) where T : BaseSubtitlesFilter
          => t.SetOption("original_size", $"{size.Width}x{size.Height}");
-
         /// <summary>
         /// Set a directory path containing fonts that can be used by the filter.<br>
         /// </br> These fonts will be used in addition to whatever the font provider uses.
@@ -63,7 +59,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static T FontsDir<T>(this T t, string fontsdir) where T : BaseSubtitlesFilter
          => t.SetOption("fontsdir", fontsdir);
-
         /// <summary>
         /// Process alpha channel, by default alpha channel is untouched.
         /// </summary>
@@ -73,7 +68,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static T Alpha<T>(this T t, bool alpha) where T : BaseSubtitlesFilter
           => t.SetOption("alpha", alpha.ToFFmpegFlag());
-
         /// <summary>
         /// Override default style or script info parameters of the subtitles.<br>
         /// </br> It accepts a string containing ASS style format KEY=VALUE couples separated by ",".
@@ -84,10 +78,13 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static T ForceStyle<T>(this T t, string force_style) where T : BaseSubtitlesFilter
           => t.SetOption("force_style", force_style);
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public static string ToHexSubStringRGB(this Color color) => $"&H{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}";
     }
-
     /// <summary>
     /// http://www.tcax.org/docs/ass-specs.htm
     /// </summary>
@@ -151,19 +148,16 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         public int? Angle { get; set; }
         public SubtitleBorderStyle? BorderStyle { get; set; }
-
         /// <summary>
         /// If BorderStyle is 1,  then this specifies the width of the outline around the text, in pixels.<br>
         /// </br>Values may be 0, 1, 2, 3 or 4.
         /// </summary>
         public int? Outline { get; set; }
-
         /// <summary>
         /// If BorderStyle is 1,  then this specifies the depth of the drop shadow behind the text, in pixels. <br>
         /// </br>Values may be 0, 1, 2, 3 or 4. Drop shadow is always used in addition to an outline - SSA will force an outline of 1 pixel if no outline width is given.
         /// </summary>
         public int? Shadow { get; set; }
-
         public SubtitleAlignment? Alignment { get; set; }
         /// <summary>
         /// This defines the Left Margin in pixels. It is the distance from the left-hand edge of the screen.The three onscreen margins (MarginL, MarginR, MarginV) define areas in which the subtitle text will be displayed.
@@ -184,20 +178,17 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// This defines the transparency of the text. SSA and ASS does not use this yet.
         /// </summary>
         public double? AlphaLevel { get; set; }
-
         /// <summary>
         /// This specifies the font character set or encoding and on multi-lingual Windows installations it provides access to characters used in multiple than one languages.<br>
         /// </br> It is usually 0 (zero) for English (Western, ANSI) Windows.<br>
         /// </br>When the file is Unicode, this field is useful during file format conversions.
         /// </summary>
         public string Encoding { get; set; }
-
-        public Dictionary<string,string> OtherStyle { get; set; }
-
+        public Dictionary<string, string> OtherStyle { get; set; }
         public override string ToString()
         {
             Dictionary<string, string> pairs = new Dictionary<string, string>();
-            if(!string.IsNullOrWhiteSpace(Name)) pairs[nameof(Name)] = Name;
+            if (!string.IsNullOrWhiteSpace(Name)) pairs[nameof(Name)] = Name;
             if (!string.IsNullOrWhiteSpace(Fontname)) pairs[nameof(Fontname)] = Fontname;
             if (Fontsize != null) pairs[nameof(Fontsize)] = Fontsize.Value.ToString();
             if (PrimaryColour != null) pairs[nameof(PrimaryColour)] = PrimaryColour.Value.ToHexSubStringRGB();
@@ -221,16 +212,15 @@ namespace FFmpegArgs.Filters.VideoFilters
             if (MarginV != null) pairs[nameof(MarginV)] = MarginV.Value.ToString();
             if (AlphaLevel != null) pairs[nameof(AlphaLevel)] = AlphaLevel.Value.ToString();
             if (!string.IsNullOrWhiteSpace(Encoding)) pairs[nameof(Encoding)] = Encoding;
-            if(OtherStyle != null) foreach (var pair in OtherStyle) pairs[pair.Key] = pair.Value;
+            if (OtherStyle != null) foreach (var pair in OtherStyle) pairs[pair.Key] = pair.Value;
             return string.Join(",", pairs.Select(x => $"{x.Key}={x.Value}"));
         }
     }
-    public enum SubtitleBorderStyle: byte
+    public enum SubtitleBorderStyle : byte
     {
         OutlineAndDropShadow = 1,
         OpaqueBox = 3
     }
-
     public enum SubtitleAlignment : byte
     {
         LeftSub = 1,

@@ -9,13 +9,6 @@ amix AVOptions:
   weights           <string>     ..F.A....T. Set weight for each input. (default "1 1")
   normalize         <boolean>    ..F.A....T. Scale inputs (default true)
  */
-using FFmpegArgs.Cores.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -24,13 +17,12 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// </summary>
     public class AmixFilter : AudioToAudioFilter, ICommandSupport
     {
-        internal AmixFilter(params AudioMap[] audioMaps) : base("amix",audioMaps)
+        internal AmixFilter(params AudioMap[] audioMaps) : base("amix", audioMaps)
         {
             if (audioMaps.Length < 2) throw new ArgumentException($"audioMaps as least 2 items");
             AddMapOut();
             this.SetOption("inputs", audioMaps.Length);
         }
-
         /// <summary>
         /// How to determine the end-of-stream.
         /// </summary>
@@ -38,7 +30,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AmixFilter Duration(AmixDuration duration)
             => this.SetOption("duration", duration);
-
         /// <summary>
         /// Transition time, in seconds, for volume renormalization when an input stream ends. (from 0 to INT_MAX) (default 2)
         /// </summary>
@@ -46,7 +37,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AmixFilter DropoutTransition(float dropout_transition)
             => this.SetOptionRange("dropout_transition", dropout_transition, 0, INT_MAX);
-
         /// <summary>
         /// Specify weight of each input audio stream as sequence. Each weight is separated by space. By default all inputs have same weight.<br>
         /// </br>Set weight for each input. (default "1 1")
@@ -55,7 +45,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AmixFilter Weights(string weights)
             => this.SetOption("weights", weights);
-
         /// <summary>
         /// Always scale inputs instead of only doing summation of samples. Beware of heavy clipping if inputs are not normalized prior or after filtering by this filter if this option is disabled. By default is enabled.
         /// </summary>
@@ -64,7 +53,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AmixFilter Normalize(bool flag)
             => this.SetOption("normalize", flag.ToFFmpegFlag());
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -83,8 +71,6 @@ namespace FFmpegArgs.Filters.AudioFilters
             audioMapsList.AddRange(audioMaps);
             return new AmixFilter(audioMapsList.ToArray());
         }
-
-
         /// <summary>
         /// Mixes multiple audio inputs into a single output.<br>
         /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.
@@ -93,7 +79,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public static AmixFilter AmixFilter(this IEnumerable<AudioMap> audioMaps)
             => new AmixFilter(audioMaps.ToArray());
-
         /// <summary>
         /// Mixes multiple audio inputs into a single output.<br>
         /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.
@@ -103,7 +88,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static AmixFilter AmixFilter(this AudioMap[] audioMaps)
             => new AmixFilter(audioMaps);
     }
-
     /// <summary>
     /// 
     /// </summary>

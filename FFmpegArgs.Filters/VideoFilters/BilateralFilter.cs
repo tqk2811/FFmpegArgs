@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.C bilateral         V->V       Apply Bilateral filter.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set sigma of gaussian function to calculate spatial weight. Allowed range is 0 to 512. Default is 0.1.
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BilateralFilter SigmaS(float sigmaS)
           => this.SetOptionRange("sigmaS", sigmaS, 0, 512);
-
         /// <summary>
         /// Set sigma of gaussian function to calculate range weight. Allowed range is 0 to 1. Default is 0.1.
         /// </summary>
@@ -28,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BilateralFilter SigmaR(float sigmaR)
           => this.SetOptionRange("sigmaR", sigmaR, 0, 1);
-
         /// <summary>
         /// Set planes to filter. Default is first only.<br></br>
         /// ..FV.....T. set planes to filter (from 0 to 15) (default 1)
@@ -38,7 +33,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public BilateralFilter Planes(int planes)
           => this.SetOptionRange("planes", planes, 0, 15);
     }
-
     public static class BilateralFilterExtensions
     {
         /// <summary>

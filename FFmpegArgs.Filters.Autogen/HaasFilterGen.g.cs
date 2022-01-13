@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class HaasFilterGen : AudioToAudioFilter
@@ -29,7 +18,7 @@ public HaasFilterGen side_gain(double side_gain) => this.SetOptionRange("side_ga
 /// <summary>
 ///  set middle source (from 0 to 3) (default mid)
 /// </summary>
-public HaasFilterGen middle_source(HaasFilterGenMiddle_source middle_source) => this.SetOption("middle_source", middle_source.GetAttribute<NameAttribute>().Name);
+public HaasFilterGen middle_source(HaasFilterGenMiddle_source middle_source) => this.SetOption("middle_source", middle_source.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set middle phase (default false)
 /// </summary>

@@ -1,6 +1,5 @@
 ﻿using FFmpegArgs.Cores.Maps;
 using System;
-
 namespace FFmpegArgs.Cores.Outputs
 {
     public abstract class AudioOutput : BaseOutput, IAudio

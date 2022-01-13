@@ -91,10 +91,6 @@ acrossfade AVOptions:
      sinc            17           ..F.A...... sine cardinal function
      isinc           18           ..F.A...... inverted sine cardinal function
  */
-
-using FFmpegArgs.Cores.Maps;
-using System;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -107,7 +103,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Specify the number of samples for which the cross fade effect has to last.<br>
         /// </br> At the end of the cross fade effect the first input audio will be completely silent.<br>
@@ -117,7 +112,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AcrossfadeFilter NbSamples(int ns)
           => this.SetOptionRange("ns", ns, 1, 2.14748e+08);
-
         /// <summary>
         /// Specify the duration of the cross fade effect.<br>
         /// </br> By default the duration is determined by nb_samples.<br>
@@ -127,7 +121,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AcrossfadeFilter Duration(TimeSpan d)
           => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Should first stream end overlap with second stream start. Default is enabled.
         /// </summary>
@@ -135,24 +128,24 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AcrossfadeFilter Overlap(bool overlap)
           => this.SetOption("o", overlap.ToFFmpegFlag());
-
         /// <summary>
         /// Set curve for cross fade transition for first stream.
         /// </summary>
-        /// <param name="overlap"></param>
+        /// <param name="curve"></param>
         /// <returns></returns>
         public AcrossfadeFilter Curve1(AcrossfadeCurve curve)
           => this.SetOption("c1", curve.ToString());
-
         /// <summary>
         /// Set curve for cross fade transition for second stream.
         /// </summary>
-        /// <param name="overlap"></param>
+        /// <param name="curve"></param>
         /// <returns></returns>
         public AcrossfadeFilter Curve2(AcrossfadeCurve curve)
           => this.SetOption("c2", curve.ToString());
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AcrossfadeFilterExtension
     {
         /// <summary>
@@ -163,7 +156,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static AcrossfadeFilter AcrossfadeFilter(this AudioMap first, AudioMap second)
             => new AcrossfadeFilter(first, second);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AcrossfadeCurve
     {
         /// <summary>

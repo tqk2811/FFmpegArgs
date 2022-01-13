@@ -11,7 +11,6 @@
             AddMapOut();
         }
     }
-
     public static class RgbtestsrcFilterExtensions
     {
         public static RgbtestsrcFilter RgbtestsrcFilter(this FilterGraph filterGraph)

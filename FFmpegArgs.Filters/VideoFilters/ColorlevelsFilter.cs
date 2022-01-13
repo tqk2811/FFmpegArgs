@@ -1,5 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
+﻿
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -12,10 +11,15 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="adjust"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
         public ColorlevelsFilter Adjust(ColorlevelsAdjustName adjust, double val)
         {
-            FloatRangeAttribute range = adjust.GetAttribute<FloatRangeAttribute>();
+            FloatRangeAttribute range = adjust.GetEnumAttribute<FloatRangeAttribute>();
             return this.SetOptionRange(adjust.ToString(), val, range.Min, range.Max);
         }
         /// <summary>
@@ -26,7 +30,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ColorlevelsFilter Preserve(ColorlevelsPreserve preserve)
           => this.SetOption("preserve", preserve);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ColorlevelsFilterExtensions
     {
         /// <summary>
@@ -35,7 +41,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static ColorlevelsFilter ColorlevelsFilter(this ImageMap imageMap)
           => new ColorlevelsFilter(imageMap);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorlevelsAdjustName
     {
         /// <summary>
@@ -54,9 +62,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Adjust red, green, blue and alpha input black point. Allowed ranges for options are [-1.0, 1.0]. Defaults are 0.
         /// </summary>
         [FloatRange(-1, 1)] aimin,
-
-
-
         /// <summary>
         /// Adjust red, green, blue and alpha input white point. Allowed ranges for options are [-1.0, 1.0]. Defaults are 1.<br></br>
         /// Input levels are used to lighten highlights (bright tones), darken shadows (dark tones), change the balance of bright and dark tones.
@@ -77,9 +82,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Input levels are used to lighten highlights (bright tones), darken shadows (dark tones), change the balance of bright and dark tones.
         /// </summary>
         [FloatRange(-1, 1)] aimax,
-
-
-
         /// <summary>
         /// Adjust red, green, blue and alpha output black point. Allowed ranges for options are [0, 1.0]. Defaults are 0.
         /// </summary>
@@ -96,9 +98,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Adjust red, green, blue and alpha output black point. Allowed ranges for options are [0, 1.0]. Defaults are 0.
         /// </summary>
         [FloatRange(0, 1)] aomin,
-
-
-
         /// <summary>
         /// Adjust red, green, blue and alpha output white point. Allowed ranges for options are [0, 1.0]. Defaults are 1.<br></br>
         /// Output levels allows manual selection of a constrained output level range.
@@ -120,7 +119,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         [FloatRange(0, 1)] aomax
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorlevelsPreserve
     {
         /// <summary>
@@ -151,6 +152,5 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Preserve power value of RGB triplet.
         /// </summary>
         pwr,
-
     }
 }

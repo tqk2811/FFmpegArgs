@@ -32,8 +32,6 @@ anoisesrc AVOptions:
   nb_samples        <int>        ..F.A...... set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
   n                 <int>        ..F.A...... set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
  */
-using System;
-
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -46,7 +44,6 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Specify the sample rate. (from 15 to INT_MAX) (default 48000)
         /// </summary>
@@ -54,7 +51,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AnoisesrcFilter SampleRate(int r)
           => this.SetOptionRange("r", r, 15, INT_MAX);
-
         /// <summary>
         /// Specify the amplitude of the generated audio stream. (from 0 to 1) (default 1)
         /// </summary>
@@ -62,7 +58,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AnoisesrcFilter Amplitude(double a)
           => this.SetOptionRange("a", a, 0.0, 1.0);
-
         /// <summary>
         /// Specify the duration of the generated audio stream. Not specifying this option results in noise with an infinite length.
         /// </summary>
@@ -70,7 +65,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AnoisesrcFilter Duration(TimeSpan d)
           => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Specify the color of noise. Available noise colors are white, pink, brown, blue, violet and velvet. Default color is white.
         /// </summary>
@@ -78,7 +72,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AnoisesrcFilter Color(AnoisesrcColor c)
           => this.SetOption("c", c);
-
         /// <summary>
         /// Specify a value used to seed the PRNG. (from -1 to UINT32_MAX) (default -1)
         /// </summary>
@@ -86,7 +79,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AnoisesrcFilter Seed(long s)
           => this.SetOptionRange("s", s, -1, UINT32_MAX);
-
         /// <summary>
         /// Set the number of samples per each output frame, (from 1 to INT_MAX) (default 1024)
         /// </summary>
@@ -95,7 +87,6 @@ namespace FFmpegArgs.Filters.AudioSources
         public AnoisesrcFilter NbSamples(int n)
           => this.SetOptionRange("n", n, 1, INT_MAX);
     }
-
     public static class AnoisesrcFilterExtensions
     {
         /// <summary>
@@ -106,7 +97,6 @@ namespace FFmpegArgs.Filters.AudioSources
         public static AnoisesrcFilter AnoisesrcFilter(this FilterGraph filterGraph)
           => new AnoisesrcFilter(filterGraph);
     }
-
     public enum AnoisesrcColor
     {
         white,

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class TinterlaceFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal TinterlaceFilterGen(ImageMap input) : base("tinterlace",input) { AddMap
 /// <summary>
 ///  select interlace mode (from 0 to 7) (default merge)
 /// </summary>
-public TinterlaceFilterGen mode(TinterlaceFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public TinterlaceFilterGen mode(TinterlaceFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class TinterlaceFilterGenExtensions
 {

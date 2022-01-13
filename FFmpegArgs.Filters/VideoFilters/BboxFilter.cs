@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.C bbox              V->V       Compute bounding box for each frame.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the minimal luminance value. (from 0 to 65535) Default is 16.
         /// </summary>
@@ -21,7 +18,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public BboxFilter MinVal(int min_val)
           => this.SetOptionRange("min_val", min_val, 0, 65535);
     }
-
     public static class BboxFilterExtensions
     {
         /// <summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class HistogramFilterGen : ImageToImageFilter
@@ -25,15 +14,15 @@ public HistogramFilterGen scale_height(int scale_height) => this.SetOptionRange(
 /// <summary>
 ///  set display mode (from 0 to 2) (default stack)
 /// </summary>
-public HistogramFilterGen display_mode(HistogramFilterGenDisplay_mode display_mode) => this.SetOption("display_mode", display_mode.GetAttribute<NameAttribute>().Name);
+public HistogramFilterGen display_mode(HistogramFilterGenDisplay_mode display_mode) => this.SetOption("display_mode", display_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set levels mode (from 0 to 1) (default linear)
 /// </summary>
-public HistogramFilterGen levels_mode(HistogramFilterGenLevels_mode levels_mode) => this.SetOption("levels_mode", levels_mode.GetAttribute<NameAttribute>().Name);
+public HistogramFilterGen levels_mode(HistogramFilterGenLevels_mode levels_mode) => this.SetOption("levels_mode", levels_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set levels mode (from 0 to 1) (default linear)
 /// </summary>
-public HistogramFilterGen m(HistogramFilterGenM m) => this.SetOption("m", m.GetAttribute<NameAttribute>().Name);
+public HistogramFilterGen m(HistogramFilterGenM m) => this.SetOption("m", m.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color components to display (from 1 to 15) (default 7)
 /// </summary>

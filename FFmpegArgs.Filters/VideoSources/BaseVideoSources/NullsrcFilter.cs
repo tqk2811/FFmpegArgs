@@ -11,7 +11,6 @@
             AddMapOut();
         }
     }
-
     public static class NullsrcFilterExtensions
     {
         public static NullsrcFilter NullsrcFilter(this FilterGraph filterGraph)

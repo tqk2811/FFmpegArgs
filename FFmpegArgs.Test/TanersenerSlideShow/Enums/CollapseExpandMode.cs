@@ -6,6 +6,5 @@
         Circular,
         Horizontal,
         Vertical,
-
     }
 }

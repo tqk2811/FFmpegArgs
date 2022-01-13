@@ -5,25 +5,18 @@ using FFmpegArgs.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace FFmpegArgs
 {
     public class FFmpegArg : BaseOptionFlag
     {
         public IEnumerable<BaseInput> Inputs { get { return _inputs; } }
         public IEnumerable<BaseOutput> Outputs { get { return _outputs; } }
-
         internal List<BaseInput> _inputs { get; } = new List<BaseInput>();
         internal List<BaseOutput> _outputs { get; } = new List<BaseOutput>();
-
         public FilterGraph FilterGraph { get; } = new FilterGraph();
         public FFmpegArg()
         {
-
         }
-
         /// <summary>
         /// Audio with multi channel
         /// </summary>
@@ -42,14 +35,12 @@ namespace FFmpegArgs
             }
             return results;
         }
-
         public AudioMap AddAudioInput(AudioInput sound)
         {
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
             _inputs.Add(sound);
             return new AudioMap(FilterGraph, $"{_inputs.IndexOf(sound)}") { IsInput = true };
         }
-
         public IEnumerable<ImageMap> AddImagesInput(ImageInput image, int count)
         {
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
@@ -62,39 +53,32 @@ namespace FFmpegArgs
             }
             return results;
         }
-
         public ImageMap AddImageInput(ImageInput image)
         {
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
             _inputs.Add(image);
             return new ImageMap(FilterGraph, $"{_inputs.IndexOf(image)}") { IsInput = true };
         }
-
         public VideoMap AddVideoInput(VideoInput video, int imageCount = 1, int audioCount = 1)
         {
             if (_inputs.Contains(video)) throw new InvalidOperationException("Video was add to input before");
             //if (imageCount < 1 || audioCount < 1)
             //    throw new InvalidRangeException($"imageCount or audioCount < 1\r\nFor non audio, use {nameof(ImageInput)} instead");
-
             _inputs.Add(video);
             int inputIndex = _inputs.IndexOf(video);
             List<ImageMap> imageMaps = new List<ImageMap>();
             List<AudioMap> audioMaps = new List<AudioMap>();
-
             for (int i = 0; i < imageCount; i++)
                 imageMaps.Add(new ImageMap(FilterGraph, $"{inputIndex}") { IsInput = true, StreamIndex = i });
             for (int i = 0; i < audioCount; i++)
                 audioMaps.Add(new AudioMap(FilterGraph, $"{inputIndex}") { IsInput = true, StreamIndex = i });
-
             return new VideoMap(imageMaps, audioMaps);
         }
-
         public void AddOutput(BaseOutput output)
         {
             if (_outputs.Contains(output)) throw new InvalidOperationException("This output was add before");
             _outputs.Add(output);
         }
-
         public string GetGlobalArgs()
         {
             return GetArgs();
@@ -107,7 +91,6 @@ namespace FFmpegArgs
         {
             return string.Join(" ", _outputs);
         }
-
 
         public string GetFullCommandline(bool useChain = true)
         {
@@ -122,7 +105,6 @@ namespace FFmpegArgs
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
-
         public string GetFullCommandlineWithFilterScript(string script_name_or_path)
         {
             List<string> args = new List<string>()

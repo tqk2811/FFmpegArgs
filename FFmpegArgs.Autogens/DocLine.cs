@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 namespace FFmpegArgs.Autogens
 {
     internal class DocLine
     {
         public string LineData { get; set; }
         public List<DocLine> ChildLines { get; } = new List<DocLine>();
-
         public override string ToString()
         {
             return LineData;
         }
-
         public static List<DocLine> GetDocLine(List<string> lines)
         {
             List<DocLine> docLines = new List<DocLine>();

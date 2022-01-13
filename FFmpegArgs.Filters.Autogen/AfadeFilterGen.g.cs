@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AfadeFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
@@ -17,7 +6,7 @@ internal AfadeFilterGen(AudioMap input) : base("afade",input) { AddMapOut(); }
 /// <summary>
 ///  set the fade direction (from 0 to 1) (default in)
 /// </summary>
-public AfadeFilterGen type(AfadeFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public AfadeFilterGen type(AfadeFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set number of first sample to start fading (from 0 to I64_MAX) (default 0)
 /// </summary>
@@ -45,7 +34,7 @@ public AfadeFilterGen duration(TimeSpan duration) => this.SetOptionRange("durati
 /// <summary>
 ///  set fade curve type (from -1 to 18) (default tri)
 /// </summary>
-public AfadeFilterGen curve(AfadeFilterGenCurve curve) => this.SetOption("curve", curve.GetAttribute<NameAttribute>().Name);
+public AfadeFilterGen curve(AfadeFilterGenCurve curve) => this.SetOption("curve", curve.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AfadeFilterGenExtensions
 {

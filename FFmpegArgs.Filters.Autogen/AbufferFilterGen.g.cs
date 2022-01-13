@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AbufferFilterGen : SourceAudioFilter
@@ -25,7 +14,7 @@ public AbufferFilterGen sample_rate(int sample_rate) => this.SetOptionRange("sam
 /// <summary>
 ///  (default none)
 /// </summary>
-public AbufferFilterGen sample_fmt(AVSampleFormat sample_fmt) => this.SetOption("sample_fmt",sample_fmt.GetAttribute<NameAttribute>().Name);
+public AbufferFilterGen sample_fmt(AVSampleFormat sample_fmt) => this.SetOption("sample_fmt",sample_fmt.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 /// 
 /// </summary>

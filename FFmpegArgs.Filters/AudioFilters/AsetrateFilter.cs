@@ -1,12 +1,4 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-
+﻿
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -19,7 +11,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the output sample rate. Default is 44100 Hz.
         /// </summary>
@@ -27,9 +18,10 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AsetrateFilter SampleRate(int r)
             => this.SetOptionRange("r", r, 0, INT_MAX);
-
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AsetrateFilterExtensions
     {
         /// <summary>
@@ -37,6 +29,5 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         public static AsetrateFilter AsetrateFilter(this AudioMap audioMap)
           => new AsetrateFilter(audioMap);
-
     }
 }

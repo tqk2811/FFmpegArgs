@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class FirequalizerFilterGen : AudioToAudioFilter,ICommandSupport
@@ -33,7 +22,7 @@ public FirequalizerFilterGen accuracy(double accuracy) => this.SetOptionRange("a
 /// <summary>
 ///  set window function (from 0 to 9) (default hann)
 /// </summary>
-public FirequalizerFilterGen wfunc(FirequalizerFilterGenWfunc wfunc) => this.SetOption("wfunc", wfunc.GetAttribute<NameAttribute>().Name);
+public FirequalizerFilterGen wfunc(FirequalizerFilterGenWfunc wfunc) => this.SetOption("wfunc", wfunc.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set fixed frame samples (default false)
 /// </summary>
@@ -49,7 +38,7 @@ public FirequalizerFilterGen zero_phase(bool zero_phase) => this.SetOption("zero
 /// <summary>
 ///  set gain scale (from 0 to 3) (default linlog)
 /// </summary>
-public FirequalizerFilterGen scale(FirequalizerFilterGenScale scale) => this.SetOption("scale", scale.GetAttribute<NameAttribute>().Name);
+public FirequalizerFilterGen scale(FirequalizerFilterGenScale scale) => this.SetOption("scale", scale.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set dump file
 /// </summary>
@@ -57,7 +46,7 @@ public FirequalizerFilterGen dumpfile(string dumpfile) => this.SetOption("dumpfi
 /// <summary>
 ///  set dump scale (from 0 to 3) (default linlog)
 /// </summary>
-public FirequalizerFilterGen dumpscale(FirequalizerFilterGenDumpscale dumpscale) => this.SetOption("dumpscale", dumpscale.GetAttribute<NameAttribute>().Name);
+public FirequalizerFilterGen dumpscale(FirequalizerFilterGenDumpscale dumpscale) => this.SetOption("dumpscale", dumpscale.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set 2-channels fft (default false)
 /// </summary>

@@ -1,16 +1,11 @@
-﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters
+﻿namespace FFmpegArgs.Filters
 {
     /// <summary>
     /// 
     /// </summary>
     public interface ISliceThreading
     {
-
     }
-
     /// <summary>
     /// 
     /// </summary>

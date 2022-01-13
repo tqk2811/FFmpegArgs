@@ -1,18 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Executes;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.MultimediaFilters;
-using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Inputs;
-using FFmpegArgs.Outputs;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
+﻿
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -27,14 +13,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(FadeInTwoTest)}-{screenMode}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-
             var inputs = images_inputmap.InputScreenModes(screenMode, config);
-
             var overlaids = inputs.Select(x => x.First()).Overlaids(config);
-
             List<ImageMap> fadeIns = new List<ImageMap>();
             List<ImageMap> fadeOuts = new List<ImageMap>();
             var fades = inputs.Select(x => x.Last()).ToList();
@@ -49,7 +31,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         .Color(config.BackgroundColor).MapOut
                     .TrimFilter().Duration(config.TransitionDuration).MapOut
                     .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
-
                 if (input.Equals(fades.First()))
                 {
                     fadeOuts.Add(temp.FadeFilter().Type(FadeType.Out).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
@@ -65,7 +46,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     fadeIns.Add(split.Last().FadeFilter().Type(FadeType.In).StartFrame(0).NbFrames(config.TransitionFrameCount).MapOut);
                 }
             }
-
             List<ImageMap> blendeds = new List<ImageMap>();
             for(int i = 0; i < fadeIns.Count; i++)
             {
@@ -75,9 +55,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .TrimFilter().Duration(config.TransitionDuration).MapOut
                     .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut);
             }
-
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -86,9 +64,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }

@@ -5,9 +5,6 @@ chromahold AVOptions:
   blend             <float>      ..FV.....T. set the chromahold blend value (from 0 to 1) (default 0)
   yuv               <boolean>    ..FV.....T. color parameter is in yuv instead of rgb (default false)
  */
-using FFmpegArgs.Cores.Maps;
-using System.Drawing;
-
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The color which will not be replaced with neutral chroma.
         /// </summary>
@@ -28,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ChromaholdFilter Color(Color color)
           => this.SetOption("color", color.ToHexStringRGBA());
-
         /// <summary>
         /// Similarity percentage with the above color. 0.01 matches only the exact key color, while 1.0 matches everything.
         /// </summary>
@@ -36,7 +31,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ChromaholdFilter Similarity(float similarity)
           => this.SetOptionRange("similarity", similarity, 0.01f, 1);
-
         /// <summary>
         /// Blend percentage. 0.0 makes pixels either fully gray, or not gray at all. Higher values result in more preserved color.
         /// </summary>
@@ -44,7 +38,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ChromaholdFilter Blend(float blend)
           => this.SetOptionRange("blend", blend, 0, 1);
-
         /// <summary>
         /// Signals that the color passed is already in YUV instead of RGB.<br></br>
         /// Literal colors like "green" or "red" don’t make sense with this enabled anymore.This can be used to pass exact YUV values as hexadecimal numbers.
@@ -54,7 +47,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ChromaholdFilter YUV(bool yuv)
           => this.SetOption("yuv", yuv.ToFFmpegFlag());
     }
-
     public static class ChromaholdFilterExtensions
     {
         /// <summary>

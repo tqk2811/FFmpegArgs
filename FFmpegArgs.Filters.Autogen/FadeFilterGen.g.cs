@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class FadeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,7 +6,7 @@ internal FadeFilterGen(ImageMap input) : base("fade",input) { AddMapOut(); }
 /// <summary>
 ///  set the fade direction (from 0 to 1) (default in)
 /// </summary>
-public FadeFilterGen type(FadeFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public FadeFilterGen type(FadeFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Number of the first frame to which to apply the effect. (from 0 to INT_MAX) (default 0)
 /// </summary>

@@ -1,20 +1,5 @@
-﻿using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.MultimediaFilters;
-using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Filters.VideoSources;
-using FFmpegArgs.Inputs;
-using FFmpegArgs.Outputs;
-using FFmpegArgs.Filters;
-using FFmpegArgs;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Collections.Generic;
-using System.Collections;
-using FFmpegArgs.Executes;
-using FFmpegArgs.Cores.Maps;
+﻿
+
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -26,13 +11,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             PushVerticalTest(VerticalDirection.TopToBottom);
         }
-
         [TestMethod]
         public void PushVerticalBottomToTopTest()
         {
             PushVerticalTest(VerticalDirection.BottomToTop);
         }
-
         public void PushVerticalTest(VerticalDirection verticalDirection)
         {
             ScreenMode screenMode = ScreenMode.Blur;
@@ -40,21 +23,15 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(PushVerticalTest)}-{screenMode}-{verticalDirection}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-
-
             FilterInput background_fi = new FilterInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap background = ffmpegArg.AddVideoInput(background_fi);
-
             FilterInput transparent_fi = new FilterInput();
             transparent_fi.FilterGraph.NullsrcFilter().Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap transparent = ffmpegArg.AddVideoInput(transparent_fi);
-
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
-
             List<ImageMap> overlaids = new List<ImageMap>();
             List<ImageMap> startings = new List<ImageMap>();
             List<ImageMap> endings = new List<ImageMap>();
@@ -67,8 +44,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         .Format(OverlayPixFmt.rgb).MapOut
                     .TrimFilter().Duration(config.ImageDuration).MapOut
                     .SelectFilter($"lte(n,{config.ImageFrameCount})").MapOut);
-
-
                 var temp = prepareInputs[i].Last()
                     .OverlayFilterOn(background.ImageMaps.First())
                         .X($"(main_w-overlay_w)/2")
@@ -91,7 +66,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     endings.Add(split.Last());
                 }
             }
-
             List<ImageMap> blendeds = new List<ImageMap>();
             for (int i = 0; i < endings.Count; i++)
             {
@@ -106,7 +80,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
-
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
                                     .X("0")
@@ -117,7 +90,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut);
                         }
                         break;
-
                     case VerticalDirection.BottomToTop:
                         {
                             var moving = endings[i]
@@ -127,7 +99,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
-
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
                                     .X("0")
@@ -139,11 +110,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         }
                         break;
                 }
-
             }
-
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -153,27 +121,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
-
-
-
-
-
-
-
-
-
-
         [TestMethod]
         public void PushHorizontalTopToBottomTest()
         {
             PushHorizontalTest(HorizontalDirection.LeftToRight);
         }
-
         [TestMethod]
         public void PushHorizontalBottomToTopTest()
         {
@@ -186,21 +141,15 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(PushHorizontalTest)}-{screenMode}-{horizontalDirection}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-
-
             FilterInput background_fi = new FilterInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap background = ffmpegArg.AddVideoInput(background_fi);
-
             FilterInput transparent_fi = new FilterInput();
             transparent_fi.FilterGraph.NullsrcFilter().Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap transparent = ffmpegArg.AddVideoInput(transparent_fi);
-
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
-
             List<ImageMap> overlaids = new List<ImageMap>();
             List<ImageMap> startings = new List<ImageMap>();
             List<ImageMap> endings = new List<ImageMap>();
@@ -213,8 +162,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         .Format(OverlayPixFmt.rgb).MapOut
                     .TrimFilter().Duration(config.ImageDuration).MapOut
                     .SelectFilter($"lte(n,{config.ImageFrameCount})").MapOut);
-
-
                 var temp = prepareInputs[i].Last()
                     .OverlayFilterOn(background.ImageMaps.First())
                         .X($"(main_w-overlay_w)/2")
@@ -237,7 +184,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     endings.Add(split.Last());
                 }
             }
-
             List<ImageMap> blendeds = new List<ImageMap>();
             for (int i = 0; i < endings.Count; i++)
             {
@@ -252,7 +198,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
-
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
                                     .X($"-w+t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
@@ -263,7 +208,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut);
                         }
                         break;
-
                     case HorizontalDirection.RightToLeft:
                         {
                             var moving = endings[i]
@@ -273,7 +217,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
-
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
                                     .Y("0")
@@ -285,11 +228,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         }
                         break;
                 }
-
             }
-
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -299,9 +239,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
     }

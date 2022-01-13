@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class FramerateFilterGen : ImageToImageFilter,ISliceThreading
@@ -33,7 +22,7 @@ public FramerateFilterGen scene(double scene) => this.SetOptionRange("scene", sc
 /// <summary>
 ///  set flags (default scene_change_detect+scd)
 /// </summary>
-public FramerateFilterGen flags(FramerateFilterGenFlags flags) => this.SetOption("flags", flags.GetAttribute<NameAttribute>().Name);
+public FramerateFilterGen flags(FramerateFilterGenFlags flags) => this.SetOption("flags", flags.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class FramerateFilterGenExtensions
 {

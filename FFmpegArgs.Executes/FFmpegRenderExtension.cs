@@ -1,15 +1,24 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace FFmpegArgs.Executes
+﻿namespace FFmpegArgs.Executes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class FFmpegRenderExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <param name="config"></param>
+        /// <returns></returns>
         public static FFmpegRender Render(this FFmpegArg ffmpegArg, FFmpegRenderConfig config) => FFmpegRender.FromArguments(ffmpegArg, config);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <param name="config"></param>
+        /// <returns></returns>
         public static FFmpegRender Render(this FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config) => FFmpegRender.FromArguments(ffmpegArg, config);
-
 
         private static Process BuildProcess(this FFmpegRender build, FFmpegRenderResult renderResult)
         {
@@ -31,10 +40,14 @@ namespace FFmpegArgs.Executes
             return process;
         }
 
-
-
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="build"></param>
+        /// <param name="onEncodingProgress"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static FFmpegRenderResult Execute(
             this FFmpegRender build,
             Action<RenderProgress> onEncodingProgress,
@@ -43,7 +56,15 @@ namespace FFmpegArgs.Executes
             build.OnEncodingProgress += onEncodingProgress ?? throw new ArgumentNullException(nameof(onEncodingProgress));
             return build.Execute(token);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="build"></param>
+        /// <param name="onEncodingProgress"></param>
+        /// <param name="onOutputDataReceived"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static FFmpegRenderResult Execute(
             this FFmpegRender build,
             Action<RenderProgress> onEncodingProgress,
@@ -54,7 +75,13 @@ namespace FFmpegArgs.Executes
             build.OnOutputDataReceived += onOutputDataReceived ?? throw new ArgumentNullException(nameof(onOutputDataReceived));
             return build.Execute(token);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="build"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static FFmpegRenderResult Execute(this FFmpegRender build, CancellationToken token = default)
         {
             if (build == null) throw new ArgumentNullException(nameof(build));
@@ -68,9 +95,15 @@ namespace FFmpegArgs.Executes
             renderResult.ExitCode = process.ExitCode;
             return renderResult;
         }
-
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="build"></param>
+        /// <param name="onEncodingProgress"></param>
+        /// <param name="onOutputDataReceived"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Task<FFmpegRenderResult> ExecuteAsync(
             this FFmpegRender build,
             Action<RenderProgress> onEncodingProgress,
@@ -81,6 +114,14 @@ namespace FFmpegArgs.Executes
             build.OnOutputDataReceived += onOutputDataReceived ?? throw new ArgumentNullException(nameof(onOutputDataReceived));
             return build.ExecuteAsync(token);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="build"></param>
+        /// <param name="onEncodingProgress"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static Task<FFmpegRenderResult> ExecuteAsync(
             this FFmpegRender build,
             Action<RenderProgress> onEncodingProgress,
@@ -89,8 +130,14 @@ namespace FFmpegArgs.Executes
             build.OnEncodingProgress += onEncodingProgress ?? throw new ArgumentNullException(nameof(onEncodingProgress));
             return build.ExecuteAsync(token);
         }
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="build"></param>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
         public static async Task<FFmpegRenderResult> ExecuteAsync(
             this FFmpegRender build,
             CancellationToken token = default)
@@ -98,7 +145,6 @@ namespace FFmpegArgs.Executes
             if (build == null) throw new ArgumentNullException(nameof(build));
             FFmpegRenderResult renderResult = new FFmpegRenderResult();
             using Process process = build.BuildProcess(renderResult);
-
 #if NET5_0_OR_GREATER
 #else
             //https://github.com/Tyrrrz/CliWrap/blob/8ff36a648d57b22497a7cb6feae14ef28bbb2be8/CliWrap/Utils/ProcessEx.cs#L41

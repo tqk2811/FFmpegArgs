@@ -55,7 +55,6 @@ afirsrc AVOptions:
      poisson         18           ..F.A...... Poisson
      bohman          19           ..F.A...... Bohman
  */
-using FFmpegArgs.Filters.AudioFilters;
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -68,7 +67,6 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set number of filter coefficents in output audio stream. (from 9 to 65535) (default 1025)
         /// </summary>
@@ -76,7 +74,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AfirsrcFilter Taps(int t)
           => this.SetOptionRange("t", t, 9, 65535);
-
         /// <summary>
         /// Set frequency points from where magnitude and phase are set.<br>
         /// </br> This must be in non decreasing order, and first element must be 0, while last element must be 1. Elements are separated by white spaces.
@@ -86,7 +83,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AfirsrcFilter Frequency(params int[] f)
           => this.SetOption("f", string.Join(" ", f));
-
         /// <summary>
         /// set magnitude values (default "1 1")
         /// </summary>
@@ -94,8 +90,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AfirsrcFilter Magnitude(params int[] f)
           => this.SetOption("m", string.Join(" ", f));
-
-
         /// <summary>
         /// Set phase value for every frequency point set by frequency.<br>
         /// </br> Number of values must be same as number of frequency points.<br>
@@ -105,7 +99,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AfirsrcFilter Phase(params int[] p)
          => this.SetOption("p", string.Join(" ", p));
-
         /// <summary>
         /// Set sample rate, (from 1 to INT_MAX) (default 44100)
         /// </summary>
@@ -113,7 +106,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AfirsrcFilter SampleRate(int sample_rate)
           => this.SetOptionRange("r", sample_rate, 1, INT_MAX);
-
         /// <summary>
         /// Set number of samples per each frame. (from 1 to INT_MAX) (default 1024)
         /// </summary>
@@ -121,7 +113,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AfirsrcFilter NbSamples(int nb_samples)
           => this.SetOptionRange("n", nb_samples, 1, INT_MAX);
-
         /// <summary>
         /// Set window function. Default is blackman.
         /// </summary>
@@ -130,7 +121,6 @@ namespace FFmpegArgs.Filters.AudioSources
         public AfirsrcFilter WinFunc(AfirsrcWinfunc win_func)
             => this.SetOption("w", win_func);
     }
-
     public static class AfirsrcFilterExtensions
     {
         /// <summary>
@@ -141,7 +131,6 @@ namespace FFmpegArgs.Filters.AudioSources
         public static AfirsrcFilter AfirsrcFilter(this FilterGraph filterGraph)
           => new AfirsrcFilter(filterGraph);
     }
-
     public enum AfirsrcWinfunc
     {
         /// <summary>

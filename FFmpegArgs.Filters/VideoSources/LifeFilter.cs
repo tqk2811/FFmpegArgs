@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters.Enums;
-using System.Drawing;
-
+﻿
 namespace FFmpegArgs.Filters.VideoSources
 {
     /// <summary>
@@ -15,7 +12,6 @@ namespace FFmpegArgs.Filters.VideoSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the file from which to read the initial grid state. In the file, each non-whitespace character is considered an alive cell, and newline is used to delimit the end of each row.<br></br>
         /// If this option is not specified, the initial grid is generated randomly.
@@ -24,7 +20,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter FileName(string f)
           => this.SetOption("f", f);
-
         /// <summary>
         /// Set frame rate, expressed as number of frames per second. Default value is "25".
         /// </summary>
@@ -32,7 +27,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter Rate(int r)
           => this.SetOptionRange("r", r, 0, int.MaxValue);
-
         /// <summary>
         /// Set the random fill ratio for the initial random grid. It is a floating point number value ranging from 0 to 1, defaults to 1/PHI.<br>
         /// </br> It is ignored when a file is specified.
@@ -41,7 +35,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter RandomFillRatio(double ratio)
           => this.SetOptionRange("ratio", ratio, 0, 1);
-
         /// <summary>
         /// Set the seed for filling the initial random grid, must be an integer included between 0 and UINT32_MAX.<br>
         /// </br> If not specified, or if explicitly set to -1, the filter will try to use a good random seed on a best effort basis.
@@ -50,7 +43,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter RandomSeed(long seed)
           => this.SetOptionRange("seed", seed, 0, uint.MaxValue);
-
         /// <summary>
         /// Set the life rule.<br></br>
         /// A rule can be specified with a code of the kind "SNS/BNB", where NS and NB are sequences of numbers in the range 0-8, NS specifies the number of alive neighbor cells which make a live cell stay alive, and NB the number of alive neighbor cells which make a dead cell to become alive(i.e.to "born"). "s" and "b" can be used in place of "S" and "B", respectively.<br></br>
@@ -61,7 +53,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter Rule(string rule)
           => this.SetOption("rule", rule);
-
         /// <summary>
         /// Set the size of the output video<br></br>
         /// If filename is specified, the size is set by default to the same size of the input file.If size is set, it must contain the size specified in the input file, and the initial grid defined in that file is centered in the larger resulting area.<br></br>
@@ -70,8 +61,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public LifeFilter Size(VideoSizeUtils videoSize)
-          => this.SetOption("size", videoSize.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("size", videoSize.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Set the size of the output video<br></br>
         /// If filename is specified, the size is set by default to the same size of the input file.If size is set, it must contain the size specified in the input file, and the initial grid defined in that file is centered in the larger resulting area.<br></br>
@@ -81,7 +71,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter Size(Size videoSize)
           => this.SetOption("size", $"{videoSize.Width}x{videoSize.Height}");
-
         /// <summary>
         /// If set to 1, stitch the left and right grid edges together, and the top and bottom edges also. Defaults to 1.
         /// </summary>
@@ -89,7 +78,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter Stitch(bool stitch)
           => this.SetOption("stitch", stitch.ToFFmpegFlag());
-
         /// <summary>
         /// Set cell mold speed.<br></br>
         /// If set, a dead cell will go from death_color to mold_color with a step of mold. mold can have a value from 0 to 255.
@@ -98,7 +86,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter Mold(int mold)
           => this.SetOptionRange("mold", mold, 0, 255);
-
         /// <summary>
         /// Set the color of living (or new born) cells.
         /// </summary>
@@ -106,7 +93,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter LifeColor(Color c)
           => this.SetOption("life_color", c.ToHexStringRGBA());
-
         /// <summary>
         /// Set the color of dead cells. If mold is set, this is the first color used to represent a dead cell.
         /// </summary>
@@ -114,7 +100,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public LifeFilter DeathColor(Color c)
           => this.SetOption("death_color", c.ToHexStringRGBA());
-
         /// <summary>
         /// Set mold color, for definitely dead and moldy cells.
         /// </summary>
@@ -123,7 +108,9 @@ namespace FFmpegArgs.Filters.VideoSources
         public LifeFilter MoldColor(Color c)
           => this.SetOption("mold_color", c.ToHexStringRGBA());
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class LifeFilterExtensions
     {
         /// <summary>

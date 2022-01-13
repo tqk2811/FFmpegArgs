@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AfftdnFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -25,7 +14,7 @@ public AfftdnFilterGen nf(float nf) => this.SetOptionRange("nf", nf,-80,-20);
 /// <summary>
 ///  set the noise type (from 0 to 3) (default w)
 /// </summary>
-public AfftdnFilterGen nt(AfftdnFilterGenNt nt) => this.SetOption("nt", nt.GetAttribute<NameAttribute>().Name);
+public AfftdnFilterGen nt(AfftdnFilterGenNt nt) => this.SetOption("nt", nt.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the custom bands noise
 /// </summary>
@@ -45,7 +34,7 @@ public AfftdnFilterGen tr(bool tr) => this.SetOption("tr",tr.ToFFmpegFlag());
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
-public AfftdnFilterGen om(AfftdnFilterGenOm om) => this.SetOption("om", om.GetAttribute<NameAttribute>().Name);
+public AfftdnFilterGen om(AfftdnFilterGenOm om) => this.SetOption("om", om.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AfftdnFilterGenExtensions
 {

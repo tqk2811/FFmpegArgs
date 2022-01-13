@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AfftfiltFilterGen : AudioToAudioFilter
@@ -29,7 +18,7 @@ public AfftfiltFilterGen win_size(int win_size) => this.SetOptionRange("win_size
 /// <summary>
 ///  set window function (from 0 to 19) (default hann)
 /// </summary>
-public AfftfiltFilterGen win_func(AfftfiltFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetAttribute<NameAttribute>().Name);
+public AfftfiltFilterGen win_func(AfftfiltFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set window overlap (from 0 to 1) (default 0.75)
 /// </summary>

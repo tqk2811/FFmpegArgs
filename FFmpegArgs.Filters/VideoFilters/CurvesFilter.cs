@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC curves            V->V       Adjust components curves.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Select one of the available color presets. This option can be used in addition to the r, g, b parameters; in this case, the later options takes priority on the preset values.
         /// </summary>
@@ -20,8 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter Preset(CurvesPreset preset)
             => this.SetOption("preset", preset);
-
-
         /// <summary>
         /// Set the master key points. These points will define a second pass mapping. It is sometimes called a "luminance" or "value" mapping. It can be used with r, g, b or all since it acts like a post-processing LUT.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -30,8 +25,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter Master(string master)
             => this.SetOption("m", master);
-
-
         /// <summary>
         /// Set the key points for the red component.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -40,8 +33,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter Red(string r)
             => this.SetOption("r", r);
-
-
         /// <summary>
         /// Set the key points for the green component.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -50,7 +41,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter Green(string g)
             => this.SetOption("g", g);
-
         /// <summary>
         /// Set the key points for the blue component.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -59,7 +49,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter Blue(string b)
             => this.SetOption("b", b);
-
         /// <summary>
         /// Set the key points for all components (not including master). Can be used in addition to the other key points component options. In this case, the unset component(s) will fallback on this all setting.<br></br>
         /// To avoid some filtergraph syntax conflicts, each key points list need to be defined using the following syntax: x0/y0 x1/y1 x2/y2 ....
@@ -68,7 +57,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter All(string all)
             => this.SetOption("all", all);
-
         /// <summary>
         /// Specify a Photoshop curves file (.acv) to import the settings from.
         /// </summary>
@@ -76,7 +64,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CurvesFilter PsFile(string psfile)
             => this.SetOption("psfile", psfile);
-
         /// <summary>
         /// Save Gnuplot script of the curves in specified file.
         /// </summary>
@@ -85,7 +72,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CurvesFilter Plot(string file)
             => this.SetOption("plot", file);
     }
-
     public static class CurvesFilterExtensions
     {
         /// <summary>
@@ -97,7 +83,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static CurvesFilter CurvesFilter(this ImageMap imageMap)
           => new CurvesFilter(imageMap);
     }
-
     public enum CurvesPreset
     {
         none,

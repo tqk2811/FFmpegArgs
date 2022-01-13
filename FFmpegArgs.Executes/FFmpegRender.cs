@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-
-namespace FFmpegArgs.Executes
+﻿namespace FFmpegArgs.Executes
 {
-    public class FFmpegRender
+    public class FFmpegRender    
     {
-        
+        /// <summary>
+        /// 
+        /// </summary>
         public event Action<RenderProgress> OnEncodingProgress;
+        /// <summary>
+        /// 
+        /// </summary>
         public event Action<string> OnOutputDataReceived;
-        
+        /// <summary>
+        /// 
+        /// </summary>
         public FFmpegRenderConfig Config { get; }
-        
         internal FFmpegRender(FFmpegRenderConfig config)
         {
             Config = config;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public string Arguments { get; private set; }
-
         internal void ErrorDataReceived(object sender, DataReceivedEventArgs e)
         {
             if (OnEncodingProgress != null)
@@ -28,12 +30,10 @@ namespace FFmpegArgs.Executes
                 if (progress != null) OnEncodingProgress?.Invoke(progress);
             }
         }
-
         internal void OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
             OnOutputDataReceived?.Invoke(e?.Data);
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -46,12 +46,10 @@ namespace FFmpegArgs.Executes
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
-
             FFmpegRenderConfig buildConfig = new FFmpegRenderConfig();
             config.Invoke(buildConfig);
             return FromArguments(ffmpegArg, buildConfig);
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -64,23 +62,19 @@ namespace FFmpegArgs.Executes
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
-
             FFmpegRender fFmpegBuild = new FFmpegRender(config);
             string args = ffmpegArg.GetFullCommandline();
             if (config.IsForceUseScript || args.Length > config.ArgumentsMaxLength)
             {
                 string scripts = ffmpegArg.FilterGraph.GetFiltersArgs(true, true);
-                if(string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(FFmpegArg)} argument too long");
-
+                if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(FFmpegArg)} argument too long");
                 File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), scripts);
                 fFmpegBuild.Arguments = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName);
-
                 if (fFmpegBuild.Arguments.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(FFmpegArg)} argument too long");
             }
             else fFmpegBuild.Arguments = args;
             return fFmpegBuild;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -94,13 +88,11 @@ namespace FFmpegArgs.Executes
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));
             if (commands.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(commands)} too long");
-
             return new FFmpegRender(config)
             {
                 Arguments = commands
             };
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -112,8 +104,7 @@ namespace FFmpegArgs.Executes
         public static FFmpegRender FromArguments(string commands, Action<FFmpegRenderConfig> config)
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
-            if (config == null) throw new ArgumentNullException(nameof(config));            
-
+            if (config == null) throw new ArgumentNullException(nameof(config));
             FFmpegRenderConfig buildConfig = new FFmpegRenderConfig();
             config.Invoke(buildConfig);
             return FromArguments(commands, buildConfig);

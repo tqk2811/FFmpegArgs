@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... ass               V->V       Render ASS subtitles onto input video using the libass library.<br>
@@ -11,9 +8,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     {
         internal AssFilter(ImageMap imageMap) : base("ass", imageMap)
         {
-
         }
-
         /// <summary>
         /// Set the shaping engine
         /// </summary>
@@ -22,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public AssFilter Shaping(AssFilterShaping shaping)
           => this.SetOption("shaping", shaping);
     }
-
     public static class AssFilterExtensions
     {
         /// <summary>

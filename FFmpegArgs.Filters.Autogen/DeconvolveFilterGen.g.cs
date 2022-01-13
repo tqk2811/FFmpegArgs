@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DeconvolveFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -21,7 +10,7 @@ public DeconvolveFilterGen planes(int planes) => this.SetOptionRange("planes", p
 /// <summary>
 ///  when to process impulses (from 0 to 1) (default all)
 /// </summary>
-public DeconvolveFilterGen impulse(DeconvolveFilterGenImpulse impulse) => this.SetOption("impulse", impulse.GetAttribute<NameAttribute>().Name);
+public DeconvolveFilterGen impulse(DeconvolveFilterGenImpulse impulse) => this.SetOption("impulse", impulse.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set noise (from 0 to 1) (default 1e-07)
 /// </summary>

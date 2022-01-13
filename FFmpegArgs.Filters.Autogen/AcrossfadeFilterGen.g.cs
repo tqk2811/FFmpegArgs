@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AcrossfadeFilterGen : AudioToAudioFilter
@@ -33,19 +22,19 @@ public AcrossfadeFilterGen overlap(bool overlap) => this.SetOption("overlap",ove
 /// <summary>
 ///  set fade curve type for 1st stream (from -1 to 18) (default tri)
 /// </summary>
-public AcrossfadeFilterGen curve1(AcrossfadeFilterGenCurve1 curve1) => this.SetOption("curve1", curve1.GetAttribute<NameAttribute>().Name);
+public AcrossfadeFilterGen curve1(AcrossfadeFilterGenCurve1 curve1) => this.SetOption("curve1", curve1.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set fade curve type for 1st stream (from -1 to 18) (default tri)
 /// </summary>
-public AcrossfadeFilterGen c1(AcrossfadeFilterGenC1 c1) => this.SetOption("c1", c1.GetAttribute<NameAttribute>().Name);
+public AcrossfadeFilterGen c1(AcrossfadeFilterGenC1 c1) => this.SetOption("c1", c1.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
 /// </summary>
-public AcrossfadeFilterGen curve2(AcrossfadeFilterGenCurve2 curve2) => this.SetOption("curve2", curve2.GetAttribute<NameAttribute>().Name);
+public AcrossfadeFilterGen curve2(AcrossfadeFilterGenCurve2 curve2) => this.SetOption("curve2", curve2.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
 /// </summary>
-public AcrossfadeFilterGen c2(AcrossfadeFilterGenC2 c2) => this.SetOption("c2", c2.GetAttribute<NameAttribute>().Name);
+public AcrossfadeFilterGen c2(AcrossfadeFilterGenC2 c2) => this.SetOption("c2", c2.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AcrossfadeFilterGenExtensions
 {

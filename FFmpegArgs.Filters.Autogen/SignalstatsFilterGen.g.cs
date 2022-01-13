@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SignalstatsFilterGen : ImageToImageFilter,ISliceThreading
@@ -17,11 +6,11 @@ internal SignalstatsFilterGen(ImageMap input) : base("signalstats",input) { AddM
 /// <summary>
 ///  set statistics filters (default 0)
 /// </summary>
-public SignalstatsFilterGen stat(SignalstatsFilterGenStat stat) => this.SetOption("stat", stat.GetAttribute<NameAttribute>().Name);
+public SignalstatsFilterGen stat(SignalstatsFilterGenStat stat) => this.SetOption("stat", stat.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set video filter (from -1 to 2) (default -1)
 /// </summary>
-public SignalstatsFilterGen _out(SignalstatsFilterGenOut _out) => this.SetOption("out", _out.GetAttribute<NameAttribute>().Name);
+public SignalstatsFilterGen _out(SignalstatsFilterGenOut _out) => this.SetOption("out", _out.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set highlight color (default "yellow")
 /// </summary>

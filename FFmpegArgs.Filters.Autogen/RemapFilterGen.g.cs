@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class RemapFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,7 +6,7 @@ internal RemapFilterGen(params ImageMap[] inputs) : base("remap",inputs) { AddMa
 /// <summary>
 ///  set output format (from 0 to 1) (default color)
 /// </summary>
-public RemapFilterGen format(RemapFilterGenFormat format) => this.SetOption("format", format.GetAttribute<NameAttribute>().Name);
+public RemapFilterGen format(RemapFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the color of the unmapped pixels (default "black")
 /// </summary>

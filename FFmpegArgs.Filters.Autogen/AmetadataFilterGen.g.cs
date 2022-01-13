@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AmetadataFilterGen : AudioToAudioFilter,ITimelineSupport
@@ -17,7 +6,7 @@ internal AmetadataFilterGen(AudioMap input) : base("ametadata",input) { AddMapOu
 /// <summary>
 ///  set a mode of operation (from 0 to 4) (default select)
 /// </summary>
-public AmetadataFilterGen mode(AmetadataFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public AmetadataFilterGen mode(AmetadataFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set metadata key
 /// </summary>
@@ -29,7 +18,7 @@ public AmetadataFilterGen value(string value) => this.SetOption("value",value);
 /// <summary>
 ///  function for comparing values (from 0 to 6) (default same_str)
 /// </summary>
-public AmetadataFilterGen function(AmetadataFilterGenFunction function) => this.SetOption("function", function.GetAttribute<NameAttribute>().Name);
+public AmetadataFilterGen function(AmetadataFilterGenFunction function) => this.SetOption("function", function.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set expression for expr function
 /// </summary>

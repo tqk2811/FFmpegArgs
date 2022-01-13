@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Dnn_processingFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal Dnn_processingFilterGen(ImageMap input) : base("dnn_processing",input) 
 /// <summary>
 ///  DNN backend (from INT_MIN to INT_MAX) (default native)
 /// </summary>
-public Dnn_processingFilterGen dnn_backend(Dnn_processingFilterGenDnn_backend dnn_backend) => this.SetOption("dnn_backend", dnn_backend.GetAttribute<NameAttribute>().Name);
+public Dnn_processingFilterGen dnn_backend(Dnn_processingFilterGenDnn_backend dnn_backend) => this.SetOption("dnn_backend", dnn_backend.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  path to model file
 /// </summary>

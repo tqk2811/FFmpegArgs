@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace FFmpegArgs
 {
     public abstract class BaseOption
@@ -16,7 +15,6 @@ namespace FFmpegArgs
         protected const double DBL_MAX = double.MaxValue;
         protected const double DBL_MIN = double.MinValue;
     }
-
     public static class BaseOptionExtension
     {
         /// <summary>
@@ -35,7 +33,6 @@ namespace FFmpegArgs
             baseOption._options[key] = val;
             return baseOption;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -52,7 +49,6 @@ namespace FFmpegArgs
             baseOption._options[key] = val.ToString();
             return baseOption;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -72,7 +68,6 @@ namespace FFmpegArgs
             baseOption._options[key] = val.ToString();
             return baseOption;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -92,7 +87,6 @@ namespace FFmpegArgs
             baseOption._options[key] = val.ToString();
             return baseOption;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -112,7 +106,6 @@ namespace FFmpegArgs
             baseOption._options[key] = val.ToString();
             return baseOption;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -132,7 +125,6 @@ namespace FFmpegArgs
             baseOption._options[key] = val.ToString();
             return baseOption;
         }
-
         /// <summary>
         /// 
         /// </summary>
@@ -152,7 +144,6 @@ namespace FFmpegArgs
             baseOption._options[key] = val.ToString();
             return baseOption;
         }
-
         /// <summary>
         /// 
         /// </summary>

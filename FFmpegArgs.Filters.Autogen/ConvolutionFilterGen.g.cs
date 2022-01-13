@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ConvolutionFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -65,19 +54,19 @@ public ConvolutionFilterGen _3bias(float _3bias) => this.SetOptionRange("3bias",
 /// <summary>
 ///  set matrix mode for 1st plane (from 0 to 2) (default square)
 /// </summary>
-public ConvolutionFilterGen _0mode(ConvolutionFilterGen_0mode _0mode) => this.SetOption("0mode", _0mode.GetAttribute<NameAttribute>().Name);
+public ConvolutionFilterGen _0mode(ConvolutionFilterGen_0mode _0mode) => this.SetOption("0mode", _0mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set matrix mode for 2nd plane (from 0 to 2) (default square)
 /// </summary>
-public ConvolutionFilterGen _1mode(ConvolutionFilterGen_1mode _1mode) => this.SetOption("1mode", _1mode.GetAttribute<NameAttribute>().Name);
+public ConvolutionFilterGen _1mode(ConvolutionFilterGen_1mode _1mode) => this.SetOption("1mode", _1mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set matrix mode for 3rd plane (from 0 to 2) (default square)
 /// </summary>
-public ConvolutionFilterGen _2mode(ConvolutionFilterGen_2mode _2mode) => this.SetOption("2mode", _2mode.GetAttribute<NameAttribute>().Name);
+public ConvolutionFilterGen _2mode(ConvolutionFilterGen_2mode _2mode) => this.SetOption("2mode", _2mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set matrix mode for 4th plane (from 0 to 2) (default square)
 /// </summary>
-public ConvolutionFilterGen _3mode(ConvolutionFilterGen_3mode _3mode) => this.SetOption("3mode", _3mode.GetAttribute<NameAttribute>().Name);
+public ConvolutionFilterGen _3mode(ConvolutionFilterGen_3mode _3mode) => this.SetOption("3mode", _3mode.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class ConvolutionFilterGenExtensions
 {

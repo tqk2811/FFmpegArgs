@@ -9,9 +9,7 @@
     //public class TonemapVaapiFilter
     //{
     //}
-
     //public static class TonemapVaapiFilterExtension
     //{
-
     //}
 }

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SpeechnormFilterGen : AudioToAudioFilter,ICommandSupport
@@ -41,11 +30,11 @@ public SpeechnormFilterGen fall(double fall) => this.SetOptionRange("fall", fall
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public SpeechnormFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
+public SpeechnormFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public SpeechnormFilterGen h(ChannelLayout h) => this.SetOption("h",h.GetAttribute<NameAttribute>().Name);
+public SpeechnormFilterGen h(ChannelLayout h) => this.SetOption("h",h.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set inverted filtering (default false)
 /// </summary>

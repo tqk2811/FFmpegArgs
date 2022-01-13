@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using System.Collections.Generic;
-
+﻿
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     internal class StartEnd

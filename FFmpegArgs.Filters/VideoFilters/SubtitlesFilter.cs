@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... subtitles         V->V       Render text subtitles onto input video using the libass library.<br>
@@ -11,9 +8,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     {
         internal SubtitlesFilter(ImageMap imageMap) : base("subtitles", imageMap)
         {
-
         }
-
         /// <summary>
         /// Set subtitles input character encoding. subtitles filter only. Only useful if not UTF-8.
         /// </summary>
@@ -23,7 +18,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public SubtitlesFilter Charenc(string charenc)
           => this.SetOption("charenc", charenc);
-
         /// <summary>
         /// Set subtitles stream index. subtitles filter only.
         /// </summary>
@@ -34,7 +28,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public SubtitlesFilter StreamIndex(int si)
           => this.SetOptionRange("si", si, -1, int.MaxValue);
     }
-
     public static class SubtitlesFilterExtensions
     {
         /// <summary>

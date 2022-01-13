@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-
 namespace FFmpegArgs.Autogens
 {
     internal class Program
@@ -11,11 +10,9 @@ namespace FFmpegArgs.Autogens
         {
             var filters = GetDoc("-filters").Skip(8).Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.TrimStart()).ToList();
             var fulls = DocLine.GetDocLine(GetDoc("-h full").ToList());
-
             FiltersGen.Gen(filters, fulls);
             Console.ReadLine();
         }
-
 
         static IEnumerable<string> GetDoc(string arg)
         {
@@ -32,6 +29,5 @@ namespace FFmpegArgs.Autogens
             }
             while (!process.StandardOutput.EndOfStream);
         }
-
     }
 }

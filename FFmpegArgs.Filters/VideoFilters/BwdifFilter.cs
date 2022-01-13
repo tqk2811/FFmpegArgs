@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TS. bwdif             V->V       Deinterlace the input image.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The interlacing mode to adopt. The default value is send_field.
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BwdifFilter Mode(BwdifMode mode)
           => this.SetOption("mode", mode);
-
         /// <summary>
         /// The picture field parity assumed for the input interlaced video.<br>
         /// </br>The default value is auto. If the interlacing is unknown or the decoder does not export this information, top field first will be assumed.
@@ -29,7 +25,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BwdifFilter Parity(BwdifParity parity)
           => this.SetOption("parity", parity);
-
         /// <summary>
         /// Specify which frames to deinterlace.<br>
         /// </br>The default value is all.
@@ -38,9 +33,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BwdifFilter Deint(BwdifDeint deint)
           => this.SetOption("deint", deint);
-
     }
-
     public static class BwdifFilterExtensions
     {
         /// <summary>
@@ -50,7 +43,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static BwdifFilter BwdifFilter(this ImageMap imageMap)
           => new BwdifFilter(imageMap);
     }
-
     public enum BwdifMode
     {
         /// <summary>
@@ -62,7 +54,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         send_field = 1
     }
-
     public enum BwdifParity
     {
         /// <summary>
@@ -78,7 +69,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         auto = -1
     }
-
     public enum BwdifDeint
     {
         /// <summary>

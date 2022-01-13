@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class MptestsrcFilterGen : SourceImageFilter
@@ -25,7 +14,7 @@ public MptestsrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("du
 /// <summary>
 ///  set test to perform (from 0 to INT_MAX) (default all)
 /// </summary>
-public MptestsrcFilterGen test(MptestsrcFilterGenTest test) => this.SetOption("test", test.GetAttribute<NameAttribute>().Name);
+public MptestsrcFilterGen test(MptestsrcFilterGenTest test) => this.SetOption("test", test.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Set the maximum number of frames generated for each test (from 1 to I64_MAX) (default 30)
 /// </summary>

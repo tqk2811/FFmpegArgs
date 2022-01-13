@@ -3,7 +3,6 @@
     //public class Frei0r_srcFilter
     //{
     //}
-
     //public static class Frei0r_srcFilterExtensions
     //{
     ///Provide a frei0r source.

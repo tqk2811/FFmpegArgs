@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using System;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// .S. blackdetect       V->V       Detect video intervals that are (almost) black.<br></br>
@@ -13,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the minimum detected black duration expressed in seconds. It must be a non-negative floating point number.<br></br>
         /// Default value is 2.0.
@@ -22,7 +18,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BlackdetectFilter BlackMinDuration(TimeSpan duration)
           => this.SetOptionRange("d", duration, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Set the threshold for considering a picture "black". Express the minimum value for the ratio: nb_black_pixels / nb_pixels <br></br>
         /// for which a picture is considered black. Default value is 0.98.
@@ -31,7 +26,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BlackdetectFilter PictureBlackRatioTh(double pic_th)
           => this.SetOptionRange("pic_th", pic_th, 0, 1);
-
         /// <summary>
         /// Set the threshold for considering a pixel "black".<br></br>
         /// The threshold expresses the maximum pixel luminance value for which a pixel is considered "black". The provided value is scaled according to the following equation:<br></br>
@@ -44,7 +38,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public BlackdetectFilter PixelBlackTh(double pix_th)
           => this.SetOptionRange("pix_th", pix_th, 0, 1);
     }
-
     public static class BlackdetectFilterExtensions
     {
         /// <summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AnoisesrcFilterGen : SourceAudioFilter
@@ -33,15 +22,15 @@ public AnoisesrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("du
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
-public AnoisesrcFilterGen color(AnoisesrcFilterGenColor color) => this.SetOption("color", color.GetAttribute<NameAttribute>().Name);
+public AnoisesrcFilterGen color(AnoisesrcFilterGenColor color) => this.SetOption("color", color.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
-public AnoisesrcFilterGen colour(AnoisesrcFilterGenColour colour) => this.SetOption("colour", colour.GetAttribute<NameAttribute>().Name);
+public AnoisesrcFilterGen colour(AnoisesrcFilterGenColour colour) => this.SetOption("colour", colour.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
-public AnoisesrcFilterGen c(AnoisesrcFilterGenC c) => this.SetOption("c", c.GetAttribute<NameAttribute>().Name);
+public AnoisesrcFilterGen c(AnoisesrcFilterGenC c) => this.SetOption("c", c.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set random seed (from -1 to UINT32_MAX) (default -1)
 /// </summary>

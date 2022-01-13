@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoSources
+﻿namespace FFmpegArgs.Filters.VideoSources
 {
     /// <summary>
     /// ..C color             |->V       Provide an uniformly colored input.<br></br>
@@ -12,11 +10,9 @@ namespace FFmpegArgs.Filters.VideoSources
         {
             AddMapOut();
         }
-
         public ColorFilter Color(Color color)
           => this.SetOption("c", color.ToHexStringRGBA());
     }
-
     public static class ColorFilterExtension
     {
         public static ColorFilter ColorFilter(this FilterGraph filterGraph)

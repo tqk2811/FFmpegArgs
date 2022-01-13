@@ -1,10 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.C drawbox           V->V       Draw a colored box on the input video.<br></br>
@@ -23,13 +17,11 @@ namespace FFmpegArgs.Filters.VideoFilters
             "w", "h",
             "t"
         };
-
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal DrawBoxFilter(ImageMap imageMap) : base("drawbox", imageMap)
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The expressions which specify the top left corner coordinates of the box. It defaults to 0.
         /// </summary>
@@ -70,7 +62,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         public DrawBoxFilter H(Action<FFmpegExpression> h)
             => this.SetOption("h", h.Run(expression));
-
         /// <summary>
         /// Specify the color of the box to write. If the special value invert is used, the box edge color is the same as the video with inverted luma.
         /// </summary>
@@ -78,32 +69,27 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawBoxFilter Color(Color color)
             => this.SetOption("c", color.ToHexStringRGBA());
-
         /// <summary>
         /// The expression which sets the thickness of the box edge. A value of fill will create a filled box. Default value is 3.
         /// </summary>
         public DrawBoxFilter ThicknessFill()
           => this.SetOption("t", "fill");
-
         /// <summary>
         /// The expression which sets the thickness of the box edge. A value of fill will create a filled box. Default value is 3.
         /// </summary>
         public DrawBoxFilter Thickness(Action<FFmpegExpression> t)
           => this.SetOption("t", t.Run(expression));
-
         /// <summary>
         /// The expression which sets the thickness of the box edge. A value of fill will create a filled box. Default value is 3.
         /// </summary>
         public DrawBoxFilter Thickness(string t)
           => Thickness(_t => _t.Check(t));
-
         /// <summary>
         /// Applicable if the input has alpha. With value 1, the pixels of the painted box will overwrite the video’s color and alpha pixels. Default is 0, which composites the box onto the input, leaving the video’s alpha intact.
         /// </summary>
         public DrawBoxFilter Replace(bool replace)
            => this.SetOption("replace", replace.ToFFmpegFlag());
     }
-
     public static class DrawBoxFilterExtension
     {
         /// <summary>

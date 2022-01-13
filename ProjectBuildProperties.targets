@@ -1,12 +1,12 @@
 <Project>
 	<PropertyGroup>
 		<TargetFrameworks>net462;netstandard2.0;net5.0;net6.0</TargetFrameworks>
-		<LangVersion>8.0</LangVersion>
+		<LangVersion>10.0</LangVersion>
 		<PreserveCompilationContext>false</PreserveCompilationContext>
 		<GenerateDependencyFile>false</GenerateDependencyFile>
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
-		<AssemblyVersion>1.1</AssemblyVersion>
+		<AssemblyVersion>1.2</AssemblyVersion>
 	</PropertyGroup>
 </Project>

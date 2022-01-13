@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class TpadFilterGen : ImageToImageFilter
@@ -25,11 +14,11 @@ public TpadFilterGen stop(int stop) => this.SetOptionRange("stop", stop,-1,INT_M
 /// <summary>
 ///  set the mode of added frames to start (from 0 to 1) (default add)
 /// </summary>
-public TpadFilterGen start_mode(TpadFilterGenStart_mode start_mode) => this.SetOption("start_mode", start_mode.GetAttribute<NameAttribute>().Name);
+public TpadFilterGen start_mode(TpadFilterGenStart_mode start_mode) => this.SetOption("start_mode", start_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the mode of added frames to end (from 0 to 1) (default add)
 /// </summary>
-public TpadFilterGen stop_mode(TpadFilterGenStop_mode stop_mode) => this.SetOption("stop_mode", stop_mode.GetAttribute<NameAttribute>().Name);
+public TpadFilterGen stop_mode(TpadFilterGenStop_mode stop_mode) => this.SetOption("stop_mode", stop_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the duration to delay input (default 0)
 /// </summary>

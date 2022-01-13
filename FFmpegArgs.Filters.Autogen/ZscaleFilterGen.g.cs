@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ZscaleFilterGen : ImageToImageFilter,ICommandSupport
@@ -29,83 +18,83 @@ public ZscaleFilterGen size(string size) => this.SetOption("size",size);
 /// <summary>
 ///  set dither type (from 0 to 3) (default none)
 /// </summary>
-public ZscaleFilterGen dither(ZscaleFilterGenDither dither) => this.SetOption("dither", dither.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen dither(ZscaleFilterGenDither dither) => this.SetOption("dither", dither.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filter type (from 0 to 5) (default bilinear)
 /// </summary>
-public ZscaleFilterGen filter(ZscaleFilterGenFilter filter) => this.SetOption("filter", filter.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen filter(ZscaleFilterGenFilter filter) => this.SetOption("filter", filter.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGen out_range(ZscaleFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen out_range(ZscaleFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGen range(ZscaleFilterGenRange range) => this.SetOption("range", range.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen range(ZscaleFilterGenRange range) => this.SetOption("range", range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGen r(ZscaleFilterGenR r) => this.SetOption("r", r.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen r(ZscaleFilterGenR r) => this.SetOption("r", r.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color primaries (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen primaries(ZscaleFilterGenPrimaries primaries) => this.SetOption("primaries", primaries.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen primaries(ZscaleFilterGenPrimaries primaries) => this.SetOption("primaries", primaries.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set transfer characteristic (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen transfer(ZscaleFilterGenTransfer transfer) => this.SetOption("transfer", transfer.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen transfer(ZscaleFilterGenTransfer transfer) => this.SetOption("transfer", transfer.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set colorspace matrix (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen matrix(ZscaleFilterGenMatrix matrix) => this.SetOption("matrix", matrix.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen matrix(ZscaleFilterGenMatrix matrix) => this.SetOption("matrix", matrix.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGen in_range(ZscaleFilterGenIn_range in_range) => this.SetOption("in_range", in_range.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen in_range(ZscaleFilterGenIn_range in_range) => this.SetOption("in_range", in_range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGen rangein(ZscaleFilterGenRangein rangein) => this.SetOption("rangein", rangein.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen rangein(ZscaleFilterGenRangein rangein) => this.SetOption("rangein", rangein.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input color range (from -1 to 1) (default input)
 /// </summary>
-public ZscaleFilterGen rin(ZscaleFilterGenRin rin) => this.SetOption("rin", rin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen rin(ZscaleFilterGenRin rin) => this.SetOption("rin", rin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input color primaries (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen primariesin(ZscaleFilterGenPrimariesin primariesin) => this.SetOption("primariesin", primariesin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen primariesin(ZscaleFilterGenPrimariesin primariesin) => this.SetOption("primariesin", primariesin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input color primaries (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen pin(ZscaleFilterGenPin pin) => this.SetOption("pin", pin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen pin(ZscaleFilterGenPin pin) => this.SetOption("pin", pin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input transfer characteristic (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen transferin(ZscaleFilterGenTransferin transferin) => this.SetOption("transferin", transferin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen transferin(ZscaleFilterGenTransferin transferin) => this.SetOption("transferin", transferin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input transfer characteristic (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen tin(ZscaleFilterGenTin tin) => this.SetOption("tin", tin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen tin(ZscaleFilterGenTin tin) => this.SetOption("tin", tin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input colorspace matrix (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen matrixin(ZscaleFilterGenMatrixin matrixin) => this.SetOption("matrixin", matrixin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen matrixin(ZscaleFilterGenMatrixin matrixin) => this.SetOption("matrixin", matrixin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input colorspace matrix (from -1 to INT_MAX) (default input)
 /// </summary>
-public ZscaleFilterGen min(ZscaleFilterGenMin min) => this.SetOption("min", min.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen min(ZscaleFilterGenMin min) => this.SetOption("min", min.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set output chroma location (from -1 to 5) (default input)
 /// </summary>
-public ZscaleFilterGen chromal(ZscaleFilterGenChromal chromal) => this.SetOption("chromal", chromal.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen chromal(ZscaleFilterGenChromal chromal) => this.SetOption("chromal", chromal.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input chroma location (from -1 to 5) (default input)
 /// </summary>
-public ZscaleFilterGen chromalin(ZscaleFilterGenChromalin chromalin) => this.SetOption("chromalin", chromalin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen chromalin(ZscaleFilterGenChromalin chromalin) => this.SetOption("chromalin", chromalin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input chroma location (from -1 to 5) (default input)
 /// </summary>
-public ZscaleFilterGen cin(ZscaleFilterGenCin cin) => this.SetOption("cin", cin.GetAttribute<NameAttribute>().Name);
+public ZscaleFilterGen cin(ZscaleFilterGenCin cin) => this.SetOption("cin", cin.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set nominal peak luminance (from 0 to DBL_MAX) (default nan)
 /// </summary>

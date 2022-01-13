@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class V360FilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
@@ -17,15 +6,15 @@ internal V360FilterGen(ImageMap input) : base("v360",input) { AddMapOut(); }
 /// <summary>
 ///  set input projection (from 0 to 23) (default e)
 /// </summary>
-public V360FilterGen input(V360FilterGenInput input) => this.SetOption("input", input.GetAttribute<NameAttribute>().Name);
+public V360FilterGen input(V360FilterGenInput input) => this.SetOption("input", input.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set output projection (from 0 to 23) (default c3x2)
 /// </summary>
-public V360FilterGen output(V360FilterGenOutput output) => this.SetOption("output", output.GetAttribute<NameAttribute>().Name);
+public V360FilterGen output(V360FilterGenOutput output) => this.SetOption("output", output.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set interpolation method (from 0 to 7) (default line)
 /// </summary>
-public V360FilterGen interp(V360FilterGenInterp interp) => this.SetOption("interp", interp.GetAttribute<NameAttribute>().Name);
+public V360FilterGen interp(V360FilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  output width (from 0 to 32767) (default 0)
 /// </summary>
@@ -37,11 +26,11 @@ public V360FilterGen h(int h) => this.SetOptionRange("h", h,0,32767);
 /// <summary>
 ///  input stereo format (from 0 to 2) (default 2d)
 /// </summary>
-public V360FilterGen in_stereo(V360FilterGenIn_stereo in_stereo) => this.SetOption("in_stereo", in_stereo.GetAttribute<NameAttribute>().Name);
+public V360FilterGen in_stereo(V360FilterGenIn_stereo in_stereo) => this.SetOption("in_stereo", in_stereo.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  output stereo format (from 0 to 2) (default 2d)
 /// </summary>
-public V360FilterGen out_stereo(V360FilterGenOut_stereo out_stereo) => this.SetOption("out_stereo", out_stereo.GetAttribute<NameAttribute>().Name);
+public V360FilterGen out_stereo(V360FilterGenOut_stereo out_stereo) => this.SetOption("out_stereo", out_stereo.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  input cubemap face order (default "rludfb")
 /// </summary>

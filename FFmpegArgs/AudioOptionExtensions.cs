@@ -1,6 +1,5 @@
 ﻿using FFmpegArgs.Cores;
 using System;
-
 namespace FFmpegArgs
 {
     /// <summary>
@@ -28,7 +27,6 @@ namespace FFmpegArgs
             }
             return t;
         }
-
         /// <summary>
         /// Set the number of audio channels. For output streams it is set by default to the number of input audio channels. For input streams this option only makes sense for audio grabbing devices and raw demuxers and is mapped to the corresponding demuxer options.
         /// </summary>
@@ -51,10 +49,8 @@ namespace FFmpegArgs
             }
             return t;
         }
-
         public static T AN<T>(this T t) where T : BaseInputOutput, IAudio
             => t.SetFlag("-an");
-
         public static T ACodec<T>(this T t, string acodec) where T : BaseInputOutput, IAudio
            => t.SetOption("-acodec", acodec);
     }

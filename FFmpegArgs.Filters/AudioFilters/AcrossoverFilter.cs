@@ -15,10 +15,6 @@ acrossover AVOptions:
   level             <float>      ..F.A...... set input gain (from 0 to 1) (default 1)
   gain              <string>     ..F.A...... set output bands gain (default "1.f")
  */
-using FFmpegArgs.Cores.Maps;
-using System;
-using System.Linq;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -32,7 +28,6 @@ namespace FFmpegArgs.Filters.AudioFilters
             this.SetOption("split", string.Join(" ", hzSplit));
             AddMultiMapOut(hzSplit.Length + 1);
         }
-
         /// <summary>
         /// Set filter order for each band split. This controls filter roll-off or steepness of filter transfer function
         /// </summary>
@@ -40,7 +35,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AcrossoverFilter Order(AcrossoverOrder order)
           => this.SetOption("order", order.ToString().Substring(1));
-
         /// <summary>
         /// Set input gain level. Allowed range is from 0 to 1. Default value is 1.
         /// </summary>
@@ -48,7 +42,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AcrossoverFilter Level(float level)
           => this.SetOptionRange("level", level, 0, 1);
-
         /// <summary>
         /// set output bands gain (default "1.f")
         /// </summary>
@@ -57,7 +50,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AcrossoverFilter Gains(string gains)
            => this.SetOption("gains", gains);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AcrossoverFilterExtension
     {
         /// <summary>
@@ -74,54 +69,47 @@ namespace FFmpegArgs.Filters.AudioFilters
             return new AcrossoverFilter(hzSplit, audioMap);
         }
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum AcrossoverOrder
     {
         /// <summary>
         /// 12 dB per octave.
         /// </summary>
         _2nd,
-
         /// <summary>
         /// 24 dB per octave.
         /// </summary>
         _4th,
-
         /// <summary>
         /// 36 dB per octave.
         /// </summary>
         _6th,
-
         /// <summary>
         /// 48 dB per octave.
         /// </summary>
         _8th,
-
         /// <summary>
         /// 60 dB per octave.
         /// </summary>
         _10th,
-
         /// <summary>
         /// 72 dB per octave.
         /// </summary>
         _12th,
-
         /// <summary>
         /// 84 dB per octave.
         /// </summary>
         _14th,
-
         /// <summary>
         /// 96 dB per octave.
         /// </summary>
         _16th,
-
         /// <summary>
         /// 108 dB per octave.
         /// </summary>
         _18th,
-
         /// <summary>
         /// 120 dB per octave.
         /// </summary>

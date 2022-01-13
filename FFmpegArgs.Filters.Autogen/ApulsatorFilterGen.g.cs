@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ApulsatorFilterGen : AudioToAudioFilter
@@ -25,7 +14,7 @@ public ApulsatorFilterGen level_out(double level_out) => this.SetOptionRange("le
 /// <summary>
 ///  set mode (from 0 to 4) (default sine)
 /// </summary>
-public ApulsatorFilterGen mode(ApulsatorFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public ApulsatorFilterGen mode(ApulsatorFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set modulation (from 0 to 1) (default 1)
 /// </summary>
@@ -45,7 +34,7 @@ public ApulsatorFilterGen width(double width) => this.SetOptionRange("width", wi
 /// <summary>
 ///  set timing (from 0 to 2) (default hz)
 /// </summary>
-public ApulsatorFilterGen timing(ApulsatorFilterGenTiming timing) => this.SetOption("timing", timing.GetAttribute<NameAttribute>().Name);
+public ApulsatorFilterGen timing(ApulsatorFilterGenTiming timing) => this.SetOption("timing", timing.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set BPM (from 30 to 300) (default 120)
 /// </summary>

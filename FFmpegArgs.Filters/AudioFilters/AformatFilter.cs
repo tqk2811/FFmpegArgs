@@ -7,10 +7,6 @@ aformat AVOptions:
   channel_layouts   <string>     ..F.A...... A '|'-separated list of channel layouts.
   cl                <string>     ..F.A...... A '|'-separated list of channel layouts.
 */
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters.Enums;
-using System.Linq;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -23,15 +19,13 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// A ’|’-separated list of requested sample formats.
         /// </summary>
         /// <param name="fmts"></param>
         /// <returns></returns>
         public AformatFilter SampleFmts(params AVSampleFormat[] fmts)
-          => this.SetOption("f", string.Join("|", fmts.Select(x => x.GetAttribute<NameAttribute>().Name)));
-
+          => this.SetOption("f", string.Join("|", fmts.Select(x => x.GetEnumAttribute<NameAttribute>().Name)));
         /// <summary>
         /// list of requested sample rates.
         /// </summary>
@@ -39,7 +33,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AformatFilter SampleRates(params int[] r)
           => this.SetOption("r", string.Join("|", r));
-
         /// <summary>
         /// A ’|’-separated list of requested channel layouts.<br>
         /// </br>https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax
@@ -47,9 +40,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="cls"></param>
         /// <returns></returns>
         public AformatFilter ChannelLayouts(params ChannelLayout[] cls)
-          => this.SetOption("cl", string.Join("|", cls.Select(x => x.GetAttribute<NameAttribute>().Name)));
+          => this.SetOption("cl", string.Join("|", cls.Select(x => x.GetEnumAttribute<NameAttribute>().Name)));
     }
-
     /// <summary>
     /// 
     /// </summary>

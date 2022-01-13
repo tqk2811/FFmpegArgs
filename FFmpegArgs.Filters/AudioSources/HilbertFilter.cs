@@ -49,7 +49,6 @@ hilbert AVOptions:
      poisson         18           ..F.A...... Poisson
      bohman          19           ..F.A...... Bohman
  */
-using FFmpegArgs.Filters.AudioFilters;
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -62,7 +61,6 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set sample rate, (from 1 to INT_MAX) (default 44100)
         /// </summary>
@@ -70,7 +68,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public HilbertFilter SampleRate(int r)
           => this.SetOptionRange("r", r, 1, INT_MAX);
-
         /// <summary>
         /// Set length of FIR filter, (from 11 to 65535) (default 22051)
         /// </summary>
@@ -78,7 +75,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public HilbertFilter Taps(int t)
           => this.SetOptionRange("t", t, 11, 65535);
-
         /// <summary>
         /// Set number of samples per each frame. (from 1 to INT_MAX) (default 1024)
         /// </summary>
@@ -86,7 +82,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public HilbertFilter NbSamples(int n)
           => this.SetOptionRange("n", n, 1, INT_MAX);
-
         /// <summary>
         /// Set window function to be used when generating FIR coefficients.
         /// </summary>
@@ -95,7 +90,6 @@ namespace FFmpegArgs.Filters.AudioSources
         public HilbertFilter WinFunc(HilbertWinFunc winFunc)
           => this.SetOption("w", winFunc);
     }
-
     public static class HilbertFilterExtensions
     {
         /// <summary>
@@ -108,8 +102,6 @@ namespace FFmpegArgs.Filters.AudioSources
         public static HilbertFilter HilbertFilter(this FilterGraph filterGraph)
           => new HilbertFilter(filterGraph);
     }
-
-
     public enum HilbertWinFunc
     {
         /// <summary>

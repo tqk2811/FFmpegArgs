@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Tonemap_openclFilterGen : ImageToImageFilter
@@ -17,23 +6,23 @@ internal Tonemap_openclFilterGen(ImageMap input) : base("tonemap_opencl",input) 
 /// <summary>
 ///  tonemap algorithm selection (from 0 to 6) (default none)
 /// </summary>
-public Tonemap_openclFilterGen tonemap(Tonemap_openclFilterGenTonemap tonemap) => this.SetOption("tonemap", tonemap.GetAttribute<NameAttribute>().Name);
+public Tonemap_openclFilterGen tonemap(Tonemap_openclFilterGenTonemap tonemap) => this.SetOption("tonemap", tonemap.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set transfer characteristic (from -1 to INT_MAX) (default bt709)
 /// </summary>
-public Tonemap_openclFilterGen transfer(Tonemap_openclFilterGenTransfer transfer) => this.SetOption("transfer", transfer.GetAttribute<NameAttribute>().Name);
+public Tonemap_openclFilterGen transfer(Tonemap_openclFilterGenTransfer transfer) => this.SetOption("transfer", transfer.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set colorspace matrix (from -1 to INT_MAX) (default -1)
 /// </summary>
-public Tonemap_openclFilterGen matrix(Tonemap_openclFilterGenMatrix matrix) => this.SetOption("matrix", matrix.GetAttribute<NameAttribute>().Name);
+public Tonemap_openclFilterGen matrix(Tonemap_openclFilterGenMatrix matrix) => this.SetOption("matrix", matrix.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color primaries (from -1 to INT_MAX) (default -1)
 /// </summary>
-public Tonemap_openclFilterGen primaries(Tonemap_openclFilterGenPrimaries primaries) => this.SetOption("primaries", primaries.GetAttribute<NameAttribute>().Name);
+public Tonemap_openclFilterGen primaries(Tonemap_openclFilterGenPrimaries primaries) => this.SetOption("primaries", primaries.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color range (from -1 to INT_MAX) (default -1)
 /// </summary>
-public Tonemap_openclFilterGen range(Tonemap_openclFilterGenRange range) => this.SetOption("range", range.GetAttribute<NameAttribute>().Name);
+public Tonemap_openclFilterGen range(Tonemap_openclFilterGenRange range) => this.SetOption("range", range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  output pixel format (default none)
 /// </summary>

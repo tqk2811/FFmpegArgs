@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class PalettegenFilterGen : ImageToImageFilter
@@ -29,7 +18,7 @@ public PalettegenFilterGen transparency_color(Color transparency_color) => this.
 /// <summary>
 ///  set statistics mode (from 0 to 2) (default full)
 /// </summary>
-public PalettegenFilterGen stats_mode(PalettegenFilterGenStats_mode stats_mode) => this.SetOption("stats_mode", stats_mode.GetAttribute<NameAttribute>().Name);
+public PalettegenFilterGen stats_mode(PalettegenFilterGenStats_mode stats_mode) => this.SetOption("stats_mode", stats_mode.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class PalettegenFilterGenExtensions
 {

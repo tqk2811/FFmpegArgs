@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC colorize          V->V       Overlay a solid color on the video stream.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the color hue. Allowed range is from 0 to 360. Default value is 0.
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorizeFilter Hue(float hue)
           => this.SetOptionRange("hue", hue, 0, 360);
-
         /// <summary>
         /// Set the color saturation. Allowed range is from 0 to 1. Default value is 0.5.
         /// </summary>
@@ -28,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorizeFilter Saturation(float saturation)
           => this.SetOptionRange("saturation", saturation, 0, 1);
-
         /// <summary>
         /// Set the color lightness. Allowed range is from 0 to 1. Default value is 0.5.
         /// </summary>
@@ -36,7 +31,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorizeFilter Lightness(float lightness)
           => this.SetOptionRange("lightness", lightness, 0, 1);
-
         /// <summary>
         /// Set the mix of source lightness. By default is set to 1.0. Allowed range is from 0.0 to 1.0.
         /// </summary>
@@ -45,7 +39,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ColorizeFilter Mix(float mix)
           => this.SetOptionRange("mix", mix, 0, 1);
     }
-
     public static class ColorizeFilterExtensions
     {
         /// <summary>

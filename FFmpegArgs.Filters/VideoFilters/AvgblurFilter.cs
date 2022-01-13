@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC avgblur           V->V       Apply Average Blur filter.<br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set horizontal radius size.<br>
         /// </br>(from 1 to 1024) (default 1)
@@ -21,7 +18,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public AvgblurFilter SizeX(int sizeX)
           => this.SetOptionRange("sizeX", sizeX, 1, 1024);
-
         /// <summary>
         /// Set which planes to filter. By default all planes are filtered.<br>
         /// </br>(from 0 to 15) (default 15)
@@ -30,8 +26,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public AvgblurFilter Planes(int planes)
           => this.SetOptionRange("planes", planes, 0, 15);
-
-
         /// <summary>
         /// Set vertical radius size, if zero it will be same as sizeX.<br>
         /// </br> (from 0 to 1024) (default 0)
@@ -41,7 +35,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public AvgblurFilter SizeY(int sizeY)
          => this.SetOptionRange("sizeY", sizeY, 0, 1024);
     }
-
     public static class AvgblurFilterExtensions
     {
         /// <summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class HisteqFilterGen : ImageToImageFilter,ITimelineSupport
@@ -25,7 +14,7 @@ public HisteqFilterGen intensity(float intensity) => this.SetOptionRange("intens
 /// <summary>
 ///  set the antibanding level (from 0 to 2) (default none)
 /// </summary>
-public HisteqFilterGen antibanding(HisteqFilterGenAntibanding antibanding) => this.SetOption("antibanding", antibanding.GetAttribute<NameAttribute>().Name);
+public HisteqFilterGen antibanding(HisteqFilterGenAntibanding antibanding) => this.SetOption("antibanding", antibanding.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class HisteqFilterGenExtensions
 {

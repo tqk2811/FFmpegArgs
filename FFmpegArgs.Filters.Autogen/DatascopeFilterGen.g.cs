@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DatascopeFilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
@@ -29,7 +18,7 @@ public DatascopeFilterGen y(int y) => this.SetOptionRange("y", y,0,INT_MAX);
 /// <summary>
 ///  set scope mode (from 0 to 2) (default mono)
 /// </summary>
-public DatascopeFilterGen mode(DatascopeFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public DatascopeFilterGen mode(DatascopeFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  draw column/row numbers (default false)
 /// </summary>
@@ -41,7 +30,7 @@ public DatascopeFilterGen opacity(float opacity) => this.SetOptionRange("opacity
 /// <summary>
 ///  set display number format (from 0 to 1) (default hex)
 /// </summary>
-public DatascopeFilterGen format(DatascopeFilterGenFormat format) => this.SetOption("format", format.GetAttribute<NameAttribute>().Name);
+public DatascopeFilterGen format(DatascopeFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set components to display (from 1 to 15) (default 15)
 /// </summary>

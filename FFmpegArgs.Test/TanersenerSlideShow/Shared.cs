@@ -1,16 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.MultimediaFilters;
-using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Inputs;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -22,7 +10,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var files = directoryInfo.GetFiles("*.jpg");
             return files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput($"Images\\{x.Name}").SetOption("-loop", 1))).ToList();
         }
-
         public static ImageMap FilmStripH(this FFmpegArg ffmpegArg)
         {
             return ffmpegArg.AddImageInput(new ImageFileInput($"Images\\film_strip.png").SetOption("-loop", 1));
@@ -31,11 +18,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             return ffmpegArg.AddImageInput(new ImageFileInput($"Images\\film_strip_vertical.png").SetOption("-loop", 1));
         }
-
         public static List<IEnumerable<ImageMap>> InputScreenModes(this IEnumerable<ImageMap> inputs,
             ScreenMode screenMode, Config config, string lumaRadius = "100")
             => inputs.InputScreenMode(screenMode, config, lumaRadius).Select(x => x.SplitFilter(2).MapsOut).ToList();
-
         public static List<ImageMap> InputScreenMode(this IEnumerable<ImageMap> inputs,
             ScreenMode screenMode, Config config, string lumaRadius = "100")
         {
@@ -55,7 +40,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             .SetSarFilter().Ratio("1/1").MapOut
                             .FpsFilter().Fps(config.Fps).MapOut
                             .FormatFilter(PixFmt.rgba).MapOut;
-
                     case ScreenMode.Crop:
                         return x
                             .ScaleFilter()
@@ -67,7 +51,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                              .SetSarFilter().Ratio("1/1").MapOut
                              .FpsFilter().Fps(config.Fps).MapOut
                              .FormatFilter(PixFmt.rgba).MapOut;
-
                     case ScreenMode.Scale:
                         return x
                             .ScaleFilter()
@@ -76,7 +59,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             .SetSarFilter().Ratio("1/1").MapOut
                             .FpsFilter().Fps(config.Fps).MapOut
                             .FormatFilter(PixFmt.rgba).MapOut;
-
                     case ScreenMode.Blur:
                         return x.MakeBlurredBackground(config.Size.Width, config.Size.Height, config.Fps, lumaRadius);
                 }
@@ -84,7 +66,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             }));
             return prepareInputs;
         }
-
         public static ImageMap MakeBlurredBackground(this ImageMap image,
           int width, int height, int fps = 24, string lumaRadius = "100")
         {
@@ -98,7 +79,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             {
                 inputs.AddRange(image.SplitFilter(2).MapsOut);
             }
-
             var blurred = inputs.First()
                 .ScaleFilter().W($"{width}").H($"{height}").MapOut
                 .SetSarFilter().Ratio("1/1").MapOut
@@ -106,7 +86,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .FormatFilter(PixFmt.rgba).MapOut
                 .BoxBlurFilter().LumaRadius($"{lumaRadius}").MapOut
                 .SetSarFilter().Ratio("1/1").MapOut;
-
             var raw = inputs.Last()
                 .ScaleFilter()
                     .W($"if(gte(iw/ih,{width}/{height}),min(iw,{width}),-1)")
@@ -117,17 +96,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .SetSarFilter().Ratio("1/1").MapOut
                 .FpsFilter().Fps(fps).MapOut
                 .FormatFilter(PixFmt.rgba).MapOut;
-
             return raw
                 .OverlayFilterOn(blurred)
                     .X("(main_w - overlay_w)/2")
                     .Y("(main_h-overlay_h)/2").MapOut//center
                 .SetPtsFilter("PTS-STARTPTS").MapOut;
         }
-
-
-
-
         public static List<ImageMap> Overlaids(this IEnumerable<ImageMap> inputs, Config config)
         {
             return inputs.Select(x => x
@@ -140,7 +114,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .TrimFilter()
                     .Duration(config.ImageDuration).MapOut).ToList();
         }
-
         public static StartEnd StartEnd(this List<ImageMap> inputs, Config config)
         {
             StartEnd startEnd = new StartEnd();
@@ -149,7 +122,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 //first create ed only (if only 1 image -> create ed)
                 //mid: split to ed and op
                 //last create op
-
                 var res = inputs[i]
                   .PadFilter()
                     .W($"{config.Size.Width}")
@@ -160,7 +132,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                   .TrimFilter()
                     .Duration(config.TransitionDuration).MapOut
                   .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
-
                 if (i == 0)//first
                 {
                     if (inputs.Count > 1)
@@ -181,7 +152,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             }
             return startEnd;
         }
-
         public static List<ImageMap> Blendeds(this StartEnd startEnd, Config config,Action<BlendFilter> blend)
         {
             List<ImageMap> blendeds = new List<ImageMap>();
@@ -195,7 +165,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             }
             return blendeds;
         }
-
         public static ImageMap ConcatOverlaidsAndBlendeds(this List<ImageMap> overlaids, List<ImageMap> blendeds)
         {
             List<ConcatGroup> concatGroups = new List<ConcatGroup>();

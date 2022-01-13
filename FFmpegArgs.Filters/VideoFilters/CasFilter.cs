@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC cas               V->V       Contrast Adaptive Sharpen.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the sharpening strength. Default value is 0.
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CasFilter Strength(double strength)
           => this.SetOptionRange("strength", strength, 0, double.MaxValue);
-
         /// <summary>
         /// Set planes to filter. Default value is to filter all planes except alpha plane.<br>
         /// </br>flags ..FV.....T. set what planes to filter (default 7)
@@ -30,7 +26,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CasFilter Planes(string planes)
           => this.SetOption("planes", planes);
     }
-
     public static class CasFilterExtensions
     {
         /// <summary>

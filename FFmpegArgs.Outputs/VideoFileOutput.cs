@@ -1,20 +1,27 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Cores.Outputs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace FFmpegArgs.Outputs
+﻿namespace FFmpegArgs.Outputs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class VideoFileOutput : VideoOutput
     {
         readonly string _filePath;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="imageMap"></param>
+        /// <param name="audioMap"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap) : base(imageMap, audioMap)
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             List<string> args = new List<string>()

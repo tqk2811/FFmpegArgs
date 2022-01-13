@@ -29,6 +29,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FFmpegArgs.Executes\FFmpegArgs.Executes.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters.Autogen\FFmpegArgs.Filters.Autogen.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.Common\FFmpegArgs.Filters.Common.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters\FFmpegArgs.Filters.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Inputs\FFmpegArgs.Inputs.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Outputs\FFmpegArgs.Outputs.csproj" />

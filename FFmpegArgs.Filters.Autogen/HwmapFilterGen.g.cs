@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class HwmapFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal HwmapFilterGen(ImageMap input) : base("hwmap",input) { AddMapOut(); }
 /// <summary>
 ///  Frame mapping mode (default read+write)
 /// </summary>
-public HwmapFilterGen mode(HwmapFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public HwmapFilterGen mode(HwmapFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Derive a new device of this type
 /// </summary>

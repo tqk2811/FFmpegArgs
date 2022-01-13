@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ShearFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -33,7 +22,7 @@ public ShearFilterGen c(string c) => this.SetOption("c",c);
 /// <summary>
 ///  set interpolation (from 0 to 1) (default bilinear)
 /// </summary>
-public ShearFilterGen interp(ShearFilterGenInterp interp) => this.SetOption("interp", interp.GetAttribute<NameAttribute>().Name);
+public ShearFilterGen interp(ShearFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class ShearFilterGenExtensions
 {

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class VolumeFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
@@ -21,15 +10,15 @@ public VolumeFilterGen volume(string volume) => this.SetOption("volume",volume);
 /// <summary>
 ///  select mathematical precision (from 0 to 2) (default float)
 /// </summary>
-public VolumeFilterGen precision(VolumeFilterGenPrecision precision) => this.SetOption("precision", precision.GetAttribute<NameAttribute>().Name);
+public VolumeFilterGen precision(VolumeFilterGenPrecision precision) => this.SetOption("precision", precision.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default once)
 /// </summary>
-public VolumeFilterGen eval(VolumeFilterGenEval eval) => this.SetOption("eval", eval.GetAttribute<NameAttribute>().Name);
+public VolumeFilterGen eval(VolumeFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Apply replaygain side data when present (from 0 to 3) (default drop)
 /// </summary>
-public VolumeFilterGen replaygain(VolumeFilterGenReplaygain replaygain) => this.SetOption("replaygain", replaygain.GetAttribute<NameAttribute>().Name);
+public VolumeFilterGen replaygain(VolumeFilterGenReplaygain replaygain) => this.SetOption("replaygain", replaygain.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Apply replaygain pre-amplification (from -15 to 15) (default 0)
 /// </summary>

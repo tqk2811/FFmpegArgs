@@ -1,8 +1,8 @@
-﻿using System;
-using System.IO;
-
-namespace FFmpegArgs.Executes
+﻿namespace FFmpegArgs.Executes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class FFmpegRenderConfig
     {
         /// <summary>
@@ -17,17 +17,12 @@ namespace FFmpegArgs.Executes
                 else throw new FileNotFoundException(value);
             }
         }
-
         string _FFmpegBinaryPath = "ffmpeg";
-
-
 
         /// <summary>
         /// Default: False
         /// </summary>
         public bool IsForceUseScript { get; set; } = false;
-
-
 
         /// <summary>
         /// Default: FS.txt
@@ -43,14 +38,10 @@ namespace FFmpegArgs.Executes
         }
         string _FilterScriptName = "FS.txt";
 
-
-
         /// <summary>
         /// Default: Directory.GetCurrentDirectory()
         /// </summary>
         public string WorkingDirectory { get; set; } = Directory.GetCurrentDirectory();
-
-
 
         /// <summary>
         /// Window default: 32766
@@ -64,11 +55,7 @@ namespace FFmpegArgs.Executes
                 else throw new InvalidDataException($"ArgumentsMaxLength should be > 10");
             }
         }
-
         int _ArgumentsMaxLength = 32766;
-
-
-
 
 
         /// <summary>
@@ -80,7 +67,6 @@ namespace FFmpegArgs.Executes
             else throw new FileNotFoundException(filePath);
             return this;
         }
-
         /// <summary>
         /// Default: FS.txt
         /// </summary>
@@ -91,7 +77,6 @@ namespace FFmpegArgs.Executes
             IsForceUseScript = forceUseScript;
             return this;
         }
-
         /// <summary>
         /// Default: Directory.GetCurrentDirectory()
         /// </summary>

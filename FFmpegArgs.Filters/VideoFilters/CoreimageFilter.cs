@@ -11,7 +11,6 @@
     //        AddMapOut();
     //    }
     //}
-
     //public static class CoreimageFilterExtensions
     //{
     //    /// <summary>

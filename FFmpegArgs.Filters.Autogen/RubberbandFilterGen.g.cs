@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class RubberbandFilterGen : AudioToAudioFilter,ICommandSupport
@@ -25,35 +14,35 @@ public RubberbandFilterGen pitch(double pitch) => this.SetOptionRange("pitch", p
 /// <summary>
 ///  set transients (from 0 to INT_MAX) (default crisp)
 /// </summary>
-public RubberbandFilterGen transients(RubberbandFilterGenTransients transients) => this.SetOption("transients", transients.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen transients(RubberbandFilterGenTransients transients) => this.SetOption("transients", transients.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set detector (from 0 to INT_MAX) (default compound)
 /// </summary>
-public RubberbandFilterGen detector(RubberbandFilterGenDetector detector) => this.SetOption("detector", detector.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen detector(RubberbandFilterGenDetector detector) => this.SetOption("detector", detector.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set phase (from 0 to INT_MAX) (default laminar)
 /// </summary>
-public RubberbandFilterGen phase(RubberbandFilterGenPhase phase) => this.SetOption("phase", phase.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen phase(RubberbandFilterGenPhase phase) => this.SetOption("phase", phase.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set window (from 0 to INT_MAX) (default standard)
 /// </summary>
-public RubberbandFilterGen window(RubberbandFilterGenWindow window) => this.SetOption("window", window.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen window(RubberbandFilterGenWindow window) => this.SetOption("window", window.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set smoothing (from 0 to INT_MAX) (default off)
 /// </summary>
-public RubberbandFilterGen smoothing(RubberbandFilterGenSmoothing smoothing) => this.SetOption("smoothing", smoothing.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen smoothing(RubberbandFilterGenSmoothing smoothing) => this.SetOption("smoothing", smoothing.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set formant (from 0 to INT_MAX) (default shifted)
 /// </summary>
-public RubberbandFilterGen formant(RubberbandFilterGenFormant formant) => this.SetOption("formant", formant.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen formant(RubberbandFilterGenFormant formant) => this.SetOption("formant", formant.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set pitch quality (from 0 to INT_MAX) (default speed)
 /// </summary>
-public RubberbandFilterGen pitchq(RubberbandFilterGenPitchq pitchq) => this.SetOption("pitchq", pitchq.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen pitchq(RubberbandFilterGenPitchq pitchq) => this.SetOption("pitchq", pitchq.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set channels (from 0 to INT_MAX) (default apart)
 /// </summary>
-public RubberbandFilterGen channels(RubberbandFilterGenChannels channels) => this.SetOption("channels", channels.GetAttribute<NameAttribute>().Name);
+public RubberbandFilterGen channels(RubberbandFilterGenChannels channels) => this.SetOption("channels", channels.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class RubberbandFilterGenExtensions
 {

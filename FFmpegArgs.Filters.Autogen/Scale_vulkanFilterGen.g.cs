@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Scale_vulkanFilterGen : ImageToImageFilter
@@ -25,7 +14,7 @@ public Scale_vulkanFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  Scaler function (from 0 to 2) (default bilinear)
 /// </summary>
-public Scale_vulkanFilterGen scaler(Scale_vulkanFilterGenScaler scaler) => this.SetOption("scaler", scaler.GetAttribute<NameAttribute>().Name);
+public Scale_vulkanFilterGen scaler(Scale_vulkanFilterGenScaler scaler) => this.SetOption("scaler", scaler.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Output video format (software format of hardware frames)
 /// </summary>
@@ -33,7 +22,7 @@ public Scale_vulkanFilterGen format(string format) => this.SetOption("format",fo
 /// <summary>
 ///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
 /// </summary>
-public Scale_vulkanFilterGen out_range(Scale_vulkanFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetAttribute<NameAttribute>().Name);
+public Scale_vulkanFilterGen out_range(Scale_vulkanFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class Scale_vulkanFilterGenExtensions
 {

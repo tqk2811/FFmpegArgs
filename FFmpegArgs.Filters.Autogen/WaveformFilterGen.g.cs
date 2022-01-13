@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class WaveformFilterGen : ImageToImageFilter,ISliceThreading
@@ -17,7 +6,7 @@ internal WaveformFilterGen(ImageMap input) : base("waveform",input) { AddMapOut(
 /// <summary>
 ///  set mode (from 0 to 1) (default column)
 /// </summary>
-public WaveformFilterGen mode(WaveformFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public WaveformFilterGen mode(WaveformFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set intensity (from 0 to 1) (default 0.04)
 /// </summary>
@@ -33,7 +22,7 @@ public WaveformFilterGen r(bool r) => this.SetOption("r",r.ToFFmpegFlag());
 /// <summary>
 ///  set display mode (from 0 to 2) (default stack)
 /// </summary>
-public WaveformFilterGen display(WaveformFilterGenDisplay display) => this.SetOption("display", display.GetAttribute<NameAttribute>().Name);
+public WaveformFilterGen display(WaveformFilterGenDisplay display) => this.SetOption("display", display.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set components to display (from 1 to 15) (default 1)
 /// </summary>
@@ -41,15 +30,15 @@ public WaveformFilterGen components(int components) => this.SetOptionRange("comp
 /// <summary>
 ///  set envelope to display (from 0 to 3) (default none)
 /// </summary>
-public WaveformFilterGen envelope(WaveformFilterGenEnvelope envelope) => this.SetOption("envelope", envelope.GetAttribute<NameAttribute>().Name);
+public WaveformFilterGen envelope(WaveformFilterGenEnvelope envelope) => this.SetOption("envelope", envelope.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filter (from 0 to 7) (default lowpass)
 /// </summary>
-public WaveformFilterGen filter(WaveformFilterGenFilter filter) => this.SetOption("filter", filter.GetAttribute<NameAttribute>().Name);
+public WaveformFilterGen filter(WaveformFilterGenFilter filter) => this.SetOption("filter", filter.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set graticule (from 0 to 3) (default none)
 /// </summary>
-public WaveformFilterGen graticule(WaveformFilterGenGraticule graticule) => this.SetOption("graticule", graticule.GetAttribute<NameAttribute>().Name);
+public WaveformFilterGen graticule(WaveformFilterGenGraticule graticule) => this.SetOption("graticule", graticule.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set graticule opacity (from 0 to 1) (default 0.75)
 /// </summary>
@@ -57,11 +46,11 @@ public WaveformFilterGen opacity(float opacity) => this.SetOptionRange("opacity"
 /// <summary>
 ///  set graticule flags (default numbers)
 /// </summary>
-public WaveformFilterGen flags(WaveformFilterGenFlags flags) => this.SetOption("flags", flags.GetAttribute<NameAttribute>().Name);
+public WaveformFilterGen flags(WaveformFilterGenFlags flags) => this.SetOption("flags", flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set scale (from 0 to 2) (default digital)
 /// </summary>
-public WaveformFilterGen scale(WaveformFilterGenScale scale) => this.SetOption("scale", scale.GetAttribute<NameAttribute>().Name);
+public WaveformFilterGen scale(WaveformFilterGenScale scale) => this.SetOption("scale", scale.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set background opacity (from 0 to 1) (default 0.75)
 /// </summary>

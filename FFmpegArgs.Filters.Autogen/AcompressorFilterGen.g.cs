@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AcompressorFilterGen : AudioToAudioFilter,ICommandSupport
@@ -21,7 +10,7 @@ public AcompressorFilterGen level_in(double level_in) => this.SetOptionRange("le
 /// <summary>
 ///  set mode (from 0 to 1) (default downward)
 /// </summary>
-public AcompressorFilterGen mode(AcompressorFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public AcompressorFilterGen mode(AcompressorFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set threshold (from 0.000976563 to 1) (default 0.125)
 /// </summary>
@@ -49,11 +38,11 @@ public AcompressorFilterGen knee(double knee) => this.SetOptionRange("knee", kne
 /// <summary>
 ///  set link type (from 0 to 1) (default average)
 /// </summary>
-public AcompressorFilterGen link(AcompressorFilterGenLink link) => this.SetOption("link", link.GetAttribute<NameAttribute>().Name);
+public AcompressorFilterGen link(AcompressorFilterGenLink link) => this.SetOption("link", link.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set detection (from 0 to 1) (default rms)
 /// </summary>
-public AcompressorFilterGen detection(AcompressorFilterGenDetection detection) => this.SetOption("detection", detection.GetAttribute<NameAttribute>().Name);
+public AcompressorFilterGen detection(AcompressorFilterGenDetection detection) => this.SetOption("detection", detection.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set sidechain gain (from 0.015625 to 64) (default 1)
 /// </summary>

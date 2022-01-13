@@ -1,8 +1,4 @@
-﻿using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters.Enums;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoSources
+﻿namespace FFmpegArgs.Filters.VideoSources
 {
     /// <summary>
     /// ... buffer            |->V       Buffer video frames, and make them accessible to the filterchain.<br></br>
@@ -14,15 +10,13 @@ namespace FFmpegArgs.Filters.VideoSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Specify the size (width and height) of the buffered video frames.
         /// </summary>
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public BufferFilter VideoSize(VideoSizeUtils videoSize)
-          => this.SetOption("video_size", videoSize.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("video_size", videoSize.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Specify the size (width and height) of the buffered video frames.
         /// </summary>
@@ -30,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter VideoSize(Size videoSize)
           => this.SetOption("video_size", $"{videoSize.Width}x{videoSize.Height}");
-
         /// <summary>
         /// The input video width.
         /// </summary>
@@ -38,7 +31,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter Width(int width)
           => this.SetOptionRange("width", width, 0, int.MaxValue);
-
         /// <summary>
         /// The input video height.
         /// </summary>
@@ -46,7 +38,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter Height(int height)
           => this.SetOptionRange("width", height, 0, int.MaxValue);
-
         /// <summary>
         /// A string representing the pixel format of the buffered video frames. It may be a number corresponding to a pixel format, or a pixel format name.
         /// </summary>
@@ -54,7 +45,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter PixFmt(PixFmt pix_fmt)
           => this.SetOption("pix_fmt", pix_fmt);
-
         /// <summary>
         /// Specify the timebase assumed by the timestamps of the buffered frames.<br></br>(from 0 to DBL_MAX) (default 0/1)
         /// </summary>
@@ -62,7 +52,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter TimeBase(Rational time_base)
           => this.SetOption("time_base", time_base.Check(0, INT_MAX));
-
         /// <summary>
         /// Specify the frame rate expected for the video stream.<br></br>(from 0 to DBL_MAX) (default 0/1)
         /// </summary>
@@ -70,7 +59,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter FrameRate(Rational frame_rate)
           => this.SetOption("frame_rate", frame_rate.Check(0, DBL_MAX));
-
         /// <summary>
         /// (pixel_aspect) The sample (pixel) aspect ratio of the input video.<br>
         /// </br>sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
@@ -79,7 +67,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public BufferFilter Sar(Rational sar)
           => this.SetOption("sar", sar.Check(0, DBL_MAX));
-
         /// <summary>
         /// 
         /// </summary>
@@ -87,7 +74,9 @@ namespace FFmpegArgs.Filters.VideoSources
         public BufferFilter SwsParam(string sws_param)
           => this.SetOption("sws_param", sws_param);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class BufferFilterExtensions
     {
         /// <summary>

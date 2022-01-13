@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SelectivecolorFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,7 +6,7 @@ internal SelectivecolorFilterGen(ImageMap input) : base("selectivecolor",input) 
 /// <summary>
 ///  select correction method (from 0 to 1) (default absolute)
 /// </summary>
-public SelectivecolorFilterGen correction_method(SelectivecolorFilterGenCorrection_method correction_method) => this.SetOption("correction_method", correction_method.GetAttribute<NameAttribute>().Name);
+public SelectivecolorFilterGen correction_method(SelectivecolorFilterGenCorrection_method correction_method) => this.SetOption("correction_method", correction_method.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  adjust red regions
 /// </summary>

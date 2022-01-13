@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TS. colormatrix       V->V       Convert color matrix.<br></br>
@@ -15,7 +13,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             this.SetOption("dst", dst);
         }
     }
-
     public static class ColormatrixFilterExtensions
     {
         /// <summary>
@@ -24,7 +21,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static ColormatrixFilter ColormatrixFilter(this ImageMap imageMap, ColormatrixType src, ColormatrixType dst)
           => new ColormatrixFilter(src, dst, imageMap);
     }
-
     public enum ColormatrixType
     {
         bt709,

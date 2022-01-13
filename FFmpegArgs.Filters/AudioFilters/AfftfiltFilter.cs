@@ -27,11 +27,6 @@ afftfilt AVOptions:
      bohman          19           ..F.A...... Bohman
   overlap           <float>      ..F.A...... set window overlap (from 0 to 1) (default 0.75)
  */
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -61,7 +56,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set frequency domain real expression for each separate channel separated by ’|’. Default is "re".<br>
         /// </br> If the number of input channels is greater than the number of expressions, the last specified expression is used for the remaining output channels.
@@ -70,7 +64,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftfiltFilter Real(Action<FFmpegExpression> real)
           => this.SetOption("real", real.Run(expression));
-
         /// <summary>
         /// Set frequency domain real expression for each separate channel separated by ’|’. Default is "re".<br>
         /// </br> If the number of input channels is greater than the number of expressions, the last specified expression is used for the remaining output channels.
@@ -79,8 +72,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftfiltFilter Real(string real)
          => this.SetOption("real", real.Expression().Run(expression));
-
-
         /// <summary>
         /// Set frequency domain imaginary expression for each separate channel separated by ’|’. Default is "im".
         /// </summary>
@@ -88,7 +79,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftfiltFilter Imag(Action<FFmpegExpression> imag)
           => this.SetOption("imag", imag.Run(expression));
-
         /// <summary>
         /// Set frequency domain imaginary expression for each separate channel separated by ’|’. Default is "im".
         /// </summary>
@@ -96,7 +86,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftfiltFilter Imag(string imag)
          => this.SetOption("imag", imag.Expression().Run(expression));
-
         /// <summary>
         /// Set window size. Allowed range is from 16 to 131072. Default is 4096
         /// </summary>
@@ -104,7 +93,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftfiltFilter WinSize(int win_size)
           => this.SetOptionRange("win_size", win_size, 16, 131072);
-
         /// <summary>
         /// Set window function.
         /// </summary>
@@ -112,7 +100,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftfiltFilter WinFunc(AfftfiltWinFunc win_func)
           => this.SetOption("win_func", win_func);
-
         /// <summary>
         /// Set window overlap. If set to 1, the recommended overlap for selected window function will be picked. (from 0 to 1) (default 0.75)
         /// </summary>
@@ -121,7 +108,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AfftfiltFilter Overlap(float overlap)
           => this.SetOptionRange("overlap", overlap, 0, 1);
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -135,7 +121,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static AfftfiltFilter AfftfiltFilter(this AudioMap audioMap)
             => new AfftfiltFilter(audioMap);
     }
-
     /// <summary>
     /// set window function
     /// </summary>

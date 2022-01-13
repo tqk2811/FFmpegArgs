@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... alphaextract      V->N       Extract an alpha channel as a grayscale image component.<br></br>
@@ -13,7 +11,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
     }
-
     public static class AlphaextractFilterExtensions
     {
         /// <summary>

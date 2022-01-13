@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... copy              V->V       Copy the input video unchanged to the output.<br></br>
@@ -13,7 +11,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
     }
-
     public static class CopyFilterExtensions
     {
         /// <summary>

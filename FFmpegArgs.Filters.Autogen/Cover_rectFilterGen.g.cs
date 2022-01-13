@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Cover_rectFilterGen : ImageToImageFilter
@@ -21,7 +10,7 @@ public Cover_rectFilterGen cover(string cover) => this.SetOption("cover",cover);
 /// <summary>
 ///  set removal mode (from 0 to 1) (default blur)
 /// </summary>
-public Cover_rectFilterGen mode(Cover_rectFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public Cover_rectFilterGen mode(Cover_rectFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class Cover_rectFilterGenExtensions
 {

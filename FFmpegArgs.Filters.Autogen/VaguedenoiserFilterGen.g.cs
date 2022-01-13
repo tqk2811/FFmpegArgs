@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class VaguedenoiserFilterGen : ImageToImageFilter,ITimelineSupport
@@ -21,7 +10,7 @@ public VaguedenoiserFilterGen threshold(float threshold) => this.SetOptionRange(
 /// <summary>
 ///  set filtering method (from 0 to 2) (default garrote)
 /// </summary>
-public VaguedenoiserFilterGen method(VaguedenoiserFilterGenMethod method) => this.SetOption("method", method.GetAttribute<NameAttribute>().Name);
+public VaguedenoiserFilterGen method(VaguedenoiserFilterGenMethod method) => this.SetOption("method", method.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set number of steps (from 1 to 32) (default 6)
 /// </summary>
@@ -37,7 +26,7 @@ public VaguedenoiserFilterGen planes(int planes) => this.SetOptionRange("planes"
 /// <summary>
 ///  set threshold type (from 0 to 1) (default universal)
 /// </summary>
-public VaguedenoiserFilterGen type(VaguedenoiserFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public VaguedenoiserFilterGen type(VaguedenoiserFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class VaguedenoiserFilterGenExtensions
 {

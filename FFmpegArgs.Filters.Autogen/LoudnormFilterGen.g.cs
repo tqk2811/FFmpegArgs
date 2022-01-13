@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class LoudnormFilterGen : AudioToAudioFilter
@@ -81,7 +70,7 @@ public LoudnormFilterGen dual_mono(bool dual_mono) => this.SetOption("dual_mono"
 /// <summary>
 ///  set print format for stats (from 0 to 2) (default none)
 /// </summary>
-public LoudnormFilterGen print_format(LoudnormFilterGenPrint_format print_format) => this.SetOption("print_format", print_format.GetAttribute<NameAttribute>().Name);
+public LoudnormFilterGen print_format(LoudnormFilterGenPrint_format print_format) => this.SetOption("print_format", print_format.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class LoudnormFilterGenExtensions
 {

@@ -5,11 +5,6 @@ setdar AVOptions:
   r                 <string>     ..FV....... set display aspect ratio (default "0")
   max               <int>        ..FV....... set max value for nominator or denominator in the ratio (from 1 to INT_MAX) (default 100)
  */
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -30,7 +25,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the aspect ratio used by the filter.<br>
         /// </br>The parameter can be a floating point number string, an expression, or a string of the form num:den, where num and den are the numerator and denominator of the aspect ratio.If the parameter is not specified, it is assumed the value "0".
@@ -38,8 +32,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="r"></param>
         /// <returns></returns>
         public SetDarFilter Ratio(Action<FFmpegExpression> r) => this.SetOption("r", r.Run(expression));
-
-
         /// <summary>
         /// Set the aspect ratio used by the filter.<br>
         /// </br>The parameter can be a floating point number string, an expression, or a string of the form num:den, where num and den are the numerator and denominator of the aspect ratio.If the parameter is not specified, it is assumed the value "0".
@@ -47,7 +39,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="r"></param>
         /// <returns></returns>
         public SetDarFilter Ratio(string r) => this.SetOption("r", r.Expression().Run(expression));
-
         /// <summary>
         /// Set the aspect ratio used by the filter.<br>
         /// </br>The parameter can be a floating point number string, an expression, or a string of the form num:den, where num and den are the numerator and denominator of the aspect ratio.If the parameter is not specified, it is assumed the value "0".
@@ -55,8 +46,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="r"></param>
         /// <returns></returns>
         public SetDarFilter Ratio(Rational r) => this.SetOption("r", $"{r.Numerator}:{r.Denominator}");
-
-
         /// <summary>
         /// Set the maximum integer value to use for expressing numerator and denominator when reducing the expressed aspect ratio to a rational. <br>
         /// </br>(from 1 to INT_MAX) (default 100)
@@ -66,7 +55,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public SetDarFilter Max(int max)
           => this.SetOptionRange("max", max, 1, INT_MAX);
     }
-
     public static class SetDarFilterExtension
     {
         /// <summary>

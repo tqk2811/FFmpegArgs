@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AfirsrcFilterGen : SourceAudioFilter
@@ -45,7 +34,7 @@ public AfirsrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_sa
 /// <summary>
 ///  set window function (from 0 to 19) (default blackman)
 /// </summary>
-public AfirsrcFilterGen win_func(AfirsrcFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetAttribute<NameAttribute>().Name);
+public AfirsrcFilterGen win_func(AfirsrcFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AfirsrcFilterGenExtensions
 {

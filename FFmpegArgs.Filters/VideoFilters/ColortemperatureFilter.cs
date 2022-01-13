@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC colortemperature  V->V       Adjust color temperature of video.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the temperature in Kelvin. Allowed range is from 1000 to 40000. Default value is 6500 K.
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColortemperatureFilter Temperature(float temperature)
             => this.SetOptionRange("temperature", temperature, 1000, 40000);
-
         /// <summary>
         /// Set mixing with filtered output. Allowed range is from 0 to 1. Default value is 1.
         /// </summary>
@@ -28,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColortemperatureFilter Mix(float mix)
           => this.SetOptionRange("mix", mix, 0, 1);
-
         /// <summary>
         /// Set the amount of preserving lightness. Allowed range is from 0 to 1. Default value is 0.
         /// </summary>
@@ -36,9 +31,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColortemperatureFilter Pl(float pl)
           => this.SetOptionRange("pl", pl, 0, 1);
-
     }
-
     public static class ColortemperatureFilterExtensions
     {
         /// <summary>

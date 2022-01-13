@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.. boxblur           V->V       Blur the input.<br></br>
@@ -22,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set an expression for the box radius in pixels used for blurring the corresponding input plane.<br></br>
         /// The radius value must be a non-negative number, and must not be greater than the value of the expression min(w, h)/2 for the luma and alpha planes, and of min(cw, ch)/2 for the chroma planes.<br></br>
@@ -41,7 +35,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BoxBlurFilter LumaRadius(string lr)
           => LumaRadius(lr.Expression());
-
         /// <summary>
         /// Set an expression for the box radius in pixels used for blurring the corresponding input plane.<br></br>
         /// The radius value must be a non-negative number, and must not be greater than the value of the expression min(w, h)/2 for the luma and alpha planes, and of min(cw, ch)/2 for the chroma planes.<br></br>
@@ -60,7 +53,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BoxBlurFilter ChromaRadius(string cr)
           => ChromaRadius(cr.Expression());
-
         /// <summary>
         /// Set an expression for the box radius in pixels used for blurring the corresponding input plane.<br></br>
         /// The radius value must be a non-negative number, and must not be greater than the value of the expression min(w, h)/2 for the luma and alpha planes, and of min(cw, ch)/2 for the chroma planes.<br></br>
@@ -79,7 +71,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BoxBlurFilter AlphaRadius(string ar)
           => AlphaRadius(ar.Expression());
-
         /// <summary>
         /// Specify how many times the boxblur filter is applied to the corresponding plane.<br></br>
         /// Default value for luma_power is 2. If not specified, chroma_power and alpha_power default to the corresponding value set for luma_power.<br></br>
@@ -110,9 +101,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BoxBlurFilter AlphaPower(int ap)
           => this.SetOptionRange("ap", ap, -1, int.MaxValue);
-
     }
-
     public static class BoxBlurFilterExtension
     {
         /// <summary>

@@ -1,11 +1,9 @@
-﻿using FFmpegArgs.Cores.Inputs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace FFmpegArgs.Inputs
+﻿namespace FFmpegArgs.Inputs
 {
     //https://stackoverflow.com/a/11175851/5034139
+    /// <summary>
+    /// 
+    /// </summary>
     public class ImageFilesConcatInput : ImageInput
     {
         /// <summary>
@@ -18,12 +16,12 @@ namespace FFmpegArgs.Inputs
         {
             return new ImageFilesConcatInput($"concat:{string.Join("|", files)}");//filter
         }
-
         /// <summary>
         /// Use this method when you want to avoid a re-encode and your format does not support file-level concatenation <br></br>
         /// (most files used by general users do not support file-level concatenation).
         /// </summary>
         /// <param name="textFile"></param>
+        /// <param name="safe"></param>
         /// <returns></returns>
         public static ImageFilesConcatInput ConcatDemuxer(string textFile, bool safe = true)
         {
@@ -32,7 +30,6 @@ namespace FFmpegArgs.Inputs
             result.SetOption("-f", "concat");
             return result;
         }
-
         /// <summary>
         /// Note: *.png Not a available on window <br></br>
         /// https://stackoverflow.com/a/31513542/5034139
@@ -48,11 +45,7 @@ namespace FFmpegArgs.Inputs
 
 
 
-
-
-
         readonly string _filePath;
-
         /// <summary>
         /// 
         /// </summary>
@@ -62,14 +55,17 @@ namespace FFmpegArgs.Inputs
             if (string.IsNullOrEmpty(input)) throw new ArgumentNullException(nameof(input));
             this._filePath = input;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             List<string> args = new List<string>()
-      {
-        GetArgs(),
-        _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
-      };
+            {
+                GetArgs(),
+                _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
+            };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
         }
     }

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class PullupFilterGen : ImageToImageFilter
@@ -37,7 +26,7 @@ public PullupFilterGen sb(bool sb) => this.SetOption("sb",sb.ToFFmpegFlag());
 /// <summary>
 ///  set metric plane (from 0 to 2) (default y)
 /// </summary>
-public PullupFilterGen mp(PullupFilterGenMp mp) => this.SetOption("mp", mp.GetAttribute<NameAttribute>().Name);
+public PullupFilterGen mp(PullupFilterGenMp mp) => this.SetOption("mp", mp.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class PullupFilterGenExtensions
 {

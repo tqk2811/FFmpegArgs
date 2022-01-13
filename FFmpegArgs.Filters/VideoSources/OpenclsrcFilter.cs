@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Filters.Enums;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoSources
+﻿namespace FFmpegArgs.Filters.VideoSources
 {
     /// <summary>
     /// ... openclsrc         |->V       Generate video using an OpenCL program<br>
@@ -15,7 +12,6 @@ namespace FFmpegArgs.Filters.VideoSources
             this.SetOption("s", $"{size.Width}x{size.Height}");
             this.SetOption("format", format);
         }
-
         /// <summary>
         /// OpenCL program source file.
         /// </summary>
@@ -23,7 +19,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public OpenclsrcFilter Source(string source)
           => this.SetOption("source", source);
-
         /// <summary>
         /// Kernel name in program.
         /// </summary>
@@ -31,7 +26,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public OpenclsrcFilter Kernel(string kernel)
           => this.SetOption("kernel", kernel);
-
         /// <summary>
         /// Number of frames generated every second. Default value is ’25’.
         /// </summary>
@@ -40,7 +34,9 @@ namespace FFmpegArgs.Filters.VideoSources
         public OpenclsrcFilter Rate(int r)
          => this.SetOptionRange("r", r, 1, int.MaxValue);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class OpenclsrcFilterExtensions
     {
         /// <summary>

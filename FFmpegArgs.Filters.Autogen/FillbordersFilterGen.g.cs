@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class FillbordersFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
@@ -33,7 +22,7 @@ public FillbordersFilterGen bottom(int bottom) => this.SetOptionRange("bottom", 
 /// <summary>
 ///  set the fill borders mode (from 0 to 5) (default smear)
 /// </summary>
-public FillbordersFilterGen mode(FillbordersFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public FillbordersFilterGen mode(FillbordersFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the color for the fixed/fade mode (default "black")
 /// </summary>

@@ -1,10 +1,8 @@
-﻿using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Outputs;
-using FFmpegArgs.Filters;
-using System;
-
-namespace FFmpegArgs.Outputs
+﻿namespace FFmpegArgs.Outputs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class OutputExtensions
     {
         /// <summary>
@@ -16,17 +14,15 @@ namespace FFmpegArgs.Outputs
         /// <returns></returns>
         public static T LimitSize<T>(this T t, long limit_size) where T : BaseOutput
             => t.SetOptionRange("-fs", limit_size, 1, long.MaxValue);
-
         /// <summary>
         /// Set the recording timestamp in the container.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
-        /// <param name="date"></param>
+        /// <param name="localdate"></param>
         /// <returns></returns>
         public static T Timestamp<T>(this T t, DateTime localdate) where T : BaseOutput
             => t.SetOption("-timestamp", localdate.ToString("YYYYMMDD HHMMSS"));
-
         /// <summary>
         /// Specify target file type (vcd, svcd, dvd, dv, dv50). type may be prefixed with pal-, ntsc- or film- to use the corresponding standard. All the format options (bitrate, codecs, buffer sizes) are then set automatically. 
         /// </summary>
@@ -36,7 +32,6 @@ namespace FFmpegArgs.Outputs
         /// <returns></returns>
         public static T Target<T>(this T output, string type) where T : BaseOutput
           => output.SetOption("-target", type);
-
         /// <summary>
         /// Set the number of data frames to output. This is an obsolete alias for -frames:d, which you should use instead.
         /// </summary>
@@ -46,7 +41,6 @@ namespace FFmpegArgs.Outputs
         /// <returns></returns>
         public static T Dframes<T>(this T output, int dframes) where T : BaseOutput
           => output.SetOption("-dframes", dframes);
-
         /// <summary>
         /// Stop writing to the stream after framecount frames.
         /// </summary>
@@ -68,9 +62,7 @@ namespace FFmpegArgs.Outputs
                 output.SetOptionRange($"-frames:{stream_specifier.Value}", framecount, 0, long.MaxValue);
             }
             return output;
-
         }
-
         /// <summary>
         /// Use fixed quality scale (VBR). The meaning of q/qscale is codec-dependent. If qscale is used without a stream_specifier then it applies only to the video stream, this is to maintain compatibility with previous behavior and as specifying the same codec specific value to 2 different codecs that is audio and video generally is not what is intended when no stream_specifier is used.
         /// </summary>
@@ -92,9 +84,7 @@ namespace FFmpegArgs.Outputs
                 output.SetOption($"-q:{stream_specifier.Value}", qscale);
             }
             return output;
-
         }
-
         /// <summary>
         /// Set the number of video frames to output. This is an obsolete alias for -frames:v, which you should use instead.
         /// </summary>
@@ -104,7 +94,6 @@ namespace FFmpegArgs.Outputs
         /// <returns></returns>
         public static T Vframes<T>(this T output, int vsync) where T : BaseOutput, IImage
             => output.SetOption("-vframes", vsync);
-
         /// <summary>
         /// Set maximum frame rate (Hz value, fraction or abbreviation).<br>
         /// </br>Clamps output frame rate when output framerate is auto-set and is higher than this value.Useful in batch processing or when input framerate is wrongly detected as very high.It cannot be set together with -r.It is ignored during streamcopy.
@@ -127,9 +116,7 @@ namespace FFmpegArgs.Outputs
                 output.SetOptionRange($"-fpsmax:{stream_specifier.Value}", fps, 0, int.MaxValue);
             }
             return output;
-
         }
-
         /// <summary>
         /// Set the video display aspect ratio specified by aspect.<br>
         /// </br>aspect can be a floating point number string, or a string of the form num:den, where num and den are the numerator and denominator of the aspect ratio.For example "4:3", "16:9", "1.3333", and "1.7777" are valid argument values.<br>
@@ -153,12 +140,17 @@ namespace FFmpegArgs.Outputs
                 output.SetOption($"-aspect:{stream_specifier.Value}", aspect);
             }
             return output;
-
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="output"></param>
+        /// <param name="codec"></param>
+        /// <returns></returns>
         public static T VCodec<T>(this T output, string codec) where T : BaseOutput, IImage
             => output.SetOption("-vcodec", codec);
-
         /// <summary>
         /// Video sync method. For compatibility reasons old values can be specified as numbers. Newly added values will have to be specified as strings always.
         /// </summary>
@@ -169,8 +161,6 @@ namespace FFmpegArgs.Outputs
         public static T VSync<T>(this T output, VSyncMethod vsync) where T : BaseOutput, IImage
             => output.SetOption("-vsync", vsync);
 
-
-
         /// <summary>
         /// Set the number of audio frames to output. This is an obsolete alias for -frames:a, which you should use instead.
         /// </summary>
@@ -180,7 +170,6 @@ namespace FFmpegArgs.Outputs
         /// <returns></returns>
         public static T Aframes<T>(this T output, int aframes) where T : BaseOutput, IAudio
             => output.SetOption("-aframes", aframes);
-
         /// <summary>
         /// Set the audio quality (codec-specific, VBR). This is an alias for -q:a.
         /// </summary>
@@ -190,7 +179,6 @@ namespace FFmpegArgs.Outputs
         /// <returns></returns>
         public static T AQ<T>(this T output, string q) where T : BaseOutput, IAudio
            => output.SetOption("-aq", q);
-
         /// <summary>
         /// Set the audio sample format. Use -sample_fmts to get a list of supported sample formats.
         /// </summary>
@@ -212,9 +200,7 @@ namespace FFmpegArgs.Outputs
                 output.SetOption($"-sample_fmt:{stream_specifier.Value}", sample_fmt);
             }
             return output;
-
         }
-
         /// <summary>
         /// Audio sync method. "Stretches/squeezes" the audio stream to match the timestamps, the parameter is the maximum samples per second by which the audio is changed. -async 1 is a special case where only the start of the audio stream is corrected without any later correction.<br>
         /// </br>Note that the timestamps may be further modified by the muxer, after this. For example, in the case that the format option avoid_negative_ts is enabled.<br>
@@ -227,11 +213,24 @@ namespace FFmpegArgs.Outputs
         public static T ASync<T>(this T output, int async) where T : BaseOutput, IAudio
             => output.SetOption("-async", async);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="bitRate"></param>
+        /// <returns></returns>
         public static T VideoBitrate<T>(this T t, long bitRate) where T : BaseOutput, IImage
             => t.SetOptionRange("-b:v", bitRate, 1, long.MaxValue);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="bitRate"></param>
+        /// <returns></returns>
         public static T AudioBitrate<T>(this T t, long bitRate) where T : BaseOutput, IAudio
             => t.SetOptionRange("-b:a", bitRate, 1, long.MaxValue);
-
     }
 }

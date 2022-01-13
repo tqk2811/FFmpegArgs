@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class XfadeFilterGen : ImageToImageFilter,ISliceThreading
@@ -17,7 +6,7 @@ internal XfadeFilterGen(params ImageMap[] inputs) : base("xfade",inputs) { AddMa
 /// <summary>
 ///  set cross fade transition (from -1 to 42) (default fade)
 /// </summary>
-public XfadeFilterGen transition(XfadeFilterGenTransition transition) => this.SetOption("transition", transition.GetAttribute<NameAttribute>().Name);
+public XfadeFilterGen transition(XfadeFilterGenTransition transition) => this.SetOption("transition", transition.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set cross fade duration (default 1)
 /// </summary>

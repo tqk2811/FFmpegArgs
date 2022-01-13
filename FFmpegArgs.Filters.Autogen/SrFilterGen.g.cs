@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SrFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal SrFilterGen(ImageMap input) : base("sr",input) { AddMapOut(); }
 /// <summary>
 ///  DNN backend used for model execution (from 0 to 1) (default native)
 /// </summary>
-public SrFilterGen dnn_backend(SrFilterGenDnn_backend dnn_backend) => this.SetOption("dnn_backend", dnn_backend.GetAttribute<NameAttribute>().Name);
+public SrFilterGen dnn_backend(SrFilterGenDnn_backend dnn_backend) => this.SetOption("dnn_backend", dnn_backend.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  scale factor for SRCNN model (from 2 to 4) (default 2)
 /// </summary>

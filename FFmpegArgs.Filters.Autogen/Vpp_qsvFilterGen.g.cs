@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Vpp_qsvFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal Vpp_qsvFilterGen(ImageMap input) : base("vpp_qsv",input) { AddMapOut();
 /// <summary>
 ///  deinterlace mode: 0=off, 1=bob, 2=advanced (from 0 to 2) (default 0)
 /// </summary>
-public Vpp_qsvFilterGen deinterlace(Vpp_qsvFilterGenDeinterlace deinterlace) => this.SetOption("deinterlace", deinterlace.GetAttribute<NameAttribute>().Name);
+public Vpp_qsvFilterGen deinterlace(Vpp_qsvFilterGenDeinterlace deinterlace) => this.SetOption("deinterlace", deinterlace.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  denoise level [0, 100] (from 0 to 100) (default 0)
 /// </summary>
@@ -53,7 +42,7 @@ public Vpp_qsvFilterGen brightness(float brightness) => this.SetOptionRange("bri
 /// <summary>
 ///  set transpose direction (from -1 to 6) (default -1)
 /// </summary>
-public Vpp_qsvFilterGen transpose(Vpp_qsvFilterGenTranspose transpose) => this.SetOption("transpose", transpose.GetAttribute<NameAttribute>().Name);
+public Vpp_qsvFilterGen transpose(Vpp_qsvFilterGenTranspose transpose) => this.SetOption("transpose", transpose.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the width crop area expression (default "iw")
 /// </summary>

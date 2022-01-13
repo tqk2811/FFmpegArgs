@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class BassFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -21,11 +10,11 @@ public BassFilterGen frequency(double frequency) => this.SetOptionRange("frequen
 /// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
-public BassFilterGen width_type(BassFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetAttribute<NameAttribute>().Name);
+public BassFilterGen width_type(BassFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
-public BassFilterGen t(BassFilterGenT t) => this.SetOption("t", t.GetAttribute<NameAttribute>().Name);
+public BassFilterGen t(BassFilterGenT t) => this.SetOption("t", t.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set shelf transition steep (from 0 to 99999) (default 0.5)
 /// </summary>
@@ -45,7 +34,7 @@ public BassFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public BassFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
+public BassFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
@@ -53,19 +42,19 @@ public BassFilterGen normalize(bool normalize) => this.SetOption("normalize",nor
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public BassFilterGen transform(BassFilterGenTransform transform) => this.SetOption("transform", transform.GetAttribute<NameAttribute>().Name);
+public BassFilterGen transform(BassFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public BassFilterGen a(BassFilterGenA a) => this.SetOption("a", a.GetAttribute<NameAttribute>().Name);
+public BassFilterGen a(BassFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public BassFilterGen precision(BassFilterGenPrecision precision) => this.SetOption("precision", precision.GetAttribute<NameAttribute>().Name);
+public BassFilterGen precision(BassFilterGenPrecision precision) => this.SetOption("precision", precision.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public BassFilterGen r(BassFilterGenR r) => this.SetOption("r", r.GetAttribute<NameAttribute>().Name);
+public BassFilterGen r(BassFilterGenR r) => this.SetOption("r", r.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class BassFilterGenExtensions
 {

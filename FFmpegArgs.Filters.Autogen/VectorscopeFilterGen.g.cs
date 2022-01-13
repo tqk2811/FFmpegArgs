@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class VectorscopeFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal VectorscopeFilterGen(ImageMap input) : base("vectorscope",input) { AddM
 /// <summary>
 ///  set vectorscope mode (from 0 to 5) (default gray)
 /// </summary>
-public VectorscopeFilterGen mode(VectorscopeFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public VectorscopeFilterGen mode(VectorscopeFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set color component on X axis (from 0 to 2) (default 1)
 /// </summary>
@@ -33,11 +22,11 @@ public VectorscopeFilterGen intensity(float intensity) => this.SetOptionRange("i
 /// <summary>
 ///  set envelope (from 0 to 3) (default none)
 /// </summary>
-public VectorscopeFilterGen envelope(VectorscopeFilterGenEnvelope envelope) => this.SetOption("envelope", envelope.GetAttribute<NameAttribute>().Name);
+public VectorscopeFilterGen envelope(VectorscopeFilterGenEnvelope envelope) => this.SetOption("envelope", envelope.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set graticule (from 0 to 3) (default none)
 /// </summary>
-public VectorscopeFilterGen graticule(VectorscopeFilterGenGraticule graticule) => this.SetOption("graticule", graticule.GetAttribute<NameAttribute>().Name);
+public VectorscopeFilterGen graticule(VectorscopeFilterGenGraticule graticule) => this.SetOption("graticule", graticule.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set graticule opacity (from 0 to 1) (default 0.75)
 /// </summary>
@@ -45,7 +34,7 @@ public VectorscopeFilterGen opacity(float opacity) => this.SetOptionRange("opaci
 /// <summary>
 ///  set graticule flags (default name)
 /// </summary>
-public VectorscopeFilterGen flags(VectorscopeFilterGenFlags flags) => this.SetOption("flags", flags.GetAttribute<NameAttribute>().Name);
+public VectorscopeFilterGen flags(VectorscopeFilterGenFlags flags) => this.SetOption("flags", flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set background opacity (from 0 to 1) (default 0.3)
 /// </summary>
@@ -61,7 +50,7 @@ public VectorscopeFilterGen hthreshold(float hthreshold) => this.SetOptionRange(
 /// <summary>
 ///  set colorspace (from 0 to 2) (default auto)
 /// </summary>
-public VectorscopeFilterGen colorspace(VectorscopeFilterGenColorspace colorspace) => this.SetOption("colorspace", colorspace.GetAttribute<NameAttribute>().Name);
+public VectorscopeFilterGen colorspace(VectorscopeFilterGenColorspace colorspace) => this.SetOption("colorspace", colorspace.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set 1st tint (from -1 to 1) (default 0)
 /// </summary>

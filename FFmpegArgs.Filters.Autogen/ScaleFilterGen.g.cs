@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ScaleFilterGen : ImageToImageFilter,ICommandSupport
@@ -41,11 +30,11 @@ public ScaleFilterGen out_color_matrix(string out_color_matrix) => this.SetOptio
 /// <summary>
 ///  set input color range (from 0 to 2) (default auto)
 /// </summary>
-public ScaleFilterGen in_range(ScaleFilterGenIn_range in_range) => this.SetOption("in_range", in_range.GetAttribute<NameAttribute>().Name);
+public ScaleFilterGen in_range(ScaleFilterGenIn_range in_range) => this.SetOption("in_range", in_range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set output color range (from 0 to 2) (default auto)
 /// </summary>
-public ScaleFilterGen out_range(ScaleFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetAttribute<NameAttribute>().Name);
+public ScaleFilterGen out_range(ScaleFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  input vertical chroma position in luma grid/256 (from -513 to 512) (default -513)
 /// </summary>
@@ -65,7 +54,7 @@ public ScaleFilterGen out_h_chr_pos(int out_h_chr_pos) => this.SetOptionRange("o
 /// <summary>
 ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
 /// </summary>
-public ScaleFilterGen force_original_aspect_ratio(ScaleFilterGenForce_original_aspect_ratio force_original_aspect_ratio) => this.SetOption("force_original_aspect_ratio", force_original_aspect_ratio.GetAttribute<NameAttribute>().Name);
+public ScaleFilterGen force_original_aspect_ratio(ScaleFilterGenForce_original_aspect_ratio force_original_aspect_ratio) => this.SetOption("force_original_aspect_ratio", force_original_aspect_ratio.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  enforce that the output resolution is divisible by a defined integer when force_original_aspect_ratio is used (from 1 to 256) (default 1)
 /// </summary>
@@ -85,7 +74,7 @@ public ScaleFilterGen nb_slices(int nb_slices) => this.SetOptionRange("nb_slices
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public ScaleFilterGen eval(ScaleFilterGenEval eval) => this.SetOption("eval", eval.GetAttribute<NameAttribute>().Name);
+public ScaleFilterGen eval(ScaleFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class ScaleFilterGenExtensions
 {

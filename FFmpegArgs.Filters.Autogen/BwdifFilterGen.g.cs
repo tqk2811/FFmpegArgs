@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class BwdifFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,15 +6,15 @@ internal BwdifFilterGen(ImageMap input) : base("bwdif",input) { AddMapOut(); }
 /// <summary>
 ///  specify the interlacing mode (from 0 to 1) (default send_field)
 /// </summary>
-public BwdifFilterGen mode(BwdifFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public BwdifFilterGen mode(BwdifFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  specify the assumed picture field parity (from -1 to 1) (default auto)
 /// </summary>
-public BwdifFilterGen parity(BwdifFilterGenParity parity) => this.SetOption("parity", parity.GetAttribute<NameAttribute>().Name);
+public BwdifFilterGen parity(BwdifFilterGenParity parity) => this.SetOption("parity", parity.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  specify which frames to deinterlace (from 0 to 1) (default all)
 /// </summary>
-public BwdifFilterGen deint(BwdifFilterGenDeint deint) => this.SetOption("deint", deint.GetAttribute<NameAttribute>().Name);
+public BwdifFilterGen deint(BwdifFilterGenDeint deint) => this.SetOption("deint", deint.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class BwdifFilterGenExtensions
 {

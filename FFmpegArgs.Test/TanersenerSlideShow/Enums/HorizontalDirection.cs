@@ -5,7 +5,6 @@
         LeftToRight,
         RightToLeft
     }
-
     public enum VerticalDirection
     {
         TopToBottom,

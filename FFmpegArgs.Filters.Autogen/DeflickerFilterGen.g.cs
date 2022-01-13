@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DeflickerFilterGen : ImageToImageFilter
@@ -21,7 +10,7 @@ public DeflickerFilterGen size(int size) => this.SetOptionRange("size", size,2,1
 /// <summary>
 ///  set how to smooth luminance (from 0 to 6) (default am)
 /// </summary>
-public DeflickerFilterGen mode(DeflickerFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public DeflickerFilterGen mode(DeflickerFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  leave frames unchanged (default false)
 /// </summary>

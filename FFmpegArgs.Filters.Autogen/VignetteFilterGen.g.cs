@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class VignetteFilterGen : ImageToImageFilter,ITimelineSupport
@@ -29,11 +18,11 @@ public VignetteFilterGen y0(string y0) => this.SetOption("y0",y0);
 /// <summary>
 ///  set forward/backward mode (from 0 to 1) (default forward)
 /// </summary>
-public VignetteFilterGen mode(VignetteFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public VignetteFilterGen mode(VignetteFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public VignetteFilterGen eval(VignetteFilterGenEval eval) => this.SetOption("eval", eval.GetAttribute<NameAttribute>().Name);
+public VignetteFilterGen eval(VignetteFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set dithering (default true)
 /// </summary>

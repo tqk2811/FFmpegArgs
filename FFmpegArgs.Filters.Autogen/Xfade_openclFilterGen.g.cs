@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Xfade_openclFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal Xfade_openclFilterGen(params ImageMap[] inputs) : base("xfade_opencl",i
 /// <summary>
 ///  set cross fade transition (from 0 to 9) (default fade)
 /// </summary>
-public Xfade_openclFilterGen transition(Xfade_openclFilterGenTransition transition) => this.SetOption("transition", transition.GetAttribute<NameAttribute>().Name);
+public Xfade_openclFilterGen transition(Xfade_openclFilterGenTransition transition) => this.SetOption("transition", transition.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set OpenCL program source file for custom transition
 /// </summary>

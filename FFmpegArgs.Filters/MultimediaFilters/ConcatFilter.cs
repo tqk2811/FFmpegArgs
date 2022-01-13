@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace FFmpegArgs.Filters.MultimediaFilters
+﻿namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ..C concat            N->N       Concatenate audio and video streams.<br></br>
@@ -13,10 +8,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     {
         readonly List<ImageMap> _imageMapsOut = new List<ImageMap>();
         readonly List<AudioMap> _audioMapsOut = new List<AudioMap>();
-
         public IEnumerable<ImageMap> ImageMapsOut { get { return _imageMapsOut; } }
         public IEnumerable<AudioMap> AudioMapsOut { get { return _audioMapsOut; } }
-
         /// <summary>
         /// Concatenate audio and video streams, joining them together one after the other.<br>
         /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
@@ -25,7 +18,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         public ConcatFilter(IEnumerable<ConcatGroup> concatGroups) : this(concatGroups.ToArray())
         {
         }
-
         /// <summary>
         /// Concatenate audio and video streams, joining them together one after the other.<br>
         /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
@@ -38,10 +30,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             //check input are same;
             var video_counts = concatGroups.GroupBy(x => x.ImageMaps.Count);
             if (video_counts.Count() != 1) throw new ArgumentException("Number of image per group are not same");
-
             var audio_counts = concatGroups.GroupBy(x => x.AudioMaps.Count);
             if (audio_counts.Count() != 1) throw new ArgumentException("Number of audio per group are not same");
-
             int index = 0;
             foreach (var img in concatGroups.First().ImageMaps)
             {
@@ -56,13 +46,11 @@ namespace FFmpegArgs.Filters.MultimediaFilters
                 _mapsOut.Add(audioMap);
                 _audioMapsOut.Add(audioMap);
             }
-
             this.SetOption("n", concatGroups.Length);
             this.SetOption("v", concatGroups.First().ImageMaps.Count);
             this.SetOption("a", concatGroups.First().AudioMaps.Count);
         }
     }
-
     public class ConcatGroup
     {
         public ConcatGroup() { }
@@ -84,7 +72,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         {
             AudioMaps.AddRange(audioMaps ?? throw new ArgumentNullException(nameof(audioMaps)));
         }
-
         public List<ImageMap> ImageMaps { get; } = new List<ImageMap>();
         public List<AudioMap> AudioMaps { get; } = new List<AudioMap>();
         internal IEnumerable<BaseMap> AllMaps { get { return ImageMaps.Cast<BaseMap>().Concat(AudioMaps); } }

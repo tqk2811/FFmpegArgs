@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC chromanr          V->V       Reduce chrominance noise.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set threshold for averaging chrominance values.<br>
         /// </br> Sum of absolute difference of Y, U and V pixel components of current pixel and neighbour pixels lower than this threshold will be used in averaging.<br>
@@ -22,7 +19,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ChromanrFilter Thres(float thres)
           => this.SetOptionRange("thres", thres, 1, 200);
-
         /// <summary>
         /// Set horizontal radius of rectangle used for averaging. Allowed range is from 1 to 100. Default value is 5.
         /// </summary>
@@ -78,7 +74,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ChromanrFilter ThreV(float threv)
           => this.SetOptionRange("threv", threv, 1, 200);
-
         /// <summary>
         /// Set distance type used in calculations.<br></br>
         /// Default distance type is manhattan.
@@ -88,7 +83,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ChromanrFilter Distance(ChromanrDistance distance)
           => this.SetOption("distance", distance);
     }
-
     public static class ChromanrFilterExtensions
     {
         /// <summary>
@@ -97,7 +91,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static ChromanrFilter chromanrFilter(this ImageMap imageMap)
           => new ChromanrFilter(imageMap);
     }
-
     public enum ChromanrDistance
     {
         /// <summary>

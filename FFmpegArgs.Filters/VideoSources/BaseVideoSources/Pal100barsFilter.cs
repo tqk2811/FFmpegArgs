@@ -11,7 +11,6 @@
             AddMapOut();
         }
     }
-
     public static class Pal100barsFilterExtensions
     {
         public static Pal100barsFilter Pal100barsFilter(this FilterGraph filterGraph)

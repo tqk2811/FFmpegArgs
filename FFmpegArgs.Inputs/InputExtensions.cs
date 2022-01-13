@@ -1,25 +1,37 @@
-﻿using FFmpegArgs.Cores.Inputs;
-using FFmpegArgs.Exceptions;
-
-namespace FFmpegArgs.Inputs
+﻿namespace FFmpegArgs.Inputs
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg.html#Main-options
     /// </summary>
     public static class InputExtensions
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="baseInput"></param>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidRangeException"></exception>
         public static T StreamLoop<T>(this T baseInput, int number) where T : BaseInput
         {
             if (number < -1) throw new InvalidRangeException($"{nameof(number)} should be >= -1");
             return baseInput.SetOption("-stream_loop", number.ToString());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="baseInput"></param>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidRangeException"></exception>
         public static T Loop<T>(this T baseInput, int number) where T : BaseInput
         {
             if (number <= 0) throw new InvalidRangeException($"{nameof(number)} <= 0");
             return baseInput.SetOption("-loop", number.ToString());
         }
-
         /// <summary>
         /// Limit input read speed.<br>
         /// </br>Its value is a floating-point positive number which represents the maximum duration of media, in seconds, that should be ingested in one second of wallclock time.Default value is zero and represents no imposed limitation on speed of ingestion.Value 1 represents real-time speed and is equivalent to -re.<br>

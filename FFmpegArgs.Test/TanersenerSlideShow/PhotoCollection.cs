@@ -1,18 +1,4 @@
-﻿using FFmpegArgs.Filters.Enums;
-using FFmpegArgs.Filters.MultimediaFilters;
-using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Filters.VideoSources;
-using FFmpegArgs.Inputs;
-using FFmpegArgs.Outputs;
-using FFmpegArgs.Filters;
-using FFmpegArgs;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using FFmpegArgs.Executes;
-using System.Diagnostics;
+﻿
 
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
@@ -29,7 +15,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(PhotoCollectionCustomTest)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             int MAX_IMAGE_ANGLE = 25;
             double RPS = 1;//Revolutions per sec
@@ -38,18 +23,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             int FPS = config.Fps;
             Color BACKGROUND_COLOR = config.BackgroundColor;
             double TRANSITION_DURATION = config.TransitionDuration.TotalSeconds;
-
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
-
             Random random = new Random();
-
-
             var background = ffmpegArg.FilterGraph.ColorFilter()
                     .Size(config.Size)
                     .Color(config.BackgroundColor)
                     .Duration(TOTAL_DURATION).MapOut
                 .FpsFilter().Fps(config.Fps).MapOut;
-
             var lastOverLay = background;
             images_inputmap = images_inputmap.InputScreenMode(ScreenMode.Center, config);
             for (int c = 0; c < images_inputmap.Count; c++)
@@ -57,7 +37,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 var start = (config.TransitionDuration + config.ImageDuration) * c;
                 var end = start + config.TransitionDuration;
                 var ANGLE_RANDOMNESS = random.Next() % MAX_IMAGE_ANGLE + 1;
-
                 lastOverLay = images_inputmap[c]
                     .PadFilter()
                         .W($"{WIDTH * 4}")
@@ -67,8 +46,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         .Color(BACKGROUND_COLOR).MapOut
                     .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
-
-
                     .RotateFilter()
                         .Angle(  $"if(" +
                                         $"between(t,{start.TotalSeconds},{end.TotalSeconds})," +
@@ -85,9 +62,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                                 "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;
             }
-
             var out_map = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -96,13 +71,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
-
-
         [TestMethod]
         public void PhotoCollectionTest()
         {
@@ -110,22 +81,17 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             string filterFileName = $"{nameof(PhotoCollectionTest)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
             var images_inputmap = ffmpegArg.GetImagesInput();
-
             Config config = new Config();
             int MAX_IMAGE_ANGLE = 25;
             double RPS = 1.2;
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
             
             Random random = new Random();
-
-
             var background = ffmpegArg.AddVideoInput(
                 new FilterInput($"color={config.BackgroundColor.ToHexStringRGBA()}:s={config.Size.Width}x{config.Size.Height},fps={config.Fps}"),1,0)
                 .ImageMaps.First().TrimFilter().Duration(TOTAL_DURATION).MapOut;
-
             var lastOverLay = background;
             images_inputmap = images_inputmap.InputScreenMode(ScreenMode.Center, config);
-
             for (int c = 0; c < images_inputmap.Count; c++)
             {
                 var ANGLE_RANDOMNESS = random.Next() % MAX_IMAGE_ANGLE + 1;
@@ -141,8 +107,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .TrimFilter()
                         .Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
-
-
                     .RotateFilter()
                         .Angle($"if(" +
                                         $"between(t,{start.TotalSeconds},{end.TotalSeconds})," +
@@ -159,9 +123,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;
             }
-
             var out_map = lastOverLay.FormatFilter(PixFmt.yuv420p).MapOut;
-
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
@@ -170,11 +132,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");
-
             ffmpegArg.AddOutput(imageFileOutput);
-
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
-
     }
 }

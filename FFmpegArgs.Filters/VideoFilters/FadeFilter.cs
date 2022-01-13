@@ -18,10 +18,6 @@ fade AVOptions:
   color             <color>      ..FV....... set color (default "black")
   c                 <color>      ..FV....... set color (default "black")
  */
-using FFmpegArgs.Cores.Maps;
-using System;
-using System.Drawing;
-
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -34,7 +30,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The effect type can be either "in" for a fade-in, or "out" for a fade-out effect. Default is in.
         /// </summary>
@@ -42,7 +37,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public FadeFilter Type(FadeType t)
             => this.SetOption("t", t.ToString().ToLower());
-
         /// <summary>
         /// Specify the number of the frame to start applying the fade effect at. (from 0 to INT_MAX) (default 0)
         /// </summary>
@@ -50,7 +44,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public FadeFilter StartFrame(int s)
           => this.SetOptionRange("s", s, 0, int.MaxValue);
-
         /// <summary>
         /// The number of frames that the fade effect lasts. At the end of the fade-in effect, the output video will have the same intensity as the input video.<br>
         /// </br> At the end of the fade-out transition, the output video will be filled with the selected color.<br>
@@ -60,7 +53,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public FadeFilter NbFrames(int n)
           => this.SetOptionRange("n", n, 1, int.MaxValue);
-
         /// <summary>
         /// If set to 1, fade only alpha channel, if one exists on the input. Default value is 0.
         /// </summary>
@@ -68,7 +60,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public FadeFilter Alpha(bool alpha)
           => this.SetOption("alpha", alpha.ToFFmpegFlag());
-
         /// <summary>
         /// Specify the timestamp (in seconds) of the frame to start to apply the fade effect.<br>
         /// </br> If both start_frame and start_time are specified, the fade will start at whichever comes last. Default is 0.
@@ -77,7 +68,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public FadeFilter StartTime(TimeSpan st)
           => this.SetOptionRange("st", st, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// The number of seconds for which the fade effect has to last.<br>
         /// </br> At the end of the fade-in effect the output video will have the same intensity as the input video, at the end of the fade-out transition the output video will be filled with the selected color.<br>
@@ -87,7 +77,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public FadeFilter Duration(TimeSpan duration)
           => this.SetOptionRange("d", duration, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Specify the color of the fade. Default is "black".
         /// </summary>
@@ -96,7 +85,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public FadeFilter Color(Color c)
           => this.SetOption("c", c.ToHexStringRGBA());
     }
-
     public static class FadeFilterExtensions
     {
         /// <summary>
@@ -106,8 +94,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static FadeFilter FadeFilter(this ImageMap imageMap) => new FadeFilter(imageMap);
     }
-
-
     public enum FadeType
     {
         In,

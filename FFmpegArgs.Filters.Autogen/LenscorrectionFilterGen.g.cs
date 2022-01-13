@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class LenscorrectionFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -33,7 +22,7 @@ public LenscorrectionFilterGen k2(double k2) => this.SetOptionRange("k2", k2,-1,
 /// <summary>
 ///  set interpolation type (from 0 to 64) (default nearest)
 /// </summary>
-public LenscorrectionFilterGen i(LenscorrectionFilterGenI i) => this.SetOption("i", i.GetAttribute<NameAttribute>().Name);
+public LenscorrectionFilterGen i(LenscorrectionFilterGenI i) => this.SetOption("i", i.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set the color of the unmapped pixels (default "black@0")
 /// </summary>

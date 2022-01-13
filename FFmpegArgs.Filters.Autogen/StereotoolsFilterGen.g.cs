@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class StereotoolsFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
@@ -53,7 +42,7 @@ public StereotoolsFilterGen phaser(bool phaser) => this.SetOption("phaser",phase
 /// <summary>
 ///  set stereo mode (from 0 to 10) (default lr>lr)
 /// </summary>
-public StereotoolsFilterGen mode(StereotoolsFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public StereotoolsFilterGen mode(StereotoolsFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set side level (from 0.015625 to 64) (default 1)
 /// </summary>
@@ -89,11 +78,11 @@ public StereotoolsFilterGen phase(double phase) => this.SetOptionRange("phase", 
 /// <summary>
 ///  set balance in mode (from 0 to 2) (default balance)
 /// </summary>
-public StereotoolsFilterGen bmode_in(StereotoolsFilterGenBmode_in bmode_in) => this.SetOption("bmode_in", bmode_in.GetAttribute<NameAttribute>().Name);
+public StereotoolsFilterGen bmode_in(StereotoolsFilterGenBmode_in bmode_in) => this.SetOption("bmode_in", bmode_in.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set balance out mode (from 0 to 2) (default balance)
 /// </summary>
-public StereotoolsFilterGen bmode_out(StereotoolsFilterGenBmode_out bmode_out) => this.SetOption("bmode_out", bmode_out.GetAttribute<NameAttribute>().Name);
+public StereotoolsFilterGen bmode_out(StereotoolsFilterGenBmode_out bmode_out) => this.SetOption("bmode_out", bmode_out.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class StereotoolsFilterGenExtensions
 {

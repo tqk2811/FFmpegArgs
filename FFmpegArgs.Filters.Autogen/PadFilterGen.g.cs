@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class PadFilterGen : ImageToImageFilter
@@ -37,7 +26,7 @@ public PadFilterGen color(Color color) => this.SetOption("color",color.ToHexStri
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public PadFilterGen eval(PadFilterGenEval eval) => this.SetOption("eval", eval.GetAttribute<NameAttribute>().Name);
+public PadFilterGen eval(PadFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  pad to fit an aspect instead of a resolution (from 0 to DBL_MAX) (default 0/1)
 /// </summary>

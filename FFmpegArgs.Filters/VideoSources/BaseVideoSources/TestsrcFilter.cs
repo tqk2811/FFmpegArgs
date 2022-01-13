@@ -10,7 +10,6 @@
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the number of decimals to show in the timestamp, only available in the testsrc source.<br></br>
         /// The displayed timestamp value will correspond to the original timestamp value multiplied by the power of 10 of the specified value.(from 0 to 17) (default 0)
@@ -20,7 +19,6 @@
         public TestsrcFilter Decimals(int n)
           => this.SetOptionRange("n", n, 0, 17);
     }
-
     public static class TestsrcFilterExtensions
     {
         public static TestsrcFilter TestsrcFilter(this FilterGraph filterGraph)

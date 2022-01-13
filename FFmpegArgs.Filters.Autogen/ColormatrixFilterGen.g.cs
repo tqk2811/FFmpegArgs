@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ColormatrixFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,11 +6,11 @@ internal ColormatrixFilterGen(ImageMap input) : base("colormatrix",input) { AddM
 /// <summary>
 ///  set source color matrix (from -1 to 4) (default -1)
 /// </summary>
-public ColormatrixFilterGen src(ColormatrixFilterGenSrc src) => this.SetOption("src", src.GetAttribute<NameAttribute>().Name);
+public ColormatrixFilterGen src(ColormatrixFilterGenSrc src) => this.SetOption("src", src.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set destination color matrix (from -1 to 4) (default -1)
 /// </summary>
-public ColormatrixFilterGen dst(ColormatrixFilterGenDst dst) => this.SetOption("dst", dst.GetAttribute<NameAttribute>().Name);
+public ColormatrixFilterGen dst(ColormatrixFilterGenDst dst) => this.SetOption("dst", dst.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class ColormatrixFilterGenExtensions
 {

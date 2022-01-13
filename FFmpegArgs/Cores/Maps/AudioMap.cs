@@ -4,9 +4,7 @@
     {
         public AudioMap(FilterGraph filterGraph, string name) : base(filterGraph, name)
         {
-
         }
-
         public override string GetMapOut()
         {
             return IsInput ? $"\"{MapName}:a:{StreamIndex}\"" : $"\"[{MapName}]\"";

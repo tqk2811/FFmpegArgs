@@ -1,20 +1,20 @@
-﻿using FFmpegArgs.Cores.Maps;
+﻿using FFmpegArgs.Attributes;
+using FFmpegArgs.Cores.Maps;
+using FFmpegArgs.Enums;
 using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
+using FFmpegArgs.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-
 namespace FFmpegArgs.Autogens
 {
     internal class FilterData
     {
         internal static Regex regex_DocLineMethod { get; } = new Regex("^([0-9A-z-+<>_-]+) +(|[0-9A-z<>-]+) +([.EDFVASXRBTP]{11})(.*?|)$");
         static Regex regex_DocLineMethodFromTo { get; } = new Regex("from ([0-9A-Z-+._e]+) to ([0-9A-Z-+._e]+)");
-
         internal FilterData(DocLine function)
         {
             this.Function = function;
@@ -27,7 +27,7 @@ namespace FFmpegArgs.Autogens
                 Flag = match_method.Groups[3].Value;
                 Description = match_method.Groups[4].Value;
                 Match match_fromto = regex_DocLineMethodFromTo.Match(Description);
-                if(match_fromto.Success)
+                if (match_fromto.Success)
                 {
                     Min = match_fromto.Groups[1].Value;
                     Max = match_fromto.Groups[2].Value;
@@ -43,12 +43,10 @@ namespace FFmpegArgs.Autogens
         public string Min { get; }
         public string Max { get; }
     }
-
     internal class FilterFunction
     {
         private FilterFunction()
         {
-
         }
         public string ReturnTypeName { get; set; }
         public string FunctionName { get; set; }
@@ -56,28 +54,24 @@ namespace FFmpegArgs.Autogens
         public string FunctionParamType { get; set; }
         public string FunctionBody { get; set; }
         public string EnumData { get; set; }
-
         public override string ToString()
         {
             return $"public {ReturnTypeName} {FunctionName}({FunctionParamType} {FunctionName}) {FunctionBody}";
         }
-
         internal static FilterFunction GetFilterFunction(FilterData filterData, string returnTypeName)
         {
-            if(filterData.IsSuccess)
+            if (filterData.IsSuccess)
             {
                 FilterFunction filterFunction = new FilterFunction();
                 filterFunction.ReturnTypeName = returnTypeName;
                 filterFunction.FunctionName = filterData.Name.FixNameRule();
                 filterFunction.Description = filterData.Description;
-
                 switch (filterData.Type)
                 {
                     case "<double>":
                         filterFunction.FunctionParamType = $"double";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\", {filterFunction.FunctionName},{filterData.Min},{filterData.Max});";
                         break;
-
                     case "<int>":
                         if (filterData.Function.ChildLines.Count == 0)
                         {
@@ -86,71 +80,57 @@ namespace FFmpegArgs.Autogens
                         }
                         else WriteFunctionWithEnum(filterFunction, filterData, returnTypeName);
                         break;
-
                     case "<flags>":
                         WriteFunctionWithEnum(filterFunction, filterData, returnTypeName);
                         break;
-
                     case "<int64>":
                         filterFunction.FunctionParamType = $"long";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\", {filterFunction.FunctionName},{filterData.Min},{filterData.Max});";
                         break;
-
                     case "<float>":
                         filterFunction.FunctionParamType = $"float";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\", {filterFunction.FunctionName},{filterData.Min},{filterData.Max});";
                         break;
-
                     case "<boolean>":
                         filterFunction.FunctionParamType = $"bool";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.ToFFmpegFlag)}());";
                         break;
-
                     case "<string>":
                         filterFunction.FunctionParamType = $"string";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName});";
                         break;
-
                     case "<image_size>":
                         filterFunction.FunctionParamType = $"Size";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",$\"{{{filterFunction.FunctionName}.Width}}x{{{filterFunction.FunctionName}.Height}}\");";
                         break;
-
                     case "<duration>":
                         filterFunction.FunctionParamType = $"TimeSpan";
                         filterFunction.FunctionBody = $"=> this.SetOptionRange(\"{filterData.Name}\",{filterFunction.FunctionName},TimeSpan.Zero,TimeSpan.MaxValue);";
                         break;
-
                     case "<color>":
                         filterFunction.FunctionParamType = $"Color";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.ToHexStringRGBA)}());";
                         break;
-
                     case "<pix_fmt>":
                         filterFunction.FunctionParamType = nameof(PixFmt);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.ToString());";
                         break;
-
                     case "<video_rate>":
                         filterFunction.FunctionParamType = nameof(Rational);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName});";
                         break;
-
                     case "<rational>":
                         filterFunction.FunctionParamType = nameof(Rational);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(Rational.Check)}({filterData.Min},{filterData.Max}));";
                         break;
-
                     case "<channel_layout>":
                         filterFunction.FunctionParamType = nameof(ChannelLayout);
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
+                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(AttributeExtensions.GetEnumAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         break;
-
                     case "<sample_fmt>":
                         filterFunction.FunctionParamType = nameof(AVSampleFormat);
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
+                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(AttributeExtensions.GetEnumAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
                         break;
-
                     //dictionary
                     //binary
                     default:
@@ -164,7 +144,6 @@ namespace FFmpegArgs.Autogens
             else Console.WriteLine($"{returnTypeName}: function error: {filterData.Function.LineData}");
             return null;
         }
-
         static void WriteFunctionWithEnum(FilterFunction filterFunction, FilterData filterData, string returnTypeName)
         {
             Dictionary<string, string> pairs = new Dictionary<string, string>();
@@ -178,7 +157,6 @@ namespace FFmpegArgs.Autogens
                 }
                 else Console.WriteLine($"enum {returnTypeName}{filterData.Name.UpperFirst()} error: {item.LineData}");
             }
-
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine($"public enum {returnTypeName}{filterData.Name.UpperFirst()}\r\n{{");
             foreach (var item in pairs)
@@ -187,12 +165,10 @@ namespace FFmpegArgs.Autogens
             }
             stringBuilder.AppendLine($"}}");
             filterFunction.EnumData = stringBuilder.ToString();
-
             filterFunction.FunctionParamType = $"{returnTypeName}{filterData.Name.UpperFirst()}";
-            filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\", {filterFunction.FunctionName}.{nameof(FilterExtensions.GetAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
+            filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\", {filterFunction.FunctionName}.{nameof(AttributeExtensions.GetEnumAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
         }
     }
-
     internal static class FiltersGen
     {
         static readonly IEnumerable<string> _skip = new string[]
@@ -206,7 +182,6 @@ namespace FFmpegArgs.Autogens
         };
         static Regex regex_filter { get; } = new Regex("^([TSC.]{3}) +([a-z0-9_]+) +([AVN|]{1,}->[AVN|]{1,}) +(.+)$");
         //static Regex regex_DocLineMethodDefault { get; } = new Regex("default (.*?)(?=\\))");
-
 
         internal static string UpperFirst(this string input)
         {
@@ -229,22 +204,6 @@ namespace FFmpegArgs.Autogens
             if (_NameRule.Contains(input)) return $"_{input}";
             return input;
         }
-
-        internal static StreamWriter WriteUsing(this StreamWriter streamWriter)
-        {
-            streamWriter.WriteLine("using System;");
-            streamWriter.WriteLine("using System.Linq;");
-            streamWriter.WriteLine("using System.Drawing;");
-            streamWriter.WriteLine("using System.Collections.Generic;");
-            streamWriter.WriteLine("using FFmpegArgs;");
-            streamWriter.WriteLine("using FFmpegArgs.Cores;");
-            streamWriter.WriteLine("using FFmpegArgs.Cores.Filters;");
-            streamWriter.WriteLine("using FFmpegArgs.Cores.Maps;");
-            streamWriter.WriteLine("using FFmpegArgs.Expressions;");
-            streamWriter.WriteLine("using FFmpegArgs.Filters;");
-            streamWriter.WriteLine("using FFmpegArgs.Filters.Enums;");
-            return streamWriter;
-        }
         internal static StreamWriter WriteNameSpace(this StreamWriter streamWriter, string child = null)
         {
             if (string.IsNullOrWhiteSpace(child)) streamWriter.WriteLine($"namespace FFmpegArgs.Filters.Autogens");
@@ -263,11 +222,6 @@ namespace FFmpegArgs.Autogens
 
 
 
-
-
-
-
-
         public static void Gen(List<string> filters, List<DocLine> docLines)
         {
             foreach (var filter in filters)
@@ -280,32 +234,26 @@ namespace FFmpegArgs.Autogens
                     string type = match.Groups[3].Value;
                     string description = match.Groups[4].Value;
                     DocLine docLine = docLines.FirstOrDefault(x => x.LineData.StartsWith($"{name} AVOptions:"));
-
                     if (docLine == null)
                     {
                         Console.WriteLine($"Filters.Gen not found ({name}):{filter}");
                         continue;
                     }
-
                     if (_skip.Contains(name))
                     {
                         Console.WriteLine($"Filters.Gen skip ({name}):{filter}");
                         continue;
                     }
-
                     TypeName typeName = GetFilterInheritance(type);
                     if (typeName == null)
                     {
                         Console.WriteLine($"Filters.Gen skip ({type}):{filter}");
                         continue;
                     }
-
                     var interfaces = GetFilterInterface(support).ToList();
                     interfaces.Insert(0, typeName.Inheritance);
-
                     string className = $"{name.UpperFirst()}FilterGen";
                     using StreamWriter streamWriter = new StreamWriter($"FFmpegArgs.Filters.Autogen\\{className}.g.cs", false);
-                    streamWriter.WriteUsing();
                     streamWriter.WriteNameSpace();
                     streamWriter.WriteLine("{");
                     streamWriter.WriteLine($"public class {className} : {string.Join(",", interfaces)}");
@@ -319,7 +267,6 @@ namespace FFmpegArgs.Autogens
                         streamWriter.WriteLine($"internal {className}(params {typeName.Input}[] inputs) : base(\"{name}\",inputs) {{ AddMapOut(); }}");
                     }
                     List<string> enumDatas = new List<string>();
-
 
                     var filterFunctions = docLine.ChildLines
                         .Select(x => new FilterData(x))
@@ -335,7 +282,6 @@ namespace FFmpegArgs.Autogens
                         .Where(x => x.Last().FunctionName.StartsWith(x.First().FunctionName))
                         .Select(x => x.First())
                         .ToList();
-
                     foreach (var filterFunction in filterFunctions.Except(removes))
                     {
                         streamWriter.WriteSummary(filterFunction.Description);
@@ -343,9 +289,7 @@ namespace FFmpegArgs.Autogens
                         if (!string.IsNullOrWhiteSpace(filterFunction.EnumData))
                             enumDatas.Add(filterFunction.EnumData);
                     }
-
                     streamWriter.WriteLine("}");
-
                     //Extensions
                     List<string> inputs = new List<string>();
                     List<string> paramsInput = new List<string>();
@@ -354,7 +298,6 @@ namespace FFmpegArgs.Autogens
                         inputs.Add($"{typeName.Input} input{i}");
                         paramsInput.Add($"input{i}");
                     }
-
                     streamWriter.WriteLine($"public static class {className}Extensions");
                     streamWriter.WriteLine("{");
                     //default extension
@@ -367,40 +310,35 @@ namespace FFmpegArgs.Autogens
                     streamWriter.WriteLine($"var result = new {className}({string.Join(", ", paramsInput)});");
                     foreach (var filterFunction in filterFunctions.Except(removes))
                     {
-                        switch(filterFunction.FunctionParamType)
+                        switch (filterFunction.FunctionParamType)
                         {
                             case "string":
                                 streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{filterFunction.FunctionName})) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
                                 break;
-
                             case nameof(Rational)://class
                                 streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
                                 break;
-
 
                             default://struct
                                 streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName}.Value);");
                                 break;
                         }
-                        
                     }
-                    if(interfaces.Contains(nameof(ITimelineSupport)))
+                    if (interfaces.Contains(nameof(ITimelineSupport)))
                     {
                         streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{nameof(ITimelineSupport).Substring(1)})) result.{nameof(TimelineSupportExtension.Enable)}(config.{nameof(ITimelineSupport).Substring(1)});");
                     }
                     streamWriter.WriteLine("return result;");
                     streamWriter.WriteLine("}");
                     streamWriter.WriteLine("}");
-
                     //config class
                     var interfaceConfigs = new List<string>();
                     if (interfaces.Contains(nameof(ITimelineSupport)))
                     {
                         interfaceConfigs.Add(nameof(ITimelineSupportConfig));
                     }
-
                     streamWriter.WriteLine($"public class {className}Config");
-                    if(interfaceConfigs.Count > 0) streamWriter.WriteLine(":" + string.Join(",", interfaceConfigs));
+                    if (interfaceConfigs.Count > 0) streamWriter.WriteLine(":" + string.Join(",", interfaceConfigs));
                     streamWriter.WriteLine("{");
                     foreach (var filterFunction in filterFunctions.Except(removes))
                     {
@@ -409,25 +347,21 @@ namespace FFmpegArgs.Autogens
                         {
                             case "string":
                             case nameof(Rational)://class
-                                streamWriter.WriteLine($"public {filterFunction.FunctionParamType} {filterFunction.FunctionName} {{ get; set; }}"); 
+                                streamWriter.WriteLine($"public {filterFunction.FunctionParamType} {filterFunction.FunctionName} {{ get; set; }}");
                                 break;
-
 
                             default://struct
-                                streamWriter.WriteLine($"public {filterFunction.FunctionParamType}? {filterFunction.FunctionName} {{ get; set; }}"); 
+                                streamWriter.WriteLine($"public {filterFunction.FunctionParamType}? {filterFunction.FunctionName} {{ get; set; }}");
                                 break;
                         }
-                        
                     }
                     if (interfaces.Contains(nameof(ITimelineSupport)))
                     {
                         streamWriter.WriteLine($"public string {nameof(ITimelineSupport).Substring(1)} {{ get; set; }}");
                     }
                     streamWriter.WriteLine("}");
-
                     //enum
                     enumDatas.ForEach(x => streamWriter.WriteLine(x));
-
                     streamWriter.WriteLine("}");
                 }
                 else
@@ -436,8 +370,6 @@ namespace FFmpegArgs.Autogens
                 }
             }
         }
-
-
 
         static TypeName GetFilterInheritance(string type)
         {
@@ -470,7 +402,6 @@ namespace FFmpegArgs.Autogens
                 Input = nameof(FilterGraph)
             };
 
-
             if (type.Equals("A->A")) return new TypeName()
             {
                 Inheritance = nameof(AudioToAudioFilter),
@@ -488,11 +419,9 @@ namespace FFmpegArgs.Autogens
                 Input = nameof(FilterGraph)
             };
 
-
             //skip N->? , ?->N 
             return null;
         }
-
         static IEnumerable<string> GetFilterInterface(string support)
         {
             if (support[0] == 'T') yield return nameof(ITimelineSupport);
@@ -500,8 +429,6 @@ namespace FFmpegArgs.Autogens
             if (support[2] == 'C') yield return nameof(ICommandSupport);
         }
     }
-
-
 
     class TypeName
     {

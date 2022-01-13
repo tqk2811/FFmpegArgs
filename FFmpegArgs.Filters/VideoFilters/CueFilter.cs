@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using System;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... cue               V->V       Delay filtering to match a cue.<br></br>
@@ -13,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The cue timestamp expressed in a UNIX timestamp in microseconds. Default is 0.
         /// </summary>
@@ -21,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CueFilter Cue(long cue)
             => this.SetOptionRange("cue", cue, 0, long.MaxValue);
-
         /// <summary>
         /// The duration of content to pass on as preroll expressed in seconds. Default is 0.
         /// </summary>
@@ -29,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public CueFilter Preroll(TimeSpan preroll)
             => this.SetOptionRange("preroll", preroll, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// The maximum duration of content to buffer before waiting for the cue expressed in seconds. Default is 0.
         /// </summary>
@@ -38,7 +32,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public CueFilter Buffer(TimeSpan buffer)
             => this.SetOptionRange("buffer", buffer, TimeSpan.Zero, TimeSpan.MaxValue);
     }
-
     public static class CueFilterExtensions
     {
         /// <summary>

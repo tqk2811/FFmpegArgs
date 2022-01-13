@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-
 namespace FFmpegArgs.Expressions
 {
     public class TimelineEditingExpression : FFmpegExpression
@@ -13,11 +12,8 @@ namespace FFmpegArgs.Expressions
           "h"
         };
 
-
-
         public TimelineEditingExpression() : base(variables)
         {
-
         }
     }
 }

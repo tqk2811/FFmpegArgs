@@ -1,4 +1,5 @@
-﻿namespace FFmpegArgs.Filters.Enums
+﻿using FFmpegArgs.Attributes;
+namespace FFmpegArgs.Enums
 {
     /// <summary>
     /// https://github.com/FFmpeg/FFmpeg/blob/f6ab103bb5c2dd494620f7a28ae232efe497a4d1/libavutil/channel_layout.h#L90 <br>
@@ -179,7 +180,6 @@
         /// FL+FR+FC+LFE+BC+SL+SR
         /// </summary>
         [Name("6.1")] AV_CH_LAYOUT_6POINT1,
-
         [Name("6.1(back)")] AV_CH_LAYOUT_6POINT1_BACK,
         /// <summary>
         /// FL+FR+LFE+FLC+FRC+SL+SR
@@ -217,9 +217,7 @@
         /// DL+DR
         /// </summary>
         [Name("downmix")] AV_CH_LAYOUT_STEREO_DOWNMIX,
-
         [Name("22.2")]
         AV_CH_LAYOUT_22POINT2
-
     }
 }

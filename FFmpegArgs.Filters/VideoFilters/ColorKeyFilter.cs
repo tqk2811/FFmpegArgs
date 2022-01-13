@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC colorkey          V->V       Turns a certain color into transparency. Operates on RGB colors.<br></br>
@@ -13,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the color for which alpha will be set to 0 (full transparency). 
         /// </summary>
@@ -21,8 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorKeyFilter Color(Color color)
           => this.SetOption("color", color.ToHexStringRGBA());
-
-
         /// <summary>
         /// Similarity percentage with the key color.<br></br>
         /// 0.01 matches only the exact key color, while 1.0 matches everything. (from 0.01 to 1) (default 0.01)
@@ -31,7 +25,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorKeyFilter Similarity(float similarity)
           => this.SetOptionRange("similarity", similarity, 0.01, 1);
-
         /// <summary>
         /// Blend percentage.<br>
         /// </br>0.0 makes pixels either fully transparent, or not transparent at all.<br>
@@ -42,7 +35,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ColorKeyFilter Blend(float blend)
           => this.SetOptionRange("blend", blend, 0, 1);
     }
-
     public static class ColorKeyFilterExtension
     {
         /// <summary>
@@ -53,7 +45,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static ColorKeyFilter ColorKeyFilter(this ImageMap parent, Color color)
           => new ColorKeyFilter(parent).Color(color);
-
         /// <summary>
         /// RGB colorspace color keying.
         /// </summary>

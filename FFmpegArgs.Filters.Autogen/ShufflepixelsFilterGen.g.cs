@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class ShufflepixelsFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -17,11 +6,11 @@ internal ShufflepixelsFilterGen(ImageMap input) : base("shufflepixels",input) { 
 /// <summary>
 ///  set shuffle direction (from 0 to 1) (default forward)
 /// </summary>
-public ShufflepixelsFilterGen direction(ShufflepixelsFilterGenDirection direction) => this.SetOption("direction", direction.GetAttribute<NameAttribute>().Name);
+public ShufflepixelsFilterGen direction(ShufflepixelsFilterGenDirection direction) => this.SetOption("direction", direction.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set shuffle mode (from 0 to 2) (default horizontal)
 /// </summary>
-public ShufflepixelsFilterGen mode(ShufflepixelsFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public ShufflepixelsFilterGen mode(ShufflepixelsFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set block width (from 1 to 8000) (default 10)
 /// </summary>

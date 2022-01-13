@@ -1,7 +1,4 @@
-﻿using FFmpegArgs.Filters.Enums;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoSources
+﻿namespace FFmpegArgs.Filters.VideoSources
 {
     /// <summary>
     /// ... mandelbrot        |->V       Render a Mandelbrot fractal.<br></br>
@@ -13,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the terminal pts value. Default value is 400.
         /// </summary>
@@ -21,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter EndPts(double end_pts)
           => this.SetOptionRange("end_pts", end_pts, 0, I64_MAX);
-
         /// <summary>
         /// Set the terminal scale value. Must be a floating point value. Default value is 0.3.
         /// </summary>
@@ -29,7 +24,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter EndScale(double end_scale)
           => this.SetOptionRange("end_scale", end_scale, 0, I64_MAX);
-
         /// <summary>
         /// Set the inner coloring mode, that is the algorithm used to draw the Mandelbrot fractal internal region.
         /// </summary>
@@ -37,7 +31,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter Inner(MandelbrotInnerColorMode colorMode)
           => this.SetOption("inner", colorMode);
-
         /// <summary>
         /// Set the bailout value. (from 0 to FLT_MAX) (default 10)
         /// </summary>
@@ -45,7 +38,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter Bailout(double bailout)
           => this.SetOptionRange("bailout", bailout, 0, FLT_MAX);
-
         /// <summary>
         /// Set the maximum of iterations performed by the rendering algorithm. (from 1 to INT_MAX) (default 7189)
         /// </summary>
@@ -53,7 +45,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter Maxiter(int maxiter)
          => this.SetOptionRange("maxiter", maxiter, 1, int.MaxValue);
-
         /// <summary>
         /// Set outer coloring mode
         /// </summary>
@@ -61,7 +52,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter Outer(MandelbrotOuter outer)
          => this.SetOption("outer", outer);
-
         /// <summary>
         /// Set frame rate, expressed as number of frames per second. Default value is "25".
         /// </summary>
@@ -69,7 +59,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter Rate(int r)
           => this.SetOptionRange("r", r, 0, int.MaxValue);
-
         /// <summary>
         /// Set frame size. <br></br>
         /// Default value is "640x480".
@@ -77,8 +66,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <param name="s"></param>
         /// <returns></returns>
         public MandelbrotFilter Size(VideoSizeUtils s)
-          => this.SetOption("s", s.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("s", s.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Set frame size. <br></br>
         /// Default value is "640x480".
@@ -87,7 +75,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter Size(Size s)
           => this.SetOption("s", $"{s.Width}x{s.Height}");
-
         /// <summary>
         /// Set the initial scale value. from 0 to FLT_MAX) (default 3)
         /// </summary>
@@ -95,7 +82,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter StartScale(double start_scale)
           => this.SetOptionRange("start_scale", start_scale, 0, FLT_MAX);
-
         /// <summary>
         /// Set the initial x position. Must be a floating point value between -100 and 100.<br>
         /// </br> Default value is -0.743643887037158704752191506114774.
@@ -104,7 +90,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter StartX(decimal x)
           => this.SetOptionRange("start_x", x, -100, 100);
-
         /// <summary>
         /// Set the initial y position. Must be a floating point value between -100 and 100.<br>
         /// </br> Default value is -0.131825904205311970493132056385139.
@@ -113,8 +98,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter StartY(decimal y)
           => this.SetOptionRange("start_y", y, -100, 100);
-
-
         /// <summary>
         /// set morph x frequency (from -FLT_MAX to FLT_MAX) (default 0.01)
         /// </summary>
@@ -122,7 +105,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MandelbrotFilter morphxf(double morphxf)
             => this.SetOptionRange("morphxf", morphxf, double.MinValue, double.MaxValue);
-
         /// <summary>
         /// set morph y frequency (from -FLT_MAX to FLT_MAX) (default 0.0123)
         /// </summary>
@@ -131,7 +113,9 @@ namespace FFmpegArgs.Filters.VideoSources
         public MandelbrotFilter Morphyf(double morphyf)
             => this.SetOptionRange("morphyf", morphyf, double.MinValue, double.MaxValue);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class MandelbrotFilterExtensions
     {
         /// <summary>
@@ -142,7 +126,7 @@ namespace FFmpegArgs.Filters.VideoSources
         public static MandelbrotFilter MandelbrotFilter(this FilterGraph filterGraph)
           => new MandelbrotFilter(filterGraph);
     }
-
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum MandelbrotInnerColorMode
     {
         /// <summary>
@@ -162,7 +146,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         period
     }
-
     public enum MandelbrotOuter
     {
         /// <summary>
@@ -174,4 +157,5 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         normalized_iteration_count
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

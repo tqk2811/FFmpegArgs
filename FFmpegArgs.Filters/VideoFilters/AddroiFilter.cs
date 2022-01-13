@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... addroi            V->V       Add region of interest to frame.<br>
@@ -26,43 +21,36 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="x">Region distance in pixels from the left edge of the frame.</param>
         /// <returns></returns>
         public AddroiFilter X(string x) => this.SetOption("x", x.Expression().Run(expression));
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="y">Region distance in pixels from the top edge of the frame.</param>
         /// <returns></returns>
         public AddroiFilter Y(string y) => this.SetOption("y", y.Expression().Run(expression));
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="x">Region distance in pixels from the left edge of the frame.</param>
         /// <returns></returns>
         public AddroiFilter X(Action<FFmpegExpression> x) => this.SetOption("x", x.Run(expression));
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="y">Region distance in pixels from the top edge of the frame.</param>
         /// <returns></returns>
         public AddroiFilter Y(Action<FFmpegExpression> y) => this.SetOption("y", y.Run(expression));
-
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="w">Region width in pixels.</param>
         /// <returns></returns>
         public AddroiFilter W(string w) => this.SetOption("w", w.Expression().Run(expression));
-
         /// <summary>
         /// 
         /// </summary>
         /// <param name="h">Region height in pixels.</param>
         /// <returns></returns>
         public AddroiFilter H(string h) => this.SetOption("h", h.Expression().Run(expression));
-
         /// <summary>
         /// 
         /// </summary>
@@ -70,7 +58,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="h">Region height in pixels.</param>
         /// <returns></returns>
         public AddroiFilter W(Action<FFmpegExpression> w) => this.SetOption("w", w.Run(expression));
-
         /// <summary>
         /// 
         /// </summary>
@@ -78,7 +65,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="h">Region height in pixels.</param>
         /// <returns></returns>
         public AddroiFilter H(Action<FFmpegExpression> h) => this.SetOption("h", h.Run(expression));
-
         /// <summary>
         /// Quantisation offset to apply within the region.<br></br>
         /// This must be a real value in the range -1 to +1. A value of zero indicates no quality change.A negative value asks for better quality (less quantisation), while a positive value asks for worse quality (greater quantisation).<br></br>
@@ -89,7 +75,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public AddroiFilter Qoffset(Rational qoffset)
           => this.SetOption("qoffset", qoffset.Check(-1, 1));
-
         /// <summary>
         /// If set to true, remove any existing regions of interest marked on the frame before adding the new one.
         /// </summary>
@@ -98,7 +83,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public AddroiFilter Clear(bool flag)
           => this.SetOption("clear", flag.ToFFmpegFlag());
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AddroiFilterExtensions
     {
         /// <summary>

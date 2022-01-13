@@ -1,8 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Exceptions;
-using System;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... split             V->N       Pass on the input to N video outputs.<br></br>
@@ -17,7 +13,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             this.SetOption("outputs", number);//libavfilter/split.c
         }
     }
-
     public static class SplitFilterExtension
     {
         /// <summary>

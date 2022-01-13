@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC colorchannelmixer V->V       Adjust colors by mixing color channels.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Allowed ranges for options are [-2.0, 2.0].
         /// </summary>
@@ -21,7 +18,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorchannelmixerFilter AdjustContribution(ColorchannelmixerContribution contribution, double val)
           => this.SetOptionRange(contribution.ToString(), val, -2.0, 2.0);
-
         /// <summary>
         /// Set preserve color mode.
         /// </summary>
@@ -29,7 +25,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorchannelmixerFilter PreserveColorMode(ColorchannelmixerPreserveColorMode pc)
           => this.SetOption("pc", pc);
-
         /// <summary>
         /// Set the preserve color amount when changing colors. Allowed range is from [0.0, 1.0].<br>
         /// </br> Default is 0.0, thus disabled.
@@ -39,7 +34,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ColorchannelmixerFilter PreserveColorAmount(float pa)
           => this.SetOptionRange("pa", pa, 0.0f, 1.0f);
     }
-
     public static class ColorchannelmixerFilterExtensions
     {
         /// <summary>
@@ -50,7 +44,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static ColorchannelmixerFilter ColorchannelmixerFilter(this ImageMap imageMap)
           => new ColorchannelmixerFilter(imageMap);
     }
-
     public enum ColorchannelmixerContribution
     {
         /// <summary>
@@ -69,7 +62,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Adjust contribution of input red, green, blue and alpha channels for output red channel. Default is 1 for rr, and 0 for rg, rb and ra.
         /// </summary>
         ra,
-
         /// <summary>
         /// Adjust contribution of input red, green, blue and alpha channels for output green channel. Default is 1 for gg, and 0 for gr, gb and ga.
         /// </summary>
@@ -86,7 +78,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Adjust contribution of input red, green, blue and alpha channels for output green channel. Default is 1 for gg, and 0 for gr, gb and ga.
         /// </summary>
         ga,
-
         /// <summary>
         /// Adjust contribution of input red, green, blue and alpha channels for output blue channel. Default is 1 for bb, and 0 for br, bg and ba.
         /// </summary>
@@ -103,7 +94,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Adjust contribution of input red, green, blue and alpha channels for output blue channel. Default is 1 for bb, and 0 for br, bg and ba.
         /// </summary>
         ba,
-
         /// <summary>
         /// Adjust contribution of input red, green, blue and alpha channels for output alpha channel. Default is 1 for aa, and 0 for ar, ag and ab.
         /// </summary>
@@ -121,7 +111,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         aa
     }
-
     public enum ColorchannelmixerPreserveColorMode
     {
         /// <summary>

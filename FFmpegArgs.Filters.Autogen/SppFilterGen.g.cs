@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SppFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
@@ -25,7 +14,7 @@ public SppFilterGen qp(int qp) => this.SetOptionRange("qp", qp,0,63);
 /// <summary>
 ///  set thresholding mode (from 0 to 1) (default hard)
 /// </summary>
-public SppFilterGen mode(SppFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public SppFilterGen mode(SppFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  use B-frames' QP (default false)
 /// </summary>

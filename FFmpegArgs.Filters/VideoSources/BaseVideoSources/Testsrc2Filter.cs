@@ -10,7 +10,6 @@
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Specify the alpha (opacity) of the background, only available in the testsrc2 source.<br>
         /// </br> The value must be between 0 (fully transparent) and 255 (fully opaque, the default).
@@ -20,7 +19,6 @@
         public Testsrc2Filter Alpha(int alpha)
           => this.SetOptionRange("alpha", alpha, 0, 255);
     }
-
     public static class Testsrc2FilterExtensions
     {
         public static Testsrc2Filter Testsrc2Filter(this FilterGraph filterGraph)

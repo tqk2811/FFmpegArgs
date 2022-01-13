@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class FpsFilterGen : ImageToImageFilter
@@ -25,11 +14,11 @@ public FpsFilterGen start_time(double start_time) => this.SetOptionRange("start_
 /// <summary>
 ///  set rounding method for timestamps (from 0 to 5) (default near)
 /// </summary>
-public FpsFilterGen round(FpsFilterGenRound round) => this.SetOption("round", round.GetAttribute<NameAttribute>().Name);
+public FpsFilterGen round(FpsFilterGenRound round) => this.SetOption("round", round.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  action performed for last frame (from 0 to 1) (default round)
 /// </summary>
-public FpsFilterGen eof_action(FpsFilterGenEof_action eof_action) => this.SetOption("eof_action", eof_action.GetAttribute<NameAttribute>().Name);
+public FpsFilterGen eof_action(FpsFilterGenEof_action eof_action) => this.SetOption("eof_action", eof_action.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class FpsFilterGenExtensions
 {

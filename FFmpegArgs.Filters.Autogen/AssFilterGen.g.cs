@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AssFilterGen : ImageToImageFilter
@@ -33,7 +22,7 @@ public AssFilterGen alpha(bool alpha) => this.SetOption("alpha",alpha.ToFFmpegFl
 /// <summary>
 ///  set shaping engine (from -1 to 1) (default auto)
 /// </summary>
-public AssFilterGen shaping(AssFilterGenShaping shaping) => this.SetOption("shaping", shaping.GetAttribute<NameAttribute>().Name);
+public AssFilterGen shaping(AssFilterGenShaping shaping) => this.SetOption("shaping", shaping.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AssFilterGenExtensions
 {

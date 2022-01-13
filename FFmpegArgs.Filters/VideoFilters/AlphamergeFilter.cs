@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.. alphamerge        VV->V      Copy the luma value of the second input into the alpha channel of the first input.<br></br>
@@ -13,7 +11,6 @@ namespace FFmpegArgs.Filters.VideoFilters
             AddMapOut();
         }
     }
-
     public static class AlphamergeFilterExtensions
     {
         /// <summary>

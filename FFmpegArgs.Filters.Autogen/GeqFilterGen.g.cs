@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class GeqFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -45,7 +34,7 @@ public GeqFilterGen blue_expr(string blue_expr) => this.SetOption("blue_expr",bl
 /// <summary>
 ///  set interpolation method (from 0 to 1) (default bilinear)
 /// </summary>
-public GeqFilterGen interpolation(GeqFilterGenInterpolation interpolation) => this.SetOption("interpolation", interpolation.GetAttribute<NameAttribute>().Name);
+public GeqFilterGen interpolation(GeqFilterGenInterpolation interpolation) => this.SetOption("interpolation", interpolation.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class GeqFilterGenExtensions
 {

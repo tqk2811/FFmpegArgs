@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class NoiseFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
@@ -29,11 +18,11 @@ public NoiseFilterGen alls(int alls) => this.SetOptionRange("alls", alls,0,100);
 /// <summary>
 ///  set component #0 flags (default 0)
 /// </summary>
-public NoiseFilterGen all_flags(NoiseFilterGenAll_flags all_flags) => this.SetOption("all_flags", all_flags.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen all_flags(NoiseFilterGenAll_flags all_flags) => this.SetOption("all_flags", all_flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #0 flags (default 0)
 /// </summary>
-public NoiseFilterGen allf(NoiseFilterGenAllf allf) => this.SetOption("allf", allf.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen allf(NoiseFilterGenAllf allf) => this.SetOption("allf", allf.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #0 noise seed (from -1 to INT_MAX) (default -1)
 /// </summary>
@@ -49,11 +38,11 @@ public NoiseFilterGen c0s(int c0s) => this.SetOptionRange("c0s", c0s,0,100);
 /// <summary>
 ///  set component #0 flags (default 0)
 /// </summary>
-public NoiseFilterGen c0_flags(NoiseFilterGenC0_flags c0_flags) => this.SetOption("c0_flags", c0_flags.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c0_flags(NoiseFilterGenC0_flags c0_flags) => this.SetOption("c0_flags", c0_flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #0 flags (default 0)
 /// </summary>
-public NoiseFilterGen c0f(NoiseFilterGenC0f c0f) => this.SetOption("c0f", c0f.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c0f(NoiseFilterGenC0f c0f) => this.SetOption("c0f", c0f.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #1 noise seed (from -1 to INT_MAX) (default -1)
 /// </summary>
@@ -69,11 +58,11 @@ public NoiseFilterGen c1s(int c1s) => this.SetOptionRange("c1s", c1s,0,100);
 /// <summary>
 ///  set component #1 flags (default 0)
 /// </summary>
-public NoiseFilterGen c1_flags(NoiseFilterGenC1_flags c1_flags) => this.SetOption("c1_flags", c1_flags.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c1_flags(NoiseFilterGenC1_flags c1_flags) => this.SetOption("c1_flags", c1_flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #1 flags (default 0)
 /// </summary>
-public NoiseFilterGen c1f(NoiseFilterGenC1f c1f) => this.SetOption("c1f", c1f.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c1f(NoiseFilterGenC1f c1f) => this.SetOption("c1f", c1f.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #2 noise seed (from -1 to INT_MAX) (default -1)
 /// </summary>
@@ -89,11 +78,11 @@ public NoiseFilterGen c2s(int c2s) => this.SetOptionRange("c2s", c2s,0,100);
 /// <summary>
 ///  set component #2 flags (default 0)
 /// </summary>
-public NoiseFilterGen c2_flags(NoiseFilterGenC2_flags c2_flags) => this.SetOption("c2_flags", c2_flags.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c2_flags(NoiseFilterGenC2_flags c2_flags) => this.SetOption("c2_flags", c2_flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #2 flags (default 0)
 /// </summary>
-public NoiseFilterGen c2f(NoiseFilterGenC2f c2f) => this.SetOption("c2f", c2f.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c2f(NoiseFilterGenC2f c2f) => this.SetOption("c2f", c2f.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #3 noise seed (from -1 to INT_MAX) (default -1)
 /// </summary>
@@ -109,11 +98,11 @@ public NoiseFilterGen c3s(int c3s) => this.SetOptionRange("c3s", c3s,0,100);
 /// <summary>
 ///  set component #3 flags (default 0)
 /// </summary>
-public NoiseFilterGen c3_flags(NoiseFilterGenC3_flags c3_flags) => this.SetOption("c3_flags", c3_flags.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c3_flags(NoiseFilterGenC3_flags c3_flags) => this.SetOption("c3_flags", c3_flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set component #3 flags (default 0)
 /// </summary>
-public NoiseFilterGen c3f(NoiseFilterGenC3f c3f) => this.SetOption("c3f", c3f.GetAttribute<NameAttribute>().Name);
+public NoiseFilterGen c3f(NoiseFilterGenC3f c3f) => this.SetOption("c3f", c3f.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class NoiseFilterGenExtensions
 {

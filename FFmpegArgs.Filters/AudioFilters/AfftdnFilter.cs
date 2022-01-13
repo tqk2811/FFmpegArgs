@@ -16,8 +16,6 @@ afftdn AVOptions:
      o               1            ..F.A....T. output
      n               2            ..F.A....T. noise
  */
-using FFmpegArgs.Cores.Maps;
-
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -30,7 +28,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the noise reduction in dB, allowed range is 0.01 to 97. Default value is 12 dB.
         /// </summary>
@@ -38,7 +35,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter NR(float nr)
           => this.SetOptionRange("nr", nr, 0.01f, 97);
-
         /// <summary>
         /// Set the noise floor in dB, allowed range is -80 to -20. Default value is -50 dB.
         /// </summary>
@@ -46,7 +42,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter NF(float nf)
           => this.SetOptionRange("nf", nf, -80, -20);
-
         /// <summary>
         /// Set the noise type
         /// </summary>
@@ -54,7 +49,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter NT(AfftdnNoiseType nt)
           => this.SetOption("nt", nt);
-
         /// <summary>
         /// Set custom band noise for every one of 15 bands.
         /// </summary>
@@ -62,7 +56,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter BN(params int[] bands)
           => this.SetOption("bn", string.Join(" ", bands));
-
         /// <summary>
         /// Set the residual floor in dB, allowed range is -80 to -20. Default value is -38 dB.
         /// </summary>
@@ -70,7 +63,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter RF(float rf)
           => this.SetOptionRange("rf", rf, -80, -20);
-
         /// <summary>
         /// Enable noise tracking. By default is disabled. With this enabled, noise floor is automatically adjusted.
         /// </summary>
@@ -78,7 +70,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter TN(bool flag)
           => this.SetOption("tn", flag.ToFFmpegFlag());
-
         /// <summary>
         /// Enable residual tracking. By default is disabled.
         /// </summary>
@@ -86,7 +77,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter TR(bool flag)
           => this.SetOption("tr", flag.ToFFmpegFlag());
-
         /// <summary>
         /// Set the output mode.
         /// </summary>
@@ -94,12 +84,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public AfftdnFilter OM(AfftdnOutputMode om)
          => this.SetOption("om", om);
-
-
-
         //https://ffmpeg.org/ffmpeg-filters.html#Commands-6
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -113,7 +99,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static AfftdnFilter AfftdnFilter(this AudioMap audioMap)
             => new AfftdnFilter(audioMap);
     }
-
     /// <summary>
     /// 
     /// </summary>
@@ -136,7 +121,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         c
     }
-
     /// <summary>
     /// 
     /// </summary>

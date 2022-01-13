@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC chromashift       V->V       Shift chroma.<br></br>
@@ -44,7 +42,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ChromashiftFilter Crv(int crv)
           => this.SetOptionRange("crv", crv, -255, 255);
-
         /// <summary>
         /// Set edge mode, can be smear, default, or warp.
         /// </summary>
@@ -53,7 +50,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ChromashiftFilter Edge(ChromashiftEdgeMode mode)
           => this.SetOption("edge", mode.ToString().Substring(1));
     }
-
     public static class ChromashiftFilterExtensions
     {
         /// <summary>
@@ -62,7 +58,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static ChromashiftFilter chromashiftFilter(this ImageMap imageMap)
           => new ChromashiftFilter(imageMap);
     }
-
     public enum ChromashiftEdgeMode
     {
         _smear,

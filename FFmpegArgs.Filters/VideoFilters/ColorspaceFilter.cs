@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TS. colorspace        V->V       Convert between colorspaces.<br></br>
@@ -12,15 +10,13 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Specify all color properties at once.
         /// </summary>
         /// <param name="all"></param>
         /// <returns></returns>
         public ColorspaceFilter All(ColorspaceColorProperties all)
-          => this.SetOption("all", all.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("all", all.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Specify output colorspace.
         /// </summary>
@@ -28,23 +24,20 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorspaceFilter Space(ColorspaceSpace space)
           => this.SetOption("space", space);
-
         /// <summary>
         /// Specify output transfer characteristics.
         /// </summary>
         /// <param name="trc"></param>
         /// <returns></returns>
         public ColorspaceFilter Trc(ColorspaceTrc trc)
-          => this.SetOption("str", trc.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("str", trc.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Specify output color primaries.
         /// </summary>
         /// <param name="primaries"></param>
         /// <returns></returns>
         public ColorspaceFilter Primaries(ColorspacePrimaries primaries)
-          => this.SetOption("primaries", primaries.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("primaries", primaries.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Specify output color range.
         /// </summary>
@@ -52,7 +45,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorspaceFilter Range(ColorspaceRange range)
           => this.SetOption("range", range);
-
         /// <summary>
         /// Specify output color format.
         /// </summary>
@@ -60,7 +52,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorspaceFilter Format(ColorspaceFormat format)
           => this.SetOption("format", format);
-
         /// <summary>
         /// Do a fast conversion, which skips gamma/primary correction.<br>
         /// </br> This will take significantly less CPU, but will be mathematically incorrect.<br>
@@ -70,14 +61,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorspaceFilter Fast(bool flag)
           => this.SetOption("fast", flag.ToFFmpegFlag());
-
         /// <summary>
         /// Specify dithering mode.
         /// </summary>
         /// <returns></returns>
         public ColorspaceFilter Dither(ColorspaceDither dither)
           => this.SetOption("dither", dither);
-
         /// <summary>
         /// Whitepoint adaptation mode.
         /// </summary>
@@ -85,15 +74,13 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorspaceFilter Wpadapt(ColorspaceWpadapt wpadapt)
           => this.SetOption("wpadapt", wpadapt);
-
         /// <summary>
         /// Override all input properties at once
         /// </summary>
         /// <param name="iall"></param>
         /// <returns></returns>
         public ColorspaceFilter IAll(ColorspaceColorProperties iall)
-          => this.SetOption("iall", iall.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("iall", iall.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Override input colorspace. 
         /// </summary>
@@ -101,23 +88,20 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public ColorspaceFilter ISpace(ColorspaceSpace ispace)
           => this.SetOption("ispace", ispace);
-
         /// <summary>
         /// Override input color primaries
         /// </summary>
         /// <param name="iprimaries"></param>
         /// <returns></returns>
         public ColorspaceFilter IPrimaries(ColorspacePrimaries iprimaries)
-          => this.SetOption("iprimaries", iprimaries.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("iprimaries", iprimaries.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Override input transfer characteristics.
         /// </summary>
         /// <param name="itrc"></param>
         /// <returns></returns>
         public ColorspaceFilter ITrc(ColorspaceTrc itrc)
-          => this.SetOption("itrc", itrc.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("itrc", itrc.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// Override input color range.
         /// </summary>
@@ -126,7 +110,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public ColorspaceFilter IRange(ColorspaceRange irange)
           => this.SetOption("irange", irange);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ColorspaceFilterExtensions
     {
         /// <summary>
@@ -136,7 +122,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public static ColorspaceFilter ColorspaceFilter(this ImageMap imageMap)
           => new ColorspaceFilter(imageMap);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspaceColorProperties
     {
         /// <summary>
@@ -172,7 +160,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         [Name("bt2020")] bt2020
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspaceSpace
     {
         /// <summary>
@@ -204,7 +194,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         bt2020ncl
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspaceTrc
     {
         /// <summary>
@@ -260,7 +252,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         [Name("bt2020-12")] bt2020_12
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspacePrimaries
     {
         /// <summary>
@@ -304,7 +298,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         [Name("jedec-p22")] jedec_p22
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspaceRange
     {
         /// <summary>
@@ -324,7 +320,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         jpeg
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspaceFormat
     {
         /// <summary>
@@ -364,7 +362,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         yuv444p12
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspaceDither
     {
         /// <summary>
@@ -376,7 +376,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         fsb
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public enum ColorspaceWpadapt
     {
         /// <summary>

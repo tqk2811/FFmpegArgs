@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.. bitplanenoise     V->V       Measure bit plane noise.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set which plane to analyze. Default is 1.<br>
         /// </br>..FV....... set bit plane to use for measuring noise (from 1 to 16) (default 1)
@@ -21,7 +18,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BitplanenoiseFilter Bitplane(int bitplane)
           => this.SetOptionRange("bitplane", bitplane, 0, 16);
-
         /// <summary>
         /// Filter out noisy pixels from bitplane set above. Default is disabled.
         /// </summary>
@@ -30,7 +26,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public BitplanenoiseFilter filter(bool flag)
           => this.SetOption("filter", flag.ToFFmpegFlag());
     }
-
     public static class BitplanenoiseFilterExtensions
     {
         /// <summary>

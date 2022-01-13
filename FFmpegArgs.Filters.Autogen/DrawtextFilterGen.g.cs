@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class DrawtextFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
@@ -97,7 +86,7 @@ public DrawtextFilterGen font(string font) => this.SetOption("font",font);
 /// <summary>
 ///  set the expansion mode (from 0 to 2) (default normal)
 /// </summary>
-public DrawtextFilterGen expansion(DrawtextFilterGenExpansion expansion) => this.SetOption("expansion", expansion.GetAttribute<NameAttribute>().Name);
+public DrawtextFilterGen expansion(DrawtextFilterGenExpansion expansion) => this.SetOption("expansion", expansion.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set initial timecode
 /// </summary>
@@ -141,7 +130,7 @@ public DrawtextFilterGen text_shaping(bool text_shaping) => this.SetOption("text
 /// <summary>
 ///  set font loading flags for libfreetype (default 0)
 /// </summary>
-public DrawtextFilterGen ft_load_flags(DrawtextFilterGenFt_load_flags ft_load_flags) => this.SetOption("ft_load_flags", ft_load_flags.GetAttribute<NameAttribute>().Name);
+public DrawtextFilterGen ft_load_flags(DrawtextFilterGenFt_load_flags ft_load_flags) => this.SetOption("ft_load_flags", ft_load_flags.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class DrawtextFilterGenExtensions
 {

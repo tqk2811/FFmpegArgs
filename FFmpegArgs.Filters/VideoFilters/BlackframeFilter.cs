@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... blackframe        V->V       Detect frames that are (almost) black.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The percentage of the pixels that have to be below the threshold; it defaults to 98.
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public BlackframeFilter Amount(int amount)
           => this.SetOptionRange("amount", amount, 0, 100);
-
         /// <summary>
         /// The threshold below which a pixel value is considered black; it defaults to 32.
         /// </summary>
@@ -29,7 +25,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public BlackframeFilter Threshold(int thresh)
           => this.SetOptionRange("thresh", thresh, 0, 255);
     }
-
     public static class BlackframeFilterExtensions
     {
         /// <summary>

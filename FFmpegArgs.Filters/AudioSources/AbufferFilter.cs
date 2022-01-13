@@ -6,8 +6,6 @@ abuffer AVOptions:
   channel_layout    <string>     ..F.A......
   channels          <int>        ..F.A...... (from 0 to INT_MAX) (default 0)
  */
-using FFmpegArgs.Filters.Enums;
-
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -20,7 +18,6 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The timebase which will be used for timestamps of submitted frames. It must be either a floating-point number or in numerator/denominator form.
         /// </summary>
@@ -28,7 +25,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AbufferFilter TimeBase(Rational time_base)
           => this.SetOption("time_base", time_base.Check(0, INT_MAX));
-
         /// <summary>
         /// The sample rate of the incoming audio buffers.
         /// </summary>
@@ -36,7 +32,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public AbufferFilter SampleRate(int sample_rate)
           => this.SetOptionRange("sample_rate", sample_rate, 0, INT_MAX);
-
         /// <summary>
         /// The sample format of the incoming audio buffers.<br>
         /// </br> Either a sample format name or its corresponding integer representation from the enum AVSampleFormat in libavutil/samplefmt.h
@@ -44,8 +39,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <param name="sample_fmt"></param>
         /// <returns></returns>
         public AbufferFilter SampleFmt(AVSampleFormat sample_fmt)
-          => this.SetOption("sample_fmt", sample_fmt.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("sample_fmt", sample_fmt.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// The channel layout of the incoming audio buffers.<br>
         /// </br> Either a channel layout name from channel_layout_map in libavutil/channel_layout.c or its corresponding integer representation from the AV_CH_LAYOUT_* macros in libavutil/channel_layout.h
@@ -53,8 +47,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <param name="channel_layout"></param>
         /// <returns></returns>
         public AbufferFilter ChannelLayout(ChannelLayout channel_layout)
-          => this.SetOption("channel_layout", channel_layout.GetAttribute<NameAttribute>().Name);
-
+          => this.SetOption("channel_layout", channel_layout.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// The number of channels of the incoming audio buffers. If both channels and channel_layout are specified, then they must be consistent.
         /// </summary>
@@ -63,7 +56,9 @@ namespace FFmpegArgs.Filters.AudioSources
         public AbufferFilter Channels(int channels)
           => this.SetOptionRange("channels", channels, 0, int.MaxValue);
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AbufferFilterExtensions
     {
         /// <summary>

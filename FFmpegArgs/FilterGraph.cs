@@ -1,24 +1,27 @@
 ﻿using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Inputs;
 using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Cores.Outputs;
 using FFmpegArgs.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
 namespace FFmpegArgs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class FilterGraph
     {
-        public IEnumerable<IFilter<IMap, IMap>> Filters { get { return _filters; } }        
+        /// <summary>
+        /// 
+        /// </summary>
+        public IEnumerable<IFilter<IMap, IMap>> Filters { get { return _filters; } }
         internal List<IFilter<IMap, IMap>> _filters { get; } = new List<IFilter<IMap, IMap>>();
-
-
+        /// <summary>
+        /// 
+        /// </summary>
         public FilterGraph()
         {
         }
-
 
         /// <summary>
         /// 
@@ -44,7 +47,6 @@ namespace FFmpegArgs
                 else return string.Join(";", _filters);
             }
         }
-
         /// <summary>
         /// 
         /// </summary>

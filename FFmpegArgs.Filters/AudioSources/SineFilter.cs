@@ -10,10 +10,6 @@ sine AVOptions:
   d                 <duration>   ..F.A...... set the audio duration (default 0)
   samples_per_frame <string>     ..F.A...... set the number of samples per frame (default "1024")
  */
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
 namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
@@ -31,7 +27,6 @@ namespace FFmpegArgs.Filters.AudioSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Set the carrier frequency. Default is 440 Hz. (from 0 to DBL_MAX) (default 440)
         /// </summary>
@@ -39,7 +34,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public SineFilter Frequency(double f)
           => this.SetOptionRange("f", f, 0, DBL_MAX);
-
         /// <summary>
         /// Enable a periodic beep every second with frequency beep_factor times the carrier frequency. Default is 0, meaning the beep is disabled.
         /// <br></br>(from 0 to DBL_MAX) (default 0)
@@ -48,7 +42,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public SineFilter BeepFactor(double b)
           => this.SetOptionRange("b", b, 0, DBL_MAX);
-
         /// <summary>
         /// Specify the sample rate, (from 1 to INT_MAX) (default 44100)
         /// </summary>
@@ -56,7 +49,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public SineFilter SampleRate(int r)
           => this.SetOptionRange("r", r, 1, INT_MAX);
-
         /// <summary>
         /// Specify the duration of the generated audio stream. (default 0)
         /// </summary>
@@ -64,16 +56,14 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public SineFilter Duration(TimeSpan d)
           => this.SetOptionRange("d", d, TimeSpan.MinValue, TimeSpan.MaxValue);
-
         /// <summary>
         /// Set the number of samples per output frame.
         /// </summary>
         /// <param name="samples_per_frame">Default is 1024.</param>
         /// <returns></returns>
         public SineFilter SamplesPerFrame(params int[] samples_per_frame)
-          => this.SetOption("samples_per_frame", string.Join(" ",samples_per_frame));
+          => this.SetOption("samples_per_frame", string.Join(" ", samples_per_frame));
     }
-
     public static class SineFilterExtensions
     {
         /// <summary>

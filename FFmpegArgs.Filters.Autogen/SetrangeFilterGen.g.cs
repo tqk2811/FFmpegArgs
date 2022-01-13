@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SetrangeFilterGen : ImageToImageFilter
@@ -17,7 +6,7 @@ internal SetrangeFilterGen(ImageMap input) : base("setrange",input) { AddMapOut(
 /// <summary>
 ///  select color range (from -1 to 2) (default auto)
 /// </summary>
-public SetrangeFilterGen range(SetrangeFilterGenRange range) => this.SetOption("range", range.GetAttribute<NameAttribute>().Name);
+public SetrangeFilterGen range(SetrangeFilterGenRange range) => this.SetOption("range", range.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class SetrangeFilterGenExtensions
 {

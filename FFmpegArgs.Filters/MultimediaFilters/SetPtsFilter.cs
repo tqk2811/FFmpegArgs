@@ -1,9 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-
-namespace FFmpegArgs.Filters.MultimediaFilters
+﻿namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... setpts            V->V       Set PTS for the output video frame.<br></br>
@@ -39,8 +34,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             this.SetOption("expr", expr.Run(expression));
         }
     }
-
-
     public static class SetPtsFilterExtension
     {
         /// <summary>
@@ -53,7 +46,6 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         {
             return new SetPtsFilter(expr, imageMap);
         }
-
         /// <summary>
         /// Change the PTS (presentation timestamp) of the input frames.
         /// </summary>

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class VidstabtransformFilterGen : ImageToImageFilter
@@ -25,7 +14,7 @@ public VidstabtransformFilterGen smoothing(int smoothing) => this.SetOptionRange
 /// <summary>
 ///  set camera path optimization algo (from 0 to 2) (default opt)
 /// </summary>
-public VidstabtransformFilterGen optalgo(VidstabtransformFilterGenOptalgo optalgo) => this.SetOption("optalgo", optalgo.GetAttribute<NameAttribute>().Name);
+public VidstabtransformFilterGen optalgo(VidstabtransformFilterGenOptalgo optalgo) => this.SetOption("optalgo", optalgo.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set maximal number of pixels to translate image (from -1 to 500) (default -1)
 /// </summary>
@@ -37,7 +26,7 @@ public VidstabtransformFilterGen maxangle(double maxangle) => this.SetOptionRang
 /// <summary>
 ///  set cropping mode (from 0 to 1) (default keep)
 /// </summary>
-public VidstabtransformFilterGen crop(VidstabtransformFilterGenCrop crop) => this.SetOption("crop", crop.GetAttribute<NameAttribute>().Name);
+public VidstabtransformFilterGen crop(VidstabtransformFilterGenCrop crop) => this.SetOption("crop", crop.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  invert transforms (from 0 to 1) (default 0)
 /// </summary>
@@ -61,7 +50,7 @@ public VidstabtransformFilterGen zoomspeed(double zoomspeed) => this.SetOptionRa
 /// <summary>
 ///  set type of interpolation (from 0 to 3) (default bilinear)
 /// </summary>
-public VidstabtransformFilterGen interpol(VidstabtransformFilterGenInterpol interpol) => this.SetOption("interpol", interpol.GetAttribute<NameAttribute>().Name);
+public VidstabtransformFilterGen interpol(VidstabtransformFilterGenInterpol interpol) => this.SetOption("interpol", interpol.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  enable virtual tripod mode (same as relative=0:smoothing=0) (default false)
 /// </summary>

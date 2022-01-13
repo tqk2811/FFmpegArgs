@@ -5,8 +5,6 @@ cover_rect AVOptions:
      cover           0            ..FV....... cover area with bitmap
      blur            1            ..FV....... blur area
  */
-using FFmpegArgs.Cores.Maps;
-
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -19,14 +17,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Filepath of the optional cover image, needs to be in yuv420.
         /// </summary>
         /// <param name="filePathOrName"></param>
         /// <returns></returns>
         public Cover_rectFilter Cover(string filePathOrName) => this.SetOption("cover", filePathOrName);
-
         /// <summary>
         /// Set covering mode.<br></br>
         /// Default value is blur.
@@ -35,7 +31,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public Cover_rectFilter Mode(Cover_rectMode mode) => this.SetOption("mode", mode);
     }
-
     public static class Cover_rectFilterExtensions
     {
         /// <summary>
@@ -43,7 +38,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         public static Cover_rectFilter Cover_rectFilter(this ImageMap imageMap) => new Cover_rectFilter(imageMap);
     }
-
     public enum Cover_rectMode
     {
         cover,

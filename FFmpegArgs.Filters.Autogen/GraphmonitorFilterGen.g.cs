@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class GraphmonitorFilterGen : ImageToImageFilter
@@ -25,11 +14,11 @@ public GraphmonitorFilterGen opacity(float opacity) => this.SetOptionRange("opac
 /// <summary>
 ///  set mode (from 0 to 1) (default full)
 /// </summary>
-public GraphmonitorFilterGen mode(GraphmonitorFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public GraphmonitorFilterGen mode(GraphmonitorFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set flags (default queue)
 /// </summary>
-public GraphmonitorFilterGen flags(GraphmonitorFilterGenFlags flags) => this.SetOption("flags", flags.GetAttribute<NameAttribute>().Name);
+public GraphmonitorFilterGen flags(GraphmonitorFilterGenFlags flags) => this.SetOption("flags", flags.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>

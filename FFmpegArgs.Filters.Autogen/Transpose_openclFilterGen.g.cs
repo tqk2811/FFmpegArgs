@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class Transpose_openclFilterGen : ImageToImageFilter
@@ -17,11 +6,11 @@ internal Transpose_openclFilterGen(ImageMap input) : base("transpose_opencl",inp
 /// <summary>
 ///  set transpose direction (from 0 to 3) (default cclock_flip)
 /// </summary>
-public Transpose_openclFilterGen dir(Transpose_openclFilterGenDir dir) => this.SetOption("dir", dir.GetAttribute<NameAttribute>().Name);
+public Transpose_openclFilterGen dir(Transpose_openclFilterGenDir dir) => this.SetOption("dir", dir.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  do not apply transposition if the input matches the specified geometry (from 0 to INT_MAX) (default none)
 /// </summary>
-public Transpose_openclFilterGen passthrough(Transpose_openclFilterGenPassthrough passthrough) => this.SetOption("passthrough", passthrough.GetAttribute<NameAttribute>().Name);
+public Transpose_openclFilterGen passthrough(Transpose_openclFilterGenPassthrough passthrough) => this.SetOption("passthrough", passthrough.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class Transpose_openclFilterGenExtensions
 {

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class MandelbrotFilterGen : SourceImageFilter
@@ -65,11 +54,11 @@ public MandelbrotFilterGen morphamp(double morphamp) => this.SetOptionRange("mor
 /// <summary>
 ///  set outer coloring mode (from 0 to INT_MAX) (default normalized_iteration_count)
 /// </summary>
-public MandelbrotFilterGen outer(MandelbrotFilterGenOuter outer) => this.SetOption("outer", outer.GetAttribute<NameAttribute>().Name);
+public MandelbrotFilterGen outer(MandelbrotFilterGenOuter outer) => this.SetOption("outer", outer.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set inner coloring mode (from 0 to INT_MAX) (default mincol)
 /// </summary>
-public MandelbrotFilterGen inner(MandelbrotFilterGenInner inner) => this.SetOption("inner", inner.GetAttribute<NameAttribute>().Name);
+public MandelbrotFilterGen inner(MandelbrotFilterGenInner inner) => this.SetOption("inner", inner.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class MandelbrotFilterGenExtensions
 {

@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class LowpassFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -21,11 +10,11 @@ public LowpassFilterGen frequency(double frequency) => this.SetOptionRange("freq
 /// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
-public LowpassFilterGen width_type(LowpassFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetAttribute<NameAttribute>().Name);
+public LowpassFilterGen width_type(LowpassFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
-public LowpassFilterGen t(LowpassFilterGenT t) => this.SetOption("t", t.GetAttribute<NameAttribute>().Name);
+public LowpassFilterGen t(LowpassFilterGenT t) => this.SetOption("t", t.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set width (from 0 to 99999) (default 0.707)
 /// </summary>
@@ -41,7 +30,7 @@ public LowpassFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
 ///  set channels to filter (default 0xffffffffffffffff)
 /// </summary>
-public LowpassFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetAttribute<NameAttribute>().Name);
+public LowpassFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
@@ -49,19 +38,19 @@ public LowpassFilterGen normalize(bool normalize) => this.SetOption("normalize",
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public LowpassFilterGen transform(LowpassFilterGenTransform transform) => this.SetOption("transform", transform.GetAttribute<NameAttribute>().Name);
+public LowpassFilterGen transform(LowpassFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set transform type (from 0 to 3) (default di)
 /// </summary>
-public LowpassFilterGen a(LowpassFilterGenA a) => this.SetOption("a", a.GetAttribute<NameAttribute>().Name);
+public LowpassFilterGen a(LowpassFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public LowpassFilterGen precision(LowpassFilterGenPrecision precision) => this.SetOption("precision", precision.GetAttribute<NameAttribute>().Name);
+public LowpassFilterGen precision(LowpassFilterGenPrecision precision) => this.SetOption("precision", precision.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
-public LowpassFilterGen r(LowpassFilterGenR r) => this.SetOption("r", r.GetAttribute<NameAttribute>().Name);
+public LowpassFilterGen r(LowpassFilterGenR r) => this.SetOption("r", r.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class LowpassFilterGenExtensions
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FFmpegArgs.Filters.VideoSources
+﻿namespace FFmpegArgs.Filters.VideoSources
 {
     /// <summary>
     /// ... mptestsrc         |->V       Generate various test pattern.<br></br>
@@ -12,7 +10,6 @@ namespace FFmpegArgs.Filters.VideoSources
         {
             AddMapOut();
         }
-
         /// <summary>
         /// Specify the frame rate of the sourced video, as the number of frames generated per second. It has to be a string in the format frame_rate_num/frame_rate_den, an integer number, a floating point number or a valid video frame rate abbreviation.<br></br> The default value is "25".
         /// </summary>
@@ -20,7 +17,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MptestsrcFilter Rate(Rational r)
           => this.SetOption("r", r);
-
         /// <summary>
         /// Set the duration of the sourced video.<br></br>
         /// If not specified, or the expressed duration is negative, the video is supposed to be generated forever.
@@ -29,7 +25,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MptestsrcFilter Duration(TimeSpan d)
           => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
-
         /// <summary>
         /// Set the number or the name of the test to perform.
         /// </summary>
@@ -37,7 +32,6 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <returns></returns>
         public MptestsrcFilter Test(MptestsrcTest test)
           => this.SetOption("test", test);
-
         /// <summary>
         /// Set the maximum number of frames generated for each test, (from 1 to I64_MAX) (default 30)
         /// </summary>
@@ -46,7 +40,6 @@ namespace FFmpegArgs.Filters.VideoSources
         public MptestsrcFilter MaxFrames(long m)
           => this.SetOptionRange("m", m, 1, int.MaxValue);
     }
-
     public static class MptestsrcFilterExtensions
     {
         /// <summary>
@@ -58,7 +51,6 @@ namespace FFmpegArgs.Filters.VideoSources
         public static MptestsrcFilter MptestsrcFilter(this FilterGraph filterGraph)
           => new MptestsrcFilter(filterGraph);
     }
-
     public enum MptestsrcTest
     {
         dc_luma,

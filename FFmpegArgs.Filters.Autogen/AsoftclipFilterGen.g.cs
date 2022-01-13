@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AsoftclipFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
@@ -17,7 +6,7 @@ internal AsoftclipFilterGen(AudioMap input) : base("asoftclip",input) { AddMapOu
 /// <summary>
 ///  set softclip type (from -1 to 7) (default tanh)
 /// </summary>
-public AsoftclipFilterGen type(AsoftclipFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public AsoftclipFilterGen type(AsoftclipFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set softclip threshold (from 1e-06 to 1) (default 1)
 /// </summary>

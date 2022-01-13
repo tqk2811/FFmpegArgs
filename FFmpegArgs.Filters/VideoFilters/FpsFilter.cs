@@ -12,7 +12,6 @@ fps AVOptions:
      round           0            ..FV....... round similar to other frames
      pass            1            ..FV....... pass through last frame
  */
-using FFmpegArgs.Cores.Maps;
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
@@ -25,35 +24,30 @@ namespace FFmpegArgs.Filters.VideoFilters
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The desired output frame rate.
         /// </summary>
         /// <param name="fps"></param>
         /// <returns></returns>
-        public FpsFilter Fps(Rational fps) => this.SetOption("fps", fps.Check(0,double.MaxValue));
-
+        public FpsFilter Fps(Rational fps) => this.SetOption("fps", fps.Check(0, double.MaxValue));
         /// <summary>
         /// The desired output frame rate.
         /// </summary>
         /// <param name="fps"></param>
         /// <returns></returns>
         public FpsFilter Fps(FpsConstants fps) => this.SetOption("fps", fps);
-
         /// <summary>
         /// Assume the first PTS should be the given value, in seconds. This allows for padding/trimming at the start of stream. By default, no assumption is made about the first frame’s expected PTS, so no padding or trimming is done. For example, this could be set to 0 to pad the beginning with duplicates of the first frame if a video stream starts after the audio stream or to trim any frames with a negative PTS.
         /// </summary>
         /// <param name="startTime"></param>
         /// <returns></returns>
         public FpsFilter StartTime(double startTime) => this.SetOption("start_time", startTime);
-
         /// <summary>
         /// Timestamp (PTS) rounding method.
         /// </summary>
         /// <param name="fpsRound"></param>
         /// <returns></returns>
         public FpsFilter Round(FpsRound fpsRound) => this.SetOption("round", fpsRound);
-
         /// <summary>
         /// Action performed when reading the last frame.
         /// </summary>
@@ -61,7 +55,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public FpsFilter EofAction(FpsEofAction fpsEofAction) => this.SetOption("round", fpsEofAction);
     }
-
     public static class FpsFilterExtension
     {
         /// <summary>
@@ -71,7 +64,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static FpsFilter FpsFilter(this ImageMap imageMap) => new FpsFilter(imageMap);
     }
-
     public enum FpsRound
     {
         /// <summary>
@@ -95,7 +87,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         near,
     }
-
     public enum FpsEofAction
     {
         /// <summary>

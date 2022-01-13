@@ -1,10 +1,4 @@
-﻿using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-
-namespace FFmpegArgs.Filters.VideoFilters
+﻿namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.C drawtext          V->V       Draw text on top of video frames using libfreetype library.<br></br>
@@ -31,13 +25,11 @@ namespace FFmpegArgs.Filters.VideoFilters
             "pkt_duration",
             "pkt_size"
         };
-
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
         internal DrawTextFilter(ImageMap imageMap) : base("drawtext", imageMap)
         {
             AddMapOut();
         }
-
         /// <summary>
         /// The text string to be drawn. The text must be a sequence of UTF-8 encoded characters. This parameter is mandatory if no file is specified with the parameter textfile.
         /// </summary>
@@ -45,8 +37,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Text(string text)
             => this.SetOption("text", text);
-
-
         /// <summary>
         /// A text file containing text to be drawn. The text must be a sequence of UTF-8 encoded characters.<br>
         /// </br>This parameter is mandatory if no text string is specified with the parameter text.<br>
@@ -56,8 +46,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter TextFile(string textFile)
             => this.SetOption("textfile", textFile);
-
-
         /// <summary>
         /// Used to draw a box around text using the background color. The value must be either 1 (enable) or 0 (disable). The default value of box is 0.
         /// </summary>
@@ -65,7 +53,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Box(bool flag)
             => this.SetOption("box", flag.ToFFmpegFlag());
-
         /// <summary>
         /// Set the width of the border to be drawn around the box using boxcolor. (from INT_MIN to INT_MAX) (default 0)
         /// </summary>
@@ -73,7 +60,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Boxborderw(int boxborderw)
             => this.SetOption("boxborderw", boxborderw);
-
         /// <summary>
         /// /he color to be used for drawing box around text
         /// </summary>
@@ -81,7 +67,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Boxcolor(Color boxcolor)
             => this.SetOption("boxcolor", boxcolor.ToHexStringRGBA());
-
         /// <summary>
         /// Set the line spacing in pixels of the border to be drawn around the box using box. (from INT_MIN to INT_MAX) (default 0)
         /// </summary>
@@ -89,7 +74,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter LineSpacing(int line_spacing)
             => this.SetOption("line_spacing", line_spacing);
-
         /// <summary>
         /// Set the width of the border to be drawn around the text using bordercolor. (from INT_MIN to INT_MAX) (default 0)
         /// </summary>
@@ -97,7 +81,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Borderw(int borderw)
             => this.SetOption("borderw", borderw);
-
         /// <summary>
         /// Set the color to be used for drawing border around text.
         /// </summary>
@@ -105,7 +88,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Bordercolor(Color bordercolor)
             => this.SetOption("bordercolor", bordercolor.ToHexStringRGBA());
-
         /// <summary>
         /// Select how the text is expanded. Can be either none, strftime (deprecated) or normal (default). See the Text expansion section below for details.
         /// </summary>
@@ -113,7 +95,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Expansion(DrawTextExpansion expansion)
             => this.SetOption("expansion", expansion);
-
         /// <summary>
         /// Set a start time for the count. Value is in microseconds. Only applied in the deprecated strftime expansion mode. To emulate in normal expansion mode use the pts function, supplying the start time (in seconds) as the second argument.<br>
         /// </br>(from I64_MIN to I64_MAX) (default I64_MIN)
@@ -122,7 +103,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Basetime(long basetime)
             => this.SetOptionRange("basetime", basetime, long.MinValue, long.MaxValue);
-
         /// <summary>
         /// If true, check and fix text coords to avoid clipping.
         /// </summary>
@@ -130,7 +110,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter FixBounds(bool flag)
             => this.SetOption("fix_bounds", flag.ToFFmpegFlag());
-
         /// <summary>
         /// The color to be used for drawing fonts
         /// </summary>
@@ -138,7 +117,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter FontColor(Color color)
           => this.SetOption("fontcolor", color.ToHexStringRGB());
-
         /// <summary>
         /// String which is expanded the same way as text to obtain dynamic fontcolor value. By default this option has empty value and is not processed. When this option is set, it overrides fontcolor option.
         /// </summary>
@@ -146,7 +124,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter FontColorExpr(string color)
           => FontColorExpr(color.Expression());
-
         /// <summary>
         /// String which is expanded the same way as text to obtain dynamic fontcolor value. By default this option has empty value and is not processed. When this option is set, it overrides fontcolor option.
         /// </summary>
@@ -154,7 +131,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter FontColorExpr(Action<FFmpegExpression> color)
           => this.SetOption("fontcolor_expr", color.Run(expression));
-
         /// <summary>
         /// The font family to be used for drawing text. By default Sans.
         /// </summary>
@@ -162,7 +138,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Font(string name)
           => this.SetOption("font", name);
-
         /// <summary>
         /// The font file to be used for drawing text. The path must be included. This parameter is mandatory if the fontconfig support is disabled.
         /// </summary>
@@ -170,7 +145,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter FontFile(string path)
           => this.SetOption("fontfile", path);
-
         /// <summary>
         /// Draw the text applying alpha blending. The value can be a number between 0.0 and 1.0. The expression accepts the same variables x, y as well. The default value is 1. Please see fontcolor_expr.
         /// </summary>
@@ -178,7 +152,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Alpha(string alpha)
             => this.SetOption("alpha", alpha);
-
         /// <summary>
         /// The font size to be used for drawing text. The default value of fontsize is 16.
         /// </summary>
@@ -186,7 +159,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter FontSize(string size)
             => this.SetOption("fontsize", size);
-
         /// <summary>
         /// If set to 1, attempt to shape the text (for example, reverse the order of right-to-left text and join Arabic characters) before drawing it. Otherwise, just draw the text exactly as given. By default 1 (if supported).
         /// </summary>
@@ -194,7 +166,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter TextShaping(bool flag)
             => this.SetOption("text_shaping", flag.ToFFmpegFlag());
-
         /// <summary>
         /// The flags to be used for loading the fonts.<br>
         /// </br>The flags map the corresponding flags supported by libfreetype
@@ -202,8 +173,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="flag"></param>
         /// <returns></returns>
         public DrawTextFilter FtLoadFlags(DrawTextFtLoadFlags flag)
-            => this.SetOption("ft_load_flags", flag.GetAttribute<NameAttribute>().Name);
-
+            => this.SetOption("ft_load_flags", flag.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// The color to be used for drawing a shadow behind the drawn text.
         /// </summary>
@@ -211,19 +181,16 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Shadowcolor(Color color)
           => this.SetOption("shadowcolor", color.ToHexStringRGB());
-
         /// <summary>
         /// The x and y offsets for the text shadow position with respect to the position of the text. They can be either positive or negative values. The default value for both is "0". (from INT_MIN to INT_MAX) (default 0)
         /// </summary>
         public DrawTextFilter ShadowX(int x)
            => this.SetOptionRange("x", x, INT_MIN, INT_MAX);
-
         /// <summary>
         /// The x and y offsets for the text shadow position with respect to the position of the text. They can be either positive or negative values. The default value for both is "0". (from INT_MIN to INT_MAX) (default 0)
         /// </summary>
         public DrawTextFilter ShadowY(int y)
           => this.SetOptionRange("y", y, INT_MIN, INT_MAX);
-
         /// <summary>
         /// The starting frame number for the n/frame_num variable. (from 0 to INT_MAX) (default 0)
         /// </summary>
@@ -231,22 +198,19 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter StartNumber(int start_number)
             => this.SetOptionRange("start_number", start_number, 0, INT_MAX);
-
         /// <summary>
         /// The size in number of spaces to use for rendering the tab. (from 0 to INT_MAX) (default 4)
         /// </summary>
         /// <returns></returns>
         public DrawTextFilter TabSize(int tabsize)
             => this.SetOptionRange("tabsize", tabsize, 0, INT_MAX);
-
         /// <summary>
         /// Set the initial timecode representation in "hh:mm:ss[:;.]ff" format. It can be used with or without text parameter. timecode_rate option must be specified.
         /// </summary>
-        /// <param name="time"></param>
+        /// <param name="timeCode"></param>
         /// <returns></returns>
         public DrawTextFilter TimeCode(string timeCode)
             => this.SetOption("timecode", timeCode);
-
         /// <summary>
         /// Set the timecode frame rate (timecode only). Value will be rounded to nearest integer. Minimum value is "1". Drop-frame timecode is supported for frame rates 30 & 60.
         /// </summary>
@@ -254,7 +218,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter TimeCodeRate(Rational rational)
             => this.SetOption("timecode_rate", rational.Check(0, INT_MAX));
-
         /// <summary>
         /// If set to 1, the output of the timecode option will wrap around at 24 hours. Default is 0 (disabled).
         /// </summary>
@@ -262,35 +225,30 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public DrawTextFilter Tc24hMax(bool flag)
             => this.SetOption("tc24hmax", flag.ToFFmpegFlag());
-
         /// <summary>
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
         public DrawTextFilter X(string x)
             => this.X(x.Expression());
-
         /// <summary>
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
         public DrawTextFilter X(Action<FFmpegExpression> x)
             => this.SetOption("x", x.Run(expression));
-
         /// <summary>
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
         public DrawTextFilter Y(string y)
             => this.Y(y.Expression());
-
         /// <summary>
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
         public DrawTextFilter Y(Action<FFmpegExpression> y)
             => this.SetOption("y", y.Run(expression));
-
         /// <summary>
         /// If set to 1, the textfile will be reloaded before each frame. Be sure to update it atomically, or it may be read partially, or even fail.
         /// </summary>
@@ -299,7 +257,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         public DrawTextFilter Reload(bool reload)
          => this.SetOption("reload", reload.ToFFmpegFlag());
     }
-
     public static class DrawTextFilterExtension
     {
         /// <summary>
@@ -318,7 +275,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         strftime,
         normal
     }
-
     public enum DrawTextFtLoadFlags
     {
         [Name("default")] _default,

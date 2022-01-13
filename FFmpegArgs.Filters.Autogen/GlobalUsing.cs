@@ -1,0 +1,13 @@
+﻿global using System;
+global using System.Linq;
+global using System.Drawing;
+global using System.Collections.Generic;
+global using FFmpegArgs;
+global using FFmpegArgs.Utils;
+global using FFmpegArgs.Enums;
+global using FFmpegArgs.Attributes;
+global using FFmpegArgs.Cores;
+global using FFmpegArgs.Cores.Filters;
+global using FFmpegArgs.Cores.Maps;
+global using FFmpegArgs.Expressions;
+global using FFmpegArgs.Filters;

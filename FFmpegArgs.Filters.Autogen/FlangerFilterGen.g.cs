@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class FlangerFilterGen : AudioToAudioFilter
@@ -37,7 +26,7 @@ public FlangerFilterGen speed(double speed) => this.SetOptionRange("speed", spee
 /// <summary>
 ///  swept wave shape (from 0 to 1) (default sinusoidal)
 /// </summary>
-public FlangerFilterGen shape(FlangerFilterGenShape shape) => this.SetOption("shape", shape.GetAttribute<NameAttribute>().Name);
+public FlangerFilterGen shape(FlangerFilterGenShape shape) => this.SetOption("shape", shape.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  swept wave percentage phase-shift for multi-channel (from 0 to 100) (default 25)
 /// </summary>
@@ -45,7 +34,7 @@ public FlangerFilterGen phase(double phase) => this.SetOptionRange("phase", phas
 /// <summary>
 ///  delay-line interpolation (from 0 to 1) (default linear)
 /// </summary>
-public FlangerFilterGen interp(FlangerFilterGenInterp interp) => this.SetOption("interp", interp.GetAttribute<NameAttribute>().Name);
+public FlangerFilterGen interp(FlangerFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class FlangerFilterGenExtensions
 {

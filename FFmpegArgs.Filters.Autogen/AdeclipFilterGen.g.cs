@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class AdeclipFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading
@@ -41,7 +30,7 @@ public AdeclipFilterGen n(int n) => this.SetOptionRange("n", n,100,9999);
 /// <summary>
 ///  set overlap method (from 0 to 1) (default add)
 /// </summary>
-public AdeclipFilterGen method(AdeclipFilterGenMethod method) => this.SetOption("method", method.GetAttribute<NameAttribute>().Name);
+public AdeclipFilterGen method(AdeclipFilterGenMethod method) => this.SetOption("method", method.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class AdeclipFilterGenExtensions
 {

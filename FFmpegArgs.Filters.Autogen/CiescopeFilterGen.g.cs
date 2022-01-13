@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class CiescopeFilterGen : ImageToImageFilter
@@ -17,15 +6,15 @@ internal CiescopeFilterGen(ImageMap input) : base("ciescope",input) { AddMapOut(
 /// <summary>
 ///  set color system (from 0 to 9) (default hdtv)
 /// </summary>
-public CiescopeFilterGen system(CiescopeFilterGenSystem system) => this.SetOption("system", system.GetAttribute<NameAttribute>().Name);
+public CiescopeFilterGen system(CiescopeFilterGenSystem system) => this.SetOption("system", system.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set cie system (from 0 to 2) (default xyy)
 /// </summary>
-public CiescopeFilterGen cie(CiescopeFilterGenCie cie) => this.SetOption("cie", cie.GetAttribute<NameAttribute>().Name);
+public CiescopeFilterGen cie(CiescopeFilterGenCie cie) => this.SetOption("cie", cie.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set what gamuts to draw (default 0)
 /// </summary>
-public CiescopeFilterGen gamuts(CiescopeFilterGenGamuts gamuts) => this.SetOption("gamuts", gamuts.GetAttribute<NameAttribute>().Name);
+public CiescopeFilterGen gamuts(CiescopeFilterGenGamuts gamuts) => this.SetOption("gamuts", gamuts.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set ciescope size (from 256 to 8192) (default 512)
 /// </summary>

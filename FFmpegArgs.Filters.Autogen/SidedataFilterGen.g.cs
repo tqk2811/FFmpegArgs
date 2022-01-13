@@ -1,14 +1,3 @@
-using System;
-using System.Linq;
-using System.Drawing;
-using System.Collections.Generic;
-using FFmpegArgs;
-using FFmpegArgs.Cores;
-using FFmpegArgs.Cores.Filters;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Expressions;
-using FFmpegArgs.Filters;
-using FFmpegArgs.Filters.Enums;
 namespace FFmpegArgs.Filters.Autogens
 {
 public class SidedataFilterGen : ImageToImageFilter,ITimelineSupport
@@ -17,11 +6,11 @@ internal SidedataFilterGen(ImageMap input) : base("sidedata",input) { AddMapOut(
 /// <summary>
 ///  set a mode of operation (from 0 to 1) (default select)
 /// </summary>
-public SidedataFilterGen mode(SidedataFilterGenMode mode) => this.SetOption("mode", mode.GetAttribute<NameAttribute>().Name);
+public SidedataFilterGen mode(SidedataFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set side data type (from -1 to INT_MAX) (default -1)
 /// </summary>
-public SidedataFilterGen type(SidedataFilterGenType type) => this.SetOption("type", type.GetAttribute<NameAttribute>().Name);
+public SidedataFilterGen type(SidedataFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
 public static class SidedataFilterGenExtensions
 {
