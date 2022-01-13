@@ -1,4 +1,8 @@
-﻿namespace FFmpegArgs.Filters.AudioFilters
+﻿/*
+amerge AVOptions:
+  inputs            <int>        ..F.A...... specify the number of inputs (from 1 to 64) (default 2)
+ */
+namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... amerge            N->A       Merge two or more audio streams into a single multi-channel stream.<br>
@@ -8,10 +12,14 @@
     {
         internal AmergeFilter(params AudioMap[] audioMaps) : base("amerge", audioMaps)
         {
-            if (audioMaps.Length < 2) throw new ArgumentException($"audioMaps as least 2 items");
-            this.SetOption("inputs", audioMaps.Length);
+            this.SetOptionRange("inputs", audioMaps.Length, 1, 64);
+            this.AddMapOut();
         }
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AmergeFilterExtensions
     {
         /// <summary>

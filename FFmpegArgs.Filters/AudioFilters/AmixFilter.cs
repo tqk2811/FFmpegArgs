@@ -19,9 +19,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         internal AmixFilter(params AudioMap[] audioMaps) : base("amix", audioMaps)
         {
-            if (audioMaps.Length < 2) throw new ArgumentException($"audioMaps as least 2 items");
+            this.SetOptionRange("inputs", audioMaps.Length, 1, 32767);
             AddMapOut();
-            this.SetOption("inputs", audioMaps.Length);
         }
         /// <summary>
         /// How to determine the end-of-stream.
