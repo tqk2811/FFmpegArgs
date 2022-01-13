@@ -32,6 +32,6 @@
 		<file src="..\README.MD" target="docs\" />
 		<file src="bin\Release\**\FFmpegArgs.Outputs.dll" target="lib\" />
 		<file src="bin\Release\**\FFmpegArgs.Outputs.pdb" target="lib\" />
-		<file src="bin\Release\**\FFmpegArgs.Outputs.xxml" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.Outputs.xml" target="lib\" />
 	</files>
 </package>
