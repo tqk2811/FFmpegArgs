@@ -6,12 +6,25 @@
     /// </summary>
     public class OpenclsrcFilter : SourceImageFilter
     {
-        internal OpenclsrcFilter(Size size, PixFmt format, FilterGraph filterGraph) : base("openclsrc", filterGraph)
+        internal OpenclsrcFilter(IFilterGraph filterGraph) : base("openclsrc", filterGraph)
         {
             AddMapOut();
-            this.SetOption("s", $"{size.Width}x{size.Height}");
-            this.SetOption("format", format);
         }
+
+        /// <summary>
+        /// Size of frames to generate.
+        /// </summary>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public OpenclsrcFilter Size(Size size) => this.SetOption("s", $"{size.Width}x{size.Height}");
+
+        /// <summary>
+        /// Pixel format to use for the generated frames
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        public OpenclsrcFilter Format(PixFmt format) => this.SetOption("format", format);
+
         /// <summary>
         /// OpenCL program source file.
         /// </summary>
@@ -43,10 +56,8 @@
         /// Generate video using an OpenCL program.
         /// </summary>
         /// <param name="filterGraph"></param>
-        /// <param name="size">Size of frames to generate. This must be set.</param>
-        /// <param name="format">Pixel format to use for the generated frames. This must be set.</param>
         /// <returns></returns>
-        public static OpenclsrcFilter OpenclsrcFilter(this FilterGraph filterGraph, Size size, PixFmt format)
-          => new OpenclsrcFilter(size, format, filterGraph);
+        public static OpenclsrcFilter OpenclsrcFilter(this IFilterGraph filterGraph)
+          => new OpenclsrcFilter(filterGraph);
     }
 }

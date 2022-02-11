@@ -5,6 +5,7 @@
 		<TargetFrameworks>net5.0</TargetFrameworks>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
+		<GenerateDocumentationFile>False</GenerateDocumentationFile>
 	</PropertyGroup>
 	
 	<PropertyGroup>
@@ -12,7 +13,7 @@
 	</PropertyGroup>
 	
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
-	  <DefineConstants>$(DefineConstants);Render;Play</DefineConstants>
+	  <DefineConstants>$(DefineConstants);Render</DefineConstants>
 	</PropertyGroup>
 	
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
@@ -27,6 +28,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\FFmpegArgs.Cores\FFmpegArgs.Cores.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Executes\FFmpegArgs.Executes.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters.Autogen\FFmpegArgs.Filters.Autogen.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters.Common\FFmpegArgs.Filters.Common.csproj" />

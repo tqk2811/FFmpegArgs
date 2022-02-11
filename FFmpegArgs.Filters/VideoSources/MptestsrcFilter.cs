@@ -6,7 +6,7 @@
     /// </summary>
     public class MptestsrcFilter : SourceImageFilter
     {
-        internal MptestsrcFilter(FilterGraph filterGraph) : base("mptestsrc", filterGraph)
+        internal MptestsrcFilter(IFilterGraph filterGraph) : base("mptestsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -48,9 +48,10 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static MptestsrcFilter MptestsrcFilter(this FilterGraph filterGraph)
+        public static MptestsrcFilter MptestsrcFilter(this IFilterGraph filterGraph)
           => new MptestsrcFilter(filterGraph);
     }
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum MptestsrcTest
     {
         dc_luma,
@@ -65,4 +66,5 @@
         ring2,
         all
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

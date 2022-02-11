@@ -6,14 +6,22 @@
     /// </summary>
     public class NullsrcFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal NullsrcFilter(FilterGraph filterGraph) : base("nullsrc", filterGraph)
+        internal NullsrcFilter(IFilterGraph filterGraph) : base("nullsrc", filterGraph)
         {
             AddMapOut();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class NullsrcFilterExtensions
     {
-        public static NullsrcFilter NullsrcFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static NullsrcFilter NullsrcFilter(this IFilterGraph filterGraph)
           => new NullsrcFilter(filterGraph);
     }
 }

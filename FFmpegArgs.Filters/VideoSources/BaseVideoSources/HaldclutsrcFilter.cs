@@ -6,7 +6,7 @@
     /// </summary>
     public class HaldclutsrcFilter : BaseVideoSource
     {
-        internal HaldclutsrcFilter(FilterGraph filterGraph) : base("haldclutsrc", filterGraph)
+        internal HaldclutsrcFilter(IFilterGraph filterGraph) : base("haldclutsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -20,9 +20,18 @@
         public HaldclutsrcFilter Level(int level)
           => this.SetOptionRange("level", level, 2, 16);
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class HaldclutsrcFilterExtensions
     {
-        public static HaldclutsrcFilter HaldclutsrcFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static HaldclutsrcFilter HaldclutsrcFilter(this IFilterGraph filterGraph)
           => new HaldclutsrcFilter(filterGraph);
     }
 }

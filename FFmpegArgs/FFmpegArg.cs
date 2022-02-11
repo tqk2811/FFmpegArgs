@@ -1,19 +1,29 @@
-﻿using FFmpegArgs.Cores.Inputs;
-using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Cores.Outputs;
-using FFmpegArgs.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-namespace FFmpegArgs
+﻿namespace FFmpegArgs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class FFmpegArg : BaseOptionFlag
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<BaseInput> Inputs { get { return _inputs; } }
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<BaseOutput> Outputs { get { return _outputs; } }
         internal List<BaseInput> _inputs { get; } = new List<BaseInput>();
         internal List<BaseOutput> _outputs { get; } = new List<BaseOutput>();
-        public FilterGraph FilterGraph { get; } = new FilterGraph();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IFilterGraph FilterGraph { get; } = new FilterGraph();
+
+        /// <summary>
+        /// 
+        /// </summary>
         public FFmpegArg()
         {
         }
@@ -31,16 +41,32 @@ namespace FFmpegArgs
             List<AudioMap> results = new List<AudioMap>();
             for (int i = 0; i < count; i++)
             {
-                results.Add(new AudioMap(FilterGraph, $"{_inputs.IndexOf(sound)}") { IsInput = true, StreamIndex = i });
+                results.Add(new AudioMap(FilterGraph, $"{_inputs.IndexOf(sound)}", i));
             }
             return results;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sound"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public AudioMap AddAudioInput(AudioInput sound)
         {
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
             _inputs.Add(sound);
-            return new AudioMap(FilterGraph, $"{_inputs.IndexOf(sound)}") { IsInput = true };
+            return new AudioMap(FilterGraph, $"{_inputs.IndexOf(sound)}", 0);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="image"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="InvalidRangeException"></exception>
         public IEnumerable<ImageMap> AddImagesInput(ImageInput image, int count)
         {
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
@@ -49,16 +75,32 @@ namespace FFmpegArgs
             List<ImageMap> results = new List<ImageMap>();
             for (int i = 0; i < count; i++)
             {
-                results.Add(new ImageMap(FilterGraph, $"{_inputs.IndexOf(image)}") { IsInput = true, StreamIndex = i });
+                results.Add(new ImageMap(FilterGraph, $"{_inputs.IndexOf(image)}", i));
             }
             return results;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public ImageMap AddImageInput(ImageInput image)
         {
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
             _inputs.Add(image);
-            return new ImageMap(FilterGraph, $"{_inputs.IndexOf(image)}") { IsInput = true };
+            return new ImageMap(FilterGraph, $"{_inputs.IndexOf(image)}", 0);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="video"></param>
+        /// <param name="imageCount"></param>
+        /// <param name="audioCount"></param>
+        /// <returns></returns>
+        /// <exception cref="InvalidOperationException"></exception>
         public VideoMap AddVideoInput(VideoInput video, int imageCount = 1, int audioCount = 1)
         {
             if (_inputs.Contains(video)) throw new InvalidOperationException("Video was add to input before");
@@ -69,29 +111,54 @@ namespace FFmpegArgs
             List<ImageMap> imageMaps = new List<ImageMap>();
             List<AudioMap> audioMaps = new List<AudioMap>();
             for (int i = 0; i < imageCount; i++)
-                imageMaps.Add(new ImageMap(FilterGraph, $"{inputIndex}") { IsInput = true, StreamIndex = i });
+                imageMaps.Add(new ImageMap(FilterGraph, $"{inputIndex}", i));
             for (int i = 0; i < audioCount; i++)
-                audioMaps.Add(new AudioMap(FilterGraph, $"{inputIndex}") { IsInput = true, StreamIndex = i });
+                audioMaps.Add(new AudioMap(FilterGraph, $"{inputIndex}", i));
             return new VideoMap(imageMaps, audioMaps);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="output"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public void AddOutput(BaseOutput output)
         {
             if (_outputs.Contains(output)) throw new InvalidOperationException("This output was add before");
             _outputs.Add(output);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetGlobalArgs()
         {
             return GetArgs();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetInputsArgs()
         {
             return string.Join(" ", _inputs);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetOutputsArgs()
         {
             return string.Join(" ", _outputs);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="useChain"></param>
+        /// <returns></returns>
         public string GetFullCommandline(bool useChain = true)
         {
             string filter = FilterGraph.GetFiltersArgs(false, useChain);
@@ -105,6 +172,12 @@ namespace FFmpegArgs
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="script_name_or_path"></param>
+        /// <returns></returns>
         public string GetFullCommandlineWithFilterScript(string script_name_or_path)
         {
             List<string> args = new List<string>()

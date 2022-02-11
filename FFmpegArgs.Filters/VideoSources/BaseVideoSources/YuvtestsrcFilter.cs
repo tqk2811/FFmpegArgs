@@ -6,14 +6,22 @@
     /// </summary>
     public class YuvtestsrcFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal YuvtestsrcFilter(FilterGraph filterGraph) : base("yuvtestsrc", filterGraph)
+        internal YuvtestsrcFilter(IFilterGraph filterGraph) : base("yuvtestsrc", filterGraph)
         {
             AddMapOut();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class YuvtestsrcFilterExtensions
     {
-        public static YuvtestsrcFilter YuvtestsrcFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static YuvtestsrcFilter YuvtestsrcFilter(this IFilterGraph filterGraph)
           => new YuvtestsrcFilter(filterGraph);
     }
 }

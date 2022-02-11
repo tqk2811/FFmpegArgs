@@ -1,5 +1,8 @@
 ﻿namespace FFmpegArgs.Executes
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class FFmpegRender    
     {
         /// <summary>
@@ -63,7 +66,7 @@
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
             FFmpegRender fFmpegBuild = new FFmpegRender(config);
-            string args = ffmpegArg.GetFullCommandline();
+            string args = ffmpegArg.GetFullCommandline(config.IsUseFilterChain);
             if (config.IsForceUseScript || args.Length > config.ArgumentsMaxLength)
             {
                 string scripts = ffmpegArg.FilterGraph.GetFiltersArgs(true, true);

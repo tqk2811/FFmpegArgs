@@ -6,7 +6,7 @@
     /// </summary>
     public class MandelbrotFilter : SourceImageFilter
     {
-        internal MandelbrotFilter(FilterGraph filterGraph) : base("mandelbrot", filterGraph)
+        internal MandelbrotFilter(IFilterGraph filterGraph) : base("mandelbrot", filterGraph)
         {
             AddMapOut();
         }
@@ -123,7 +123,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static MandelbrotFilter MandelbrotFilter(this FilterGraph filterGraph)
+        public static MandelbrotFilter MandelbrotFilter(this IFilterGraph filterGraph)
           => new MandelbrotFilter(filterGraph);
     }
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member

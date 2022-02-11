@@ -6,14 +6,22 @@
     /// </summary>
     public class RgbtestsrcFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal RgbtestsrcFilter(FilterGraph filterGraph) : base("rgbtestsrc", filterGraph)
+        internal RgbtestsrcFilter(IFilterGraph filterGraph) : base("rgbtestsrc", filterGraph)
         {
             AddMapOut();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class RgbtestsrcFilterExtensions
     {
-        public static RgbtestsrcFilter RgbtestsrcFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static RgbtestsrcFilter RgbtestsrcFilter(this IFilterGraph filterGraph)
           => new RgbtestsrcFilter(filterGraph);
     }
 }

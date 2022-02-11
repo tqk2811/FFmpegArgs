@@ -6,14 +6,22 @@
     /// </summary>
     public class AllyuvFilter : BaseVideoSource
     {
-        internal AllyuvFilter(FilterGraph filterGraph) : base("allyuv", filterGraph)
+        internal AllyuvFilter(IFilterGraph filterGraph) : base("allyuv", filterGraph)
         {
             AddMapOut();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AllyuvFilterExtensions
     {
-        public static AllyuvFilter AllyuvFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static AllyuvFilter AllyuvFilter(this IFilterGraph filterGraph)
           => new AllyuvFilter(filterGraph);
     }
 }

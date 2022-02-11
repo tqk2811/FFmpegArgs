@@ -6,7 +6,7 @@
     /// </summary>
     public class Testsrc2Filter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal Testsrc2Filter(FilterGraph filterGraph) : base("testsrc2", filterGraph)
+        internal Testsrc2Filter(IFilterGraph filterGraph) : base("testsrc2", filterGraph)
         {
             AddMapOut();
         }
@@ -19,9 +19,17 @@
         public Testsrc2Filter Alpha(int alpha)
           => this.SetOptionRange("alpha", alpha, 0, 255);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Testsrc2FilterExtensions
     {
-        public static Testsrc2Filter Testsrc2Filter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static Testsrc2Filter Testsrc2Filter(this IFilterGraph filterGraph)
           => new Testsrc2Filter(filterGraph);
     }
 }

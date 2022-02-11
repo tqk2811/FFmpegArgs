@@ -1,8 +1,4 @@
-﻿using FFmpegArgs.Cores;
-using FFmpegArgs.Enums;
-using System;
-using System.Drawing;
-namespace FFmpegArgs
+﻿namespace FFmpegArgs
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg.html#Main-options

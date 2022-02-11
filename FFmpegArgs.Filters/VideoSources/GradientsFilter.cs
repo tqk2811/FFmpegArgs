@@ -6,7 +6,7 @@
     /// </summary>
     public class GradientsFilter : SourceImageFilter, ISliceThreading
     {
-        internal GradientsFilter(FilterGraph filterGraph) : base("gradients", filterGraph)
+        internal GradientsFilter(IFilterGraph filterGraph) : base("gradients", filterGraph)
         {
             AddMapOut();
         }
@@ -89,7 +89,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static GradientsFilter GradientsFilter(this FilterGraph filterGraph)
+        public static GradientsFilter GradientsFilter(this IFilterGraph filterGraph)
           => new GradientsFilter(filterGraph);
     }
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member

@@ -23,7 +23,7 @@ namespace FFmpegArgs.Filters.AudioSources
             "n","t","s"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal AevalsrcFilter(FilterGraph filterGraph) : base("aevalsrc", filterGraph)
+        internal AevalsrcFilter(IFilterGraph filterGraph) : base("aevalsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -74,6 +74,9 @@ namespace FFmpegArgs.Filters.AudioSources
         public AevalsrcFilter SampleRate(int s)
           => this.SetOptionRange("s", s, 0, INT_MAX);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AevalsrcFilterExtensions
     {
         /// <summary>
@@ -82,6 +85,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AevalsrcFilter AevalsrcFilter(this FilterGraph filterGraph) => new AevalsrcFilter(filterGraph);
+        public static AevalsrcFilter AevalsrcFilter(this IFilterGraph filterGraph) => new AevalsrcFilter(filterGraph);
     }
 }

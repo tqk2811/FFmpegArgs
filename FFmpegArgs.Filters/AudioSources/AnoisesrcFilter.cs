@@ -40,7 +40,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class AnoisesrcFilter : SourceAudioFilter
     {
-        internal AnoisesrcFilter(FilterGraph filterGraph) : base("anoisesrc", filterGraph)
+        internal AnoisesrcFilter(IFilterGraph filterGraph) : base("anoisesrc", filterGraph)
         {
             AddMapOut();
         }
@@ -87,6 +87,10 @@ namespace FFmpegArgs.Filters.AudioSources
         public AnoisesrcFilter NbSamples(int n)
           => this.SetOptionRange("n", n, 1, INT_MAX);
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AnoisesrcFilterExtensions
     {
         /// <summary>
@@ -94,9 +98,11 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AnoisesrcFilter AnoisesrcFilter(this FilterGraph filterGraph)
+        public static AnoisesrcFilter AnoisesrcFilter(this IFilterGraph filterGraph)
           => new AnoisesrcFilter(filterGraph);
     }
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum AnoisesrcColor
     {
         white,
@@ -106,4 +112,5 @@ namespace FFmpegArgs.Filters.AudioSources
         violet,
         velvet
     }
+    #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

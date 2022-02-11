@@ -21,7 +21,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class SincFilter : SourceAudioFilter
     {
-        internal SincFilter(FilterGraph filterGraph) : base("sinc", filterGraph)
+        internal SincFilter(IFilterGraph filterGraph) : base("sinc", filterGraph)
         {
             AddMapOut();
         }
@@ -97,6 +97,9 @@ namespace FFmpegArgs.Filters.AudioSources
         public SincFilter LpTaps(int phase)
           => this.SetOptionRange("lptaps", phase, 0, 32768);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class SincFilterExtensions
     {
         /// <summary>
@@ -105,7 +108,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static SincFilter SincFilter(this FilterGraph filterGraph)
+        public static SincFilter SincFilter(this IFilterGraph filterGraph)
           => new SincFilter(filterGraph);
     }
 }

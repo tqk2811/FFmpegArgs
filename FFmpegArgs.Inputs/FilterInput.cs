@@ -1,15 +1,28 @@
-﻿using FFmpegArgs.Cores.Inputs;
-namespace FFmpegArgs.Inputs
+﻿namespace FFmpegArgs.Inputs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class FilterInput : VideoInput
     {
         readonly string _filter_string;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public FilterInput(string filter)
         {
             if (string.IsNullOrEmpty(filter)) throw new ArgumentNullException(nameof(filter));
             this._filter_string = filter;
         }
-        public FilterGraph FilterGraph { get; } = new FilterGraph();
+        /// <summary>
+        /// 
+        /// </summary>
+        public IFilterGraph FilterGraph { get; } = new FilterGraph();
+        /// <summary>
+        /// 
+        /// </summary>
         public FilterInput()
         {
         }
@@ -19,13 +32,19 @@ namespace FFmpegArgs.Inputs
         /// <param name="filterGraph"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public FilterInput AddFilter(Action<FilterGraph> filterGraph)
+        public FilterInput AddFilter(Action<IFilterGraph> filterGraph)
         {
             if (filterGraph == null)
                 throw new ArgumentNullException(nameof(filterGraph));
             filterGraph.Invoke(FilterGraph);
             return this;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException"></exception>
         public override string ToString()
         {
             string filter = this._filter_string;

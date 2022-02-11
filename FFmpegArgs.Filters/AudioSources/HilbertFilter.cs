@@ -57,7 +57,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class HilbertFilter : SourceAudioFilter
     {
-        internal HilbertFilter(FilterGraph filterGraph) : base("hilbert", filterGraph)
+        internal HilbertFilter(IFilterGraph filterGraph) : base("hilbert", filterGraph)
         {
             AddMapOut();
         }
@@ -85,11 +85,14 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <summary>
         /// Set window function to be used when generating FIR coefficients.
         /// </summary>
-        /// <param name="w"></param>
+        /// <param name="winFunc"></param>
         /// <returns></returns>
         public HilbertFilter WinFunc(HilbertWinFunc winFunc)
           => this.SetOption("w", winFunc);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class HilbertFilterExtensions
     {
         /// <summary>
@@ -99,9 +102,12 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static HilbertFilter HilbertFilter(this FilterGraph filterGraph)
+        public static HilbertFilter HilbertFilter(this IFilterGraph filterGraph)
           => new HilbertFilter(filterGraph);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public enum HilbertWinFunc
     {
         /// <summary>

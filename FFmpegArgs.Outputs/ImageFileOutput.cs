@@ -27,7 +27,7 @@
             {
                 GetArgs(),
                 "-map",
-                ImageMap.GetMapOut(),
+                $"[{ImageMap.MapName}]",
                 _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

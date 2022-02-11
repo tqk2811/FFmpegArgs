@@ -80,6 +80,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
+
+
+
         [TestMethod]
         public void ClockTestCustom_Blur()
         {

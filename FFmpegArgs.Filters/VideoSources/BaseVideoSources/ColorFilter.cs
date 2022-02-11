@@ -6,16 +6,29 @@
     /// </summary>
     public class ColorFilter : BaseVideoSource, ICommandSupport, IBaseVideoSourceSize
     {
-        internal ColorFilter(FilterGraph filterGraph) : base("color", filterGraph)
+        internal ColorFilter(IFilterGraph filterGraph) : base("color", filterGraph)
         {
             AddMapOut();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
         public ColorFilter Color(Color color)
           => this.SetOption("c", color.ToHexStringRGBA());
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ColorFilterExtension
     {
-        public static ColorFilter ColorFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static ColorFilter ColorFilter(this IFilterGraph filterGraph)
           => new ColorFilter(filterGraph);
     }
 }

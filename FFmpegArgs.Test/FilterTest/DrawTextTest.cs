@@ -38,14 +38,7 @@ namespace FFmpegArgs.Test.FilterTest
             ImageFileOutput imageFileOutput = new ImageFileOutput("DrawTextTest.DrawText.mp4", output)
                 .Duration(TimeSpan.FromSeconds(30)).Fps(fps);
             ffmpegArg.AddOutput(imageFileOutput);
-            FFmpegRender fFmpegRender = ffmpegArg.Render(new FFmpegRenderConfig()
-            {
-                WorkingDirectory = Directory.GetCurrentDirectory(),
-                //IsForceUseScript = true,
-            });
-            FFmpegRenderResult renderResult = fFmpegRender.Execute();
-            Assert.IsTrue(renderResult.ExitCode == 0);
-            Process.Start("ffplay", "DrawTextTest.DrawText.mp4");
+            ffmpegArg.TestRender("DrawText.fs", "DrawTextTest.DrawText.mp4");
         }
     }
 }

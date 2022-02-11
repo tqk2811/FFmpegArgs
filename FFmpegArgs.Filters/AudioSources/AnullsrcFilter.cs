@@ -17,7 +17,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class AnullsrcFilter : SourceAudioFilter
     {
-        internal AnullsrcFilter(FilterGraph filterGraph) : base("anullsrc", filterGraph)
+        internal AnullsrcFilter(IFilterGraph filterGraph) : base("anullsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -53,6 +53,10 @@ namespace FFmpegArgs.Filters.AudioSources
         public AnullsrcFilter Duration(TimeSpan d)
           => this.SetOptionRange("d", d, TimeSpan.MinValue, TimeSpan.MaxValue);
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AnullsrcFilterExtensions
     {
         /// <summary>
@@ -61,7 +65,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AnullsrcFilter AnullsrcFilter(this FilterGraph filterGraph)
+        public static AnullsrcFilter AnullsrcFilter(this IFilterGraph filterGraph)
           => new AnullsrcFilter(filterGraph);
     }
 }

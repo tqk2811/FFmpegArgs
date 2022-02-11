@@ -6,14 +6,22 @@
     /// </summary>
     public class AllrgbFilter : BaseVideoSource
     {
-        internal AllrgbFilter(FilterGraph filterGraph) : base("allrgb", filterGraph)
+        internal AllrgbFilter(IFilterGraph filterGraph) : base("allrgb", filterGraph)
         {
             AddMapOut();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AllrgbFilterExtensions
     {
-        public static AllrgbFilter AllrgbFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static AllrgbFilter AllrgbFilter(this IFilterGraph filterGraph)
           => new AllrgbFilter(filterGraph);
     }
 }

@@ -6,14 +6,22 @@
     /// </summary>
     public class SmptehdbarsFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal SmptehdbarsFilter(FilterGraph filterGraph) : base("smptehdbars", filterGraph)
+        internal SmptehdbarsFilter(IFilterGraph filterGraph) : base("smptehdbars", filterGraph)
         {
             AddMapOut();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class SmptehdbarsFilterExtensions
     {
-        public static SmptehdbarsFilter SmptehdbarsFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static SmptehdbarsFilter SmptehdbarsFilter(this IFilterGraph filterGraph)
           => new SmptehdbarsFilter(filterGraph);
     }
 }

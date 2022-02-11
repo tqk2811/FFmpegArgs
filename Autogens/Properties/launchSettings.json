@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Autogens": {
+      "commandName": "Project",
+      "workingDirectory": "$(SolutionDir)"
+    }
+  }
+}

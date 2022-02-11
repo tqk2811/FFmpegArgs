@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.VideoSources
     public class LifeFilter : SourceImageFilter
     {
         readonly FFmpegExpression expression = new FFmpegExpression();
-        internal LifeFilter(FilterGraph filterGraph) : base("life", filterGraph)
+        internal LifeFilter(IFilterGraph filterGraph) : base("life", filterGraph)
         {
             AddMapOut();
         }
@@ -121,7 +121,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static LifeFilter LifeFilter(this FilterGraph filterGraph)
+        public static LifeFilter LifeFilter(this IFilterGraph filterGraph)
           => new LifeFilter(filterGraph);
     }
 }

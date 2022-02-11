@@ -6,14 +6,22 @@
     /// </summary>
     public class Pal75barsFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal Pal75barsFilter(FilterGraph filterGraph) : base("pal75bars", filterGraph)
+        internal Pal75barsFilter(IFilterGraph filterGraph) : base("pal75bars", filterGraph)
         {
             AddMapOut();
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class Pal75barsFilterExtensions
     {
-        public static Pal75barsFilter Pal75barsFilter(this FilterGraph filterGraph)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
+        /// <returns></returns>
+        public static Pal75barsFilter Pal75barsFilter(this IFilterGraph filterGraph)
           => new Pal75barsFilter(filterGraph);
     }
 }

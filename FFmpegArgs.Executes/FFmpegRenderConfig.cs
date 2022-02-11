@@ -25,6 +25,11 @@
         public bool IsForceUseScript { get; set; } = false;
 
         /// <summary>
+        /// Default: True
+        /// </summary>
+        public bool IsUseFilterChain { get; set; } = true;
+
+        /// <summary>
         /// Default: FS.txt
         /// </summary>
         public string FilterScriptName
@@ -84,6 +89,17 @@
         {
             if (string.IsNullOrWhiteSpace(workingDir)) throw new ArgumentNullException(nameof(workingDir));
             else WorkingDirectory = workingDir;
+            return this;
+        }
+
+        /// <summary>
+        /// Default: True
+        /// </summary>
+        /// <param name="isUse"></param>
+        /// <returns></returns>
+        public FFmpegRenderConfig UseFilterChain(bool isUse)
+        {
+            IsUseFilterChain = isUse;
             return this;
         }
     }

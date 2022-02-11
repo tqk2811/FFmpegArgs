@@ -2,7 +2,11 @@
 
 	<Import Project="..\ProjectBuildProperties.targets" />
 	<PropertyGroup>
-		<FileVersion>1.1.0.0</FileVersion>
+		<FileVersion>1.3.0.0</FileVersion>
 	</PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\FFmpegArgs.Cores\FFmpegArgs.Cores.csproj" />
+	  <ProjectReference Include="..\FFmpegArgs.Filters.Common\FFmpegArgs.Filters.Common.csproj" />
+	</ItemGroup>
 
 </Project>
