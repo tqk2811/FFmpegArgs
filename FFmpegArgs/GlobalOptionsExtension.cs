@@ -1,6 +1,8 @@
-﻿using System;
-namespace FFmpegArgs
+﻿namespace FFmpegArgs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public static class GlobalOptionsExtension
     {
         /// <summary>
@@ -20,7 +22,7 @@ namespace FFmpegArgs
         /// <summary>
         /// Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.
         /// </summary>
-        /// <param name="filterGraph"></param>
+        /// <param name="ffmpegArg"></param>
         /// <param name="time">Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.</param>
         /// <returns></returns>
         public static FFmpegArg StatsPeriod(this FFmpegArg ffmpegArg, double time)
@@ -28,7 +30,7 @@ namespace FFmpegArgs
         /// <summary>
         /// Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.
         /// </summary>
-        /// <param name="filterGraph"></param>
+        /// <param name="ffmpegArg"></param>
         /// <param name="time">Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.</param>
         /// <returns></returns>
         public static FFmpegArg StatsPeriod(this FFmpegArg ffmpegArg, TimeSpan time)
@@ -36,7 +38,7 @@ namespace FFmpegArgs
         /// <summary>
         /// Defines how many threads are used to process a filter_complex graph. Similar to filter_threads but used for -filter_complex graphs only. The default is the number of available CPUs.
         /// </summary>
-        /// <param name="filterGraph"></param>
+        /// <param name="ffmpegArg"></param>
         /// <param name="threads"></param>
         /// <returns></returns>
         public static FFmpegArg FilterComplexThreads(this FFmpegArg ffmpegArg, int threads)
@@ -44,7 +46,7 @@ namespace FFmpegArgs
         /// <summary>
         /// Set fraction of decoding frame failures across all inputs which when crossed ffmpeg will return exit code 69. Crossing this threshold does not terminate processing. Range is a floating-point number between 0 to 1. Default is 2/3.
         /// </summary>
-        /// <param name="filterGraph"></param>
+        /// <param name="ffmpegArg"></param>
         /// <param name="rate"></param>
         /// <returns></returns>
         public static FFmpegArg MaxErrorRate(this FFmpegArg ffmpegArg, float rate)
@@ -52,7 +54,7 @@ namespace FFmpegArgs
         /// <summary>
         /// Enable automatically inserting format conversion filters in all filter graphs, including those defined by -vf, -af, -filter_complex and -lavfi. If filter format negotiation requires a conversion, the initialization of the filters will fail. Conversions can still be performed by inserting the relevant conversion filter (scale, aresample) in the graph. On by default, to explicitly disable it you need to specify -noauto_conversion_filters.
         /// </summary>
-        /// <param name="filterGraph"></param>
+        /// <param name="ffmpegArg"></param>
         /// <returns></returns>
         public static FFmpegArg noauto_conversion_filters(this FFmpegArg ffmpegArg)
             => ffmpegArg.SetFlag("-noauto_conversion_filters");

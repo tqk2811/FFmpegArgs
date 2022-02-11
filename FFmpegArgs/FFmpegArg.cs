@@ -35,6 +35,7 @@
         /// <returns></returns>
         public IEnumerable<AudioMap> AddAudiosInput(AudioInput sound, int count)
         {
+            if (sound == null) throw new ArgumentNullException(nameof(sound));
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
             if (count <= 0) throw new InvalidRangeException($"{nameof(count)} <= 0");
             _inputs.Add(sound);
@@ -54,6 +55,7 @@
         /// <exception cref="InvalidOperationException"></exception>
         public AudioMap AddAudioInput(AudioInput sound)
         {
+            if (sound == null) throw new ArgumentNullException(nameof(sound));
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
             _inputs.Add(sound);
             return new AudioMap(FilterGraph, $"{_inputs.IndexOf(sound)}", 0);
@@ -65,10 +67,12 @@
         /// <param name="image"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
         public IEnumerable<ImageMap> AddImagesInput(ImageInput image, int count)
         {
+            if (image == null) throw new ArgumentNullException(nameof(image));
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
             if (count <= 0) throw new InvalidRangeException($"{nameof(count)} <= 0");
             _inputs.Add(image);
@@ -88,6 +92,7 @@
         /// <exception cref="InvalidOperationException"></exception>
         public ImageMap AddImageInput(ImageInput image)
         {
+            if (image == null) throw new ArgumentNullException(nameof(image));
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
             _inputs.Add(image);
             return new ImageMap(FilterGraph, $"{_inputs.IndexOf(image)}", 0);
@@ -103,9 +108,8 @@
         /// <exception cref="InvalidOperationException"></exception>
         public VideoMap AddVideoInput(VideoInput video, int imageCount = 1, int audioCount = 1)
         {
+            if (video == null) throw new ArgumentNullException(nameof(video));
             if (_inputs.Contains(video)) throw new InvalidOperationException("Video was add to input before");
-            //if (imageCount < 1 || audioCount < 1)
-            //    throw new InvalidRangeException($"imageCount or audioCount < 1\r\nFor non audio, use {nameof(ImageInput)} instead");
             _inputs.Add(video);
             int inputIndex = _inputs.IndexOf(video);
             List<ImageMap> imageMaps = new List<ImageMap>();
@@ -124,7 +128,9 @@
         /// <exception cref="InvalidOperationException"></exception>
         public void AddOutput(BaseOutput output)
         {
+            if (output == null) throw new ArgumentNullException(nameof(output));
             if (_outputs.Contains(output)) throw new InvalidOperationException("This output was add before");
+            if (output.FilterGraph != this.FilterGraph) throw new InvalidOperationException("This output are not same FilterGraph");
             _outputs.Add(output);
         }
 

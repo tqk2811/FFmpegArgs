@@ -1,4 +1,8 @@
+﻿$dirInfo= New-Object -Typename System.IO.DirectoryInfo -ArgumentList ([System.IO.Directory]::GetCurrentDirectory())
+$projectName= $dirInfo.Name;
 $key=$env:nugetKey
+$buildDay=[DateTime]::Now.ToString("yyMMdd")
+$p="build=-build$($buildDay)".Trim()
 
 function RunCommand
 {
@@ -24,9 +28,9 @@ function NugetPack
     {
         Write-Host "NugetPack $($args[$i])"
 
-        $result = RunCommand "Remove-Item -Recurse -Force .\$($args[$i])\bin\Release\**" `
-            "dotnet build $($args[$i])\$($args[$i]).csproj -c Release" `
-            "nuget pack $($args[$i])\$($args[$i]).nuspec -OutputDirectory .\$($args[$i])\bin\Release -p 'build='"
+        $result = RunCommand "Remove-Item -Recurse -Force .\bin\Release\**" `
+            "dotnet build $($args[$i]).csproj -c Release" `
+            "nuget pack $($args[$i]).nuspec -OutputDirectory .\bin\Release -p '$($p)'"
 
         if($result) {
             Write-Host "$($args[$i]) success"
@@ -46,18 +50,11 @@ function NugetPush
     {
         Write-Host "NugetPush $($args[$i])"
 
-        iex "dotnet nuget push $($args[$i])\bin\Release\*.nupkg --api-key $($key) --source https://api.nuget.org/v3/index.json"
+        iex "dotnet nuget push .\bin\Release\*.nupkg --api-key $($key) --source https://api.nuget.org/v3/index.json"
     }
 }
 
-$result = NugetPack "FFmpegArgs" `
-                    "FFmpegArgs.Cores" `
-                    "FFmpegArgs.Filters.Common" `
-                    "FFmpegArgs.Filters" `
-                    "FFmpegArgs.Filters.Autogen" `
-                    "FFmpegArgs.Inputs" `
-                    "FFmpegArgs.Outputs" `
-                    "FFmpegArgs.Executes"
+$result = NugetPack $projectName
 if($result)
 {
     if([string]::IsNullOrEmpty($key))
@@ -71,14 +68,7 @@ if($result)
         Write-Host "enter to confirm"
         pause
 
-        NugetPush   "FFmpegArgs" `
-                    "FFmpegArgs.Cores" `
-                    "FFmpegArgs.Filters.Common" `
-                    "FFmpegArgs.Filters" `
-                    "FFmpegArgs.Filters.Autogen" `
-                    "FFmpegArgs.Inputs" `
-                    "FFmpegArgs.Outputs" `
-                    "FFmpegArgs.Executes"
+        NugetPush $projectName
     }
 }
 else

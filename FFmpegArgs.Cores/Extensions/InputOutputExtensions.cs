@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores;
-using System;
-namespace FFmpegArgs
+﻿namespace FFmpegArgs
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg.html#Main-options

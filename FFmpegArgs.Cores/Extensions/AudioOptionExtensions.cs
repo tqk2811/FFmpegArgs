@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores;
-using System;
-namespace FFmpegArgs
+﻿namespace FFmpegArgs
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg.html#Main-options
@@ -12,7 +10,8 @@ namespace FFmpegArgs
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
-        /// <param name="swsFlags"></param>
+        /// <param name="freq"></param>
+        /// <param name="stream_specifier"></param>
         /// <returns></returns>
         public static T Freq<T>(this T t, int freq, int? stream_specifier = null) where T : BaseInputOutput, IAudio
         {
@@ -49,8 +48,23 @@ namespace FFmpegArgs
             }
             return t;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <returns></returns>
         public static T AN<T>(this T t) where T : BaseInputOutput, IAudio
             => t.SetFlag("-an");
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="acodec"></param>
+        /// <returns></returns>
         public static T ACodec<T>(this T t, string acodec) where T : BaseInputOutput, IAudio
            => t.SetOption("-acodec", acodec);
     }

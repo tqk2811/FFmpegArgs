@@ -1,5 +1,8 @@
 # FFmpegArgs
 
+[NuGet Package](https://www.nuget.org/packages?q=FFmpegArgs)  
+[Github Repo](https://github.com/tqk2811/FFmpegArgs)
+________________________________________
 Easy to use
 ``` Csharp
 FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
