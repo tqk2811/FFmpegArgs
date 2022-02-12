@@ -53,8 +53,11 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="fpsEofAction"></param>
         /// <returns></returns>
-        public FpsFilter EofAction(FpsEofAction fpsEofAction) => this.SetOption("round", fpsEofAction);
+        public FpsFilter EofAction(FpsEofAction fpsEofAction) => this.SetOption("eof_action", fpsEofAction);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class FpsFilterExtension
     {
         /// <summary>
@@ -64,6 +67,10 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <returns></returns>
         public static FpsFilter FpsFilter(this ImageMap imageMap) => new FpsFilter(imageMap);
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public enum FpsRound
     {
         /// <summary>
@@ -87,6 +94,10 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         near,
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public enum FpsEofAction
     {
         /// <summary>
@@ -98,6 +109,10 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         pass
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public enum FpsConstants
     {
         /// <summary>
