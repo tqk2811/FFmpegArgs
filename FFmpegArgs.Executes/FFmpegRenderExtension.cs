@@ -11,14 +11,14 @@
         /// <param name="ffmpegArg"></param>
         /// <param name="config"></param>
         /// <returns></returns>
-        public static FFmpegRender Render(this FFmpegArg ffmpegArg, FFmpegRenderConfig config) => FFmpegRender.FromArguments(ffmpegArg, config);
+        public static FFmpegRender Render(this IFFmpegArg ffmpegArg, FFmpegRenderConfig config) => FFmpegRender.FromArguments(ffmpegArg, config);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <param name="config"></param>
         /// <returns></returns>
-        public static FFmpegRender Render(this FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config) => FFmpegRender.FromArguments(ffmpegArg, config);
+        public static FFmpegRender Render(this IFFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config) => FFmpegRender.FromArguments(ffmpegArg, config);
 
         private static Process BuildProcess(this FFmpegRender build, FFmpegRenderResult renderResult)
         {

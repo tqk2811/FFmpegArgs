@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class FFmpegArg : BaseOptionFlag
+    public class FFmpegArg : BaseOptionFlag, IFFmpegArg
     {
         /// <summary>
         /// 
@@ -13,8 +13,11 @@
         /// 
         /// </summary>
         public IEnumerable<BaseOutput> Outputs { get { return _outputs; } }
-        internal List<BaseInput> _inputs { get; } = new List<BaseInput>();
-        internal List<BaseOutput> _outputs { get; } = new List<BaseOutput>();
+
+
+
+        readonly List<BaseInput> _inputs = new List<BaseInput>();
+        readonly List<BaseOutput> _outputs = new List<BaseOutput>();
 
         /// <summary>
         /// 

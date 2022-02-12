@@ -45,7 +45,7 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
-        public static FFmpegRender FromArguments(FFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config)
+        public static FFmpegRender FromArguments(IFFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config)
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
@@ -61,7 +61,7 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
-        public static FFmpegRender FromArguments(FFmpegArg ffmpegArg, FFmpegRenderConfig config)
+        public static FFmpegRender FromArguments(IFFmpegArg ffmpegArg, FFmpegRenderConfig config)
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
@@ -70,10 +70,10 @@
             if (config.IsForceUseScript || args.Length > config.ArgumentsMaxLength)
             {
                 string scripts = ffmpegArg.FilterGraph.GetFiltersArgs(true, true);
-                if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(FFmpegArg)} argument too long");
+                if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
                 File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), scripts);
                 fFmpegBuild.Arguments = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName);
-                if (fFmpegBuild.Arguments.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(FFmpegArg)} argument too long");
+                if (fFmpegBuild.Arguments.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
             }
             else fFmpegBuild.Arguments = args;
             return fFmpegBuild;
