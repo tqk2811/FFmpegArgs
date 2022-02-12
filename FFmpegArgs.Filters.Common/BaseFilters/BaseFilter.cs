@@ -1,5 +1,10 @@
 ﻿namespace FFmpegArgs.Filters
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TIn"></typeparam>
+    /// <typeparam name="TOut"></typeparam>
     public abstract class BaseFilter<TIn, TOut> : BaseOption, IFilter<TIn, TOut>
       where TIn : BaseMap
       where TOut : BaseMap

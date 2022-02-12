@@ -24,6 +24,7 @@
             {
                 throw new InvalidOperationException("this filter was added");
             }
+            if (!filter.FilterGraph.Equals(this)) throw new InvalidOperationException("this filter.FilterGraph not same with this FilterGraph");
             _filters.Add(filter);
             return _filters.IndexOf(filter);
         }
