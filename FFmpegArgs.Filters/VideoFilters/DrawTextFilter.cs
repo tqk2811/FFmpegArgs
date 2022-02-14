@@ -257,6 +257,9 @@
         public DrawTextFilter Reload(bool reload)
          => this.SetOption("reload", reload.ToFFmpegFlag());
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class DrawTextFilterExtension
     {
         /// <summary>
@@ -268,6 +271,7 @@
         public static DrawTextFilter DrawTextFilter(this ImageMap imageMap)
             => new DrawTextFilter(imageMap);
     }
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum DrawTextExpansion
     {
         none,
@@ -293,4 +297,5 @@
         [Name("linear_design")] linear_design,
         [Name("no_autohint")] no_autohint,
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

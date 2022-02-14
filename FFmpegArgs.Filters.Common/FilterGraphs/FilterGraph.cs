@@ -16,8 +16,9 @@
         /// Don't touch
         /// </summary>
         /// <param name="filter"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
+        /// <returns>Index of filter add on success, else throw exception</returns>
+        /// <exception cref="InvalidOperationException"></exception>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         public int AddFilter(IFilter<BaseMap, BaseMap> filter)
         {
             if(_filters.IndexOf(filter) >= 0)

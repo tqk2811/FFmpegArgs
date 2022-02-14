@@ -165,8 +165,7 @@
         /// <summary>
         /// FL+FR+FC+BC+SL+SR
         /// </summary>
-        [Name("6.0")]
-        AV_CH_LAYOUT_6POINT0,
+        [Name("6.0")] AV_CH_LAYOUT_6POINT0,
         /// <summary>
         /// FL+FR+FLC+FRC+SL+SR
         /// </summary>
@@ -179,6 +178,9 @@
         /// FL+FR+FC+LFE+BC+SL+SR
         /// </summary>
         [Name("6.1")] AV_CH_LAYOUT_6POINT1,
+        /// <summary>
+        /// 
+        /// </summary>
         [Name("6.1(back)")] AV_CH_LAYOUT_6POINT1_BACK,
         /// <summary>
         /// FL+FR+LFE+FLC+FRC+SL+SR
@@ -216,7 +218,10 @@
         /// DL+DR
         /// </summary>
         [Name("downmix")] AV_CH_LAYOUT_STEREO_DOWNMIX,
-        [Name("22.2")]
-        AV_CH_LAYOUT_22POINT2
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Name("22.2")] AV_CH_LAYOUT_22POINT2
     }
 }

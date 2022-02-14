@@ -3,7 +3,7 @@ global using System.Drawing;
 global using System.Linq;
 global using System.Collections.Generic;
 global using System.Text.RegularExpressions;
-
+global using System.ComponentModel;
 
 global using FFmpegArgs.Cores;
 global using FFmpegArgs.Cores.Enums;
