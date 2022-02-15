@@ -263,7 +263,7 @@ namespace Autogens
                     var interfaces = GetFilterInterface(support).ToList();
                     interfaces.Insert(0, typeName.Inheritance);
                     string className = $"{name.UpperFirst()}FilterGen";
-                    using StreamWriter streamWriter = new StreamWriter($"FFmpegArgs.Filters.Autogen\\{className}.g.cs", false);
+                    using StreamWriter streamWriter = new StreamWriter(Path.Combine("FFmpegArgs.Filters.Autogen", $"{className}.g.cs"), false);
                     streamWriter.WriteNameSpace();
                     streamWriter.WriteLine("{");
                     streamWriter.WriteSummary(filter);
