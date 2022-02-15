@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. midequalizer      VV->V      Apply Midway Equalization.
+/// </summary>
 public class MidequalizerFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal MidequalizerFilterGen(params ImageMap[] inputs) : base("midequalizer",inputs) { AddMapOut(); }
@@ -8,30 +11,13 @@ internal MidequalizerFilterGen(params ImageMap[] inputs) : base("midequalizer",i
 /// </summary>
 public MidequalizerFilterGen planes(int planes) => this.SetOptionRange("planes", planes,0,15);
 }
+/// <summary>
+/// </summary>
 public static class MidequalizerFilterGenExtensions
 {
 /// <summary>
 /// Apply Midway Equalization.
 /// </summary>
 public static MidequalizerFilterGen MidequalizerFilterGen(this ImageMap input0, ImageMap input1) => new MidequalizerFilterGen(input0, input1);
-/// <summary>
-/// Apply Midway Equalization.
-/// </summary>
-public static MidequalizerFilterGen MidequalizerFilterGen(this ImageMap input0, ImageMap input1,MidequalizerFilterGenConfig config)
-{
-var result = new MidequalizerFilterGen(input0, input1);
-if(config?.planes != null) result.planes(config.planes.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class MidequalizerFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set planes (from 0 to 15) (default 15)
-/// </summary>
-public int? planes { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

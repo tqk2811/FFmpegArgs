@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC cas               V->V       Contrast Adaptive Sharpen.
+/// </summary>
 public class CasFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal CasFilterGen(ImageMap input) : base("cas",input) { AddMapOut(); }
@@ -12,37 +15,18 @@ public CasFilterGen strength(float strength) => this.SetOptionRange("strength", 
 /// </summary>
 public CasFilterGen planes(CasFilterGenPlanes planes) => this.SetOption("planes", planes.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class CasFilterGenExtensions
 {
 /// <summary>
 /// Contrast Adaptive Sharpen.
 /// </summary>
 public static CasFilterGen CasFilterGen(this ImageMap input0) => new CasFilterGen(input0);
-/// <summary>
-/// Contrast Adaptive Sharpen.
-/// </summary>
-public static CasFilterGen CasFilterGen(this ImageMap input0,CasFilterGenConfig config)
-{
-var result = new CasFilterGen(input0);
-if(config?.strength != null) result.strength(config.strength.Value);
-if(config?.planes != null) result.planes(config.planes.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class CasFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the sharpening strength (from 0 to 1) (default 0)
-/// </summary>
-public float? strength { get; set; }
 /// <summary>
 ///  set what planes to filter (default 7)
 /// </summary>
-public CasFilterGenPlanes? planes { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum CasFilterGenPlanes
 {
 }

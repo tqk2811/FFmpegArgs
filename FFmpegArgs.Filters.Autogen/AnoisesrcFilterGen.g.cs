@@ -1,8 +1,11 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... anoisesrc         |->A       Generate a noise audio signal.
+/// </summary>
 public class AnoisesrcFilterGen : SourceAudioFilter
 {
-internal AnoisesrcFilterGen(FilterGraph input) : base("anoisesrc",input) { AddMapOut(); }
+internal AnoisesrcFilterGen(IFilterGraph input) : base("anoisesrc",input) { AddMapOut(); }
 /// <summary>
 ///  set sample rate (from 15 to INT_MAX) (default 48000)
 /// </summary>
@@ -40,96 +43,105 @@ public AnoisesrcFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1
 /// </summary>
 public AnoisesrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,1,INT_MAX);
 }
+/// <summary>
+/// </summary>
 public static class AnoisesrcFilterGenExtensions
 {
 /// <summary>
 /// Generate a noise audio signal.
 /// </summary>
-public static AnoisesrcFilterGen AnoisesrcFilterGen(this FilterGraph input0) => new AnoisesrcFilterGen(input0);
-/// <summary>
-/// Generate a noise audio signal.
-/// </summary>
-public static AnoisesrcFilterGen AnoisesrcFilterGen(this FilterGraph input0,AnoisesrcFilterGenConfig config)
-{
-var result = new AnoisesrcFilterGen(input0);
-if(config?.sample_rate != null) result.sample_rate(config.sample_rate.Value);
-if(config?.r != null) result.r(config.r.Value);
-if(config?.amplitude != null) result.amplitude(config.amplitude.Value);
-if(config?.duration != null) result.duration(config.duration.Value);
-if(config?.color != null) result.color(config.color.Value);
-if(config?.colour != null) result.colour(config.colour.Value);
-if(config?.c != null) result.c(config.c.Value);
-if(config?.seed != null) result.seed(config.seed.Value);
-if(config?.nb_samples != null) result.nb_samples(config.nb_samples.Value);
-return result;
+public static AnoisesrcFilterGen AnoisesrcFilterGen(this IFilterGraph input0) => new AnoisesrcFilterGen(input0);
 }
-}
-public class AnoisesrcFilterGenConfig
-{
-/// <summary>
-///  set sample rate (from 15 to INT_MAX) (default 48000)
-/// </summary>
-public int? sample_rate { get; set; }
-/// <summary>
-///  set sample rate (from 15 to INT_MAX) (default 48000)
-/// </summary>
-public int? r { get; set; }
-/// <summary>
-///  set amplitude (from 0 to 1) (default 1)
-/// </summary>
-public double? amplitude { get; set; }
-/// <summary>
-///  set duration (default 0)
-/// </summary>
-public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)
 /// </summary>
-public AnoisesrcFilterGenColor? color { get; set; }
-/// <summary>
-///  set noise color (from 0 to 5) (default white)
-/// </summary>
-public AnoisesrcFilterGenColour? colour { get; set; }
-/// <summary>
-///  set noise color (from 0 to 5) (default white)
-/// </summary>
-public AnoisesrcFilterGenC? c { get; set; }
-/// <summary>
-///  set random seed (from -1 to UINT32_MAX) (default -1)
-/// </summary>
-public long? seed { get; set; }
-/// <summary>
-///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
-/// </summary>
-public int? nb_samples { get; set; }
-}
 public enum AnoisesrcFilterGenColor
 {
+/// <summary>
+/// white           0            ..F.A......
+/// </summary>
 [Name("white")] white,
+/// <summary>
+/// pink            1            ..F.A......
+/// </summary>
 [Name("pink")] pink,
+/// <summary>
+/// brown           2            ..F.A......
+/// </summary>
 [Name("brown")] brown,
+/// <summary>
+/// blue            3            ..F.A......
+/// </summary>
 [Name("blue")] blue,
+/// <summary>
+/// violet          4            ..F.A......
+/// </summary>
 [Name("violet")] violet,
+/// <summary>
+/// velvet          5            ..F.A......
+/// </summary>
 [Name("velvet")] velvet,
 }
 
+/// <summary>
+///  set noise color (from 0 to 5) (default white)
+/// </summary>
 public enum AnoisesrcFilterGenColour
 {
+/// <summary>
+/// white           0            ..F.A......
+/// </summary>
 [Name("white")] white,
+/// <summary>
+/// pink            1            ..F.A......
+/// </summary>
 [Name("pink")] pink,
+/// <summary>
+/// brown           2            ..F.A......
+/// </summary>
 [Name("brown")] brown,
+/// <summary>
+/// blue            3            ..F.A......
+/// </summary>
 [Name("blue")] blue,
+/// <summary>
+/// violet          4            ..F.A......
+/// </summary>
 [Name("violet")] violet,
+/// <summary>
+/// velvet          5            ..F.A......
+/// </summary>
 [Name("velvet")] velvet,
 }
 
+/// <summary>
+///  set noise color (from 0 to 5) (default white)
+/// </summary>
 public enum AnoisesrcFilterGenC
 {
+/// <summary>
+/// white           0            ..F.A......
+/// </summary>
 [Name("white")] white,
+/// <summary>
+/// pink            1            ..F.A......
+/// </summary>
 [Name("pink")] pink,
+/// <summary>
+/// brown           2            ..F.A......
+/// </summary>
 [Name("brown")] brown,
+/// <summary>
+/// blue            3            ..F.A......
+/// </summary>
 [Name("blue")] blue,
+/// <summary>
+/// violet          4            ..F.A......
+/// </summary>
 [Name("violet")] violet,
+/// <summary>
+/// velvet          5            ..F.A......
+/// </summary>
 [Name("velvet")] velvet,
 }
 

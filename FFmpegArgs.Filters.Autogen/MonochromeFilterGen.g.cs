@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC monochrome        V->V       Convert video to gray using custom color filter.
+/// </summary>
 public class MonochromeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal MonochromeFilterGen(ImageMap input) : base("monochrome",input) { AddMapOut(); }
@@ -20,45 +23,13 @@ public MonochromeFilterGen size(float size) => this.SetOptionRange("size", size,
 /// </summary>
 public MonochromeFilterGen high(float high) => this.SetOptionRange("high", high,0,1);
 }
+/// <summary>
+/// </summary>
 public static class MonochromeFilterGenExtensions
 {
 /// <summary>
 /// Convert video to gray using custom color filter.
 /// </summary>
 public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input0) => new MonochromeFilterGen(input0);
-/// <summary>
-/// Convert video to gray using custom color filter.
-/// </summary>
-public static MonochromeFilterGen MonochromeFilterGen(this ImageMap input0,MonochromeFilterGenConfig config)
-{
-var result = new MonochromeFilterGen(input0);
-if(config?.cb != null) result.cb(config.cb.Value);
-if(config?.cr != null) result.cr(config.cr.Value);
-if(config?.size != null) result.size(config.size.Value);
-if(config?.high != null) result.high(config.high.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class MonochromeFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the chroma blue spot (from -1 to 1) (default 0)
-/// </summary>
-public float? cb { get; set; }
-/// <summary>
-///  set the chroma red spot (from -1 to 1) (default 0)
-/// </summary>
-public float? cr { get; set; }
-/// <summary>
-///  set the color filter size (from 0.1 to 10) (default 1)
-/// </summary>
-public float? size { get; set; }
-/// <summary>
-///  set the highlights strength (from 0 to 1) (default 0)
-/// </summary>
-public float? high { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

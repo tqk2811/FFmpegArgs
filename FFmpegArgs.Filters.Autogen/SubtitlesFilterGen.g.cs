@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... subtitles         V->V       Render text subtitles onto input video using the libass library.
+/// </summary>
 public class SubtitlesFilterGen : ImageToImageFilter
 {
 internal SubtitlesFilterGen(ImageMap input) : base("subtitles",input) { AddMapOut(); }
@@ -36,62 +39,13 @@ public SubtitlesFilterGen si(int si) => this.SetOptionRange("si", si,-1,INT_MAX)
 /// </summary>
 public SubtitlesFilterGen force_style(string force_style) => this.SetOption("force_style",force_style);
 }
+/// <summary>
+/// </summary>
 public static class SubtitlesFilterGenExtensions
 {
 /// <summary>
 /// Render text subtitles onto input video using the libass library.
 /// </summary>
 public static SubtitlesFilterGen SubtitlesFilterGen(this ImageMap input0) => new SubtitlesFilterGen(input0);
-/// <summary>
-/// Render text subtitles onto input video using the libass library.
-/// </summary>
-public static SubtitlesFilterGen SubtitlesFilterGen(this ImageMap input0,SubtitlesFilterGenConfig config)
-{
-var result = new SubtitlesFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.filename)) result.filename(config.filename);
-if(config?.original_size != null) result.original_size(config.original_size.Value);
-if(!string.IsNullOrWhiteSpace(config?.fontsdir)) result.fontsdir(config.fontsdir);
-if(config?.alpha != null) result.alpha(config.alpha.Value);
-if(!string.IsNullOrWhiteSpace(config?.charenc)) result.charenc(config.charenc);
-if(config?.stream_index != null) result.stream_index(config.stream_index.Value);
-if(config?.si != null) result.si(config.si.Value);
-if(!string.IsNullOrWhiteSpace(config?.force_style)) result.force_style(config.force_style);
-return result;
-}
-}
-public class SubtitlesFilterGenConfig
-{
-/// <summary>
-///  set the filename of file to read
-/// </summary>
-public string filename { get; set; }
-/// <summary>
-///  set the size of the original video (used to scale fonts)
-/// </summary>
-public Size? original_size { get; set; }
-/// <summary>
-///  set the directory containing the fonts to read
-/// </summary>
-public string fontsdir { get; set; }
-/// <summary>
-///  enable processing of alpha channel (default false)
-/// </summary>
-public bool? alpha { get; set; }
-/// <summary>
-///  set input character encoding
-/// </summary>
-public string charenc { get; set; }
-/// <summary>
-///  set stream index (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? stream_index { get; set; }
-/// <summary>
-///  set stream index (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? si { get; set; }
-/// <summary>
-///  force subtitle style
-/// </summary>
-public string force_style { get; set; }
 }
 }

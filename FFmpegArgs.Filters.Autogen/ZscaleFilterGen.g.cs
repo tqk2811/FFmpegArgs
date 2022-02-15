@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ..C zscale            V->V       Apply resizing, colorspace and bit depth conversion.
+/// </summary>
 public class ZscaleFilterGen : ImageToImageFilter,ICommandSupport
 {
 internal ZscaleFilterGen(ImageMap input) : base("zscale",input) { AddMapOut(); }
@@ -112,480 +115,1128 @@ public ZscaleFilterGen param_a(double param_a) => this.SetOptionRange("param_a",
 /// </summary>
 public ZscaleFilterGen param_b(double param_b) => this.SetOptionRange("param_b", param_b,-DBL_MAX,DBL_MAX);
 }
+/// <summary>
+/// </summary>
 public static class ZscaleFilterGenExtensions
 {
 /// <summary>
 /// Apply resizing, colorspace and bit depth conversion.
 /// </summary>
 public static ZscaleFilterGen ZscaleFilterGen(this ImageMap input0) => new ZscaleFilterGen(input0);
-/// <summary>
-/// Apply resizing, colorspace and bit depth conversion.
-/// </summary>
-public static ZscaleFilterGen ZscaleFilterGen(this ImageMap input0,ZscaleFilterGenConfig config)
-{
-var result = new ZscaleFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
-if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
-if(!string.IsNullOrWhiteSpace(config?.size)) result.size(config.size);
-if(config?.dither != null) result.dither(config.dither.Value);
-if(config?.filter != null) result.filter(config.filter.Value);
-if(config?.out_range != null) result.out_range(config.out_range.Value);
-if(config?.range != null) result.range(config.range.Value);
-if(config?.r != null) result.r(config.r.Value);
-if(config?.primaries != null) result.primaries(config.primaries.Value);
-if(config?.transfer != null) result.transfer(config.transfer.Value);
-if(config?.matrix != null) result.matrix(config.matrix.Value);
-if(config?.in_range != null) result.in_range(config.in_range.Value);
-if(config?.rangein != null) result.rangein(config.rangein.Value);
-if(config?.rin != null) result.rin(config.rin.Value);
-if(config?.primariesin != null) result.primariesin(config.primariesin.Value);
-if(config?.pin != null) result.pin(config.pin.Value);
-if(config?.transferin != null) result.transferin(config.transferin.Value);
-if(config?.tin != null) result.tin(config.tin.Value);
-if(config?.matrixin != null) result.matrixin(config.matrixin.Value);
-if(config?.min != null) result.min(config.min.Value);
-if(config?.chromal != null) result.chromal(config.chromal.Value);
-if(config?.chromalin != null) result.chromalin(config.chromalin.Value);
-if(config?.cin != null) result.cin(config.cin.Value);
-if(config?.npl != null) result.npl(config.npl.Value);
-if(config?.agamma != null) result.agamma(config.agamma.Value);
-if(config?.param_a != null) result.param_a(config.param_a.Value);
-if(config?.param_b != null) result.param_b(config.param_b.Value);
-return result;
 }
-}
-public class ZscaleFilterGenConfig
-{
-/// <summary>
-///  Output video width
-/// </summary>
-public string width { get; set; }
-/// <summary>
-///  Output video height
-/// </summary>
-public string height { get; set; }
-/// <summary>
-///  set video size
-/// </summary>
-public string size { get; set; }
 /// <summary>
 ///  set dither type (from 0 to 3) (default none)
 /// </summary>
-public ZscaleFilterGenDither? dither { get; set; }
-/// <summary>
-///  set filter type (from 0 to 5) (default bilinear)
-/// </summary>
-public ZscaleFilterGenFilter? filter { get; set; }
-/// <summary>
-///  set color range (from -1 to 1) (default input)
-/// </summary>
-public ZscaleFilterGenOut_range? out_range { get; set; }
-/// <summary>
-///  set color range (from -1 to 1) (default input)
-/// </summary>
-public ZscaleFilterGenRange? range { get; set; }
-/// <summary>
-///  set color range (from -1 to 1) (default input)
-/// </summary>
-public ZscaleFilterGenR? r { get; set; }
-/// <summary>
-///  set color primaries (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenPrimaries? primaries { get; set; }
-/// <summary>
-///  set transfer characteristic (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenTransfer? transfer { get; set; }
-/// <summary>
-///  set colorspace matrix (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenMatrix? matrix { get; set; }
-/// <summary>
-///  set input color range (from -1 to 1) (default input)
-/// </summary>
-public ZscaleFilterGenIn_range? in_range { get; set; }
-/// <summary>
-///  set input color range (from -1 to 1) (default input)
-/// </summary>
-public ZscaleFilterGenRangein? rangein { get; set; }
-/// <summary>
-///  set input color range (from -1 to 1) (default input)
-/// </summary>
-public ZscaleFilterGenRin? rin { get; set; }
-/// <summary>
-///  set input color primaries (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenPrimariesin? primariesin { get; set; }
-/// <summary>
-///  set input color primaries (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenPin? pin { get; set; }
-/// <summary>
-///  set input transfer characteristic (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenTransferin? transferin { get; set; }
-/// <summary>
-///  set input transfer characteristic (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenTin? tin { get; set; }
-/// <summary>
-///  set input colorspace matrix (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenMatrixin? matrixin { get; set; }
-/// <summary>
-///  set input colorspace matrix (from -1 to INT_MAX) (default input)
-/// </summary>
-public ZscaleFilterGenMin? min { get; set; }
-/// <summary>
-///  set output chroma location (from -1 to 5) (default input)
-/// </summary>
-public ZscaleFilterGenChromal? chromal { get; set; }
-/// <summary>
-///  set input chroma location (from -1 to 5) (default input)
-/// </summary>
-public ZscaleFilterGenChromalin? chromalin { get; set; }
-/// <summary>
-///  set input chroma location (from -1 to 5) (default input)
-/// </summary>
-public ZscaleFilterGenCin? cin { get; set; }
-/// <summary>
-///  set nominal peak luminance (from 0 to DBL_MAX) (default nan)
-/// </summary>
-public double? npl { get; set; }
-/// <summary>
-///  allow approximate gamma (default true)
-/// </summary>
-public bool? agamma { get; set; }
-/// <summary>
-///  parameter A, which is parameter "b" for bicubic, and the number of filter taps for lanczos (from -DBL_MAX to DBL_MAX) (default nan)
-/// </summary>
-public double? param_a { get; set; }
-/// <summary>
-///  parameter B, which is parameter "c" for bicubic (from -DBL_MAX to DBL_MAX) (default nan)
-/// </summary>
-public double? param_b { get; set; }
-}
 public enum ZscaleFilterGenDither
 {
+/// <summary>
+/// none            0            ..FV.......
+/// </summary>
 [Name("none")] none,
+/// <summary>
+/// ordered         1            ..FV.......
+/// </summary>
 [Name("ordered")] ordered,
+/// <summary>
+/// random          2            ..FV.......
+/// </summary>
 [Name("random")] random,
+/// <summary>
+/// error_diffusion 3            ..FV.......
+/// </summary>
 [Name("error_diffusion")] error_diffusion,
 }
 
+/// <summary>
+///  set filter type (from 0 to 5) (default bilinear)
+/// </summary>
 public enum ZscaleFilterGenFilter
 {
+/// <summary>
+/// point           0            ..FV.......
+/// </summary>
 [Name("point")] point,
+/// <summary>
+/// bilinear        1            ..FV.......
+/// </summary>
 [Name("bilinear")] bilinear,
+/// <summary>
+/// bicubic         2            ..FV.......
+/// </summary>
 [Name("bicubic")] bicubic,
+/// <summary>
+/// spline16        3            ..FV.......
+/// </summary>
 [Name("spline16")] spline16,
+/// <summary>
+/// spline36        4            ..FV.......
+/// </summary>
 [Name("spline36")] spline36,
+/// <summary>
+/// lanczos         5            ..FV.......
+/// </summary>
 [Name("lanczos")] lanczos,
 }
 
+/// <summary>
+///  set color range (from -1 to 1) (default input)
+/// </summary>
 public enum ZscaleFilterGenOut_range
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// limited         0            ..FV.......
+/// </summary>
 [Name("limited")] limited,
+/// <summary>
+/// full            1            ..FV.......
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// unknown         -1           ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// tv              0            ..FV.......
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// pc              1            ..FV.......
+/// </summary>
 [Name("pc")] pc,
 }
 
+/// <summary>
+///  set color range (from -1 to 1) (default input)
+/// </summary>
 public enum ZscaleFilterGenRange
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// limited         0            ..FV.......
+/// </summary>
 [Name("limited")] limited,
+/// <summary>
+/// full            1            ..FV.......
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// unknown         -1           ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// tv              0            ..FV.......
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// pc              1            ..FV.......
+/// </summary>
 [Name("pc")] pc,
 }
 
+/// <summary>
+///  set color range (from -1 to 1) (default input)
+/// </summary>
 public enum ZscaleFilterGenR
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// limited         0            ..FV.......
+/// </summary>
 [Name("limited")] limited,
+/// <summary>
+/// full            1            ..FV.......
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// unknown         -1           ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// tv              0            ..FV.......
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// pc              1            ..FV.......
+/// </summary>
 [Name("pc")] pc,
 }
 
+/// <summary>
+///  set color primaries (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenPrimaries
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 170m            6            ..FV.......
+/// </summary>
 [Name("170m")] _170m,
+/// <summary>
+/// 240m            7            ..FV.......
+/// </summary>
 [Name("240m")] _240m,
+/// <summary>
+/// 2020            9            ..FV.......
+/// </summary>
 [Name("2020")] _2020,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// film            8            ..FV.......
+/// </summary>
 [Name("film")] film,
+/// <summary>
+/// bt2020          9            ..FV.......
+/// </summary>
 [Name("bt2020")] bt2020,
+/// <summary>
+/// smpte428        10           ..FV.......
+/// </summary>
 [Name("smpte428")] smpte428,
+/// <summary>
+/// smpte431        11           ..FV.......
+/// </summary>
 [Name("smpte431")] smpte431,
+/// <summary>
+/// smpte432        12           ..FV.......
+/// </summary>
 [Name("smpte432")] smpte432,
+/// <summary>
+/// jedec-p22       22           ..FV.......
+/// </summary>
 [Name("jedec-p22")] jedec_p22,
+/// <summary>
+/// ebu3213         22           ..FV.......
+/// </summary>
 [Name("ebu3213")] ebu3213,
 }
 
+/// <summary>
+///  set transfer characteristic (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenTransfer
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 601             6            ..FV.......
+/// </summary>
 [Name("601")] _601,
+/// <summary>
+/// linear          8            ..FV.......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// 2020_10         14           ..FV.......
+/// </summary>
 [Name("2020_10")] _2020_10,
+/// <summary>
+/// 2020_12         15           ..FV.......
+/// </summary>
 [Name("2020_12")] _2020_12,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// log100          9            ..FV.......
+/// </summary>
 [Name("log100")] log100,
+/// <summary>
+/// log316          10           ..FV.......
+/// </summary>
 [Name("log316")] log316,
+/// <summary>
+/// bt2020-10       14           ..FV.......
+/// </summary>
 [Name("bt2020-10")] bt2020_10,
+/// <summary>
+/// bt2020-12       15           ..FV.......
+/// </summary>
 [Name("bt2020-12")] bt2020_12,
+/// <summary>
+/// smpte2084       16           ..FV.......
+/// </summary>
 [Name("smpte2084")] smpte2084,
+/// <summary>
+/// iec61966-2-4    11           ..FV.......
+/// </summary>
 [Name("iec61966-2-4")] iec61966_2_4,
+/// <summary>
+/// iec61966-2-1    13           ..FV.......
+/// </summary>
 [Name("iec61966-2-1")] iec61966_2_1,
+/// <summary>
+/// arib-std-b67    18           ..FV.......
+/// </summary>
 [Name("arib-std-b67")] arib_std_b67,
 }
 
+/// <summary>
+///  set colorspace matrix (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenMatrix
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 470bg           5            ..FV.......
+/// </summary>
 [Name("470bg")] _470bg,
+/// <summary>
+/// 170m            6            ..FV.......
+/// </summary>
 [Name("170m")] _170m,
+/// <summary>
+/// 2020_ncl        9            ..FV.......
+/// </summary>
 [Name("2020_ncl")] _2020_ncl,
+/// <summary>
+/// 2020_cl         10           ..FV.......
+/// </summary>
 [Name("2020_cl")] _2020_cl,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// gbr             0            ..FV.......
+/// </summary>
 [Name("gbr")] gbr,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// fcc             4            ..FV.......
+/// </summary>
 [Name("fcc")] fcc,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte2400m      7            ..FV.......
+/// </summary>
 [Name("smpte2400m")] smpte2400m,
+/// <summary>
+/// ycgco           8            ..FV.......
+/// </summary>
 [Name("ycgco")] ycgco,
+/// <summary>
+/// bt2020nc        9            ..FV.......
+/// </summary>
 [Name("bt2020nc")] bt2020nc,
+/// <summary>
+/// bt2020c         10           ..FV.......
+/// </summary>
 [Name("bt2020c")] bt2020c,
+/// <summary>
+/// chroma-derived-nc 12           ..FV.......
+/// </summary>
 [Name("chroma-derived-nc")] chroma_derived_nc,
+/// <summary>
+/// chroma-derived-c 13           ..FV.......
+/// </summary>
 [Name("chroma-derived-c")] chroma_derived_c,
+/// <summary>
+/// ictcp           14           ..FV.......
+/// </summary>
 [Name("ictcp")] ictcp,
 }
 
+/// <summary>
+///  set input color range (from -1 to 1) (default input)
+/// </summary>
 public enum ZscaleFilterGenIn_range
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// limited         0            ..FV.......
+/// </summary>
 [Name("limited")] limited,
+/// <summary>
+/// full            1            ..FV.......
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// unknown         -1           ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// tv              0            ..FV.......
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// pc              1            ..FV.......
+/// </summary>
 [Name("pc")] pc,
 }
 
+/// <summary>
+///  set input color range (from -1 to 1) (default input)
+/// </summary>
 public enum ZscaleFilterGenRangein
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// limited         0            ..FV.......
+/// </summary>
 [Name("limited")] limited,
+/// <summary>
+/// full            1            ..FV.......
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// unknown         -1           ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// tv              0            ..FV.......
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// pc              1            ..FV.......
+/// </summary>
 [Name("pc")] pc,
 }
 
+/// <summary>
+///  set input color range (from -1 to 1) (default input)
+/// </summary>
 public enum ZscaleFilterGenRin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// limited         0            ..FV.......
+/// </summary>
 [Name("limited")] limited,
+/// <summary>
+/// full            1            ..FV.......
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// unknown         -1           ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// tv              0            ..FV.......
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// pc              1            ..FV.......
+/// </summary>
 [Name("pc")] pc,
 }
 
+/// <summary>
+///  set input color primaries (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenPrimariesin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 170m            6            ..FV.......
+/// </summary>
 [Name("170m")] _170m,
+/// <summary>
+/// 240m            7            ..FV.......
+/// </summary>
 [Name("240m")] _240m,
+/// <summary>
+/// 2020            9            ..FV.......
+/// </summary>
 [Name("2020")] _2020,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// film            8            ..FV.......
+/// </summary>
 [Name("film")] film,
+/// <summary>
+/// bt2020          9            ..FV.......
+/// </summary>
 [Name("bt2020")] bt2020,
+/// <summary>
+/// smpte428        10           ..FV.......
+/// </summary>
 [Name("smpte428")] smpte428,
+/// <summary>
+/// smpte431        11           ..FV.......
+/// </summary>
 [Name("smpte431")] smpte431,
+/// <summary>
+/// smpte432        12           ..FV.......
+/// </summary>
 [Name("smpte432")] smpte432,
+/// <summary>
+/// jedec-p22       22           ..FV.......
+/// </summary>
 [Name("jedec-p22")] jedec_p22,
+/// <summary>
+/// ebu3213         22           ..FV.......
+/// </summary>
 [Name("ebu3213")] ebu3213,
 }
 
+/// <summary>
+///  set input color primaries (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenPin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 170m            6            ..FV.......
+/// </summary>
 [Name("170m")] _170m,
+/// <summary>
+/// 240m            7            ..FV.......
+/// </summary>
 [Name("240m")] _240m,
+/// <summary>
+/// 2020            9            ..FV.......
+/// </summary>
 [Name("2020")] _2020,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// film            8            ..FV.......
+/// </summary>
 [Name("film")] film,
+/// <summary>
+/// bt2020          9            ..FV.......
+/// </summary>
 [Name("bt2020")] bt2020,
+/// <summary>
+/// smpte428        10           ..FV.......
+/// </summary>
 [Name("smpte428")] smpte428,
+/// <summary>
+/// smpte431        11           ..FV.......
+/// </summary>
 [Name("smpte431")] smpte431,
+/// <summary>
+/// smpte432        12           ..FV.......
+/// </summary>
 [Name("smpte432")] smpte432,
+/// <summary>
+/// jedec-p22       22           ..FV.......
+/// </summary>
 [Name("jedec-p22")] jedec_p22,
+/// <summary>
+/// ebu3213         22           ..FV.......
+/// </summary>
 [Name("ebu3213")] ebu3213,
 }
 
+/// <summary>
+///  set input transfer characteristic (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenTransferin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 601             6            ..FV.......
+/// </summary>
 [Name("601")] _601,
+/// <summary>
+/// linear          8            ..FV.......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// 2020_10         14           ..FV.......
+/// </summary>
 [Name("2020_10")] _2020_10,
+/// <summary>
+/// 2020_12         15           ..FV.......
+/// </summary>
 [Name("2020_12")] _2020_12,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// log100          9            ..FV.......
+/// </summary>
 [Name("log100")] log100,
+/// <summary>
+/// log316          10           ..FV.......
+/// </summary>
 [Name("log316")] log316,
+/// <summary>
+/// bt2020-10       14           ..FV.......
+/// </summary>
 [Name("bt2020-10")] bt2020_10,
+/// <summary>
+/// bt2020-12       15           ..FV.......
+/// </summary>
 [Name("bt2020-12")] bt2020_12,
+/// <summary>
+/// smpte2084       16           ..FV.......
+/// </summary>
 [Name("smpte2084")] smpte2084,
+/// <summary>
+/// iec61966-2-4    11           ..FV.......
+/// </summary>
 [Name("iec61966-2-4")] iec61966_2_4,
+/// <summary>
+/// iec61966-2-1    13           ..FV.......
+/// </summary>
 [Name("iec61966-2-1")] iec61966_2_1,
+/// <summary>
+/// arib-std-b67    18           ..FV.......
+/// </summary>
 [Name("arib-std-b67")] arib_std_b67,
 }
 
+/// <summary>
+///  set input transfer characteristic (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenTin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 601             6            ..FV.......
+/// </summary>
 [Name("601")] _601,
+/// <summary>
+/// linear          8            ..FV.......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// 2020_10         14           ..FV.......
+/// </summary>
 [Name("2020_10")] _2020_10,
+/// <summary>
+/// 2020_12         15           ..FV.......
+/// </summary>
 [Name("2020_12")] _2020_12,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// log100          9            ..FV.......
+/// </summary>
 [Name("log100")] log100,
+/// <summary>
+/// log316          10           ..FV.......
+/// </summary>
 [Name("log316")] log316,
+/// <summary>
+/// bt2020-10       14           ..FV.......
+/// </summary>
 [Name("bt2020-10")] bt2020_10,
+/// <summary>
+/// bt2020-12       15           ..FV.......
+/// </summary>
 [Name("bt2020-12")] bt2020_12,
+/// <summary>
+/// smpte2084       16           ..FV.......
+/// </summary>
 [Name("smpte2084")] smpte2084,
+/// <summary>
+/// iec61966-2-4    11           ..FV.......
+/// </summary>
 [Name("iec61966-2-4")] iec61966_2_4,
+/// <summary>
+/// iec61966-2-1    13           ..FV.......
+/// </summary>
 [Name("iec61966-2-1")] iec61966_2_1,
+/// <summary>
+/// arib-std-b67    18           ..FV.......
+/// </summary>
 [Name("arib-std-b67")] arib_std_b67,
 }
 
+/// <summary>
+///  set input colorspace matrix (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenMatrixin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 470bg           5            ..FV.......
+/// </summary>
 [Name("470bg")] _470bg,
+/// <summary>
+/// 170m            6            ..FV.......
+/// </summary>
 [Name("170m")] _170m,
+/// <summary>
+/// 2020_ncl        9            ..FV.......
+/// </summary>
 [Name("2020_ncl")] _2020_ncl,
+/// <summary>
+/// 2020_cl         10           ..FV.......
+/// </summary>
 [Name("2020_cl")] _2020_cl,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// gbr             0            ..FV.......
+/// </summary>
 [Name("gbr")] gbr,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// fcc             4            ..FV.......
+/// </summary>
 [Name("fcc")] fcc,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte2400m      7            ..FV.......
+/// </summary>
 [Name("smpte2400m")] smpte2400m,
+/// <summary>
+/// ycgco           8            ..FV.......
+/// </summary>
 [Name("ycgco")] ycgco,
+/// <summary>
+/// bt2020nc        9            ..FV.......
+/// </summary>
 [Name("bt2020nc")] bt2020nc,
+/// <summary>
+/// bt2020c         10           ..FV.......
+/// </summary>
 [Name("bt2020c")] bt2020c,
+/// <summary>
+/// chroma-derived-nc 12           ..FV.......
+/// </summary>
 [Name("chroma-derived-nc")] chroma_derived_nc,
+/// <summary>
+/// chroma-derived-c 13           ..FV.......
+/// </summary>
 [Name("chroma-derived-c")] chroma_derived_c,
+/// <summary>
+/// ictcp           14           ..FV.......
+/// </summary>
 [Name("ictcp")] ictcp,
 }
 
+/// <summary>
+///  set input colorspace matrix (from -1 to INT_MAX) (default input)
+/// </summary>
 public enum ZscaleFilterGenMin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// 709             1            ..FV.......
+/// </summary>
 [Name("709")] _709,
+/// <summary>
+/// unspecified     2            ..FV.......
+/// </summary>
 [Name("unspecified")] unspecified,
+/// <summary>
+/// 470bg           5            ..FV.......
+/// </summary>
 [Name("470bg")] _470bg,
+/// <summary>
+/// 170m            6            ..FV.......
+/// </summary>
 [Name("170m")] _170m,
+/// <summary>
+/// 2020_ncl        9            ..FV.......
+/// </summary>
 [Name("2020_ncl")] _2020_ncl,
+/// <summary>
+/// 2020_cl         10           ..FV.......
+/// </summary>
 [Name("2020_cl")] _2020_cl,
+/// <summary>
+/// unknown         2            ..FV.......
+/// </summary>
 [Name("unknown")] unknown,
+/// <summary>
+/// gbr             0            ..FV.......
+/// </summary>
 [Name("gbr")] gbr,
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// fcc             4            ..FV.......
+/// </summary>
 [Name("fcc")] fcc,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte2400m      7            ..FV.......
+/// </summary>
 [Name("smpte2400m")] smpte2400m,
+/// <summary>
+/// ycgco           8            ..FV.......
+/// </summary>
 [Name("ycgco")] ycgco,
+/// <summary>
+/// bt2020nc        9            ..FV.......
+/// </summary>
 [Name("bt2020nc")] bt2020nc,
+/// <summary>
+/// bt2020c         10           ..FV.......
+/// </summary>
 [Name("bt2020c")] bt2020c,
+/// <summary>
+/// chroma-derived-nc 12           ..FV.......
+/// </summary>
 [Name("chroma-derived-nc")] chroma_derived_nc,
+/// <summary>
+/// chroma-derived-c 13           ..FV.......
+/// </summary>
 [Name("chroma-derived-c")] chroma_derived_c,
+/// <summary>
+/// ictcp           14           ..FV.......
+/// </summary>
 [Name("ictcp")] ictcp,
 }
 
+/// <summary>
+///  set output chroma location (from -1 to 5) (default input)
+/// </summary>
 public enum ZscaleFilterGenChromal
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// left            0            ..FV.......
+/// </summary>
 [Name("left")] left,
+/// <summary>
+/// center          1            ..FV.......
+/// </summary>
 [Name("center")] center,
+/// <summary>
+/// topleft         2            ..FV.......
+/// </summary>
 [Name("topleft")] topleft,
+/// <summary>
+/// top             3            ..FV.......
+/// </summary>
 [Name("top")] top,
+/// <summary>
+/// bottomleft      4            ..FV.......
+/// </summary>
 [Name("bottomleft")] bottomleft,
+/// <summary>
+/// bottom          5            ..FV.......
+/// </summary>
 [Name("bottom")] bottom,
 }
 
+/// <summary>
+///  set input chroma location (from -1 to 5) (default input)
+/// </summary>
 public enum ZscaleFilterGenChromalin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// left            0            ..FV.......
+/// </summary>
 [Name("left")] left,
+/// <summary>
+/// center          1            ..FV.......
+/// </summary>
 [Name("center")] center,
+/// <summary>
+/// topleft         2            ..FV.......
+/// </summary>
 [Name("topleft")] topleft,
+/// <summary>
+/// top             3            ..FV.......
+/// </summary>
 [Name("top")] top,
+/// <summary>
+/// bottomleft      4            ..FV.......
+/// </summary>
 [Name("bottomleft")] bottomleft,
+/// <summary>
+/// bottom          5            ..FV.......
+/// </summary>
 [Name("bottom")] bottom,
 }
 
+/// <summary>
+///  set input chroma location (from -1 to 5) (default input)
+/// </summary>
 public enum ZscaleFilterGenCin
 {
+/// <summary>
+/// input           -1           ..FV.......
+/// </summary>
 [Name("input")] input,
+/// <summary>
+/// left            0            ..FV.......
+/// </summary>
 [Name("left")] left,
+/// <summary>
+/// center          1            ..FV.......
+/// </summary>
 [Name("center")] center,
+/// <summary>
+/// topleft         2            ..FV.......
+/// </summary>
 [Name("topleft")] topleft,
+/// <summary>
+/// top             3            ..FV.......
+/// </summary>
 [Name("top")] top,
+/// <summary>
+/// bottomleft      4            ..FV.......
+/// </summary>
 [Name("bottomleft")] bottomleft,
+/// <summary>
+/// bottom          5            ..FV.......
+/// </summary>
 [Name("bottom")] bottom,
 }
 

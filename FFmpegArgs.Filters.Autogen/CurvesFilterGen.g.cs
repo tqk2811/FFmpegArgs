@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC curves            V->V       Adjust components curves.
+/// </summary>
 public class CurvesFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal CurvesFilterGen(ImageMap input) : base("curves",input) { AddMapOut(); }
@@ -36,79 +39,63 @@ public CurvesFilterGen psfile(string psfile) => this.SetOption("psfile",psfile);
 /// </summary>
 public CurvesFilterGen plot(string plot) => this.SetOption("plot",plot);
 }
+/// <summary>
+/// </summary>
 public static class CurvesFilterGenExtensions
 {
 /// <summary>
 /// Adjust components curves.
 /// </summary>
 public static CurvesFilterGen CurvesFilterGen(this ImageMap input0) => new CurvesFilterGen(input0);
-/// <summary>
-/// Adjust components curves.
-/// </summary>
-public static CurvesFilterGen CurvesFilterGen(this ImageMap input0,CurvesFilterGenConfig config)
-{
-var result = new CurvesFilterGen(input0);
-if(config?.preset != null) result.preset(config.preset.Value);
-if(!string.IsNullOrWhiteSpace(config?.master)) result.master(config.master);
-if(!string.IsNullOrWhiteSpace(config?.red)) result.red(config.red);
-if(!string.IsNullOrWhiteSpace(config?.green)) result.green(config.green);
-if(!string.IsNullOrWhiteSpace(config?.blue)) result.blue(config.blue);
-if(!string.IsNullOrWhiteSpace(config?.all)) result.all(config.all);
-if(!string.IsNullOrWhiteSpace(config?.psfile)) result.psfile(config.psfile);
-if(!string.IsNullOrWhiteSpace(config?.plot)) result.plot(config.plot);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class CurvesFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  select a color curves preset (from 0 to 10) (default none)
 /// </summary>
-public CurvesFilterGenPreset? preset { get; set; }
-/// <summary>
-///  set master points coordinates
-/// </summary>
-public string master { get; set; }
-/// <summary>
-///  set red points coordinates
-/// </summary>
-public string red { get; set; }
-/// <summary>
-///  set green points coordinates
-/// </summary>
-public string green { get; set; }
-/// <summary>
-///  set blue points coordinates
-/// </summary>
-public string blue { get; set; }
-/// <summary>
-///  set points coordinates for all components
-/// </summary>
-public string all { get; set; }
-/// <summary>
-///  set Photoshop curves file name
-/// </summary>
-public string psfile { get; set; }
-/// <summary>
-///  save Gnuplot script of the curves in specified file
-/// </summary>
-public string plot { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum CurvesFilterGenPreset
 {
+/// <summary>
+/// none            0            ..FV.....T.
+/// </summary>
 [Name("none")] none,
+/// <summary>
+/// color_negative  1            ..FV.....T.
+/// </summary>
 [Name("color_negative")] color_negative,
+/// <summary>
+/// cross_process   2            ..FV.....T.
+/// </summary>
 [Name("cross_process")] cross_process,
+/// <summary>
+/// darker          3            ..FV.....T.
+/// </summary>
 [Name("darker")] darker,
+/// <summary>
+/// increase_contrast 4            ..FV.....T.
+/// </summary>
 [Name("increase_contrast")] increase_contrast,
+/// <summary>
+/// lighter         5            ..FV.....T.
+/// </summary>
 [Name("lighter")] lighter,
+/// <summary>
+/// linear_contrast 6            ..FV.....T.
+/// </summary>
 [Name("linear_contrast")] linear_contrast,
+/// <summary>
+/// medium_contrast 7            ..FV.....T.
+/// </summary>
 [Name("medium_contrast")] medium_contrast,
+/// <summary>
+/// negative        8            ..FV.....T.
+/// </summary>
 [Name("negative")] negative,
+/// <summary>
+/// strong_contrast 9            ..FV.....T.
+/// </summary>
 [Name("strong_contrast")] strong_contrast,
+/// <summary>
+/// vintage         10           ..FV.....T.
+/// </summary>
 [Name("vintage")] vintage,
 }
 

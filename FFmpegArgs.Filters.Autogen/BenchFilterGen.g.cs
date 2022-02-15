@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... bench             V->V       Benchmark part of a filtergraph.
+/// </summary>
 public class BenchFilterGen : ImageToImageFilter
 {
 internal BenchFilterGen(ImageMap input) : base("bench",input) { AddMapOut(); }
@@ -8,32 +11,27 @@ internal BenchFilterGen(ImageMap input) : base("bench",input) { AddMapOut(); }
 /// </summary>
 public BenchFilterGen action(BenchFilterGenAction action) => this.SetOption("action", action.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class BenchFilterGenExtensions
 {
 /// <summary>
 /// Benchmark part of a filtergraph.
 /// </summary>
 public static BenchFilterGen BenchFilterGen(this ImageMap input0) => new BenchFilterGen(input0);
-/// <summary>
-/// Benchmark part of a filtergraph.
-/// </summary>
-public static BenchFilterGen BenchFilterGen(this ImageMap input0,BenchFilterGenConfig config)
-{
-var result = new BenchFilterGen(input0);
-if(config?.action != null) result.action(config.action.Value);
-return result;
 }
-}
-public class BenchFilterGenConfig
-{
 /// <summary>
 ///  set action (from 0 to 1) (default start)
 /// </summary>
-public BenchFilterGenAction? action { get; set; }
-}
 public enum BenchFilterGenAction
 {
+/// <summary>
+/// start           0            ..FV....... start timer
+/// </summary>
 [Name("start")] start,
+/// <summary>
+/// stop            1            ..FV....... stop timer
+/// </summary>
 [Name("stop")] stop,
 }
 

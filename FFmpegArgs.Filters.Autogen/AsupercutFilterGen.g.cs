@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC asupercut         A->A       Cut super frequencies.
+/// </summary>
 public class AsupercutFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AsupercutFilterGen(AudioMap input) : base("asupercut",input) { AddMapOut(); }
@@ -16,40 +19,13 @@ public AsupercutFilterGen order(int order) => this.SetOptionRange("order", order
 /// </summary>
 public AsupercutFilterGen level(double level) => this.SetOptionRange("level", level,0,1);
 }
+/// <summary>
+/// </summary>
 public static class AsupercutFilterGenExtensions
 {
 /// <summary>
 /// Cut super frequencies.
 /// </summary>
 public static AsupercutFilterGen AsupercutFilterGen(this AudioMap input0) => new AsupercutFilterGen(input0);
-/// <summary>
-/// Cut super frequencies.
-/// </summary>
-public static AsupercutFilterGen AsupercutFilterGen(this AudioMap input0,AsupercutFilterGenConfig config)
-{
-var result = new AsupercutFilterGen(input0);
-if(config?.cutoff != null) result.cutoff(config.cutoff.Value);
-if(config?.order != null) result.order(config.order.Value);
-if(config?.level != null) result.level(config.level.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class AsupercutFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set cutoff frequency (from 20000 to 192000) (default 20000)
-/// </summary>
-public double? cutoff { get; set; }
-/// <summary>
-///  set filter order (from 3 to 20) (default 10)
-/// </summary>
-public int? order { get; set; }
-/// <summary>
-///  set input level (from 0 to 1) (default 1)
-/// </summary>
-public double? level { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

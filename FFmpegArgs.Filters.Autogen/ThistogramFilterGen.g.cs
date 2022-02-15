@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... thistogram        V->V       Compute and draw a temporal histogram.
+/// </summary>
 public class ThistogramFilterGen : ImageToImageFilter
 {
 internal ThistogramFilterGen(ImageMap input) : base("thistogram",input) { AddMapOut(); }
@@ -40,94 +43,88 @@ public ThistogramFilterGen ecolor(Color ecolor) => this.SetOption("ecolor",ecolo
 /// </summary>
 public ThistogramFilterGen slide(ThistogramFilterGenSlide slide) => this.SetOption("slide", slide.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class ThistogramFilterGenExtensions
 {
 /// <summary>
 /// Compute and draw a temporal histogram.
 /// </summary>
 public static ThistogramFilterGen ThistogramFilterGen(this ImageMap input0) => new ThistogramFilterGen(input0);
-/// <summary>
-/// Compute and draw a temporal histogram.
-/// </summary>
-public static ThistogramFilterGen ThistogramFilterGen(this ImageMap input0,ThistogramFilterGenConfig config)
-{
-var result = new ThistogramFilterGen(input0);
-if(config?.width != null) result.width(config.width.Value);
-if(config?.display_mode != null) result.display_mode(config.display_mode.Value);
-if(config?.levels_mode != null) result.levels_mode(config.levels_mode.Value);
-if(config?.m != null) result.m(config.m.Value);
-if(config?.components != null) result.components(config.components.Value);
-if(config?.bgopacity != null) result.bgopacity(config.bgopacity.Value);
-if(config?.envelope != null) result.envelope(config.envelope.Value);
-if(config?.ecolor != null) result.ecolor(config.ecolor.Value);
-if(config?.slide != null) result.slide(config.slide.Value);
-return result;
 }
-}
-public class ThistogramFilterGenConfig
-{
-/// <summary>
-///  set width (from 0 to 8192) (default 0)
-/// </summary>
-public int? width { get; set; }
 /// <summary>
 ///  set display mode (from 0 to 2) (default stack)
 /// </summary>
-public ThistogramFilterGenDisplay_mode? display_mode { get; set; }
-/// <summary>
-///  set levels mode (from 0 to 1) (default linear)
-/// </summary>
-public ThistogramFilterGenLevels_mode? levels_mode { get; set; }
-/// <summary>
-///  set levels mode (from 0 to 1) (default linear)
-/// </summary>
-public ThistogramFilterGenM? m { get; set; }
-/// <summary>
-///  set color components to display (from 1 to 15) (default 7)
-/// </summary>
-public int? components { get; set; }
-/// <summary>
-///  set background opacity (from 0 to 1) (default 0.9)
-/// </summary>
-public float? bgopacity { get; set; }
-/// <summary>
-///  display envelope (default false)
-/// </summary>
-public bool? envelope { get; set; }
-/// <summary>
-///  set envelope color (default "gold")
-/// </summary>
-public Color? ecolor { get; set; }
-/// <summary>
-///  set slide mode (from 0 to 4) (default replace)
-/// </summary>
-public ThistogramFilterGenSlide? slide { get; set; }
-}
 public enum ThistogramFilterGenDisplay_mode
 {
+/// <summary>
+/// overlay         0            ..FV.......
+/// </summary>
 [Name("overlay")] overlay,
+/// <summary>
+/// parade          1            ..FV.......
+/// </summary>
 [Name("parade")] parade,
+/// <summary>
+/// stack           2            ..FV.......
+/// </summary>
 [Name("stack")] stack,
 }
 
+/// <summary>
+///  set levels mode (from 0 to 1) (default linear)
+/// </summary>
 public enum ThistogramFilterGenLevels_mode
 {
+/// <summary>
+/// linear          0            ..FV.......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// logarithmic     1            ..FV.......
+/// </summary>
 [Name("logarithmic")] logarithmic,
 }
 
+/// <summary>
+///  set levels mode (from 0 to 1) (default linear)
+/// </summary>
 public enum ThistogramFilterGenM
 {
+/// <summary>
+/// linear          0            ..FV.......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// logarithmic     1            ..FV.......
+/// </summary>
 [Name("logarithmic")] logarithmic,
 }
 
+/// <summary>
+///  set slide mode (from 0 to 4) (default replace)
+/// </summary>
 public enum ThistogramFilterGenSlide
 {
+/// <summary>
+/// frame           0            ..FV....... draw new frames
+/// </summary>
 [Name("frame")] frame,
+/// <summary>
+/// replace         1            ..FV....... replace old columns with new
+/// </summary>
 [Name("replace")] replace,
+/// <summary>
+/// scroll          2            ..FV....... scroll from right to left
+/// </summary>
 [Name("scroll")] scroll,
+/// <summary>
+/// rscroll         3            ..FV....... scroll from left to right
+/// </summary>
 [Name("rscroll")] rscroll,
+/// <summary>
+/// picture         4            ..FV....... display graph in single frame
+/// </summary>
 [Name("picture")] picture,
 }
 

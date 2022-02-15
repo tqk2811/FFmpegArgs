@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... vpp_qsv           V->V       Quick Sync Video VPP.
+/// </summary>
 public class Vpp_qsvFilterGen : ImageToImageFilter
 {
 internal Vpp_qsvFilterGen(ImageMap input) : base("vpp_qsv",input) { AddMapOut(); }
@@ -72,123 +75,62 @@ public Vpp_qsvFilterGen height(string height) => this.SetOption("height",height)
 /// </summary>
 public Vpp_qsvFilterGen format(string format) => this.SetOption("format",format);
 }
+/// <summary>
+/// </summary>
 public static class Vpp_qsvFilterGenExtensions
 {
 /// <summary>
 /// Quick Sync Video VPP.
 /// </summary>
 public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input0) => new Vpp_qsvFilterGen(input0);
-/// <summary>
-/// Quick Sync Video VPP.
-/// </summary>
-public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input0,Vpp_qsvFilterGenConfig config)
-{
-var result = new Vpp_qsvFilterGen(input0);
-if(config?.deinterlace != null) result.deinterlace(config.deinterlace.Value);
-if(config?.denoise != null) result.denoise(config.denoise.Value);
-if(config?.detail != null) result.detail(config.detail.Value);
-if(config?.framerate != null) result.framerate(config.framerate);
-if(config?.procamp != null) result.procamp(config.procamp.Value);
-if(config?.hue != null) result.hue(config.hue.Value);
-if(config?.saturation != null) result.saturation(config.saturation.Value);
-if(config?.contrast != null) result.contrast(config.contrast.Value);
-if(config?.brightness != null) result.brightness(config.brightness.Value);
-if(config?.transpose != null) result.transpose(config.transpose.Value);
-if(!string.IsNullOrWhiteSpace(config?.cw)) result.cw(config.cw);
-if(!string.IsNullOrWhiteSpace(config?.ch)) result.ch(config.ch);
-if(!string.IsNullOrWhiteSpace(config?.cx)) result.cx(config.cx);
-if(!string.IsNullOrWhiteSpace(config?.cy)) result.cy(config.cy);
-if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
-if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
-if(!string.IsNullOrWhiteSpace(config?.format)) result.format(config.format);
-return result;
 }
-}
-public class Vpp_qsvFilterGenConfig
-{
 /// <summary>
 ///  deinterlace mode: 0=off, 1=bob, 2=advanced (from 0 to 2) (default 0)
 /// </summary>
-public Vpp_qsvFilterGenDeinterlace? deinterlace { get; set; }
-/// <summary>
-///  denoise level [0, 100] (from 0 to 100) (default 0)
-/// </summary>
-public int? denoise { get; set; }
-/// <summary>
-///  enhancement level [0, 100] (from 0 to 100) (default 0)
-/// </summary>
-public int? detail { get; set; }
-/// <summary>
-///  output framerate (from 0 to DBL_MAX) (default 0/1)
-/// </summary>
-public Rational framerate { get; set; }
-/// <summary>
-///  Enable ProcAmp (from 0 to 1) (default 0)
-/// </summary>
-public int? procamp { get; set; }
-/// <summary>
-///  ProcAmp hue (from -180 to 180) (default 0)
-/// </summary>
-public float? hue { get; set; }
-/// <summary>
-///  ProcAmp saturation (from 0 to 10) (default 1)
-/// </summary>
-public float? saturation { get; set; }
-/// <summary>
-///  ProcAmp contrast (from 0 to 10) (default 1)
-/// </summary>
-public float? contrast { get; set; }
-/// <summary>
-///  ProcAmp brightness (from -100 to 100) (default 0)
-/// </summary>
-public float? brightness { get; set; }
-/// <summary>
-///  set transpose direction (from -1 to 6) (default -1)
-/// </summary>
-public Vpp_qsvFilterGenTranspose? transpose { get; set; }
-/// <summary>
-///  set the width crop area expression (default "iw")
-/// </summary>
-public string cw { get; set; }
-/// <summary>
-///  set the height crop area expression (default "ih")
-/// </summary>
-public string ch { get; set; }
-/// <summary>
-///  set the x crop area expression (default "(in_w-out_w)/2")
-/// </summary>
-public string cx { get; set; }
-/// <summary>
-///  set the y crop area expression (default "(in_h-out_h)/2")
-/// </summary>
-public string cy { get; set; }
-/// <summary>
-///  Output video width (default "cw")
-/// </summary>
-public string width { get; set; }
-/// <summary>
-///  Output video height (default "w*ch/cw")
-/// </summary>
-public string height { get; set; }
-/// <summary>
-///  Output pixel format (default "same")
-/// </summary>
-public string format { get; set; }
-}
 public enum Vpp_qsvFilterGenDeinterlace
 {
+/// <summary>
+/// bob             1            ..FV....... Bob deinterlace mode.
+/// </summary>
 [Name("bob")] bob,
+/// <summary>
+/// advanced        2            ..FV....... Advanced deinterlace mode.
+/// </summary>
 [Name("advanced")] advanced,
 }
 
+/// <summary>
+///  set transpose direction (from -1 to 6) (default -1)
+/// </summary>
 public enum Vpp_qsvFilterGenTranspose
 {
+/// <summary>
+/// cclock_hflip    0            ..FV....... rotate counter-clockwise with horizontal flip
+/// </summary>
 [Name("cclock_hflip")] cclock_hflip,
+/// <summary>
+/// clock           1            ..FV....... rotate clockwise
+/// </summary>
 [Name("clock")] clock,
+/// <summary>
+/// cclock          2            ..FV....... rotate counter-clockwise
+/// </summary>
 [Name("cclock")] cclock,
+/// <summary>
+/// clock_hflip     3            ..FV....... rotate clockwise with horizontal flip
+/// </summary>
 [Name("clock_hflip")] clock_hflip,
+/// <summary>
+/// reversal        4            ..FV....... rotate by half-turn
+/// </summary>
 [Name("reversal")] reversal,
+/// <summary>
+/// hflip           5            ..FV....... flip horizontally
+/// </summary>
 [Name("hflip")] hflip,
+/// <summary>
+/// vflip           6            ..FV....... flip vertically
+/// </summary>
 [Name("vflip")] vflip,
 }
 

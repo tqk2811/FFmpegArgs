@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TS. fade              V->V       Fade in/out input video.
+/// </summary>
 public class FadeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal FadeFilterGen(ImageMap input) : base("fade",input) { AddMapOut(); }
@@ -32,65 +35,27 @@ public FadeFilterGen duration(TimeSpan duration) => this.SetOptionRange("duratio
 /// </summary>
 public FadeFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }
+/// <summary>
+/// </summary>
 public static class FadeFilterGenExtensions
 {
 /// <summary>
 /// Fade in/out input video.
 /// </summary>
 public static FadeFilterGen FadeFilterGen(this ImageMap input0) => new FadeFilterGen(input0);
-/// <summary>
-/// Fade in/out input video.
-/// </summary>
-public static FadeFilterGen FadeFilterGen(this ImageMap input0,FadeFilterGenConfig config)
-{
-var result = new FadeFilterGen(input0);
-if(config?.type != null) result.type(config.type.Value);
-if(config?.start_frame != null) result.start_frame(config.start_frame.Value);
-if(config?.nb_frames != null) result.nb_frames(config.nb_frames.Value);
-if(config?.alpha != null) result.alpha(config.alpha.Value);
-if(config?.start_time != null) result.start_time(config.start_time.Value);
-if(config?.duration != null) result.duration(config.duration.Value);
-if(config?.color != null) result.color(config.color.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class FadeFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set the fade direction (from 0 to 1) (default in)
 /// </summary>
-public FadeFilterGenType? type { get; set; }
-/// <summary>
-///  Number of the first frame to which to apply the effect. (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? start_frame { get; set; }
-/// <summary>
-///  Number of frames to which the effect should be applied. (from 1 to INT_MAX) (default 25)
-/// </summary>
-public int? nb_frames { get; set; }
-/// <summary>
-///  fade alpha if it is available on the input (default false)
-/// </summary>
-public bool? alpha { get; set; }
-/// <summary>
-///  Number of seconds of the beginning of the effect. (default 0)
-/// </summary>
-public TimeSpan? start_time { get; set; }
-/// <summary>
-///  Duration of the effect in seconds. (default 0)
-/// </summary>
-public TimeSpan? duration { get; set; }
-/// <summary>
-///  set color (default "black")
-/// </summary>
-public Color? color { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum FadeFilterGenType
 {
+/// <summary>
+/// in              0            ..FV....... fade-in
+/// </summary>
 [Name("in")] _in,
+/// <summary>
+/// out             1            ..FV....... fade-out
+/// </summary>
 [Name("out")] _out,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC rgbashift         V->V       Shift RGBA.
+/// </summary>
 public class RgbashiftFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal RgbashiftFilterGen(ImageMap input) : base("rgbashift",input) { AddMapOut(); }
@@ -40,75 +43,27 @@ public RgbashiftFilterGen av(int av) => this.SetOptionRange("av", av,-255,255);
 /// </summary>
 public RgbashiftFilterGen edge(RgbashiftFilterGenEdge edge) => this.SetOption("edge", edge.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class RgbashiftFilterGenExtensions
 {
 /// <summary>
 /// Shift RGBA.
 /// </summary>
 public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input0) => new RgbashiftFilterGen(input0);
-/// <summary>
-/// Shift RGBA.
-/// </summary>
-public static RgbashiftFilterGen RgbashiftFilterGen(this ImageMap input0,RgbashiftFilterGenConfig config)
-{
-var result = new RgbashiftFilterGen(input0);
-if(config?.rh != null) result.rh(config.rh.Value);
-if(config?.rv != null) result.rv(config.rv.Value);
-if(config?.gh != null) result.gh(config.gh.Value);
-if(config?.gv != null) result.gv(config.gv.Value);
-if(config?.bh != null) result.bh(config.bh.Value);
-if(config?.bv != null) result.bv(config.bv.Value);
-if(config?.ah != null) result.ah(config.ah.Value);
-if(config?.av != null) result.av(config.av.Value);
-if(config?.edge != null) result.edge(config.edge.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class RgbashiftFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  shift red horizontally (from -255 to 255) (default 0)
-/// </summary>
-public int? rh { get; set; }
-/// <summary>
-///  shift red vertically (from -255 to 255) (default 0)
-/// </summary>
-public int? rv { get; set; }
-/// <summary>
-///  shift green horizontally (from -255 to 255) (default 0)
-/// </summary>
-public int? gh { get; set; }
-/// <summary>
-///  shift green vertically (from -255 to 255) (default 0)
-/// </summary>
-public int? gv { get; set; }
-/// <summary>
-///  shift blue horizontally (from -255 to 255) (default 0)
-/// </summary>
-public int? bh { get; set; }
-/// <summary>
-///  shift blue vertically (from -255 to 255) (default 0)
-/// </summary>
-public int? bv { get; set; }
-/// <summary>
-///  shift alpha horizontally (from -255 to 255) (default 0)
-/// </summary>
-public int? ah { get; set; }
-/// <summary>
-///  shift alpha vertically (from -255 to 255) (default 0)
-/// </summary>
-public int? av { get; set; }
 /// <summary>
 ///  set edge operation (from 0 to 1) (default smear)
 /// </summary>
-public RgbashiftFilterGenEdge? edge { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum RgbashiftFilterGenEdge
 {
+/// <summary>
+/// smear           0            ..FV.....T.
+/// </summary>
 [Name("smear")] smear,
+/// <summary>
+/// wrap            1            ..FV.....T.
+/// </summary>
 [Name("wrap")] wrap,
 }
 

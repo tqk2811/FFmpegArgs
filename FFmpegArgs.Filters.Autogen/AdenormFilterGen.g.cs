@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC adenorm           A->A       Remedy denormals by adding extremely low-level noise.
+/// </summary>
 public class AdenormFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AdenormFilterGen(AudioMap input) : base("adenorm",input) { AddMapOut(); }
@@ -12,42 +15,35 @@ public AdenormFilterGen level(double level) => this.SetOptionRange("level", leve
 /// </summary>
 public AdenormFilterGen type(AdenormFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class AdenormFilterGenExtensions
 {
 /// <summary>
 /// Remedy denormals by adding extremely low-level noise.
 /// </summary>
 public static AdenormFilterGen AdenormFilterGen(this AudioMap input0) => new AdenormFilterGen(input0);
-/// <summary>
-/// Remedy denormals by adding extremely low-level noise.
-/// </summary>
-public static AdenormFilterGen AdenormFilterGen(this AudioMap input0,AdenormFilterGenConfig config)
-{
-var result = new AdenormFilterGen(input0);
-if(config?.level != null) result.level(config.level.Value);
-if(config?.type != null) result.type(config.type.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AdenormFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set level (from -451 to -90) (default -351)
-/// </summary>
-public double? level { get; set; }
 /// <summary>
 ///  set type (from 0 to 3) (default dc)
 /// </summary>
-public AdenormFilterGenType? type { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AdenormFilterGenType
 {
+/// <summary>
+/// dc              0            ..F.A....T.
+/// </summary>
 [Name("dc")] dc,
+/// <summary>
+/// ac              1            ..F.A....T.
+/// </summary>
 [Name("ac")] ac,
+/// <summary>
+/// square          2            ..F.A....T.
+/// </summary>
 [Name("square")] square,
+/// <summary>
+/// pulse           3            ..F.A....T.
+/// </summary>
 [Name("pulse")] pulse,
 }
 

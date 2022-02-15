@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... tpad              V->V       Temporarily pad video frames.
+/// </summary>
 public class TpadFilterGen : ImageToImageFilter
 {
 internal TpadFilterGen(ImageMap input) : base("tpad",input) { AddMapOut(); }
@@ -32,68 +35,42 @@ public TpadFilterGen stop_duration(TimeSpan stop_duration) => this.SetOptionRang
 /// </summary>
 public TpadFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }
+/// <summary>
+/// </summary>
 public static class TpadFilterGenExtensions
 {
 /// <summary>
 /// Temporarily pad video frames.
 /// </summary>
 public static TpadFilterGen TpadFilterGen(this ImageMap input0) => new TpadFilterGen(input0);
-/// <summary>
-/// Temporarily pad video frames.
-/// </summary>
-public static TpadFilterGen TpadFilterGen(this ImageMap input0,TpadFilterGenConfig config)
-{
-var result = new TpadFilterGen(input0);
-if(config?.start != null) result.start(config.start.Value);
-if(config?.stop != null) result.stop(config.stop.Value);
-if(config?.start_mode != null) result.start_mode(config.start_mode.Value);
-if(config?.stop_mode != null) result.stop_mode(config.stop_mode.Value);
-if(config?.start_duration != null) result.start_duration(config.start_duration.Value);
-if(config?.stop_duration != null) result.stop_duration(config.stop_duration.Value);
-if(config?.color != null) result.color(config.color.Value);
-return result;
 }
-}
-public class TpadFilterGenConfig
-{
-/// <summary>
-///  set the number of frames to delay input (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? start { get; set; }
-/// <summary>
-///  set the number of frames to add after input finished (from -1 to INT_MAX) (default 0)
-/// </summary>
-public int? stop { get; set; }
 /// <summary>
 ///  set the mode of added frames to start (from 0 to 1) (default add)
 /// </summary>
-public TpadFilterGenStart_mode? start_mode { get; set; }
-/// <summary>
-///  set the mode of added frames to end (from 0 to 1) (default add)
-/// </summary>
-public TpadFilterGenStop_mode? stop_mode { get; set; }
-/// <summary>
-///  set the duration to delay input (default 0)
-/// </summary>
-public TimeSpan? start_duration { get; set; }
-/// <summary>
-///  set the duration to pad input (default 0)
-/// </summary>
-public TimeSpan? stop_duration { get; set; }
-/// <summary>
-///  set the color of the added frames (default "black")
-/// </summary>
-public Color? color { get; set; }
-}
 public enum TpadFilterGenStart_mode
 {
+/// <summary>
+/// add             0            ..FV....... add solid-color frames
+/// </summary>
 [Name("add")] add,
+/// <summary>
+/// clone           1            ..FV....... clone first/last frame
+/// </summary>
 [Name("clone")] clone,
 }
 
+/// <summary>
+///  set the mode of added frames to end (from 0 to 1) (default add)
+/// </summary>
 public enum TpadFilterGenStop_mode
 {
+/// <summary>
+/// add             0            ..FV....... add solid-color frames
+/// </summary>
 [Name("add")] add,
+/// <summary>
+/// clone           1            ..FV....... clone first/last frame
+/// </summary>
 [Name("clone")] clone,
 }
 

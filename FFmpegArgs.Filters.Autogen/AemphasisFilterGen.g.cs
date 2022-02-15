@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC aemphasis         A->A       Audio emphasis.
+/// </summary>
 public class AemphasisFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AemphasisFilterGen(AudioMap input) : base("aemphasis",input) { AddMapOut(); }
@@ -20,63 +23,70 @@ public AemphasisFilterGen mode(AemphasisFilterGenMode mode) => this.SetOption("m
 /// </summary>
 public AemphasisFilterGen type(AemphasisFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class AemphasisFilterGenExtensions
 {
 /// <summary>
 /// Audio emphasis.
 /// </summary>
 public static AemphasisFilterGen AemphasisFilterGen(this AudioMap input0) => new AemphasisFilterGen(input0);
-/// <summary>
-/// Audio emphasis.
-/// </summary>
-public static AemphasisFilterGen AemphasisFilterGen(this AudioMap input0,AemphasisFilterGenConfig config)
-{
-var result = new AemphasisFilterGen(input0);
-if(config?.level_in != null) result.level_in(config.level_in.Value);
-if(config?.level_out != null) result.level_out(config.level_out.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.type != null) result.type(config.type.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AemphasisFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set input gain (from 0 to 64) (default 1)
-/// </summary>
-public double? level_in { get; set; }
-/// <summary>
-///  set output gain (from 0 to 64) (default 1)
-/// </summary>
-public double? level_out { get; set; }
 /// <summary>
 ///  set filter mode (from 0 to 1) (default reproduction)
 /// </summary>
-public AemphasisFilterGenMode? mode { get; set; }
-/// <summary>
-///  set filter type (from 0 to 8) (default cd)
-/// </summary>
-public AemphasisFilterGenType? type { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AemphasisFilterGenMode
 {
+/// <summary>
+/// reproduction    0            ..F.A....T.
+/// </summary>
 [Name("reproduction")] reproduction,
+/// <summary>
+/// production      1            ..F.A....T.
+/// </summary>
 [Name("production")] production,
 }
 
+/// <summary>
+///  set filter type (from 0 to 8) (default cd)
+/// </summary>
 public enum AemphasisFilterGenType
 {
+/// <summary>
+/// col             0            ..F.A....T. Columbia
+/// </summary>
 [Name("col")] col,
+/// <summary>
+/// emi             1            ..F.A....T. EMI
+/// </summary>
 [Name("emi")] emi,
+/// <summary>
+/// bsi             2            ..F.A....T. BSI (78RPM)
+/// </summary>
 [Name("bsi")] bsi,
+/// <summary>
+/// riaa            3            ..F.A....T. RIAA
+/// </summary>
 [Name("riaa")] riaa,
+/// <summary>
+/// cd              4            ..F.A....T. Compact Disc (CD)
+/// </summary>
 [Name("cd")] cd,
+/// <summary>
+/// 50fm            5            ..F.A....T. 50µs (FM)
+/// </summary>
 [Name("50fm")] _50fm,
+/// <summary>
+/// 75fm            6            ..F.A....T. 75µs (FM)
+/// </summary>
 [Name("75fm")] _75fm,
+/// <summary>
+/// 50kf            7            ..F.A....T. 50µs (FM-KF)
+/// </summary>
 [Name("50kf")] _50kf,
+/// <summary>
+/// 75kf            8            ..F.A....T. 75µs (FM-KF)
+/// </summary>
 [Name("75kf")] _75kf,
 }
 

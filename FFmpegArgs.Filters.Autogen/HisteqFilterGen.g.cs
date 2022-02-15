@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. histeq            V->V       Apply global color histogram equalization.
+/// </summary>
 public class HisteqFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal HisteqFilterGen(ImageMap input) : base("histeq",input) { AddMapOut(); }
@@ -16,46 +19,31 @@ public HisteqFilterGen intensity(float intensity) => this.SetOptionRange("intens
 /// </summary>
 public HisteqFilterGen antibanding(HisteqFilterGenAntibanding antibanding) => this.SetOption("antibanding", antibanding.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class HisteqFilterGenExtensions
 {
 /// <summary>
 /// Apply global color histogram equalization.
 /// </summary>
 public static HisteqFilterGen HisteqFilterGen(this ImageMap input0) => new HisteqFilterGen(input0);
-/// <summary>
-/// Apply global color histogram equalization.
-/// </summary>
-public static HisteqFilterGen HisteqFilterGen(this ImageMap input0,HisteqFilterGenConfig config)
-{
-var result = new HisteqFilterGen(input0);
-if(config?.strength != null) result.strength(config.strength.Value);
-if(config?.intensity != null) result.intensity(config.intensity.Value);
-if(config?.antibanding != null) result.antibanding(config.antibanding.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class HisteqFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the strength (from 0 to 1) (default 0.2)
-/// </summary>
-public float? strength { get; set; }
-/// <summary>
-///  set the intensity (from 0 to 1) (default 0.21)
-/// </summary>
-public float? intensity { get; set; }
 /// <summary>
 ///  set the antibanding level (from 0 to 2) (default none)
 /// </summary>
-public HisteqFilterGenAntibanding? antibanding { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum HisteqFilterGenAntibanding
 {
+/// <summary>
+/// none            0            ..FV....... apply no antibanding
+/// </summary>
 [Name("none")] none,
+/// <summary>
+/// weak            1            ..FV....... apply weak antibanding
+/// </summary>
 [Name("weak")] weak,
+/// <summary>
+/// strong          2            ..FV....... apply strong antibanding
+/// </summary>
 [Name("strong")] strong,
 }
 

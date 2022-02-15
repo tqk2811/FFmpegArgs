@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC chromanr          V->V       Reduce chrominance noise.
+/// </summary>
 public class ChromanrFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ChromanrFilterGen(ImageMap input) : base("chromanr",input) { AddMapOut(); }
@@ -36,65 +39,13 @@ public ChromanrFilterGen threu(float threu) => this.SetOptionRange("threu", thre
 /// </summary>
 public ChromanrFilterGen threv(float threv) => this.SetOptionRange("threv", threv,1,200);
 }
+/// <summary>
+/// </summary>
 public static class ChromanrFilterGenExtensions
 {
 /// <summary>
 /// Reduce chrominance noise.
 /// </summary>
 public static ChromanrFilterGen ChromanrFilterGen(this ImageMap input0) => new ChromanrFilterGen(input0);
-/// <summary>
-/// Reduce chrominance noise.
-/// </summary>
-public static ChromanrFilterGen ChromanrFilterGen(this ImageMap input0,ChromanrFilterGenConfig config)
-{
-var result = new ChromanrFilterGen(input0);
-if(config?.thres != null) result.thres(config.thres.Value);
-if(config?.sizew != null) result.sizew(config.sizew.Value);
-if(config?.sizeh != null) result.sizeh(config.sizeh.Value);
-if(config?.stepw != null) result.stepw(config.stepw.Value);
-if(config?.steph != null) result.steph(config.steph.Value);
-if(config?.threy != null) result.threy(config.threy.Value);
-if(config?.threu != null) result.threu(config.threu.Value);
-if(config?.threv != null) result.threv(config.threv.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class ChromanrFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set y+u+v threshold (from 1 to 200) (default 30)
-/// </summary>
-public float? thres { get; set; }
-/// <summary>
-///  set horizontal size (from 1 to 100) (default 5)
-/// </summary>
-public int? sizew { get; set; }
-/// <summary>
-///  set vertical size (from 1 to 100) (default 5)
-/// </summary>
-public int? sizeh { get; set; }
-/// <summary>
-///  set horizontal step (from 1 to 50) (default 1)
-/// </summary>
-public int? stepw { get; set; }
-/// <summary>
-///  set vertical step (from 1 to 50) (default 1)
-/// </summary>
-public int? steph { get; set; }
-/// <summary>
-///  set y threshold (from 1 to 200) (default 200)
-/// </summary>
-public float? threy { get; set; }
-/// <summary>
-///  set u threshold (from 1 to 200) (default 200)
-/// </summary>
-public float? threu { get; set; }
-/// <summary>
-///  set v threshold (from 1 to 200) (default 200)
-/// </summary>
-public float? threv { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

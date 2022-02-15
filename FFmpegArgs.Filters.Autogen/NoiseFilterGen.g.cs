@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TS. noise             V->V       Add noise.
+/// </summary>
 public class NoiseFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal NoiseFilterGen(ImageMap input) : base("noise",input) { AddMapOut(); }
@@ -104,229 +107,242 @@ public NoiseFilterGen c3_flags(NoiseFilterGenC3_flags c3_flags) => this.SetOptio
 /// </summary>
 public NoiseFilterGen c3f(NoiseFilterGenC3f c3f) => this.SetOption("c3f", c3f.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class NoiseFilterGenExtensions
 {
 /// <summary>
 /// Add noise.
 /// </summary>
 public static NoiseFilterGen NoiseFilterGen(this ImageMap input0) => new NoiseFilterGen(input0);
-/// <summary>
-/// Add noise.
-/// </summary>
-public static NoiseFilterGen NoiseFilterGen(this ImageMap input0,NoiseFilterGenConfig config)
-{
-var result = new NoiseFilterGen(input0);
-if(config?.all_seed != null) result.all_seed(config.all_seed.Value);
-if(config?.all_strength != null) result.all_strength(config.all_strength.Value);
-if(config?.alls != null) result.alls(config.alls.Value);
-if(config?.all_flags != null) result.all_flags(config.all_flags.Value);
-if(config?.allf != null) result.allf(config.allf.Value);
-if(config?.c0_seed != null) result.c0_seed(config.c0_seed.Value);
-if(config?.c0_strength != null) result.c0_strength(config.c0_strength.Value);
-if(config?.c0s != null) result.c0s(config.c0s.Value);
-if(config?.c0_flags != null) result.c0_flags(config.c0_flags.Value);
-if(config?.c0f != null) result.c0f(config.c0f.Value);
-if(config?.c1_seed != null) result.c1_seed(config.c1_seed.Value);
-if(config?.c1_strength != null) result.c1_strength(config.c1_strength.Value);
-if(config?.c1s != null) result.c1s(config.c1s.Value);
-if(config?.c1_flags != null) result.c1_flags(config.c1_flags.Value);
-if(config?.c1f != null) result.c1f(config.c1f.Value);
-if(config?.c2_seed != null) result.c2_seed(config.c2_seed.Value);
-if(config?.c2_strength != null) result.c2_strength(config.c2_strength.Value);
-if(config?.c2s != null) result.c2s(config.c2s.Value);
-if(config?.c2_flags != null) result.c2_flags(config.c2_flags.Value);
-if(config?.c2f != null) result.c2f(config.c2f.Value);
-if(config?.c3_seed != null) result.c3_seed(config.c3_seed.Value);
-if(config?.c3_strength != null) result.c3_strength(config.c3_strength.Value);
-if(config?.c3s != null) result.c3s(config.c3s.Value);
-if(config?.c3_flags != null) result.c3_flags(config.c3_flags.Value);
-if(config?.c3f != null) result.c3f(config.c3f.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class NoiseFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set component #0 noise seed (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? all_seed { get; set; }
-/// <summary>
-///  set component #0 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? all_strength { get; set; }
-/// <summary>
-///  set component #0 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? alls { get; set; }
 /// <summary>
 ///  set component #0 flags (default 0)
 /// </summary>
-public NoiseFilterGenAll_flags? all_flags { get; set; }
-/// <summary>
-///  set component #0 flags (default 0)
-/// </summary>
-public NoiseFilterGenAllf? allf { get; set; }
-/// <summary>
-///  set component #0 noise seed (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? c0_seed { get; set; }
-/// <summary>
-///  set component #0 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c0_strength { get; set; }
-/// <summary>
-///  set component #0 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c0s { get; set; }
-/// <summary>
-///  set component #0 flags (default 0)
-/// </summary>
-public NoiseFilterGenC0_flags? c0_flags { get; set; }
-/// <summary>
-///  set component #0 flags (default 0)
-/// </summary>
-public NoiseFilterGenC0f? c0f { get; set; }
-/// <summary>
-///  set component #1 noise seed (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? c1_seed { get; set; }
-/// <summary>
-///  set component #1 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c1_strength { get; set; }
-/// <summary>
-///  set component #1 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c1s { get; set; }
-/// <summary>
-///  set component #1 flags (default 0)
-/// </summary>
-public NoiseFilterGenC1_flags? c1_flags { get; set; }
-/// <summary>
-///  set component #1 flags (default 0)
-/// </summary>
-public NoiseFilterGenC1f? c1f { get; set; }
-/// <summary>
-///  set component #2 noise seed (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? c2_seed { get; set; }
-/// <summary>
-///  set component #2 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c2_strength { get; set; }
-/// <summary>
-///  set component #2 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c2s { get; set; }
-/// <summary>
-///  set component #2 flags (default 0)
-/// </summary>
-public NoiseFilterGenC2_flags? c2_flags { get; set; }
-/// <summary>
-///  set component #2 flags (default 0)
-/// </summary>
-public NoiseFilterGenC2f? c2f { get; set; }
-/// <summary>
-///  set component #3 noise seed (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? c3_seed { get; set; }
-/// <summary>
-///  set component #3 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c3_strength { get; set; }
-/// <summary>
-///  set component #3 strength (from 0 to 100) (default 0)
-/// </summary>
-public int? c3s { get; set; }
-/// <summary>
-///  set component #3 flags (default 0)
-/// </summary>
-public NoiseFilterGenC3_flags? c3_flags { get; set; }
-/// <summary>
-///  set component #3 flags (default 0)
-/// </summary>
-public NoiseFilterGenC3f? c3f { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum NoiseFilterGenAll_flags
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #0 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenAllf
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #0 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC0_flags
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #0 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC0f
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #1 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC1_flags
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #1 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC1f
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #2 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC2_flags
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #2 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC2f
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #3 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC3_flags
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 
+/// <summary>
+///  set component #3 flags (default 0)
+/// </summary>
 public enum NoiseFilterGenC3f
 {
+/// <summary>
+/// a                            ..FV....... averaged noise
+/// </summary>
 [Name("a")] a,
+/// <summary>
+/// p                            ..FV....... (semi)regular pattern
+/// </summary>
 [Name("p")] p,
+/// <summary>
+/// t                            ..FV....... temporal noise
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// u                            ..FV....... uniform noise
+/// </summary>
 [Name("u")] u,
 }
 

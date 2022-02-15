@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC amplify           V->V       Amplify changes between successive video frames.
+/// </summary>
 public class AmplifyFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AmplifyFilterGen(ImageMap input) : base("amplify",input) { AddMapOut(); }
@@ -32,62 +35,18 @@ public AmplifyFilterGen high(int high) => this.SetOptionRange("high", high,0,655
 /// </summary>
 public AmplifyFilterGen planes(AmplifyFilterGenPlanes planes) => this.SetOption("planes", planes.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class AmplifyFilterGenExtensions
 {
 /// <summary>
 /// Amplify changes between successive video frames.
 /// </summary>
 public static AmplifyFilterGen AmplifyFilterGen(this ImageMap input0) => new AmplifyFilterGen(input0);
-/// <summary>
-/// Amplify changes between successive video frames.
-/// </summary>
-public static AmplifyFilterGen AmplifyFilterGen(this ImageMap input0,AmplifyFilterGenConfig config)
-{
-var result = new AmplifyFilterGen(input0);
-if(config?.radius != null) result.radius(config.radius.Value);
-if(config?.factor != null) result.factor(config.factor.Value);
-if(config?.threshold != null) result.threshold(config.threshold.Value);
-if(config?.tolerance != null) result.tolerance(config.tolerance.Value);
-if(config?.low != null) result.low(config.low.Value);
-if(config?.high != null) result.high(config.high.Value);
-if(config?.planes != null) result.planes(config.planes.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AmplifyFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set radius (from 1 to 63) (default 2)
-/// </summary>
-public int? radius { get; set; }
-/// <summary>
-///  set factor (from 0 to 65535) (default 2)
-/// </summary>
-public float? factor { get; set; }
-/// <summary>
-///  set threshold (from 0 to 65535) (default 10)
-/// </summary>
-public float? threshold { get; set; }
-/// <summary>
-///  set tolerance (from 0 to 65535) (default 0)
-/// </summary>
-public float? tolerance { get; set; }
-/// <summary>
-///  set low limit for amplification (from 0 to 65535) (default 65535)
-/// </summary>
-public int? low { get; set; }
-/// <summary>
-///  set high limit for amplification (from 0 to 65535) (default 65535)
-/// </summary>
-public int? high { get; set; }
 /// <summary>
 ///  set what planes to filter (default 7)
 /// </summary>
-public AmplifyFilterGenPlanes? planes { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AmplifyFilterGenPlanes
 {
 }

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... paletteuse        VV->V      Use a palette to downsample an input video stream.
+/// </summary>
 public class PaletteuseFilterGen : ImageToImageFilter
 {
 internal PaletteuseFilterGen(params ImageMap[] inputs) : base("paletteuse",inputs) { AddMapOut(); }
@@ -40,87 +43,69 @@ public PaletteuseFilterGen mean_err(bool mean_err) => this.SetOption("mean_err",
 /// </summary>
 public PaletteuseFilterGen debug_accuracy(bool debug_accuracy) => this.SetOption("debug_accuracy",debug_accuracy.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class PaletteuseFilterGenExtensions
 {
 /// <summary>
 /// Use a palette to downsample an input video stream.
 /// </summary>
 public static PaletteuseFilterGen PaletteuseFilterGen(this ImageMap input0, ImageMap input1) => new PaletteuseFilterGen(input0, input1);
-/// <summary>
-/// Use a palette to downsample an input video stream.
-/// </summary>
-public static PaletteuseFilterGen PaletteuseFilterGen(this ImageMap input0, ImageMap input1,PaletteuseFilterGenConfig config)
-{
-var result = new PaletteuseFilterGen(input0, input1);
-if(config?.dither != null) result.dither(config.dither.Value);
-if(config?.bayer_scale != null) result.bayer_scale(config.bayer_scale.Value);
-if(config?.diff_mode != null) result.diff_mode(config.diff_mode.Value);
-if(config?._new != null) result._new(config._new.Value);
-if(config?.alpha_threshold != null) result.alpha_threshold(config.alpha_threshold.Value);
-if(!string.IsNullOrWhiteSpace(config?.debug_kdtree)) result.debug_kdtree(config.debug_kdtree);
-if(config?.color_search != null) result.color_search(config.color_search.Value);
-if(config?.mean_err != null) result.mean_err(config.mean_err.Value);
-if(config?.debug_accuracy != null) result.debug_accuracy(config.debug_accuracy.Value);
-return result;
 }
-}
-public class PaletteuseFilterGenConfig
-{
 /// <summary>
 ///  select dithering mode (from 0 to 5) (default sierra2_4a)
 /// </summary>
-public PaletteuseFilterGenDither? dither { get; set; }
-/// <summary>
-///  set scale for bayer dithering (from 0 to 5) (default 2)
-/// </summary>
-public int? bayer_scale { get; set; }
-/// <summary>
-///  set frame difference mode (from 0 to 1) (default 0)
-/// </summary>
-public PaletteuseFilterGenDiff_mode? diff_mode { get; set; }
-/// <summary>
-///  take new palette for each output frame (default false)
-/// </summary>
-public bool? _new { get; set; }
-/// <summary>
-///  set the alpha threshold for transparency (from 0 to 255) (default 128)
-/// </summary>
-public int? alpha_threshold { get; set; }
-/// <summary>
-///  save Graphviz graph of the kdtree in specified file
-/// </summary>
-public string debug_kdtree { get; set; }
-/// <summary>
-///  set reverse colormap color search method (from 0 to 2) (default nns_iterative)
-/// </summary>
-public PaletteuseFilterGenColor_search? color_search { get; set; }
-/// <summary>
-///  compute and print mean error (default false)
-/// </summary>
-public bool? mean_err { get; set; }
-/// <summary>
-///  test color search accuracy (default false)
-/// </summary>
-public bool? debug_accuracy { get; set; }
-}
 public enum PaletteuseFilterGenDither
 {
+/// <summary>
+/// bayer           1            ..FV....... ordered 8x8 bayer dithering (deterministic)
+/// </summary>
 [Name("bayer")] bayer,
+/// <summary>
+/// heckbert        2            ..FV....... dithering as defined by Paul Heckbert in 1982 (simple error diffusion)
+/// </summary>
 [Name("heckbert")] heckbert,
+/// <summary>
+/// floyd_steinberg 3            ..FV....... Floyd and Steingberg dithering (error diffusion)
+/// </summary>
 [Name("floyd_steinberg")] floyd_steinberg,
+/// <summary>
+/// sierra2         4            ..FV....... Frankie Sierra dithering v2 (error diffusion)
+/// </summary>
 [Name("sierra2")] sierra2,
+/// <summary>
+/// sierra2_4a      5            ..FV....... Frankie Sierra dithering v2 "Lite" (error diffusion)
+/// </summary>
 [Name("sierra2_4a")] sierra2_4a,
 }
 
+/// <summary>
+///  set frame difference mode (from 0 to 1) (default 0)
+/// </summary>
 public enum PaletteuseFilterGenDiff_mode
 {
+/// <summary>
+/// rectangle       1            ..FV....... process smallest different rectangle
+/// </summary>
 [Name("rectangle")] rectangle,
 }
 
+/// <summary>
+///  set reverse colormap color search method (from 0 to 2) (default nns_iterative)
+/// </summary>
 public enum PaletteuseFilterGenColor_search
 {
+/// <summary>
+/// nns_iterative   0            ..FV....... iterative search
+/// </summary>
 [Name("nns_iterative")] nns_iterative,
+/// <summary>
+/// nns_recursive   1            ..FV....... recursive search
+/// </summary>
 [Name("nns_recursive")] nns_recursive,
+/// <summary>
+/// bruteforce      2            ..FV....... brute-force into the palette
+/// </summary>
 [Name("bruteforce")] bruteforce,
 }
 

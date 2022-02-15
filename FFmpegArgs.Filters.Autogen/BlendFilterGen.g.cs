@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC blend             VV->V      Blend two video frames into each other.
+/// </summary>
 public class BlendFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal BlendFilterGen(params ImageMap[] inputs) : base("blend",inputs) { AddMapOut(); }
@@ -64,294 +67,747 @@ public BlendFilterGen c3_opacity(double c3_opacity) => this.SetOptionRange("c3_o
 /// </summary>
 public BlendFilterGen all_opacity(double all_opacity) => this.SetOptionRange("all_opacity", all_opacity,0,1);
 }
+/// <summary>
+/// </summary>
 public static class BlendFilterGenExtensions
 {
 /// <summary>
 /// Blend two video frames into each other.
 /// </summary>
 public static BlendFilterGen BlendFilterGen(this ImageMap input0, ImageMap input1) => new BlendFilterGen(input0, input1);
-/// <summary>
-/// Blend two video frames into each other.
-/// </summary>
-public static BlendFilterGen BlendFilterGen(this ImageMap input0, ImageMap input1,BlendFilterGenConfig config)
-{
-var result = new BlendFilterGen(input0, input1);
-if(config?.c0_mode != null) result.c0_mode(config.c0_mode.Value);
-if(config?.c1_mode != null) result.c1_mode(config.c1_mode.Value);
-if(config?.c2_mode != null) result.c2_mode(config.c2_mode.Value);
-if(config?.c3_mode != null) result.c3_mode(config.c3_mode.Value);
-if(config?.all_mode != null) result.all_mode(config.all_mode.Value);
-if(!string.IsNullOrWhiteSpace(config?.c0_expr)) result.c0_expr(config.c0_expr);
-if(!string.IsNullOrWhiteSpace(config?.c1_expr)) result.c1_expr(config.c1_expr);
-if(!string.IsNullOrWhiteSpace(config?.c2_expr)) result.c2_expr(config.c2_expr);
-if(!string.IsNullOrWhiteSpace(config?.c3_expr)) result.c3_expr(config.c3_expr);
-if(!string.IsNullOrWhiteSpace(config?.all_expr)) result.all_expr(config.all_expr);
-if(config?.c0_opacity != null) result.c0_opacity(config.c0_opacity.Value);
-if(config?.c1_opacity != null) result.c1_opacity(config.c1_opacity.Value);
-if(config?.c2_opacity != null) result.c2_opacity(config.c2_opacity.Value);
-if(config?.c3_opacity != null) result.c3_opacity(config.c3_opacity.Value);
-if(config?.all_opacity != null) result.all_opacity(config.all_opacity.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class BlendFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set component #0 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public BlendFilterGenC0_mode? c0_mode { get; set; }
+public enum BlendFilterGenC0_mode
+{
+/// <summary>
+/// addition        1            ..FV.....T.
+/// </summary>
+[Name("addition")] addition,
+/// <summary>
+/// addition128     28           ..FV.....T.
+/// </summary>
+[Name("addition128")] addition128,
+/// <summary>
+/// grainmerge      28           ..FV.....T.
+/// </summary>
+[Name("grainmerge")] grainmerge,
+/// <summary>
+/// and             2            ..FV.....T.
+/// </summary>
+[Name("and")] and,
+/// <summary>
+/// average         3            ..FV.....T.
+/// </summary>
+[Name("average")] average,
+/// <summary>
+/// burn            4            ..FV.....T.
+/// </summary>
+[Name("burn")] burn,
+/// <summary>
+/// darken          5            ..FV.....T.
+/// </summary>
+[Name("darken")] darken,
+/// <summary>
+/// difference      6            ..FV.....T.
+/// </summary>
+[Name("difference")] difference,
+/// <summary>
+/// difference128   7            ..FV.....T.
+/// </summary>
+[Name("difference128")] difference128,
+/// <summary>
+/// grainextract    7            ..FV.....T.
+/// </summary>
+[Name("grainextract")] grainextract,
+/// <summary>
+/// divide          8            ..FV.....T.
+/// </summary>
+[Name("divide")] divide,
+/// <summary>
+/// dodge           9            ..FV.....T.
+/// </summary>
+[Name("dodge")] dodge,
+/// <summary>
+/// exclusion       10           ..FV.....T.
+/// </summary>
+[Name("exclusion")] exclusion,
+/// <summary>
+/// extremity       32           ..FV.....T.
+/// </summary>
+[Name("extremity")] extremity,
+/// <summary>
+/// freeze          31           ..FV.....T.
+/// </summary>
+[Name("freeze")] freeze,
+/// <summary>
+/// glow            27           ..FV.....T.
+/// </summary>
+[Name("glow")] glow,
+/// <summary>
+/// hardlight       11           ..FV.....T.
+/// </summary>
+[Name("hardlight")] hardlight,
+/// <summary>
+/// hardmix         25           ..FV.....T.
+/// </summary>
+[Name("hardmix")] hardmix,
+/// <summary>
+/// heat            30           ..FV.....T.
+/// </summary>
+[Name("heat")] heat,
+/// <summary>
+/// lighten         12           ..FV.....T.
+/// </summary>
+[Name("lighten")] lighten,
+/// <summary>
+/// linearlight     26           ..FV.....T.
+/// </summary>
+[Name("linearlight")] linearlight,
+/// <summary>
+/// multiply        13           ..FV.....T.
+/// </summary>
+[Name("multiply")] multiply,
+/// <summary>
+/// multiply128     29           ..FV.....T.
+/// </summary>
+[Name("multiply128")] multiply128,
+/// <summary>
+/// negation        14           ..FV.....T.
+/// </summary>
+[Name("negation")] negation,
+/// <summary>
+/// normal          0            ..FV.....T.
+/// </summary>
+[Name("normal")] normal,
+/// <summary>
+/// or              15           ..FV.....T.
+/// </summary>
+[Name("or")] or,
+/// <summary>
+/// overlay         16           ..FV.....T.
+/// </summary>
+[Name("overlay")] overlay,
+/// <summary>
+/// phoenix         17           ..FV.....T.
+/// </summary>
+[Name("phoenix")] phoenix,
+/// <summary>
+/// pinlight        18           ..FV.....T.
+/// </summary>
+[Name("pinlight")] pinlight,
+/// <summary>
+/// reflect         19           ..FV.....T.
+/// </summary>
+[Name("reflect")] reflect,
+/// <summary>
+/// screen          20           ..FV.....T.
+/// </summary>
+[Name("screen")] screen,
+/// <summary>
+/// softlight       21           ..FV.....T.
+/// </summary>
+[Name("softlight")] softlight,
+/// <summary>
+/// subtract        22           ..FV.....T.
+/// </summary>
+[Name("subtract")] subtract,
+/// <summary>
+/// vividlight      23           ..FV.....T.
+/// </summary>
+[Name("vividlight")] vividlight,
+/// <summary>
+/// xor             24           ..FV.....T.
+/// </summary>
+[Name("xor")] xor,
+}
+
 /// <summary>
 ///  set component #1 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public BlendFilterGenC1_mode? c1_mode { get; set; }
+public enum BlendFilterGenC1_mode
+{
+/// <summary>
+/// addition        1            ..FV.....T.
+/// </summary>
+[Name("addition")] addition,
+/// <summary>
+/// addition128     28           ..FV.....T.
+/// </summary>
+[Name("addition128")] addition128,
+/// <summary>
+/// grainmerge      28           ..FV.....T.
+/// </summary>
+[Name("grainmerge")] grainmerge,
+/// <summary>
+/// and             2            ..FV.....T.
+/// </summary>
+[Name("and")] and,
+/// <summary>
+/// average         3            ..FV.....T.
+/// </summary>
+[Name("average")] average,
+/// <summary>
+/// burn            4            ..FV.....T.
+/// </summary>
+[Name("burn")] burn,
+/// <summary>
+/// darken          5            ..FV.....T.
+/// </summary>
+[Name("darken")] darken,
+/// <summary>
+/// difference      6            ..FV.....T.
+/// </summary>
+[Name("difference")] difference,
+/// <summary>
+/// difference128   7            ..FV.....T.
+/// </summary>
+[Name("difference128")] difference128,
+/// <summary>
+/// grainextract    7            ..FV.....T.
+/// </summary>
+[Name("grainextract")] grainextract,
+/// <summary>
+/// divide          8            ..FV.....T.
+/// </summary>
+[Name("divide")] divide,
+/// <summary>
+/// dodge           9            ..FV.....T.
+/// </summary>
+[Name("dodge")] dodge,
+/// <summary>
+/// exclusion       10           ..FV.....T.
+/// </summary>
+[Name("exclusion")] exclusion,
+/// <summary>
+/// extremity       32           ..FV.....T.
+/// </summary>
+[Name("extremity")] extremity,
+/// <summary>
+/// freeze          31           ..FV.....T.
+/// </summary>
+[Name("freeze")] freeze,
+/// <summary>
+/// glow            27           ..FV.....T.
+/// </summary>
+[Name("glow")] glow,
+/// <summary>
+/// hardlight       11           ..FV.....T.
+/// </summary>
+[Name("hardlight")] hardlight,
+/// <summary>
+/// hardmix         25           ..FV.....T.
+/// </summary>
+[Name("hardmix")] hardmix,
+/// <summary>
+/// heat            30           ..FV.....T.
+/// </summary>
+[Name("heat")] heat,
+/// <summary>
+/// lighten         12           ..FV.....T.
+/// </summary>
+[Name("lighten")] lighten,
+/// <summary>
+/// linearlight     26           ..FV.....T.
+/// </summary>
+[Name("linearlight")] linearlight,
+/// <summary>
+/// multiply        13           ..FV.....T.
+/// </summary>
+[Name("multiply")] multiply,
+/// <summary>
+/// multiply128     29           ..FV.....T.
+/// </summary>
+[Name("multiply128")] multiply128,
+/// <summary>
+/// negation        14           ..FV.....T.
+/// </summary>
+[Name("negation")] negation,
+/// <summary>
+/// normal          0            ..FV.....T.
+/// </summary>
+[Name("normal")] normal,
+/// <summary>
+/// or              15           ..FV.....T.
+/// </summary>
+[Name("or")] or,
+/// <summary>
+/// overlay         16           ..FV.....T.
+/// </summary>
+[Name("overlay")] overlay,
+/// <summary>
+/// phoenix         17           ..FV.....T.
+/// </summary>
+[Name("phoenix")] phoenix,
+/// <summary>
+/// pinlight        18           ..FV.....T.
+/// </summary>
+[Name("pinlight")] pinlight,
+/// <summary>
+/// reflect         19           ..FV.....T.
+/// </summary>
+[Name("reflect")] reflect,
+/// <summary>
+/// screen          20           ..FV.....T.
+/// </summary>
+[Name("screen")] screen,
+/// <summary>
+/// softlight       21           ..FV.....T.
+/// </summary>
+[Name("softlight")] softlight,
+/// <summary>
+/// subtract        22           ..FV.....T.
+/// </summary>
+[Name("subtract")] subtract,
+/// <summary>
+/// vividlight      23           ..FV.....T.
+/// </summary>
+[Name("vividlight")] vividlight,
+/// <summary>
+/// xor             24           ..FV.....T.
+/// </summary>
+[Name("xor")] xor,
+}
+
 /// <summary>
 ///  set component #2 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public BlendFilterGenC2_mode? c2_mode { get; set; }
+public enum BlendFilterGenC2_mode
+{
+/// <summary>
+/// addition        1            ..FV.....T.
+/// </summary>
+[Name("addition")] addition,
+/// <summary>
+/// addition128     28           ..FV.....T.
+/// </summary>
+[Name("addition128")] addition128,
+/// <summary>
+/// grainmerge      28           ..FV.....T.
+/// </summary>
+[Name("grainmerge")] grainmerge,
+/// <summary>
+/// and             2            ..FV.....T.
+/// </summary>
+[Name("and")] and,
+/// <summary>
+/// average         3            ..FV.....T.
+/// </summary>
+[Name("average")] average,
+/// <summary>
+/// burn            4            ..FV.....T.
+/// </summary>
+[Name("burn")] burn,
+/// <summary>
+/// darken          5            ..FV.....T.
+/// </summary>
+[Name("darken")] darken,
+/// <summary>
+/// difference      6            ..FV.....T.
+/// </summary>
+[Name("difference")] difference,
+/// <summary>
+/// difference128   7            ..FV.....T.
+/// </summary>
+[Name("difference128")] difference128,
+/// <summary>
+/// grainextract    7            ..FV.....T.
+/// </summary>
+[Name("grainextract")] grainextract,
+/// <summary>
+/// divide          8            ..FV.....T.
+/// </summary>
+[Name("divide")] divide,
+/// <summary>
+/// dodge           9            ..FV.....T.
+/// </summary>
+[Name("dodge")] dodge,
+/// <summary>
+/// exclusion       10           ..FV.....T.
+/// </summary>
+[Name("exclusion")] exclusion,
+/// <summary>
+/// extremity       32           ..FV.....T.
+/// </summary>
+[Name("extremity")] extremity,
+/// <summary>
+/// freeze          31           ..FV.....T.
+/// </summary>
+[Name("freeze")] freeze,
+/// <summary>
+/// glow            27           ..FV.....T.
+/// </summary>
+[Name("glow")] glow,
+/// <summary>
+/// hardlight       11           ..FV.....T.
+/// </summary>
+[Name("hardlight")] hardlight,
+/// <summary>
+/// hardmix         25           ..FV.....T.
+/// </summary>
+[Name("hardmix")] hardmix,
+/// <summary>
+/// heat            30           ..FV.....T.
+/// </summary>
+[Name("heat")] heat,
+/// <summary>
+/// lighten         12           ..FV.....T.
+/// </summary>
+[Name("lighten")] lighten,
+/// <summary>
+/// linearlight     26           ..FV.....T.
+/// </summary>
+[Name("linearlight")] linearlight,
+/// <summary>
+/// multiply        13           ..FV.....T.
+/// </summary>
+[Name("multiply")] multiply,
+/// <summary>
+/// multiply128     29           ..FV.....T.
+/// </summary>
+[Name("multiply128")] multiply128,
+/// <summary>
+/// negation        14           ..FV.....T.
+/// </summary>
+[Name("negation")] negation,
+/// <summary>
+/// normal          0            ..FV.....T.
+/// </summary>
+[Name("normal")] normal,
+/// <summary>
+/// or              15           ..FV.....T.
+/// </summary>
+[Name("or")] or,
+/// <summary>
+/// overlay         16           ..FV.....T.
+/// </summary>
+[Name("overlay")] overlay,
+/// <summary>
+/// phoenix         17           ..FV.....T.
+/// </summary>
+[Name("phoenix")] phoenix,
+/// <summary>
+/// pinlight        18           ..FV.....T.
+/// </summary>
+[Name("pinlight")] pinlight,
+/// <summary>
+/// reflect         19           ..FV.....T.
+/// </summary>
+[Name("reflect")] reflect,
+/// <summary>
+/// screen          20           ..FV.....T.
+/// </summary>
+[Name("screen")] screen,
+/// <summary>
+/// softlight       21           ..FV.....T.
+/// </summary>
+[Name("softlight")] softlight,
+/// <summary>
+/// subtract        22           ..FV.....T.
+/// </summary>
+[Name("subtract")] subtract,
+/// <summary>
+/// vividlight      23           ..FV.....T.
+/// </summary>
+[Name("vividlight")] vividlight,
+/// <summary>
+/// xor             24           ..FV.....T.
+/// </summary>
+[Name("xor")] xor,
+}
+
 /// <summary>
 ///  set component #3 blend mode (from 0 to 32) (default normal)
 /// </summary>
-public BlendFilterGenC3_mode? c3_mode { get; set; }
+public enum BlendFilterGenC3_mode
+{
+/// <summary>
+/// addition        1            ..FV.....T.
+/// </summary>
+[Name("addition")] addition,
+/// <summary>
+/// addition128     28           ..FV.....T.
+/// </summary>
+[Name("addition128")] addition128,
+/// <summary>
+/// grainmerge      28           ..FV.....T.
+/// </summary>
+[Name("grainmerge")] grainmerge,
+/// <summary>
+/// and             2            ..FV.....T.
+/// </summary>
+[Name("and")] and,
+/// <summary>
+/// average         3            ..FV.....T.
+/// </summary>
+[Name("average")] average,
+/// <summary>
+/// burn            4            ..FV.....T.
+/// </summary>
+[Name("burn")] burn,
+/// <summary>
+/// darken          5            ..FV.....T.
+/// </summary>
+[Name("darken")] darken,
+/// <summary>
+/// difference      6            ..FV.....T.
+/// </summary>
+[Name("difference")] difference,
+/// <summary>
+/// difference128   7            ..FV.....T.
+/// </summary>
+[Name("difference128")] difference128,
+/// <summary>
+/// grainextract    7            ..FV.....T.
+/// </summary>
+[Name("grainextract")] grainextract,
+/// <summary>
+/// divide          8            ..FV.....T.
+/// </summary>
+[Name("divide")] divide,
+/// <summary>
+/// dodge           9            ..FV.....T.
+/// </summary>
+[Name("dodge")] dodge,
+/// <summary>
+/// exclusion       10           ..FV.....T.
+/// </summary>
+[Name("exclusion")] exclusion,
+/// <summary>
+/// extremity       32           ..FV.....T.
+/// </summary>
+[Name("extremity")] extremity,
+/// <summary>
+/// freeze          31           ..FV.....T.
+/// </summary>
+[Name("freeze")] freeze,
+/// <summary>
+/// glow            27           ..FV.....T.
+/// </summary>
+[Name("glow")] glow,
+/// <summary>
+/// hardlight       11           ..FV.....T.
+/// </summary>
+[Name("hardlight")] hardlight,
+/// <summary>
+/// hardmix         25           ..FV.....T.
+/// </summary>
+[Name("hardmix")] hardmix,
+/// <summary>
+/// heat            30           ..FV.....T.
+/// </summary>
+[Name("heat")] heat,
+/// <summary>
+/// lighten         12           ..FV.....T.
+/// </summary>
+[Name("lighten")] lighten,
+/// <summary>
+/// linearlight     26           ..FV.....T.
+/// </summary>
+[Name("linearlight")] linearlight,
+/// <summary>
+/// multiply        13           ..FV.....T.
+/// </summary>
+[Name("multiply")] multiply,
+/// <summary>
+/// multiply128     29           ..FV.....T.
+/// </summary>
+[Name("multiply128")] multiply128,
+/// <summary>
+/// negation        14           ..FV.....T.
+/// </summary>
+[Name("negation")] negation,
+/// <summary>
+/// normal          0            ..FV.....T.
+/// </summary>
+[Name("normal")] normal,
+/// <summary>
+/// or              15           ..FV.....T.
+/// </summary>
+[Name("or")] or,
+/// <summary>
+/// overlay         16           ..FV.....T.
+/// </summary>
+[Name("overlay")] overlay,
+/// <summary>
+/// phoenix         17           ..FV.....T.
+/// </summary>
+[Name("phoenix")] phoenix,
+/// <summary>
+/// pinlight        18           ..FV.....T.
+/// </summary>
+[Name("pinlight")] pinlight,
+/// <summary>
+/// reflect         19           ..FV.....T.
+/// </summary>
+[Name("reflect")] reflect,
+/// <summary>
+/// screen          20           ..FV.....T.
+/// </summary>
+[Name("screen")] screen,
+/// <summary>
+/// softlight       21           ..FV.....T.
+/// </summary>
+[Name("softlight")] softlight,
+/// <summary>
+/// subtract        22           ..FV.....T.
+/// </summary>
+[Name("subtract")] subtract,
+/// <summary>
+/// vividlight      23           ..FV.....T.
+/// </summary>
+[Name("vividlight")] vividlight,
+/// <summary>
+/// xor             24           ..FV.....T.
+/// </summary>
+[Name("xor")] xor,
+}
+
 /// <summary>
 ///  set blend mode for all components (from -1 to 32) (default -1)
 /// </summary>
-public BlendFilterGenAll_mode? all_mode { get; set; }
-/// <summary>
-///  set color component #0 expression
-/// </summary>
-public string c0_expr { get; set; }
-/// <summary>
-///  set color component #1 expression
-/// </summary>
-public string c1_expr { get; set; }
-/// <summary>
-///  set color component #2 expression
-/// </summary>
-public string c2_expr { get; set; }
-/// <summary>
-///  set color component #3 expression
-/// </summary>
-public string c3_expr { get; set; }
-/// <summary>
-///  set expression for all color components
-/// </summary>
-public string all_expr { get; set; }
-/// <summary>
-///  set color component #0 opacity (from 0 to 1) (default 1)
-/// </summary>
-public double? c0_opacity { get; set; }
-/// <summary>
-///  set color component #1 opacity (from 0 to 1) (default 1)
-/// </summary>
-public double? c1_opacity { get; set; }
-/// <summary>
-///  set color component #2 opacity (from 0 to 1) (default 1)
-/// </summary>
-public double? c2_opacity { get; set; }
-/// <summary>
-///  set color component #3 opacity (from 0 to 1) (default 1)
-/// </summary>
-public double? c3_opacity { get; set; }
-/// <summary>
-///  set opacity for all color components (from 0 to 1) (default 1)
-/// </summary>
-public double? all_opacity { get; set; }
-public string TimelineSupport { get; set; }
-}
-public enum BlendFilterGenC0_mode
-{
-[Name("addition")] addition,
-[Name("addition128")] addition128,
-[Name("grainmerge")] grainmerge,
-[Name("and")] and,
-[Name("average")] average,
-[Name("burn")] burn,
-[Name("darken")] darken,
-[Name("difference")] difference,
-[Name("difference128")] difference128,
-[Name("grainextract")] grainextract,
-[Name("divide")] divide,
-[Name("dodge")] dodge,
-[Name("exclusion")] exclusion,
-[Name("extremity")] extremity,
-[Name("freeze")] freeze,
-[Name("glow")] glow,
-[Name("hardlight")] hardlight,
-[Name("hardmix")] hardmix,
-[Name("heat")] heat,
-[Name("lighten")] lighten,
-[Name("linearlight")] linearlight,
-[Name("multiply")] multiply,
-[Name("multiply128")] multiply128,
-[Name("negation")] negation,
-[Name("normal")] normal,
-[Name("or")] or,
-[Name("overlay")] overlay,
-[Name("phoenix")] phoenix,
-[Name("pinlight")] pinlight,
-[Name("reflect")] reflect,
-[Name("screen")] screen,
-[Name("softlight")] softlight,
-[Name("subtract")] subtract,
-[Name("vividlight")] vividlight,
-[Name("xor")] xor,
-}
-
-public enum BlendFilterGenC1_mode
-{
-[Name("addition")] addition,
-[Name("addition128")] addition128,
-[Name("grainmerge")] grainmerge,
-[Name("and")] and,
-[Name("average")] average,
-[Name("burn")] burn,
-[Name("darken")] darken,
-[Name("difference")] difference,
-[Name("difference128")] difference128,
-[Name("grainextract")] grainextract,
-[Name("divide")] divide,
-[Name("dodge")] dodge,
-[Name("exclusion")] exclusion,
-[Name("extremity")] extremity,
-[Name("freeze")] freeze,
-[Name("glow")] glow,
-[Name("hardlight")] hardlight,
-[Name("hardmix")] hardmix,
-[Name("heat")] heat,
-[Name("lighten")] lighten,
-[Name("linearlight")] linearlight,
-[Name("multiply")] multiply,
-[Name("multiply128")] multiply128,
-[Name("negation")] negation,
-[Name("normal")] normal,
-[Name("or")] or,
-[Name("overlay")] overlay,
-[Name("phoenix")] phoenix,
-[Name("pinlight")] pinlight,
-[Name("reflect")] reflect,
-[Name("screen")] screen,
-[Name("softlight")] softlight,
-[Name("subtract")] subtract,
-[Name("vividlight")] vividlight,
-[Name("xor")] xor,
-}
-
-public enum BlendFilterGenC2_mode
-{
-[Name("addition")] addition,
-[Name("addition128")] addition128,
-[Name("grainmerge")] grainmerge,
-[Name("and")] and,
-[Name("average")] average,
-[Name("burn")] burn,
-[Name("darken")] darken,
-[Name("difference")] difference,
-[Name("difference128")] difference128,
-[Name("grainextract")] grainextract,
-[Name("divide")] divide,
-[Name("dodge")] dodge,
-[Name("exclusion")] exclusion,
-[Name("extremity")] extremity,
-[Name("freeze")] freeze,
-[Name("glow")] glow,
-[Name("hardlight")] hardlight,
-[Name("hardmix")] hardmix,
-[Name("heat")] heat,
-[Name("lighten")] lighten,
-[Name("linearlight")] linearlight,
-[Name("multiply")] multiply,
-[Name("multiply128")] multiply128,
-[Name("negation")] negation,
-[Name("normal")] normal,
-[Name("or")] or,
-[Name("overlay")] overlay,
-[Name("phoenix")] phoenix,
-[Name("pinlight")] pinlight,
-[Name("reflect")] reflect,
-[Name("screen")] screen,
-[Name("softlight")] softlight,
-[Name("subtract")] subtract,
-[Name("vividlight")] vividlight,
-[Name("xor")] xor,
-}
-
-public enum BlendFilterGenC3_mode
-{
-[Name("addition")] addition,
-[Name("addition128")] addition128,
-[Name("grainmerge")] grainmerge,
-[Name("and")] and,
-[Name("average")] average,
-[Name("burn")] burn,
-[Name("darken")] darken,
-[Name("difference")] difference,
-[Name("difference128")] difference128,
-[Name("grainextract")] grainextract,
-[Name("divide")] divide,
-[Name("dodge")] dodge,
-[Name("exclusion")] exclusion,
-[Name("extremity")] extremity,
-[Name("freeze")] freeze,
-[Name("glow")] glow,
-[Name("hardlight")] hardlight,
-[Name("hardmix")] hardmix,
-[Name("heat")] heat,
-[Name("lighten")] lighten,
-[Name("linearlight")] linearlight,
-[Name("multiply")] multiply,
-[Name("multiply128")] multiply128,
-[Name("negation")] negation,
-[Name("normal")] normal,
-[Name("or")] or,
-[Name("overlay")] overlay,
-[Name("phoenix")] phoenix,
-[Name("pinlight")] pinlight,
-[Name("reflect")] reflect,
-[Name("screen")] screen,
-[Name("softlight")] softlight,
-[Name("subtract")] subtract,
-[Name("vividlight")] vividlight,
-[Name("xor")] xor,
-}
-
 public enum BlendFilterGenAll_mode
 {
+/// <summary>
+/// addition        1            ..FV.....T.
+/// </summary>
 [Name("addition")] addition,
+/// <summary>
+/// addition128     28           ..FV.....T.
+/// </summary>
 [Name("addition128")] addition128,
+/// <summary>
+/// grainmerge      28           ..FV.....T.
+/// </summary>
 [Name("grainmerge")] grainmerge,
+/// <summary>
+/// and             2            ..FV.....T.
+/// </summary>
 [Name("and")] and,
+/// <summary>
+/// average         3            ..FV.....T.
+/// </summary>
 [Name("average")] average,
+/// <summary>
+/// burn            4            ..FV.....T.
+/// </summary>
 [Name("burn")] burn,
+/// <summary>
+/// darken          5            ..FV.....T.
+/// </summary>
 [Name("darken")] darken,
+/// <summary>
+/// difference      6            ..FV.....T.
+/// </summary>
 [Name("difference")] difference,
+/// <summary>
+/// difference128   7            ..FV.....T.
+/// </summary>
 [Name("difference128")] difference128,
+/// <summary>
+/// grainextract    7            ..FV.....T.
+/// </summary>
 [Name("grainextract")] grainextract,
+/// <summary>
+/// divide          8            ..FV.....T.
+/// </summary>
 [Name("divide")] divide,
+/// <summary>
+/// dodge           9            ..FV.....T.
+/// </summary>
 [Name("dodge")] dodge,
+/// <summary>
+/// exclusion       10           ..FV.....T.
+/// </summary>
 [Name("exclusion")] exclusion,
+/// <summary>
+/// extremity       32           ..FV.....T.
+/// </summary>
 [Name("extremity")] extremity,
+/// <summary>
+/// freeze          31           ..FV.....T.
+/// </summary>
 [Name("freeze")] freeze,
+/// <summary>
+/// glow            27           ..FV.....T.
+/// </summary>
 [Name("glow")] glow,
+/// <summary>
+/// hardlight       11           ..FV.....T.
+/// </summary>
 [Name("hardlight")] hardlight,
+/// <summary>
+/// hardmix         25           ..FV.....T.
+/// </summary>
 [Name("hardmix")] hardmix,
+/// <summary>
+/// heat            30           ..FV.....T.
+/// </summary>
 [Name("heat")] heat,
+/// <summary>
+/// lighten         12           ..FV.....T.
+/// </summary>
 [Name("lighten")] lighten,
+/// <summary>
+/// linearlight     26           ..FV.....T.
+/// </summary>
 [Name("linearlight")] linearlight,
+/// <summary>
+/// multiply        13           ..FV.....T.
+/// </summary>
 [Name("multiply")] multiply,
+/// <summary>
+/// multiply128     29           ..FV.....T.
+/// </summary>
 [Name("multiply128")] multiply128,
+/// <summary>
+/// negation        14           ..FV.....T.
+/// </summary>
 [Name("negation")] negation,
+/// <summary>
+/// normal          0            ..FV.....T.
+/// </summary>
 [Name("normal")] normal,
+/// <summary>
+/// or              15           ..FV.....T.
+/// </summary>
 [Name("or")] or,
+/// <summary>
+/// overlay         16           ..FV.....T.
+/// </summary>
 [Name("overlay")] overlay,
+/// <summary>
+/// phoenix         17           ..FV.....T.
+/// </summary>
 [Name("phoenix")] phoenix,
+/// <summary>
+/// pinlight        18           ..FV.....T.
+/// </summary>
 [Name("pinlight")] pinlight,
+/// <summary>
+/// reflect         19           ..FV.....T.
+/// </summary>
 [Name("reflect")] reflect,
+/// <summary>
+/// screen          20           ..FV.....T.
+/// </summary>
 [Name("screen")] screen,
+/// <summary>
+/// softlight       21           ..FV.....T.
+/// </summary>
 [Name("softlight")] softlight,
+/// <summary>
+/// subtract        22           ..FV.....T.
+/// </summary>
 [Name("subtract")] subtract,
+/// <summary>
+/// vividlight      23           ..FV.....T.
+/// </summary>
 [Name("vividlight")] vividlight,
+/// <summary>
+/// xor             24           ..FV.....T.
+/// </summary>
 [Name("xor")] xor,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC asoftclip         A->A       Audio Soft Clipper.
+/// </summary>
 public class AsoftclipFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AsoftclipFilterGen(AudioMap input) : base("asoftclip",input) { AddMapOut(); }
@@ -24,62 +27,55 @@ public AsoftclipFilterGen param(double param) => this.SetOptionRange("param", pa
 /// </summary>
 public AsoftclipFilterGen oversample(int oversample) => this.SetOptionRange("oversample", oversample,1,32);
 }
+/// <summary>
+/// </summary>
 public static class AsoftclipFilterGenExtensions
 {
 /// <summary>
 /// Audio Soft Clipper.
 /// </summary>
 public static AsoftclipFilterGen AsoftclipFilterGen(this AudioMap input0) => new AsoftclipFilterGen(input0);
-/// <summary>
-/// Audio Soft Clipper.
-/// </summary>
-public static AsoftclipFilterGen AsoftclipFilterGen(this AudioMap input0,AsoftclipFilterGenConfig config)
-{
-var result = new AsoftclipFilterGen(input0);
-if(config?.type != null) result.type(config.type.Value);
-if(config?.threshold != null) result.threshold(config.threshold.Value);
-if(config?.output != null) result.output(config.output.Value);
-if(config?.param != null) result.param(config.param.Value);
-if(config?.oversample != null) result.oversample(config.oversample.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AsoftclipFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set softclip type (from -1 to 7) (default tanh)
 /// </summary>
-public AsoftclipFilterGenType? type { get; set; }
-/// <summary>
-///  set softclip threshold (from 1e-06 to 1) (default 1)
-/// </summary>
-public double? threshold { get; set; }
-/// <summary>
-///  set softclip output gain (from 1e-06 to 16) (default 1)
-/// </summary>
-public double? output { get; set; }
-/// <summary>
-///  set softclip parameter (from 0.01 to 3) (default 1)
-/// </summary>
-public double? param { get; set; }
-/// <summary>
-///  set oversample factor (from 1 to 32) (default 1)
-/// </summary>
-public int? oversample { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AsoftclipFilterGenType
 {
+/// <summary>
+/// hard            -1           ..F.A....T.
+/// </summary>
 [Name("hard")] hard,
+/// <summary>
+/// tanh            0            ..F.A....T.
+/// </summary>
 [Name("tanh")] tanh,
+/// <summary>
+/// atan            1            ..F.A....T.
+/// </summary>
 [Name("atan")] atan,
+/// <summary>
+/// cubic           2            ..F.A....T.
+/// </summary>
 [Name("cubic")] cubic,
+/// <summary>
+/// exp             3            ..F.A....T.
+/// </summary>
 [Name("exp")] exp,
+/// <summary>
+/// alg             4            ..F.A....T.
+/// </summary>
 [Name("alg")] alg,
+/// <summary>
+/// quintic         5            ..F.A....T.
+/// </summary>
 [Name("quintic")] quintic,
+/// <summary>
+/// sin             6            ..F.A....T.
+/// </summary>
 [Name("sin")] sin,
+/// <summary>
+/// erf             7            ..F.A....T.
+/// </summary>
 [Name("erf")] erf,
 }
 

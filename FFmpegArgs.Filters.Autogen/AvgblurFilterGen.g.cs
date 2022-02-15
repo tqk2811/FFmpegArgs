@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC avgblur           V->V       Apply Average Blur filter.
+/// </summary>
 public class AvgblurFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AvgblurFilterGen(ImageMap input) : base("avgblur",input) { AddMapOut(); }
@@ -16,40 +19,13 @@ public AvgblurFilterGen planes(int planes) => this.SetOptionRange("planes", plan
 /// </summary>
 public AvgblurFilterGen sizeY(int sizeY) => this.SetOptionRange("sizeY", sizeY,0,1024);
 }
+/// <summary>
+/// </summary>
 public static class AvgblurFilterGenExtensions
 {
 /// <summary>
 /// Apply Average Blur filter.
 /// </summary>
 public static AvgblurFilterGen AvgblurFilterGen(this ImageMap input0) => new AvgblurFilterGen(input0);
-/// <summary>
-/// Apply Average Blur filter.
-/// </summary>
-public static AvgblurFilterGen AvgblurFilterGen(this ImageMap input0,AvgblurFilterGenConfig config)
-{
-var result = new AvgblurFilterGen(input0);
-if(config?.sizeX != null) result.sizeX(config.sizeX.Value);
-if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.sizeY != null) result.sizeY(config.sizeY.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class AvgblurFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set horizontal size (from 1 to 1024) (default 1)
-/// </summary>
-public int? sizeX { get; set; }
-/// <summary>
-///  set planes to filter (from 0 to 15) (default 15)
-/// </summary>
-public int? planes { get; set; }
-/// <summary>
-///  set vertical size (from 0 to 1024) (default 0)
-/// </summary>
-public int? sizeY { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

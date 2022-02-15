@@ -1,8 +1,11 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... smptehdbars       |->V       Generate SMPTE HD color bars.
+/// </summary>
 public class SmptehdbarsFilterGen : SourceImageFilter
 {
-internal SmptehdbarsFilterGen(FilterGraph input) : base("smptehdbars",input) { AddMapOut(); }
+internal SmptehdbarsFilterGen(IFilterGraph input) : base("smptehdbars",input) { AddMapOut(); }
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
@@ -20,42 +23,13 @@ public SmptehdbarsFilterGen duration(TimeSpan duration) => this.SetOptionRange("
 /// </summary>
 public SmptehdbarsFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,INT_MAX));
 }
+/// <summary>
+/// </summary>
 public static class SmptehdbarsFilterGenExtensions
 {
 /// <summary>
 /// Generate SMPTE HD color bars.
 /// </summary>
-public static SmptehdbarsFilterGen SmptehdbarsFilterGen(this FilterGraph input0) => new SmptehdbarsFilterGen(input0);
-/// <summary>
-/// Generate SMPTE HD color bars.
-/// </summary>
-public static SmptehdbarsFilterGen SmptehdbarsFilterGen(this FilterGraph input0,SmptehdbarsFilterGenConfig config)
-{
-var result = new SmptehdbarsFilterGen(input0);
-if(config?.size != null) result.size(config.size.Value);
-if(config?.rate != null) result.rate(config.rate);
-if(config?.duration != null) result.duration(config.duration.Value);
-if(config?.sar != null) result.sar(config.sar);
-return result;
-}
-}
-public class SmptehdbarsFilterGenConfig
-{
-/// <summary>
-///  set video size (default "320x240")
-/// </summary>
-public Size? size { get; set; }
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Rational rate { get; set; }
-/// <summary>
-///  set video duration (default -0.000001)
-/// </summary>
-public TimeSpan? duration { get; set; }
-/// <summary>
-///  set video sample aspect ratio (from 0 to INT_MAX) (default 1/1)
-/// </summary>
-public Rational sar { get; set; }
+public static SmptehdbarsFilterGen SmptehdbarsFilterGen(this IFilterGraph input0) => new SmptehdbarsFilterGen(input0);
 }
 }

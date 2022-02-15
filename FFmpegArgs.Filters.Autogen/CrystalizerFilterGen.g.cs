@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC crystalizer       A->A       Simple audio noise sharpening filter.
+/// </summary>
 public class CrystalizerFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal CrystalizerFilterGen(AudioMap input) : base("crystalizer",input) { AddMapOut(); }
@@ -12,35 +15,13 @@ public CrystalizerFilterGen i(float i) => this.SetOptionRange("i", i,-10,10);
 /// </summary>
 public CrystalizerFilterGen c(bool c) => this.SetOption("c",c.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class CrystalizerFilterGenExtensions
 {
 /// <summary>
 /// Simple audio noise sharpening filter.
 /// </summary>
 public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input0) => new CrystalizerFilterGen(input0);
-/// <summary>
-/// Simple audio noise sharpening filter.
-/// </summary>
-public static CrystalizerFilterGen CrystalizerFilterGen(this AudioMap input0,CrystalizerFilterGenConfig config)
-{
-var result = new CrystalizerFilterGen(input0);
-if(config?.i != null) result.i(config.i.Value);
-if(config?.c != null) result.c(config.c.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class CrystalizerFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set intensity (from -10 to 10) (default 2)
-/// </summary>
-public float? i { get; set; }
-/// <summary>
-///  enable clipping (default true)
-/// </summary>
-public bool? c { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

@@ -1,8 +1,11 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... mptestsrc         |->V       Generate various test pattern.
+/// </summary>
 public class MptestsrcFilterGen : SourceImageFilter
 {
-internal MptestsrcFilterGen(FilterGraph input) : base("mptestsrc",input) { AddMapOut(); }
+internal MptestsrcFilterGen(IFilterGraph input) : base("mptestsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
@@ -20,56 +23,63 @@ public MptestsrcFilterGen test(MptestsrcFilterGenTest test) => this.SetOption("t
 /// </summary>
 public MptestsrcFilterGen max_frames(long max_frames) => this.SetOptionRange("max_frames", max_frames,1,I64_MAX);
 }
+/// <summary>
+/// </summary>
 public static class MptestsrcFilterGenExtensions
 {
 /// <summary>
 /// Generate various test pattern.
 /// </summary>
-public static MptestsrcFilterGen MptestsrcFilterGen(this FilterGraph input0) => new MptestsrcFilterGen(input0);
-/// <summary>
-/// Generate various test pattern.
-/// </summary>
-public static MptestsrcFilterGen MptestsrcFilterGen(this FilterGraph input0,MptestsrcFilterGenConfig config)
-{
-var result = new MptestsrcFilterGen(input0);
-if(config?.rate != null) result.rate(config.rate);
-if(config?.duration != null) result.duration(config.duration.Value);
-if(config?.test != null) result.test(config.test.Value);
-if(config?.max_frames != null) result.max_frames(config.max_frames.Value);
-return result;
+public static MptestsrcFilterGen MptestsrcFilterGen(this IFilterGraph input0) => new MptestsrcFilterGen(input0);
 }
-}
-public class MptestsrcFilterGenConfig
-{
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Rational rate { get; set; }
-/// <summary>
-///  set video duration (default -0.000001)
-/// </summary>
-public TimeSpan? duration { get; set; }
 /// <summary>
 ///  set test to perform (from 0 to INT_MAX) (default all)
 /// </summary>
-public MptestsrcFilterGenTest? test { get; set; }
-/// <summary>
-///  Set the maximum number of frames generated for each test (from 1 to I64_MAX) (default 30)
-/// </summary>
-public long? max_frames { get; set; }
-}
 public enum MptestsrcFilterGenTest
 {
+/// <summary>
+/// dc_luma         0            ..FV.......
+/// </summary>
 [Name("dc_luma")] dc_luma,
+/// <summary>
+/// dc_chroma       1            ..FV.......
+/// </summary>
 [Name("dc_chroma")] dc_chroma,
+/// <summary>
+/// freq_luma       2            ..FV.......
+/// </summary>
 [Name("freq_luma")] freq_luma,
+/// <summary>
+/// freq_chroma     3            ..FV.......
+/// </summary>
 [Name("freq_chroma")] freq_chroma,
+/// <summary>
+/// amp_luma        4            ..FV.......
+/// </summary>
 [Name("amp_luma")] amp_luma,
+/// <summary>
+/// amp_chroma      5            ..FV.......
+/// </summary>
 [Name("amp_chroma")] amp_chroma,
+/// <summary>
+/// cbp             6            ..FV.......
+/// </summary>
 [Name("cbp")] cbp,
+/// <summary>
+/// mv              7            ..FV.......
+/// </summary>
 [Name("mv")] mv,
+/// <summary>
+/// ring1           8            ..FV.......
+/// </summary>
 [Name("ring1")] ring1,
+/// <summary>
+/// ring2           9            ..FV.......
+/// </summary>
 [Name("ring2")] ring2,
+/// <summary>
+/// all             10           ..FV.......
+/// </summary>
 [Name("all")] all,
 }
 

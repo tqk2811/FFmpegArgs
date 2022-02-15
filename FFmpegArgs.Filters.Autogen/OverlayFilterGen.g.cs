@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC overlay           VV->V      Overlay a video source on top of the input.
+/// </summary>
 public class OverlayFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal OverlayFilterGen(params ImageMap[] inputs) : base("overlay",inputs) { AddMapOut(); }
@@ -36,95 +39,100 @@ public OverlayFilterGen repeatlast(bool repeatlast) => this.SetOption("repeatlas
 /// </summary>
 public OverlayFilterGen alpha(OverlayFilterGenAlpha alpha) => this.SetOption("alpha", alpha.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class OverlayFilterGenExtensions
 {
 /// <summary>
 /// Overlay a video source on top of the input.
 /// </summary>
 public static OverlayFilterGen OverlayFilterGen(this ImageMap input0, ImageMap input1) => new OverlayFilterGen(input0, input1);
-/// <summary>
-/// Overlay a video source on top of the input.
-/// </summary>
-public static OverlayFilterGen OverlayFilterGen(this ImageMap input0, ImageMap input1,OverlayFilterGenConfig config)
-{
-var result = new OverlayFilterGen(input0, input1);
-if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
-if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
-if(config?.eof_action != null) result.eof_action(config.eof_action.Value);
-if(config?.eval != null) result.eval(config.eval.Value);
-if(config?.shortest != null) result.shortest(config.shortest.Value);
-if(config?.format != null) result.format(config.format.Value);
-if(config?.repeatlast != null) result.repeatlast(config.repeatlast.Value);
-if(config?.alpha != null) result.alpha(config.alpha.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class OverlayFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the x expression (default "0")
-/// </summary>
-public string x { get; set; }
-/// <summary>
-///  set the y expression (default "0")
-/// </summary>
-public string y { get; set; }
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>
-public OverlayFilterGenEof_action? eof_action { get; set; }
-/// <summary>
-///  specify when to evaluate expressions (from 0 to 1) (default frame)
-/// </summary>
-public OverlayFilterGenEval? eval { get; set; }
-/// <summary>
-///  force termination when the shortest input terminates (default false)
-/// </summary>
-public bool? shortest { get; set; }
-/// <summary>
-///  set output format (from 0 to 7) (default yuv420)
-/// </summary>
-public OverlayFilterGenFormat? format { get; set; }
-/// <summary>
-///  repeat overlay of the last overlay frame (default true)
-/// </summary>
-public bool? repeatlast { get; set; }
-/// <summary>
-///  alpha format (from 0 to 1) (default straight)
-/// </summary>
-public OverlayFilterGenAlpha? alpha { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum OverlayFilterGenEof_action
 {
+/// <summary>
+/// repeat          0            ..FV....... Repeat the previous frame.
+/// </summary>
 [Name("repeat")] repeat,
+/// <summary>
+/// endall          1            ..FV....... End both streams.
+/// </summary>
 [Name("endall")] endall,
+/// <summary>
+/// pass            2            ..FV....... Pass through the main input.
+/// </summary>
 [Name("pass")] pass,
 }
 
+/// <summary>
+///  specify when to evaluate expressions (from 0 to 1) (default frame)
+/// </summary>
 public enum OverlayFilterGenEval
 {
+/// <summary>
+/// init            0            ..FV....... eval expressions once during initialization
+/// </summary>
 [Name("init")] init,
+/// <summary>
+/// frame           1            ..FV....... eval expressions per-frame
+/// </summary>
 [Name("frame")] frame,
 }
 
+/// <summary>
+///  set output format (from 0 to 7) (default yuv420)
+/// </summary>
 public enum OverlayFilterGenFormat
 {
+/// <summary>
+/// yuv420          0            ..FV.......
+/// </summary>
 [Name("yuv420")] yuv420,
+/// <summary>
+/// yuv420p10       1            ..FV.......
+/// </summary>
 [Name("yuv420p10")] yuv420p10,
+/// <summary>
+/// yuv422          2            ..FV.......
+/// </summary>
 [Name("yuv422")] yuv422,
+/// <summary>
+/// yuv422p10       3            ..FV.......
+/// </summary>
 [Name("yuv422p10")] yuv422p10,
+/// <summary>
+/// yuv444          4            ..FV.......
+/// </summary>
 [Name("yuv444")] yuv444,
+/// <summary>
+/// rgb             5            ..FV.......
+/// </summary>
 [Name("rgb")] rgb,
+/// <summary>
+/// gbrp            6            ..FV.......
+/// </summary>
 [Name("gbrp")] gbrp,
+/// <summary>
+/// auto            7            ..FV.......
+/// </summary>
 [Name("auto")] auto,
 }
 
+/// <summary>
+///  alpha format (from 0 to 1) (default straight)
+/// </summary>
 public enum OverlayFilterGenAlpha
 {
+/// <summary>
+/// straight        0            ..FV.......
+/// </summary>
 [Name("straight")] straight,
+/// <summary>
+/// premultiplied   1            ..FV.......
+/// </summary>
 [Name("premultiplied")] premultiplied,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C fillborders       V->V       Fill borders of the input video.
+/// </summary>
 public class FillbordersFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal FillbordersFilterGen(ImageMap input) : base("fillborders",input) { AddMapOut(); }
@@ -28,64 +31,43 @@ public FillbordersFilterGen mode(FillbordersFilterGenMode mode) => this.SetOptio
 /// </summary>
 public FillbordersFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }
+/// <summary>
+/// </summary>
 public static class FillbordersFilterGenExtensions
 {
 /// <summary>
 /// Fill borders of the input video.
 /// </summary>
 public static FillbordersFilterGen FillbordersFilterGen(this ImageMap input0) => new FillbordersFilterGen(input0);
-/// <summary>
-/// Fill borders of the input video.
-/// </summary>
-public static FillbordersFilterGen FillbordersFilterGen(this ImageMap input0,FillbordersFilterGenConfig config)
-{
-var result = new FillbordersFilterGen(input0);
-if(config?.left != null) result.left(config.left.Value);
-if(config?.right != null) result.right(config.right.Value);
-if(config?.top != null) result.top(config.top.Value);
-if(config?.bottom != null) result.bottom(config.bottom.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.color != null) result.color(config.color.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class FillbordersFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the left fill border (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? left { get; set; }
-/// <summary>
-///  set the right fill border (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? right { get; set; }
-/// <summary>
-///  set the top fill border (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? top { get; set; }
-/// <summary>
-///  set the bottom fill border (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? bottom { get; set; }
 /// <summary>
 ///  set the fill borders mode (from 0 to 5) (default smear)
 /// </summary>
-public FillbordersFilterGenMode? mode { get; set; }
-/// <summary>
-///  set the color for the fixed/fade mode (default "black")
-/// </summary>
-public Color? color { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum FillbordersFilterGenMode
 {
+/// <summary>
+/// smear           0            ..FV.....T.
+/// </summary>
 [Name("smear")] smear,
+/// <summary>
+/// mirror          1            ..FV.....T.
+/// </summary>
 [Name("mirror")] mirror,
+/// <summary>
+/// fixed           2            ..FV.....T.
+/// </summary>
 [Name("fixed")] _fixed,
+/// <summary>
+/// reflect         3            ..FV.....T.
+/// </summary>
 [Name("reflect")] reflect,
+/// <summary>
+/// wrap            4            ..FV.....T.
+/// </summary>
 [Name("wrap")] wrap,
+/// <summary>
+/// fade            5            ..FV.....T.
+/// </summary>
 [Name("fade")] fade,
 }
 

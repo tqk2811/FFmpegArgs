@@ -1,8 +1,11 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... openclsrc         |->V       Generate video using an OpenCL program
+/// </summary>
 public class OpenclsrcFilterGen : SourceImageFilter
 {
-internal OpenclsrcFilterGen(FilterGraph input) : base("openclsrc",input) { AddMapOut(); }
+internal OpenclsrcFilterGen(IFilterGraph input) : base("openclsrc",input) { AddMapOut(); }
 /// <summary>
 ///  OpenCL program source file
 /// </summary>
@@ -24,47 +27,13 @@ public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format",forma
 /// </summary>
 public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 }
+/// <summary>
+/// </summary>
 public static class OpenclsrcFilterGenExtensions
 {
 /// <summary>
 /// Generate video using an OpenCL program
 /// </summary>
-public static OpenclsrcFilterGen OpenclsrcFilterGen(this FilterGraph input0) => new OpenclsrcFilterGen(input0);
-/// <summary>
-/// Generate video using an OpenCL program
-/// </summary>
-public static OpenclsrcFilterGen OpenclsrcFilterGen(this FilterGraph input0,OpenclsrcFilterGenConfig config)
-{
-var result = new OpenclsrcFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.source)) result.source(config.source);
-if(!string.IsNullOrWhiteSpace(config?.kernel)) result.kernel(config.kernel);
-if(config?.size != null) result.size(config.size.Value);
-if(config?.format != null) result.format(config.format.Value);
-if(config?.rate != null) result.rate(config.rate);
-return result;
-}
-}
-public class OpenclsrcFilterGenConfig
-{
-/// <summary>
-///  OpenCL program source file
-/// </summary>
-public string source { get; set; }
-/// <summary>
-///  Kernel name in program
-/// </summary>
-public string kernel { get; set; }
-/// <summary>
-///  Video size
-/// </summary>
-public Size? size { get; set; }
-/// <summary>
-///  Video format (default none)
-/// </summary>
-public PixFmt? format { get; set; }
-/// <summary>
-///  Video frame rate (default "25")
-/// </summary>
-public Rational rate { get; set; }
+public static OpenclsrcFilterGen OpenclsrcFilterGen(this IFilterGraph input0) => new OpenclsrcFilterGen(input0);
 }
 }

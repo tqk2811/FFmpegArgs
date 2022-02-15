@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... aphaser           A->A       Add a phasing effect to the audio.
+/// </summary>
 public class AphaserFilterGen : AudioToAudioFilter
 {
 internal AphaserFilterGen(AudioMap input) : base("aphaser",input) { AddMapOut(); }
@@ -28,59 +31,35 @@ public AphaserFilterGen speed(double speed) => this.SetOptionRange("speed", spee
 /// </summary>
 public AphaserFilterGen type(AphaserFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class AphaserFilterGenExtensions
 {
 /// <summary>
 /// Add a phasing effect to the audio.
 /// </summary>
 public static AphaserFilterGen AphaserFilterGen(this AudioMap input0) => new AphaserFilterGen(input0);
-/// <summary>
-/// Add a phasing effect to the audio.
-/// </summary>
-public static AphaserFilterGen AphaserFilterGen(this AudioMap input0,AphaserFilterGenConfig config)
-{
-var result = new AphaserFilterGen(input0);
-if(config?.in_gain != null) result.in_gain(config.in_gain.Value);
-if(config?.out_gain != null) result.out_gain(config.out_gain.Value);
-if(config?.delay != null) result.delay(config.delay.Value);
-if(config?.decay != null) result.decay(config.decay.Value);
-if(config?.speed != null) result.speed(config.speed.Value);
-if(config?.type != null) result.type(config.type.Value);
-return result;
 }
-}
-public class AphaserFilterGenConfig
-{
-/// <summary>
-///  set input gain (from 0 to 1) (default 0.4)
-/// </summary>
-public double? in_gain { get; set; }
-/// <summary>
-///  set output gain (from 0 to 1e+09) (default 0.74)
-/// </summary>
-public double? out_gain { get; set; }
-/// <summary>
-///  set delay in milliseconds (from 0 to 5) (default 3)
-/// </summary>
-public double? delay { get; set; }
-/// <summary>
-///  set decay (from 0 to 0.99) (default 0.4)
-/// </summary>
-public double? decay { get; set; }
-/// <summary>
-///  set modulation speed (from 0.1 to 2) (default 0.5)
-/// </summary>
-public double? speed { get; set; }
 /// <summary>
 ///  set modulation type (from 0 to 1) (default triangular)
 /// </summary>
-public AphaserFilterGenType? type { get; set; }
-}
 public enum AphaserFilterGenType
 {
+/// <summary>
+/// triangular      1            ..F.A......
+/// </summary>
 [Name("triangular")] triangular,
+/// <summary>
+/// t               1            ..F.A......
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// sinusoidal      0            ..F.A......
+/// </summary>
 [Name("sinusoidal")] sinusoidal,
+/// <summary>
+/// s               0            ..F.A......
+/// </summary>
 [Name("s")] s,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. apad              A->A       Pad audio with silence.
+/// </summary>
 public class ApadFilterGen : AudioToAudioFilter,ITimelineSupport
 {
 internal ApadFilterGen(AudioMap input) : base("apad",input) { AddMapOut(); }
@@ -24,50 +27,13 @@ public ApadFilterGen pad_dur(TimeSpan pad_dur) => this.SetOptionRange("pad_dur",
 /// </summary>
 public ApadFilterGen whole_dur(TimeSpan whole_dur) => this.SetOptionRange("whole_dur",whole_dur,TimeSpan.Zero,TimeSpan.MaxValue);
 }
+/// <summary>
+/// </summary>
 public static class ApadFilterGenExtensions
 {
 /// <summary>
 /// Pad audio with silence.
 /// </summary>
 public static ApadFilterGen ApadFilterGen(this AudioMap input0) => new ApadFilterGen(input0);
-/// <summary>
-/// Pad audio with silence.
-/// </summary>
-public static ApadFilterGen ApadFilterGen(this AudioMap input0,ApadFilterGenConfig config)
-{
-var result = new ApadFilterGen(input0);
-if(config?.packet_size != null) result.packet_size(config.packet_size.Value);
-if(config?.pad_len != null) result.pad_len(config.pad_len.Value);
-if(config?.whole_len != null) result.whole_len(config.whole_len.Value);
-if(config?.pad_dur != null) result.pad_dur(config.pad_dur.Value);
-if(config?.whole_dur != null) result.whole_dur(config.whole_dur.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class ApadFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set silence packet size (from 0 to INT_MAX) (default 4096)
-/// </summary>
-public int? packet_size { get; set; }
-/// <summary>
-///  set number of samples of silence to add (from -1 to I64_MAX) (default -1)
-/// </summary>
-public long? pad_len { get; set; }
-/// <summary>
-///  set minimum target number of samples in the audio stream (from -1 to I64_MAX) (default -1)
-/// </summary>
-public long? whole_len { get; set; }
-/// <summary>
-///  set duration of silence to add (default 0)
-/// </summary>
-public TimeSpan? pad_dur { get; set; }
-/// <summary>
-///  set minimum target duration in the audio stream (default 0)
-/// </summary>
-public TimeSpan? whole_dur { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

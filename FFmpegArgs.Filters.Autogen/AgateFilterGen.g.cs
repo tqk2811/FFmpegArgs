@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C agate             A->A       Audio gate.
+/// </summary>
 public class AgateFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal AgateFilterGen(AudioMap input) : base("agate",input) { AddMapOut(); }
@@ -52,102 +55,57 @@ public AgateFilterGen link(AgateFilterGenLink link) => this.SetOption("link", li
 /// </summary>
 public AgateFilterGen level_sc(double level_sc) => this.SetOptionRange("level_sc", level_sc,0.015625,64);
 }
+/// <summary>
+/// </summary>
 public static class AgateFilterGenExtensions
 {
 /// <summary>
 /// Audio gate.
 /// </summary>
 public static AgateFilterGen AgateFilterGen(this AudioMap input0) => new AgateFilterGen(input0);
-/// <summary>
-/// Audio gate.
-/// </summary>
-public static AgateFilterGen AgateFilterGen(this AudioMap input0,AgateFilterGenConfig config)
-{
-var result = new AgateFilterGen(input0);
-if(config?.level_in != null) result.level_in(config.level_in.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.range != null) result.range(config.range.Value);
-if(config?.threshold != null) result.threshold(config.threshold.Value);
-if(config?.ratio != null) result.ratio(config.ratio.Value);
-if(config?.attack != null) result.attack(config.attack.Value);
-if(config?.release != null) result.release(config.release.Value);
-if(config?.makeup != null) result.makeup(config.makeup.Value);
-if(config?.knee != null) result.knee(config.knee.Value);
-if(config?.detection != null) result.detection(config.detection.Value);
-if(config?.link != null) result.link(config.link.Value);
-if(config?.level_sc != null) result.level_sc(config.level_sc.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AgateFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set input level (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? level_in { get; set; }
 /// <summary>
 ///  set mode (from 0 to 1) (default downward)
 /// </summary>
-public AgateFilterGenMode? mode { get; set; }
-/// <summary>
-///  set max gain reduction (from 0 to 1) (default 0.06125)
-/// </summary>
-public double? range { get; set; }
-/// <summary>
-///  set threshold (from 0 to 1) (default 0.125)
-/// </summary>
-public double? threshold { get; set; }
-/// <summary>
-///  set ratio (from 1 to 9000) (default 2)
-/// </summary>
-public double? ratio { get; set; }
-/// <summary>
-///  set attack (from 0.01 to 9000) (default 20)
-/// </summary>
-public double? attack { get; set; }
-/// <summary>
-///  set release (from 0.01 to 9000) (default 250)
-/// </summary>
-public double? release { get; set; }
-/// <summary>
-///  set makeup gain (from 1 to 64) (default 1)
-/// </summary>
-public double? makeup { get; set; }
-/// <summary>
-///  set knee (from 1 to 8) (default 2.82843)
-/// </summary>
-public double? knee { get; set; }
-/// <summary>
-///  set detection (from 0 to 1) (default rms)
-/// </summary>
-public AgateFilterGenDetection? detection { get; set; }
-/// <summary>
-///  set link (from 0 to 1) (default average)
-/// </summary>
-public AgateFilterGenLink? link { get; set; }
-/// <summary>
-///  set sidechain gain (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? level_sc { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AgateFilterGenMode
 {
+/// <summary>
+/// downward        0            ..F.A....T.
+/// </summary>
 [Name("downward")] downward,
+/// <summary>
+/// upward          1            ..F.A....T.
+/// </summary>
 [Name("upward")] upward,
 }
 
+/// <summary>
+///  set detection (from 0 to 1) (default rms)
+/// </summary>
 public enum AgateFilterGenDetection
 {
+/// <summary>
+/// peak            0            ..F.A....T.
+/// </summary>
 [Name("peak")] peak,
+/// <summary>
+/// rms             1            ..F.A....T.
+/// </summary>
 [Name("rms")] rms,
 }
 
+/// <summary>
+///  set link (from 0 to 1) (default average)
+/// </summary>
 public enum AgateFilterGenLink
 {
+/// <summary>
+/// average         0            ..F.A....T.
+/// </summary>
 [Name("average")] average,
+/// <summary>
+/// maximum         1            ..F.A....T.
+/// </summary>
 [Name("maximum")] maximum,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... apulsator         A->A       Audio pulsator.
+/// </summary>
 public class ApulsatorFilterGen : AudioToAudioFilter
 {
 internal ApulsatorFilterGen(AudioMap input) : base("apulsator",input) { AddMapOut(); }
@@ -48,92 +51,58 @@ public ApulsatorFilterGen ms(int ms) => this.SetOptionRange("ms", ms,10,2000);
 /// </summary>
 public ApulsatorFilterGen hz(double hz) => this.SetOptionRange("hz", hz,0.01,100);
 }
+/// <summary>
+/// </summary>
 public static class ApulsatorFilterGenExtensions
 {
 /// <summary>
 /// Audio pulsator.
 /// </summary>
 public static ApulsatorFilterGen ApulsatorFilterGen(this AudioMap input0) => new ApulsatorFilterGen(input0);
-/// <summary>
-/// Audio pulsator.
-/// </summary>
-public static ApulsatorFilterGen ApulsatorFilterGen(this AudioMap input0,ApulsatorFilterGenConfig config)
-{
-var result = new ApulsatorFilterGen(input0);
-if(config?.level_in != null) result.level_in(config.level_in.Value);
-if(config?.level_out != null) result.level_out(config.level_out.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.amount != null) result.amount(config.amount.Value);
-if(config?.offset_l != null) result.offset_l(config.offset_l.Value);
-if(config?.offset_r != null) result.offset_r(config.offset_r.Value);
-if(config?.width != null) result.width(config.width.Value);
-if(config?.timing != null) result.timing(config.timing.Value);
-if(config?.bpm != null) result.bpm(config.bpm.Value);
-if(config?.ms != null) result.ms(config.ms.Value);
-if(config?.hz != null) result.hz(config.hz.Value);
-return result;
 }
-}
-public class ApulsatorFilterGenConfig
-{
-/// <summary>
-///  set input gain (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? level_in { get; set; }
-/// <summary>
-///  set output gain (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? level_out { get; set; }
 /// <summary>
 ///  set mode (from 0 to 4) (default sine)
 /// </summary>
-public ApulsatorFilterGenMode? mode { get; set; }
-/// <summary>
-///  set modulation (from 0 to 1) (default 1)
-/// </summary>
-public double? amount { get; set; }
-/// <summary>
-///  set offset L (from 0 to 1) (default 0)
-/// </summary>
-public double? offset_l { get; set; }
-/// <summary>
-///  set offset R (from 0 to 1) (default 0.5)
-/// </summary>
-public double? offset_r { get; set; }
-/// <summary>
-///  set pulse width (from 0 to 2) (default 1)
-/// </summary>
-public double? width { get; set; }
-/// <summary>
-///  set timing (from 0 to 2) (default hz)
-/// </summary>
-public ApulsatorFilterGenTiming? timing { get; set; }
-/// <summary>
-///  set BPM (from 30 to 300) (default 120)
-/// </summary>
-public double? bpm { get; set; }
-/// <summary>
-///  set ms (from 10 to 2000) (default 500)
-/// </summary>
-public int? ms { get; set; }
-/// <summary>
-///  set frequency (from 0.01 to 100) (default 2)
-/// </summary>
-public double? hz { get; set; }
-}
 public enum ApulsatorFilterGenMode
 {
+/// <summary>
+/// sine            0            ..F.A......
+/// </summary>
 [Name("sine")] sine,
+/// <summary>
+/// triangle        1            ..F.A......
+/// </summary>
 [Name("triangle")] triangle,
+/// <summary>
+/// square          2            ..F.A......
+/// </summary>
 [Name("square")] square,
+/// <summary>
+/// sawup           3            ..F.A......
+/// </summary>
 [Name("sawup")] sawup,
+/// <summary>
+/// sawdown         4            ..F.A......
+/// </summary>
 [Name("sawdown")] sawdown,
 }
 
+/// <summary>
+///  set timing (from 0 to 2) (default hz)
+/// </summary>
 public enum ApulsatorFilterGenTiming
 {
+/// <summary>
+/// bpm             0            ..F.A......
+/// </summary>
 [Name("bpm")] bpm,
+/// <summary>
+/// ms              1            ..F.A......
+/// </summary>
 [Name("ms")] ms,
+/// <summary>
+/// hz              2            ..F.A......
+/// </summary>
 [Name("hz")] hz,
 }
 

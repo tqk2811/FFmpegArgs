@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ..C scale             V->V       Scale the input video size and/or convert the image format.
+/// </summary>
 public class ScaleFilterGen : ImageToImageFilter,ICommandSupport
 {
 internal ScaleFilterGen(ImageMap input) : base("scale",input) { AddMapOut(); }
@@ -76,148 +79,124 @@ public ScaleFilterGen nb_slices(int nb_slices) => this.SetOptionRange("nb_slices
 /// </summary>
 public ScaleFilterGen eval(ScaleFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class ScaleFilterGenExtensions
 {
 /// <summary>
 /// Scale the input video size and/or convert the image format.
 /// </summary>
 public static ScaleFilterGen ScaleFilterGen(this ImageMap input0) => new ScaleFilterGen(input0);
-/// <summary>
-/// Scale the input video size and/or convert the image format.
-/// </summary>
-public static ScaleFilterGen ScaleFilterGen(this ImageMap input0,ScaleFilterGenConfig config)
-{
-var result = new ScaleFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
-if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
-if(!string.IsNullOrWhiteSpace(config?.flags)) result.flags(config.flags);
-if(config?.interl != null) result.interl(config.interl.Value);
-if(!string.IsNullOrWhiteSpace(config?.in_color_matrix)) result.in_color_matrix(config.in_color_matrix);
-if(!string.IsNullOrWhiteSpace(config?.out_color_matrix)) result.out_color_matrix(config.out_color_matrix);
-if(config?.in_range != null) result.in_range(config.in_range.Value);
-if(config?.out_range != null) result.out_range(config.out_range.Value);
-if(config?.in_v_chr_pos != null) result.in_v_chr_pos(config.in_v_chr_pos.Value);
-if(config?.in_h_chr_pos != null) result.in_h_chr_pos(config.in_h_chr_pos.Value);
-if(config?.out_v_chr_pos != null) result.out_v_chr_pos(config.out_v_chr_pos.Value);
-if(config?.out_h_chr_pos != null) result.out_h_chr_pos(config.out_h_chr_pos.Value);
-if(config?.force_original_aspect_ratio != null) result.force_original_aspect_ratio(config.force_original_aspect_ratio.Value);
-if(config?.force_divisible_by != null) result.force_divisible_by(config.force_divisible_by.Value);
-if(config?.param0 != null) result.param0(config.param0.Value);
-if(config?.param1 != null) result.param1(config.param1.Value);
-if(config?.nb_slices != null) result.nb_slices(config.nb_slices.Value);
-if(config?.eval != null) result.eval(config.eval.Value);
-return result;
 }
-}
-public class ScaleFilterGenConfig
-{
-/// <summary>
-///  Output video width
-/// </summary>
-public string width { get; set; }
-/// <summary>
-///  Output video height
-/// </summary>
-public string height { get; set; }
-/// <summary>
-///  Flags to pass to libswscale (default "bilinear")
-/// </summary>
-public string flags { get; set; }
-/// <summary>
-///  set interlacing (default false)
-/// </summary>
-public bool? interl { get; set; }
-/// <summary>
-///  set input YCbCr type (default "auto")
-/// </summary>
-public string in_color_matrix { get; set; }
-/// <summary>
-///  set output YCbCr type
-/// </summary>
-public string out_color_matrix { get; set; }
 /// <summary>
 ///  set input color range (from 0 to 2) (default auto)
 /// </summary>
-public ScaleFilterGenIn_range? in_range { get; set; }
+public enum ScaleFilterGenIn_range
+{
+/// <summary>
+/// auto            0            ..FV.......
+/// </summary>
+[Name("auto")] auto,
+/// <summary>
+/// unknown         0            ..FV.......
+/// </summary>
+[Name("unknown")] unknown,
+/// <summary>
+/// full            2            ..FV.......
+/// </summary>
+[Name("full")] full,
+/// <summary>
+/// limited         1            ..FV.......
+/// </summary>
+[Name("limited")] limited,
+/// <summary>
+/// jpeg            2            ..FV.......
+/// </summary>
+[Name("jpeg")] jpeg,
+/// <summary>
+/// mpeg            1            ..FV.......
+/// </summary>
+[Name("mpeg")] mpeg,
+/// <summary>
+/// tv              1            ..FV.......
+/// </summary>
+[Name("tv")] tv,
+/// <summary>
+/// pc              2            ..FV.......
+/// </summary>
+[Name("pc")] pc,
+}
+
 /// <summary>
 ///  set output color range (from 0 to 2) (default auto)
 /// </summary>
-public ScaleFilterGenOut_range? out_range { get; set; }
+public enum ScaleFilterGenOut_range
+{
 /// <summary>
-///  input vertical chroma position in luma grid/256 (from -513 to 512) (default -513)
+/// auto            0            ..FV.......
 /// </summary>
-public int? in_v_chr_pos { get; set; }
+[Name("auto")] auto,
 /// <summary>
-///  input horizontal chroma position in luma grid/256 (from -513 to 512) (default -513)
+/// unknown         0            ..FV.......
 /// </summary>
-public int? in_h_chr_pos { get; set; }
+[Name("unknown")] unknown,
 /// <summary>
-///  output vertical chroma position in luma grid/256 (from -513 to 512) (default -513)
+/// full            2            ..FV.......
 /// </summary>
-public int? out_v_chr_pos { get; set; }
+[Name("full")] full,
 /// <summary>
-///  output horizontal chroma position in luma grid/256 (from -513 to 512) (default -513)
+/// limited         1            ..FV.......
 /// </summary>
-public int? out_h_chr_pos { get; set; }
+[Name("limited")] limited,
+/// <summary>
+/// jpeg            2            ..FV.......
+/// </summary>
+[Name("jpeg")] jpeg,
+/// <summary>
+/// mpeg            1            ..FV.......
+/// </summary>
+[Name("mpeg")] mpeg,
+/// <summary>
+/// tv              1            ..FV.......
+/// </summary>
+[Name("tv")] tv,
+/// <summary>
+/// pc              2            ..FV.......
+/// </summary>
+[Name("pc")] pc,
+}
+
 /// <summary>
 ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
 /// </summary>
-public ScaleFilterGenForce_original_aspect_ratio? force_original_aspect_ratio { get; set; }
-/// <summary>
-///  enforce that the output resolution is divisible by a defined integer when force_original_aspect_ratio is used (from 1 to 256) (default 1)
-/// </summary>
-public int? force_divisible_by { get; set; }
-/// <summary>
-///  Scaler param 0 (from INT_MIN to INT_MAX) (default 123456)
-/// </summary>
-public double? param0 { get; set; }
-/// <summary>
-///  Scaler param 1 (from INT_MIN to INT_MAX) (default 123456)
-/// </summary>
-public double? param1 { get; set; }
-/// <summary>
-///  set the number of slices (debug purpose only) (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? nb_slices { get; set; }
-/// <summary>
-///  specify when to evaluate expressions (from 0 to 1) (default init)
-/// </summary>
-public ScaleFilterGenEval? eval { get; set; }
-}
-public enum ScaleFilterGenIn_range
-{
-[Name("auto")] auto,
-[Name("unknown")] unknown,
-[Name("full")] full,
-[Name("limited")] limited,
-[Name("jpeg")] jpeg,
-[Name("mpeg")] mpeg,
-[Name("tv")] tv,
-[Name("pc")] pc,
-}
-
-public enum ScaleFilterGenOut_range
-{
-[Name("auto")] auto,
-[Name("unknown")] unknown,
-[Name("full")] full,
-[Name("limited")] limited,
-[Name("jpeg")] jpeg,
-[Name("mpeg")] mpeg,
-[Name("tv")] tv,
-[Name("pc")] pc,
-}
-
 public enum ScaleFilterGenForce_original_aspect_ratio
 {
+/// <summary>
+/// disable         0            ..FV.......
+/// </summary>
 [Name("disable")] disable,
+/// <summary>
+/// decrease        1            ..FV.......
+/// </summary>
 [Name("decrease")] decrease,
+/// <summary>
+/// increase        2            ..FV.......
+/// </summary>
 [Name("increase")] increase,
 }
 
+/// <summary>
+///  specify when to evaluate expressions (from 0 to 1) (default init)
+/// </summary>
 public enum ScaleFilterGenEval
 {
+/// <summary>
+/// init            0            ..FV....... eval expressions once during initialization
+/// </summary>
 [Name("init")] init,
+/// <summary>
+/// frame           1            ..FV....... eval expressions during initialization and per-frame
+/// </summary>
 [Name("frame")] frame,
 }
 

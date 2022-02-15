@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC shear             V->V       Shear transform the input image.
+/// </summary>
 public class ShearFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ShearFilterGen(ImageMap input) : base("shear",input) { AddMapOut(); }
@@ -24,55 +27,27 @@ public ShearFilterGen c(string c) => this.SetOption("c",c);
 /// </summary>
 public ShearFilterGen interp(ShearFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class ShearFilterGenExtensions
 {
 /// <summary>
 /// Shear transform the input image.
 /// </summary>
 public static ShearFilterGen ShearFilterGen(this ImageMap input0) => new ShearFilterGen(input0);
-/// <summary>
-/// Shear transform the input image.
-/// </summary>
-public static ShearFilterGen ShearFilterGen(this ImageMap input0,ShearFilterGenConfig config)
-{
-var result = new ShearFilterGen(input0);
-if(config?.shx != null) result.shx(config.shx.Value);
-if(config?.shy != null) result.shy(config.shy.Value);
-if(!string.IsNullOrWhiteSpace(config?.fillcolor)) result.fillcolor(config.fillcolor);
-if(!string.IsNullOrWhiteSpace(config?.c)) result.c(config.c);
-if(config?.interp != null) result.interp(config.interp.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class ShearFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set x shear factor (from -2 to 2) (default 0)
-/// </summary>
-public float? shx { get; set; }
-/// <summary>
-///  set y shear factor (from -2 to 2) (default 0)
-/// </summary>
-public float? shy { get; set; }
-/// <summary>
-///  set background fill color (default "black")
-/// </summary>
-public string fillcolor { get; set; }
-/// <summary>
-///  set background fill color (default "black")
-/// </summary>
-public string c { get; set; }
 /// <summary>
 ///  set interpolation (from 0 to 1) (default bilinear)
 /// </summary>
-public ShearFilterGenInterp? interp { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum ShearFilterGenInterp
 {
+/// <summary>
+/// nearest         0            ..FV.....T. nearest neighbour
+/// </summary>
 [Name("nearest")] nearest,
+/// <summary>
+/// bilinear        1            ..FV.....T. bilinear
+/// </summary>
 [Name("bilinear")] bilinear,
 }
 

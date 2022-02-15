@@ -6,7 +6,7 @@
     public static class FFmpegRenderExtension
     {
         /// <summary>
-        /// Render with default <see cref="FFmpegRenderConfig"/> (ffmpeg from PATH and WorkingDirectory is Current)
+        /// Render with default <see cref="FFmpegRenderConfig"/> (ffmpeg from PATH/CurrentWorkingDirectory and WorkingDirectory is Current)
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>

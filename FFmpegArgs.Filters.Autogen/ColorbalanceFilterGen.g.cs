@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC colorbalance      V->V       Adjust the color balance.
+/// </summary>
 public class ColorbalanceFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ColorbalanceFilterGen(ImageMap input) : base("colorbalance",input) { AddMapOut(); }
@@ -44,75 +47,13 @@ public ColorbalanceFilterGen bh(float bh) => this.SetOptionRange("bh", bh,-1,1);
 /// </summary>
 public ColorbalanceFilterGen pl(bool pl) => this.SetOption("pl",pl.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class ColorbalanceFilterGenExtensions
 {
 /// <summary>
 /// Adjust the color balance.
 /// </summary>
 public static ColorbalanceFilterGen ColorbalanceFilterGen(this ImageMap input0) => new ColorbalanceFilterGen(input0);
-/// <summary>
-/// Adjust the color balance.
-/// </summary>
-public static ColorbalanceFilterGen ColorbalanceFilterGen(this ImageMap input0,ColorbalanceFilterGenConfig config)
-{
-var result = new ColorbalanceFilterGen(input0);
-if(config?.rs != null) result.rs(config.rs.Value);
-if(config?.gs != null) result.gs(config.gs.Value);
-if(config?.bs != null) result.bs(config.bs.Value);
-if(config?.rm != null) result.rm(config.rm.Value);
-if(config?.gm != null) result.gm(config.gm.Value);
-if(config?.bm != null) result.bm(config.bm.Value);
-if(config?.rh != null) result.rh(config.rh.Value);
-if(config?.gh != null) result.gh(config.gh.Value);
-if(config?.bh != null) result.bh(config.bh.Value);
-if(config?.pl != null) result.pl(config.pl.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class ColorbalanceFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set red shadows (from -1 to 1) (default 0)
-/// </summary>
-public float? rs { get; set; }
-/// <summary>
-///  set green shadows (from -1 to 1) (default 0)
-/// </summary>
-public float? gs { get; set; }
-/// <summary>
-///  set blue shadows (from -1 to 1) (default 0)
-/// </summary>
-public float? bs { get; set; }
-/// <summary>
-///  set red midtones (from -1 to 1) (default 0)
-/// </summary>
-public float? rm { get; set; }
-/// <summary>
-///  set green midtones (from -1 to 1) (default 0)
-/// </summary>
-public float? gm { get; set; }
-/// <summary>
-///  set blue midtones (from -1 to 1) (default 0)
-/// </summary>
-public float? bm { get; set; }
-/// <summary>
-///  set red highlights (from -1 to 1) (default 0)
-/// </summary>
-public float? rh { get; set; }
-/// <summary>
-///  set green highlights (from -1 to 1) (default 0)
-/// </summary>
-public float? gh { get; set; }
-/// <summary>
-///  set blue highlights (from -1 to 1) (default 0)
-/// </summary>
-public float? bh { get; set; }
-/// <summary>
-///  preserve lightness (default false)
-/// </summary>
-public bool? pl { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

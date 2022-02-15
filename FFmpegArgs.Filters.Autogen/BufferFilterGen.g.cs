@@ -1,8 +1,11 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... buffer            |->V       Buffer video frames, and make them accessible to the filterchain.
+/// </summary>
 public class BufferFilterGen : SourceImageFilter
 {
-internal BufferFilterGen(FilterGraph input) : base("buffer",input) { AddMapOut(); }
+internal BufferFilterGen(IFilterGraph input) : base("buffer",input) { AddMapOut(); }
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
@@ -40,67 +43,13 @@ public BufferFilterGen frame_rate(Rational frame_rate) => this.SetOption("frame_
 /// </summary>
 public BufferFilterGen sws_param(string sws_param) => this.SetOption("sws_param",sws_param);
 }
+/// <summary>
+/// </summary>
 public static class BufferFilterGenExtensions
 {
 /// <summary>
 /// Buffer video frames, and make them accessible to the filterchain.
 /// </summary>
-public static BufferFilterGen BufferFilterGen(this FilterGraph input0) => new BufferFilterGen(input0);
-/// <summary>
-/// Buffer video frames, and make them accessible to the filterchain.
-/// </summary>
-public static BufferFilterGen BufferFilterGen(this FilterGraph input0,BufferFilterGenConfig config)
-{
-var result = new BufferFilterGen(input0);
-if(config?.width != null) result.width(config.width.Value);
-if(config?.video_size != null) result.video_size(config.video_size.Value);
-if(config?.height != null) result.height(config.height.Value);
-if(config?.pix_fmt != null) result.pix_fmt(config.pix_fmt.Value);
-if(config?.sar != null) result.sar(config.sar);
-if(config?.pixel_aspect != null) result.pixel_aspect(config.pixel_aspect);
-if(config?.time_base != null) result.time_base(config.time_base);
-if(config?.frame_rate != null) result.frame_rate(config.frame_rate);
-if(!string.IsNullOrWhiteSpace(config?.sws_param)) result.sws_param(config.sws_param);
-return result;
-}
-}
-public class BufferFilterGenConfig
-{
-/// <summary>
-///  (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? width { get; set; }
-/// <summary>
-/// 
-/// </summary>
-public Size? video_size { get; set; }
-/// <summary>
-///  (from 0 to INT_MAX) (default 0)
-/// </summary>
-public int? height { get; set; }
-/// <summary>
-///  (default none)
-/// </summary>
-public PixFmt? pix_fmt { get; set; }
-/// <summary>
-///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
-/// </summary>
-public Rational sar { get; set; }
-/// <summary>
-///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
-/// </summary>
-public Rational pixel_aspect { get; set; }
-/// <summary>
-///  (from 0 to DBL_MAX) (default 0/1)
-/// </summary>
-public Rational time_base { get; set; }
-/// <summary>
-///  (from 0 to DBL_MAX) (default 0/1)
-/// </summary>
-public Rational frame_rate { get; set; }
-/// <summary>
-/// 
-/// </summary>
-public string sws_param { get; set; }
+public static BufferFilterGen BufferFilterGen(this IFilterGraph input0) => new BufferFilterGen(input0);
 }
 }

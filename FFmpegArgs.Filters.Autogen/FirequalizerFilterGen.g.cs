@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ..C firequalizer      A->A       Finite Impulse Response Equalizer.
+/// </summary>
 public class FirequalizerFilterGen : AudioToAudioFilter,ICommandSupport
 {
 internal FirequalizerFilterGen(AudioMap input) : base("firequalizer",input) { AddMapOut(); }
@@ -56,116 +59,105 @@ public FirequalizerFilterGen fft2(bool fft2) => this.SetOption("fft2",fft2.ToFFm
 /// </summary>
 public FirequalizerFilterGen min_phase(bool min_phase) => this.SetOption("min_phase",min_phase.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class FirequalizerFilterGenExtensions
 {
 /// <summary>
 /// Finite Impulse Response Equalizer.
 /// </summary>
 public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input0) => new FirequalizerFilterGen(input0);
-/// <summary>
-/// Finite Impulse Response Equalizer.
-/// </summary>
-public static FirequalizerFilterGen FirequalizerFilterGen(this AudioMap input0,FirequalizerFilterGenConfig config)
-{
-var result = new FirequalizerFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.gain)) result.gain(config.gain);
-if(!string.IsNullOrWhiteSpace(config?.gain_entry)) result.gain_entry(config.gain_entry);
-if(config?.delay != null) result.delay(config.delay.Value);
-if(config?.accuracy != null) result.accuracy(config.accuracy.Value);
-if(config?.wfunc != null) result.wfunc(config.wfunc.Value);
-if(config?._fixed != null) result._fixed(config._fixed.Value);
-if(config?.multi != null) result.multi(config.multi.Value);
-if(config?.zero_phase != null) result.zero_phase(config.zero_phase.Value);
-if(config?.scale != null) result.scale(config.scale.Value);
-if(!string.IsNullOrWhiteSpace(config?.dumpfile)) result.dumpfile(config.dumpfile);
-if(config?.dumpscale != null) result.dumpscale(config.dumpscale.Value);
-if(config?.fft2 != null) result.fft2(config.fft2.Value);
-if(config?.min_phase != null) result.min_phase(config.min_phase.Value);
-return result;
 }
-}
-public class FirequalizerFilterGenConfig
-{
-/// <summary>
-///  set gain curve (default "gain_interpolate(f)")
-/// </summary>
-public string gain { get; set; }
-/// <summary>
-///  set gain entry
-/// </summary>
-public string gain_entry { get; set; }
-/// <summary>
-///  set delay (from 0 to 1e+10) (default 0.01)
-/// </summary>
-public double? delay { get; set; }
-/// <summary>
-///  set accuracy (from 0 to 1e+10) (default 5)
-/// </summary>
-public double? accuracy { get; set; }
 /// <summary>
 ///  set window function (from 0 to 9) (default hann)
 /// </summary>
-public FirequalizerFilterGenWfunc? wfunc { get; set; }
-/// <summary>
-///  set fixed frame samples (default false)
-/// </summary>
-public bool? _fixed { get; set; }
-/// <summary>
-///  set multi channels mode (default false)
-/// </summary>
-public bool? multi { get; set; }
-/// <summary>
-///  set zero phase mode (default false)
-/// </summary>
-public bool? zero_phase { get; set; }
-/// <summary>
-///  set gain scale (from 0 to 3) (default linlog)
-/// </summary>
-public FirequalizerFilterGenScale? scale { get; set; }
-/// <summary>
-///  set dump file
-/// </summary>
-public string dumpfile { get; set; }
-/// <summary>
-///  set dump scale (from 0 to 3) (default linlog)
-/// </summary>
-public FirequalizerFilterGenDumpscale? dumpscale { get; set; }
-/// <summary>
-///  set 2-channels fft (default false)
-/// </summary>
-public bool? fft2 { get; set; }
-/// <summary>
-///  set minimum phase mode (default false)
-/// </summary>
-public bool? min_phase { get; set; }
-}
 public enum FirequalizerFilterGenWfunc
 {
+/// <summary>
+/// rectangular     0            ..F.A...... rectangular window
+/// </summary>
 [Name("rectangular")] rectangular,
+/// <summary>
+/// hann            1            ..F.A...... hann window
+/// </summary>
 [Name("hann")] hann,
+/// <summary>
+/// hamming         2            ..F.A...... hamming window
+/// </summary>
 [Name("hamming")] hamming,
+/// <summary>
+/// blackman        3            ..F.A...... blackman window
+/// </summary>
 [Name("blackman")] blackman,
+/// <summary>
+/// nuttall3        4            ..F.A...... 3-term nuttall window
+/// </summary>
 [Name("nuttall3")] nuttall3,
+/// <summary>
+/// mnuttall3       5            ..F.A...... minimum 3-term nuttall window
+/// </summary>
 [Name("mnuttall3")] mnuttall3,
+/// <summary>
+/// nuttall         6            ..F.A...... nuttall window
+/// </summary>
 [Name("nuttall")] nuttall,
+/// <summary>
+/// bnuttall        7            ..F.A...... blackman-nuttall window
+/// </summary>
 [Name("bnuttall")] bnuttall,
+/// <summary>
+/// bharris         8            ..F.A...... blackman-harris window
+/// </summary>
 [Name("bharris")] bharris,
+/// <summary>
+/// tukey           9            ..F.A...... tukey window
+/// </summary>
 [Name("tukey")] tukey,
 }
 
+/// <summary>
+///  set gain scale (from 0 to 3) (default linlog)
+/// </summary>
 public enum FirequalizerFilterGenScale
 {
+/// <summary>
+/// linlin          0            ..F.A...... linear-freq linear-gain
+/// </summary>
 [Name("linlin")] linlin,
+/// <summary>
+/// linlog          1            ..F.A...... linear-freq logarithmic-gain
+/// </summary>
 [Name("linlog")] linlog,
+/// <summary>
+/// loglin          2            ..F.A...... logarithmic-freq linear-gain
+/// </summary>
 [Name("loglin")] loglin,
+/// <summary>
+/// loglog          3            ..F.A...... logarithmic-freq logarithmic-gain
+/// </summary>
 [Name("loglog")] loglog,
 }
 
+/// <summary>
+///  set dump scale (from 0 to 3) (default linlog)
+/// </summary>
 public enum FirequalizerFilterGenDumpscale
 {
+/// <summary>
+/// linlin          0            ..F.A...... linear-freq linear-gain
+/// </summary>
 [Name("linlin")] linlin,
+/// <summary>
+/// linlog          1            ..F.A...... linear-freq logarithmic-gain
+/// </summary>
 [Name("linlog")] linlog,
+/// <summary>
+/// loglin          2            ..F.A...... logarithmic-freq linear-gain
+/// </summary>
 [Name("loglin")] loglin,
+/// <summary>
+/// loglog          3            ..F.A...... logarithmic-freq logarithmic-gain
+/// </summary>
 [Name("loglog")] loglog,
 }
 

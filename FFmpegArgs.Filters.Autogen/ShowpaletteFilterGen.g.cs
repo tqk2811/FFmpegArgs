@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... showpalette       V->V       Display frame palette.
+/// </summary>
 public class ShowpaletteFilterGen : ImageToImageFilter
 {
 internal ShowpaletteFilterGen(ImageMap input) : base("showpalette",input) { AddMapOut(); }
@@ -8,27 +11,13 @@ internal ShowpaletteFilterGen(ImageMap input) : base("showpalette",input) { AddM
 /// </summary>
 public ShowpaletteFilterGen s(int s) => this.SetOptionRange("s", s,1,100);
 }
+/// <summary>
+/// </summary>
 public static class ShowpaletteFilterGenExtensions
 {
 /// <summary>
 /// Display frame palette.
 /// </summary>
 public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input0) => new ShowpaletteFilterGen(input0);
-/// <summary>
-/// Display frame palette.
-/// </summary>
-public static ShowpaletteFilterGen ShowpaletteFilterGen(this ImageMap input0,ShowpaletteFilterGenConfig config)
-{
-var result = new ShowpaletteFilterGen(input0);
-if(config?.s != null) result.s(config.s.Value);
-return result;
-}
-}
-public class ShowpaletteFilterGenConfig
-{
-/// <summary>
-///  set pixel box size (from 1 to 100) (default 30)
-/// </summary>
-public int? s { get; set; }
 }
 }

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC afftdn            A->A       Denoise audio samples using FFT.
+/// </summary>
 public class AfftdnFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AfftdnFilterGen(AudioMap input) : base("afftdn",input) { AddMapOut(); }
@@ -36,79 +39,54 @@ public AfftdnFilterGen tr(bool tr) => this.SetOption("tr",tr.ToFFmpegFlag());
 /// </summary>
 public AfftdnFilterGen om(AfftdnFilterGenOm om) => this.SetOption("om", om.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class AfftdnFilterGenExtensions
 {
 /// <summary>
 /// Denoise audio samples using FFT.
 /// </summary>
 public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input0) => new AfftdnFilterGen(input0);
-/// <summary>
-/// Denoise audio samples using FFT.
-/// </summary>
-public static AfftdnFilterGen AfftdnFilterGen(this AudioMap input0,AfftdnFilterGenConfig config)
-{
-var result = new AfftdnFilterGen(input0);
-if(config?.nr != null) result.nr(config.nr.Value);
-if(config?.nf != null) result.nf(config.nf.Value);
-if(config?.nt != null) result.nt(config.nt.Value);
-if(!string.IsNullOrWhiteSpace(config?.bn)) result.bn(config.bn);
-if(config?.rf != null) result.rf(config.rf.Value);
-if(config?.tn != null) result.tn(config.tn.Value);
-if(config?.tr != null) result.tr(config.tr.Value);
-if(config?.om != null) result.om(config.om.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AfftdnFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the noise reduction (from 0.01 to 97) (default 12)
-/// </summary>
-public float? nr { get; set; }
-/// <summary>
-///  set the noise floor (from -80 to -20) (default -50)
-/// </summary>
-public float? nf { get; set; }
 /// <summary>
 ///  set the noise type (from 0 to 3) (default w)
 /// </summary>
-public AfftdnFilterGenNt? nt { get; set; }
-/// <summary>
-///  set the custom bands noise
-/// </summary>
-public string bn { get; set; }
-/// <summary>
-///  set the residual floor (from -80 to -20) (default -38)
-/// </summary>
-public float? rf { get; set; }
-/// <summary>
-///  track noise (default false)
-/// </summary>
-public bool? tn { get; set; }
-/// <summary>
-///  track residual (default false)
-/// </summary>
-public bool? tr { get; set; }
-/// <summary>
-///  set output mode (from 0 to 2) (default o)
-/// </summary>
-public AfftdnFilterGenOm? om { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AfftdnFilterGenNt
 {
+/// <summary>
+/// w               0            ..F.A...... white noise
+/// </summary>
 [Name("w")] w,
+/// <summary>
+/// v               1            ..F.A...... vinyl noise
+/// </summary>
 [Name("v")] v,
+/// <summary>
+/// s               2            ..F.A...... shellac noise
+/// </summary>
 [Name("s")] s,
+/// <summary>
+/// c               3            ..F.A...... custom noise
+/// </summary>
 [Name("c")] c,
 }
 
+/// <summary>
+///  set output mode (from 0 to 2) (default o)
+/// </summary>
 public enum AfftdnFilterGenOm
 {
+/// <summary>
+/// i               0            ..F.A....T. input
+/// </summary>
 [Name("i")] i,
+/// <summary>
+/// o               1            ..F.A....T. output
+/// </summary>
 [Name("o")] o,
+/// <summary>
+/// n               2            ..F.A....T. noise
+/// </summary>
 [Name("n")] n,
 }
 

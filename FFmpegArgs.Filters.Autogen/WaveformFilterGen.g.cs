@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// .S. waveform          V->V       Video waveform monitor.
+/// </summary>
 public class WaveformFilterGen : ImageToImageFilter,ISliceThreading
 {
 internal WaveformFilterGen(ImageMap input) : base("waveform",input) { AddMapOut(); }
@@ -72,160 +75,165 @@ public WaveformFilterGen tint1(float tint1) => this.SetOptionRange("tint1", tint
 /// </summary>
 public WaveformFilterGen t1(float t1) => this.SetOptionRange("t1", t1,-1,1);
 }
+/// <summary>
+/// </summary>
 public static class WaveformFilterGenExtensions
 {
 /// <summary>
 /// Video waveform monitor.
 /// </summary>
 public static WaveformFilterGen WaveformFilterGen(this ImageMap input0) => new WaveformFilterGen(input0);
-/// <summary>
-/// Video waveform monitor.
-/// </summary>
-public static WaveformFilterGen WaveformFilterGen(this ImageMap input0,WaveformFilterGenConfig config)
-{
-var result = new WaveformFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.intensity != null) result.intensity(config.intensity.Value);
-if(config?.mirror != null) result.mirror(config.mirror.Value);
-if(config?.r != null) result.r(config.r.Value);
-if(config?.display != null) result.display(config.display.Value);
-if(config?.components != null) result.components(config.components.Value);
-if(config?.envelope != null) result.envelope(config.envelope.Value);
-if(config?.filter != null) result.filter(config.filter.Value);
-if(config?.graticule != null) result.graticule(config.graticule.Value);
-if(config?.opacity != null) result.opacity(config.opacity.Value);
-if(config?.flags != null) result.flags(config.flags.Value);
-if(config?.scale != null) result.scale(config.scale.Value);
-if(config?.bgopacity != null) result.bgopacity(config.bgopacity.Value);
-if(config?.tint0 != null) result.tint0(config.tint0.Value);
-if(config?.t0 != null) result.t0(config.t0.Value);
-if(config?.tint1 != null) result.tint1(config.tint1.Value);
-if(config?.t1 != null) result.t1(config.t1.Value);
-return result;
 }
-}
-public class WaveformFilterGenConfig
-{
 /// <summary>
 ///  set mode (from 0 to 1) (default column)
 /// </summary>
-public WaveformFilterGenMode? mode { get; set; }
-/// <summary>
-///  set intensity (from 0 to 1) (default 0.04)
-/// </summary>
-public float? intensity { get; set; }
-/// <summary>
-///  set mirroring (default true)
-/// </summary>
-public bool? mirror { get; set; }
-/// <summary>
-///  set mirroring (default true)
-/// </summary>
-public bool? r { get; set; }
-/// <summary>
-///  set display mode (from 0 to 2) (default stack)
-/// </summary>
-public WaveformFilterGenDisplay? display { get; set; }
-/// <summary>
-///  set components to display (from 1 to 15) (default 1)
-/// </summary>
-public int? components { get; set; }
-/// <summary>
-///  set envelope to display (from 0 to 3) (default none)
-/// </summary>
-public WaveformFilterGenEnvelope? envelope { get; set; }
-/// <summary>
-///  set filter (from 0 to 7) (default lowpass)
-/// </summary>
-public WaveformFilterGenFilter? filter { get; set; }
-/// <summary>
-///  set graticule (from 0 to 3) (default none)
-/// </summary>
-public WaveformFilterGenGraticule? graticule { get; set; }
-/// <summary>
-///  set graticule opacity (from 0 to 1) (default 0.75)
-/// </summary>
-public float? opacity { get; set; }
-/// <summary>
-///  set graticule flags (default numbers)
-/// </summary>
-public WaveformFilterGenFlags? flags { get; set; }
-/// <summary>
-///  set scale (from 0 to 2) (default digital)
-/// </summary>
-public WaveformFilterGenScale? scale { get; set; }
-/// <summary>
-///  set background opacity (from 0 to 1) (default 0.75)
-/// </summary>
-public float? bgopacity { get; set; }
-/// <summary>
-///  set 1st tint (from -1 to 1) (default 0)
-/// </summary>
-public float? tint0 { get; set; }
-/// <summary>
-///  set 1st tint (from -1 to 1) (default 0)
-/// </summary>
-public float? t0 { get; set; }
-/// <summary>
-///  set 2nd tint (from -1 to 1) (default 0)
-/// </summary>
-public float? tint1 { get; set; }
-/// <summary>
-///  set 2nd tint (from -1 to 1) (default 0)
-/// </summary>
-public float? t1 { get; set; }
-}
 public enum WaveformFilterGenMode
 {
+/// <summary>
+/// row             0            ..FV.......
+/// </summary>
 [Name("row")] row,
+/// <summary>
+/// column          1            ..FV.......
+/// </summary>
 [Name("column")] column,
 }
 
+/// <summary>
+///  set display mode (from 0 to 2) (default stack)
+/// </summary>
 public enum WaveformFilterGenDisplay
 {
+/// <summary>
+/// overlay         0            ..FV.......
+/// </summary>
 [Name("overlay")] overlay,
+/// <summary>
+/// stack           1            ..FV.......
+/// </summary>
 [Name("stack")] stack,
+/// <summary>
+/// parade          2            ..FV.......
+/// </summary>
 [Name("parade")] parade,
 }
 
+/// <summary>
+///  set envelope to display (from 0 to 3) (default none)
+/// </summary>
 public enum WaveformFilterGenEnvelope
 {
+/// <summary>
+/// none            0            ..FV.......
+/// </summary>
 [Name("none")] none,
+/// <summary>
+/// instant         1            ..FV.......
+/// </summary>
 [Name("instant")] instant,
+/// <summary>
+/// peak            2            ..FV.......
+/// </summary>
 [Name("peak")] peak,
+/// <summary>
+/// peak+instant    3            ..FV.......
+/// </summary>
 [Name("peak+instant")] peakPlusinstant,
 }
 
+/// <summary>
+///  set filter (from 0 to 7) (default lowpass)
+/// </summary>
 public enum WaveformFilterGenFilter
 {
+/// <summary>
+/// lowpass         0            ..FV.......
+/// </summary>
 [Name("lowpass")] lowpass,
+/// <summary>
+/// flat            1            ..FV.......
+/// </summary>
 [Name("flat")] flat,
+/// <summary>
+/// aflat           2            ..FV.......
+/// </summary>
 [Name("aflat")] aflat,
+/// <summary>
+/// chroma          3            ..FV.......
+/// </summary>
 [Name("chroma")] chroma,
+/// <summary>
+/// color           4            ..FV.......
+/// </summary>
 [Name("color")] color,
+/// <summary>
+/// acolor          5            ..FV.......
+/// </summary>
 [Name("acolor")] acolor,
+/// <summary>
+/// xflat           6            ..FV.......
+/// </summary>
 [Name("xflat")] xflat,
+/// <summary>
+/// yflat           7            ..FV.......
+/// </summary>
 [Name("yflat")] yflat,
 }
 
+/// <summary>
+///  set graticule (from 0 to 3) (default none)
+/// </summary>
 public enum WaveformFilterGenGraticule
 {
+/// <summary>
+/// none            0            ..FV.......
+/// </summary>
 [Name("none")] none,
+/// <summary>
+/// green           1            ..FV.......
+/// </summary>
 [Name("green")] green,
+/// <summary>
+/// orange          2            ..FV.......
+/// </summary>
 [Name("orange")] orange,
+/// <summary>
+/// invert          3            ..FV.......
+/// </summary>
 [Name("invert")] invert,
 }
 
+/// <summary>
+///  set graticule flags (default numbers)
+/// </summary>
 public enum WaveformFilterGenFlags
 {
+/// <summary>
+/// numbers                      ..FV....... draw numbers
+/// </summary>
 [Name("numbers")] numbers,
+/// <summary>
+/// dots                         ..FV....... draw dots instead of lines
+/// </summary>
 [Name("dots")] dots,
 }
 
+/// <summary>
+///  set scale (from 0 to 2) (default digital)
+/// </summary>
 public enum WaveformFilterGenScale
 {
+/// <summary>
+/// digital         0            ..FV.......
+/// </summary>
 [Name("digital")] digital,
+/// <summary>
+/// millivolts      1            ..FV.......
+/// </summary>
 [Name("millivolts")] millivolts,
+/// <summary>
+/// ire             2            ..FV.......
+/// </summary>
 [Name("ire")] ire,
 }
 

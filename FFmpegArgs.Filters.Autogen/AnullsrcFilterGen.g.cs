@@ -1,8 +1,11 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... anullsrc          |->A       Null audio source, return empty audio frames.
+/// </summary>
 public class AnullsrcFilterGen : SourceAudioFilter
 {
-internal AnullsrcFilterGen(FilterGraph input) : base("anullsrc",input) { AddMapOut(); }
+internal AnullsrcFilterGen(IFilterGraph input) : base("anullsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set channel_layout (default "stereo")
 /// </summary>
@@ -28,52 +31,13 @@ public AnullsrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_s
 /// </summary>
 public AnullsrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 }
+/// <summary>
+/// </summary>
 public static class AnullsrcFilterGenExtensions
 {
 /// <summary>
 /// Null audio source, return empty audio frames.
 /// </summary>
-public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input0) => new AnullsrcFilterGen(input0);
-/// <summary>
-/// Null audio source, return empty audio frames.
-/// </summary>
-public static AnullsrcFilterGen AnullsrcFilterGen(this FilterGraph input0,AnullsrcFilterGenConfig config)
-{
-var result = new AnullsrcFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.channel_layout)) result.channel_layout(config.channel_layout);
-if(!string.IsNullOrWhiteSpace(config?.cl)) result.cl(config.cl);
-if(!string.IsNullOrWhiteSpace(config?.sample_rate)) result.sample_rate(config.sample_rate);
-if(!string.IsNullOrWhiteSpace(config?.r)) result.r(config.r);
-if(config?.nb_samples != null) result.nb_samples(config.nb_samples.Value);
-if(config?.duration != null) result.duration(config.duration.Value);
-return result;
-}
-}
-public class AnullsrcFilterGenConfig
-{
-/// <summary>
-///  set channel_layout (default "stereo")
-/// </summary>
-public string channel_layout { get; set; }
-/// <summary>
-///  set channel_layout (default "stereo")
-/// </summary>
-public string cl { get; set; }
-/// <summary>
-///  set sample rate (default "44100")
-/// </summary>
-public string sample_rate { get; set; }
-/// <summary>
-///  set sample rate (default "44100")
-/// </summary>
-public string r { get; set; }
-/// <summary>
-///  set the number of samples per requested frame (from 1 to 65535) (default 1024)
-/// </summary>
-public int? nb_samples { get; set; }
-/// <summary>
-///  set the audio duration (default -0.000001)
-/// </summary>
-public TimeSpan? duration { get; set; }
+public static AnullsrcFilterGen AnullsrcFilterGen(this IFilterGraph input0) => new AnullsrcFilterGen(input0);
 }
 }

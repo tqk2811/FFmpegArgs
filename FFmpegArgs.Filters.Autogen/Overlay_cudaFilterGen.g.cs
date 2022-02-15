@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... overlay_cuda      VV->V      Overlay one video on top of another using CUDA
+/// </summary>
 public class Overlay_cudaFilterGen : ImageToImageFilter
 {
 internal Overlay_cudaFilterGen(params ImageMap[] inputs) : base("overlay_cuda",inputs) { AddMapOut(); }
@@ -24,53 +27,31 @@ public Overlay_cudaFilterGen shortest(bool shortest) => this.SetOption("shortest
 /// </summary>
 public Overlay_cudaFilterGen repeatlast(bool repeatlast) => this.SetOption("repeatlast",repeatlast.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class Overlay_cudaFilterGenExtensions
 {
 /// <summary>
 /// Overlay one video on top of another using CUDA
 /// </summary>
 public static Overlay_cudaFilterGen Overlay_cudaFilterGen(this ImageMap input0, ImageMap input1) => new Overlay_cudaFilterGen(input0, input1);
-/// <summary>
-/// Overlay one video on top of another using CUDA
-/// </summary>
-public static Overlay_cudaFilterGen Overlay_cudaFilterGen(this ImageMap input0, ImageMap input1,Overlay_cudaFilterGenConfig config)
-{
-var result = new Overlay_cudaFilterGen(input0, input1);
-if(config?.x != null) result.x(config.x.Value);
-if(config?.y != null) result.y(config.y.Value);
-if(config?.eof_action != null) result.eof_action(config.eof_action.Value);
-if(config?.shortest != null) result.shortest(config.shortest.Value);
-if(config?.repeatlast != null) result.repeatlast(config.repeatlast.Value);
-return result;
 }
-}
-public class Overlay_cudaFilterGenConfig
-{
-/// <summary>
-///  Overlay x position (from INT_MIN to INT_MAX) (default 0)
-/// </summary>
-public int? x { get; set; }
-/// <summary>
-///  Overlay y position (from INT_MIN to INT_MAX) (default 0)
-/// </summary>
-public int? y { get; set; }
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>
-public Overlay_cudaFilterGenEof_action? eof_action { get; set; }
-/// <summary>
-///  force termination when the shortest input terminates (default false)
-/// </summary>
-public bool? shortest { get; set; }
-/// <summary>
-///  repeat overlay of the last overlay frame (default true)
-/// </summary>
-public bool? repeatlast { get; set; }
-}
 public enum Overlay_cudaFilterGenEof_action
 {
+/// <summary>
+/// repeat          0            ..FV....... Repeat the previous frame.
+/// </summary>
 [Name("repeat")] repeat,
+/// <summary>
+/// endall          1            ..FV....... End both streams.
+/// </summary>
 [Name("endall")] endall,
+/// <summary>
+/// pass            2            ..FV....... Pass through the main input.
+/// </summary>
 [Name("pass")] pass,
 }
 

@@ -1,9 +1,10 @@
 ﻿using FFmpegArgs;
-using FFmpegArgs.Attributes;
+using FFmpegArgs.Cores.Attributes;
+using FFmpegArgs.Cores.Enums;
+using FFmpegArgs.Cores.Filters;
 using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Enums;
+using FFmpegArgs.Cores.Utils;
 using FFmpegArgs.Filters;
-using FFmpegArgs.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -147,22 +148,24 @@ namespace Autogens
         }
         static void WriteFunctionWithEnum(FilterFunction filterFunction, FilterData filterData, string returnTypeName)
         {
-            Dictionary<string, string> pairs = new Dictionary<string, string>();
+            Dictionary<string, (string, string)> pairs = new Dictionary<string, (string, string)>();
             foreach (var item in filterData.Function.ChildLines)
             {
                 Match match_enum = FilterData.regex_DocLineMethod.Match(item.LineData);
                 if (match_enum.Success)
                 {
                     string enumName = match_enum.Groups[1].Value;
-                    pairs[enumName.FixNameRule()] = enumName;
+                    pairs[enumName.FixNameRule()] = (enumName, item.LineData);
                 }
                 else Console.WriteLine($"enum {returnTypeName}{filterData.Name.UpperFirst()} error: {item.LineData}");
             }
             StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.WriteSummary(filterFunction.Description);
             stringBuilder.AppendLine($"public enum {returnTypeName}{filterData.Name.UpperFirst()}\r\n{{");
             foreach (var item in pairs)
             {
-                stringBuilder.AppendLine($"[Name(\"{item.Value}\")] {item.Key},");
+                stringBuilder.WriteSummary(item.Value.Item2);
+                stringBuilder.AppendLine($"[Name(\"{item.Value.Item1}\")] {item.Key},");
             }
             stringBuilder.AppendLine($"}}");
             filterFunction.EnumData = stringBuilder.ToString();
@@ -218,7 +221,13 @@ namespace Autogens
             streamWriter.WriteLine("/// </summary>");
             return streamWriter;
         }
-
+        internal static StringBuilder WriteSummary(this StringBuilder stringBuilder, params string[] summarys)
+        {
+            stringBuilder.AppendLine("/// <summary>");
+            foreach (var summary in summarys) stringBuilder.AppendLine($"/// {summary}");
+            stringBuilder.AppendLine("/// </summary>");
+            return stringBuilder;
+        }
 
 
 
@@ -257,6 +266,7 @@ namespace Autogens
                     using StreamWriter streamWriter = new StreamWriter($"FFmpegArgs.Filters.Autogen\\{className}.g.cs", false);
                     streamWriter.WriteNameSpace();
                     streamWriter.WriteLine("{");
+                    streamWriter.WriteSummary(filter);
                     streamWriter.WriteLine($"public class {className} : {string.Join(",", interfaces)}");
                     streamWriter.WriteLine("{");
                     if (typeName.InputCount == 1)
@@ -299,68 +309,69 @@ namespace Autogens
                         inputs.Add($"{typeName.Input} input{i}");
                         paramsInput.Add($"input{i}");
                     }
+                    streamWriter.WriteSummary();
                     streamWriter.WriteLine($"public static class {className}Extensions");
                     streamWriter.WriteLine("{");
                     //default extension
                     streamWriter.WriteSummary(description);
                     streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)}) => new {className}({string.Join(", ", paramsInput)});");
-                    streamWriter.WriteSummary(description);
                     //config extension
-                    streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)},{className}Config config)");
-                    streamWriter.WriteLine("{");
-                    streamWriter.WriteLine($"var result = new {className}({string.Join(", ", paramsInput)});");
-                    foreach (var filterFunction in filterFunctions.Except(removes))
-                    {
-                        switch (filterFunction.FunctionParamType)
-                        {
-                            case "string":
-                                streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{filterFunction.FunctionName})) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
-                                break;
-                            case nameof(Rational)://class
-                                streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
-                                break;
+                    //streamWriter.WriteSummary(description);
+                    //streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)},{className}Config config)");
+                    //streamWriter.WriteLine("{");
+                    //streamWriter.WriteLine($"var result = new {className}({string.Join(", ", paramsInput)});");
+                    //foreach (var filterFunction in filterFunctions.Except(removes))
+                    //{
+                    //    switch (filterFunction.FunctionParamType)
+                    //    {
+                    //        case "string":
+                    //            streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{filterFunction.FunctionName})) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
+                    //            break;
+                    //        case nameof(Rational)://class
+                    //            streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
+                    //            break;
 
-                            default://struct
-                                streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName}.Value);");
-                                break;
-                        }
-                    }
-                    if (interfaces.Contains(nameof(ITimelineSupport)))
-                    {
-                        streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{nameof(ITimelineSupport).Substring(1)})) result.{nameof(TimelineSupportExtension.Enable)}(config.{nameof(ITimelineSupport).Substring(1)});");
-                    }
-                    streamWriter.WriteLine("return result;");
-                    streamWriter.WriteLine("}");
+                    //        default://struct
+                    //            streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName}.Value);");
+                    //            break;
+                    //    }
+                    //}
+                    //if (interfaces.Contains(nameof(ITimelineSupport)))
+                    //{
+                    //    streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{nameof(ITimelineSupport).Substring(1)})) result.{nameof(TimelineSupportExtension.Enable)}(config.{nameof(ITimelineSupport).Substring(1)});");
+                    //}
+                    //streamWriter.WriteLine("return result;");
+                    //streamWriter.WriteLine("}");
                     streamWriter.WriteLine("}");
                     //config class
-                    var interfaceConfigs = new List<string>();
-                    if (interfaces.Contains(nameof(ITimelineSupport)))
-                    {
-                        interfaceConfigs.Add(nameof(ITimelineSupportConfig));
-                    }
-                    streamWriter.WriteLine($"public class {className}Config");
-                    if (interfaceConfigs.Count > 0) streamWriter.WriteLine(":" + string.Join(",", interfaceConfigs));
-                    streamWriter.WriteLine("{");
-                    foreach (var filterFunction in filterFunctions.Except(removes))
-                    {
-                        streamWriter.WriteSummary(filterFunction.Description);
-                        switch (filterFunction.FunctionParamType)
-                        {
-                            case "string":
-                            case nameof(Rational)://class
-                                streamWriter.WriteLine($"public {filterFunction.FunctionParamType} {filterFunction.FunctionName} {{ get; set; }}");
-                                break;
+                    //var interfaceConfigs = new List<string>();
+                    //if (interfaces.Contains(nameof(ITimelineSupport)))
+                    //{
+                    //    interfaceConfigs.Add(nameof(ITimelineSupportConfig));
+                    //}
+                    //streamWriter.WriteLine($"public class {className}Config");
+                    //if (interfaceConfigs.Count > 0) streamWriter.WriteLine(":" + string.Join(",", interfaceConfigs));
+                    //streamWriter.WriteLine("{");
+                    //foreach (var filterFunction in filterFunctions.Except(removes))
+                    //{
+                    //    streamWriter.WriteSummary(filterFunction.Description);
+                    //    switch (filterFunction.FunctionParamType)
+                    //    {
+                    //        case "string":
+                    //        case nameof(Rational)://class
+                    //            streamWriter.WriteLine($"public {filterFunction.FunctionParamType} {filterFunction.FunctionName} {{ get; set; }}");
+                    //            break;
 
-                            default://struct
-                                streamWriter.WriteLine($"public {filterFunction.FunctionParamType}? {filterFunction.FunctionName} {{ get; set; }}");
-                                break;
-                        }
-                    }
-                    if (interfaces.Contains(nameof(ITimelineSupport)))
-                    {
-                        streamWriter.WriteLine($"public string {nameof(ITimelineSupport).Substring(1)} {{ get; set; }}");
-                    }
-                    streamWriter.WriteLine("}");
+                    //        default://struct
+                    //            streamWriter.WriteLine($"public {filterFunction.FunctionParamType}? {filterFunction.FunctionName} {{ get; set; }}");
+                    //            break;
+                    //    }
+                    //}
+                    //if (interfaces.Contains(nameof(ITimelineSupport)))
+                    //{
+                    //    streamWriter.WriteLine($"public string {nameof(ITimelineSupport).Substring(1)} {{ get; set; }}");
+                    //}
+                    //streamWriter.WriteLine("}");
                     //enum
                     enumDatas.ForEach(x => streamWriter.WriteLine(x));
                     streamWriter.WriteLine("}");
@@ -400,7 +411,7 @@ namespace Autogens
             if (type.Equals("|->V")) return new TypeName()
             {
                 Inheritance = nameof(SourceImageFilter),
-                Input = nameof(FilterGraph)
+                Input = nameof(IFilterGraph)
             };
 
             if (type.Equals("A->A")) return new TypeName()
@@ -417,7 +428,7 @@ namespace Autogens
             if (type.Equals("|->A")) return new TypeName()
             {
                 Inheritance = nameof(SourceAudioFilter),
-                Input = nameof(FilterGraph)
+                Input = nameof(IFilterGraph)
             };
 
             //skip N->? , ?->N 

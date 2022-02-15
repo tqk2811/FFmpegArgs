@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC scroll            V->V       Scroll input video.
+/// </summary>
 public class ScrollFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ScrollFilterGen(ImageMap input) : base("scroll",input) { AddMapOut(); }
@@ -20,45 +23,13 @@ public ScrollFilterGen hpos(float hpos) => this.SetOptionRange("hpos", hpos,0,1)
 /// </summary>
 public ScrollFilterGen vpos(float vpos) => this.SetOptionRange("vpos", vpos,0,1);
 }
+/// <summary>
+/// </summary>
 public static class ScrollFilterGenExtensions
 {
 /// <summary>
 /// Scroll input video.
 /// </summary>
 public static ScrollFilterGen ScrollFilterGen(this ImageMap input0) => new ScrollFilterGen(input0);
-/// <summary>
-/// Scroll input video.
-/// </summary>
-public static ScrollFilterGen ScrollFilterGen(this ImageMap input0,ScrollFilterGenConfig config)
-{
-var result = new ScrollFilterGen(input0);
-if(config?.horizontal != null) result.horizontal(config.horizontal.Value);
-if(config?.vertical != null) result.vertical(config.vertical.Value);
-if(config?.hpos != null) result.hpos(config.hpos.Value);
-if(config?.vpos != null) result.vpos(config.vpos.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class ScrollFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the horizontal scrolling speed (from -1 to 1) (default 0)
-/// </summary>
-public float? horizontal { get; set; }
-/// <summary>
-///  set the vertical scrolling speed (from -1 to 1) (default 0)
-/// </summary>
-public float? vertical { get; set; }
-/// <summary>
-///  set initial horizontal position (from 0 to 1) (default 0)
-/// </summary>
-public float? hpos { get; set; }
-/// <summary>
-///  set initial vertical position (from 0 to 1) (default 0)
-/// </summary>
-public float? vpos { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

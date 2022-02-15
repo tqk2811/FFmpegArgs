@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... hwmap             V->V       Map hardware frames
+/// </summary>
 public class HwmapFilterGen : ImageToImageFilter
 {
 internal HwmapFilterGen(ImageMap input) : base("hwmap",input) { AddMapOut(); }
@@ -16,44 +19,35 @@ public HwmapFilterGen derive_device(string derive_device) => this.SetOption("der
 /// </summary>
 public HwmapFilterGen reverse(int reverse) => this.SetOptionRange("reverse", reverse,0,1);
 }
+/// <summary>
+/// </summary>
 public static class HwmapFilterGenExtensions
 {
 /// <summary>
 /// Map hardware frames
 /// </summary>
 public static HwmapFilterGen HwmapFilterGen(this ImageMap input0) => new HwmapFilterGen(input0);
-/// <summary>
-/// Map hardware frames
-/// </summary>
-public static HwmapFilterGen HwmapFilterGen(this ImageMap input0,HwmapFilterGenConfig config)
-{
-var result = new HwmapFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(!string.IsNullOrWhiteSpace(config?.derive_device)) result.derive_device(config.derive_device);
-if(config?.reverse != null) result.reverse(config.reverse.Value);
-return result;
 }
-}
-public class HwmapFilterGenConfig
-{
 /// <summary>
 ///  Frame mapping mode (default read+write)
 /// </summary>
-public HwmapFilterGenMode? mode { get; set; }
-/// <summary>
-///  Derive a new device of this type
-/// </summary>
-public string derive_device { get; set; }
-/// <summary>
-///  Map in reverse (create and allocate in the sink) (from 0 to 1) (default 0)
-/// </summary>
-public int? reverse { get; set; }
-}
 public enum HwmapFilterGenMode
 {
+/// <summary>
+/// read                         ..FV....... Mapping should be readable
+/// </summary>
 [Name("read")] read,
+/// <summary>
+/// write                        ..FV....... Mapping should be writeable
+/// </summary>
 [Name("write")] write,
+/// <summary>
+/// overwrite                    ..FV....... Mapping will always overwrite the entire frame
+/// </summary>
 [Name("overwrite")] overwrite,
+/// <summary>
+/// direct                       ..FV....... Mapping should not involve any copying
+/// </summary>
 [Name("direct")] direct,
 }
 

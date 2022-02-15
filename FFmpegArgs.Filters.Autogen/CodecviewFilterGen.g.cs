@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. codecview         V->V       Visualize information about some codecs.
+/// </summary>
 public class CodecviewFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal CodecviewFilterGen(ImageMap input) : base("codecview",input) { AddMapOut(); }
@@ -28,87 +31,99 @@ public CodecviewFilterGen frame_type(CodecviewFilterGenFrame_type frame_type) =>
 /// </summary>
 public CodecviewFilterGen ft(CodecviewFilterGenFt ft) => this.SetOption("ft", ft.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class CodecviewFilterGenExtensions
 {
 /// <summary>
 /// Visualize information about some codecs.
 /// </summary>
 public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input0) => new CodecviewFilterGen(input0);
-/// <summary>
-/// Visualize information about some codecs.
-/// </summary>
-public static CodecviewFilterGen CodecviewFilterGen(this ImageMap input0,CodecviewFilterGenConfig config)
-{
-var result = new CodecviewFilterGen(input0);
-if(config?.mv != null) result.mv(config.mv.Value);
-if(config?.qp != null) result.qp(config.qp.Value);
-if(config?.mv_type != null) result.mv_type(config.mv_type.Value);
-if(config?.mvt != null) result.mvt(config.mvt.Value);
-if(config?.frame_type != null) result.frame_type(config.frame_type.Value);
-if(config?.ft != null) result.ft(config.ft.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class CodecviewFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set motion vectors to visualize (default 0)
 /// </summary>
-public CodecviewFilterGenMv? mv { get; set; }
-/// <summary>
-///  (default false)
-/// </summary>
-public bool? qp { get; set; }
-/// <summary>
-///  set motion vectors type (default 0)
-/// </summary>
-public CodecviewFilterGenMv_type? mv_type { get; set; }
-/// <summary>
-///  set motion vectors type (default 0)
-/// </summary>
-public CodecviewFilterGenMvt? mvt { get; set; }
-/// <summary>
-///  set frame types to visualize motion vectors of (default 0)
-/// </summary>
-public CodecviewFilterGenFrame_type? frame_type { get; set; }
-/// <summary>
-///  set frame types to visualize motion vectors of (default 0)
-/// </summary>
-public CodecviewFilterGenFt? ft { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum CodecviewFilterGenMv
 {
+/// <summary>
+/// pf                           ..FV....... forward predicted MVs of P-frames
+/// </summary>
 [Name("pf")] pf,
+/// <summary>
+/// bf                           ..FV....... forward predicted MVs of B-frames
+/// </summary>
 [Name("bf")] bf,
+/// <summary>
+/// bb                           ..FV....... backward predicted MVs of B-frames
+/// </summary>
 [Name("bb")] bb,
 }
 
+/// <summary>
+///  set motion vectors type (default 0)
+/// </summary>
 public enum CodecviewFilterGenMv_type
 {
+/// <summary>
+/// fp                           ..FV....... forward predicted MVs
+/// </summary>
 [Name("fp")] fp,
+/// <summary>
+/// bp                           ..FV....... backward predicted MVs
+/// </summary>
 [Name("bp")] bp,
 }
 
+/// <summary>
+///  set motion vectors type (default 0)
+/// </summary>
 public enum CodecviewFilterGenMvt
 {
+/// <summary>
+/// fp                           ..FV....... forward predicted MVs
+/// </summary>
 [Name("fp")] fp,
+/// <summary>
+/// bp                           ..FV....... backward predicted MVs
+/// </summary>
 [Name("bp")] bp,
 }
 
+/// <summary>
+///  set frame types to visualize motion vectors of (default 0)
+/// </summary>
 public enum CodecviewFilterGenFrame_type
 {
+/// <summary>
+/// if                           ..FV....... I-frames
+/// </summary>
 [Name("if")] _if,
+/// <summary>
+/// pf                           ..FV....... P-frames
+/// </summary>
 [Name("pf")] pf,
+/// <summary>
+/// bf                           ..FV....... B-frames
+/// </summary>
 [Name("bf")] bf,
 }
 
+/// <summary>
+///  set frame types to visualize motion vectors of (default 0)
+/// </summary>
 public enum CodecviewFilterGenFt
 {
+/// <summary>
+/// if                           ..FV....... I-frames
+/// </summary>
 [Name("if")] _if,
+/// <summary>
+/// pf                           ..FV....... P-frames
+/// </summary>
 [Name("pf")] pf,
+/// <summary>
+/// bf                           ..FV....... B-frames
+/// </summary>
 [Name("bf")] bf,
 }
 

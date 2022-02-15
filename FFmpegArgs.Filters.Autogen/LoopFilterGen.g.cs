@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... loop              V->V       Loop video frames.
+/// </summary>
 public class LoopFilterGen : ImageToImageFilter
 {
 internal LoopFilterGen(ImageMap input) : base("loop",input) { AddMapOut(); }
@@ -16,37 +19,13 @@ public LoopFilterGen size(long size) => this.SetOptionRange("size", size,0,32767
 /// </summary>
 public LoopFilterGen start(long start) => this.SetOptionRange("start", start,0,I64_MAX);
 }
+/// <summary>
+/// </summary>
 public static class LoopFilterGenExtensions
 {
 /// <summary>
 /// Loop video frames.
 /// </summary>
 public static LoopFilterGen LoopFilterGen(this ImageMap input0) => new LoopFilterGen(input0);
-/// <summary>
-/// Loop video frames.
-/// </summary>
-public static LoopFilterGen LoopFilterGen(this ImageMap input0,LoopFilterGenConfig config)
-{
-var result = new LoopFilterGen(input0);
-if(config?.loop != null) result.loop(config.loop.Value);
-if(config?.size != null) result.size(config.size.Value);
-if(config?.start != null) result.start(config.start.Value);
-return result;
-}
-}
-public class LoopFilterGenConfig
-{
-/// <summary>
-///  number of loops (from -1 to INT_MAX) (default 0)
-/// </summary>
-public int? loop { get; set; }
-/// <summary>
-///  max number of frames to loop (from 0 to 32767) (default 0)
-/// </summary>
-public long? size { get; set; }
-/// <summary>
-///  set the loop start frame (from 0 to I64_MAX) (default 0)
-/// </summary>
-public long? start { get; set; }
 }
 }

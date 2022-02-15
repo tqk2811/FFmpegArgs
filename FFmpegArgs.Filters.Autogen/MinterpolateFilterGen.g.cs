@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... minterpolate      V->V       Frame rate conversion using Motion Interpolation.
+/// </summary>
 public class MinterpolateFilterGen : ImageToImageFilter
 {
 internal MinterpolateFilterGen(ImageMap input) : base("minterpolate",input) { AddMapOut(); }
@@ -44,109 +47,119 @@ public MinterpolateFilterGen scd(MinterpolateFilterGenScd scd) => this.SetOption
 /// </summary>
 public MinterpolateFilterGen scd_threshold(double scd_threshold) => this.SetOptionRange("scd_threshold", scd_threshold,0,100);
 }
+/// <summary>
+/// </summary>
 public static class MinterpolateFilterGenExtensions
 {
 /// <summary>
 /// Frame rate conversion using Motion Interpolation.
 /// </summary>
 public static MinterpolateFilterGen MinterpolateFilterGen(this ImageMap input0) => new MinterpolateFilterGen(input0);
-/// <summary>
-/// Frame rate conversion using Motion Interpolation.
-/// </summary>
-public static MinterpolateFilterGen MinterpolateFilterGen(this ImageMap input0,MinterpolateFilterGenConfig config)
-{
-var result = new MinterpolateFilterGen(input0);
-if(config?.fps != null) result.fps(config.fps);
-if(config?.mi_mode != null) result.mi_mode(config.mi_mode.Value);
-if(config?.mc_mode != null) result.mc_mode(config.mc_mode.Value);
-if(config?.me_mode != null) result.me_mode(config.me_mode.Value);
-if(config?.me != null) result.me(config.me.Value);
-if(config?.mb_size != null) result.mb_size(config.mb_size.Value);
-if(config?.search_param != null) result.search_param(config.search_param.Value);
-if(config?.vsbmc != null) result.vsbmc(config.vsbmc.Value);
-if(config?.scd != null) result.scd(config.scd.Value);
-if(config?.scd_threshold != null) result.scd_threshold(config.scd_threshold.Value);
-return result;
 }
-}
-public class MinterpolateFilterGenConfig
-{
-/// <summary>
-///  output's frame rate (default "60")
-/// </summary>
-public Rational fps { get; set; }
 /// <summary>
 ///  motion interpolation mode (from 0 to 2) (default mci)
 /// </summary>
-public MinterpolateFilterGenMi_mode? mi_mode { get; set; }
-/// <summary>
-///  motion compensation mode (from 0 to 1) (default obmc)
-/// </summary>
-public MinterpolateFilterGenMc_mode? mc_mode { get; set; }
-/// <summary>
-///  motion estimation mode (from 0 to 1) (default bilat)
-/// </summary>
-public MinterpolateFilterGenMe_mode? me_mode { get; set; }
-/// <summary>
-///  motion estimation method (from 1 to 9) (default epzs)
-/// </summary>
-public MinterpolateFilterGenMe? me { get; set; }
-/// <summary>
-///  macroblock size (from 4 to 16) (default 16)
-/// </summary>
-public int? mb_size { get; set; }
-/// <summary>
-///  search parameter (from 4 to INT_MAX) (default 32)
-/// </summary>
-public int? search_param { get; set; }
-/// <summary>
-///  variable-size block motion compensation (from 0 to 1) (default 0)
-/// </summary>
-public int? vsbmc { get; set; }
-/// <summary>
-///  scene change detection method (from 0 to 1) (default fdiff)
-/// </summary>
-public MinterpolateFilterGenScd? scd { get; set; }
-/// <summary>
-///  scene change threshold (from 0 to 100) (default 10)
-/// </summary>
-public double? scd_threshold { get; set; }
-}
 public enum MinterpolateFilterGenMi_mode
 {
+/// <summary>
+/// dup             0            ..FV....... duplicate frames
+/// </summary>
 [Name("dup")] dup,
+/// <summary>
+/// blend           1            ..FV....... blend frames
+/// </summary>
 [Name("blend")] blend,
+/// <summary>
+/// mci             2            ..FV....... motion compensated interpolation
+/// </summary>
 [Name("mci")] mci,
 }
 
+/// <summary>
+///  motion compensation mode (from 0 to 1) (default obmc)
+/// </summary>
 public enum MinterpolateFilterGenMc_mode
 {
+/// <summary>
+/// obmc            0            ..FV....... overlapped block motion compensation
+/// </summary>
 [Name("obmc")] obmc,
+/// <summary>
+/// aobmc           1            ..FV....... adaptive overlapped block motion compensation
+/// </summary>
 [Name("aobmc")] aobmc,
 }
 
+/// <summary>
+///  motion estimation mode (from 0 to 1) (default bilat)
+/// </summary>
 public enum MinterpolateFilterGenMe_mode
 {
+/// <summary>
+/// bidir           0            ..FV....... bidirectional motion estimation
+/// </summary>
 [Name("bidir")] bidir,
+/// <summary>
+/// bilat           1            ..FV....... bilateral motion estimation
+/// </summary>
 [Name("bilat")] bilat,
 }
 
+/// <summary>
+///  motion estimation method (from 1 to 9) (default epzs)
+/// </summary>
 public enum MinterpolateFilterGenMe
 {
+/// <summary>
+/// esa             1            ..FV....... exhaustive search
+/// </summary>
 [Name("esa")] esa,
+/// <summary>
+/// tss             2            ..FV....... three step search
+/// </summary>
 [Name("tss")] tss,
+/// <summary>
+/// tdls            3            ..FV....... two dimensional logarithmic search
+/// </summary>
 [Name("tdls")] tdls,
+/// <summary>
+/// ntss            4            ..FV....... new three step search
+/// </summary>
 [Name("ntss")] ntss,
+/// <summary>
+/// fss             5            ..FV....... four step search
+/// </summary>
 [Name("fss")] fss,
+/// <summary>
+/// ds              6            ..FV....... diamond search
+/// </summary>
 [Name("ds")] ds,
+/// <summary>
+/// hexbs           7            ..FV....... hexagon-based search
+/// </summary>
 [Name("hexbs")] hexbs,
+/// <summary>
+/// epzs            8            ..FV....... enhanced predictive zonal search
+/// </summary>
 [Name("epzs")] epzs,
+/// <summary>
+/// umh             9            ..FV....... uneven multi-hexagon search
+/// </summary>
 [Name("umh")] umh,
 }
 
+/// <summary>
+///  scene change detection method (from 0 to 1) (default fdiff)
+/// </summary>
 public enum MinterpolateFilterGenScd
 {
+/// <summary>
+/// none            0            ..FV....... disable detection
+/// </summary>
 [Name("none")] none,
+/// <summary>
+/// fdiff           1            ..FV....... frame difference
+/// </summary>
 [Name("fdiff")] fdiff,
 }
 

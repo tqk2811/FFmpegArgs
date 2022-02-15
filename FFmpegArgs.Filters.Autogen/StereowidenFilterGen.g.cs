@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C stereowiden       A->A       Apply stereo widening effect.
+/// </summary>
 public class StereowidenFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal StereowidenFilterGen(AudioMap input) : base("stereowiden",input) { AddMapOut(); }
@@ -20,45 +23,13 @@ public StereowidenFilterGen crossfeed(float crossfeed) => this.SetOptionRange("c
 /// </summary>
 public StereowidenFilterGen drymix(float drymix) => this.SetOptionRange("drymix", drymix,0,1);
 }
+/// <summary>
+/// </summary>
 public static class StereowidenFilterGenExtensions
 {
 /// <summary>
 /// Apply stereo widening effect.
 /// </summary>
 public static StereowidenFilterGen StereowidenFilterGen(this AudioMap input0) => new StereowidenFilterGen(input0);
-/// <summary>
-/// Apply stereo widening effect.
-/// </summary>
-public static StereowidenFilterGen StereowidenFilterGen(this AudioMap input0,StereowidenFilterGenConfig config)
-{
-var result = new StereowidenFilterGen(input0);
-if(config?.delay != null) result.delay(config.delay.Value);
-if(config?.feedback != null) result.feedback(config.feedback.Value);
-if(config?.crossfeed != null) result.crossfeed(config.crossfeed.Value);
-if(config?.drymix != null) result.drymix(config.drymix.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class StereowidenFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set delay time (from 1 to 100) (default 20)
-/// </summary>
-public float? delay { get; set; }
-/// <summary>
-///  set feedback gain (from 0 to 0.9) (default 0.3)
-/// </summary>
-public float? feedback { get; set; }
-/// <summary>
-///  set cross feed (from 0 to 0.8) (default 0.3)
-/// </summary>
-public float? crossfeed { get; set; }
-/// <summary>
-///  set dry-mix (from 0 to 1) (default 0.8)
-/// </summary>
-public float? drymix { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC w3fdif            V->V       Apply Martin Weston three field deinterlace.
+/// </summary>
 public class W3fdifFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal W3fdifFilterGen(ImageMap input) : base("w3fdif",input) { AddMapOut(); }
@@ -20,69 +23,76 @@ public W3fdifFilterGen parity(W3fdifFilterGenParity parity) => this.SetOption("p
 /// </summary>
 public W3fdifFilterGen deint(W3fdifFilterGenDeint deint) => this.SetOption("deint", deint.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class W3fdifFilterGenExtensions
 {
 /// <summary>
 /// Apply Martin Weston three field deinterlace.
 /// </summary>
 public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input0) => new W3fdifFilterGen(input0);
-/// <summary>
-/// Apply Martin Weston three field deinterlace.
-/// </summary>
-public static W3fdifFilterGen W3fdifFilterGen(this ImageMap input0,W3fdifFilterGenConfig config)
-{
-var result = new W3fdifFilterGen(input0);
-if(config?.filter != null) result.filter(config.filter.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.parity != null) result.parity(config.parity.Value);
-if(config?.deint != null) result.deint(config.deint.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class W3fdifFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  specify the filter (from 0 to 1) (default complex)
 /// </summary>
-public W3fdifFilterGenFilter? filter { get; set; }
-/// <summary>
-///  specify the interlacing mode (from 0 to 1) (default field)
-/// </summary>
-public W3fdifFilterGenMode? mode { get; set; }
-/// <summary>
-///  specify the assumed picture field parity (from -1 to 1) (default auto)
-/// </summary>
-public W3fdifFilterGenParity? parity { get; set; }
-/// <summary>
-///  specify which frames to deinterlace (from 0 to 1) (default all)
-/// </summary>
-public W3fdifFilterGenDeint? deint { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum W3fdifFilterGenFilter
 {
+/// <summary>
+/// simple          0            ..FV.....T.
+/// </summary>
 [Name("simple")] simple,
+/// <summary>
+/// complex         1            ..FV.....T.
+/// </summary>
 [Name("complex")] complex,
 }
 
+/// <summary>
+///  specify the interlacing mode (from 0 to 1) (default field)
+/// </summary>
 public enum W3fdifFilterGenMode
 {
+/// <summary>
+/// frame           0            ..FV.....T. send one frame for each frame
+/// </summary>
 [Name("frame")] frame,
+/// <summary>
+/// field           1            ..FV.....T. send one frame for each field
+/// </summary>
 [Name("field")] field,
 }
 
+/// <summary>
+///  specify the assumed picture field parity (from -1 to 1) (default auto)
+/// </summary>
 public enum W3fdifFilterGenParity
 {
+/// <summary>
+/// tff             0            ..FV.....T. assume top field first
+/// </summary>
 [Name("tff")] tff,
+/// <summary>
+/// bff             1            ..FV.....T. assume bottom field first
+/// </summary>
 [Name("bff")] bff,
+/// <summary>
+/// auto            -1           ..FV.....T. auto detect parity
+/// </summary>
 [Name("auto")] auto,
 }
 
+/// <summary>
+///  specify which frames to deinterlace (from 0 to 1) (default all)
+/// </summary>
 public enum W3fdifFilterGenDeint
 {
+/// <summary>
+/// all             0            ..FV.....T. deinterlace all frames
+/// </summary>
 [Name("all")] all,
+/// <summary>
+/// interlaced      1            ..FV.....T. only deinterlace frames marked as interlaced
+/// </summary>
 [Name("interlaced")] interlaced,
 }
 

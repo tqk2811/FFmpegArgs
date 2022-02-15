@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... graphmonitor      V->V       Show various filtergraph stats.
+/// </summary>
 public class GraphmonitorFilterGen : ImageToImageFilter
 {
 internal GraphmonitorFilterGen(ImageMap input) : base("graphmonitor",input) { AddMapOut(); }
@@ -24,66 +27,74 @@ public GraphmonitorFilterGen flags(GraphmonitorFilterGenFlags flags) => this.Set
 /// </summary>
 public GraphmonitorFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 }
+/// <summary>
+/// </summary>
 public static class GraphmonitorFilterGenExtensions
 {
 /// <summary>
 /// Show various filtergraph stats.
 /// </summary>
 public static GraphmonitorFilterGen GraphmonitorFilterGen(this ImageMap input0) => new GraphmonitorFilterGen(input0);
-/// <summary>
-/// Show various filtergraph stats.
-/// </summary>
-public static GraphmonitorFilterGen GraphmonitorFilterGen(this ImageMap input0,GraphmonitorFilterGenConfig config)
-{
-var result = new GraphmonitorFilterGen(input0);
-if(config?.size != null) result.size(config.size.Value);
-if(config?.opacity != null) result.opacity(config.opacity.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.flags != null) result.flags(config.flags.Value);
-if(config?.rate != null) result.rate(config.rate);
-return result;
 }
-}
-public class GraphmonitorFilterGenConfig
-{
-/// <summary>
-///  set monitor size (default "hd720")
-/// </summary>
-public Size? size { get; set; }
-/// <summary>
-///  set video opacity (from 0 to 1) (default 0.9)
-/// </summary>
-public float? opacity { get; set; }
 /// <summary>
 ///  set mode (from 0 to 1) (default full)
 /// </summary>
-public GraphmonitorFilterGenMode? mode { get; set; }
-/// <summary>
-///  set flags (default queue)
-/// </summary>
-public GraphmonitorFilterGenFlags? flags { get; set; }
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Rational rate { get; set; }
-}
 public enum GraphmonitorFilterGenMode
 {
+/// <summary>
+/// full            0            ..FV.......
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// compact         1            ..FV.......
+/// </summary>
 [Name("compact")] compact,
 }
 
+/// <summary>
+///  set flags (default queue)
+/// </summary>
 public enum GraphmonitorFilterGenFlags
 {
+/// <summary>
+/// queue                        ..FV.......
+/// </summary>
 [Name("queue")] queue,
+/// <summary>
+/// frame_count_in               ..FV.......
+/// </summary>
 [Name("frame_count_in")] frame_count_in,
+/// <summary>
+/// frame_count_out              ..FV.......
+/// </summary>
 [Name("frame_count_out")] frame_count_out,
+/// <summary>
+/// pts                          ..FV.......
+/// </summary>
 [Name("pts")] pts,
+/// <summary>
+/// time                         ..FV.......
+/// </summary>
 [Name("time")] time,
+/// <summary>
+/// timebase                     ..FV.......
+/// </summary>
 [Name("timebase")] timebase,
+/// <summary>
+/// format                       ..FV.......
+/// </summary>
 [Name("format")] format,
+/// <summary>
+/// size                         ..FV.......
+/// </summary>
 [Name("size")] size,
+/// <summary>
+/// rate                         ..FV.......
+/// </summary>
 [Name("rate")] rate,
+/// <summary>
+/// eof                          ..FV.......
+/// </summary>
 [Name("eof")] eof,
 }
 

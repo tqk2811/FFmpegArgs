@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TS. geq               V->V       Apply generic equation to each pixel.
+/// </summary>
 public class GeqFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal GeqFilterGen(ImageMap input) : base("geq",input) { AddMapOut(); }
@@ -36,72 +39,35 @@ public GeqFilterGen blue_expr(string blue_expr) => this.SetOption("blue_expr",bl
 /// </summary>
 public GeqFilterGen interpolation(GeqFilterGenInterpolation interpolation) => this.SetOption("interpolation", interpolation.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class GeqFilterGenExtensions
 {
 /// <summary>
 /// Apply generic equation to each pixel.
 /// </summary>
 public static GeqFilterGen GeqFilterGen(this ImageMap input0) => new GeqFilterGen(input0);
-/// <summary>
-/// Apply generic equation to each pixel.
-/// </summary>
-public static GeqFilterGen GeqFilterGen(this ImageMap input0,GeqFilterGenConfig config)
-{
-var result = new GeqFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.lum_expr)) result.lum_expr(config.lum_expr);
-if(!string.IsNullOrWhiteSpace(config?.cb_expr)) result.cb_expr(config.cb_expr);
-if(!string.IsNullOrWhiteSpace(config?.cr_expr)) result.cr_expr(config.cr_expr);
-if(!string.IsNullOrWhiteSpace(config?.alpha_expr)) result.alpha_expr(config.alpha_expr);
-if(!string.IsNullOrWhiteSpace(config?.red_expr)) result.red_expr(config.red_expr);
-if(!string.IsNullOrWhiteSpace(config?.green_expr)) result.green_expr(config.green_expr);
-if(!string.IsNullOrWhiteSpace(config?.blue_expr)) result.blue_expr(config.blue_expr);
-if(config?.interpolation != null) result.interpolation(config.interpolation.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class GeqFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set luminance expression
-/// </summary>
-public string lum_expr { get; set; }
-/// <summary>
-///  set chroma blue expression
-/// </summary>
-public string cb_expr { get; set; }
-/// <summary>
-///  set chroma red expression
-/// </summary>
-public string cr_expr { get; set; }
-/// <summary>
-///  set alpha expression
-/// </summary>
-public string alpha_expr { get; set; }
-/// <summary>
-///  set red expression
-/// </summary>
-public string red_expr { get; set; }
-/// <summary>
-///  set green expression
-/// </summary>
-public string green_expr { get; set; }
-/// <summary>
-///  set blue expression
-/// </summary>
-public string blue_expr { get; set; }
 /// <summary>
 ///  set interpolation method (from 0 to 1) (default bilinear)
 /// </summary>
-public GeqFilterGenInterpolation? interpolation { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum GeqFilterGenInterpolation
 {
+/// <summary>
+/// nearest         0            ..FV....... nearest interpolation
+/// </summary>
 [Name("nearest")] nearest,
+/// <summary>
+/// n               0            ..FV....... nearest interpolation
+/// </summary>
 [Name("n")] n,
+/// <summary>
+/// bilinear        1            ..FV....... bilinear interpolation
+/// </summary>
 [Name("bilinear")] bilinear,
+/// <summary>
+/// b               1            ..FV....... bilinear interpolation
+/// </summary>
 [Name("b")] b,
 }
 

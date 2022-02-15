@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TS. shufflepixels     V->V       Shuffle video pixels.
+/// </summary>
 public class ShufflepixelsFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal ShufflepixelsFilterGen(ImageMap input) : base("shufflepixels",input) { AddMapOut(); }
@@ -24,62 +27,46 @@ public ShufflepixelsFilterGen height(int height) => this.SetOptionRange("height"
 /// </summary>
 public ShufflepixelsFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1,UINT32_MAX);
 }
+/// <summary>
+/// </summary>
 public static class ShufflepixelsFilterGenExtensions
 {
 /// <summary>
 /// Shuffle video pixels.
 /// </summary>
 public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input0) => new ShufflepixelsFilterGen(input0);
-/// <summary>
-/// Shuffle video pixels.
-/// </summary>
-public static ShufflepixelsFilterGen ShufflepixelsFilterGen(this ImageMap input0,ShufflepixelsFilterGenConfig config)
-{
-var result = new ShufflepixelsFilterGen(input0);
-if(config?.direction != null) result.direction(config.direction.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.width != null) result.width(config.width.Value);
-if(config?.height != null) result.height(config.height.Value);
-if(config?.seed != null) result.seed(config.seed.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class ShufflepixelsFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set shuffle direction (from 0 to 1) (default forward)
 /// </summary>
-public ShufflepixelsFilterGenDirection? direction { get; set; }
-/// <summary>
-///  set shuffle mode (from 0 to 2) (default horizontal)
-/// </summary>
-public ShufflepixelsFilterGenMode? mode { get; set; }
-/// <summary>
-///  set block width (from 1 to 8000) (default 10)
-/// </summary>
-public int? width { get; set; }
-/// <summary>
-///  set block height (from 1 to 8000) (default 10)
-/// </summary>
-public int? height { get; set; }
-/// <summary>
-///  set random seed (from -1 to UINT32_MAX) (default -1)
-/// </summary>
-public long? seed { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum ShufflepixelsFilterGenDirection
 {
+/// <summary>
+/// forward         0            ..FV.......
+/// </summary>
 [Name("forward")] forward,
+/// <summary>
+/// inverse         1            ..FV.......
+/// </summary>
 [Name("inverse")] inverse,
 }
 
+/// <summary>
+///  set shuffle mode (from 0 to 2) (default horizontal)
+/// </summary>
 public enum ShufflepixelsFilterGenMode
 {
+/// <summary>
+/// horizontal      0            ..FV.......
+/// </summary>
 [Name("horizontal")] horizontal,
+/// <summary>
+/// vertical        1            ..FV.......
+/// </summary>
 [Name("vertical")] vertical,
+/// <summary>
+/// block           2            ..FV.......
+/// </summary>
 [Name("block")] block,
 }
 

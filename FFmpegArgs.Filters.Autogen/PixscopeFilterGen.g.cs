@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C pixscope          V->V       Pixel data analysis.
+/// </summary>
 public class PixscopeFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal PixscopeFilterGen(ImageMap input) : base("pixscope",input) { AddMapOut(); }
@@ -32,60 +35,13 @@ public PixscopeFilterGen wx(float wx) => this.SetOptionRange("wx", wx,-1,1);
 /// </summary>
 public PixscopeFilterGen wy(float wy) => this.SetOptionRange("wy", wy,-1,1);
 }
+/// <summary>
+/// </summary>
 public static class PixscopeFilterGenExtensions
 {
 /// <summary>
 /// Pixel data analysis.
 /// </summary>
 public static PixscopeFilterGen PixscopeFilterGen(this ImageMap input0) => new PixscopeFilterGen(input0);
-/// <summary>
-/// Pixel data analysis.
-/// </summary>
-public static PixscopeFilterGen PixscopeFilterGen(this ImageMap input0,PixscopeFilterGenConfig config)
-{
-var result = new PixscopeFilterGen(input0);
-if(config?.x != null) result.x(config.x.Value);
-if(config?.y != null) result.y(config.y.Value);
-if(config?.w != null) result.w(config.w.Value);
-if(config?.h != null) result.h(config.h.Value);
-if(config?.o != null) result.o(config.o.Value);
-if(config?.wx != null) result.wx(config.wx.Value);
-if(config?.wy != null) result.wy(config.wy.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class PixscopeFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set scope x offset (from 0 to 1) (default 0.5)
-/// </summary>
-public float? x { get; set; }
-/// <summary>
-///  set scope y offset (from 0 to 1) (default 0.5)
-/// </summary>
-public float? y { get; set; }
-/// <summary>
-///  set scope width (from 1 to 80) (default 7)
-/// </summary>
-public int? w { get; set; }
-/// <summary>
-///  set scope height (from 1 to 80) (default 7)
-/// </summary>
-public int? h { get; set; }
-/// <summary>
-///  set window opacity (from 0 to 1) (default 0.5)
-/// </summary>
-public float? o { get; set; }
-/// <summary>
-///  set window x offset (from -1 to 1) (default -1)
-/// </summary>
-public float? wx { get; set; }
-/// <summary>
-///  set window y offset (from -1 to 1) (default -1)
-/// </summary>
-public float? wy { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

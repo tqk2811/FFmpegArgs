@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. derain            V->V       Apply derain filter to the input.
+/// </summary>
 public class DerainFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal DerainFilterGen(ImageMap input) : base("derain",input) { AddMapOut(); }
@@ -24,60 +27,38 @@ public DerainFilterGen input(string input) => this.SetOption("input",input);
 /// </summary>
 public DerainFilterGen output(string output) => this.SetOption("output",output);
 }
+/// <summary>
+/// </summary>
 public static class DerainFilterGenExtensions
 {
 /// <summary>
 /// Apply derain filter to the input.
 /// </summary>
 public static DerainFilterGen DerainFilterGen(this ImageMap input0) => new DerainFilterGen(input0);
-/// <summary>
-/// Apply derain filter to the input.
-/// </summary>
-public static DerainFilterGen DerainFilterGen(this ImageMap input0,DerainFilterGenConfig config)
-{
-var result = new DerainFilterGen(input0);
-if(config?.filter_type != null) result.filter_type(config.filter_type.Value);
-if(config?.dnn_backend != null) result.dnn_backend(config.dnn_backend.Value);
-if(!string.IsNullOrWhiteSpace(config?.model)) result.model(config.model);
-if(!string.IsNullOrWhiteSpace(config?.input)) result.input(config.input);
-if(!string.IsNullOrWhiteSpace(config?.output)) result.output(config.output);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class DerainFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  filter type(derain/dehaze) (from 0 to 1) (default derain)
 /// </summary>
-public DerainFilterGenFilter_type? filter_type { get; set; }
-/// <summary>
-///  DNN backend (from 0 to 1) (default native)
-/// </summary>
-public DerainFilterGenDnn_backend? dnn_backend { get; set; }
-/// <summary>
-///  path to model file
-/// </summary>
-public string model { get; set; }
-/// <summary>
-///  input name of the model (default "x")
-/// </summary>
-public string input { get; set; }
-/// <summary>
-///  output name of the model (default "y")
-/// </summary>
-public string output { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum DerainFilterGenFilter_type
 {
+/// <summary>
+/// derain          0            ..FV....... derain filter flag
+/// </summary>
 [Name("derain")] derain,
+/// <summary>
+/// dehaze          1            ..FV....... dehaze filter flag
+/// </summary>
 [Name("dehaze")] dehaze,
 }
 
+/// <summary>
+///  DNN backend (from 0 to 1) (default native)
+/// </summary>
 public enum DerainFilterGenDnn_backend
 {
+/// <summary>
+/// native          0            ..FV....... native backend flag
+/// </summary>
 [Name("native")] native,
 }
 

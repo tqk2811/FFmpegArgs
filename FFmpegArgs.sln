@@ -34,6 +34,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autogens", "Autogens\Autoge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Cores", "FFmpegArgs.Cores\FFmpegArgs.Cores.csproj", "{C0982E11-13D7-49C5-A452-CF5CECACA2B4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{562D252C-5B41-4BD2-85EA-FB51EE94FB3B}"
+	ProjectSection(SolutionItems) = preProject
+		.other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt = .other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt
+		.other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt = .other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt
+		.other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt = .other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt
+		.other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt = .other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt
+		.other\NotAutoGen_window.txt = .other\NotAutoGen_window.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +96,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{562D252C-5B41-4BD2-85EA-FB51EE94FB3B} = {11F588CA-D063-48B8-8421-51AD13D9B7E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A339D64-0E65-41C0-8295-38387985E977}

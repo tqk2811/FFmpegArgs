@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC haldclut          VV->V      Adjust colors using a Hald CLUT.
+/// </summary>
 public class HaldclutFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal HaldclutFilterGen(params ImageMap[] inputs) : base("haldclut",inputs) { AddMapOut(); }
@@ -8,38 +11,39 @@ internal HaldclutFilterGen(params ImageMap[] inputs) : base("haldclut",inputs) {
 /// </summary>
 public HaldclutFilterGen interp(HaldclutFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class HaldclutFilterGenExtensions
 {
 /// <summary>
 /// Adjust colors using a Hald CLUT.
 /// </summary>
 public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap input1) => new HaldclutFilterGen(input0, input1);
-/// <summary>
-/// Adjust colors using a Hald CLUT.
-/// </summary>
-public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap input1,HaldclutFilterGenConfig config)
-{
-var result = new HaldclutFilterGen(input0, input1);
-if(config?.interp != null) result.interp(config.interp.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class HaldclutFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)
 /// </summary>
-public HaldclutFilterGenInterp? interp { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum HaldclutFilterGenInterp
 {
+/// <summary>
+/// nearest         0            ..FV.....T. use values from the nearest defined points
+/// </summary>
 [Name("nearest")] nearest,
+/// <summary>
+/// trilinear       1            ..FV.....T. interpolate values using the 8 points defining a cube
+/// </summary>
 [Name("trilinear")] trilinear,
+/// <summary>
+/// tetrahedral     2            ..FV.....T. interpolate values using a tetrahedron
+/// </summary>
 [Name("tetrahedral")] tetrahedral,
+/// <summary>
+/// pyramid         3            ..FV.....T. interpolate values using a pyramid
+/// </summary>
 [Name("pyramid")] pyramid,
+/// <summary>
+/// prism           4            ..FV.....T. interpolate values using a prism
+/// </summary>
 [Name("prism")] prism,
 }
 

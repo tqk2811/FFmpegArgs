@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C deblock           V->V       Deblock video.
+/// </summary>
 public class DeblockFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal DeblockFilterGen(ImageMap input) : base("deblock",input) { AddMapOut(); }
@@ -32,65 +35,27 @@ public DeblockFilterGen delta(float delta) => this.SetOptionRange("delta", delta
 /// </summary>
 public DeblockFilterGen planes(int planes) => this.SetOptionRange("planes", planes,0,15);
 }
+/// <summary>
+/// </summary>
 public static class DeblockFilterGenExtensions
 {
 /// <summary>
 /// Deblock video.
 /// </summary>
 public static DeblockFilterGen DeblockFilterGen(this ImageMap input0) => new DeblockFilterGen(input0);
-/// <summary>
-/// Deblock video.
-/// </summary>
-public static DeblockFilterGen DeblockFilterGen(this ImageMap input0,DeblockFilterGenConfig config)
-{
-var result = new DeblockFilterGen(input0);
-if(config?.filter != null) result.filter(config.filter.Value);
-if(config?.block != null) result.block(config.block.Value);
-if(config?.alpha != null) result.alpha(config.alpha.Value);
-if(config?.beta != null) result.beta(config.beta.Value);
-if(config?.gamma != null) result.gamma(config.gamma.Value);
-if(config?.delta != null) result.delta(config.delta.Value);
-if(config?.planes != null) result.planes(config.planes.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class DeblockFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set type of filter (from 0 to 1) (default strong)
 /// </summary>
-public DeblockFilterGenFilter? filter { get; set; }
-/// <summary>
-///  set size of block (from 4 to 512) (default 8)
-/// </summary>
-public int? block { get; set; }
-/// <summary>
-///  set 1st detection threshold (from 0 to 1) (default 0.098)
-/// </summary>
-public float? alpha { get; set; }
-/// <summary>
-///  set 2nd detection threshold (from 0 to 1) (default 0.05)
-/// </summary>
-public float? beta { get; set; }
-/// <summary>
-///  set 3rd detection threshold (from 0 to 1) (default 0.05)
-/// </summary>
-public float? gamma { get; set; }
-/// <summary>
-///  set 4th detection threshold (from 0 to 1) (default 0.05)
-/// </summary>
-public float? delta { get; set; }
-/// <summary>
-///  set planes to filter (from 0 to 15) (default 15)
-/// </summary>
-public int? planes { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum DeblockFilterGenFilter
 {
+/// <summary>
+/// weak            0            ..FV.....T.
+/// </summary>
 [Name("weak")] weak,
+/// <summary>
+/// strong          1            ..FV.....T.
+/// </summary>
 [Name("strong")] strong,
 }
 

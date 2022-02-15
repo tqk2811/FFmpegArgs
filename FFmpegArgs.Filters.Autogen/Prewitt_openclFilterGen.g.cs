@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... prewitt_opencl    V->V       Apply prewitt operator
+/// </summary>
 public class Prewitt_openclFilterGen : ImageToImageFilter
 {
 internal Prewitt_openclFilterGen(ImageMap input) : base("prewitt_opencl",input) { AddMapOut(); }
@@ -16,37 +19,13 @@ public Prewitt_openclFilterGen scale(float scale) => this.SetOptionRange("scale"
 /// </summary>
 public Prewitt_openclFilterGen delta(float delta) => this.SetOptionRange("delta", delta,-65535,65535);
 }
+/// <summary>
+/// </summary>
 public static class Prewitt_openclFilterGenExtensions
 {
 /// <summary>
 /// Apply prewitt operator
 /// </summary>
 public static Prewitt_openclFilterGen Prewitt_openclFilterGen(this ImageMap input0) => new Prewitt_openclFilterGen(input0);
-/// <summary>
-/// Apply prewitt operator
-/// </summary>
-public static Prewitt_openclFilterGen Prewitt_openclFilterGen(this ImageMap input0,Prewitt_openclFilterGenConfig config)
-{
-var result = new Prewitt_openclFilterGen(input0);
-if(config?.planes != null) result.planes(config.planes.Value);
-if(config?.scale != null) result.scale(config.scale.Value);
-if(config?.delta != null) result.delta(config.delta.Value);
-return result;
-}
-}
-public class Prewitt_openclFilterGenConfig
-{
-/// <summary>
-///  set planes to filter (from 0 to 15) (default 15)
-/// </summary>
-public int? planes { get; set; }
-/// <summary>
-///  set scale (from 0 to 65535) (default 1)
-/// </summary>
-public float? scale { get; set; }
-/// <summary>
-///  set delta (from -65535 to 65535) (default 0)
-/// </summary>
-public float? delta { get; set; }
 }
 }

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. vignette          V->V       Make or reverse a vignette effect.
+/// </summary>
 public class VignetteFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal VignetteFilterGen(ImageMap input) : base("vignette",input) { AddMapOut(); }
@@ -32,71 +35,42 @@ public VignetteFilterGen dither(bool dither) => this.SetOption("dither",dither.T
 /// </summary>
 public VignetteFilterGen aspect(Rational aspect) => this.SetOption("aspect",aspect.Check(0,DBL_MAX));
 }
+/// <summary>
+/// </summary>
 public static class VignetteFilterGenExtensions
 {
 /// <summary>
 /// Make or reverse a vignette effect.
 /// </summary>
 public static VignetteFilterGen VignetteFilterGen(this ImageMap input0) => new VignetteFilterGen(input0);
-/// <summary>
-/// Make or reverse a vignette effect.
-/// </summary>
-public static VignetteFilterGen VignetteFilterGen(this ImageMap input0,VignetteFilterGenConfig config)
-{
-var result = new VignetteFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.angle)) result.angle(config.angle);
-if(!string.IsNullOrWhiteSpace(config?.x0)) result.x0(config.x0);
-if(!string.IsNullOrWhiteSpace(config?.y0)) result.y0(config.y0);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.eval != null) result.eval(config.eval.Value);
-if(config?.dither != null) result.dither(config.dither.Value);
-if(config?.aspect != null) result.aspect(config.aspect);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class VignetteFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set lens angle (default "PI/5")
-/// </summary>
-public string angle { get; set; }
-/// <summary>
-///  set circle center position on x-axis (default "w/2")
-/// </summary>
-public string x0 { get; set; }
-/// <summary>
-///  set circle center position on y-axis (default "h/2")
-/// </summary>
-public string y0 { get; set; }
 /// <summary>
 ///  set forward/backward mode (from 0 to 1) (default forward)
 /// </summary>
-public VignetteFilterGenMode? mode { get; set; }
-/// <summary>
-///  specify when to evaluate expressions (from 0 to 1) (default init)
-/// </summary>
-public VignetteFilterGenEval? eval { get; set; }
-/// <summary>
-///  set dithering (default true)
-/// </summary>
-public bool? dither { get; set; }
-/// <summary>
-///  set aspect ratio (from 0 to DBL_MAX) (default 1/1)
-/// </summary>
-public Rational aspect { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum VignetteFilterGenMode
 {
+/// <summary>
+/// forward         0            ..FV.......
+/// </summary>
 [Name("forward")] forward,
+/// <summary>
+/// backward        1            ..FV.......
+/// </summary>
 [Name("backward")] backward,
 }
 
+/// <summary>
+///  specify when to evaluate expressions (from 0 to 1) (default init)
+/// </summary>
 public enum VignetteFilterGenEval
 {
+/// <summary>
+/// init            0            ..FV....... eval expressions once during initialization
+/// </summary>
 [Name("init")] init,
+/// <summary>
+/// frame           1            ..FV....... eval expressions for each frame
+/// </summary>
 [Name("frame")] frame,
 }
 

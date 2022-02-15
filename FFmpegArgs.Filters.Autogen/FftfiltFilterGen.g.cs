@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. fftfilt           V->V       Apply arbitrary expressions to pixels in frequency domain.
+/// </summary>
 public class FftfiltFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal FftfiltFilterGen(ImageMap input) : base("fftfilt",input) { AddMapOut(); }
@@ -32,65 +35,27 @@ public FftfiltFilterGen weight_V(string weight_V) => this.SetOption("weight_V",w
 /// </summary>
 public FftfiltFilterGen eval(FftfiltFilterGenEval eval) => this.SetOption("eval", eval.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class FftfiltFilterGenExtensions
 {
 /// <summary>
 /// Apply arbitrary expressions to pixels in frequency domain.
 /// </summary>
 public static FftfiltFilterGen FftfiltFilterGen(this ImageMap input0) => new FftfiltFilterGen(input0);
-/// <summary>
-/// Apply arbitrary expressions to pixels in frequency domain.
-/// </summary>
-public static FftfiltFilterGen FftfiltFilterGen(this ImageMap input0,FftfiltFilterGenConfig config)
-{
-var result = new FftfiltFilterGen(input0);
-if(config?.dc_Y != null) result.dc_Y(config.dc_Y.Value);
-if(config?.dc_U != null) result.dc_U(config.dc_U.Value);
-if(config?.dc_V != null) result.dc_V(config.dc_V.Value);
-if(!string.IsNullOrWhiteSpace(config?.weight_Y)) result.weight_Y(config.weight_Y);
-if(!string.IsNullOrWhiteSpace(config?.weight_U)) result.weight_U(config.weight_U);
-if(!string.IsNullOrWhiteSpace(config?.weight_V)) result.weight_V(config.weight_V);
-if(config?.eval != null) result.eval(config.eval.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class FftfiltFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  adjust gain in Y plane (from 0 to 1000) (default 0)
-/// </summary>
-public int? dc_Y { get; set; }
-/// <summary>
-///  adjust gain in U plane (from 0 to 1000) (default 0)
-/// </summary>
-public int? dc_U { get; set; }
-/// <summary>
-///  adjust gain in V plane (from 0 to 1000) (default 0)
-/// </summary>
-public int? dc_V { get; set; }
-/// <summary>
-///  set luminance expression in Y plane (default "1")
-/// </summary>
-public string weight_Y { get; set; }
-/// <summary>
-///  set chrominance expression in U plane
-/// </summary>
-public string weight_U { get; set; }
-/// <summary>
-///  set chrominance expression in V plane
-/// </summary>
-public string weight_V { get; set; }
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>
-public FftfiltFilterGenEval? eval { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum FftfiltFilterGenEval
 {
+/// <summary>
+/// init            0            ..FV....... eval expressions once during initialization
+/// </summary>
 [Name("init")] init,
+/// <summary>
+/// frame           1            ..FV....... eval expressions per-frame
+/// </summary>
 [Name("frame")] frame,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... aformat           A->A       Convert the input audio to one of the specified formats.
+/// </summary>
 public class AformatFilterGen : AudioToAudioFilter
 {
 internal AformatFilterGen(AudioMap input) : base("aformat",input) { AddMapOut(); }
@@ -28,52 +31,13 @@ public AformatFilterGen channel_layouts(string channel_layouts) => this.SetOptio
 /// </summary>
 public AformatFilterGen cl(string cl) => this.SetOption("cl",cl);
 }
+/// <summary>
+/// </summary>
 public static class AformatFilterGenExtensions
 {
 /// <summary>
 /// Convert the input audio to one of the specified formats.
 /// </summary>
 public static AformatFilterGen AformatFilterGen(this AudioMap input0) => new AformatFilterGen(input0);
-/// <summary>
-/// Convert the input audio to one of the specified formats.
-/// </summary>
-public static AformatFilterGen AformatFilterGen(this AudioMap input0,AformatFilterGenConfig config)
-{
-var result = new AformatFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.sample_fmts)) result.sample_fmts(config.sample_fmts);
-if(!string.IsNullOrWhiteSpace(config?.f)) result.f(config.f);
-if(!string.IsNullOrWhiteSpace(config?.sample_rates)) result.sample_rates(config.sample_rates);
-if(!string.IsNullOrWhiteSpace(config?.r)) result.r(config.r);
-if(!string.IsNullOrWhiteSpace(config?.channel_layouts)) result.channel_layouts(config.channel_layouts);
-if(!string.IsNullOrWhiteSpace(config?.cl)) result.cl(config.cl);
-return result;
-}
-}
-public class AformatFilterGenConfig
-{
-/// <summary>
-///  A '|'-separated list of sample formats.
-/// </summary>
-public string sample_fmts { get; set; }
-/// <summary>
-///  A '|'-separated list of sample formats.
-/// </summary>
-public string f { get; set; }
-/// <summary>
-///  A '|'-separated list of sample rates.
-/// </summary>
-public string sample_rates { get; set; }
-/// <summary>
-///  A '|'-separated list of sample rates.
-/// </summary>
-public string r { get; set; }
-/// <summary>
-///  A '|'-separated list of channel layouts.
-/// </summary>
-public string channel_layouts { get; set; }
-/// <summary>
-///  A '|'-separated list of channel layouts.
-/// </summary>
-public string cl { get; set; }
 }
 }

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. sidedata          V->V       Manipulate video frame side data.
+/// </summary>
 public class SidedataFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal SidedataFilterGen(ImageMap input) : base("sidedata",input) { AddMapOut(); }
@@ -12,66 +15,122 @@ public SidedataFilterGen mode(SidedataFilterGenMode mode) => this.SetOption("mod
 /// </summary>
 public SidedataFilterGen type(SidedataFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class SidedataFilterGenExtensions
 {
 /// <summary>
 /// Manipulate video frame side data.
 /// </summary>
 public static SidedataFilterGen SidedataFilterGen(this ImageMap input0) => new SidedataFilterGen(input0);
-/// <summary>
-/// Manipulate video frame side data.
-/// </summary>
-public static SidedataFilterGen SidedataFilterGen(this ImageMap input0,SidedataFilterGenConfig config)
-{
-var result = new SidedataFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.type != null) result.type(config.type.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class SidedataFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set a mode of operation (from 0 to 1) (default select)
 /// </summary>
-public SidedataFilterGenMode? mode { get; set; }
-/// <summary>
-///  set side data type (from -1 to INT_MAX) (default -1)
-/// </summary>
-public SidedataFilterGenType? type { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum SidedataFilterGenMode
 {
+/// <summary>
+/// select          0            ..FV....... select frame
+/// </summary>
 [Name("select")] select,
+/// <summary>
+/// delete          1            ..FV....... delete side data
+/// </summary>
 [Name("delete")] delete,
 }
 
+/// <summary>
+///  set side data type (from -1 to INT_MAX) (default -1)
+/// </summary>
 public enum SidedataFilterGenType
 {
+/// <summary>
+/// PANSCAN         0            ..FV.......
+/// </summary>
 [Name("PANSCAN")] PANSCAN,
+/// <summary>
+/// A53_CC          1            ..FV.......
+/// </summary>
 [Name("A53_CC")] A53_CC,
+/// <summary>
+/// STEREO3D        2            ..FV.......
+/// </summary>
 [Name("STEREO3D")] STEREO3D,
+/// <summary>
+/// MATRIXENCODING  3            ..FV.......
+/// </summary>
 [Name("MATRIXENCODING")] MATRIXENCODING,
+/// <summary>
+/// DOWNMIX_INFO    4            ..FV.......
+/// </summary>
 [Name("DOWNMIX_INFO")] DOWNMIX_INFO,
+/// <summary>
+/// REPLAYGAIN      5            ..FV.......
+/// </summary>
 [Name("REPLAYGAIN")] REPLAYGAIN,
+/// <summary>
+/// DISPLAYMATRIX   6            ..FV.......
+/// </summary>
 [Name("DISPLAYMATRIX")] DISPLAYMATRIX,
+/// <summary>
+/// AFD             7            ..FV.......
+/// </summary>
 [Name("AFD")] AFD,
+/// <summary>
+/// MOTION_VECTORS  8            ..FV.......
+/// </summary>
 [Name("MOTION_VECTORS")] MOTION_VECTORS,
+/// <summary>
+/// SKIP_SAMPLES    9            ..FV.......
+/// </summary>
 [Name("SKIP_SAMPLES")] SKIP_SAMPLES,
+/// <summary>
+/// AUDIO_SERVICE_TYPE 10           ..FV.......
+/// </summary>
 [Name("AUDIO_SERVICE_TYPE")] AUDIO_SERVICE_TYPE,
+/// <summary>
+/// MASTERING_DISPLAY_METADATA 11           ..FV.......
+/// </summary>
 [Name("MASTERING_DISPLAY_METADATA")] MASTERING_DISPLAY_METADATA,
+/// <summary>
+/// GOP_TIMECODE    12           ..FV.......
+/// </summary>
 [Name("GOP_TIMECODE")] GOP_TIMECODE,
+/// <summary>
+/// SPHERICAL       13           ..FV.......
+/// </summary>
 [Name("SPHERICAL")] SPHERICAL,
+/// <summary>
+/// CONTENT_LIGHT_LEVEL 14           ..FV.......
+/// </summary>
 [Name("CONTENT_LIGHT_LEVEL")] CONTENT_LIGHT_LEVEL,
+/// <summary>
+/// ICC_PROFILE     15           ..FV.......
+/// </summary>
 [Name("ICC_PROFILE")] ICC_PROFILE,
+/// <summary>
+/// QP_TABLE_PROPERTIES 16           ..FV.......
+/// </summary>
 [Name("QP_TABLE_PROPERTIES")] QP_TABLE_PROPERTIES,
+/// <summary>
+/// QP_TABLE_DATA   17           ..FV.......
+/// </summary>
 [Name("QP_TABLE_DATA")] QP_TABLE_DATA,
+/// <summary>
+/// S12M_TIMECOD    18           ..FV.......
+/// </summary>
 [Name("S12M_TIMECOD")] S12M_TIMECOD,
+/// <summary>
+/// DYNAMIC_HDR_PLUS 19           ..FV.......
+/// </summary>
 [Name("DYNAMIC_HDR_PLUS")] DYNAMIC_HDR_PLUS,
+/// <summary>
+/// REGIONS_OF_INTEREST 20           ..FV.......
+/// </summary>
 [Name("REGIONS_OF_INTEREST")] REGIONS_OF_INTEREST,
+/// <summary>
+/// SEI_UNREGISTERED 22           ..FV.......
+/// </summary>
 [Name("SEI_UNREGISTERED")] SEI_UNREGISTERED,
 }
 

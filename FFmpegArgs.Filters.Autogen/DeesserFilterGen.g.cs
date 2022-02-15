@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. deesser           A->A       Apply de-essing to the audio.
+/// </summary>
 public class DeesserFilterGen : AudioToAudioFilter,ITimelineSupport
 {
 internal DeesserFilterGen(AudioMap input) : base("deesser",input) { AddMapOut(); }
@@ -20,51 +23,31 @@ public DeesserFilterGen f(double f) => this.SetOptionRange("f", f,0,1);
 /// </summary>
 public DeesserFilterGen s(DeesserFilterGenS s) => this.SetOption("s", s.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class DeesserFilterGenExtensions
 {
 /// <summary>
 /// Apply de-essing to the audio.
 /// </summary>
 public static DeesserFilterGen DeesserFilterGen(this AudioMap input0) => new DeesserFilterGen(input0);
-/// <summary>
-/// Apply de-essing to the audio.
-/// </summary>
-public static DeesserFilterGen DeesserFilterGen(this AudioMap input0,DeesserFilterGenConfig config)
-{
-var result = new DeesserFilterGen(input0);
-if(config?.i != null) result.i(config.i.Value);
-if(config?.m != null) result.m(config.m.Value);
-if(config?.f != null) result.f(config.f.Value);
-if(config?.s != null) result.s(config.s.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class DeesserFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set intensity (from 0 to 1) (default 0)
-/// </summary>
-public double? i { get; set; }
-/// <summary>
-///  set max deessing (from 0 to 1) (default 0.5)
-/// </summary>
-public double? m { get; set; }
-/// <summary>
-///  set frequency (from 0 to 1) (default 0.5)
-/// </summary>
-public double? f { get; set; }
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
-public DeesserFilterGenS? s { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum DeesserFilterGenS
 {
+/// <summary>
+/// i               0            ..F.A...... input
+/// </summary>
 [Name("i")] i,
+/// <summary>
+/// o               1            ..F.A...... output
+/// </summary>
 [Name("o")] o,
+/// <summary>
+/// e               2            ..F.A...... ess
+/// </summary>
 [Name("e")] e,
 }
 

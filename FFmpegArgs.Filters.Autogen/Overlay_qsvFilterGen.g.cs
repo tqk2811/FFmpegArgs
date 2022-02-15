@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... overlay_qsv       VV->V      Quick Sync Video overlay.
+/// </summary>
 public class Overlay_qsvFilterGen : ImageToImageFilter
 {
 internal Overlay_qsvFilterGen(params ImageMap[] inputs) : base("overlay_qsv",inputs) { AddMapOut(); }
@@ -36,68 +39,31 @@ public Overlay_qsvFilterGen shortest(bool shortest) => this.SetOption("shortest"
 /// </summary>
 public Overlay_qsvFilterGen repeatlast(bool repeatlast) => this.SetOption("repeatlast",repeatlast.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class Overlay_qsvFilterGenExtensions
 {
 /// <summary>
 /// Quick Sync Video overlay.
 /// </summary>
 public static Overlay_qsvFilterGen Overlay_qsvFilterGen(this ImageMap input0, ImageMap input1) => new Overlay_qsvFilterGen(input0, input1);
-/// <summary>
-/// Quick Sync Video overlay.
-/// </summary>
-public static Overlay_qsvFilterGen Overlay_qsvFilterGen(this ImageMap input0, ImageMap input1,Overlay_qsvFilterGenConfig config)
-{
-var result = new Overlay_qsvFilterGen(input0, input1);
-if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
-if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
-if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
-if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
-if(config?.alpha != null) result.alpha(config.alpha.Value);
-if(config?.eof_action != null) result.eof_action(config.eof_action.Value);
-if(config?.shortest != null) result.shortest(config.shortest.Value);
-if(config?.repeatlast != null) result.repeatlast(config.repeatlast.Value);
-return result;
 }
-}
-public class Overlay_qsvFilterGenConfig
-{
-/// <summary>
-///  Overlay x position (default "0")
-/// </summary>
-public string x { get; set; }
-/// <summary>
-///  Overlay y position (default "0")
-/// </summary>
-public string y { get; set; }
-/// <summary>
-///  Overlay width (default "overlay_iw")
-/// </summary>
-public string w { get; set; }
-/// <summary>
-///  Overlay height (default "overlay_ih*w/overlay_iw")
-/// </summary>
-public string h { get; set; }
-/// <summary>
-///  Overlay global alpha (from 0 to 255) (default 255)
-/// </summary>
-public int? alpha { get; set; }
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>
-public Overlay_qsvFilterGenEof_action? eof_action { get; set; }
-/// <summary>
-///  force termination when the shortest input terminates (default false)
-/// </summary>
-public bool? shortest { get; set; }
-/// <summary>
-///  repeat overlay of the last overlay frame (default true)
-/// </summary>
-public bool? repeatlast { get; set; }
-}
 public enum Overlay_qsvFilterGenEof_action
 {
+/// <summary>
+/// repeat          0            ..FV....... Repeat the previous frame.
+/// </summary>
 [Name("repeat")] repeat,
+/// <summary>
+/// endall          1            ..FV....... End both streams.
+/// </summary>
 [Name("endall")] endall,
+/// <summary>
+/// pass            2            ..FV....... Pass through the main input.
+/// </summary>
 [Name("pass")] pass,
 }
 

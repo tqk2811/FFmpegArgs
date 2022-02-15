@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C oscilloscope      V->V       2D Video Oscilloscope.
+/// </summary>
 public class OscilloscopeFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal OscilloscopeFilterGen(ImageMap input) : base("oscilloscope",input) { AddMapOut(); }
@@ -56,90 +59,13 @@ public OscilloscopeFilterGen st(bool st) => this.SetOption("st",st.ToFFmpegFlag(
 /// </summary>
 public OscilloscopeFilterGen sc(bool sc) => this.SetOption("sc",sc.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class OscilloscopeFilterGenExtensions
 {
 /// <summary>
 /// 2D Video Oscilloscope.
 /// </summary>
 public static OscilloscopeFilterGen OscilloscopeFilterGen(this ImageMap input0) => new OscilloscopeFilterGen(input0);
-/// <summary>
-/// 2D Video Oscilloscope.
-/// </summary>
-public static OscilloscopeFilterGen OscilloscopeFilterGen(this ImageMap input0,OscilloscopeFilterGenConfig config)
-{
-var result = new OscilloscopeFilterGen(input0);
-if(config?.x != null) result.x(config.x.Value);
-if(config?.y != null) result.y(config.y.Value);
-if(config?.s != null) result.s(config.s.Value);
-if(config?.t != null) result.t(config.t.Value);
-if(config?.o != null) result.o(config.o.Value);
-if(config?.tx != null) result.tx(config.tx.Value);
-if(config?.ty != null) result.ty(config.ty.Value);
-if(config?.tw != null) result.tw(config.tw.Value);
-if(config?.th != null) result.th(config.th.Value);
-if(config?.c != null) result.c(config.c.Value);
-if(config?.g != null) result.g(config.g.Value);
-if(config?.st != null) result.st(config.st.Value);
-if(config?.sc != null) result.sc(config.sc.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class OscilloscopeFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set scope x position (from 0 to 1) (default 0.5)
-/// </summary>
-public float? x { get; set; }
-/// <summary>
-///  set scope y position (from 0 to 1) (default 0.5)
-/// </summary>
-public float? y { get; set; }
-/// <summary>
-///  set scope size (from 0 to 1) (default 0.8)
-/// </summary>
-public float? s { get; set; }
-/// <summary>
-///  set scope tilt (from 0 to 1) (default 0.5)
-/// </summary>
-public float? t { get; set; }
-/// <summary>
-///  set trace opacity (from 0 to 1) (default 0.8)
-/// </summary>
-public float? o { get; set; }
-/// <summary>
-///  set trace x position (from 0 to 1) (default 0.5)
-/// </summary>
-public float? tx { get; set; }
-/// <summary>
-///  set trace y position (from 0 to 1) (default 0.9)
-/// </summary>
-public float? ty { get; set; }
-/// <summary>
-///  set trace width (from 0.1 to 1) (default 0.8)
-/// </summary>
-public float? tw { get; set; }
-/// <summary>
-///  set trace height (from 0.1 to 1) (default 0.3)
-/// </summary>
-public float? th { get; set; }
-/// <summary>
-///  set components to trace (from 0 to 15) (default 7)
-/// </summary>
-public int? c { get; set; }
-/// <summary>
-///  draw trace grid (default true)
-/// </summary>
-public bool? g { get; set; }
-/// <summary>
-///  draw statistics (default true)
-/// </summary>
-public bool? st { get; set; }
-/// <summary>
-///  draw scope (default true)
-/// </summary>
-public bool? sc { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

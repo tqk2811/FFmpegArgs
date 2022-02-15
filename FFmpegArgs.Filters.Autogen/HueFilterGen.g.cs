@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C hue               V->V       Adjust the hue and saturation of the input video.
+/// </summary>
 public class HueFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal HueFilterGen(ImageMap input) : base("hue",input) { AddMapOut(); }
@@ -20,45 +23,13 @@ public HueFilterGen H(string H) => this.SetOption("H",H);
 /// </summary>
 public HueFilterGen b(string b) => this.SetOption("b",b);
 }
+/// <summary>
+/// </summary>
 public static class HueFilterGenExtensions
 {
 /// <summary>
 /// Adjust the hue and saturation of the input video.
 /// </summary>
 public static HueFilterGen HueFilterGen(this ImageMap input0) => new HueFilterGen(input0);
-/// <summary>
-/// Adjust the hue and saturation of the input video.
-/// </summary>
-public static HueFilterGen HueFilterGen(this ImageMap input0,HueFilterGenConfig config)
-{
-var result = new HueFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
-if(!string.IsNullOrWhiteSpace(config?.s)) result.s(config.s);
-if(!string.IsNullOrWhiteSpace(config?.H)) result.H(config.H);
-if(!string.IsNullOrWhiteSpace(config?.b)) result.b(config.b);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class HueFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the hue angle degrees expression
-/// </summary>
-public string h { get; set; }
-/// <summary>
-///  set the saturation expression (default "1")
-/// </summary>
-public string s { get; set; }
-/// <summary>
-///  set the hue angle radians expression
-/// </summary>
-public string H { get; set; }
-/// <summary>
-///  set the brightness expression (default "0")
-/// </summary>
-public string b { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

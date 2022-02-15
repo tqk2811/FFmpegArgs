@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... pad_opencl        V->V       Pad the input video.
+/// </summary>
 public class Pad_openclFilterGen : ImageToImageFilter
 {
 internal Pad_openclFilterGen(ImageMap input) : base("pad_opencl",input) { AddMapOut(); }
@@ -28,52 +31,13 @@ public Pad_openclFilterGen color(Color color) => this.SetOption("color",color.To
 /// </summary>
 public Pad_openclFilterGen aspect(Rational aspect) => this.SetOption("aspect",aspect.Check(0,32767));
 }
+/// <summary>
+/// </summary>
 public static class Pad_openclFilterGenExtensions
 {
 /// <summary>
 /// Pad the input video.
 /// </summary>
 public static Pad_openclFilterGen Pad_openclFilterGen(this ImageMap input0) => new Pad_openclFilterGen(input0);
-/// <summary>
-/// Pad the input video.
-/// </summary>
-public static Pad_openclFilterGen Pad_openclFilterGen(this ImageMap input0,Pad_openclFilterGenConfig config)
-{
-var result = new Pad_openclFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
-if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
-if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
-if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
-if(config?.color != null) result.color(config.color.Value);
-if(config?.aspect != null) result.aspect(config.aspect);
-return result;
-}
-}
-public class Pad_openclFilterGenConfig
-{
-/// <summary>
-///  set the pad area width (default "iw")
-/// </summary>
-public string width { get; set; }
-/// <summary>
-///  set the pad area height (default "ih")
-/// </summary>
-public string height { get; set; }
-/// <summary>
-///  set the x offset for the input image position (default "0")
-/// </summary>
-public string x { get; set; }
-/// <summary>
-///  set the y offset for the input image position (default "0")
-/// </summary>
-public string y { get; set; }
-/// <summary>
-///  set the color of the padded area border (default "black")
-/// </summary>
-public Color? color { get; set; }
-/// <summary>
-///  pad to fit an aspect instead of a resolution (from 0 to 32767) (default 0/1)
-/// </summary>
-public Rational aspect { get; set; }
 }
 }

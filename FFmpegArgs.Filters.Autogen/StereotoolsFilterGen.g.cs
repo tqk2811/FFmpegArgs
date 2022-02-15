@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C stereotools       A->A       Apply various stereo tools.
+/// </summary>
 public class StereotoolsFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal StereotoolsFilterGen(AudioMap input) : base("stereotools",input) { AddMapOut(); }
@@ -84,153 +87,101 @@ public StereotoolsFilterGen bmode_in(StereotoolsFilterGenBmode_in bmode_in) => t
 /// </summary>
 public StereotoolsFilterGen bmode_out(StereotoolsFilterGenBmode_out bmode_out) => this.SetOption("bmode_out", bmode_out.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class StereotoolsFilterGenExtensions
 {
 /// <summary>
 /// Apply various stereo tools.
 /// </summary>
 public static StereotoolsFilterGen StereotoolsFilterGen(this AudioMap input0) => new StereotoolsFilterGen(input0);
-/// <summary>
-/// Apply various stereo tools.
-/// </summary>
-public static StereotoolsFilterGen StereotoolsFilterGen(this AudioMap input0,StereotoolsFilterGenConfig config)
-{
-var result = new StereotoolsFilterGen(input0);
-if(config?.level_in != null) result.level_in(config.level_in.Value);
-if(config?.level_out != null) result.level_out(config.level_out.Value);
-if(config?.balance_in != null) result.balance_in(config.balance_in.Value);
-if(config?.balance_out != null) result.balance_out(config.balance_out.Value);
-if(config?.softclip != null) result.softclip(config.softclip.Value);
-if(config?.mutel != null) result.mutel(config.mutel.Value);
-if(config?.muter != null) result.muter(config.muter.Value);
-if(config?.phasel != null) result.phasel(config.phasel.Value);
-if(config?.phaser != null) result.phaser(config.phaser.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.slev != null) result.slev(config.slev.Value);
-if(config?.sbal != null) result.sbal(config.sbal.Value);
-if(config?.mlev != null) result.mlev(config.mlev.Value);
-if(config?.mpan != null) result.mpan(config.mpan.Value);
-if(config?._base != null) result._base(config._base.Value);
-if(config?.delay != null) result.delay(config.delay.Value);
-if(config?.sclevel != null) result.sclevel(config.sclevel.Value);
-if(config?.phase != null) result.phase(config.phase.Value);
-if(config?.bmode_in != null) result.bmode_in(config.bmode_in.Value);
-if(config?.bmode_out != null) result.bmode_out(config.bmode_out.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class StereotoolsFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set level in (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? level_in { get; set; }
-/// <summary>
-///  set level out (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? level_out { get; set; }
-/// <summary>
-///  set balance in (from -1 to 1) (default 0)
-/// </summary>
-public double? balance_in { get; set; }
-/// <summary>
-///  set balance out (from -1 to 1) (default 0)
-/// </summary>
-public double? balance_out { get; set; }
-/// <summary>
-///  enable softclip (default false)
-/// </summary>
-public bool? softclip { get; set; }
-/// <summary>
-///  mute L (default false)
-/// </summary>
-public bool? mutel { get; set; }
-/// <summary>
-///  mute R (default false)
-/// </summary>
-public bool? muter { get; set; }
-/// <summary>
-///  phase L (default false)
-/// </summary>
-public bool? phasel { get; set; }
-/// <summary>
-///  phase R (default false)
-/// </summary>
-public bool? phaser { get; set; }
 /// <summary>
 ///  set stereo mode (from 0 to 10) (default lr>lr)
 /// </summary>
-public StereotoolsFilterGenMode? mode { get; set; }
-/// <summary>
-///  set side level (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? slev { get; set; }
-/// <summary>
-///  set side balance (from -1 to 1) (default 0)
-/// </summary>
-public double? sbal { get; set; }
-/// <summary>
-///  set middle level (from 0.015625 to 64) (default 1)
-/// </summary>
-public double? mlev { get; set; }
-/// <summary>
-///  set middle pan (from -1 to 1) (default 0)
-/// </summary>
-public double? mpan { get; set; }
-/// <summary>
-///  set stereo base (from -1 to 1) (default 0)
-/// </summary>
-public double? _base { get; set; }
-/// <summary>
-///  set delay (from -20 to 20) (default 0)
-/// </summary>
-public double? delay { get; set; }
-/// <summary>
-///  set S/C level (from 1 to 100) (default 1)
-/// </summary>
-public double? sclevel { get; set; }
-/// <summary>
-///  set stereo phase (from 0 to 360) (default 0)
-/// </summary>
-public double? phase { get; set; }
-/// <summary>
-///  set balance in mode (from 0 to 2) (default balance)
-/// </summary>
-public StereotoolsFilterGenBmode_in? bmode_in { get; set; }
-/// <summary>
-///  set balance out mode (from 0 to 2) (default balance)
-/// </summary>
-public StereotoolsFilterGenBmode_out? bmode_out { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum StereotoolsFilterGenMode
 {
+/// <summary>
+/// lr>lr           0            ..F.A....T.
+/// </summary>
 [Name("lr>lr")] lrGreaterThanlr,
+/// <summary>
+/// lr>ms           1            ..F.A....T.
+/// </summary>
 [Name("lr>ms")] lrGreaterThanms,
+/// <summary>
+/// ms>lr           2            ..F.A....T.
+/// </summary>
 [Name("ms>lr")] msGreaterThanlr,
+/// <summary>
+/// lr>ll           3            ..F.A....T.
+/// </summary>
 [Name("lr>ll")] lrGreaterThanll,
+/// <summary>
+/// lr>rr           4            ..F.A....T.
+/// </summary>
 [Name("lr>rr")] lrGreaterThanrr,
+/// <summary>
+/// lr>l+r          5            ..F.A....T.
+/// </summary>
 [Name("lr>l+r")] lrGreaterThanlPlusr,
+/// <summary>
+/// lr>rl           6            ..F.A....T.
+/// </summary>
 [Name("lr>rl")] lrGreaterThanrl,
+/// <summary>
+/// ms>ll           7            ..F.A....T.
+/// </summary>
 [Name("ms>ll")] msGreaterThanll,
+/// <summary>
+/// ms>rr           8            ..F.A....T.
+/// </summary>
 [Name("ms>rr")] msGreaterThanrr,
+/// <summary>
+/// ms>rl           9            ..F.A....T.
+/// </summary>
 [Name("ms>rl")] msGreaterThanrl,
+/// <summary>
+/// lr>l-r          10           ..F.A....T.
+/// </summary>
 [Name("lr>l-r")] lrGreaterThanl_r,
 }
 
+/// <summary>
+///  set balance in mode (from 0 to 2) (default balance)
+/// </summary>
 public enum StereotoolsFilterGenBmode_in
 {
+/// <summary>
+/// balance         0            ..F.A....T.
+/// </summary>
 [Name("balance")] balance,
+/// <summary>
+/// amplitude       1            ..F.A....T.
+/// </summary>
 [Name("amplitude")] amplitude,
+/// <summary>
+/// power           2            ..F.A....T.
+/// </summary>
 [Name("power")] power,
 }
 
+/// <summary>
+///  set balance out mode (from 0 to 2) (default balance)
+/// </summary>
 public enum StereotoolsFilterGenBmode_out
 {
+/// <summary>
+/// balance         0            ..F.A....T.
+/// </summary>
 [Name("balance")] balance,
+/// <summary>
+/// amplitude       1            ..F.A....T.
+/// </summary>
 [Name("amplitude")] amplitude,
+/// <summary>
+/// power           2            ..F.A....T.
+/// </summary>
 [Name("power")] power,
 }
 

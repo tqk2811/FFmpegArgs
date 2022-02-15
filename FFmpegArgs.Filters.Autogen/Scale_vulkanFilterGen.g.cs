@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... scale_vulkan      V->V       Scale Vulkan frames
+/// </summary>
 public class Scale_vulkanFilterGen : ImageToImageFilter
 {
 internal Scale_vulkanFilterGen(ImageMap input) : base("scale_vulkan",input) { AddMapOut(); }
@@ -24,62 +27,58 @@ public Scale_vulkanFilterGen format(string format) => this.SetOption("format",fo
 /// </summary>
 public Scale_vulkanFilterGen out_range(Scale_vulkanFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class Scale_vulkanFilterGenExtensions
 {
 /// <summary>
 /// Scale Vulkan frames
 /// </summary>
 public static Scale_vulkanFilterGen Scale_vulkanFilterGen(this ImageMap input0) => new Scale_vulkanFilterGen(input0);
-/// <summary>
-/// Scale Vulkan frames
-/// </summary>
-public static Scale_vulkanFilterGen Scale_vulkanFilterGen(this ImageMap input0,Scale_vulkanFilterGenConfig config)
-{
-var result = new Scale_vulkanFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.w)) result.w(config.w);
-if(!string.IsNullOrWhiteSpace(config?.h)) result.h(config.h);
-if(config?.scaler != null) result.scaler(config.scaler.Value);
-if(!string.IsNullOrWhiteSpace(config?.format)) result.format(config.format);
-if(config?.out_range != null) result.out_range(config.out_range.Value);
-return result;
 }
-}
-public class Scale_vulkanFilterGenConfig
-{
-/// <summary>
-///  Output video width (default "iw")
-/// </summary>
-public string w { get; set; }
-/// <summary>
-///  Output video height (default "ih")
-/// </summary>
-public string h { get; set; }
 /// <summary>
 ///  Scaler function (from 0 to 2) (default bilinear)
 /// </summary>
-public Scale_vulkanFilterGenScaler? scaler { get; set; }
-/// <summary>
-///  Output video format (software format of hardware frames)
-/// </summary>
-public string format { get; set; }
-/// <summary>
-///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
-/// </summary>
-public Scale_vulkanFilterGenOut_range? out_range { get; set; }
-}
 public enum Scale_vulkanFilterGenScaler
 {
+/// <summary>
+/// bilinear        0            ..FV....... Bilinear interpolation (fastest)
+/// </summary>
 [Name("bilinear")] bilinear,
+/// <summary>
+/// nearest         1            ..FV....... Nearest (useful for pixel art)
+/// </summary>
 [Name("nearest")] nearest,
 }
 
+/// <summary>
+///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
+/// </summary>
 public enum Scale_vulkanFilterGenOut_range
 {
+/// <summary>
+/// full            2            ..FV....... Full range
+/// </summary>
 [Name("full")] full,
+/// <summary>
+/// limited         1            ..FV....... Limited range
+/// </summary>
 [Name("limited")] limited,
+/// <summary>
+/// jpeg            2            ..FV....... Full range
+/// </summary>
 [Name("jpeg")] jpeg,
+/// <summary>
+/// mpeg            1            ..FV....... Limited range
+/// </summary>
 [Name("mpeg")] mpeg,
+/// <summary>
+/// tv              1            ..FV....... Limited range
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// pc              2            ..FV....... Full range
+/// </summary>
 [Name("pc")] pc,
 }
 

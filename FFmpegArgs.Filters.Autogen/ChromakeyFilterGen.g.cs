@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC chromakey         V->V       Turns a certain color into transparency. Operates on YUV colors.
+/// </summary>
 public class ChromakeyFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ChromakeyFilterGen(ImageMap input) : base("chromakey",input) { AddMapOut(); }
@@ -20,45 +23,13 @@ public ChromakeyFilterGen blend(float blend) => this.SetOptionRange("blend", ble
 /// </summary>
 public ChromakeyFilterGen yuv(bool yuv) => this.SetOption("yuv",yuv.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class ChromakeyFilterGenExtensions
 {
 /// <summary>
 /// Turns a certain color into transparency. Operates on YUV colors.
 /// </summary>
 public static ChromakeyFilterGen ChromakeyFilterGen(this ImageMap input0) => new ChromakeyFilterGen(input0);
-/// <summary>
-/// Turns a certain color into transparency. Operates on YUV colors.
-/// </summary>
-public static ChromakeyFilterGen ChromakeyFilterGen(this ImageMap input0,ChromakeyFilterGenConfig config)
-{
-var result = new ChromakeyFilterGen(input0);
-if(config?.color != null) result.color(config.color.Value);
-if(config?.similarity != null) result.similarity(config.similarity.Value);
-if(config?.blend != null) result.blend(config.blend.Value);
-if(config?.yuv != null) result.yuv(config.yuv.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class ChromakeyFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set the chromakey key color (default "black")
-/// </summary>
-public Color? color { get; set; }
-/// <summary>
-///  set the chromakey similarity value (from 0.01 to 1) (default 0.01)
-/// </summary>
-public float? similarity { get; set; }
-/// <summary>
-///  set the chromakey key blend value (from 0 to 1) (default 0)
-/// </summary>
-public float? blend { get; set; }
-/// <summary>
-///  color parameter is in yuv instead of rgb (default false)
-/// </summary>
-public bool? yuv { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

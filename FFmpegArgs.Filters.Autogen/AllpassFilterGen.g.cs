@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC allpass           A->A       Apply a two-pole all-pass filter.
+/// </summary>
 public class AllpassFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AllpassFilterGen(AudioMap input) : base("allpass",input) { AddMapOut(); }
@@ -52,136 +55,166 @@ public AllpassFilterGen precision(AllpassFilterGenPrecision precision) => this.S
 /// </summary>
 public AllpassFilterGen r(AllpassFilterGenR r) => this.SetOption("r", r.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class AllpassFilterGenExtensions
 {
 /// <summary>
 /// Apply a two-pole all-pass filter.
 /// </summary>
 public static AllpassFilterGen AllpassFilterGen(this AudioMap input0) => new AllpassFilterGen(input0);
-/// <summary>
-/// Apply a two-pole all-pass filter.
-/// </summary>
-public static AllpassFilterGen AllpassFilterGen(this AudioMap input0,AllpassFilterGenConfig config)
-{
-var result = new AllpassFilterGen(input0);
-if(config?.frequency != null) result.frequency(config.frequency.Value);
-if(config?.width_type != null) result.width_type(config.width_type.Value);
-if(config?.t != null) result.t(config.t.Value);
-if(config?.width != null) result.width(config.width.Value);
-if(config?.mix != null) result.mix(config.mix.Value);
-if(config?.channels != null) result.channels(config.channels.Value);
-if(config?.normalize != null) result.normalize(config.normalize.Value);
-if(config?.order != null) result.order(config.order.Value);
-if(config?.transform != null) result.transform(config.transform.Value);
-if(config?.a != null) result.a(config.a.Value);
-if(config?.precision != null) result.precision(config.precision.Value);
-if(config?.r != null) result.r(config.r.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AllpassFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set central frequency (from 0 to 999999) (default 3000)
-/// </summary>
-public double? frequency { get; set; }
 /// <summary>
 ///  set filter-width type (from 1 to 5) (default h)
 /// </summary>
-public AllpassFilterGenWidth_type? width_type { get; set; }
-/// <summary>
-///  set filter-width type (from 1 to 5) (default h)
-/// </summary>
-public AllpassFilterGenT? t { get; set; }
-/// <summary>
-///  set filter-width (from 0 to 99999) (default 707.1)
-/// </summary>
-public double? width { get; set; }
-/// <summary>
-///  set mix (from 0 to 1) (default 1)
-/// </summary>
-public double? mix { get; set; }
-/// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
-/// </summary>
-public ChannelLayout? channels { get; set; }
-/// <summary>
-///  normalize coefficients (default false)
-/// </summary>
-public bool? normalize { get; set; }
-/// <summary>
-///  set filter order (from 1 to 2) (default 2)
-/// </summary>
-public int? order { get; set; }
-/// <summary>
-///  set transform type (from 0 to 3) (default di)
-/// </summary>
-public AllpassFilterGenTransform? transform { get; set; }
-/// <summary>
-///  set transform type (from 0 to 3) (default di)
-/// </summary>
-public AllpassFilterGenA? a { get; set; }
-/// <summary>
-///  set filtering precision (from -1 to 3) (default auto)
-/// </summary>
-public AllpassFilterGenPrecision? precision { get; set; }
-/// <summary>
-///  set filtering precision (from -1 to 3) (default auto)
-/// </summary>
-public AllpassFilterGenR? r { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AllpassFilterGenWidth_type
 {
+/// <summary>
+/// h               1            ..F.A....T. Hz
+/// </summary>
 [Name("h")] h,
+/// <summary>
+/// q               3            ..F.A....T. Q-Factor
+/// </summary>
 [Name("q")] q,
+/// <summary>
+/// o               2            ..F.A....T. octave
+/// </summary>
 [Name("o")] o,
+/// <summary>
+/// s               4            ..F.A....T. slope
+/// </summary>
 [Name("s")] s,
+/// <summary>
+/// k               5            ..F.A....T. kHz
+/// </summary>
 [Name("k")] k,
 }
 
+/// <summary>
+///  set filter-width type (from 1 to 5) (default h)
+/// </summary>
 public enum AllpassFilterGenT
 {
+/// <summary>
+/// h               1            ..F.A....T. Hz
+/// </summary>
 [Name("h")] h,
+/// <summary>
+/// q               3            ..F.A....T. Q-Factor
+/// </summary>
 [Name("q")] q,
+/// <summary>
+/// o               2            ..F.A....T. octave
+/// </summary>
 [Name("o")] o,
+/// <summary>
+/// s               4            ..F.A....T. slope
+/// </summary>
 [Name("s")] s,
+/// <summary>
+/// k               5            ..F.A....T. kHz
+/// </summary>
 [Name("k")] k,
 }
 
+/// <summary>
+///  set transform type (from 0 to 3) (default di)
+/// </summary>
 public enum AllpassFilterGenTransform
 {
+/// <summary>
+/// di              0            ..F.A...... direct form I
+/// </summary>
 [Name("di")] di,
+/// <summary>
+/// dii             1            ..F.A...... direct form II
+/// </summary>
 [Name("dii")] dii,
+/// <summary>
+/// tdii            2            ..F.A...... transposed direct form II
+/// </summary>
 [Name("tdii")] tdii,
+/// <summary>
+/// latt            3            ..F.A...... lattice-ladder form
+/// </summary>
 [Name("latt")] latt,
 }
 
+/// <summary>
+///  set transform type (from 0 to 3) (default di)
+/// </summary>
 public enum AllpassFilterGenA
 {
+/// <summary>
+/// di              0            ..F.A...... direct form I
+/// </summary>
 [Name("di")] di,
+/// <summary>
+/// dii             1            ..F.A...... direct form II
+/// </summary>
 [Name("dii")] dii,
+/// <summary>
+/// tdii            2            ..F.A...... transposed direct form II
+/// </summary>
 [Name("tdii")] tdii,
+/// <summary>
+/// latt            3            ..F.A...... lattice-ladder form
+/// </summary>
 [Name("latt")] latt,
 }
 
+/// <summary>
+///  set filtering precision (from -1 to 3) (default auto)
+/// </summary>
 public enum AllpassFilterGenPrecision
 {
+/// <summary>
+/// auto            -1           ..F.A...... automatic
+/// </summary>
 [Name("auto")] auto,
+/// <summary>
+/// s16             0            ..F.A...... signed 16-bit
+/// </summary>
 [Name("s16")] s16,
+/// <summary>
+/// s32             1            ..F.A...... signed 32-bit
+/// </summary>
 [Name("s32")] s32,
+/// <summary>
+/// f32             2            ..F.A...... floating-point single
+/// </summary>
 [Name("f32")] f32,
+/// <summary>
+/// f64             3            ..F.A...... floating-point double
+/// </summary>
 [Name("f64")] f64,
 }
 
+/// <summary>
+///  set filtering precision (from -1 to 3) (default auto)
+/// </summary>
 public enum AllpassFilterGenR
 {
+/// <summary>
+/// auto            -1           ..F.A...... automatic
+/// </summary>
 [Name("auto")] auto,
+/// <summary>
+/// s16             0            ..F.A...... signed 16-bit
+/// </summary>
 [Name("s16")] s16,
+/// <summary>
+/// s32             1            ..F.A...... signed 32-bit
+/// </summary>
 [Name("s32")] s32,
+/// <summary>
+/// f32             2            ..F.A...... floating-point single
+/// </summary>
 [Name("f32")] f32,
+/// <summary>
+/// f64             3            ..F.A...... floating-point double
+/// </summary>
 [Name("f64")] f64,
 }
 

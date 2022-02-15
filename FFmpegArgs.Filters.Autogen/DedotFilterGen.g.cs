@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TS. dedot             V->V       Reduce cross-luminance and cross-color.
+/// </summary>
 public class DedotFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal DedotFilterGen(ImageMap input) : base("dedot",input) { AddMapOut(); }
@@ -24,55 +27,27 @@ public DedotFilterGen tc(float tc) => this.SetOptionRange("tc", tc,0,1);
 /// </summary>
 public DedotFilterGen ct(float ct) => this.SetOptionRange("ct", ct,0,1);
 }
+/// <summary>
+/// </summary>
 public static class DedotFilterGenExtensions
 {
 /// <summary>
 /// Reduce cross-luminance and cross-color.
 /// </summary>
 public static DedotFilterGen DedotFilterGen(this ImageMap input0) => new DedotFilterGen(input0);
-/// <summary>
-/// Reduce cross-luminance and cross-color.
-/// </summary>
-public static DedotFilterGen DedotFilterGen(this ImageMap input0,DedotFilterGenConfig config)
-{
-var result = new DedotFilterGen(input0);
-if(config?.m != null) result.m(config.m.Value);
-if(config?.lt != null) result.lt(config.lt.Value);
-if(config?.tl != null) result.tl(config.tl.Value);
-if(config?.tc != null) result.tc(config.tc.Value);
-if(config?.ct != null) result.ct(config.ct.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class DedotFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set filtering mode (default dotcrawl+rainbows)
 /// </summary>
-public DedotFilterGenM? m { get; set; }
-/// <summary>
-///  set spatial luma threshold (from 0 to 1) (default 0.079)
-/// </summary>
-public float? lt { get; set; }
-/// <summary>
-///  set tolerance for temporal luma (from 0 to 1) (default 0.079)
-/// </summary>
-public float? tl { get; set; }
-/// <summary>
-///  set tolerance for chroma temporal variation (from 0 to 1) (default 0.058)
-/// </summary>
-public float? tc { get; set; }
-/// <summary>
-///  set temporal chroma threshold (from 0 to 1) (default 0.019)
-/// </summary>
-public float? ct { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum DedotFilterGenM
 {
+/// <summary>
+/// dotcrawl                     ..FV.......
+/// </summary>
 [Name("dotcrawl")] dotcrawl,
+/// <summary>
+/// rainbows                     ..FV.......
+/// </summary>
 [Name("rainbows")] rainbows,
 }
 

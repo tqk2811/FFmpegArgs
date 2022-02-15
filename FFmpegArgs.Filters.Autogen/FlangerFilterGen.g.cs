@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... flanger           A->A       Apply a flanging effect to the audio.
+/// </summary>
 public class FlangerFilterGen : AudioToAudioFilter
 {
 internal FlangerFilterGen(AudioMap input) : base("flanger",input) { AddMapOut(); }
@@ -36,75 +39,50 @@ public FlangerFilterGen phase(double phase) => this.SetOptionRange("phase", phas
 /// </summary>
 public FlangerFilterGen interp(FlangerFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class FlangerFilterGenExtensions
 {
 /// <summary>
 /// Apply a flanging effect to the audio.
 /// </summary>
 public static FlangerFilterGen FlangerFilterGen(this AudioMap input0) => new FlangerFilterGen(input0);
-/// <summary>
-/// Apply a flanging effect to the audio.
-/// </summary>
-public static FlangerFilterGen FlangerFilterGen(this AudioMap input0,FlangerFilterGenConfig config)
-{
-var result = new FlangerFilterGen(input0);
-if(config?.delay != null) result.delay(config.delay.Value);
-if(config?.depth != null) result.depth(config.depth.Value);
-if(config?.regen != null) result.regen(config.regen.Value);
-if(config?.width != null) result.width(config.width.Value);
-if(config?.speed != null) result.speed(config.speed.Value);
-if(config?.shape != null) result.shape(config.shape.Value);
-if(config?.phase != null) result.phase(config.phase.Value);
-if(config?.interp != null) result.interp(config.interp.Value);
-return result;
 }
-}
-public class FlangerFilterGenConfig
-{
-/// <summary>
-///  base delay in milliseconds (from 0 to 30) (default 0)
-/// </summary>
-public double? delay { get; set; }
-/// <summary>
-///  added swept delay in milliseconds (from 0 to 10) (default 2)
-/// </summary>
-public double? depth { get; set; }
-/// <summary>
-///  percentage regeneration (delayed signal feedback) (from -95 to 95) (default 0)
-/// </summary>
-public double? regen { get; set; }
-/// <summary>
-///  percentage of delayed signal mixed with original (from 0 to 100) (default 71)
-/// </summary>
-public double? width { get; set; }
-/// <summary>
-///  sweeps per second (Hz) (from 0.1 to 10) (default 0.5)
-/// </summary>
-public double? speed { get; set; }
 /// <summary>
 ///  swept wave shape (from 0 to 1) (default sinusoidal)
 /// </summary>
-public FlangerFilterGenShape? shape { get; set; }
-/// <summary>
-///  swept wave percentage phase-shift for multi-channel (from 0 to 100) (default 25)
-/// </summary>
-public double? phase { get; set; }
-/// <summary>
-///  delay-line interpolation (from 0 to 1) (default linear)
-/// </summary>
-public FlangerFilterGenInterp? interp { get; set; }
-}
 public enum FlangerFilterGenShape
 {
+/// <summary>
+/// triangular      1            ..F.A......
+/// </summary>
 [Name("triangular")] triangular,
+/// <summary>
+/// t               1            ..F.A......
+/// </summary>
 [Name("t")] t,
+/// <summary>
+/// sinusoidal      0            ..F.A......
+/// </summary>
 [Name("sinusoidal")] sinusoidal,
+/// <summary>
+/// s               0            ..F.A......
+/// </summary>
 [Name("s")] s,
 }
 
+/// <summary>
+///  delay-line interpolation (from 0 to 1) (default linear)
+/// </summary>
 public enum FlangerFilterGenInterp
 {
+/// <summary>
+/// linear          0            ..F.A......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// quadratic       1            ..F.A......
+/// </summary>
 [Name("quadratic")] quadratic,
 }
 

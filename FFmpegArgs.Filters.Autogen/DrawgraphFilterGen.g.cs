@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... drawgraph         V->V       Draw a graph using input video metadata.
+/// </summary>
 public class DrawgraphFilterGen : ImageToImageFilter
 {
 internal DrawgraphFilterGen(ImageMap input) : base("drawgraph",input) { AddMapOut(); }
@@ -64,112 +67,58 @@ public DrawgraphFilterGen size(Size size) => this.SetOption("size",$"{size.Width
 /// </summary>
 public DrawgraphFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 }
+/// <summary>
+/// </summary>
 public static class DrawgraphFilterGenExtensions
 {
 /// <summary>
 /// Draw a graph using input video metadata.
 /// </summary>
 public static DrawgraphFilterGen DrawgraphFilterGen(this ImageMap input0) => new DrawgraphFilterGen(input0);
-/// <summary>
-/// Draw a graph using input video metadata.
-/// </summary>
-public static DrawgraphFilterGen DrawgraphFilterGen(this ImageMap input0,DrawgraphFilterGenConfig config)
-{
-var result = new DrawgraphFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.m1)) result.m1(config.m1);
-if(!string.IsNullOrWhiteSpace(config?.fg1)) result.fg1(config.fg1);
-if(!string.IsNullOrWhiteSpace(config?.m2)) result.m2(config.m2);
-if(!string.IsNullOrWhiteSpace(config?.fg2)) result.fg2(config.fg2);
-if(!string.IsNullOrWhiteSpace(config?.m3)) result.m3(config.m3);
-if(!string.IsNullOrWhiteSpace(config?.fg3)) result.fg3(config.fg3);
-if(!string.IsNullOrWhiteSpace(config?.m4)) result.m4(config.m4);
-if(!string.IsNullOrWhiteSpace(config?.fg4)) result.fg4(config.fg4);
-if(config?.bg != null) result.bg(config.bg.Value);
-if(config?.min != null) result.min(config.min.Value);
-if(config?.max != null) result.max(config.max.Value);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.slide != null) result.slide(config.slide.Value);
-if(config?.size != null) result.size(config.size.Value);
-if(config?.rate != null) result.rate(config.rate);
-return result;
 }
-}
-public class DrawgraphFilterGenConfig
-{
-/// <summary>
-///  set 1st metadata key (default "")
-/// </summary>
-public string m1 { get; set; }
-/// <summary>
-///  set 1st foreground color expression (default "0xffff0000")
-/// </summary>
-public string fg1 { get; set; }
-/// <summary>
-///  set 2nd metadata key (default "")
-/// </summary>
-public string m2 { get; set; }
-/// <summary>
-///  set 2nd foreground color expression (default "0xff00ff00")
-/// </summary>
-public string fg2 { get; set; }
-/// <summary>
-///  set 3rd metadata key (default "")
-/// </summary>
-public string m3 { get; set; }
-/// <summary>
-///  set 3rd foreground color expression (default "0xffff00ff")
-/// </summary>
-public string fg3 { get; set; }
-/// <summary>
-///  set 4th metadata key (default "")
-/// </summary>
-public string m4 { get; set; }
-/// <summary>
-///  set 4th foreground color expression (default "0xffffff00")
-/// </summary>
-public string fg4 { get; set; }
-/// <summary>
-///  set background color (default "white")
-/// </summary>
-public Color? bg { get; set; }
-/// <summary>
-///  set minimal value (from INT_MIN to INT_MAX) (default -1)
-/// </summary>
-public float? min { get; set; }
-/// <summary>
-///  set maximal value (from INT_MIN to INT_MAX) (default 1)
-/// </summary>
-public float? max { get; set; }
 /// <summary>
 ///  set graph mode (from 0 to 2) (default line)
 /// </summary>
-public DrawgraphFilterGenMode? mode { get; set; }
-/// <summary>
-///  set slide mode (from 0 to 4) (default frame)
-/// </summary>
-public DrawgraphFilterGenSlide? slide { get; set; }
-/// <summary>
-///  set graph size (default "900x256")
-/// </summary>
-public Size? size { get; set; }
-/// <summary>
-///  set video rate (default "25")
-/// </summary>
-public Rational rate { get; set; }
-}
 public enum DrawgraphFilterGenMode
 {
+/// <summary>
+/// bar             0            ..FV....... draw bars
+/// </summary>
 [Name("bar")] bar,
+/// <summary>
+/// dot             1            ..FV....... draw dots
+/// </summary>
 [Name("dot")] dot,
+/// <summary>
+/// line            2            ..FV....... draw lines
+/// </summary>
 [Name("line")] line,
 }
 
+/// <summary>
+///  set slide mode (from 0 to 4) (default frame)
+/// </summary>
 public enum DrawgraphFilterGenSlide
 {
+/// <summary>
+/// frame           0            ..FV....... draw new frames
+/// </summary>
 [Name("frame")] frame,
+/// <summary>
+/// replace         1            ..FV....... replace old columns with new
+/// </summary>
 [Name("replace")] replace,
+/// <summary>
+/// scroll          2            ..FV....... scroll from right to left
+/// </summary>
 [Name("scroll")] scroll,
+/// <summary>
+/// rscroll         3            ..FV....... scroll from left to right
+/// </summary>
 [Name("rscroll")] rscroll,
+/// <summary>
+/// picture         4            ..FV....... display graph in single frame
+/// </summary>
 [Name("picture")] picture,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. ametadata         A->A       Manipulate audio frame metadata.
+/// </summary>
 public class AmetadataFilterGen : AudioToAudioFilter,ITimelineSupport
 {
 internal AmetadataFilterGen(AudioMap input) : base("ametadata",input) { AddMapOut(); }
@@ -32,79 +35,74 @@ public AmetadataFilterGen file(string file) => this.SetOption("file",file);
 /// </summary>
 public AmetadataFilterGen direct(bool direct) => this.SetOption("direct",direct.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class AmetadataFilterGenExtensions
 {
 /// <summary>
 /// Manipulate audio frame metadata.
 /// </summary>
 public static AmetadataFilterGen AmetadataFilterGen(this AudioMap input0) => new AmetadataFilterGen(input0);
-/// <summary>
-/// Manipulate audio frame metadata.
-/// </summary>
-public static AmetadataFilterGen AmetadataFilterGen(this AudioMap input0,AmetadataFilterGenConfig config)
-{
-var result = new AmetadataFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(!string.IsNullOrWhiteSpace(config?.key)) result.key(config.key);
-if(!string.IsNullOrWhiteSpace(config?.value)) result.value(config.value);
-if(config?.function != null) result.function(config.function.Value);
-if(!string.IsNullOrWhiteSpace(config?.expr)) result.expr(config.expr);
-if(!string.IsNullOrWhiteSpace(config?.file)) result.file(config.file);
-if(config?.direct != null) result.direct(config.direct.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class AmetadataFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  set a mode of operation (from 0 to 4) (default select)
 /// </summary>
-public AmetadataFilterGenMode? mode { get; set; }
-/// <summary>
-///  set metadata key
-/// </summary>
-public string key { get; set; }
-/// <summary>
-///  set metadata value
-/// </summary>
-public string value { get; set; }
-/// <summary>
-///  function for comparing values (from 0 to 6) (default same_str)
-/// </summary>
-public AmetadataFilterGenFunction? function { get; set; }
-/// <summary>
-///  set expression for expr function
-/// </summary>
-public string expr { get; set; }
-/// <summary>
-///  set file where to print metadata information
-/// </summary>
-public string file { get; set; }
-/// <summary>
-///  reduce buffering when printing to user-set file or pipe (default false)
-/// </summary>
-public bool? direct { get; set; }
-public string TimelineSupport { get; set; }
-}
 public enum AmetadataFilterGenMode
 {
+/// <summary>
+/// select          0            ..F.A...... select frame
+/// </summary>
 [Name("select")] select,
+/// <summary>
+/// add             1            ..F.A...... add new metadata
+/// </summary>
 [Name("add")] add,
+/// <summary>
+/// modify          2            ..F.A...... modify metadata
+/// </summary>
 [Name("modify")] modify,
+/// <summary>
+/// delete          3            ..F.A...... delete metadata
+/// </summary>
 [Name("delete")] delete,
+/// <summary>
+/// print           4            ..F.A...... print metadata
+/// </summary>
 [Name("print")] print,
 }
 
+/// <summary>
+///  function for comparing values (from 0 to 6) (default same_str)
+/// </summary>
 public enum AmetadataFilterGenFunction
 {
+/// <summary>
+/// same_str        0            ..F.A......
+/// </summary>
 [Name("same_str")] same_str,
+/// <summary>
+/// starts_with     1            ..F.A......
+/// </summary>
 [Name("starts_with")] starts_with,
+/// <summary>
+/// less            2            ..F.A......
+/// </summary>
 [Name("less")] less,
+/// <summary>
+/// equal           3            ..F.A......
+/// </summary>
 [Name("equal")] equal,
+/// <summary>
+/// greater         4            ..F.A......
+/// </summary>
 [Name("greater")] greater,
+/// <summary>
+/// expr            5            ..F.A......
+/// </summary>
 [Name("expr")] expr,
+/// <summary>
+/// ends_with       6            ..F.A......
+/// </summary>
 [Name("ends_with")] ends_with,
 }
 

@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.C drawbox           V->V       Draw a colored box on the input video.
+/// </summary>
 public class DrawboxFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal DrawboxFilterGen(ImageMap input) : base("drawbox",input) { AddMapOut(); }
@@ -32,60 +35,13 @@ public DrawboxFilterGen thickness(string thickness) => this.SetOption("thickness
 /// </summary>
 public DrawboxFilterGen replace(bool replace) => this.SetOption("replace",replace.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class DrawboxFilterGenExtensions
 {
 /// <summary>
 /// Draw a colored box on the input video.
 /// </summary>
 public static DrawboxFilterGen DrawboxFilterGen(this ImageMap input0) => new DrawboxFilterGen(input0);
-/// <summary>
-/// Draw a colored box on the input video.
-/// </summary>
-public static DrawboxFilterGen DrawboxFilterGen(this ImageMap input0,DrawboxFilterGenConfig config)
-{
-var result = new DrawboxFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.x)) result.x(config.x);
-if(!string.IsNullOrWhiteSpace(config?.y)) result.y(config.y);
-if(!string.IsNullOrWhiteSpace(config?.width)) result.width(config.width);
-if(!string.IsNullOrWhiteSpace(config?.height)) result.height(config.height);
-if(!string.IsNullOrWhiteSpace(config?.color)) result.color(config.color);
-if(!string.IsNullOrWhiteSpace(config?.thickness)) result.thickness(config.thickness);
-if(config?.replace != null) result.replace(config.replace.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class DrawboxFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  set horizontal position of the left box edge (default "0")
-/// </summary>
-public string x { get; set; }
-/// <summary>
-///  set vertical position of the top box edge (default "0")
-/// </summary>
-public string y { get; set; }
-/// <summary>
-///  set width of the box (default "0")
-/// </summary>
-public string width { get; set; }
-/// <summary>
-///  set height of the box (default "0")
-/// </summary>
-public string height { get; set; }
-/// <summary>
-///  set color of the box (default "black")
-/// </summary>
-public string color { get; set; }
-/// <summary>
-///  set the box thickness (default "3")
-/// </summary>
-public string thickness { get; set; }
-/// <summary>
-///  replace color & alpha (default false)
-/// </summary>
-public bool? replace { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

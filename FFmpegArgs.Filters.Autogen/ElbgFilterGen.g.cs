@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... elbg              V->V       Apply posterize effect, using the ELBG algorithm.
+/// </summary>
 public class ElbgFilterGen : ImageToImageFilter
 {
 internal ElbgFilterGen(ImageMap input) : base("elbg",input) { AddMapOut(); }
@@ -24,47 +27,13 @@ public ElbgFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1,UINT
 /// </summary>
 public ElbgFilterGen pal8(bool pal8) => this.SetOption("pal8",pal8.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class ElbgFilterGenExtensions
 {
 /// <summary>
 /// Apply posterize effect, using the ELBG algorithm.
 /// </summary>
 public static ElbgFilterGen ElbgFilterGen(this ImageMap input0) => new ElbgFilterGen(input0);
-/// <summary>
-/// Apply posterize effect, using the ELBG algorithm.
-/// </summary>
-public static ElbgFilterGen ElbgFilterGen(this ImageMap input0,ElbgFilterGenConfig config)
-{
-var result = new ElbgFilterGen(input0);
-if(config?.codebook_length != null) result.codebook_length(config.codebook_length.Value);
-if(config?.l != null) result.l(config.l.Value);
-if(config?.nb_steps != null) result.nb_steps(config.nb_steps.Value);
-if(config?.seed != null) result.seed(config.seed.Value);
-if(config?.pal8 != null) result.pal8(config.pal8.Value);
-return result;
-}
-}
-public class ElbgFilterGenConfig
-{
-/// <summary>
-///  set codebook length (from 1 to INT_MAX) (default 256)
-/// </summary>
-public int? codebook_length { get; set; }
-/// <summary>
-///  set codebook length (from 1 to INT_MAX) (default 256)
-/// </summary>
-public int? l { get; set; }
-/// <summary>
-///  set max number of steps used to compute the mapping (from 1 to INT_MAX) (default 1)
-/// </summary>
-public int? nb_steps { get; set; }
-/// <summary>
-///  set the random seed (from -1 to UINT32_MAX) (default -1)
-/// </summary>
-public long? seed { get; set; }
-/// <summary>
-///  set the pal8 output (default false)
-/// </summary>
-public bool? pal8 { get; set; }
 }
 }

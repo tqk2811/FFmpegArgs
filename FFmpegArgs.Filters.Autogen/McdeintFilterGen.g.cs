@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... mcdeint           V->V       Apply motion compensating deinterlacing.
+/// </summary>
 public class McdeintFilterGen : ImageToImageFilter
 {
 internal McdeintFilterGen(ImageMap input) : base("mcdeint",input) { AddMapOut(); }
@@ -16,50 +19,50 @@ public McdeintFilterGen parity(McdeintFilterGenParity parity) => this.SetOption(
 /// </summary>
 public McdeintFilterGen qp(int qp) => this.SetOptionRange("qp", qp,INT_MIN,INT_MAX);
 }
+/// <summary>
+/// </summary>
 public static class McdeintFilterGenExtensions
 {
 /// <summary>
 /// Apply motion compensating deinterlacing.
 /// </summary>
 public static McdeintFilterGen McdeintFilterGen(this ImageMap input0) => new McdeintFilterGen(input0);
-/// <summary>
-/// Apply motion compensating deinterlacing.
-/// </summary>
-public static McdeintFilterGen McdeintFilterGen(this ImageMap input0,McdeintFilterGenConfig config)
-{
-var result = new McdeintFilterGen(input0);
-if(config?.mode != null) result.mode(config.mode.Value);
-if(config?.parity != null) result.parity(config.parity.Value);
-if(config?.qp != null) result.qp(config.qp.Value);
-return result;
 }
-}
-public class McdeintFilterGenConfig
-{
 /// <summary>
 ///  set mode (from 0 to 3) (default fast)
 /// </summary>
-public McdeintFilterGenMode? mode { get; set; }
-/// <summary>
-///  set the assumed picture field parity (from -1 to 1) (default bff)
-/// </summary>
-public McdeintFilterGenParity? parity { get; set; }
-/// <summary>
-///  set qp (from INT_MIN to INT_MAX) (default 1)
-/// </summary>
-public int? qp { get; set; }
-}
 public enum McdeintFilterGenMode
 {
+/// <summary>
+/// fast            0            ..FV.......
+/// </summary>
 [Name("fast")] fast,
+/// <summary>
+/// medium          1            ..FV.......
+/// </summary>
 [Name("medium")] medium,
+/// <summary>
+/// slow            2            ..FV.......
+/// </summary>
 [Name("slow")] slow,
+/// <summary>
+/// extra_slow      3            ..FV.......
+/// </summary>
 [Name("extra_slow")] extra_slow,
 }
 
+/// <summary>
+///  set the assumed picture field parity (from -1 to 1) (default bff)
+/// </summary>
 public enum McdeintFilterGenParity
 {
+/// <summary>
+/// tff             0            ..FV....... assume top field first
+/// </summary>
 [Name("tff")] tff,
+/// <summary>
+/// bff             1            ..FV....... assume bottom field first
+/// </summary>
 [Name("bff")] bff,
 }
 

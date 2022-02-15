@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... xfade_opencl      VV->V      Cross fade one video with another video.
+/// </summary>
 public class Xfade_openclFilterGen : ImageToImageFilter
 {
 internal Xfade_openclFilterGen(params ImageMap[] inputs) : base("xfade_opencl",inputs) { AddMapOut(); }
@@ -24,60 +27,59 @@ public Xfade_openclFilterGen duration(TimeSpan duration) => this.SetOptionRange(
 /// </summary>
 public Xfade_openclFilterGen offset(TimeSpan offset) => this.SetOptionRange("offset",offset,TimeSpan.Zero,TimeSpan.MaxValue);
 }
+/// <summary>
+/// </summary>
 public static class Xfade_openclFilterGenExtensions
 {
 /// <summary>
 /// Cross fade one video with another video.
 /// </summary>
 public static Xfade_openclFilterGen Xfade_openclFilterGen(this ImageMap input0, ImageMap input1) => new Xfade_openclFilterGen(input0, input1);
-/// <summary>
-/// Cross fade one video with another video.
-/// </summary>
-public static Xfade_openclFilterGen Xfade_openclFilterGen(this ImageMap input0, ImageMap input1,Xfade_openclFilterGenConfig config)
-{
-var result = new Xfade_openclFilterGen(input0, input1);
-if(config?.transition != null) result.transition(config.transition.Value);
-if(!string.IsNullOrWhiteSpace(config?.source)) result.source(config.source);
-if(!string.IsNullOrWhiteSpace(config?.kernel)) result.kernel(config.kernel);
-if(config?.duration != null) result.duration(config.duration.Value);
-if(config?.offset != null) result.offset(config.offset.Value);
-return result;
 }
-}
-public class Xfade_openclFilterGenConfig
-{
 /// <summary>
 ///  set cross fade transition (from 0 to 9) (default fade)
 /// </summary>
-public Xfade_openclFilterGenTransition? transition { get; set; }
-/// <summary>
-///  set OpenCL program source file for custom transition
-/// </summary>
-public string source { get; set; }
-/// <summary>
-///  set kernel name in program file for custom transition
-/// </summary>
-public string kernel { get; set; }
-/// <summary>
-///  set cross fade duration (default 1)
-/// </summary>
-public TimeSpan? duration { get; set; }
-/// <summary>
-///  set cross fade start relative to first input stream (default 0)
-/// </summary>
-public TimeSpan? offset { get; set; }
-}
 public enum Xfade_openclFilterGenTransition
 {
+/// <summary>
+/// custom          0            ..FV....... custom transition
+/// </summary>
 [Name("custom")] custom,
+/// <summary>
+/// fade            1            ..FV....... fade transition
+/// </summary>
 [Name("fade")] fade,
+/// <summary>
+/// wipeleft        2            ..FV....... wipe left transition
+/// </summary>
 [Name("wipeleft")] wipeleft,
+/// <summary>
+/// wiperight       3            ..FV....... wipe right transition
+/// </summary>
 [Name("wiperight")] wiperight,
+/// <summary>
+/// wipeup          4            ..FV....... wipe up transition
+/// </summary>
 [Name("wipeup")] wipeup,
+/// <summary>
+/// wipedown        5            ..FV....... wipe down transition
+/// </summary>
 [Name("wipedown")] wipedown,
+/// <summary>
+/// slideleft       6            ..FV....... slide left transition
+/// </summary>
 [Name("slideleft")] slideleft,
+/// <summary>
+/// slideright      7            ..FV....... slide right transition
+/// </summary>
 [Name("slideright")] slideright,
+/// <summary>
+/// slideup         8            ..FV....... slide up transition
+/// </summary>
 [Name("slideup")] slideup,
+/// <summary>
+/// slidedown       9            ..FV....... slide down transition
+/// </summary>
 [Name("slidedown")] slidedown,
 }
 

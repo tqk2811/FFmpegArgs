@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// ... field             V->V       Extract a field from the input video.
+/// </summary>
 public class FieldFilterGen : ImageToImageFilter
 {
 internal FieldFilterGen(ImageMap input) : base("field",input) { AddMapOut(); }
@@ -8,32 +11,27 @@ internal FieldFilterGen(ImageMap input) : base("field",input) { AddMapOut(); }
 /// </summary>
 public FieldFilterGen type(FieldFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class FieldFilterGenExtensions
 {
 /// <summary>
 /// Extract a field from the input video.
 /// </summary>
 public static FieldFilterGen FieldFilterGen(this ImageMap input0) => new FieldFilterGen(input0);
-/// <summary>
-/// Extract a field from the input video.
-/// </summary>
-public static FieldFilterGen FieldFilterGen(this ImageMap input0,FieldFilterGenConfig config)
-{
-var result = new FieldFilterGen(input0);
-if(config?.type != null) result.type(config.type.Value);
-return result;
 }
-}
-public class FieldFilterGenConfig
-{
 /// <summary>
 ///  set field type (top or bottom) (from 0 to 1) (default top)
 /// </summary>
-public FieldFilterGenType? type { get; set; }
-}
 public enum FieldFilterGenType
 {
+/// <summary>
+/// top             0            ..FV....... select top field
+/// </summary>
 [Name("top")] top,
+/// <summary>
+/// bottom          1            ..FV....... select bottom field
+/// </summary>
 [Name("bottom")] bottom,
 }
 

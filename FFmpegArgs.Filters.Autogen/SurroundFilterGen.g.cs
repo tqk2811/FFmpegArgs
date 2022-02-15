@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// .S. surround          A->A       Apply audio surround upmix filter.
+/// </summary>
 public class SurroundFilterGen : AudioToAudioFilter,ISliceThreading
 {
 internal SurroundFilterGen(AudioMap input) : base("surround",input) { AddMapOut(); }
@@ -196,292 +199,118 @@ public SurroundFilterGen win_func(SurroundFilterGenWin_func win_func) => this.Se
 /// </summary>
 public SurroundFilterGen overlap(float overlap) => this.SetOptionRange("overlap", overlap,0,1);
 }
+/// <summary>
+/// </summary>
 public static class SurroundFilterGenExtensions
 {
 /// <summary>
 /// Apply audio surround upmix filter.
 /// </summary>
 public static SurroundFilterGen SurroundFilterGen(this AudioMap input0) => new SurroundFilterGen(input0);
-/// <summary>
-/// Apply audio surround upmix filter.
-/// </summary>
-public static SurroundFilterGen SurroundFilterGen(this AudioMap input0,SurroundFilterGenConfig config)
-{
-var result = new SurroundFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.chl_out)) result.chl_out(config.chl_out);
-if(!string.IsNullOrWhiteSpace(config?.chl_in)) result.chl_in(config.chl_in);
-if(config?.level_in != null) result.level_in(config.level_in.Value);
-if(config?.level_out != null) result.level_out(config.level_out.Value);
-if(config?.lfe != null) result.lfe(config.lfe.Value);
-if(config?.lfe_low != null) result.lfe_low(config.lfe_low.Value);
-if(config?.lfe_high != null) result.lfe_high(config.lfe_high.Value);
-if(config?.lfe_mode != null) result.lfe_mode(config.lfe_mode.Value);
-if(config?.angle != null) result.angle(config.angle.Value);
-if(config?.fc_in != null) result.fc_in(config.fc_in.Value);
-if(config?.fc_out != null) result.fc_out(config.fc_out.Value);
-if(config?.fl_in != null) result.fl_in(config.fl_in.Value);
-if(config?.fl_out != null) result.fl_out(config.fl_out.Value);
-if(config?.fr_in != null) result.fr_in(config.fr_in.Value);
-if(config?.fr_out != null) result.fr_out(config.fr_out.Value);
-if(config?.sl_in != null) result.sl_in(config.sl_in.Value);
-if(config?.sl_out != null) result.sl_out(config.sl_out.Value);
-if(config?.sr_in != null) result.sr_in(config.sr_in.Value);
-if(config?.sr_out != null) result.sr_out(config.sr_out.Value);
-if(config?.bl_in != null) result.bl_in(config.bl_in.Value);
-if(config?.bl_out != null) result.bl_out(config.bl_out.Value);
-if(config?.br_in != null) result.br_in(config.br_in.Value);
-if(config?.br_out != null) result.br_out(config.br_out.Value);
-if(config?.bc_in != null) result.bc_in(config.bc_in.Value);
-if(config?.bc_out != null) result.bc_out(config.bc_out.Value);
-if(config?.lfe_in != null) result.lfe_in(config.lfe_in.Value);
-if(config?.lfe_out != null) result.lfe_out(config.lfe_out.Value);
-if(config?.allx != null) result.allx(config.allx.Value);
-if(config?.ally != null) result.ally(config.ally.Value);
-if(config?.fcx != null) result.fcx(config.fcx.Value);
-if(config?.flx != null) result.flx(config.flx.Value);
-if(config?.frx != null) result.frx(config.frx.Value);
-if(config?.blx != null) result.blx(config.blx.Value);
-if(config?.brx != null) result.brx(config.brx.Value);
-if(config?.slx != null) result.slx(config.slx.Value);
-if(config?.srx != null) result.srx(config.srx.Value);
-if(config?.bcx != null) result.bcx(config.bcx.Value);
-if(config?.fcy != null) result.fcy(config.fcy.Value);
-if(config?.fly != null) result.fly(config.fly.Value);
-if(config?.fry != null) result.fry(config.fry.Value);
-if(config?.bly != null) result.bly(config.bly.Value);
-if(config?.bry != null) result.bry(config.bry.Value);
-if(config?.sly != null) result.sly(config.sly.Value);
-if(config?.sry != null) result.sry(config.sry.Value);
-if(config?.bcy != null) result.bcy(config.bcy.Value);
-if(config?.win_size != null) result.win_size(config.win_size.Value);
-if(config?.win_func != null) result.win_func(config.win_func.Value);
-if(config?.overlap != null) result.overlap(config.overlap.Value);
-return result;
 }
-}
-public class SurroundFilterGenConfig
-{
-/// <summary>
-///  set output channel layout (default "5.1")
-/// </summary>
-public string chl_out { get; set; }
-/// <summary>
-///  set input channel layout (default "stereo")
-/// </summary>
-public string chl_in { get; set; }
-/// <summary>
-///  set input level (from 0 to 10) (default 1)
-/// </summary>
-public float? level_in { get; set; }
-/// <summary>
-///  set output level (from 0 to 10) (default 1)
-/// </summary>
-public float? level_out { get; set; }
-/// <summary>
-///  output LFE (default true)
-/// </summary>
-public bool? lfe { get; set; }
-/// <summary>
-///  LFE low cut off (from 0 to 256) (default 128)
-/// </summary>
-public int? lfe_low { get; set; }
-/// <summary>
-///  LFE high cut off (from 0 to 512) (default 256)
-/// </summary>
-public int? lfe_high { get; set; }
 /// <summary>
 ///  set LFE channel mode (from 0 to 1) (default add)
 /// </summary>
-public SurroundFilterGenLfe_mode? lfe_mode { get; set; }
-/// <summary>
-///  set soundfield transform angle (from 0 to 360) (default 90)
-/// </summary>
-public float? angle { get; set; }
-/// <summary>
-///  set front center channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? fc_in { get; set; }
-/// <summary>
-///  set front center channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? fc_out { get; set; }
-/// <summary>
-///  set front left channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? fl_in { get; set; }
-/// <summary>
-///  set front left channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? fl_out { get; set; }
-/// <summary>
-///  set front right channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? fr_in { get; set; }
-/// <summary>
-///  set front right channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? fr_out { get; set; }
-/// <summary>
-///  set side left channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? sl_in { get; set; }
-/// <summary>
-///  set side left channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? sl_out { get; set; }
-/// <summary>
-///  set side right channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? sr_in { get; set; }
-/// <summary>
-///  set side right channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? sr_out { get; set; }
-/// <summary>
-///  set back left channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? bl_in { get; set; }
-/// <summary>
-///  set back left channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? bl_out { get; set; }
-/// <summary>
-///  set back right channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? br_in { get; set; }
-/// <summary>
-///  set back right channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? br_out { get; set; }
-/// <summary>
-///  set back center channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? bc_in { get; set; }
-/// <summary>
-///  set back center channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? bc_out { get; set; }
-/// <summary>
-///  set lfe channel input level (from 0 to 10) (default 1)
-/// </summary>
-public float? lfe_in { get; set; }
-/// <summary>
-///  set lfe channel output level (from 0 to 10) (default 1)
-/// </summary>
-public float? lfe_out { get; set; }
-/// <summary>
-///  set all channel's x spread (from -1 to 15) (default -1)
-/// </summary>
-public float? allx { get; set; }
-/// <summary>
-///  set all channel's y spread (from -1 to 15) (default -1)
-/// </summary>
-public float? ally { get; set; }
-/// <summary>
-///  set front center channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? fcx { get; set; }
-/// <summary>
-///  set front left channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? flx { get; set; }
-/// <summary>
-///  set front right channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? frx { get; set; }
-/// <summary>
-///  set back left channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? blx { get; set; }
-/// <summary>
-///  set back right channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? brx { get; set; }
-/// <summary>
-///  set side left channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? slx { get; set; }
-/// <summary>
-///  set side right channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? srx { get; set; }
-/// <summary>
-///  set back center channel x spread (from 0 to 15) (default 1)
-/// </summary>
-public float? bcx { get; set; }
-/// <summary>
-///  set front center channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? fcy { get; set; }
-/// <summary>
-///  set front left channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? fly { get; set; }
-/// <summary>
-///  set front right channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? fry { get; set; }
-/// <summary>
-///  set back left channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? bly { get; set; }
-/// <summary>
-///  set back right channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? bry { get; set; }
-/// <summary>
-///  set side left channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? sly { get; set; }
-/// <summary>
-///  set side right channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? sry { get; set; }
-/// <summary>
-///  set back center channel y spread (from 0 to 15) (default 1)
-/// </summary>
-public float? bcy { get; set; }
-/// <summary>
-///  set window size (from 1024 to 65536) (default 4096)
-/// </summary>
-public int? win_size { get; set; }
-/// <summary>
-///  set window function (from 0 to 19) (default hann)
-/// </summary>
-public SurroundFilterGenWin_func? win_func { get; set; }
-/// <summary>
-///  set window overlap (from 0 to 1) (default 0.5)
-/// </summary>
-public float? overlap { get; set; }
-}
 public enum SurroundFilterGenLfe_mode
 {
+/// <summary>
+/// add             0            ..F.A...... just add LFE channel
+/// </summary>
 [Name("add")] add,
+/// <summary>
+/// sub             1            ..F.A...... substract LFE channel with others
+/// </summary>
 [Name("sub")] sub,
 }
 
+/// <summary>
+///  set window function (from 0 to 19) (default hann)
+/// </summary>
 public enum SurroundFilterGenWin_func
 {
+/// <summary>
+/// rect            0            ..F.A...... Rectangular
+/// </summary>
 [Name("rect")] rect,
+/// <summary>
+/// bartlett        4            ..F.A...... Bartlett
+/// </summary>
 [Name("bartlett")] bartlett,
+/// <summary>
+/// hann            1            ..F.A...... Hann
+/// </summary>
 [Name("hann")] hann,
+/// <summary>
+/// hanning         1            ..F.A...... Hanning
+/// </summary>
 [Name("hanning")] hanning,
+/// <summary>
+/// hamming         2            ..F.A...... Hamming
+/// </summary>
 [Name("hamming")] hamming,
+/// <summary>
+/// blackman        3            ..F.A...... Blackman
+/// </summary>
 [Name("blackman")] blackman,
+/// <summary>
+/// welch           5            ..F.A...... Welch
+/// </summary>
 [Name("welch")] welch,
+/// <summary>
+/// flattop         6            ..F.A...... Flat-top
+/// </summary>
 [Name("flattop")] flattop,
+/// <summary>
+/// bharris         7            ..F.A...... Blackman-Harris
+/// </summary>
 [Name("bharris")] bharris,
+/// <summary>
+/// bnuttall        8            ..F.A...... Blackman-Nuttall
+/// </summary>
 [Name("bnuttall")] bnuttall,
+/// <summary>
+/// bhann           11           ..F.A...... Bartlett-Hann
+/// </summary>
 [Name("bhann")] bhann,
+/// <summary>
+/// sine            9            ..F.A...... Sine
+/// </summary>
 [Name("sine")] sine,
+/// <summary>
+/// nuttall         10           ..F.A...... Nuttall
+/// </summary>
 [Name("nuttall")] nuttall,
+/// <summary>
+/// lanczos         12           ..F.A...... Lanczos
+/// </summary>
 [Name("lanczos")] lanczos,
+/// <summary>
+/// gauss           13           ..F.A...... Gauss
+/// </summary>
 [Name("gauss")] gauss,
+/// <summary>
+/// tukey           14           ..F.A...... Tukey
+/// </summary>
 [Name("tukey")] tukey,
+/// <summary>
+/// dolph           15           ..F.A...... Dolph-Chebyshev
+/// </summary>
 [Name("dolph")] dolph,
+/// <summary>
+/// cauchy          16           ..F.A...... Cauchy
+/// </summary>
 [Name("cauchy")] cauchy,
+/// <summary>
+/// parzen          17           ..F.A...... Parzen
+/// </summary>
 [Name("parzen")] parzen,
+/// <summary>
+/// poisson         18           ..F.A...... Poisson
+/// </summary>
 [Name("poisson")] poisson,
+/// <summary>
+/// bohman          19           ..F.A...... Bohman
+/// </summary>
 [Name("bohman")] bohman,
 }
 

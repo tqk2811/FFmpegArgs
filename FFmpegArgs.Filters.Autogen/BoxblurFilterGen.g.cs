@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// T.. boxblur           V->V       Blur the input.
+/// </summary>
 public class BoxblurFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal BoxblurFilterGen(ImageMap input) : base("boxblur",input) { AddMapOut(); }
@@ -52,85 +55,13 @@ public BoxblurFilterGen alpha_power(int alpha_power) => this.SetOptionRange("alp
 /// </summary>
 public BoxblurFilterGen ap(int ap) => this.SetOptionRange("ap", ap,-1,INT_MAX);
 }
+/// <summary>
+/// </summary>
 public static class BoxblurFilterGenExtensions
 {
 /// <summary>
 /// Blur the input.
 /// </summary>
 public static BoxblurFilterGen BoxblurFilterGen(this ImageMap input0) => new BoxblurFilterGen(input0);
-/// <summary>
-/// Blur the input.
-/// </summary>
-public static BoxblurFilterGen BoxblurFilterGen(this ImageMap input0,BoxblurFilterGenConfig config)
-{
-var result = new BoxblurFilterGen(input0);
-if(!string.IsNullOrWhiteSpace(config?.luma_radius)) result.luma_radius(config.luma_radius);
-if(!string.IsNullOrWhiteSpace(config?.lr)) result.lr(config.lr);
-if(config?.luma_power != null) result.luma_power(config.luma_power.Value);
-if(config?.lp != null) result.lp(config.lp.Value);
-if(!string.IsNullOrWhiteSpace(config?.chroma_radius)) result.chroma_radius(config.chroma_radius);
-if(!string.IsNullOrWhiteSpace(config?.cr)) result.cr(config.cr);
-if(config?.chroma_power != null) result.chroma_power(config.chroma_power.Value);
-if(config?.cp != null) result.cp(config.cp.Value);
-if(!string.IsNullOrWhiteSpace(config?.alpha_radius)) result.alpha_radius(config.alpha_radius);
-if(!string.IsNullOrWhiteSpace(config?.ar)) result.ar(config.ar);
-if(config?.alpha_power != null) result.alpha_power(config.alpha_power.Value);
-if(config?.ap != null) result.ap(config.ap.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class BoxblurFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  Radius of the luma blurring box (default "2")
-/// </summary>
-public string luma_radius { get; set; }
-/// <summary>
-///  Radius of the luma blurring box (default "2")
-/// </summary>
-public string lr { get; set; }
-/// <summary>
-///  How many times should the boxblur be applied to luma (from 0 to INT_MAX) (default 2)
-/// </summary>
-public int? luma_power { get; set; }
-/// <summary>
-///  How many times should the boxblur be applied to luma (from 0 to INT_MAX) (default 2)
-/// </summary>
-public int? lp { get; set; }
-/// <summary>
-///  Radius of the chroma blurring box
-/// </summary>
-public string chroma_radius { get; set; }
-/// <summary>
-///  Radius of the chroma blurring box
-/// </summary>
-public string cr { get; set; }
-/// <summary>
-///  How many times should the boxblur be applied to chroma (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? chroma_power { get; set; }
-/// <summary>
-///  How many times should the boxblur be applied to chroma (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? cp { get; set; }
-/// <summary>
-///  Radius of the alpha blurring box
-/// </summary>
-public string alpha_radius { get; set; }
-/// <summary>
-///  Radius of the alpha blurring box
-/// </summary>
-public string ar { get; set; }
-/// <summary>
-///  How many times should the boxblur be applied to alpha (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? alpha_power { get; set; }
-/// <summary>
-///  How many times should the boxblur be applied to alpha (from -1 to INT_MAX) (default -1)
-/// </summary>
-public int? ap { get; set; }
-public string TimelineSupport { get; set; }
 }
 }

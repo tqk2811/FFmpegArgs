@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TS. colorspace        V->V       Convert between colorspaces.
+/// </summary>
 public class ColorspaceFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal ColorspaceFilterGen(ImageMap input) : base("colorspace",input) { AddMapOut(); }
@@ -60,254 +63,535 @@ public ColorspaceFilterGen iprimaries(ColorspaceFilterGenIprimaries iprimaries) 
 /// </summary>
 public ColorspaceFilterGen itrc(ColorspaceFilterGenItrc itrc) => this.SetOption("itrc", itrc.GetEnumAttribute<NameAttribute>().Name);
 }
+/// <summary>
+/// </summary>
 public static class ColorspaceFilterGenExtensions
 {
 /// <summary>
 /// Convert between colorspaces.
 /// </summary>
 public static ColorspaceFilterGen ColorspaceFilterGen(this ImageMap input0) => new ColorspaceFilterGen(input0);
-/// <summary>
-/// Convert between colorspaces.
-/// </summary>
-public static ColorspaceFilterGen ColorspaceFilterGen(this ImageMap input0,ColorspaceFilterGenConfig config)
-{
-var result = new ColorspaceFilterGen(input0);
-if(config?.all != null) result.all(config.all.Value);
-if(config?.space != null) result.space(config.space.Value);
-if(config?.range != null) result.range(config.range.Value);
-if(config?.primaries != null) result.primaries(config.primaries.Value);
-if(config?.trc != null) result.trc(config.trc.Value);
-if(config?.format != null) result.format(config.format.Value);
-if(config?.fast != null) result.fast(config.fast.Value);
-if(config?.dither != null) result.dither(config.dither.Value);
-if(config?.wpadapt != null) result.wpadapt(config.wpadapt.Value);
-if(config?.iall != null) result.iall(config.iall.Value);
-if(config?.ispace != null) result.ispace(config.ispace.Value);
-if(config?.irange != null) result.irange(config.irange.Value);
-if(config?.iprimaries != null) result.iprimaries(config.iprimaries.Value);
-if(config?.itrc != null) result.itrc(config.itrc.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
 }
-}
-public class ColorspaceFilterGenConfig
-:ITimelineSupportConfig
-{
 /// <summary>
 ///  Set all color properties together (from 0 to 8) (default 0)
 /// </summary>
-public ColorspaceFilterGenAll? all { get; set; }
+public enum ColorspaceFilterGenAll
+{
+/// <summary>
+/// bt470m          1            ..FV.......
+/// </summary>
+[Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         2            ..FV.......
+/// </summary>
+[Name("bt470bg")] bt470bg,
+/// <summary>
+/// bt601-6-525     3            ..FV.......
+/// </summary>
+[Name("bt601-6-525")] bt601_6_525,
+/// <summary>
+/// bt601-6-625     4            ..FV.......
+/// </summary>
+[Name("bt601-6-625")] bt601_6_625,
+/// <summary>
+/// bt709           5            ..FV.......
+/// </summary>
+[Name("bt709")] bt709,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
+[Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
+[Name("smpte240m")] smpte240m,
+/// <summary>
+/// bt2020          8            ..FV.......
+/// </summary>
+[Name("bt2020")] bt2020,
+}
+
 /// <summary>
 ///  Output colorspace (from 0 to 14) (default 2)
 /// </summary>
-public ColorspaceFilterGenSpace? space { get; set; }
+public enum ColorspaceFilterGenSpace
+{
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
+[Name("bt709")] bt709,
+/// <summary>
+/// fcc             4            ..FV.......
+/// </summary>
+[Name("fcc")] fcc,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
+[Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
+[Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
+[Name("smpte240m")] smpte240m,
+/// <summary>
+/// ycgco           8            ..FV.......
+/// </summary>
+[Name("ycgco")] ycgco,
+/// <summary>
+/// gbr             0            ..FV.......
+/// </summary>
+[Name("gbr")] gbr,
+/// <summary>
+/// bt2020nc        9            ..FV.......
+/// </summary>
+[Name("bt2020nc")] bt2020nc,
+/// <summary>
+/// bt2020ncl       9            ..FV.......
+/// </summary>
+[Name("bt2020ncl")] bt2020ncl,
+}
+
 /// <summary>
 ///  Output color range (from 0 to 2) (default 0)
 /// </summary>
-public ColorspaceFilterGenRange? range { get; set; }
+public enum ColorspaceFilterGenRange
+{
+/// <summary>
+/// tv              1            ..FV.......
+/// </summary>
+[Name("tv")] tv,
+/// <summary>
+/// mpeg            1            ..FV.......
+/// </summary>
+[Name("mpeg")] mpeg,
+/// <summary>
+/// pc              2            ..FV.......
+/// </summary>
+[Name("pc")] pc,
+/// <summary>
+/// jpeg            2            ..FV.......
+/// </summary>
+[Name("jpeg")] jpeg,
+}
+
 /// <summary>
 ///  Output color primaries (from 0 to 22) (default 2)
 /// </summary>
-public ColorspaceFilterGenPrimaries? primaries { get; set; }
+public enum ColorspaceFilterGenPrimaries
+{
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
+[Name("bt709")] bt709,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
+[Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
+[Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
+[Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
+[Name("smpte240m")] smpte240m,
+/// <summary>
+/// smpte428        10           ..FV.......
+/// </summary>
+[Name("smpte428")] smpte428,
+/// <summary>
+/// film            8            ..FV.......
+/// </summary>
+[Name("film")] film,
+/// <summary>
+/// smpte431        11           ..FV.......
+/// </summary>
+[Name("smpte431")] smpte431,
+/// <summary>
+/// smpte432        12           ..FV.......
+/// </summary>
+[Name("smpte432")] smpte432,
+/// <summary>
+/// bt2020          9            ..FV.......
+/// </summary>
+[Name("bt2020")] bt2020,
+/// <summary>
+/// jedec-p22       22           ..FV.......
+/// </summary>
+[Name("jedec-p22")] jedec_p22,
+/// <summary>
+/// ebu3213         22           ..FV.......
+/// </summary>
+[Name("ebu3213")] ebu3213,
+}
+
 /// <summary>
 ///  Output transfer characteristics (from 0 to 18) (default 2)
 /// </summary>
-public ColorspaceFilterGenTrc? trc { get; set; }
-/// <summary>
-///  Output pixel format (from -1 to 164) (default -1)
-/// </summary>
-public ColorspaceFilterGenFormat? format { get; set; }
-/// <summary>
-///  Ignore primary chromaticity and gamma correction (default false)
-/// </summary>
-public bool? fast { get; set; }
-/// <summary>
-///  Dithering mode (from 0 to 1) (default none)
-/// </summary>
-public ColorspaceFilterGenDither? dither { get; set; }
-/// <summary>
-///  Whitepoint adaptation method (from 0 to 2) (default bradford)
-/// </summary>
-public ColorspaceFilterGenWpadapt? wpadapt { get; set; }
-/// <summary>
-///  Set all input color properties together (from 0 to 8) (default 0)
-/// </summary>
-public ColorspaceFilterGenIall? iall { get; set; }
-/// <summary>
-///  Input colorspace (from 0 to 22) (default 2)
-/// </summary>
-public ColorspaceFilterGenIspace? ispace { get; set; }
-/// <summary>
-///  Input color range (from 0 to 2) (default 0)
-/// </summary>
-public ColorspaceFilterGenIrange? irange { get; set; }
-/// <summary>
-///  Input color primaries (from 0 to 22) (default 2)
-/// </summary>
-public ColorspaceFilterGenIprimaries? iprimaries { get; set; }
-/// <summary>
-///  Input transfer characteristics (from 0 to 18) (default 2)
-/// </summary>
-public ColorspaceFilterGenItrc? itrc { get; set; }
-public string TimelineSupport { get; set; }
-}
-public enum ColorspaceFilterGenAll
-{
-[Name("bt470m")] bt470m,
-[Name("bt470bg")] bt470bg,
-[Name("bt601-6-525")] bt601_6_525,
-[Name("bt601-6-625")] bt601_6_625,
-[Name("bt709")] bt709,
-[Name("smpte170m")] smpte170m,
-[Name("smpte240m")] smpte240m,
-[Name("bt2020")] bt2020,
-}
-
-public enum ColorspaceFilterGenSpace
-{
-[Name("bt709")] bt709,
-[Name("fcc")] fcc,
-[Name("bt470bg")] bt470bg,
-[Name("smpte170m")] smpte170m,
-[Name("smpte240m")] smpte240m,
-[Name("ycgco")] ycgco,
-[Name("gbr")] gbr,
-[Name("bt2020nc")] bt2020nc,
-[Name("bt2020ncl")] bt2020ncl,
-}
-
-public enum ColorspaceFilterGenRange
-{
-[Name("tv")] tv,
-[Name("mpeg")] mpeg,
-[Name("pc")] pc,
-[Name("jpeg")] jpeg,
-}
-
-public enum ColorspaceFilterGenPrimaries
-{
-[Name("bt709")] bt709,
-[Name("bt470m")] bt470m,
-[Name("bt470bg")] bt470bg,
-[Name("smpte170m")] smpte170m,
-[Name("smpte240m")] smpte240m,
-[Name("smpte428")] smpte428,
-[Name("film")] film,
-[Name("smpte431")] smpte431,
-[Name("smpte432")] smpte432,
-[Name("bt2020")] bt2020,
-[Name("jedec-p22")] jedec_p22,
-[Name("ebu3213")] ebu3213,
-}
-
 public enum ColorspaceFilterGenTrc
 {
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// gamma22         4            ..FV.......
+/// </summary>
 [Name("gamma22")] gamma22,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// gamma28         5            ..FV.......
+/// </summary>
 [Name("gamma28")] gamma28,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// linear          8            ..FV.......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// srgb            13           ..FV.......
+/// </summary>
 [Name("srgb")] srgb,
+/// <summary>
+/// iec61966-2-1    13           ..FV.......
+/// </summary>
 [Name("iec61966-2-1")] iec61966_2_1,
+/// <summary>
+/// xvycc           11           ..FV.......
+/// </summary>
 [Name("xvycc")] xvycc,
+/// <summary>
+/// iec61966-2-4    11           ..FV.......
+/// </summary>
 [Name("iec61966-2-4")] iec61966_2_4,
+/// <summary>
+/// bt2020-10       14           ..FV.......
+/// </summary>
 [Name("bt2020-10")] bt2020_10,
+/// <summary>
+/// bt2020-12       15           ..FV.......
+/// </summary>
 [Name("bt2020-12")] bt2020_12,
 }
 
+/// <summary>
+///  Output pixel format (from -1 to 164) (default -1)
+/// </summary>
 public enum ColorspaceFilterGenFormat
 {
+/// <summary>
+/// yuv420p         0            ..FV.......
+/// </summary>
 [Name("yuv420p")] yuv420p,
+/// <summary>
+/// yuv420p10       64           ..FV.......
+/// </summary>
 [Name("yuv420p10")] yuv420p10,
+/// <summary>
+/// yuv420p12       125          ..FV.......
+/// </summary>
 [Name("yuv420p12")] yuv420p12,
+/// <summary>
+/// yuv422p         4            ..FV.......
+/// </summary>
 [Name("yuv422p")] yuv422p,
+/// <summary>
+/// yuv422p10       66           ..FV.......
+/// </summary>
 [Name("yuv422p10")] yuv422p10,
+/// <summary>
+/// yuv422p12       129          ..FV.......
+/// </summary>
 [Name("yuv422p12")] yuv422p12,
+/// <summary>
+/// yuv444p         5            ..FV.......
+/// </summary>
 [Name("yuv444p")] yuv444p,
+/// <summary>
+/// yuv444p10       70           ..FV.......
+/// </summary>
 [Name("yuv444p10")] yuv444p10,
+/// <summary>
+/// yuv444p12       133          ..FV.......
+/// </summary>
 [Name("yuv444p12")] yuv444p12,
 }
 
+/// <summary>
+///  Dithering mode (from 0 to 1) (default none)
+/// </summary>
 public enum ColorspaceFilterGenDither
 {
+/// <summary>
+/// none            0            ..FV.......
+/// </summary>
 [Name("none")] none,
+/// <summary>
+/// fsb             1            ..FV.......
+/// </summary>
 [Name("fsb")] fsb,
 }
 
+/// <summary>
+///  Whitepoint adaptation method (from 0 to 2) (default bradford)
+/// </summary>
 public enum ColorspaceFilterGenWpadapt
 {
+/// <summary>
+/// bradford        0            ..FV.......
+/// </summary>
 [Name("bradford")] bradford,
+/// <summary>
+/// vonkries        1            ..FV.......
+/// </summary>
 [Name("vonkries")] vonkries,
+/// <summary>
+/// identity        2            ..FV.......
+/// </summary>
 [Name("identity")] identity,
 }
 
+/// <summary>
+///  Set all input color properties together (from 0 to 8) (default 0)
+/// </summary>
 public enum ColorspaceFilterGenIall
 {
+/// <summary>
+/// bt470m          1            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         2            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// bt601-6-525     3            ..FV.......
+/// </summary>
 [Name("bt601-6-525")] bt601_6_525,
+/// <summary>
+/// bt601-6-625     4            ..FV.......
+/// </summary>
 [Name("bt601-6-625")] bt601_6_625,
+/// <summary>
+/// bt709           5            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// bt2020          8            ..FV.......
+/// </summary>
 [Name("bt2020")] bt2020,
 }
 
+/// <summary>
+///  Input colorspace (from 0 to 22) (default 2)
+/// </summary>
 public enum ColorspaceFilterGenIspace
 {
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// fcc             4            ..FV.......
+/// </summary>
 [Name("fcc")] fcc,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// ycgco           8            ..FV.......
+/// </summary>
 [Name("ycgco")] ycgco,
+/// <summary>
+/// gbr             0            ..FV.......
+/// </summary>
 [Name("gbr")] gbr,
+/// <summary>
+/// bt2020nc        9            ..FV.......
+/// </summary>
 [Name("bt2020nc")] bt2020nc,
+/// <summary>
+/// bt2020ncl       9            ..FV.......
+/// </summary>
 [Name("bt2020ncl")] bt2020ncl,
 }
 
+/// <summary>
+///  Input color range (from 0 to 2) (default 0)
+/// </summary>
 public enum ColorspaceFilterGenIrange
 {
+/// <summary>
+/// tv              1            ..FV.......
+/// </summary>
 [Name("tv")] tv,
+/// <summary>
+/// mpeg            1            ..FV.......
+/// </summary>
 [Name("mpeg")] mpeg,
+/// <summary>
+/// pc              2            ..FV.......
+/// </summary>
 [Name("pc")] pc,
+/// <summary>
+/// jpeg            2            ..FV.......
+/// </summary>
 [Name("jpeg")] jpeg,
 }
 
+/// <summary>
+///  Input color primaries (from 0 to 22) (default 2)
+/// </summary>
 public enum ColorspaceFilterGenIprimaries
 {
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// smpte428        10           ..FV.......
+/// </summary>
 [Name("smpte428")] smpte428,
+/// <summary>
+/// film            8            ..FV.......
+/// </summary>
 [Name("film")] film,
+/// <summary>
+/// smpte431        11           ..FV.......
+/// </summary>
 [Name("smpte431")] smpte431,
+/// <summary>
+/// smpte432        12           ..FV.......
+/// </summary>
 [Name("smpte432")] smpte432,
+/// <summary>
+/// bt2020          9            ..FV.......
+/// </summary>
 [Name("bt2020")] bt2020,
+/// <summary>
+/// jedec-p22       22           ..FV.......
+/// </summary>
 [Name("jedec-p22")] jedec_p22,
+/// <summary>
+/// ebu3213         22           ..FV.......
+/// </summary>
 [Name("ebu3213")] ebu3213,
 }
 
+/// <summary>
+///  Input transfer characteristics (from 0 to 18) (default 2)
+/// </summary>
 public enum ColorspaceFilterGenItrc
 {
+/// <summary>
+/// bt709           1            ..FV.......
+/// </summary>
 [Name("bt709")] bt709,
+/// <summary>
+/// bt470m          4            ..FV.......
+/// </summary>
 [Name("bt470m")] bt470m,
+/// <summary>
+/// gamma22         4            ..FV.......
+/// </summary>
 [Name("gamma22")] gamma22,
+/// <summary>
+/// bt470bg         5            ..FV.......
+/// </summary>
 [Name("bt470bg")] bt470bg,
+/// <summary>
+/// gamma28         5            ..FV.......
+/// </summary>
 [Name("gamma28")] gamma28,
+/// <summary>
+/// smpte170m       6            ..FV.......
+/// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
 [Name("smpte240m")] smpte240m,
+/// <summary>
+/// linear          8            ..FV.......
+/// </summary>
 [Name("linear")] linear,
+/// <summary>
+/// srgb            13           ..FV.......
+/// </summary>
 [Name("srgb")] srgb,
+/// <summary>
+/// iec61966-2-1    13           ..FV.......
+/// </summary>
 [Name("iec61966-2-1")] iec61966_2_1,
+/// <summary>
+/// xvycc           11           ..FV.......
+/// </summary>
 [Name("xvycc")] xvycc,
+/// <summary>
+/// iec61966-2-4    11           ..FV.......
+/// </summary>
 [Name("iec61966-2-4")] iec61966_2_4,
+/// <summary>
+/// bt2020-10       14           ..FV.......
+/// </summary>
 [Name("bt2020-10")] bt2020_10,
+/// <summary>
+/// bt2020-12       15           ..FV.......
+/// </summary>
 [Name("bt2020-12")] bt2020_12,
 }
 

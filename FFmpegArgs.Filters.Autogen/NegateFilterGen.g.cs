@@ -1,5 +1,8 @@
 namespace FFmpegArgs.Filters.Autogens
 {
+/// <summary>
+/// TSC negate            V->V       Negate input video.
+/// </summary>
 public class NegateFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal NegateFilterGen(ImageMap input) : base("negate",input) { AddMapOut(); }
@@ -8,30 +11,13 @@ internal NegateFilterGen(ImageMap input) : base("negate",input) { AddMapOut(); }
 /// </summary>
 public NegateFilterGen negate_alpha(bool negate_alpha) => this.SetOption("negate_alpha",negate_alpha.ToFFmpegFlag());
 }
+/// <summary>
+/// </summary>
 public static class NegateFilterGenExtensions
 {
 /// <summary>
 /// Negate input video.
 /// </summary>
 public static NegateFilterGen NegateFilterGen(this ImageMap input0) => new NegateFilterGen(input0);
-/// <summary>
-/// Negate input video.
-/// </summary>
-public static NegateFilterGen NegateFilterGen(this ImageMap input0,NegateFilterGenConfig config)
-{
-var result = new NegateFilterGen(input0);
-if(config?.negate_alpha != null) result.negate_alpha(config.negate_alpha.Value);
-if(!string.IsNullOrWhiteSpace(config?.TimelineSupport)) result.Enable(config.TimelineSupport);
-return result;
-}
-}
-public class NegateFilterGenConfig
-:ITimelineSupportConfig
-{
-/// <summary>
-///  (default false)
-/// </summary>
-public bool? negate_alpha { get; set; }
-public string TimelineSupport { get; set; }
 }
 }
