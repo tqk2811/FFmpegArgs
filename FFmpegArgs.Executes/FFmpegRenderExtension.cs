@@ -6,6 +6,12 @@
     public static class FFmpegRenderExtension
     {
         /// <summary>
+        /// Render with default <see cref="FFmpegRenderConfig"/> (ffmpeg from PATH and WorkingDirectory is Current)
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <returns></returns>
+        public static FFmpegRender Render(this IFFmpegArg ffmpegArg) => FFmpegRender.FromArguments(ffmpegArg, new FFmpegRenderConfig());
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="ffmpegArg"></param>
