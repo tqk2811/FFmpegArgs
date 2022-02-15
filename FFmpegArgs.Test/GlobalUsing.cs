@@ -7,6 +7,7 @@ global using System.Linq;
 global using System.Collections;
 global using System.Collections.Generic;
 
+global using FFplayArgs;
 global using FFmpegArgs;
 global using FFmpegArgs.Cores;
 global using FFmpegArgs.Cores.Enums;

@@ -36,6 +36,7 @@
 		<ProjectReference Include="..\FFmpegArgs.Inputs\FFmpegArgs.Inputs.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Outputs\FFmpegArgs.Outputs.csproj" />
 		<ProjectReference Include="..\FFmpegArgs\FFmpegArgs.csproj" />
+		<ProjectReference Include="..\FFplayArgs\FFplayArgs.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

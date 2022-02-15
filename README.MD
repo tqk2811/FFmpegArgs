@@ -103,4 +103,4 @@ img.ScaleFilter(w => w.NonCheck("iw/3"), h => h.NonCheck("ih/3"));
 
 
 # LICENCE  
-Under [ffmpeg](https://github.com/FFmpeg/FFmpeg) licence
+MIT

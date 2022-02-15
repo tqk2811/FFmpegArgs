@@ -2,7 +2,7 @@
 {
     internal static class Render
     {
-        internal static void TestRender(this FFmpegArg ffmpegArg,string filterFileName, string outputFileName)
+        internal static void TestRender(this IFFmpegArg ffmpegArg,string filterFileName, string outputFileName)
         {
             var render = ffmpegArg.Render(b => b.WithFilterScriptName(filterFileName).UseFilterChain(true));
 #if Render
