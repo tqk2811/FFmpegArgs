@@ -1,15 +1,15 @@
 # FFmpegArgs
 <b>FFmpegArgs</b> is a cli-wrapper library support generate argument for ffmpeg executable.  
-The standout feature that many cli-wrapper libraries don't have is the <b>FilterGraph</b> system.
+The standout feature that many cli-wrapper libraries don't have is the <b>FFmpeg FilterGraph</b> system.
 
 Get it on [NuGet Package](https://www.nuget.org/packages?q=FFmpegArgs)  
-________________________________________
-# Feature  
-- Easy to use  
-- Easy extend
-- Works on most systems ( if ffmpeg can execution )
-- 130+ filters ( my hand tired :( but i will update in future ) 
+________________________________________  
+- Support file/url/pipe in/output.
+- Works on most systems - if ffmpeg can execution.
+- FFmpeg FilterGraph system.
+- 130+ filters, add more in future 
 - 380+ filters auto-generate
+- Expression check
 
 # Example
 ``` Csharp
