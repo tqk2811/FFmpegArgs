@@ -281,7 +281,7 @@ avs3,
 bethsoftvid,
 
 /// <summary>
-/// Brute Force & Ignorance
+/// Brute Force &amp; Ignorance
 /// </summary>
 [Name("bfi")]
 bfi,
@@ -899,7 +899,7 @@ jv,
 kux,
 
 /// <summary>
-/// Simon & Schuster Interactive VAG
+/// Simon &amp; Schuster Interactive VAG
 /// </summary>
 [Name("kvag")]
 kvag,

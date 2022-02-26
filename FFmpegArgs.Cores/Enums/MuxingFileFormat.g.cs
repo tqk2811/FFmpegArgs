@@ -473,7 +473,7 @@ ivf,
 jacosub,
 
 /// <summary>
-/// Simon & Schuster Interactive VAG
+/// Simon &amp; Schuster Interactive VAG
 /// </summary>
 [Name("kvag")]
 kvag,
