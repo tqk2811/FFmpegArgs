@@ -8,6 +8,11 @@
         /// <summary>
         /// 
         /// </summary>
+        protected const int StdOut = 1;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public IFilterGraph FilterGraph { get; }
 
 

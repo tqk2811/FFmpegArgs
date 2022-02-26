@@ -27,7 +27,7 @@
         {
             var result = new ImageFilesConcatInput(textFile);
             if (safe) result.SetOption("-safe", "0");
-            result.SetOption("-f", "concat");
+            result.Format(DemuxingFileFormat.concat);
             return result;
         }
         /// <summary>

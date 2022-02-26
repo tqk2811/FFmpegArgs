@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Executes
+﻿namespace FFmpegArgs.Executes.Exceptions
 {
     /// <summary>
     /// 

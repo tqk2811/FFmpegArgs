@@ -30,17 +30,23 @@
         public FFmpegArg()
         {
         }
+
         /// <summary>
-        /// Audio with multi channel
+        /// 
         /// </summary>
         /// <param name="sound"></param>
         /// <param name="count"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        /// <exception cref="InvalidRangeException"></exception>
         public IEnumerable<AudioMap> AddAudiosInput(AudioInput sound, int count)
         {
             if (sound == null) throw new ArgumentNullException(nameof(sound));
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
-            if (count <= 0) throw new InvalidRangeException($"{nameof(count)} <= 0");
+            if (count <= 0) throw new InvalidRangeException($"{nameof(count)} must be greater than 0");
+            if (sound.PipeStream != null && _inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream != null)
+                throw new InvalidOperationException("Only allow one PipeStream (stdin)");
             _inputs.Add(sound);
             List<AudioMap> results = new List<AudioMap>();
             for (int i = 0; i < count; i++)
@@ -55,11 +61,14 @@
         /// </summary>
         /// <param name="sound"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public AudioMap AddAudioInput(AudioInput sound)
         {
             if (sound == null) throw new ArgumentNullException(nameof(sound));
             if (_inputs.Contains(sound)) throw new InvalidOperationException("Sound was add to input before");
+            if (sound.PipeStream != null && _inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream != null)
+                throw new InvalidOperationException("Only allow one PipeStream (stdin)");
             _inputs.Add(sound);
             return new AudioMap(FilterGraph, $"{_inputs.IndexOf(sound)}", 0);
         }
@@ -77,7 +86,9 @@
         {
             if (image == null) throw new ArgumentNullException(nameof(image));
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
-            if (count <= 0) throw new InvalidRangeException($"{nameof(count)} <= 0");
+            if (count <= 0) throw new InvalidRangeException($"{nameof(count)} must be greater than 0");
+            if (image.PipeStream != null && _inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream != null)
+                throw new InvalidOperationException("Only allow one PipeStream (stdin)");
             _inputs.Add(image);
             List<ImageMap> results = new List<ImageMap>();
             for (int i = 0; i < count; i++)
@@ -87,19 +98,24 @@
             return results;
         }
 
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="image"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public ImageMap AddImageInput(ImageInput image)
         {
             if (image == null) throw new ArgumentNullException(nameof(image));
             if (_inputs.Contains(image)) throw new InvalidOperationException("Image was add to input before");
+            if (image.PipeStream != null && _inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream != null)
+                throw new InvalidOperationException("Only allow one PipeStream (stdin)");
             _inputs.Add(image);
             return new ImageMap(FilterGraph, $"{_inputs.IndexOf(image)}", 0);
         }
+
 
         /// <summary>
         /// 
@@ -108,11 +124,15 @@
         /// <param name="imageCount"></param>
         /// <param name="audioCount"></param>
         /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public VideoMap AddVideoInput(VideoInput video, int imageCount = 1, int audioCount = 1)
         {
             if (video == null) throw new ArgumentNullException(nameof(video));
             if (_inputs.Contains(video)) throw new InvalidOperationException("Video was add to input before");
+            if (video.PipeStream != null && _inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream != null)
+                throw new InvalidOperationException("Only allow one PipeStream (stdin)");
+
             _inputs.Add(video);
             int inputIndex = _inputs.IndexOf(video);
             List<ImageMap> imageMaps = new List<ImageMap>();
@@ -128,12 +148,17 @@
         /// 
         /// </summary>
         /// <param name="output"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         public void AddOutput(BaseOutput output)
         {
             if (output == null) throw new ArgumentNullException(nameof(output));
             if (_outputs.Contains(output)) throw new InvalidOperationException("This output was add before");
             if (output.FilterGraph != this.FilterGraph) throw new InvalidOperationException("This output are not same FilterGraph");
+
+            if (output.PipeStream != null && _outputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream != null)
+                throw new InvalidOperationException("Only allow one PipeStream (stdout)");
+
             _outputs.Add(output);
         }
 

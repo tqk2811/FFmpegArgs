@@ -6,6 +6,15 @@
     public static class OutputExtensions
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        public static T Format<T>(this T t, MuxingFileFormat format) where T : BaseOutput
+            => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
         /// Set the file size limit, expressed in bytes. No further chunk of bytes is written after the limit is exceeded. The size of the output file is slightly more than the requested file size.
         /// </summary>
         /// <typeparam name="T"></typeparam>

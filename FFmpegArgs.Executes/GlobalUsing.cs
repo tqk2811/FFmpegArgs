@@ -1,5 +1,7 @@
-﻿global using FFmpegArgs.Cores;
+﻿global using FFmpegArgs.Executes.Exceptions;
+global using FFmpegArgs.Cores;
 global using System;
+global using System.Linq;
 global using System.Diagnostics;
 global using System.IO;
 global using System.Collections.Generic;

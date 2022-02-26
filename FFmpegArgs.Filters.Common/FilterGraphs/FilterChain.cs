@@ -43,6 +43,7 @@
         /// </summary>
         /// <param name="filters">Note: filters.Remove is using</param>
         /// <param name="first"></param>
+        /// <param name="isAllowMultiOut"></param>
         /// <returns></returns>
         internal static List<IFilter<BaseMap, BaseMap>> FindChain(List<IFilter<BaseMap, BaseMap>> filters, IFilter<BaseMap, BaseMap> first, bool isAllowMultiOut)
         {

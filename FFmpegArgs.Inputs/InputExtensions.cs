@@ -6,6 +6,15 @@
     public static class InputExtensions
     {
         /// <summary>
+        /// -f
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        public static T Format<T>(this T t, DemuxingFileFormat format) where T : BaseInput
+            => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
         /// 
         /// </summary>
         /// <typeparam name="T"></typeparam>
