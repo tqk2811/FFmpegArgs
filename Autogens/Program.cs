@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Autogens.Format;
+using Autogens.Filter;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,10 +10,13 @@ namespace Autogens
     {
         static void Main(string[] args)
         {
-            var filters = GetDoc("-filters").Skip(8).Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.TrimStart()).ToList();
-            var fulls = DocLine.GetDocLine(GetDoc("-h full").ToList());
-            FiltersGen.Gen(filters, fulls);
-            Console.ReadLine();
+            //var filters = GetDoc("-filters").Skip(8).Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => x.TrimStart()).ToList();
+            //var fulls = DocLine.GetDocLine(GetDoc("-h full").ToList());
+            //FiltersGen.Gen(filters, fulls);
+
+            var formats = GetDoc("-formats").ToList();
+            FormatsGen.Gen(formats);
+
         }
 
         static IEnumerable<string> GetDoc(string arg)

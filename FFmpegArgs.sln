@@ -38,6 +38,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{562D25
 	ProjectSection(SolutionItems) = preProject
 		.other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt = .other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt
 		.other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt = .other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt
+		.other\ffmpeg_formats-v_window_x64_n4.4.1-20211027.txt = .other\ffmpeg_formats-v_window_x64_n4.4.1-20211027.txt
 		.other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt = .other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt
 		.other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt = .other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt
 		.other\NotAutoGen_window.txt = .other\NotAutoGen_window.txt
