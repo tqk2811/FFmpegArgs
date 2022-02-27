@@ -25,6 +25,7 @@
 
         private Stream StdIn { get; set; }
         private Stream StdOut { get; set; }
+        private bool _isFromFFmpegArgs = false;
 
         private FFmpegRender(FFmpegRenderConfig config)
         {
@@ -72,9 +73,20 @@
         /// <exception cref="ArgumentNullException"></exception>
         public FFmpegRender WithStdInStream(Stream stream)
         {
-            if (this.StdIn != null) throw new InvalidOperationException("StdIn Stream was setted");
-            this.StdIn = stream ?? throw new ArgumentNullException(nameof(stream));
-            if (!stream.CanRead) throw new InvalidOperationException("input stream.CanRead is required");
+            if (this.StdIn != null)
+                throw new InvalidOperationException("StdIn Stream was setted");
+
+            if (this._isFromFFmpegArgs)
+                throw new InvalidOperationException($"Not allow set pipe to {nameof(FFmpegRender)} build from {nameof(IFFmpegArg)}");
+
+            if (stream == null)
+                throw new ArgumentNullException(nameof(stream));
+
+            if (!stream.CanRead)
+                throw new InvalidOperationException("input stream.CanRead is required");
+
+            this.StdIn = stream;
+
             return this;
         }
 
@@ -88,9 +100,20 @@
         /// <exception cref="ArgumentNullException"></exception>
         public FFmpegRender WithStdOutStream(Stream stream)
         {
-            if (this.StdOut != null) throw new InvalidOperationException("StdOut Stream was setted");
-            this.StdOut = stream ?? throw new ArgumentNullException(nameof(stream));
-            if (!stream.CanWrite) throw new InvalidOperationException("input stream.CanWrite is required");
+            if (this.StdOut != null)
+                throw new InvalidOperationException("StdOut Stream was setted");
+
+            if (this._isFromFFmpegArgs)
+                throw new InvalidOperationException($"Not allow set pipe to {nameof(FFmpegRender)} build from {nameof(IFFmpegArg)}");
+
+            if (stream == null)
+                throw new ArgumentNullException(nameof(stream));
+
+            if (!stream.CanWrite)
+                throw new InvalidOperationException("input stream.CanWrite is required");
+
+            this.StdOut = stream;
+
             return this;
         }
         #endregion
@@ -130,9 +153,12 @@
             }
             using var register = token.Register(() => process.Kill());
             process.BeginErrorReadLine();
-            this.StdIn.CopyTo(process.StandardInput.BaseStream);
-            process.StandardInput.BaseStream.Close();
-            process.StandardOutput.BaseStream.CopyTo(this.StdOut);
+            if (this.StdIn != null)
+            {
+                this.StdIn.CopyTo(process.StandardInput.BaseStream);
+                process.StandardInput.BaseStream.Close();
+            }
+            if (this.StdOut != null) process.StandardOutput.BaseStream.CopyTo(this.StdOut);
             process.WaitForExit();
             renderResult.ExitCode = process.ExitCode;
             return renderResult;
@@ -177,9 +203,12 @@
             }
             using var register = token.Register(() => process.Kill());
             process.BeginErrorReadLine();
-            await this.StdIn.CopyToAsync(process.StandardInput.BaseStream);
-            process.StandardInput.BaseStream.Close();
-            await process.StandardOutput.BaseStream.CopyToAsync(this.StdOut);
+            if (this.StdIn != null)
+            {
+                await this.StdIn.CopyToAsync(process.StandardInput.BaseStream);
+                process.StandardInput.BaseStream.Close();
+            }
+            if (this.StdOut != null) await process.StandardOutput.BaseStream.CopyToAsync(this.StdOut);
 #if NET5_0_OR_GREATER
             await process.WaitForExitAsync();
 #else
@@ -225,6 +254,7 @@
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
             FFmpegRender ffmpegBuild = new FFmpegRender(config);
+            ffmpegBuild._isFromFFmpegArgs = true;
             ffmpegBuild.StdIn = ffmpegArg.Inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
             ffmpegBuild.StdOut = ffmpegArg.Outputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
             string args = ffmpegArg.GetFullCommandline(config.IsUseFilterChain);

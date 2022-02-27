@@ -6,10 +6,8 @@ Get it on [NuGet Package](https://www.nuget.org/packages?q=FFmpegArgs)
 ________________________________________  
 - Support file/url/pipe in/output.
 - Works on most systems - if ffmpeg can execution.
-- FFmpeg FilterGraph system.
 - 130+ filters, add more in future 
 - 380+ filters auto-generate
-- Expression check
 
 # Example
 ``` Csharp
