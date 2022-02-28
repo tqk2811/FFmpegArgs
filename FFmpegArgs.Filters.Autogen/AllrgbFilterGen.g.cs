@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class AllrgbFilterGen : SourceImageFilter
 {
-internal AllrgbFilterGen(IFilterGraph input) : base("allrgb",input) { AddMapOut(); }
+internal AllrgbFilterGen(BaseFilterGraph input) : base("allrgb",input) { AddMapOut(); }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
@@ -26,6 +26,6 @@ public static class AllrgbFilterGenExtensions
 /// <summary>
 /// Generate all RGB colors.
 /// </summary>
-public static AllrgbFilterGen AllrgbFilterGen(this IFilterGraph input0) => new AllrgbFilterGen(input0);
+public static AllrgbFilterGen AllrgbFilterGen(this BaseFilterGraph input0) => new AllrgbFilterGen(input0);
 }
 }

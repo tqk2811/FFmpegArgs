@@ -22,7 +22,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public IFilterGraph FilterGraph { get; } = new FilterGraph();
+        public BaseFilterGraph FilterGraph { get; } = new FilterGraph();
 
         /// <summary>
         /// 

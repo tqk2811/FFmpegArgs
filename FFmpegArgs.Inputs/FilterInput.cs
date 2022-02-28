@@ -19,7 +19,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public IFilterGraph FilterGraph { get; } = new FilterGraph();
+        public BaseFilterGraph FilterGraph { get; } = new FilterGraph();
         /// <summary>
         /// 
         /// </summary>
@@ -32,7 +32,7 @@
         /// <param name="filterGraph"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public FilterInput AddFilter(Action<IFilterGraph> filterGraph)
+        public FilterInput AddFilter(Action<BaseFilterGraph> filterGraph)
         {
             if (filterGraph == null)
                 throw new ArgumentNullException(nameof(filterGraph));

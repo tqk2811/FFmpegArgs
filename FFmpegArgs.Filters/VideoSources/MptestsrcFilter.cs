@@ -6,7 +6,7 @@
     /// </summary>
     public class MptestsrcFilter : SourceImageFilter
     {
-        internal MptestsrcFilter(IFilterGraph filterGraph) : base("mptestsrc", filterGraph)
+        internal MptestsrcFilter(BaseFilterGraph filterGraph) : base("mptestsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -48,7 +48,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static MptestsrcFilter MptestsrcFilter(this IFilterGraph filterGraph)
+        public static MptestsrcFilter MptestsrcFilter(this BaseFilterGraph filterGraph)
           => new MptestsrcFilter(filterGraph);
     }
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member

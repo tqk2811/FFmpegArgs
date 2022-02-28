@@ -18,7 +18,7 @@
             string outputs = useMapOut ? string.Join("", last.MapsOut.Select(x => $"[{x.MapName}]")) : string.Empty;
             string body = string.Join(",", chain.Select(x =>
             {
-                string options = x.Options.GetFilterOptions();
+                string options = x.GetFilterOptions();
                 if (!string.IsNullOrEmpty(options)) options = "=" + options;
                 return $"{x.FilterName}{options}";
             }));

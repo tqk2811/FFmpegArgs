@@ -18,7 +18,7 @@
         /// <summary>
         /// 
         /// </summary>
-        IFilterGraph FilterGraph { get; }
+        BaseFilterGraph FilterGraph { get; }
 
 
         /// <summary>

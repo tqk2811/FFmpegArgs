@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class YuvtestsrcFilterGen : SourceImageFilter
 {
-internal YuvtestsrcFilterGen(IFilterGraph input) : base("yuvtestsrc",input) { AddMapOut(); }
+internal YuvtestsrcFilterGen(BaseFilterGraph input) : base("yuvtestsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
@@ -30,6 +30,6 @@ public static class YuvtestsrcFilterGenExtensions
 /// <summary>
 /// Generate YUV test pattern.
 /// </summary>
-public static YuvtestsrcFilterGen YuvtestsrcFilterGen(this IFilterGraph input0) => new YuvtestsrcFilterGen(input0);
+public static YuvtestsrcFilterGen YuvtestsrcFilterGen(this BaseFilterGraph input0) => new YuvtestsrcFilterGen(input0);
 }
 }

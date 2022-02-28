@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class LifeFilterGen : SourceImageFilter
 {
-internal LifeFilterGen(IFilterGraph input) : base("life",input) { AddMapOut(); }
+internal LifeFilterGen(BaseFilterGraph input) : base("life",input) { AddMapOut(); }
 /// <summary>
 ///  set source file
 /// </summary>
@@ -66,6 +66,6 @@ public static class LifeFilterGenExtensions
 /// <summary>
 /// Create life.
 /// </summary>
-public static LifeFilterGen LifeFilterGen(this IFilterGraph input0) => new LifeFilterGen(input0);
+public static LifeFilterGen LifeFilterGen(this BaseFilterGraph input0) => new LifeFilterGen(input0);
 }
 }

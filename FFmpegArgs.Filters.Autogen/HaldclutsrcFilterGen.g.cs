@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class HaldclutsrcFilterGen : SourceImageFilter
 {
-internal HaldclutsrcFilterGen(IFilterGraph input) : base("haldclutsrc",input) { AddMapOut(); }
+internal HaldclutsrcFilterGen(BaseFilterGraph input) : base("haldclutsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set level (from 2 to 16) (default 6)
 /// </summary>
@@ -30,6 +30,6 @@ public static class HaldclutsrcFilterGenExtensions
 /// <summary>
 /// Provide an identity Hald CLUT.
 /// </summary>
-public static HaldclutsrcFilterGen HaldclutsrcFilterGen(this IFilterGraph input0) => new HaldclutsrcFilterGen(input0);
+public static HaldclutsrcFilterGen HaldclutsrcFilterGen(this BaseFilterGraph input0) => new HaldclutsrcFilterGen(input0);
 }
 }

@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class BufferFilterGen : SourceImageFilter
 {
-internal BufferFilterGen(IFilterGraph input) : base("buffer",input) { AddMapOut(); }
+internal BufferFilterGen(BaseFilterGraph input) : base("buffer",input) { AddMapOut(); }
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0)
 /// </summary>
@@ -50,6 +50,6 @@ public static class BufferFilterGenExtensions
 /// <summary>
 /// Buffer video frames, and make them accessible to the filterchain.
 /// </summary>
-public static BufferFilterGen BufferFilterGen(this IFilterGraph input0) => new BufferFilterGen(input0);
+public static BufferFilterGen BufferFilterGen(this BaseFilterGraph input0) => new BufferFilterGen(input0);
 }
 }

@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class SierpinskiFilterGen : SourceImageFilter,ISliceThreading
 {
-internal SierpinskiFilterGen(IFilterGraph input) : base("sierpinski",input) { AddMapOut(); }
+internal SierpinskiFilterGen(BaseFilterGraph input) : base("sierpinski",input) { AddMapOut(); }
 /// <summary>
 ///  set frame size (default "640x480")
 /// </summary>
@@ -34,7 +34,7 @@ public static class SierpinskiFilterGenExtensions
 /// <summary>
 /// Render a Sierpinski fractal.
 /// </summary>
-public static SierpinskiFilterGen SierpinskiFilterGen(this IFilterGraph input0) => new SierpinskiFilterGen(input0);
+public static SierpinskiFilterGen SierpinskiFilterGen(this BaseFilterGraph input0) => new SierpinskiFilterGen(input0);
 }
 /// <summary>
 ///  set fractal type (from 0 to 1) (default carpet)

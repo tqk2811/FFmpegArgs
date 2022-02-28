@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class AbufferFilterGen : SourceAudioFilter
 {
-internal AbufferFilterGen(IFilterGraph input) : base("abuffer",input) { AddMapOut(); }
+internal AbufferFilterGen(BaseFilterGraph input) : base("abuffer",input) { AddMapOut(); }
 /// <summary>
 ///  (from 0 to INT_MAX) (default 0/1)
 /// </summary>
@@ -34,6 +34,6 @@ public static class AbufferFilterGenExtensions
 /// <summary>
 /// Buffer audio frames, and make them accessible to the filterchain.
 /// </summary>
-public static AbufferFilterGen AbufferFilterGen(this IFilterGraph input0) => new AbufferFilterGen(input0);
+public static AbufferFilterGen AbufferFilterGen(this BaseFilterGraph input0) => new AbufferFilterGen(input0);
 }
 }

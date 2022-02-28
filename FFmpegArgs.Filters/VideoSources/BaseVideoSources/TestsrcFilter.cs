@@ -6,7 +6,7 @@
     /// </summary>
     public class TestsrcFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal TestsrcFilter(IFilterGraph filterGraph) : base("testsrc", filterGraph)
+        internal TestsrcFilter(BaseFilterGraph filterGraph) : base("testsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -30,7 +30,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static TestsrcFilter TestsrcFilter(this IFilterGraph filterGraph)
+        public static TestsrcFilter TestsrcFilter(this BaseFilterGraph filterGraph)
           => new TestsrcFilter(filterGraph);
     }
 }

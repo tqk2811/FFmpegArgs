@@ -6,7 +6,7 @@
     /// </summary>
     public class HaldclutsrcFilter : BaseVideoSource
     {
-        internal HaldclutsrcFilter(IFilterGraph filterGraph) : base("haldclutsrc", filterGraph)
+        internal HaldclutsrcFilter(BaseFilterGraph filterGraph) : base("haldclutsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -31,7 +31,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static HaldclutsrcFilter HaldclutsrcFilter(this IFilterGraph filterGraph)
+        public static HaldclutsrcFilter HaldclutsrcFilter(this BaseFilterGraph filterGraph)
           => new HaldclutsrcFilter(filterGraph);
     }
 }

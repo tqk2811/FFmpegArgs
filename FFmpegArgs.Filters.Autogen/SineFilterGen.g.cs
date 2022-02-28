@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class SineFilterGen : SourceAudioFilter
 {
-internal SineFilterGen(IFilterGraph input) : base("sine",input) { AddMapOut(); }
+internal SineFilterGen(BaseFilterGraph input) : base("sine",input) { AddMapOut(); }
 /// <summary>
 ///  set the sine frequency (from 0 to DBL_MAX) (default 440)
 /// </summary>
@@ -38,6 +38,6 @@ public static class SineFilterGenExtensions
 /// <summary>
 /// Generate sine wave audio signal.
 /// </summary>
-public static SineFilterGen SineFilterGen(this IFilterGraph input0) => new SineFilterGen(input0);
+public static SineFilterGen SineFilterGen(this BaseFilterGraph input0) => new SineFilterGen(input0);
 }
 }

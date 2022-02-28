@@ -6,7 +6,7 @@
     /// </summary>
     public class SmptehdbarsFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal SmptehdbarsFilter(IFilterGraph filterGraph) : base("smptehdbars", filterGraph)
+        internal SmptehdbarsFilter(BaseFilterGraph filterGraph) : base("smptehdbars", filterGraph)
         {
             AddMapOut();
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static SmptehdbarsFilter SmptehdbarsFilter(this IFilterGraph filterGraph)
+        public static SmptehdbarsFilter SmptehdbarsFilter(this BaseFilterGraph filterGraph)
           => new SmptehdbarsFilter(filterGraph);
     }
 }

@@ -6,7 +6,7 @@
     /// </summary>
     public class Pal75barsFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal Pal75barsFilter(IFilterGraph filterGraph) : base("pal75bars", filterGraph)
+        internal Pal75barsFilter(BaseFilterGraph filterGraph) : base("pal75bars", filterGraph)
         {
             AddMapOut();
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static Pal75barsFilter Pal75barsFilter(this IFilterGraph filterGraph)
+        public static Pal75barsFilter Pal75barsFilter(this BaseFilterGraph filterGraph)
           => new Pal75barsFilter(filterGraph);
     }
 }

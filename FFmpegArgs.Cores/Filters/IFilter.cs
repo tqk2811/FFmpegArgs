@@ -12,7 +12,7 @@
         /// <summary>
         /// 
         /// </summary>
-        IFilterGraph FilterGraph { get; }
+        BaseFilterGraph FilterGraph { get; }
 
         /// <summary>
         /// 
@@ -43,5 +43,11 @@
         /// 
         /// </summary>
         IEnumerable<KeyValuePair<string, string>> Options { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        string GetFilterOptions();
     }
 }

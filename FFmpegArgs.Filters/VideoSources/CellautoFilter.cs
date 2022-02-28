@@ -6,7 +6,7 @@
     /// </summary>
     public class CellautoFilter : SourceImageFilter
     {
-        internal CellautoFilter(IFilterGraph filterGraph) : base("cellauto", filterGraph)
+        internal CellautoFilter(BaseFilterGraph filterGraph) : base("cellauto", filterGraph)
         {
             AddMapOut();
         }
@@ -120,7 +120,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static CellautoFilter CellautoFilter(this IFilterGraph filterGraph)
+        public static CellautoFilter CellautoFilter(this BaseFilterGraph filterGraph)
           => new CellautoFilter(filterGraph);
     }
 }

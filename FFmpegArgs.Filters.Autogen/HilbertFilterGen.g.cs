@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class HilbertFilterGen : SourceAudioFilter
 {
-internal HilbertFilterGen(IFilterGraph input) : base("hilbert",input) { AddMapOut(); }
+internal HilbertFilterGen(BaseFilterGraph input) : base("hilbert",input) { AddMapOut(); }
 /// <summary>
 ///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
@@ -34,7 +34,7 @@ public static class HilbertFilterGenExtensions
 /// <summary>
 /// Generate a Hilbert transform FIR coefficients.
 /// </summary>
-public static HilbertFilterGen HilbertFilterGen(this IFilterGraph input0) => new HilbertFilterGen(input0);
+public static HilbertFilterGen HilbertFilterGen(this BaseFilterGraph input0) => new HilbertFilterGen(input0);
 }
 /// <summary>
 ///  set window function (from 0 to 19) (default blackman)

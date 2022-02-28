@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class AnullsrcFilterGen : SourceAudioFilter
 {
-internal AnullsrcFilterGen(IFilterGraph input) : base("anullsrc",input) { AddMapOut(); }
+internal AnullsrcFilterGen(BaseFilterGraph input) : base("anullsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set channel_layout (default "stereo")
 /// </summary>
@@ -38,6 +38,6 @@ public static class AnullsrcFilterGenExtensions
 /// <summary>
 /// Null audio source, return empty audio frames.
 /// </summary>
-public static AnullsrcFilterGen AnullsrcFilterGen(this IFilterGraph input0) => new AnullsrcFilterGen(input0);
+public static AnullsrcFilterGen AnullsrcFilterGen(this BaseFilterGraph input0) => new AnullsrcFilterGen(input0);
 }
 }

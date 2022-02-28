@@ -13,7 +13,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public IFilterGraph FilterGraph { get; }
+        public BaseFilterGraph FilterGraph { get; }
 
 
         /// <summary>

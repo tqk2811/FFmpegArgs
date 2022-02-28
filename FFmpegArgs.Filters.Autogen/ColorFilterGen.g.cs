@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class ColorFilterGen : SourceImageFilter,ICommandSupport
 {
-internal ColorFilterGen(IFilterGraph input) : base("color",input) { AddMapOut(); }
+internal ColorFilterGen(BaseFilterGraph input) : base("color",input) { AddMapOut(); }
 /// <summary>
 ///  set color (default "black")
 /// </summary>
@@ -34,6 +34,6 @@ public static class ColorFilterGenExtensions
 /// <summary>
 /// Provide an uniformly colored input.
 /// </summary>
-public static ColorFilterGen ColorFilterGen(this IFilterGraph input0) => new ColorFilterGen(input0);
+public static ColorFilterGen ColorFilterGen(this BaseFilterGraph input0) => new ColorFilterGen(input0);
 }
 }

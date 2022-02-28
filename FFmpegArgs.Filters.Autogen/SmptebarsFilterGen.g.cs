@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class SmptebarsFilterGen : SourceImageFilter
 {
-internal SmptebarsFilterGen(IFilterGraph input) : base("smptebars",input) { AddMapOut(); }
+internal SmptebarsFilterGen(BaseFilterGraph input) : base("smptebars",input) { AddMapOut(); }
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
@@ -30,6 +30,6 @@ public static class SmptebarsFilterGenExtensions
 /// <summary>
 /// Generate SMPTE color bars.
 /// </summary>
-public static SmptebarsFilterGen SmptebarsFilterGen(this IFilterGraph input0) => new SmptebarsFilterGen(input0);
+public static SmptebarsFilterGen SmptebarsFilterGen(this BaseFilterGraph input0) => new SmptebarsFilterGen(input0);
 }
 }

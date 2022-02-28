@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class NullsrcFilterGen : SourceImageFilter
 {
-internal NullsrcFilterGen(IFilterGraph input) : base("nullsrc",input) { AddMapOut(); }
+internal NullsrcFilterGen(BaseFilterGraph input) : base("nullsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
@@ -30,6 +30,6 @@ public static class NullsrcFilterGenExtensions
 /// <summary>
 /// Null video source, return unprocessed video frames.
 /// </summary>
-public static NullsrcFilterGen NullsrcFilterGen(this IFilterGraph input0) => new NullsrcFilterGen(input0);
+public static NullsrcFilterGen NullsrcFilterGen(this BaseFilterGraph input0) => new NullsrcFilterGen(input0);
 }
 }

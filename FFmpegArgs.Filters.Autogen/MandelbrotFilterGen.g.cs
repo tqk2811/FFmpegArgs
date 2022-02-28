@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class MandelbrotFilterGen : SourceImageFilter
 {
-internal MandelbrotFilterGen(IFilterGraph input) : base("mandelbrot",input) { AddMapOut(); }
+internal MandelbrotFilterGen(BaseFilterGraph input) : base("mandelbrot",input) { AddMapOut(); }
 /// <summary>
 ///  set frame size (default "640x480")
 /// </summary>
@@ -70,7 +70,7 @@ public static class MandelbrotFilterGenExtensions
 /// <summary>
 /// Render a Mandelbrot fractal.
 /// </summary>
-public static MandelbrotFilterGen MandelbrotFilterGen(this IFilterGraph input0) => new MandelbrotFilterGen(input0);
+public static MandelbrotFilterGen MandelbrotFilterGen(this BaseFilterGraph input0) => new MandelbrotFilterGen(input0);
 }
 /// <summary>
 ///  set outer coloring mode (from 0 to INT_MAX) (default normalized_iteration_count)

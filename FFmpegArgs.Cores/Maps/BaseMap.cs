@@ -28,7 +28,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public IFilterGraph FilterGraph { get; }
+        public BaseFilterGraph FilterGraph { get; }
 
         /// <summary>
         /// 
@@ -48,7 +48,7 @@
         /// <param name="name"></param>
         /// <param name="streamIndexOfInput"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        protected BaseMap(IFilterGraph filterGraph, string name, int? streamIndexOfInput = null)
+        protected BaseMap(BaseFilterGraph filterGraph, string name, int? streamIndexOfInput = null)
         {
             this.FilterGraph = filterGraph ?? throw new ArgumentNullException(nameof(filterGraph));
             this.IsInput = streamIndexOfInput != null;

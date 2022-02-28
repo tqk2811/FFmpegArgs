@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class AfirsrcFilterGen : SourceAudioFilter
 {
-internal AfirsrcFilterGen(IFilterGraph input) : base("afirsrc",input) { AddMapOut(); }
+internal AfirsrcFilterGen(BaseFilterGraph input) : base("afirsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set number of taps (from 9 to 65535) (default 1025)
 /// </summary>
@@ -46,7 +46,7 @@ public static class AfirsrcFilterGenExtensions
 /// <summary>
 /// Generate a FIR coefficients audio stream.
 /// </summary>
-public static AfirsrcFilterGen AfirsrcFilterGen(this IFilterGraph input0) => new AfirsrcFilterGen(input0);
+public static AfirsrcFilterGen AfirsrcFilterGen(this BaseFilterGraph input0) => new AfirsrcFilterGen(input0);
 }
 /// <summary>
 ///  set window function (from 0 to 19) (default blackman)

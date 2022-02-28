@@ -206,7 +206,7 @@ namespace Autogens.Filter
             if (type.Equals("|->V")) return new FilterTypeName()
             {
                 Inheritance = nameof(SourceImageFilter),
-                Input = nameof(IFilterGraph)
+                Input = nameof(BaseFilterGraph)
             };
 
             if (type.Equals("A->A")) return new FilterTypeName()
@@ -223,7 +223,7 @@ namespace Autogens.Filter
             if (type.Equals("|->A")) return new FilterTypeName()
             {
                 Inheritance = nameof(SourceAudioFilter),
-                Input = nameof(IFilterGraph)
+                Input = nameof(BaseFilterGraph)
             };
 
             //skip N->? , ?->N 

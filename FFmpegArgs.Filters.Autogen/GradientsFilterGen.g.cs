@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class GradientsFilterGen : SourceImageFilter,ISliceThreading
 {
-internal GradientsFilterGen(IFilterGraph input) : base("gradients",input) { AddMapOut(); }
+internal GradientsFilterGen(BaseFilterGraph input) : base("gradients",input) { AddMapOut(); }
 /// <summary>
 ///  set frame size (default "640x480")
 /// </summary>
@@ -86,6 +86,6 @@ public static class GradientsFilterGenExtensions
 /// <summary>
 /// Draw a gradients.
 /// </summary>
-public static GradientsFilterGen GradientsFilterGen(this IFilterGraph input0) => new GradientsFilterGen(input0);
+public static GradientsFilterGen GradientsFilterGen(this BaseFilterGraph input0) => new GradientsFilterGen(input0);
 }
 }

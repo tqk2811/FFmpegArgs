@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class AnoisesrcFilterGen : SourceAudioFilter
 {
-internal AnoisesrcFilterGen(IFilterGraph input) : base("anoisesrc",input) { AddMapOut(); }
+internal AnoisesrcFilterGen(BaseFilterGraph input) : base("anoisesrc",input) { AddMapOut(); }
 /// <summary>
 ///  set sample rate (from 15 to INT_MAX) (default 48000)
 /// </summary>
@@ -50,7 +50,7 @@ public static class AnoisesrcFilterGenExtensions
 /// <summary>
 /// Generate a noise audio signal.
 /// </summary>
-public static AnoisesrcFilterGen AnoisesrcFilterGen(this IFilterGraph input0) => new AnoisesrcFilterGen(input0);
+public static AnoisesrcFilterGen AnoisesrcFilterGen(this BaseFilterGraph input0) => new AnoisesrcFilterGen(input0);
 }
 /// <summary>
 ///  set noise color (from 0 to 5) (default white)

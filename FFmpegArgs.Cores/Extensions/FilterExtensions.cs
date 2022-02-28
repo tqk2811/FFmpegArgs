@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Filters.FilterGraphs
+﻿namespace FFmpegArgs.Cores.Extensions
 {
     internal static class FilterExtensions
     {
@@ -40,11 +40,6 @@
         internal static string FiltergraphEscapingLv3(this string input)
         {
             return input?.Replace(@"\", @"\\");
-        }
-
-        internal static string GetFilterOptions(this IEnumerable<KeyValuePair<string, string>> options)
-        {
-            return string.Join(":", options.Select(x => $"{x.Key}={x.Value.FiltergraphEscapingLv1()}")).FiltergraphEscapingLv2();
         }
     }
 }

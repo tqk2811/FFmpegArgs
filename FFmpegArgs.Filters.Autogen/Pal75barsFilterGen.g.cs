@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class Pal75barsFilterGen : SourceImageFilter
 {
-internal Pal75barsFilterGen(IFilterGraph input) : base("pal75bars",input) { AddMapOut(); }
+internal Pal75barsFilterGen(BaseFilterGraph input) : base("pal75bars",input) { AddMapOut(); }
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
@@ -30,6 +30,6 @@ public static class Pal75barsFilterGenExtensions
 /// <summary>
 /// Generate PAL 75% color bars.
 /// </summary>
-public static Pal75barsFilterGen Pal75barsFilterGen(this IFilterGraph input0) => new Pal75barsFilterGen(input0);
+public static Pal75barsFilterGen Pal75barsFilterGen(this BaseFilterGraph input0) => new Pal75barsFilterGen(input0);
 }
 }

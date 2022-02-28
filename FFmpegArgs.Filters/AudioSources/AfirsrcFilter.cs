@@ -63,7 +63,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class AfirsrcFilter : SourceAudioFilter
     {
-        internal AfirsrcFilter(IFilterGraph filterGraph) : base("afirsrc", filterGraph)
+        internal AfirsrcFilter(BaseFilterGraph filterGraph) : base("afirsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -132,7 +132,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// The resulting stream can be used with <see cref="AfirFilter"/> for filtering the audio signal.
         /// </summary>
         /// <returns></returns>
-        public static AfirsrcFilter AfirsrcFilter(this IFilterGraph filterGraph)
+        public static AfirsrcFilter AfirsrcFilter(this BaseFilterGraph filterGraph)
           => new AfirsrcFilter(filterGraph);
     }
     /// <summary>

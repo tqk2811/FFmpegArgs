@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class SincFilterGen : SourceAudioFilter
 {
-internal SincFilterGen(IFilterGraph input) : base("sinc",input) { AddMapOut(); }
+internal SincFilterGen(BaseFilterGraph input) : base("sinc",input) { AddMapOut(); }
 /// <summary>
 ///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
@@ -58,6 +58,6 @@ public static class SincFilterGenExtensions
 /// <summary>
 /// Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients.
 /// </summary>
-public static SincFilterGen SincFilterGen(this IFilterGraph input0) => new SincFilterGen(input0);
+public static SincFilterGen SincFilterGen(this BaseFilterGraph input0) => new SincFilterGen(input0);
 }
 }

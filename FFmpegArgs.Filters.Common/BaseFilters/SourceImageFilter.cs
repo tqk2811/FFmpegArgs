@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="filterName"></param>
         /// <param name="filterGraph"></param>
-        protected SourceImageFilter(string filterName, IFilterGraph filterGraph)
+        protected SourceImageFilter(string filterName, BaseFilterGraph filterGraph)
           : base(filterName, new ImageMap(filterGraph, string.Empty))
         {
         }

@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class MptestsrcFilterGen : SourceImageFilter
 {
-internal MptestsrcFilterGen(IFilterGraph input) : base("mptestsrc",input) { AddMapOut(); }
+internal MptestsrcFilterGen(BaseFilterGraph input) : base("mptestsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
@@ -30,7 +30,7 @@ public static class MptestsrcFilterGenExtensions
 /// <summary>
 /// Generate various test pattern.
 /// </summary>
-public static MptestsrcFilterGen MptestsrcFilterGen(this IFilterGraph input0) => new MptestsrcFilterGen(input0);
+public static MptestsrcFilterGen MptestsrcFilterGen(this BaseFilterGraph input0) => new MptestsrcFilterGen(input0);
 }
 /// <summary>
 ///  set test to perform (from 0 to INT_MAX) (default all)

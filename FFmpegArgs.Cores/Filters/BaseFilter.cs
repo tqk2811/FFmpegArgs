@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Filters
+﻿namespace FFmpegArgs.Cores.Filters
 {
     /// <summary>
     /// 
@@ -27,7 +27,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public IFilterGraph FilterGraph { get; }
+        public BaseFilterGraph FilterGraph { get; }
         /// <summary>
         /// 
         /// </summary>
@@ -80,9 +80,18 @@
             if (_mapsOut.Count == 0) throw new NullReferenceException($"{FilterName} is empty output");
             string inputs = string.Join("", _mapsIn.Where(x => !string.IsNullOrWhiteSpace(x.MapName)).Select(x => $"[{x.MapName}]"));
             string outputs = string.Join("", _mapsOut.Select(x => $"[{x.MapName}]"));
-            string options = _options.GetFilterOptions();
+            string options = GetFilterOptions();
             if (!string.IsNullOrEmpty(options)) options = "=" + options;
             return $"{inputs}{FilterName}{options}{outputs}";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string GetFilterOptions()
+        {
+            return string.Join(":", Options.Select(x => $"{x.Key}={x.Value.FiltergraphEscapingLv1()}")).FiltergraphEscapingLv2();
         }
     }
 }

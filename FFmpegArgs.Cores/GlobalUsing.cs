@@ -6,6 +6,7 @@ global using FFmpegArgs.Cores.Exceptions;
 global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores;
 global using FFmpegArgs.Cores.Inputs;
+global using FFmpegArgs.Cores.Extensions;
 
 global using System;
 global using System.IO;

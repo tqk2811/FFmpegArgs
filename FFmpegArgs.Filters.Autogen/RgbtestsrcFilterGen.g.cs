@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class RgbtestsrcFilterGen : SourceImageFilter
 {
-internal RgbtestsrcFilterGen(IFilterGraph input) : base("rgbtestsrc",input) { AddMapOut(); }
+internal RgbtestsrcFilterGen(BaseFilterGraph input) : base("rgbtestsrc",input) { AddMapOut(); }
 /// <summary>
 ///  set video size (default "320x240")
 /// </summary>
@@ -34,6 +34,6 @@ public static class RgbtestsrcFilterGenExtensions
 /// <summary>
 /// Generate RGB test pattern.
 /// </summary>
-public static RgbtestsrcFilterGen RgbtestsrcFilterGen(this IFilterGraph input0) => new RgbtestsrcFilterGen(input0);
+public static RgbtestsrcFilterGen RgbtestsrcFilterGen(this BaseFilterGraph input0) => new RgbtestsrcFilterGen(input0);
 }
 }

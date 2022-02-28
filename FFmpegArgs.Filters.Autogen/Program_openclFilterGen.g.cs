@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class Program_openclFilterGen : SourceImageFilter
 {
-internal Program_openclFilterGen(IFilterGraph input) : base("program_opencl",input) { AddMapOut(); }
+internal Program_openclFilterGen(BaseFilterGraph input) : base("program_opencl",input) { AddMapOut(); }
 /// <summary>
 ///  OpenCL program source file
 /// </summary>
@@ -30,6 +30,6 @@ public static class Program_openclFilterGenExtensions
 /// <summary>
 /// Filter video using an OpenCL program
 /// </summary>
-public static Program_openclFilterGen Program_openclFilterGen(this IFilterGraph input0) => new Program_openclFilterGen(input0);
+public static Program_openclFilterGen Program_openclFilterGen(this BaseFilterGraph input0) => new Program_openclFilterGen(input0);
 }
 }

@@ -12,7 +12,7 @@
         /// <param name="name"></param>
         /// <param name="streamIndexOfInput"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public ImageMap(IFilterGraph filterGraph, string name, int? streamIndexOfInput = null) : base(filterGraph, name, streamIndexOfInput)
+        public ImageMap(BaseFilterGraph filterGraph, string name, int? streamIndexOfInput = null) : base(filterGraph, name, streamIndexOfInput)
         {
 
         }

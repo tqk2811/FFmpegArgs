@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.Autogens
 /// </summary>
 public class AllyuvFilterGen : SourceImageFilter
 {
-internal AllyuvFilterGen(IFilterGraph input) : base("allyuv",input) { AddMapOut(); }
+internal AllyuvFilterGen(BaseFilterGraph input) : base("allyuv",input) { AddMapOut(); }
 /// <summary>
 ///  set video rate (default "25")
 /// </summary>
@@ -26,6 +26,6 @@ public static class AllyuvFilterGenExtensions
 /// <summary>
 /// Generate all yuv colors.
 /// </summary>
-public static AllyuvFilterGen AllyuvFilterGen(this IFilterGraph input0) => new AllyuvFilterGen(input0);
+public static AllyuvFilterGen AllyuvFilterGen(this BaseFilterGraph input0) => new AllyuvFilterGen(input0);
 }
 }
