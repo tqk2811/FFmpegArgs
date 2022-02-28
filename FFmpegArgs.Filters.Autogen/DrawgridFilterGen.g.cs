@@ -31,7 +31,7 @@ public DrawgridFilterGen color(string color) => this.SetOption("color",color);
 /// </summary>
 public DrawgridFilterGen thickness(string thickness) => this.SetOption("thickness",thickness);
 /// <summary>
-///  replace color & alpha (default false)
+///  replace color &amp; alpha (default false)
 /// </summary>
 public DrawgridFilterGen replace(bool replace) => this.SetOption("replace",replace.ToFFmpegFlag());
 }

@@ -31,7 +31,7 @@ public DrawboxFilterGen color(string color) => this.SetOption("color",color);
 /// </summary>
 public DrawboxFilterGen thickness(string thickness) => this.SetOption("thickness",thickness);
 /// <summary>
-///  replace color & alpha (default false)
+///  replace color &amp; alpha (default false)
 /// </summary>
 public DrawboxFilterGen replace(bool replace) => this.SetOption("replace",replace.ToFFmpegFlag());
 }
