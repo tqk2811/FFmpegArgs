@@ -1,4 +1,7 @@
-﻿
+﻿/*
+aresample AVOptions:
+  sample_rate       <int>        ..F.A...... (from 0 to INT_MAX) (default 0)
+ */
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -11,6 +14,14 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
+
+        /// <summary>
+        /// (from 0 to INT_MAX) (default 0)
+        /// </summary>
+        /// <param name="sample_rate"></param>
+        /// <returns></returns>
+        public AresampleFilter SampleRate(int sample_rate)
+            => this.SetOptionRange("sample_rate", sample_rate, 0, INT_MAX);
     }
     /// <summary>
     /// 
