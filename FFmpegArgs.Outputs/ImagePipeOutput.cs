@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Outputs
 {
     /// <summary>
-    /// 
+    /// Image/Video non audio
     /// </summary>
     public class ImagePipeOutput : ImageOutput
     {
