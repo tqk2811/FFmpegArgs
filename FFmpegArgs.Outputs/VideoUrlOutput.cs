@@ -1,22 +1,26 @@
 ﻿namespace FFmpegArgs.Outputs
 {
     /// <summary>
-    /// Image/Video non audio
+    /// 
     /// </summary>
-    public class ImageFileOutput : ImageOutput
+    public class VideoUrlOutput : VideoOutput
     {
-        readonly string _filePath;
+        readonly Uri _url;
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="filePath"></param>
+        /// <param name="url"></param>
+        /// <param name="format"></param>
         /// <param name="imageMap"></param>
+        /// <param name="audioMap"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public ImageFileOutput(string filePath, ImageMap imageMap) : base(imageMap)
+        public VideoUrlOutput(Uri url, MuxingFileFormat format, ImageMap imageMap, AudioMap audioMap) : base(imageMap, audioMap)
         {
-            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
-            this._filePath = filePath;
+            this._url = url ?? throw new ArgumentNullException(nameof(url));
+            this.Format(format);
         }
+
         /// <summary>
         /// 
         /// </summary>
@@ -28,7 +32,9 @@
                 GetArgs(),
                 "-map",
                 $"[{ImageMap.MapName}]",
-                _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
+                "-map",
+                $"[{AudioMap.MapName}]",
+                _url.ToString()
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
