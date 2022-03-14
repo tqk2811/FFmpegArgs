@@ -1,4 +1,8 @@
-﻿
+﻿/*
+asetrate AVOptions:
+  sample_rate       <int>        ..F.A...... set the sample rate (from 1 to INT_MAX) (default 44100)
+  r                 <int>        ..F.A...... set the sample rate (from 1 to INT_MAX) (default 44100)
+ */
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
