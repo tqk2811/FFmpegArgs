@@ -1,10 +1,14 @@
-﻿namespace FFmpegArgs.Filters.MultimediaFilters
+﻿/*
+asetpts AVOptions:
+  expr              <string>     ..F.A...... Expression determining the frame timestamp (default "PTS")
+ */
+namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... setapts            V->V       Set PTS for the output audio frame.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts
     /// </summary>
-    public class SetAPtsFilter : AudioToAudioFilter
+    public class AsetptsFilter : AudioToAudioFilter
     {
         static readonly IEnumerable<string> _variables = new List<string>()
         {
@@ -28,13 +32,16 @@
             "TB"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal SetAPtsFilter(Action<FFmpegExpression> expr, AudioMap audioMap) : base("setapts", audioMap)
+        internal AsetptsFilter(Action<FFmpegExpression> expr, AudioMap audioMap) : base("asetpts", audioMap)
         {
             AddMapOut();
             this.SetOption("expr", expr.Run(expression));
         }
     }
-    public static class SetAPtsFilterExtension
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class AsetptsFilterExtension
     {
         /// <summary>
         /// Change the PTS (presentation timestamp) of the input frames.
@@ -42,9 +49,9 @@
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
         /// <returns></returns>
-        public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, Action<FFmpegExpression> expr)
+        public static AsetptsFilter SetAPtsFilter(this AudioMap audioMap, Action<FFmpegExpression> expr)
         {
-            return new SetAPtsFilter(expr, audioMap);
+            return new AsetptsFilter(expr, audioMap);
         }
         /// <summary>
         /// Change the PTS (presentation timestamp) of the input frames.
@@ -52,9 +59,9 @@
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
         /// <returns></returns>
-        public static SetAPtsFilter SetAPtsFilter(this AudioMap audioMap, string expr)
+        public static AsetptsFilter SetAPtsFilter(this AudioMap audioMap, string expr)
         {
-            return new SetAPtsFilter(expr.Expression(), audioMap);
+            return new AsetptsFilter(expr.Expression(), audioMap);
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿namespace FFmpegArgs.Filters.MultimediaFilters
+﻿/*
+setpts AVOptions:
+  expr              <string>     ..FV....... Expression determining the frame timestamp (default "PTS")
+ */
+namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... setpts            V->V       Set PTS for the output video frame.<br></br>
@@ -34,6 +38,9 @@
             this.SetOption("expr", expr.Run(expression));
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class SetPtsFilterExtension
     {
         /// <summary>
