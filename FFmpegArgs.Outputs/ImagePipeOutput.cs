@@ -35,7 +35,7 @@
             {
                 GetArgs(),
                 "-map",
-                $"[{ImageMap.MapName}]",
+                ImageMap.IsInput ? ImageMap.MapName : $"[{ImageMap.MapName}]",
                 $"pipe:{StdOut}"
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

@@ -35,7 +35,7 @@
             {
                 GetArgs(),
                 "-map",
-                $"[{AudioMap.MapName}]",
+                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
                 $"pipe:{StdOut}"
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
