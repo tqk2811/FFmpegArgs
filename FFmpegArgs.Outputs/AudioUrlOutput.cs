@@ -31,7 +31,7 @@
             {
                 GetArgs(),
                 "-map",
-                $"[{AudioMap.MapName}]",
+                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
                 _url.ToString()
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

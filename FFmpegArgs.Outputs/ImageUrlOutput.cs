@@ -31,7 +31,7 @@
             {
                 GetArgs(),
                 "-map",
-                $"[{ImageMap.MapName}]",
+                ImageMap.IsInput ? ImageMap.MapName : $"[{ImageMap.MapName}]",
                 _url.ToString()
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

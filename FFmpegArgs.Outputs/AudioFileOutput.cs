@@ -27,7 +27,7 @@
             {
                 GetArgs(),
                 "-map",
-                $"[{AudioMap.MapName}]",
+                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
                 _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
