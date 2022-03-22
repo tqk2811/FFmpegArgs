@@ -52,28 +52,13 @@ namespace FFmpegArgs.Filters.AudioFilters
     /// TSC bandpass          A->A       Apply a two-pole Butterworth band-pass filter.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#bandpass
     /// </summary>
-    public class BandpassFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class BandpassFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
+        IWidthType, ITransform, IPrecision, INormalize, IChannels, IFrequency
     {
         internal BandpassFilter(AudioMap audioMap) : base("bandpass", audioMap)
         {
             AddMapOut();
         }
-
-        /// <summary>
-        /// set central frequency (from 0 to 999999) (default 3000)
-        /// </summary>
-        /// <param name="frequency"></param>
-        /// <returns></returns>
-        public BandpassFilter Frequency(double frequency)
-            => this.SetOptionRange("f", frequency, 0, 999999);
-
-        /// <summary>
-        /// set filter-width type (from 1 to 5) (default q)
-        /// </summary>
-        /// <param name="widthType"></param>
-        /// <returns></returns>
-        public BandpassFilter WidthType(BandpassWidthType widthType)
-            => this.SetOption("t", widthType);
 
         /// <summary>
         /// set band-width (from 0 to 99999) (default 0.5)
@@ -98,36 +83,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <returns></returns>
         public BandpassFilter Mix(double mix)
             => this.SetOptionRange("m", mix, 0, 1);
-
-        /// <summary>
-        /// set channels to filter (default 0xffffffffffffffff)
-        /// </summary>
-        /// <param name="channels"></param>
-        /// <returns></returns>
-        public BandpassFilter Channels(ChannelLayout channels)
-            => this.SetOption("c", channels.GetEnumAttribute<NameAttribute>().Name);
-
-        /// <summary>
-        /// Normalize biquad coefficients, by default is disabled. Enabling it will normalize magnitude response at DC to 0dB.
-        /// </summary>
-        /// <param name="normalize"></param>
-        /// <returns></returns>
-        public BandpassFilter Normalize(bool normalize)
-            => this.SetOption("n", normalize.ToFFmpegFlag());
-        /// <summary>
-        /// Set transform type of IIR filter. (default di)
-        /// </summary>
-        /// <param name="transform"></param>
-        /// <returns></returns>
-        public BandpassFilter Transform(BandpassTransform transform)
-            => this.SetOption("a", transform);
-        /// <summary>
-        /// set filtering precision (default auto)
-        /// </summary>
-        /// <param name="precision"></param>
-        /// <returns></returns>
-        public BandpassFilter Precision(BandpassPrecision precision)
-            => this.SetOption("r", precision);
     }
     /// <summary>
     /// 
@@ -139,84 +94,5 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         public static BandpassFilter BandpassFilter(this AudioMap audioMap)
           => new BandpassFilter(audioMap);
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public enum BandpassWidthType
-    {
-        /// <summary>
-        /// Hz
-        /// </summary>
-        h,
-        /// <summary>
-        /// Q-Factor
-        /// </summary>
-        q,
-        /// <summary>
-        /// octave
-        /// </summary>
-        o,
-        /// <summary>
-        /// slope
-        /// </summary>
-        s,
-        /// <summary>
-        /// kHz
-        /// </summary>
-        k,
-
-    }
-    /// <summary>
-    /// 
-    /// </summary>
-    public enum BandpassTransform
-    {
-        /// <summary>
-        /// direct form I
-        /// </summary>
-        di,
-        /// <summary>
-        /// direct form II
-        /// </summary>
-        dii,
-        /// <summary>
-        /// transposed direct form II
-        /// </summary>
-        tdii,
-        /// <summary>
-        /// lattice-ladder form
-        /// </summary>
-        latt
-
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public enum BandpassPrecision
-    {
-        /// <summary>
-        /// automatic
-        /// </summary>
-        auto,
-        /// <summary>
-        /// signed 16-bit
-        /// </summary>
-        s16,
-        /// <summary>
-        /// signed 32-bit
-        /// </summary>
-        s32,
-        /// <summary>
-        /// floating-point single
-        /// </summary>
-        f32,
-        /// <summary>
-        /// floating-point double
-        /// </summary>
-        f64
-
     }
 }

@@ -1,7 +1,7 @@
 ﻿/*
-bandreject AVOptions:
-  frequency         <double>     ..F.A....T. set central frequency (from 0 to 999999) (default 3000)
-  f                 <double>     ..F.A....T. set central frequency (from 0 to 999999) (default 3000)
+lowshelf AVOptions:
+  frequency         <double>     ..F.A....T. set central frequency (from 0 to 999999) (default 100)
+  f                 <double>     ..F.A....T. set central frequency (from 0 to 999999) (default 100)
   width_type        <int>        ..F.A....T. set filter-width type (from 1 to 5) (default q)
      h               1            ..F.A....T. Hz
      q               3            ..F.A....T. Q-Factor
@@ -14,8 +14,12 @@ bandreject AVOptions:
      o               2            ..F.A....T. octave
      s               4            ..F.A....T. slope
      k               5            ..F.A....T. kHz
-  width             <double>     ..F.A....T. set band-width (from 0 to 99999) (default 0.5)
-  w                 <double>     ..F.A....T. set band-width (from 0 to 99999) (default 0.5)
+  width             <double>     ..F.A....T. set shelf transition steep (from 0 to 99999) (default 0.5)
+  w                 <double>     ..F.A....T. set shelf transition steep (from 0 to 99999) (default 0.5)
+  gain              <double>     ..F.A....T. set gain (from -900 to 900) (default 0)
+  g                 <double>     ..F.A....T. set gain (from -900 to 900) (default 0)
+  poles             <int>        ..F.A...... set number of poles (from 1 to 2) (default 2)
+  p                 <int>        ..F.A...... set number of poles (from 1 to 2) (default 2)
   mix               <double>     ..F.A....T. set mix (from 0 to 1) (default 1)
   m                 <double>     ..F.A....T. set mix (from 0 to 1) (default 1)
   channels          <channel_layout> ..F.A....T. set channels to filter (default 0xffffffffffffffff)
@@ -48,42 +52,67 @@ bandreject AVOptions:
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    /// TSC bandreject        A->A       Apply a two-pole Butterworth band-reject filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#bandreject
+    /// TSC lowshelf          A->A       Apply a low shelf filter.<br></br>
+    /// https://ffmpeg.org/ffmpeg-filters.html#bass_002c-lowshelf
     /// </summary>
-    public class BandrejectFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
-        IWidthType, ITransform, IPrecision, INormalize, IChannels, IFrequency
+    public class LowshelfFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
+        IPrecision, ITransform, INormalize, IChannels, IWidthType
     {
-        internal BandrejectFilter(AudioMap audioMap) : base("bandreject", audioMap)
+        internal LowshelfFilter(AudioMap audioMap) : base("lowshelf", audioMap)
         {
             AddMapOut();
         }
 
         /// <summary>
-        /// set band-width (from 0 to 99999) (default 0.5)
+        /// Set the filter’s central frequency and so can be used to extend or reduce the frequency range to be boosted or cut.<br>
+        /// </br> (from 0 to 999999) (default 100)
+        /// </summary>
+        /// <param name="frequency"></param>
+        /// <returns></returns>
+        public LowshelfFilter Frequency(double frequency)
+            => this.SetOptionRange("f", frequency, 0, 999999);
+
+        /// <summary>
+        /// Determine how steep is the filter’s shelf transition. (from 0 to 99999) (default 0.5)
         /// </summary>
         /// <param name="width"></param>
         /// <returns></returns>
-        public BandrejectFilter Width(double width)
-            => this.SetOptionRange("w", width, 0, 99999);
+        public LowshelfFilter Width(double width)
+           => this.SetOptionRange("w", width, 0, 99999);
+        /// <summary>
+        /// Give the gain at 0 Hz. Its useful range is about -20 (for a large cut) to +20 (for a large boost). Beware of clipping when using a positive gain.<br>
+        /// </br>(from -900 to 900) (default 0)
+        /// </summary>
+        /// <param name="gain"></param>
+        /// <returns></returns>
+        public LowshelfFilter Gain(double gain)
+           => this.SetOptionRange("g", gain, -900, 900);
+        /// <summary>
+        /// Set number of poles. (from 1 to 2) (default 2)
+        /// </summary>
+        /// <param name="poles"></param>
+        /// <returns></returns>
+        public LowshelfFilter Poles(int poles)
+           => this.SetOptionRange("p", poles, 1, 2);
 
         /// <summary>
-        /// How much to use filtered signal in output. Default is 1. Range is between 0 and 1.
+        /// How much to use filtered signal in output. (from 0 to 1) (default 1)
         /// </summary>
         /// <param name="mix"></param>
         /// <returns></returns>
-        public BandrejectFilter Mix(double mix)
-            => this.SetOptionRange("m", mix, 0, 1);
+        public LowshelfFilter Mix(double mix)
+           => this.SetOptionRange("m", mix, 0, 1);
+
     }
     /// <summary>
     /// 
     /// </summary>
-    public static class BandrejectFilterExtensions
+    public static class LowshelfFilterExtensions
     {
         /// <summary>
-        /// Apply a two-pole Butterworth band-reject filter with central frequency frequency, and (3dB-point) band-width width. The filter roll off at 6dB per octave (20dB per decade).
+        /// Boost or cut the bass (lower) frequencies of the audio using a two-pole shelving filter with a response similar to that of a standard hi-fi’s tone-controls. This is also known as shelving equalisation (EQ).
         /// </summary>
-        public static BandrejectFilter BandrejectFilter(this AudioMap audioMap)
-          => new BandrejectFilter(audioMap);
+        public static LowshelfFilter LowshelfFilter(this AudioMap audioMap)
+          => new LowshelfFilter(audioMap);
     }
 }
