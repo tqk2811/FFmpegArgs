@@ -19,7 +19,7 @@
         /// <param name="t"></param>
         /// <param name="channels"></param>
         /// <returns></returns>
-        public static T Channels<T>(this T t, ChannelLayout channels) where T : BaseOption, IWidthTypeTransformPecisionNormalizeChannels
+        public static T Channels<T>(this T t, ChannelLayout channels) where T : BaseOption, IChannels
             => t.SetOption("c", channels.GetEnumAttribute<NameAttribute>().Name);
     }
 }

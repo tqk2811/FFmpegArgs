@@ -18,7 +18,7 @@
         /// <param name="t"></param>
         /// <param name="normalize"></param>
         /// <returns></returns>
-        public static T Normalize<T>(this T t, bool normalize) where T : BaseOption, IWidthTypeTransformPecisionNormalizeChannels
+        public static T Normalize<T>(this T t, bool normalize) where T : BaseOption, INormalize
             => t.SetOption("n", normalize.ToFFmpegFlag());
     }
 }
