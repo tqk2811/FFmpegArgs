@@ -1,4 +1,16 @@
-﻿
+﻿/*
+atrim AVOptions:
+  start             <duration>   ..F.A...... Timestamp of the first frame that should be passed (default INT64_MAX)
+  starti            <duration>   ..F.A...... Timestamp of the first frame that should be passed (default INT64_MAX)
+  end               <duration>   ..F.A...... Timestamp of the first frame that should be dropped again (default INT64_MAX)
+  endi              <duration>   ..F.A...... Timestamp of the first frame that should be dropped again (default INT64_MAX)
+  start_pts         <int64>      ..F.A...... Timestamp of the first frame that should be  passed (from I64_MIN to I64_MAX) (default I64_MIN)
+  end_pts           <int64>      ..F.A...... Timestamp of the first frame that should be dropped again (from I64_MIN to I64_MAX) (default I64_MIN)
+  duration          <duration>   ..F.A...... Maximum duration of the output (default 0)
+  durationi         <duration>   ..F.A...... Maximum duration of the output (default 0)
+  start_sample      <int64>      ..F.A...... Number of the first audio sample that should be passed to the output (from -1 to I64_MAX) (default -1)
+  end_sample        <int64>      ..F.A...... Number of the first audio sample that should be dropped again (from 0 to I64_MAX) (default I64_MAX)
+ */
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
