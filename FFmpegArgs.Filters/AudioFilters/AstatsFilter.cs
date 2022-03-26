@@ -64,9 +64,9 @@ namespace FFmpegArgs.Filters.AudioFilters
     ///  .S. astats            A->A       Show time domain statistics about audio frames.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#astats-1
     /// </summary>
-    public class Astats : AudioToAudioFilter, ISliceThreading
+    public class AstatsFilter : AudioToAudioFilter, ISliceThreading
     {
-        internal Astats(AudioMap audioMap) : base("astats", audioMap)
+        internal AstatsFilter(AudioMap audioMap) : base("astats", audioMap)
         {
             AddMapOut();
         }
@@ -75,7 +75,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="length"></param>
         /// <returns></returns>
-        public Astats Length(double length)
+        public AstatsFilter Length(double length)
             => this.SetOptionRange("length", length, 0.01, 10);
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="metadata"></param>
         /// <returns></returns>
-        public Astats Metadata(bool metadata)
+        public AstatsFilter Metadata(bool metadata)
             => this.SetOption("metadata", metadata.ToFFmpegFlag());
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="reset"></param>
         /// <returns></returns>
-        public Astats Reset(int reset)
+        public AstatsFilter Reset(int reset)
             => this.SetOptionRange("reset", reset, 0, INT_MAX);
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="measure_perchannel"></param>
         /// <returns></returns>
-        public Astats MeasurePerchannel(AstatsFlags measure_perchannel)
+        public AstatsFilter MeasurePerchannel(AstatsFlags measure_perchannel)
             => this.SetOption("measure_perchannel", measure_perchannel);
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="measure_overall"></param>
         /// <returns></returns>
-        public Astats MeasureOverall(AstatsFlags measure_overall)
+        public AstatsFilter MeasureOverall(AstatsFlags measure_overall)
             => this.SetOption("measure_overall", measure_overall);
     }
     /// <summary>
@@ -118,8 +118,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// Display time domain statistical information about the audio channels. Statistics are calculated and displayed for each audio channel and, where applicable, an overall figure is also given.
         /// </summary>
-        public static Astats Astats(this AudioMap audioMap)
-          => new Astats(audioMap);
+        public static AstatsFilter Astats(this AudioMap audioMap)
+          => new AstatsFilter(audioMap);
     }
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
