@@ -40,5 +40,21 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         public static VstackFilter VstackFilter(this ImageMap imageMap, params ImageMap[] imageMaps)
           => new VstackFilter(new ImageMap[] { imageMap }.Concat(imageMaps).ToArray());
+
+        /// <summary>
+        /// Stack input videos vertically.<br>
+        /// </br>All streams must be of same pixel format and of same height.<br>
+        /// </br>Note that this filter is faster than using <see cref="OverlayFilter"/> and <see cref="PadFilter"/> filter to create same output.
+        /// </summary>
+        public static VstackFilter VstackFilter(this ImageMap[] imageMaps)
+          => new VstackFilter(imageMaps);
+
+        /// <summary>
+        /// Stack input videos vertically.<br>
+        /// </br>All streams must be of same pixel format and of same height.<br>
+        /// </br>Note that this filter is faster than using <see cref="OverlayFilter"/> and <see cref="PadFilter"/> filter to create same output.
+        /// </summary>
+        public static VstackFilter VstackFilter(this IEnumerable<ImageMap> imageMaps)
+          => new VstackFilter(imageMaps.ToArray());
     }
 }
