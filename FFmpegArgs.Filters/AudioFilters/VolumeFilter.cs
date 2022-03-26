@@ -1,4 +1,22 @@
-﻿namespace FFmpegArgs.Filters.AudioFilters
+﻿/*
+volume AVOptions:
+  volume            <string>     ..F.A....T. set volume adjustment expression (default "1.0")
+  precision         <int>        ..F.A...... select mathematical precision (from 0 to 2) (default float)
+     fixed           0            ..F.A...... select 8-bit fixed-point
+     float           1            ..F.A...... select 32-bit floating-point
+     double          2            ..F.A...... select 64-bit floating-point
+  eval              <int>        ..F.A...... specify when to evaluate expressions (from 0 to 1) (default once)
+     once            0            ..F.A...... eval volume expression once
+     frame           1            ..F.A...... eval volume expression per-frame
+  replaygain        <int>        ..F.A...... Apply replaygain side data when present (from 0 to 3) (default drop)
+     drop            0            ..F.A...... replaygain side data is dropped
+     ignore          1            ..F.A...... replaygain side data is ignored
+     track           2            ..F.A...... track gain is preferred
+     album           3            ..F.A...... album gain is preferred
+  replaygain_preamp <double>     ..F.A...... Apply replaygain pre-amplification (from -15 to 15) (default 0)
+  replaygain_noclip <boolean>    ..F.A...... Apply replaygain clipping prevention (default true)
+ */
+namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.C volume            A->A       Change input volume. <br></br>
@@ -65,7 +83,7 @@
         /// </summary>
         /// <param name="precision"></param>
         /// <returns></returns>
-        public VolumeFilter Precision(VolumeNumberPrecision precision)
+        public VolumeFilter Precision(VolumePrecision precision)
           => this.SetOption("precision", precision.ToString().ToLower());
         /// <summary>
         /// Choose the behaviour on encountering ReplayGain side data in input frames.
@@ -99,6 +117,10 @@
         public VolumeFilter ReplaygainNoclip(bool replaygain_noclip)
             => this.SetOption("replaygain_noclip", replaygain_noclip.ToFFmpegFlag());
     }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public static class VolumeFilterExtension
     {
         /// <summary>
@@ -139,7 +161,10 @@
         /// </summary>
         Frame
     }
-    public enum VolumeNumberPrecision
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum VolumePrecision
     {
         /// <summary>
         /// 8-bit fixed-point; this limits input sample format to U8, S16, and S32.
@@ -154,23 +179,26 @@
         /// </summary>
         Double
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public enum VolumeReplayGain
     {
         /// <summary>
         /// Remove ReplayGain side data, ignoring its contents (the default).
         /// </summary>
-        drop,
+        Drop,
         /// <summary>
         /// Ignore ReplayGain side data, but leave it in the frame.
         /// </summary>
-        ignore,
+        Ignore,
         /// <summary>
         /// Prefer the track gain, if present.
         /// </summary>
-        track,
+        Track,
         /// <summary>
         /// Prefer the album gain, if present.
         /// </summary>
-        album
+        Album
     }
 }
