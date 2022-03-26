@@ -1,4 +1,11 @@
-﻿namespace FFmpegArgs.Filters.MultimediaFilters
+﻿/*
+concat AVOptions:
+  n                 <int>        ..FVA...... specify the number of segments (from 1 to INT_MAX) (default 2)
+  v                 <int>        ..FV....... specify the number of video streams (from 0 to INT_MAX) (default 1)
+  a                 <int>        ..F.A...... specify the number of audio streams (from 0 to INT_MAX) (default 0)
+  unsafe            <boolean>    ..FVA...... enable unsafe mode (default false)
+*/
+namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ..C concat            N->N       Concatenate audio and video streams.<br></br>
@@ -8,8 +15,17 @@
     {
         readonly List<ImageMap> _imageMapsOut = new List<ImageMap>();
         readonly List<AudioMap> _audioMapsOut = new List<AudioMap>();
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<ImageMap> ImageMapsOut { get { return _imageMapsOut; } }
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<AudioMap> AudioMapsOut { get { return _audioMapsOut; } }
+        
         /// <summary>
         /// Concatenate audio and video streams, joining them together one after the other.<br>
         /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
@@ -50,29 +66,90 @@
             this.SetOption("v", concatGroups.First().ImageMaps.Count);
             this.SetOption("a", concatGroups.First().AudioMaps.Count);
         }
+
+        /// <summary>
+        /// Activate unsafe mode: do not fail if segments have a different format. (default false)
+        /// </summary>
+        /// <param name="unsafeMode"></param>
+        /// <returns></returns>
+        public ConcatFilter Unsafe(bool unsafeMode)
+            => this.SetOption("unsafe", unsafeMode.ToFFmpegFlag());
     }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    public static class ConcatFilterExtension
+    {
+        /// <summary>
+        /// Concatenate audio and video streams, joining them together one after the other.<br>
+        /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
+        /// </summary>
+        /// <param name="concatGroups">input: n * (v + a) => output: (v + a)</param>
+        public static ConcatFilter ConcatFilter(this IEnumerable<ConcatGroup> concatGroups)
+            => new ConcatFilter(concatGroups);
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public class ConcatGroup
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public ConcatGroup() { }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imageMaps"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ConcatGroup(IEnumerable<ImageMap> imageMaps, IEnumerable<AudioMap> audioMaps)
         {
             ImageMaps.AddRange(imageMaps ?? throw new ArgumentNullException(nameof(imageMaps)));
             AudioMaps.AddRange(audioMaps ?? throw new ArgumentNullException(nameof(audioMaps)));
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imageMap"></param>
+        /// <param name="audioMap"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ConcatGroup(ImageMap imageMap, AudioMap audioMap)
         {
             ImageMaps.Add(imageMap ?? throw new ArgumentNullException(nameof(imageMap)));
             AudioMaps.Add(audioMap ?? throw new ArgumentNullException(nameof(audioMap)));
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imageMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ConcatGroup(params ImageMap[] imageMaps)
         {
             ImageMaps.AddRange(imageMaps ?? throw new ArgumentNullException(nameof(imageMaps)));
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public ConcatGroup(params AudioMap[] audioMaps)
         {
             AudioMaps.AddRange(audioMaps ?? throw new ArgumentNullException(nameof(audioMaps)));
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public List<ImageMap> ImageMaps { get; } = new List<ImageMap>();
+        /// <summary>
+        /// 
+        /// </summary>
         public List<AudioMap> AudioMaps { get; } = new List<AudioMap>();
         internal IEnumerable<BaseMap> AllMaps { get { return ImageMaps.Cast<BaseMap>().Concat(AudioMaps); } }
     }
