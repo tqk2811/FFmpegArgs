@@ -101,6 +101,12 @@ aptx_hd,
 argo_asf,
 
 /// <summary>
+/// Argonaut Games CVG
+/// </summary>
+[Name("argo_cvg")]
+argo_cvg,
+
+/// <summary>
 /// ASF (Advanced / Active Streaming Format)
 /// </summary>
 [Name("asf")]
@@ -147,6 +153,12 @@ avm2,
 /// </summary>
 [Name("avs2")]
 avs2,
+
+/// <summary>
+/// AVS3-P2/IEEE1857.10
+/// </summary>
+[Name("avs3")]
+avs3,
 
 /// <summary>
 /// G.729 BIT file format
@@ -629,6 +641,12 @@ _null,
 nut,
 
 /// <summary>
+/// AV1 low overhead OBU
+/// </summary>
+[Name("obu")]
+obu,
+
+/// <summary>
 /// Ogg Audio
 /// </summary>
 [Name("oga")]
@@ -783,12 +801,6 @@ sdl2,
 /// </summary>
 [Name("segment")]
 segment,
-
-/// <summary>
-/// JPEG single image
-/// </summary>
-[Name("singlejpeg")]
-singlejpeg,
 
 /// <summary>
 /// Loki SDL MJPEG
@@ -1011,6 +1023,12 @@ webp,
 /// </summary>
 [Name("webvtt")]
 webvtt,
+
+/// <summary>
+/// Westwood Studios audio
+/// </summary>
+[Name("wsaud")]
+wsaud,
 
 /// <summary>
 /// Windows Television (WTV)

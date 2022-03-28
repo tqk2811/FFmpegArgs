@@ -203,6 +203,12 @@ argo_asf,
 argo_brp,
 
 /// <summary>
+/// Argonaut Games CVG
+/// </summary>
+[Name("argo_cvg")]
+argo_cvg,
+
+/// <summary>
 /// ASF (Advanced / Active Streaming Format)
 /// </summary>
 [Name("asf")]
@@ -269,7 +275,7 @@ avs,
 avs2,
 
 /// <summary>
-/// raw AVS3-P2/IEEE1857.10
+/// AVS3-P2/IEEE1857.10
 /// </summary>
 [Name("avs3")]
 avs3,
@@ -315,6 +321,12 @@ binka,
 /// </summary>
 [Name("bit")]
 bit,
+
+/// <summary>
+/// Bitpacked
+/// </summary>
+[Name("bitpacked")]
+bitpacked,
 
 /// <summary>
 /// piped bmp sequence
@@ -689,6 +701,12 @@ gdigrab,
 gdv,
 
 /// <summary>
+/// piped gem sequence
+/// </summary>
+[Name("gem_pipe")]
+gem_pipe,
+
+/// <summary>
 /// GENeric Header
 /// </summary>
 [Name("genh")]
@@ -815,6 +833,12 @@ image2,
 image2pipe,
 
 /// <summary>
+/// IMF (Interoperable Master Format)
+/// </summary>
+[Name("imf")]
+imf,
+
+/// <summary>
 /// raw Ingenient MJPEG
 /// </summary>
 [Name("ingenient")]
@@ -915,6 +939,12 @@ lavfi,
 /// </summary>
 [Name("libgme")]
 libgme,
+
+/// <summary>
+/// Tracker formats (libopenmpt)
+/// </summary>
+[Name("libopenmpt")]
+libopenmpt,
 
 /// <summary>
 /// live RTMP FLV (Flash Video)
@@ -1533,6 +1563,12 @@ sbg,
 /// </summary>
 [Name("scc")]
 scc,
+
+/// <summary>
+/// Square Enix SCD
+/// </summary>
+[Name("scd")]
+scd,
 
 /// <summary>
 /// SDP
