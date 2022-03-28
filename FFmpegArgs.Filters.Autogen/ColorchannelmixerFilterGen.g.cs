@@ -71,9 +71,13 @@ public ColorchannelmixerFilterGen ab(double ab) => this.SetOptionRange("ab", ab,
 /// </summary>
 public ColorchannelmixerFilterGen aa(double aa) => this.SetOptionRange("aa", aa,-2,2);
 /// <summary>
-///  preserve lightness (from 0 to 1) (default 0)
+///  set the preserve color mode (from 0 to 6) (default none)
 /// </summary>
-public ColorchannelmixerFilterGen pl(double pl) => this.SetOptionRange("pl", pl,0,1);
+public ColorchannelmixerFilterGen pc(ColorchannelmixerFilterGenPc pc) => this.SetOption("pc", pc.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set the preserve color amount (from 0 to 1) (default 0)
+/// </summary>
+public ColorchannelmixerFilterGen pa(double pa) => this.SetOptionRange("pa", pa,0,1);
 }
 /// <summary>
 /// </summary>
@@ -84,4 +88,39 @@ public static class ColorchannelmixerFilterGenExtensions
 /// </summary>
 public static ColorchannelmixerFilterGen ColorchannelmixerFilterGen(this ImageMap input0) => new ColorchannelmixerFilterGen(input0);
 }
+/// <summary>
+///  set the preserve color mode (from 0 to 6) (default none)
+/// </summary>
+public enum ColorchannelmixerFilterGenPc
+{
+/// <summary>
+/// none            0            ..FV.....T. disabled
+/// </summary>
+[Name("none")] none,
+/// <summary>
+/// lum             1            ..FV.....T. luminance
+/// </summary>
+[Name("lum")] lum,
+/// <summary>
+/// max             2            ..FV.....T. max
+/// </summary>
+[Name("max")] max,
+/// <summary>
+/// avg             3            ..FV.....T. average
+/// </summary>
+[Name("avg")] avg,
+/// <summary>
+/// sum             4            ..FV.....T. sum
+/// </summary>
+[Name("sum")] sum,
+/// <summary>
+/// nrm             5            ..FV.....T. norm
+/// </summary>
+[Name("nrm")] nrm,
+/// <summary>
+/// pwr             6            ..FV.....T. power
+/// </summary>
+[Name("pwr")] pwr,
+}
+
 }

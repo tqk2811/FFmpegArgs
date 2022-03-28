@@ -7,7 +7,7 @@ public class XfadeFilterGen : ImageToImageFilter,ISliceThreading
 {
 internal XfadeFilterGen(params ImageMap[] inputs) : base("xfade",inputs) { AddMapOut(); }
 /// <summary>
-///  set cross fade transition (from -1 to 42) (default fade)
+///  set cross fade transition (from -1 to 43) (default fade)
 /// </summary>
 public XfadeFilterGen transition(XfadeFilterGenTransition transition) => this.SetOption("transition", transition.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -33,7 +33,7 @@ public static class XfadeFilterGenExtensions
 public static XfadeFilterGen XfadeFilterGen(this ImageMap input0, ImageMap input1) => new XfadeFilterGen(input0, input1);
 }
 /// <summary>
-///  set cross fade transition (from -1 to 42) (default fade)
+///  set cross fade transition (from -1 to 43) (default fade)
 /// </summary>
 public enum XfadeFilterGenTransition
 {
@@ -213,6 +213,10 @@ public enum XfadeFilterGenTransition
 /// squeezev        42           ..FV....... squeeze v transition
 /// </summary>
 [Name("squeezev")] squeezev,
+/// <summary>
+/// zoomin          43           ..FV....... zoom in transition
+/// </summary>
+[Name("zoomin")] zoomin,
 }
 
 }

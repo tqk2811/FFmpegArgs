@@ -26,6 +26,10 @@ public ColorcorrectFilterGen bh(float bh) => this.SetOptionRange("bh", bh,-1,1);
 ///  set the amount of saturation (from -3 to 3) (default 1)
 /// </summary>
 public ColorcorrectFilterGen saturation(float saturation) => this.SetOptionRange("saturation", saturation,-3,3);
+/// <summary>
+///  set the analyze mode (from 0 to 3) (default manual)
+/// </summary>
+public ColorcorrectFilterGen analyze(ColorcorrectFilterGenAnalyze analyze) => this.SetOption("analyze", analyze.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -36,4 +40,27 @@ public static class ColorcorrectFilterGenExtensions
 /// </summary>
 public static ColorcorrectFilterGen ColorcorrectFilterGen(this ImageMap input0) => new ColorcorrectFilterGen(input0);
 }
+/// <summary>
+///  set the analyze mode (from 0 to 3) (default manual)
+/// </summary>
+public enum ColorcorrectFilterGenAnalyze
+{
+/// <summary>
+/// manual          0            ..FV.....T. manually set options
+/// </summary>
+[Name("manual")] manual,
+/// <summary>
+/// average         1            ..FV.....T. use average pixels
+/// </summary>
+[Name("average")] average,
+/// <summary>
+/// minmax          2            ..FV.....T. use minmax pixels
+/// </summary>
+[Name("minmax")] minmax,
+/// <summary>
+/// median          3            ..FV.....T. use median pixels
+/// </summary>
+[Name("median")] median,
+}
+
 }

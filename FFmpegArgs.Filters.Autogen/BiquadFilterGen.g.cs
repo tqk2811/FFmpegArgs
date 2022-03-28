@@ -43,11 +43,11 @@ public BiquadFilterGen channels(ChannelLayout channels) => this.SetOption("chann
 /// </summary>
 public BiquadFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public BiquadFilterGen transform(BiquadFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public BiquadFilterGen a(BiquadFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -69,7 +69,7 @@ public static class BiquadFilterGenExtensions
 public static BiquadFilterGen BiquadFilterGen(this AudioMap input0) => new BiquadFilterGen(input0);
 }
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum BiquadFilterGenTransform
 {
@@ -89,10 +89,14 @@ public enum BiquadFilterGenTransform
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum BiquadFilterGenA
 {
@@ -112,6 +116,10 @@ public enum BiquadFilterGenA
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>

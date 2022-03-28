@@ -23,7 +23,7 @@ public FillbordersFilterGen top(int top) => this.SetOptionRange("top", top,0,INT
 /// </summary>
 public FillbordersFilterGen bottom(int bottom) => this.SetOptionRange("bottom", bottom,0,INT_MAX);
 /// <summary>
-///  set the fill borders mode (from 0 to 5) (default smear)
+///  set the fill borders mode (from 0 to 6) (default smear)
 /// </summary>
 public FillbordersFilterGen mode(FillbordersFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -41,7 +41,7 @@ public static class FillbordersFilterGenExtensions
 public static FillbordersFilterGen FillbordersFilterGen(this ImageMap input0) => new FillbordersFilterGen(input0);
 }
 /// <summary>
-///  set the fill borders mode (from 0 to 5) (default smear)
+///  set the fill borders mode (from 0 to 6) (default smear)
 /// </summary>
 public enum FillbordersFilterGenMode
 {
@@ -69,6 +69,10 @@ public enum FillbordersFilterGenMode
 /// fade            5            ..FV.....T.
 /// </summary>
 [Name("fade")] fade,
+/// <summary>
+/// margins         6            ..FV.....T.
+/// </summary>
+[Name("margins")] margins,
 }
 
 }

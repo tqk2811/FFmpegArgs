@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// T.C bilateral         V->V       Apply Bilateral filter.
+/// TSC bilateral         V->V       Apply Bilateral filter.
 /// </summary>
-public class BilateralFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
+public class BilateralFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal BilateralFilterGen(ImageMap input) : base("bilateral",input) { AddMapOut(); }
 /// <summary>

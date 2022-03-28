@@ -70,6 +70,10 @@ public ColorlevelsFilterGen bomax(double bomax) => this.SetOptionRange("bomax", 
 ///  set output alpha white point (from 0 to 1) (default 1)
 /// </summary>
 public ColorlevelsFilterGen aomax(double aomax) => this.SetOptionRange("aomax", aomax,0,1);
+/// <summary>
+///  set preserve color mode (from 0 to 6) (default none)
+/// </summary>
+public ColorlevelsFilterGen preserve(ColorlevelsFilterGenPreserve preserve) => this.SetOption("preserve", preserve.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -80,4 +84,39 @@ public static class ColorlevelsFilterGenExtensions
 /// </summary>
 public static ColorlevelsFilterGen ColorlevelsFilterGen(this ImageMap input0) => new ColorlevelsFilterGen(input0);
 }
+/// <summary>
+///  set preserve color mode (from 0 to 6) (default none)
+/// </summary>
+public enum ColorlevelsFilterGenPreserve
+{
+/// <summary>
+/// none            0            ..FV.....T. disabled
+/// </summary>
+[Name("none")] none,
+/// <summary>
+/// lum             1            ..FV.....T. luminance
+/// </summary>
+[Name("lum")] lum,
+/// <summary>
+/// max             2            ..FV.....T. max
+/// </summary>
+[Name("max")] max,
+/// <summary>
+/// avg             3            ..FV.....T. average
+/// </summary>
+[Name("avg")] avg,
+/// <summary>
+/// sum             4            ..FV.....T. sum
+/// </summary>
+[Name("sum")] sum,
+/// <summary>
+/// nrm             5            ..FV.....T. norm
+/// </summary>
+[Name("nrm")] nrm,
+/// <summary>
+/// pwr             6            ..FV.....T. power
+/// </summary>
+[Name("pwr")] pwr,
+}
+
 }

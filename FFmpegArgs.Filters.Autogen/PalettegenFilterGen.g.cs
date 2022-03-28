@@ -22,6 +22,10 @@ public PalettegenFilterGen transparency_color(Color transparency_color) => this.
 ///  set statistics mode (from 0 to 2) (default full)
 /// </summary>
 public PalettegenFilterGen stats_mode(PalettegenFilterGenStats_mode stats_mode) => this.SetOption("stats_mode", stats_mode.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  create a palette including alpha values (default false)
+/// </summary>
+public PalettegenFilterGen use_alpha(bool use_alpha) => this.SetOption("use_alpha",use_alpha.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

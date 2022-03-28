@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.
+/// T.. afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.
 /// </summary>
-public class AfftfiltFilterGen : AudioToAudioFilter
+public class AfftfiltFilterGen : AudioToAudioFilter,ITimelineSupport
 {
 internal AfftfiltFilterGen(AudioMap input) : base("afftfilt",input) { AddMapOut(); }
 /// <summary>

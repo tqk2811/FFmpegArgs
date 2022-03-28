@@ -26,6 +26,10 @@ public ElbgFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1,UINT
 ///  set the pal8 output (default false)
 /// </summary>
 public ElbgFilterGen pal8(bool pal8) => this.SetOption("pal8",pal8.ToFFmpegFlag());
+/// <summary>
+///  use alpha channel for mapping (default false)
+/// </summary>
+public ElbgFilterGen use_alpha(bool use_alpha) => this.SetOption("use_alpha",use_alpha.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

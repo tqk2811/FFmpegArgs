@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// TSC avgblur           V->V       Apply Average Blur filter.
+/// T.C avgblur           V->V       Apply Average Blur filter.
 /// </summary>
-public class AvgblurFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
+public class AvgblurFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal AvgblurFilterGen(ImageMap input) : base("avgblur",input) { AddMapOut(); }
 /// <summary>

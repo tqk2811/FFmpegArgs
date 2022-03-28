@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... alimiter          A->A       Audio lookahead limiter.
+/// T.C alimiter          A->A       Audio lookahead limiter.
 /// </summary>
-public class AlimiterFilterGen : AudioToAudioFilter
+public class AlimiterFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal AlimiterFilterGen(AudioMap input) : base("alimiter",input) { AddMapOut(); }
 /// <summary>

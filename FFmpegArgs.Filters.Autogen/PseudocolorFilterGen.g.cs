@@ -27,7 +27,7 @@ public PseudocolorFilterGen c3(string c3) => this.SetOption("c3",c3);
 /// </summary>
 public PseudocolorFilterGen index(int index) => this.SetOptionRange("index", index,0,3);
 /// <summary>
-///  set preset (from -1 to 9) (default none)
+///  set preset (from -1 to 13) (default none)
 /// </summary>
 public PseudocolorFilterGen preset(PseudocolorFilterGenPreset preset) => this.SetOption("preset", preset.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -45,7 +45,7 @@ public static class PseudocolorFilterGenExtensions
 public static PseudocolorFilterGen PseudocolorFilterGen(this ImageMap input0) => new PseudocolorFilterGen(input0);
 }
 /// <summary>
-///  set preset (from -1 to 9) (default none)
+///  set preset (from -1 to 13) (default none)
 /// </summary>
 public enum PseudocolorFilterGenPreset
 {
@@ -93,6 +93,22 @@ public enum PseudocolorFilterGenPreset
 /// highlights      9            ..FV.....T.
 /// </summary>
 [Name("highlights")] highlights,
+/// <summary>
+/// solar           10           ..FV.....T.
+/// </summary>
+[Name("solar")] solar,
+/// <summary>
+/// nominal         11           ..FV.....T.
+/// </summary>
+[Name("nominal")] nominal,
+/// <summary>
+/// preferred       12           ..FV.....T.
+/// </summary>
+[Name("preferred")] preferred,
+/// <summary>
+/// total           13           ..FV.....T.
+/// </summary>
+[Name("total")] total,
 }
 
 }

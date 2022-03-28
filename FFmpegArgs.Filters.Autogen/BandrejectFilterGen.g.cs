@@ -35,11 +35,11 @@ public BandrejectFilterGen channels(ChannelLayout channels) => this.SetOption("c
 /// </summary>
 public BandrejectFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public BandrejectFilterGen transform(BandrejectFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public BandrejectFilterGen a(BandrejectFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -115,7 +115,7 @@ public enum BandrejectFilterGenT
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum BandrejectFilterGenTransform
 {
@@ -135,10 +135,14 @@ public enum BandrejectFilterGenTransform
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum BandrejectFilterGenA
 {
@@ -158,6 +162,10 @@ public enum BandrejectFilterGenA
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>

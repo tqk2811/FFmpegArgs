@@ -27,11 +27,11 @@ public Dnn_processingFilterGen output(string output) => this.SetOption("output",
 /// </summary>
 public Dnn_processingFilterGen backend_configs(string backend_configs) => this.SetOption("backend_configs",backend_configs);
 /// <summary>
-///  backend configs
+///  backend configs (deprecated, use backend_configs)
 /// </summary>
 public Dnn_processingFilterGen options(string options) => this.SetOption("options",options);
 /// <summary>
-///  use DNN async inference (default true)
+///  use DNN async inference (ignored, use backend_configs='async=1') (default true)
 /// </summary>
 public Dnn_processingFilterGen async(bool async) => this.SetOption("async",async.ToFFmpegFlag());
 }

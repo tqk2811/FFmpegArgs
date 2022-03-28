@@ -38,6 +38,14 @@ public HistogramFilterGen fgopacity(float fgopacity) => this.SetOptionRange("fgo
 ///  set background opacity (from 0 to 1) (default 0.5)
 /// </summary>
 public HistogramFilterGen bgopacity(float bgopacity) => this.SetOptionRange("bgopacity", bgopacity,0,1);
+/// <summary>
+///  set colors mode (from 0 to 9) (default whiteonblack)
+/// </summary>
+public HistogramFilterGen colors_mode(HistogramFilterGenColors_mode colors_mode) => this.SetOption("colors_mode", colors_mode.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set colors mode (from 0 to 9) (default whiteonblack)
+/// </summary>
+public HistogramFilterGen l(HistogramFilterGenL l) => this.SetOption("l", l.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -95,6 +103,100 @@ public enum HistogramFilterGenM
 /// logarithmic     1            ..FV.......
 /// </summary>
 [Name("logarithmic")] logarithmic,
+}
+
+/// <summary>
+///  set colors mode (from 0 to 9) (default whiteonblack)
+/// </summary>
+public enum HistogramFilterGenColors_mode
+{
+/// <summary>
+/// whiteonblack    0            ..FV.......
+/// </summary>
+[Name("whiteonblack")] whiteonblack,
+/// <summary>
+/// blackonwhite    1            ..FV.......
+/// </summary>
+[Name("blackonwhite")] blackonwhite,
+/// <summary>
+/// whiteongray     2            ..FV.......
+/// </summary>
+[Name("whiteongray")] whiteongray,
+/// <summary>
+/// blackongray     3            ..FV.......
+/// </summary>
+[Name("blackongray")] blackongray,
+/// <summary>
+/// coloronblack    4            ..FV.......
+/// </summary>
+[Name("coloronblack")] coloronblack,
+/// <summary>
+/// coloronwhite    5            ..FV.......
+/// </summary>
+[Name("coloronwhite")] coloronwhite,
+/// <summary>
+/// colorongray     6            ..FV.......
+/// </summary>
+[Name("colorongray")] colorongray,
+/// <summary>
+/// blackoncolor    7            ..FV.......
+/// </summary>
+[Name("blackoncolor")] blackoncolor,
+/// <summary>
+/// whiteoncolor    8            ..FV.......
+/// </summary>
+[Name("whiteoncolor")] whiteoncolor,
+/// <summary>
+/// grayoncolor     9            ..FV.......
+/// </summary>
+[Name("grayoncolor")] grayoncolor,
+}
+
+/// <summary>
+///  set colors mode (from 0 to 9) (default whiteonblack)
+/// </summary>
+public enum HistogramFilterGenL
+{
+/// <summary>
+/// whiteonblack    0            ..FV.......
+/// </summary>
+[Name("whiteonblack")] whiteonblack,
+/// <summary>
+/// blackonwhite    1            ..FV.......
+/// </summary>
+[Name("blackonwhite")] blackonwhite,
+/// <summary>
+/// whiteongray     2            ..FV.......
+/// </summary>
+[Name("whiteongray")] whiteongray,
+/// <summary>
+/// blackongray     3            ..FV.......
+/// </summary>
+[Name("blackongray")] blackongray,
+/// <summary>
+/// coloronblack    4            ..FV.......
+/// </summary>
+[Name("coloronblack")] coloronblack,
+/// <summary>
+/// coloronwhite    5            ..FV.......
+/// </summary>
+[Name("coloronwhite")] coloronwhite,
+/// <summary>
+/// colorongray     6            ..FV.......
+/// </summary>
+[Name("colorongray")] colorongray,
+/// <summary>
+/// blackoncolor    7            ..FV.......
+/// </summary>
+[Name("blackoncolor")] blackoncolor,
+/// <summary>
+/// whiteoncolor    8            ..FV.......
+/// </summary>
+[Name("whiteoncolor")] whiteoncolor,
+/// <summary>
+/// grayoncolor     9            ..FV.......
+/// </summary>
+[Name("grayoncolor")] grayoncolor,
 }
 
 }

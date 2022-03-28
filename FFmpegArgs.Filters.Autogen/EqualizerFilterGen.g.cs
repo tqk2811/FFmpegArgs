@@ -39,11 +39,11 @@ public EqualizerFilterGen channels(ChannelLayout channels) => this.SetOption("ch
 /// </summary>
 public EqualizerFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public EqualizerFilterGen transform(EqualizerFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public EqualizerFilterGen a(EqualizerFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -119,7 +119,7 @@ public enum EqualizerFilterGenT
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum EqualizerFilterGenTransform
 {
@@ -139,10 +139,14 @@ public enum EqualizerFilterGenTransform
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum EqualizerFilterGenA
 {
@@ -162,6 +166,10 @@ public enum EqualizerFilterGenA
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>

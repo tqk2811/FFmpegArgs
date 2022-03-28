@@ -9,19 +9,23 @@ internal AnlmdnFilterGen(AudioMap input) : base("anlmdn",input) { AddMapOut(); }
 /// <summary>
 ///  set denoising strength (from 1e-05 to 10) (default 1e-05)
 /// </summary>
-public AnlmdnFilterGen s(float s) => this.SetOptionRange("s", s,1e-05,10);
+public AnlmdnFilterGen strength(float strength) => this.SetOptionRange("strength", strength,1e-05,10);
 /// <summary>
 ///  set patch duration (default 0.002)
 /// </summary>
-public AnlmdnFilterGen p(TimeSpan p) => this.SetOptionRange("p",p,TimeSpan.Zero,TimeSpan.MaxValue);
+public AnlmdnFilterGen patch(TimeSpan patch) => this.SetOptionRange("patch",patch,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set research duration (default 0.006)
 /// </summary>
-public AnlmdnFilterGen r(TimeSpan r) => this.SetOptionRange("r",r,TimeSpan.Zero,TimeSpan.MaxValue);
+public AnlmdnFilterGen research(TimeSpan research) => this.SetOptionRange("research",research,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
-public AnlmdnFilterGen o(AnlmdnFilterGenO o) => this.SetOption("o", o.GetEnumAttribute<NameAttribute>().Name);
+public AnlmdnFilterGen output(AnlmdnFilterGenOutput output) => this.SetOption("output", output.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set smooth factor (from 1 to 15) (default 11)
+/// </summary>
+public AnlmdnFilterGen smooth(float smooth) => this.SetOptionRange("smooth", smooth,1,15);
 /// <summary>
 ///  set smooth factor (from 1 to 15) (default 11)
 /// </summary>
@@ -39,7 +43,7 @@ public static AnlmdnFilterGen AnlmdnFilterGen(this AudioMap input0) => new Anlmd
 /// <summary>
 ///  set output mode (from 0 to 2) (default o)
 /// </summary>
-public enum AnlmdnFilterGenO
+public enum AnlmdnFilterGenOutput
 {
 /// <summary>
 /// i               0            ..F.A....T. input

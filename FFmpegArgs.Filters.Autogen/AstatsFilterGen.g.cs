@@ -7,23 +7,23 @@ public class AstatsFilterGen : AudioToAudioFilter,ISliceThreading
 {
 internal AstatsFilterGen(AudioMap input) : base("astats",input) { AddMapOut(); }
 /// <summary>
-///  set the window length (from 0.01 to 10) (default 0.05)
+///  set the window length (from 0 to 10) (default 0.05)
 /// </summary>
-public AstatsFilterGen length(double length) => this.SetOptionRange("length", length,0.01,10);
+public AstatsFilterGen length(double length) => this.SetOptionRange("length", length,0,10);
 /// <summary>
 ///  inject metadata in the filtergraph (default false)
 /// </summary>
 public AstatsFilterGen metadata(bool metadata) => this.SetOption("metadata",metadata.ToFFmpegFlag());
 /// <summary>
-///  recalculate stats after this many frames (from 0 to INT_MAX) (default 0)
+///  Set the number of frames over which cumulative stats are calculated before being reset (from 0 to INT_MAX) (default 0)
 /// </summary>
 public AstatsFilterGen reset(int reset) => this.SetOptionRange("reset", reset,0,INT_MAX);
 /// <summary>
-///  only measure_perchannel these per-channel statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
+///  Select the parameters which are measured per channel (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Entropy+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
 /// </summary>
 public AstatsFilterGen measure_perchannel(AstatsFilterGenMeasure_perchannel measure_perchannel) => this.SetOption("measure_perchannel", measure_perchannel.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  only measure_perchannel these overall statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
+///  Select the parameters which are measured overall (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Entropy+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
 /// </summary>
 public AstatsFilterGen measure_overall(AstatsFilterGenMeasure_overall measure_overall) => this.SetOption("measure_overall", measure_overall.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -37,7 +37,7 @@ public static class AstatsFilterGenExtensions
 public static AstatsFilterGen AstatsFilterGen(this AudioMap input0) => new AstatsFilterGen(input0);
 }
 /// <summary>
-///  only measure_perchannel these per-channel statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
+///  Select the parameters which are measured per channel (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Entropy+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
 /// </summary>
 public enum AstatsFilterGenMeasure_perchannel
 {
@@ -130,6 +130,10 @@ public enum AstatsFilterGenMeasure_perchannel
 /// </summary>
 [Name("Noise_floor_count")] Noise_floor_count,
 /// <summary>
+/// Entropy                      ..F.A......
+/// </summary>
+[Name("Entropy")] Entropy,
+/// <summary>
 /// Number_of_samples              ..F.A......
 /// </summary>
 [Name("Number_of_samples")] Number_of_samples,
@@ -148,7 +152,7 @@ public enum AstatsFilterGenMeasure_perchannel
 }
 
 /// <summary>
-///  only measure_perchannel these overall statistics (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
+///  Select the parameters which are measured overall (default all+DC_offset+Min_level+Max_level+Min_difference+Max_difference+Mean_difference+RMS_difference+Peak_level+RMS_level+RMS_peak+RMS_trough+Crest_factor+Flat_factor+Peak_count+Bit_depth+Dynamic_range+Zero_crossings+Zero_crossings_rate+Noise_floor+Noise_floor_count+Entropy+Number_of_samples+Number_of_NaNs+Number_of_Infs+Number_of_denormals)
 /// </summary>
 public enum AstatsFilterGenMeasure_overall
 {
@@ -240,6 +244,10 @@ public enum AstatsFilterGenMeasure_overall
 /// Noise_floor_count              ..F.A......
 /// </summary>
 [Name("Noise_floor_count")] Noise_floor_count,
+/// <summary>
+/// Entropy                      ..F.A......
+/// </summary>
+[Name("Entropy")] Entropy,
 /// <summary>
 /// Number_of_samples              ..F.A......
 /// </summary>

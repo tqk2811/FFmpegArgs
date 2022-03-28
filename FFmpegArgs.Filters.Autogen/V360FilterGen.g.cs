@@ -7,11 +7,11 @@ public class V360FilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
 {
 internal V360FilterGen(ImageMap input) : base("v360",input) { AddMapOut(); }
 /// <summary>
-///  set input projection (from 0 to 23) (default e)
+///  set input projection (from 0 to 24) (default e)
 /// </summary>
 public V360FilterGen input(V360FilterGenInput input) => this.SetOption("input", input.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set output projection (from 0 to 23) (default c3x2)
+///  set output projection (from 0 to 24) (default c3x2)
 /// </summary>
 public V360FilterGen output(V360FilterGenOutput output) => this.SetOption("output", output.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -83,13 +83,13 @@ public V360FilterGen roll(float roll) => this.SetOptionRange("roll", roll,-180,1
 /// </summary>
 public V360FilterGen rorder(string rorder) => this.SetOption("rorder",rorder);
 /// <summary>
-///  output horizontal field of view (from 1e-05 to 360) (default 90)
+///  output horizontal field of view (from 0 to 360) (default 0)
 /// </summary>
-public V360FilterGen h_fov(float h_fov) => this.SetOptionRange("h_fov", h_fov,1e-05,360);
+public V360FilterGen h_fov(float h_fov) => this.SetOptionRange("h_fov", h_fov,0,360);
 /// <summary>
-///  output vertical field of view (from 1e-05 to 360) (default 45)
+///  output vertical field of view (from 0 to 360) (default 0)
 /// </summary>
-public V360FilterGen v_fov(float v_fov) => this.SetOptionRange("v_fov", v_fov,1e-05,360);
+public V360FilterGen v_fov(float v_fov) => this.SetOptionRange("v_fov", v_fov,0,360);
 /// <summary>
 ///  output diagonal field of view (from 0 to 360) (default 0)
 /// </summary>
@@ -123,21 +123,33 @@ public V360FilterGen in_trans(bool in_trans) => this.SetOption("in_trans",in_tra
 /// </summary>
 public V360FilterGen out_trans(bool out_trans) => this.SetOption("out_trans",out_trans.ToFFmpegFlag());
 /// <summary>
-///  input horizontal field of view (from 1e-05 to 360) (default 90)
+///  input horizontal field of view (from 0 to 360) (default 0)
 /// </summary>
-public V360FilterGen ih_fov(float ih_fov) => this.SetOptionRange("ih_fov", ih_fov,1e-05,360);
+public V360FilterGen ih_fov(float ih_fov) => this.SetOptionRange("ih_fov", ih_fov,0,360);
 /// <summary>
-///  input vertical field of view (from 1e-05 to 360) (default 45)
+///  input vertical field of view (from 0 to 360) (default 0)
 /// </summary>
-public V360FilterGen iv_fov(float iv_fov) => this.SetOptionRange("iv_fov", iv_fov,1e-05,360);
+public V360FilterGen iv_fov(float iv_fov) => this.SetOptionRange("iv_fov", iv_fov,0,360);
 /// <summary>
 ///  input diagonal field of view (from 0 to 360) (default 0)
 /// </summary>
 public V360FilterGen id_fov(float id_fov) => this.SetOptionRange("id_fov", id_fov,0,360);
 /// <summary>
+///  output horizontal off-axis offset (from -1 to 1) (default 0)
+/// </summary>
+public V360FilterGen h_offset(float h_offset) => this.SetOptionRange("h_offset", h_offset,-1,1);
+/// <summary>
+///  output vertical off-axis offset (from -1 to 1) (default 0)
+/// </summary>
+public V360FilterGen v_offset(float v_offset) => this.SetOptionRange("v_offset", v_offset,-1,1);
+/// <summary>
 ///  build mask in alpha plane (default false)
 /// </summary>
 public V360FilterGen alpha_mask(bool alpha_mask) => this.SetOption("alpha_mask",alpha_mask.ToFFmpegFlag());
+/// <summary>
+///  reset rotation (default false)
+/// </summary>
+public V360FilterGen reset_rot(bool reset_rot) => this.SetOption("reset_rot",reset_rot.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>
@@ -149,7 +161,7 @@ public static class V360FilterGenExtensions
 public static V360FilterGen V360FilterGen(this ImageMap input0) => new V360FilterGen(input0);
 }
 /// <summary>
-///  set input projection (from 0 to 23) (default e)
+///  set input projection (from 0 to 24) (default e)
 /// </summary>
 public enum V360FilterGenInput
 {
@@ -265,10 +277,14 @@ public enum V360FilterGenInput
 /// octahedron      23           ..FV....... octahedron
 /// </summary>
 [Name("octahedron")] octahedron,
+/// <summary>
+/// cylindricalea   24           ..FV....... cylindrical equal area
+/// </summary>
+[Name("cylindricalea")] cylindricalea,
 }
 
 /// <summary>
-///  set output projection (from 0 to 23) (default c3x2)
+///  set output projection (from 0 to 24) (default c3x2)
 /// </summary>
 public enum V360FilterGenOutput
 {
@@ -388,6 +404,10 @@ public enum V360FilterGenOutput
 /// octahedron      23           ..FV....... octahedron
 /// </summary>
 [Name("octahedron")] octahedron,
+/// <summary>
+/// cylindricalea   24           ..FV....... cylindrical equal area
+/// </summary>
+[Name("cylindricalea")] cylindricalea,
 }
 
 /// <summary>

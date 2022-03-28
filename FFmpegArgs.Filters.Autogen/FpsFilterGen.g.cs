@@ -9,7 +9,7 @@ internal FpsFilterGen(ImageMap input) : base("fps",input) { AddMapOut(); }
 /// <summary>
 ///  A string describing desired output framerate (default "25")
 /// </summary>
-public FpsFilterGen fps(Rational fps) => this.SetOption("fps",fps);
+public FpsFilterGen fps(string fps) => this.SetOption("fps",fps);
 /// <summary>
 ///  Assume the first PTS should be this value. (from -DBL_MAX to DBL_MAX) (default DBL_MAX)
 /// </summary>

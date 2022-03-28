@@ -62,6 +62,10 @@ public enum AfirsrcFilterGenWin_func
 /// </summary>
 [Name("bartlett")] bartlett,
 /// <summary>
+/// hann            1            ..F.A...... Hann
+/// </summary>
+[Name("hann")] hann,
+/// <summary>
 /// hanning         1            ..F.A...... Hanning
 /// </summary>
 [Name("hanning")] hanning,

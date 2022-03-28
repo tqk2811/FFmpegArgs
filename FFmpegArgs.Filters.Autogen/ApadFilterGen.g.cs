@@ -19,11 +19,11 @@ public ApadFilterGen pad_len(long pad_len) => this.SetOptionRange("pad_len", pad
 /// </summary>
 public ApadFilterGen whole_len(long whole_len) => this.SetOptionRange("whole_len", whole_len,-1,I64_MAX);
 /// <summary>
-///  set duration of silence to add (default 0)
+///  set duration of silence to add (default -0.000001)
 /// </summary>
 public ApadFilterGen pad_dur(TimeSpan pad_dur) => this.SetOptionRange("pad_dur",pad_dur,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set minimum target duration in the audio stream (default 0)
+///  set minimum target duration in the audio stream (default -0.000001)
 /// </summary>
 public ApadFilterGen whole_dur(TimeSpan whole_dur) => this.SetOptionRange("whole_dur",whole_dur,TimeSpan.Zero,TimeSpan.MaxValue);
 }

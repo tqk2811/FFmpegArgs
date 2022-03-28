@@ -7,7 +7,7 @@ public class SilenceremoveFilterGen : AudioToAudioFilter
 {
 internal SilenceremoveFilterGen(AudioMap input) : base("silenceremove",input) { AddMapOut(); }
 /// <summary>
-///  (from 0 to 9000) (default 0)
+///  set periods of silence parts to skip from start (from 0 to 9000) (default 0)
 /// </summary>
 public SilenceremoveFilterGen start_periods(int start_periods) => this.SetOptionRange("start_periods", start_periods,0,9000);
 /// <summary>
@@ -27,7 +27,7 @@ public SilenceremoveFilterGen start_silence(TimeSpan start_silence) => this.SetO
 /// </summary>
 public SilenceremoveFilterGen start_mode(SilenceremoveFilterGenStart_mode start_mode) => this.SetOption("start_mode", start_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  (from -9000 to 9000) (default 0)
+///  set periods of silence parts to skip from end (from -9000 to 9000) (default 0)
 /// </summary>
 public SilenceremoveFilterGen stop_periods(int stop_periods) => this.SetOptionRange("stop_periods", stop_periods,-9000,9000);
 /// <summary>
@@ -51,9 +51,9 @@ public SilenceremoveFilterGen stop_mode(SilenceremoveFilterGenStop_mode stop_mod
 /// </summary>
 public SilenceremoveFilterGen detection(SilenceremoveFilterGenDetection detection) => this.SetOption("detection", detection.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set duration of window in seconds (from 0 to 10) (default 0.02)
+///  set duration of window for silence detection (default 0.02)
 /// </summary>
-public SilenceremoveFilterGen window(double window) => this.SetOptionRange("window", window,0,10);
+public SilenceremoveFilterGen window(TimeSpan window) => this.SetOptionRange("window",window,TimeSpan.Zero,TimeSpan.MaxValue);
 }
 /// <summary>
 /// </summary>

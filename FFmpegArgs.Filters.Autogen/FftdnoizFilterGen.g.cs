@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// T.. fftdnoiz          V->V       Denoise frames using 3D FFT.
+/// TSC fftdnoiz          V->V       Denoise frames using 3D FFT.
 /// </summary>
-public class FftdnoizFilterGen : ImageToImageFilter,ITimelineSupport
+public class FftdnoizFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal FftdnoizFilterGen(ImageMap input) : base("fftdnoiz",input) { AddMapOut(); }
 /// <summary>

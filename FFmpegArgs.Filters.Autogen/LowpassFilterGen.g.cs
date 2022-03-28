@@ -39,11 +39,11 @@ public LowpassFilterGen channels(ChannelLayout channels) => this.SetOption("chan
 /// </summary>
 public LowpassFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public LowpassFilterGen transform(LowpassFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public LowpassFilterGen a(LowpassFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -119,7 +119,7 @@ public enum LowpassFilterGenT
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum LowpassFilterGenTransform
 {
@@ -139,10 +139,14 @@ public enum LowpassFilterGenTransform
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum LowpassFilterGenA
 {
@@ -162,6 +166,10 @@ public enum LowpassFilterGenA
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>

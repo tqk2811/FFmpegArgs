@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ..C speechnorm        A->A       Speech Normalizer.
+/// T.C speechnorm        A->A       Speech Normalizer.
 /// </summary>
-public class SpeechnormFilterGen : AudioToAudioFilter,ICommandSupport
+public class SpeechnormFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal SpeechnormFilterGen(AudioMap input) : base("speechnorm",input) { AddMapOut(); }
 /// <summary>

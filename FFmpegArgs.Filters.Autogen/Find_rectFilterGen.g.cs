@@ -34,6 +34,10 @@ public Find_rectFilterGen xmax(int xmax) => this.SetOptionRange("xmax", xmax,0,I
 ///   (from 0 to INT_MAX) (default 0)
 /// </summary>
 public Find_rectFilterGen ymax(int ymax) => this.SetOptionRange("ymax", ymax,0,INT_MAX);
+/// <summary>
+///   (default false)
+/// </summary>
+public Find_rectFilterGen discard(bool discard) => this.SetOption("discard",discard.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

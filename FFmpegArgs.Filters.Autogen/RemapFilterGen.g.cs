@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// TS. remap             VVV->V     Remap pixels.
+/// .S. remap             VVV->V     Remap pixels.
 /// </summary>
-public class RemapFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
+public class RemapFilterGen : ImageToImageFilter,ISliceThreading
 {
 internal RemapFilterGen(params ImageMap[] inputs) : base("remap",inputs) { AddMapOut(); }
 /// <summary>

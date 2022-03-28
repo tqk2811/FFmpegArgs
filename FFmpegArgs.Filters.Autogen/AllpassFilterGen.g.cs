@@ -39,11 +39,11 @@ public AllpassFilterGen normalize(bool normalize) => this.SetOption("normalize",
 /// </summary>
 public AllpassFilterGen order(int order) => this.SetOptionRange("order", order,1,2);
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public AllpassFilterGen transform(AllpassFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public AllpassFilterGen a(AllpassFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -119,7 +119,7 @@ public enum AllpassFilterGenT
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum AllpassFilterGenTransform
 {
@@ -139,10 +139,14 @@ public enum AllpassFilterGenTransform
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 3) (default di)
+///  set transform type (from 0 to 4) (default di)
 /// </summary>
 public enum AllpassFilterGenA
 {
@@ -162,6 +166,10 @@ public enum AllpassFilterGenA
 /// latt            3            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
+/// <summary>
+/// svf             4            ..F.A...... state variable filter form
+/// </summary>
+[Name("svf")] svf,
 }
 
 /// <summary>

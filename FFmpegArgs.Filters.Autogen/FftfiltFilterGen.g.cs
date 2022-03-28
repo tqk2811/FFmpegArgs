@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// T.. fftfilt           V->V       Apply arbitrary expressions to pixels in frequency domain.
+/// TS. fftfilt           V->V       Apply arbitrary expressions to pixels in frequency domain.
 /// </summary>
-public class FftfiltFilterGen : ImageToImageFilter,ITimelineSupport
+public class FftfiltFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal FftfiltFilterGen(ImageMap input) : base("fftfilt",input) { AddMapOut(); }
 /// <summary>

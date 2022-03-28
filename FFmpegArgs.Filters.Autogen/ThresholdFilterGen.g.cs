@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// TS. threshold         VVVV->V    Threshold first video stream using other video streams.
+/// TSC threshold         VVVV->V    Threshold first video stream using other video streams.
 /// </summary>
-public class ThresholdFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
+public class ThresholdFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ThresholdFilterGen(params ImageMap[] inputs) : base("threshold",inputs) { AddMapOut(); }
 /// <summary>

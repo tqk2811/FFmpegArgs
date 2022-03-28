@@ -74,6 +74,14 @@ public Vpp_qsvFilterGen height(string height) => this.SetOption("height",height)
 ///  Output pixel format (default "same")
 /// </summary>
 public Vpp_qsvFilterGen format(string format) => this.SetOption("format",format);
+/// <summary>
+///  Internal parallelization depth, the higher the value the higher the latency. (from 0 to INT_MAX) (default 0)
+/// </summary>
+public Vpp_qsvFilterGen async_depth(int async_depth) => this.SetOptionRange("async_depth", async_depth,0,INT_MAX);
+/// <summary>
+///  scale mode: 0=auto, 1=low power, 2=high quality (from 0 to 2) (default 0)
+/// </summary>
+public Vpp_qsvFilterGen scale_mode(int scale_mode) => this.SetOptionRange("scale_mode", scale_mode,0,2);
 }
 /// <summary>
 /// </summary>

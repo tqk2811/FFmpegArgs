@@ -34,6 +34,10 @@ public DrawboxFilterGen thickness(string thickness) => this.SetOption("thickness
 ///  replace color &amp; alpha (default false)
 /// </summary>
 public DrawboxFilterGen replace(bool replace) => this.SetOption("replace",replace.ToFFmpegFlag());
+/// <summary>
+///  use datas from bounding box in side data
+/// </summary>
+public DrawboxFilterGen box_source(string box_source) => this.SetOption("box_source",box_source);
 }
 /// <summary>
 /// </summary>

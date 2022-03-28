@@ -27,7 +27,7 @@ public ColorspaceFilterGen primaries(ColorspaceFilterGenPrimaries primaries) => 
 /// </summary>
 public ColorspaceFilterGen trc(ColorspaceFilterGenTrc trc) => this.SetOption("trc", trc.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  Output pixel format (from -1 to 164) (default -1)
+///  Output pixel format (from -1 to 162) (default -1)
 /// </summary>
 public ColorspaceFilterGen format(ColorspaceFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -296,7 +296,7 @@ public enum ColorspaceFilterGenTrc
 }
 
 /// <summary>
-///  Output pixel format (from -1 to 164) (default -1)
+///  Output pixel format (from -1 to 162) (default -1)
 /// </summary>
 public enum ColorspaceFilterGenFormat
 {
@@ -305,11 +305,11 @@ public enum ColorspaceFilterGenFormat
 /// </summary>
 [Name("yuv420p")] yuv420p,
 /// <summary>
-/// yuv420p10       64           ..FV.......
+/// yuv420p10       62           ..FV.......
 /// </summary>
 [Name("yuv420p10")] yuv420p10,
 /// <summary>
-/// yuv420p12       125          ..FV.......
+/// yuv420p12       123          ..FV.......
 /// </summary>
 [Name("yuv420p12")] yuv420p12,
 /// <summary>
@@ -317,11 +317,11 @@ public enum ColorspaceFilterGenFormat
 /// </summary>
 [Name("yuv422p")] yuv422p,
 /// <summary>
-/// yuv422p10       66           ..FV.......
+/// yuv422p10       64           ..FV.......
 /// </summary>
 [Name("yuv422p10")] yuv422p10,
 /// <summary>
-/// yuv422p12       129          ..FV.......
+/// yuv422p12       127          ..FV.......
 /// </summary>
 [Name("yuv422p12")] yuv422p12,
 /// <summary>
@@ -329,11 +329,11 @@ public enum ColorspaceFilterGenFormat
 /// </summary>
 [Name("yuv444p")] yuv444p,
 /// <summary>
-/// yuv444p10       70           ..FV.......
+/// yuv444p10       68           ..FV.......
 /// </summary>
 [Name("yuv444p10")] yuv444p10,
 /// <summary>
-/// yuv444p12       133          ..FV.......
+/// yuv444p12       131          ..FV.......
 /// </summary>
 [Name("yuv444p12")] yuv444p12,
 }

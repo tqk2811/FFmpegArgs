@@ -14,6 +14,10 @@ public AfreqshiftFilterGen shift(double shift) => this.SetOptionRange("shift", s
 ///  set output level (from 0 to 1) (default 1)
 /// </summary>
 public AfreqshiftFilterGen level(double level) => this.SetOptionRange("level", level,0,1);
+/// <summary>
+///  set filter order (from 1 to 16) (default 8)
+/// </summary>
+public AfreqshiftFilterGen order(int order) => this.SetOptionRange("order", order,1,16);
 }
 /// <summary>
 /// </summary>

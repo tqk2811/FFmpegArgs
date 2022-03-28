@@ -30,6 +30,10 @@ public CodecviewFilterGen frame_type(CodecviewFilterGenFrame_type frame_type) =>
 ///  set frame types to visualize motion vectors of (default 0)
 /// </summary>
 public CodecviewFilterGen ft(CodecviewFilterGenFt ft) => this.SetOption("ft", ft.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set block partitioning structure to visualize (default false)
+/// </summary>
+public CodecviewFilterGen block(bool block) => this.SetOption("block",block.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

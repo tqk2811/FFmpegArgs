@@ -23,9 +23,9 @@ public AsoftclipFilterGen output(double output) => this.SetOptionRange("output",
 /// </summary>
 public AsoftclipFilterGen param(double param) => this.SetOptionRange("param", param,0.01,3);
 /// <summary>
-///  set oversample factor (from 1 to 32) (default 1)
+///  set oversample factor (from 1 to 64) (default 1)
 /// </summary>
-public AsoftclipFilterGen oversample(int oversample) => this.SetOptionRange("oversample", oversample,1,32);
+public AsoftclipFilterGen oversample(int oversample) => this.SetOptionRange("oversample", oversample,1,64);
 }
 /// <summary>
 /// </summary>

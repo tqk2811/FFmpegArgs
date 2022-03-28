@@ -127,6 +127,10 @@ public DrawtextFilterGen fix_bounds(bool fix_bounds) => this.SetOption("fix_boun
 /// </summary>
 public DrawtextFilterGen start_number(int start_number) => this.SetOptionRange("start_number", start_number,0,INT_MAX);
 /// <summary>
+///  the source of text
+/// </summary>
+public DrawtextFilterGen text_source(string text_source) => this.SetOption("text_source",text_source);
+/// <summary>
 ///  attempt to shape text before drawing (default true)
 /// </summary>
 public DrawtextFilterGen text_shaping(bool text_shaping) => this.SetOption("text_shaping",text_shaping.ToFFmpegFlag());

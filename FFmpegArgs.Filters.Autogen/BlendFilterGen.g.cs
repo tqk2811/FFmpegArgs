@@ -7,23 +7,23 @@ public class BlendFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreadin
 {
 internal BlendFilterGen(params ImageMap[] inputs) : base("blend",inputs) { AddMapOut(); }
 /// <summary>
-///  set component #0 blend mode (from 0 to 32) (default normal)
+///  set component #0 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public BlendFilterGen c0_mode(BlendFilterGenC0_mode c0_mode) => this.SetOption("c0_mode", c0_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set component #1 blend mode (from 0 to 32) (default normal)
+///  set component #1 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public BlendFilterGen c1_mode(BlendFilterGenC1_mode c1_mode) => this.SetOption("c1_mode", c1_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set component #2 blend mode (from 0 to 32) (default normal)
+///  set component #2 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public BlendFilterGen c2_mode(BlendFilterGenC2_mode c2_mode) => this.SetOption("c2_mode", c2_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set component #3 blend mode (from 0 to 32) (default normal)
+///  set component #3 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public BlendFilterGen c3_mode(BlendFilterGenC3_mode c3_mode) => this.SetOption("c3_mode", c3_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set blend mode for all components (from -1 to 32) (default -1)
+///  set blend mode for all components (from -1 to 39) (default -1)
 /// </summary>
 public BlendFilterGen all_mode(BlendFilterGenAll_mode all_mode) => this.SetOption("all_mode", all_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -77,7 +77,7 @@ public static class BlendFilterGenExtensions
 public static BlendFilterGen BlendFilterGen(this ImageMap input0, ImageMap input1) => new BlendFilterGen(input0, input1);
 }
 /// <summary>
-///  set component #0 blend mode (from 0 to 32) (default normal)
+///  set component #0 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public enum BlendFilterGenC0_mode
 {
@@ -221,10 +221,38 @@ public enum BlendFilterGenC0_mode
 /// xor             24           ..FV.....T.
 /// </summary>
 [Name("xor")] xor,
+/// <summary>
+/// softdifference  33           ..FV.....T.
+/// </summary>
+[Name("softdifference")] softdifference,
+/// <summary>
+/// geometric       34           ..FV.....T.
+/// </summary>
+[Name("geometric")] geometric,
+/// <summary>
+/// harmonic        35           ..FV.....T.
+/// </summary>
+[Name("harmonic")] harmonic,
+/// <summary>
+/// bleach          36           ..FV.....T.
+/// </summary>
+[Name("bleach")] bleach,
+/// <summary>
+/// stain           37           ..FV.....T.
+/// </summary>
+[Name("stain")] stain,
+/// <summary>
+/// interpolate     38           ..FV.....T.
+/// </summary>
+[Name("interpolate")] interpolate,
+/// <summary>
+/// hardoverlay     39           ..FV.....T.
+/// </summary>
+[Name("hardoverlay")] hardoverlay,
 }
 
 /// <summary>
-///  set component #1 blend mode (from 0 to 32) (default normal)
+///  set component #1 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public enum BlendFilterGenC1_mode
 {
@@ -368,10 +396,38 @@ public enum BlendFilterGenC1_mode
 /// xor             24           ..FV.....T.
 /// </summary>
 [Name("xor")] xor,
+/// <summary>
+/// softdifference  33           ..FV.....T.
+/// </summary>
+[Name("softdifference")] softdifference,
+/// <summary>
+/// geometric       34           ..FV.....T.
+/// </summary>
+[Name("geometric")] geometric,
+/// <summary>
+/// harmonic        35           ..FV.....T.
+/// </summary>
+[Name("harmonic")] harmonic,
+/// <summary>
+/// bleach          36           ..FV.....T.
+/// </summary>
+[Name("bleach")] bleach,
+/// <summary>
+/// stain           37           ..FV.....T.
+/// </summary>
+[Name("stain")] stain,
+/// <summary>
+/// interpolate     38           ..FV.....T.
+/// </summary>
+[Name("interpolate")] interpolate,
+/// <summary>
+/// hardoverlay     39           ..FV.....T.
+/// </summary>
+[Name("hardoverlay")] hardoverlay,
 }
 
 /// <summary>
-///  set component #2 blend mode (from 0 to 32) (default normal)
+///  set component #2 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public enum BlendFilterGenC2_mode
 {
@@ -515,10 +571,38 @@ public enum BlendFilterGenC2_mode
 /// xor             24           ..FV.....T.
 /// </summary>
 [Name("xor")] xor,
+/// <summary>
+/// softdifference  33           ..FV.....T.
+/// </summary>
+[Name("softdifference")] softdifference,
+/// <summary>
+/// geometric       34           ..FV.....T.
+/// </summary>
+[Name("geometric")] geometric,
+/// <summary>
+/// harmonic        35           ..FV.....T.
+/// </summary>
+[Name("harmonic")] harmonic,
+/// <summary>
+/// bleach          36           ..FV.....T.
+/// </summary>
+[Name("bleach")] bleach,
+/// <summary>
+/// stain           37           ..FV.....T.
+/// </summary>
+[Name("stain")] stain,
+/// <summary>
+/// interpolate     38           ..FV.....T.
+/// </summary>
+[Name("interpolate")] interpolate,
+/// <summary>
+/// hardoverlay     39           ..FV.....T.
+/// </summary>
+[Name("hardoverlay")] hardoverlay,
 }
 
 /// <summary>
-///  set component #3 blend mode (from 0 to 32) (default normal)
+///  set component #3 blend mode (from 0 to 39) (default normal)
 /// </summary>
 public enum BlendFilterGenC3_mode
 {
@@ -662,10 +746,38 @@ public enum BlendFilterGenC3_mode
 /// xor             24           ..FV.....T.
 /// </summary>
 [Name("xor")] xor,
+/// <summary>
+/// softdifference  33           ..FV.....T.
+/// </summary>
+[Name("softdifference")] softdifference,
+/// <summary>
+/// geometric       34           ..FV.....T.
+/// </summary>
+[Name("geometric")] geometric,
+/// <summary>
+/// harmonic        35           ..FV.....T.
+/// </summary>
+[Name("harmonic")] harmonic,
+/// <summary>
+/// bleach          36           ..FV.....T.
+/// </summary>
+[Name("bleach")] bleach,
+/// <summary>
+/// stain           37           ..FV.....T.
+/// </summary>
+[Name("stain")] stain,
+/// <summary>
+/// interpolate     38           ..FV.....T.
+/// </summary>
+[Name("interpolate")] interpolate,
+/// <summary>
+/// hardoverlay     39           ..FV.....T.
+/// </summary>
+[Name("hardoverlay")] hardoverlay,
 }
 
 /// <summary>
-///  set blend mode for all components (from -1 to 32) (default -1)
+///  set blend mode for all components (from -1 to 39) (default -1)
 /// </summary>
 public enum BlendFilterGenAll_mode
 {
@@ -809,6 +921,34 @@ public enum BlendFilterGenAll_mode
 /// xor             24           ..FV.....T.
 /// </summary>
 [Name("xor")] xor,
+/// <summary>
+/// softdifference  33           ..FV.....T.
+/// </summary>
+[Name("softdifference")] softdifference,
+/// <summary>
+/// geometric       34           ..FV.....T.
+/// </summary>
+[Name("geometric")] geometric,
+/// <summary>
+/// harmonic        35           ..FV.....T.
+/// </summary>
+[Name("harmonic")] harmonic,
+/// <summary>
+/// bleach          36           ..FV.....T.
+/// </summary>
+[Name("bleach")] bleach,
+/// <summary>
+/// stain           37           ..FV.....T.
+/// </summary>
+[Name("stain")] stain,
+/// <summary>
+/// interpolate     38           ..FV.....T.
+/// </summary>
+[Name("interpolate")] interpolate,
+/// <summary>
+/// hardoverlay     39           ..FV.....T.
+/// </summary>
+[Name("hardoverlay")] hardoverlay,
 }
 
 }

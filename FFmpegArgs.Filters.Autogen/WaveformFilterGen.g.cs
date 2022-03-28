@@ -74,6 +74,14 @@ public WaveformFilterGen tint1(float tint1) => this.SetOptionRange("tint1", tint
 ///  set 2nd tint (from -1 to 1) (default 0)
 /// </summary>
 public WaveformFilterGen t1(float t1) => this.SetOptionRange("t1", t1,-1,1);
+/// <summary>
+///  set fit mode (from 0 to 1) (default none)
+/// </summary>
+public WaveformFilterGen fitmode(WaveformFilterGenFitmode fitmode) => this.SetOption("fitmode", fitmode.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set fit mode (from 0 to 1) (default none)
+/// </summary>
+public WaveformFilterGen fm(WaveformFilterGenFm fm) => this.SetOption("fm", fm.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -235,6 +243,36 @@ public enum WaveformFilterGenScale
 /// ire             2            ..FV.......
 /// </summary>
 [Name("ire")] ire,
+}
+
+/// <summary>
+///  set fit mode (from 0 to 1) (default none)
+/// </summary>
+public enum WaveformFilterGenFitmode
+{
+/// <summary>
+/// none            0            ..FV.......
+/// </summary>
+[Name("none")] none,
+/// <summary>
+/// size            1            ..FV.......
+/// </summary>
+[Name("size")] size,
+}
+
+/// <summary>
+///  set fit mode (from 0 to 1) (default none)
+/// </summary>
+public enum WaveformFilterGenFm
+{
+/// <summary>
+/// none            0            ..FV.......
+/// </summary>
+[Name("none")] none,
+/// <summary>
+/// size            1            ..FV.......
+/// </summary>
+[Name("size")] size,
 }
 
 }

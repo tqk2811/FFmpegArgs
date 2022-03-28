@@ -27,6 +27,10 @@ public PaletteuseFilterGen _new(bool _new) => this.SetOption("new",_new.ToFFmpeg
 /// </summary>
 public PaletteuseFilterGen alpha_threshold(int alpha_threshold) => this.SetOptionRange("alpha_threshold", alpha_threshold,0,255);
 /// <summary>
+///  use alpha channel for mapping (default false)
+/// </summary>
+public PaletteuseFilterGen use_alpha(bool use_alpha) => this.SetOption("use_alpha",use_alpha.ToFFmpegFlag());
+/// <summary>
 ///  save Graphviz graph of the kdtree in specified file
 /// </summary>
 public PaletteuseFilterGen debug_kdtree(string debug_kdtree) => this.SetOption("debug_kdtree",debug_kdtree);
