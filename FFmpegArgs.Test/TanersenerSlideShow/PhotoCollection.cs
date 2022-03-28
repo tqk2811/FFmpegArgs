@@ -88,7 +88,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             
             Random random = new Random();
             var background = ffmpegArg.AddVideoInput(
-                new FilterInput($"color={config.BackgroundColor.ToHexStringRGBA()}:s={config.Size.Width}x{config.Size.Height},fps={config.Fps}"),1,0)
+                new FilterStringInput($"color={config.BackgroundColor.ToHexStringRGBA()}:s={config.Size.Width}x{config.Size.Height},fps={config.Fps}"),1,0)
                 .ImageMaps.First().TrimFilter().Duration(TOTAL_DURATION).MapOut;
             var lastOverLay = background;
             images_inputmap = images_inputmap.InputScreenMode(ScreenMode.Center, config);
