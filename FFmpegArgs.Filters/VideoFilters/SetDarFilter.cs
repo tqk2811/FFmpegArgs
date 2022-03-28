@@ -55,6 +55,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public SetDarFilter Max(int max)
           => this.SetOptionRange("max", max, 1, INT_MAX);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class SetDarFilterExtension
     {
         /// <summary>

@@ -83,7 +83,7 @@
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static string ToHexSubStringRGB(this Color color) => $"&H{color.R.ToString("X2")}{color.G.ToString("X2")}{color.B.ToString("X2")}";
+        public static string ToHexSubStringBGR(this Color color) => $"&H{color.B.ToString("X2")}{color.G.ToString("X2")}{color.R.ToString("X2")}";
     }
     /// <summary>
     /// http://www.tcax.org/docs/ass-specs.htm
@@ -191,10 +191,10 @@
             if (!string.IsNullOrWhiteSpace(Name)) pairs[nameof(Name)] = Name;
             if (!string.IsNullOrWhiteSpace(Fontname)) pairs[nameof(Fontname)] = Fontname;
             if (Fontsize != null) pairs[nameof(Fontsize)] = Fontsize.Value.ToString();
-            if (PrimaryColour != null) pairs[nameof(PrimaryColour)] = PrimaryColour.Value.ToHexSubStringRGB();
-            if (SecondaryColour != null) pairs[nameof(SecondaryColour)] = SecondaryColour.Value.ToHexSubStringRGB();
-            if (OutlineColor != null) pairs[nameof(OutlineColor)] = OutlineColor.Value.ToHexSubStringRGB();
-            if (BackColour != null) pairs[nameof(BackColour)] = BackColour.Value.ToHexSubStringRGB();
+            if (PrimaryColour != null) pairs[nameof(PrimaryColour)] = PrimaryColour.Value.ToHexSubStringBGR();
+            if (SecondaryColour != null) pairs[nameof(SecondaryColour)] = SecondaryColour.Value.ToHexSubStringBGR();
+            if (OutlineColor != null) pairs[nameof(OutlineColor)] = OutlineColor.Value.ToHexSubStringBGR();
+            if (BackColour != null) pairs[nameof(BackColour)] = BackColour.Value.ToHexSubStringBGR();
             if (Bold != null) pairs[nameof(Bold)] = (Bold.Value ? -1 : 0).ToString();
             if (Italic != null) pairs[nameof(Italic)] = (Italic.Value ? -1 : 0).ToString();
             if (Underline != null) pairs[nameof(Underline)] = (Underline.Value ? -1 : 0).ToString();

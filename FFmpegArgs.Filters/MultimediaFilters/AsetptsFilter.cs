@@ -49,7 +49,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
         /// <returns></returns>
-        public static AsetptsFilter SetAPtsFilter(this AudioMap audioMap, Action<FFmpegExpression> expr)
+        public static AsetptsFilter AsetptsFilter(this AudioMap audioMap, Action<FFmpegExpression> expr)
         {
             return new AsetptsFilter(expr, audioMap);
         }
@@ -59,7 +59,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
         /// <returns></returns>
-        public static AsetptsFilter SetAPtsFilter(this AudioMap audioMap, string expr)
+        public static AsetptsFilter AsetptsFilter(this AudioMap audioMap, string expr)
         {
             return new AsetptsFilter(expr.Expression(), audioMap);
         }

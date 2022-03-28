@@ -21,7 +21,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="shift"></param>
         /// <returns></returns>
-        public DcshiftFilter SetShift(double shift)
+        public DcshiftFilter Shift(double shift)
             => this.SetOptionRange("shift", shift, -1, 1);
         /// <summary>
         /// Optional. It should have a value much less than 1 (e.g. 0.05 or 0.02) and is used to prevent clipping. (default 0)

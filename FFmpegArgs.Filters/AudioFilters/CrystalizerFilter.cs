@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public CrystalizerFilter SetIntensity(float i)
+        public CrystalizerFilter Intensity(float i)
             => this.SetOptionRange("i", i, -10, 10);
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public CrystalizerFilter SetClipping(bool c)
+        public CrystalizerFilter Clipping(bool c)
             => this.SetOption("c", c.ToFFmpegFlag());
     }
     /// <summary>
