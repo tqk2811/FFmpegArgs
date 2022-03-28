@@ -9,7 +9,7 @@
             string outputFileName = $"{nameof(TestStringEscape)}.mp4";
             string filterFileName = $"{nameof(TestStringEscape)}.txt";
             FFplayArg ffplayArg = new FFplayArg();
-            FilterInput filterInput = new FilterInput();
+            FilterGraphInput filterInput = new FilterGraphInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280, 720)).MapOut
                 .FpsFilter().Fps(25);
             var videos = ffplayArg.AddVideoInput(filterInput, 1, 0);

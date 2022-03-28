@@ -14,7 +14,7 @@ namespace FFmpegArgs.Test.FilterTest
             int y = 500;
             FFmpegArg ffmpegArg = new FFmpegArg();
             ffmpegArg.OverWriteOutput();
-            FilterInput filterInput = new FilterInput();
+            FilterGraphInput filterInput = new FilterGraphInput();
             filterInput.FilterGraph
                 .ColorFilter().Color(Color.Red).Size(videoSize).MapOut
                 .FpsFilter().Fps(fps);

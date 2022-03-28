@@ -25,10 +25,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-            FilterInput background_fi = new FilterInput();
+            FilterGraphInput background_fi = new FilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap background = ffmpegArg.AddVideoInput(background_fi);
-            FilterInput transparent_fi = new FilterInput();
+            FilterGraphInput transparent_fi = new FilterGraphInput();
             transparent_fi.FilterGraph.NullsrcFilter().Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap transparent = ffmpegArg.AddVideoInput(transparent_fi);
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
@@ -143,10 +143,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-            FilterInput background_fi = new FilterInput();
+            FilterGraphInput background_fi = new FilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap background = ffmpegArg.AddVideoInput(background_fi);
-            FilterInput transparent_fi = new FilterInput();
+            FilterGraphInput transparent_fi = new FilterGraphInput();
             transparent_fi.FilterGraph.NullsrcFilter().Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             VideoMap transparent = ffmpegArg.AddVideoInput(transparent_fi);
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);

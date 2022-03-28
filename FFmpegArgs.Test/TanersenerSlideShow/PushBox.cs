@@ -30,7 +30,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             TOTAL_DURATION = config.ImageDuration * images_inputmap.Count + (29 * config.TransitionDuration * images_inputmap.Count + 5 * config.TransitionDuration) / 10;
             var TRANSITION_PHASE_DURATION = config.TransitionDuration / 2;
             var CHECKPOINT_DURATION = config.TransitionDuration / 5;
-            FilterInput background_fi = new FilterInput();
+            FilterGraphInput background_fi = new FilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             ImageMap background = ffmpegArg.AddVideoInput(background_fi).ImageMaps.First();
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
@@ -166,7 +166,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             TOTAL_DURATION = config.ImageDuration * images_inputmap.Count + (29 * config.TransitionDuration * images_inputmap.Count + 5 * config.TransitionDuration) / 10;
             var TRANSITION_PHASE_DURATION = config.TransitionDuration / 2;
             var CHECKPOINT_DURATION = config.TransitionDuration / 5;
-            FilterInput background_fi = new FilterInput();
+            FilterGraphInput background_fi = new FilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
             ImageMap background = ffmpegArg.AddVideoInput(background_fi).ImageMaps.First();
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);

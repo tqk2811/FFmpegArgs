@@ -67,7 +67,7 @@
             string outputFileName = $"{nameof(TestFilterInput)}.mp4";
             string filterFileName = $"{nameof(TestFilterInput)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-            FilterInput filterInput = new FilterInput();
+            FilterGraphInput filterInput = new FilterGraphInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280,720)).MapOut
                 .FpsFilter().Fps(25);
             filterInput.FilterGraph.ColorFilter().Color(Color.Green).Size(new Size(1280/2, 720/2)).MapOut
@@ -84,7 +84,7 @@
             string outputFileName = $"{nameof(TestStringEscape)}.mp4";
             string filterFileName = $"{nameof(TestStringEscape)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-            FilterInput filterInput = new FilterInput();
+            FilterGraphInput filterInput = new FilterGraphInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280, 720)).MapOut
                 .FpsFilter().Fps(25);
             var videos = ffmpegArg.AddVideoInput(filterInput, 1, 0);
