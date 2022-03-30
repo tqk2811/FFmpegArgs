@@ -42,6 +42,39 @@ var renderResult = ffmpegArg
 ```
 For more example, see `FFmpegArgs.Test`  
 
+----------------------------------------
++ Option/Flag not found?  
+
+We can extend for `FFmpegArg`, `Filter`, `Input`, `Output` by extension.  
+
+`.SetOption("your option","option value")`  
+`.SetOptionRange("your option", val, min, max)`  
+`.SetFlag("your flag")`  
+
++ Filter not found?  
+
+We can write new Filter class, so much example in `FFmpegArgs.Filters`  
+
+Pull request or request missing feature are welcome.
+
+----------------------------------------
+namespace for extension
+```csharp
+FFmpegArgs;
+FFmpegArgs.Cores;
+FFmpegArgs.Cores.Enums;
+FFmpegArgs.Cores.Exceptions;
+FFmpegArgs.Cores.Inputs;
+FFmpegArgs.Cores.Filters;
+FFmpegArgs.Cores.Maps;
+
+FFmpegArgs.Filters;
+FFmpegArgs.Filters.*all child namespace*;
+
+FFmpegArgs.Executes;
+FFmpegArgs.Inputs;
+FFmpegArgs.Outputs;
+```
 ________________________________________
 
 # LICENCE  
