@@ -58,7 +58,7 @@ We can write new Filter class, so much example in `FFmpegArgs.Filters`
 Pull request or request missing feature are welcome.
 
 ----------------------------------------
-namespace for extension
+Recommend namespace for extension  
 ```csharp
 FFmpegArgs;
 FFmpegArgs.Cores;
@@ -69,11 +69,22 @@ FFmpegArgs.Cores.Filters;
 FFmpegArgs.Cores.Maps;
 
 FFmpegArgs.Filters;
-FFmpegArgs.Filters.*all child namespace*;
+FFmpegArgs.Filters.Exceptions;
+FFmpegArgs.Filters.Attributes;
+FFmpegArgs.Filters.Expressions;
+FFmpegArgs.Filters.FilterGraphs;
+
+FFmpegArgs.Filters.AudioFilters;
+FFmpegArgs.Filters.VideoFilters;
+FFmpegArgs.Filters.MultimediaFilters;
+FFmpegArgs.Filters.VideoSources;
+FFmpegArgs.Filters.AudioSources;
+//FFmpegArgs.Filters.Autogens;
 
 FFmpegArgs.Executes;
 FFmpegArgs.Inputs;
 FFmpegArgs.Outputs;
+
 ```
 ________________________________________
 
