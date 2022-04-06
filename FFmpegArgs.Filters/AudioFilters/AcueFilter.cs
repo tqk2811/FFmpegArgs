@@ -1,8 +1,8 @@
 ﻿/*
-acue AVOptions:
-  cue               <int64>      ..FVA...... cue unix timestamp in microseconds (from 0 to I64_MAX) (default 0)
-  preroll           <duration>   ..FVA...... preroll duration in seconds (default 0)
-  buffer            <duration>   ..FVA...... buffer duration in seconds (default 0)
+(a)cue AVOptions:
+   cue               <int64>      ..FVA...... cue unix timestamp in microseconds (from 0 to I64_MAX) (default 0)
+   preroll           <duration>   ..FVA...... preroll duration in seconds (default 0)
+   buffer            <duration>   ..FVA...... buffer duration in seconds (default 0)
  */
 namespace FFmpegArgs.Filters.AudioFilters
 {

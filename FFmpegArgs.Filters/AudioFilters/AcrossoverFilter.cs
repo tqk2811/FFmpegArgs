@@ -45,10 +45,10 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// set output bands gain (default "1.f")
         /// </summary>
-        /// <param name="gains"></param>
+        /// <param name="gain"></param>
         /// <returns></returns>
-        public AcrossoverFilter Gains(string gains)
-           => this.SetOption("gains", gains);
+        public AcrossoverFilter Gain(string gain)
+           => this.SetOption("gain", gain);
     }
     /// <summary>
     /// 

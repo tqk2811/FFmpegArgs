@@ -72,7 +72,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="burst"></param>
         /// <returns></returns>
         public AdeclipFilter Hsize(int burst)
-          => this.SetOptionRange("n", burst, 0, 10);
+          => this.SetOptionRange("n", burst, 100, 9999);
         /// <summary>
         /// Set overlap method.
         /// </summary>

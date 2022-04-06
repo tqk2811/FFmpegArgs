@@ -1,4 +1,10 @@
-﻿namespace FFmpegArgs.Filters.VideoFilters
+﻿/*
+(a)cue AVOptions:
+   cue               <int64>      ..FVA...... cue unix timestamp in microseconds (from 0 to I64_MAX) (default 0)
+   preroll           <duration>   ..FVA...... preroll duration in seconds (default 0)
+   buffer            <duration>   ..FVA...... buffer duration in seconds (default 0)
+ */
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... cue               V->V       Delay filtering to match a cue.<br></br>
@@ -16,11 +22,11 @@
         /// <param name="cue"></param>
         /// <returns></returns>
         public CueFilter Cue(long cue)
-            => this.SetOptionRange("cue", cue, 0, long.MaxValue);
+            => this.SetOptionRange("cue", cue, 0, I64_MAX);
         /// <summary>
         /// The duration of content to pass on as preroll expressed in seconds. Default is 0.
         /// </summary>
-        /// <param name="cue"></param>
+        /// <param name="preroll"></param>
         /// <returns></returns>
         public CueFilter Preroll(TimeSpan preroll)
             => this.SetOptionRange("preroll", preroll, TimeSpan.Zero, TimeSpan.MaxValue);
@@ -32,6 +38,10 @@
         public CueFilter Buffer(TimeSpan buffer)
             => this.SetOptionRange("buffer", buffer, TimeSpan.Zero, TimeSpan.MaxValue);
     }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public static class CueFilterExtensions
     {
         /// <summary>

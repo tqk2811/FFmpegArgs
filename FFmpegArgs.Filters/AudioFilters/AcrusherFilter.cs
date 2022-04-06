@@ -97,7 +97,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AcrusherFilter LfoRange(double lforange)
         => this.SetOptionRange("lforange", lforange, 1, 250);
         /// <summary>
-        /// Set LFO rate.
+        /// Set LFO rate. (from 0.01 to 200) (default 0.3)
         /// </summary>
         /// <param name="lforate"></param>
         /// <returns></returns>
