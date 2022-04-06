@@ -56,7 +56,7 @@ namespace FFmpegArgs.Filters.VideoFilters
     /// .S. xfade             VV->V      Cross fade one video with another video.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#xfade
     /// </summary>
-    public class XfadeFilder : ImageToImageFilter, ISliceThreading
+    public class XfadeFilter : ImageToImageFilter, ISliceThreading
     {
         static readonly IEnumerable<string> _variables = new string[]
         {
@@ -75,7 +75,7 @@ namespace FFmpegArgs.Filters.VideoFilters
             new ShuntingYardFunction("b3","b3_2"),
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables, _functions);
-        internal XfadeFilder(params ImageMap[] imageMaps) : base("xfade", imageMaps)
+        internal XfadeFilter(params ImageMap[] imageMaps) : base("xfade", imageMaps)
         {
             AddMapOut();
         }
@@ -84,7 +84,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="transition"></param>
         /// <returns></returns>
-        public XfadeFilder Transition(XfadeTransition transition)
+        public XfadeFilter Transition(XfadeTransition transition)
             => this.SetOption("transition", transition);
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="duration"></param>
         /// <returns></returns>
-        public XfadeFilder Duration(TimeSpan duration)
+        public XfadeFilter Duration(TimeSpan duration)
             => this.SetOptionRange("duration", duration, TimeSpan.Zero, TimeSpan.FromMinutes(1));
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="offset"></param>
         /// <returns></returns>
-        public XfadeFilder Offset(TimeSpan offset)
+        public XfadeFilter Offset(TimeSpan offset)
             => this.SetOptionRange("offset", offset, TimeSpan.Zero, TimeSpan.MaxValue);
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public XfadeFilder Expr(string expr)
+        public XfadeFilter Expr(string expr)
             => this.Expr(expr.Expression());
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public XfadeFilder Expr(Action<FFmpegExpression> expr)
+        public XfadeFilter Expr(Action<FFmpegExpression> expr)
             => this.SetOption("expr", expr.Run(expression));
     }
     /// <summary>
@@ -128,18 +128,18 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// Apply cross fade from one input video stream to another input video stream. The cross fade is applied for specified duration.<br>
         /// </br>Both inputs must be constant frame-rate and have the same resolution, pixel format, frame rate and timebase.
         /// </summary>
-        public static XfadeFilder XfadeFilder(this ImageMap imageMap, ImageMap imageMap1)
-          => new XfadeFilder(imageMap, imageMap1);
+        public static XfadeFilter XfadeFilder(this ImageMap imageMap, ImageMap imageMap1)
+          => new XfadeFilter(imageMap, imageMap1);
         
         /// <summary>
         /// Apply cross fade from one input video stream to another input video stream. The cross fade is applied for specified duration.<br>
         /// </br>Both inputs must be constant frame-rate and have the same resolution, pixel format, frame rate and timebase.
         /// </summary>
-        public static XfadeFilder XfadeFilder(this IEnumerable<ImageMap> imageMaps)
+        public static XfadeFilter XfadeFilder(this IEnumerable<ImageMap> imageMaps)
         {
             var arr = imageMaps.ToArray();
             if (arr.Length != 2) throw new ArgumentException("XfadeFilder must have 2 inputs");
-            return new XfadeFilder(arr);
+            return new XfadeFilter(arr);
         }
     }
 
