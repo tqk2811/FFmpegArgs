@@ -22,6 +22,10 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AcontrastFilter Contrast(float contrast)
             => this.SetOptionRange("contrast", contrast, 0, 100);
     }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AcontrastFilterExtension
     {
         /// <summary>

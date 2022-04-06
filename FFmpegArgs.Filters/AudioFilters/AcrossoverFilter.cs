@@ -47,8 +47,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="gains"></param>
         /// <returns></returns>
-        public AcrossoverFilter Gains(string gains)
-           => this.SetOption("gains", gains);
+        public AcrossoverFilter Gain(string gains)
+           => this.SetOption("gain", gains);
     }
     /// <summary>
     /// 
