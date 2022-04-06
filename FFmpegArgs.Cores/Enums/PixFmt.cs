@@ -50,9 +50,7 @@
         bgr565le,
         bgr555be,
         bgr555le,
-        vaapi_moco,
-        vaapi_idct,
-        vaapi_vld,
+        vaapi,
         yuv420p16le,
         yuv420p16be,
         yuv422p16le,
@@ -202,6 +200,18 @@
         vulkan,
         y210be,
         y210le,
+        x2rgb10le,
+        x2rgb10be,
+        x2bgr10le,
+        x2bgr10be,
+        p210be,
+        p210le,
+        p410be,
+        p410le,
+        p216be,
+        p216le,
+        p416be,
+        p416le
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
