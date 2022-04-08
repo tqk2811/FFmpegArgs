@@ -60,30 +60,31 @@ Pull request or request missing feature are welcome.
 ----------------------------------------
 Recommend namespace for extension  
 ```csharp
-FFmpegArgs;
-FFmpegArgs.Cores;
-FFmpegArgs.Cores.Enums;
-FFmpegArgs.Cores.Exceptions;
-FFmpegArgs.Cores.Inputs;
-FFmpegArgs.Cores.Filters;
-FFmpegArgs.Cores.Maps;
+using FFmpegArgs;
+using FFmpegArgs.Cores;
+using FFmpegArgs.Cores.Enums;
+using FFmpegArgs.Cores.Exceptions;
+using FFmpegArgs.Cores.Inputs;
+using FFmpegArgs.Cores.Filters;
+using FFmpegArgs.Cores.Maps;
 
-FFmpegArgs.Filters;
-FFmpegArgs.Filters.Exceptions;
-FFmpegArgs.Filters.Attributes;
-FFmpegArgs.Filters.Expressions;
-FFmpegArgs.Filters.FilterGraphs;
+using FFmpegArgs.Filters;
+using FFmpegArgs.Filters.Exceptions;
+using FFmpegArgs.Filters.Attributes;
+using FFmpegArgs.Filters.Expressions;
+using FFmpegArgs.Filters.FilterGraphs;
 
-FFmpegArgs.Filters.AudioFilters;
-FFmpegArgs.Filters.VideoFilters;
-FFmpegArgs.Filters.MultimediaFilters;
-FFmpegArgs.Filters.VideoSources;
-FFmpegArgs.Filters.AudioSources;
-//FFmpegArgs.Filters.Autogens;
+using FFmpegArgs.Filters.AudioFilters;
+using FFmpegArgs.Filters.VideoFilters;
+using FFmpegArgs.Filters.MultimediaFilters;
+using FFmpegArgs.Filters.VideoSources;
+using FFmpegArgs.Filters.AudioSources;
+//using FFmpegArgs.Filters.Autogens;
 
-FFmpegArgs.Executes;
-FFmpegArgs.Inputs;
-FFmpegArgs.Outputs;
+using FFmpegArgs.Executes;
+using FFmpegArgs.Inputs;
+using FFmpegArgs.Outputs;
+
 
 ```
 ________________________________________
