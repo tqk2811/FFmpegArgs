@@ -26,5 +26,15 @@
         /// <returns></returns>
         public static FFmpegRender Render(this IFFmpegArg ffmpegArg, Action<FFmpegRenderConfig> config) => FFmpegRender.FromArguments(ffmpegArg, config);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static async Task<FFmpegRenderResult> EnsureSuccessAsync(this Task<FFmpegRenderResult> t)
+        {
+            FFmpegRenderResult result = await t.ConfigureAwait(false);
+            return result.EnsureSuccess();
+        }
     }
 }

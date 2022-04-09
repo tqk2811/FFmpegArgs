@@ -126,7 +126,7 @@
         /// 
         /// </summary>
         /// <param name="onEncodingProgress"></param>
-        /// <param name="token"></param>
+        /// <param name="token">Trigger kill process</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public FFmpegRenderResult Execute(Action<RenderProgress> onEncodingProgress, CancellationToken token = default)
@@ -138,7 +138,7 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">Trigger kill process</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
@@ -168,7 +168,7 @@
         /// 
         /// </summary>
         /// <param name="onEncodingProgress"></param>
-        /// <param name="token"></param>
+        /// <param name="token">Trigger kill process</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
@@ -181,7 +181,7 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="token"></param>
+        /// <param name="token">Trigger kill process</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
