@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{562D25
 		.other\NotAutoGen_window.txt = .other\NotAutoGen_window.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Cores.Codecs", "FFmpegArgs.Cores.Codecs\FFmpegArgs.Cores.Codecs.csproj", "{F86FC939-AF6A-4889-866F-2677A628E36A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,10 @@ Global
 		{C0982E11-13D7-49C5-A452-CF5CECACA2B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0982E11-13D7-49C5-A452-CF5CECACA2B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0982E11-13D7-49C5-A452-CF5CECACA2B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86FC939-AF6A-4889-866F-2677A628E36A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86FC939-AF6A-4889-866F-2677A628E36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86FC939-AF6A-4889-866F-2677A628E36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86FC939-AF6A-4889-866F-2677A628E36A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
