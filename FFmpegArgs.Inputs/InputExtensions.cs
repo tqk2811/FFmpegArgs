@@ -14,8 +14,9 @@
         /// <returns></returns>
         public static T Format<T>(this T t, DemuxingFileFormat format) where T : BaseInput
             => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
+
         /// <summary>
-        /// 
+        /// Set number of times input stream shall be looped. Loop 0 means no loop, loop -1 means infinite loop.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="baseInput"></param>
@@ -23,10 +24,7 @@
         /// <returns></returns>
         /// <exception cref="InvalidRangeException"></exception>
         public static T StreamLoop<T>(this T baseInput, int number) where T : BaseInput
-        {
-            if (number < -1) throw new InvalidRangeException($"{nameof(number)} should be >= -1");
-            return baseInput.SetOption("-stream_loop", number.ToString());
-        }
+            => baseInput.SetOptionRange("-stream_loop", number, -1, int.MaxValue);
 
         /// <summary>
         /// 
