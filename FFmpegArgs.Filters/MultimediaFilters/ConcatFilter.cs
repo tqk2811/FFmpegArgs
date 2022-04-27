@@ -42,12 +42,14 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         public ConcatFilter(params ConcatGroup[] concatGroups)
           : base("concat", concatGroups.SelectMany(x => x.AllMaps).ToArray())
         {
-            if (concatGroups.Length < 2) throw new ArgumentException("concatGroups.Length < 2");
+            if (concatGroups == null || concatGroups.Length < 1) throw new ArgumentNullException(nameof(concatGroups));
             //check input are same;
             var video_counts = concatGroups.GroupBy(x => x.ImageMaps.Count);
             if (video_counts.Count() != 1) throw new ArgumentException("Number of image per group are not same");
             var audio_counts = concatGroups.GroupBy(x => x.AudioMaps.Count);
             if (audio_counts.Count() != 1) throw new ArgumentException("Number of audio per group are not same");
+
+            
             int index = 0;
             foreach (var img in concatGroups.First().ImageMaps)
             {
@@ -55,6 +57,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
                 _mapsOut.Add(imageMap);
                 _imageMapsOut.Add(imageMap);
             }
+            
             index = 0;
             foreach (var img in concatGroups.First().AudioMaps)
             {
@@ -62,6 +65,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
                 _mapsOut.Add(audioMap);
                 _audioMapsOut.Add(audioMap);
             }
+            
+            
             this.SetOption("n", concatGroups.Length);
             this.SetOption("v", concatGroups.First().ImageMaps.Count);
             this.SetOption("a", concatGroups.First().AudioMaps.Count);
