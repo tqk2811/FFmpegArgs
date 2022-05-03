@@ -40,7 +40,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class AnoisesrcFilter : SourceAudioFilter
     {
-        internal AnoisesrcFilter(BaseFilterGraph filterGraph) : base("anoisesrc", filterGraph)
+        internal AnoisesrcFilter(IAudioFilterGraph filterGraph) : base("anoisesrc", filterGraph)
         {
             AddMapOut();
         }
@@ -98,7 +98,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AnoisesrcFilter AnoisesrcFilter(this BaseFilterGraph filterGraph)
+        public static AnoisesrcFilter AnoisesrcFilter(this IAudioFilterGraph filterGraph)
           => new AnoisesrcFilter(filterGraph);
     }
 

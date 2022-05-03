@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class AbufferFilter : SourceAudioFilter
     {
-        internal AbufferFilter(BaseFilterGraph filterGraph) : base("abuffer", filterGraph)
+        internal AbufferFilter(IAudioFilterGraph filterGraph) : base("abuffer", filterGraph)
         {
             AddMapOut();
         }
@@ -67,7 +67,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AbufferFilter AbufferFilter(this BaseFilterGraph filterGraph)
+        public static AbufferFilter AbufferFilter(this IAudioFilterGraph filterGraph)
           => new AbufferFilter(filterGraph);
     }
 }

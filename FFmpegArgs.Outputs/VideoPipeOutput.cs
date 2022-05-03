@@ -14,7 +14,8 @@
         /// <param name="audioMap"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public VideoPipeOutput(Stream streamOutput, MuxingFileFormat format, ImageMap imageMap, AudioMap audioMap) : base(imageMap, audioMap)
+        public VideoPipeOutput(Stream streamOutput, MuxingFileFormat format, ImageMap imageMap, AudioMap audioMap)
+            : base(new List<ImageMap>() { imageMap }, new List<AudioMap>() { audioMap })
         {
             PipeStream = streamOutput ?? throw new ArgumentNullException(nameof(streamOutput));
             if (!streamOutput.CanWrite) throw new InvalidOperationException("input stream.CanWrite is required");
@@ -34,11 +35,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
-                "-map",
-                ImageMap.IsInput ? ImageMap.MapName : $"[{ImageMap.MapName}]",
-                "-map",
-                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
+                GetAVStreamArg(),
+                GetFlagArgs(),
+                GetOptionArgs(),
                 $"pipe:{StdOut}"
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

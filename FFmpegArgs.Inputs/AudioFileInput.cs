@@ -9,9 +9,8 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="filePath"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public AudioFileInput(string filePath)
+        public AudioFileInput(string filePath, int streamCount = 1) : base(streamCount)
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
@@ -24,7 +23,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
+                GetFlagArgs(),
+                GetOptionArgs(),
+                GetAVStreamArg(),
                 _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
             };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";

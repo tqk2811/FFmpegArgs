@@ -13,7 +13,8 @@
         /// <param name="imageMap"></param>
         /// <param name="audioMap"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap) : base(imageMap, audioMap)
+        public VideoFileOutput(string filePath, ImageMap imageMap, AudioMap audioMap)
+            : base(new List<ImageMap>() { imageMap }, new List<AudioMap>() { audioMap })
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
@@ -26,11 +27,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
-                "-map",
-                ImageMap.IsInput ? ImageMap.MapName : $"[{ImageMap.MapName}]",
-                "-map",
-                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
+                GetAVStreamArg(),
+                GetFlagArgs(),
+                GetOptionArgs(),
                 _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

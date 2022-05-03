@@ -205,10 +205,10 @@
             process.BeginErrorReadLine();
             if (this.StdIn != null)
             {
-                await this.StdIn.CopyToAsync(process.StandardInput.BaseStream);
+                await this.StdIn.CopyToAsync(process.StandardInput.BaseStream, 81920, token);
                 process.StandardInput.BaseStream.Close();
             }
-            if (this.StdOut != null) await process.StandardOutput.BaseStream.CopyToAsync(this.StdOut);
+            if (this.StdOut != null) await process.StandardOutput.BaseStream.CopyToAsync(this.StdOut, 81920, token);
 #if NET5_0_OR_GREATER
             await process.WaitForExitAsync();
 #else

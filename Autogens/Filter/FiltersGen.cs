@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using FFmpegArgs.Cores.Interfaces;
 namespace Autogens.Filter
 {
     internal static class FiltersGen
@@ -15,7 +16,7 @@ namespace Autogens.Filter
         {
             //"concat"
         };
-       
+
         static Regex regex_filter { get; } = new Regex("^([TSC.]{3}) +([a-z0-9_]+) +([AVN|]{1,}->[AVN|]{1,}) +(.+)$");
         //static Regex regex_DocLineMethodDefault { get; } = new Regex("default (.*?)(?=\\))");
 
@@ -29,6 +30,13 @@ namespace Autogens.Filter
 
         public static void Gen(List<string> filters, List<DocLine> docLines)
         {
+            var genDir = Path.Combine("FFmpegArgs.Filters.Autogen", "Gen");
+            Directory.CreateDirectory(genDir);
+            foreach (var file in Directory.GetFiles(genDir, "*.g.cs"))
+            {
+                File.Delete(file);
+            }
+
             foreach (var filter in filters)
             {
                 Match match = regex_filter.Match(filter);
@@ -58,7 +66,7 @@ namespace Autogens.Filter
                     var interfaces = GetFilterInterface(support).ToList();
                     interfaces.Insert(0, typeName.Inheritance);
                     string className = $"{name.UpperFirst()}FilterGen";
-                    using StreamWriter streamWriter = new StreamWriter(Path.Combine("FFmpegArgs.Filters.Autogen", $"{className}.g.cs"), false);
+                    using StreamWriter streamWriter = new StreamWriter(Path.Combine("FFmpegArgs.Filters.Autogen", "Gen", $"{className}.g.cs"), false);
                     streamWriter.WriteAutogensNameSpace();
                     streamWriter.WriteLine("{");
                     streamWriter.WriteSummary(filter);
@@ -206,7 +214,7 @@ namespace Autogens.Filter
             if (type.Equals("|->V")) return new FilterTypeName()
             {
                 Inheritance = nameof(SourceImageFilter),
-                Input = nameof(BaseFilterGraph)
+                Input = nameof(IImageFilterGraph)
             };
 
             if (type.Equals("A->A")) return new FilterTypeName()
@@ -223,7 +231,7 @@ namespace Autogens.Filter
             if (type.Equals("|->A")) return new FilterTypeName()
             {
                 Inheritance = nameof(SourceAudioFilter),
-                Input = nameof(BaseFilterGraph)
+                Input = nameof(IAudioFilterGraph)
             };
 
             //skip N->? , ?->N 

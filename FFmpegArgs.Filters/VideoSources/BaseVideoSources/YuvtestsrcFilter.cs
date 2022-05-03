@@ -6,7 +6,7 @@
     /// </summary>
     public class YuvtestsrcFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal YuvtestsrcFilter(BaseFilterGraph filterGraph) : base("yuvtestsrc", filterGraph)
+        internal YuvtestsrcFilter(IImageFilterGraph filterGraph) : base("yuvtestsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static YuvtestsrcFilter YuvtestsrcFilter(this BaseFilterGraph filterGraph)
+        public static YuvtestsrcFilter YuvtestsrcFilter(this IImageFilterGraph filterGraph)
           => new YuvtestsrcFilter(filterGraph);
     }
 }

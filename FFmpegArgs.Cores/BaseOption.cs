@@ -1,9 +1,12 @@
 ﻿namespace FFmpegArgs.Cores
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-    public abstract class BaseOption
+    /// <summary>
+    /// 
+    /// </summary>
+    public abstract class BaseOption : IOption
     {
-        internal protected readonly Dictionary<string, string> _options = new Dictionary<string, string>();
+        internal readonly Dictionary<string, string> _options = new Dictionary<string, string>();
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         protected const float FLT_MIN = 0;
         protected const float FLT_MAX = float.MaxValue;
         protected const int INT_MAX = int.MaxValue;
@@ -13,8 +16,24 @@
         protected const long UINT32_MAX = long.MaxValue;
         protected const double DBL_MAX = double.MaxValue;
         protected const double DBL_MIN = double.MinValue;
-    }
+
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IEnumerable<KeyValuePair<string, string>> Options => _options;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string GetOptionArgs()
+        {
+            return string.Join(" ", _options.Select(x => $"{x.Key} {x.Value}"));
+        }
+    }
     /// <summary>
     /// 
     /// </summary>

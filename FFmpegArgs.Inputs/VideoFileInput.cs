@@ -9,9 +9,11 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="filePath"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public VideoFileInput(string filePath)
+        public VideoFileInput(
+            string filePath,
+            int imageStreamCount = 1,
+            int audioStreamCount = 1) : base(imageStreamCount, audioStreamCount)
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
@@ -24,7 +26,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
+                GetFlagArgs(),
+                GetOptionArgs(),
+                GetAVStreamArg(),
                 _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
             };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";

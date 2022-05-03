@@ -50,7 +50,7 @@
         /// 
         /// </summary>
         /// <param name="input"></param>
-        private ImageFilesConcatInput(string input)
+        private ImageFilesConcatInput(string input) : base(1)
         {
             if (string.IsNullOrEmpty(input)) throw new ArgumentNullException(nameof(input));
             this._filePath = input;
@@ -63,7 +63,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
+                GetFlagArgs(),
+                GetOptionArgs(),
+                GetAVStreamArg(),
                 _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
             };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";

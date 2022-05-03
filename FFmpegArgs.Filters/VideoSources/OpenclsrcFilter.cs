@@ -6,7 +6,7 @@
     /// </summary>
     public class OpenclsrcFilter : SourceImageFilter
     {
-        internal OpenclsrcFilter(BaseFilterGraph filterGraph) : base("openclsrc", filterGraph)
+        internal OpenclsrcFilter(IImageFilterGraph filterGraph) : base("openclsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -57,7 +57,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static OpenclsrcFilter OpenclsrcFilter(this BaseFilterGraph filterGraph)
+        public static OpenclsrcFilter OpenclsrcFilter(this IImageFilterGraph filterGraph)
           => new OpenclsrcFilter(filterGraph);
     }
 }

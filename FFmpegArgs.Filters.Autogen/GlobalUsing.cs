@@ -7,3 +7,4 @@ global using FFmpegArgs.Cores.Attributes;
 global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores.Maps;
 global using FFmpegArgs.Cores.Utils;
+global using FFmpegArgs.Cores.Interfaces;

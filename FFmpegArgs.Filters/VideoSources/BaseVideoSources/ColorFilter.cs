@@ -6,7 +6,7 @@
     /// </summary>
     public class ColorFilter : BaseVideoSource, ICommandSupport, IBaseVideoSourceSize
     {
-        internal ColorFilter(BaseFilterGraph filterGraph) : base("color", filterGraph)
+        internal ColorFilter(IImageFilterGraph filterGraph) : base("color", filterGraph)
         {
             AddMapOut();
         }
@@ -28,7 +28,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static ColorFilter ColorFilter(this BaseFilterGraph filterGraph)
+        public static ColorFilter ColorFilter(this IImageFilterGraph filterGraph)
           => new ColorFilter(filterGraph);
     }
 }

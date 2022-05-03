@@ -41,7 +41,7 @@
               .Size(new Size(out_w, out_h));
             var images = ImageFilesConcatInput.FromFilesSearch(@"D:\temp\ffmpeg_encode_test\ImgsTest\img%d.jpg");
             images.SetOption("-r", 1 / (imageDuration + animationDuration));
-            var images_map = ffmpegArg.AddImageInput(images);
+            var images_map = ffmpegArg.AddImagesInput(images).First();
             var pad = images_map.PadFilter().W("ceil(iw/2)*2").H("ceil(ih/2)*2");//fix image size not % 2 = 0
             var format = pad.MapOut.FormatFilter(PixFmt.rgba);
             var scale = format.MapOut.ScaleFilter().W($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)").H($"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
@@ -67,13 +67,13 @@
             string outputFileName = $"{nameof(TestFilterInput)}.mp4";
             string filterFileName = $"{nameof(TestFilterInput)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-            FilterGraphInput filterInput = new FilterGraphInput();
-            filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280,720)).MapOut
+            ImageFilterGraphInput filterInput = new ImageFilterGraphInput();
+            filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280, 720)).MapOut
                 .FpsFilter().Fps(25);
-            filterInput.FilterGraph.ColorFilter().Color(Color.Green).Size(new Size(1280/2, 720/2)).MapOut
+            filterInput.FilterGraph.ColorFilter().Color(Color.Green).Size(new Size(1280 / 2, 720 / 2)).MapOut
                 .FpsFilter().Fps(25);
-            var videos = ffmpegArg.AddVideoInput(filterInput, 2, 0);
-            var output = videos.ImageMaps.Last().OverlayFilterOn(videos.ImageMaps.First()).X("(W-w)/2").Y("(H-h)/2").MapOut;
+            var imageMaps = ffmpegArg.AddImagesInput(filterInput);
+            var output = imageMaps.Last().OverlayFilterOn(imageMaps.First()).X("(W-w)/2").Y("(H-h)/2").MapOut;
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, output);
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
@@ -84,13 +84,13 @@
             string outputFileName = $"{nameof(TestStringEscape)}.mp4";
             string filterFileName = $"{nameof(TestStringEscape)}.txt";
             FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
-            FilterGraphInput filterInput = new FilterGraphInput();
+            ImageFilterGraphInput filterInput = new ImageFilterGraphInput();
             filterInput.FilterGraph.ColorFilter().Color(Color.Red).Size(new Size(1280, 720)).MapOut
                 .FpsFilter().Fps(25);
-            var videos = ffmpegArg.AddVideoInput(filterInput, 1, 0);
-            var output = videos.ImageMaps.First()
+            var image_maps = ffmpegArg.AddImagesInput(filterInput);
+            var output = image_maps.First()
                 .DrawTextFilter()
-                    .Text("this is a 'string\\': m\\: \n\t\rabc,\" [or more], 的 日本国 日本;") 
+                    .Text("this is a 'string\\': m\\: \n\t\rabc,\" [or more], 的 日本国 日本;")
                     .X("100")
                     .Y("100")
                     .FontFile("C:\\Windows\\Fonts\\arial.ttf")

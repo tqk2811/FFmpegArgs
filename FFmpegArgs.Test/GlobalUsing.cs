@@ -14,13 +14,13 @@ global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores.Exceptions;
 global using FFmpegArgs.Cores.Inputs;
 global using FFmpegArgs.Cores.Filters;
+global using FFmpegArgs.Cores.Interfaces;
 global using FFmpegArgs.Cores.Maps;
 
 global using FFmpegArgs.Filters;
 global using FFmpegArgs.Filters.Exceptions;
 global using FFmpegArgs.Filters.Attributes;
 global using FFmpegArgs.Filters.Expressions;
-global using FFmpegArgs.Filters.FilterGraphs;
 
 global using FFmpegArgs.Filters.AudioFilters;
 global using FFmpegArgs.Filters.VideoFilters;

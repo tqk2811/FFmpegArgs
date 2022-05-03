@@ -1,10 +1,51 @@
-﻿namespace FFmpegArgs
+﻿/*
+Global options (affect whole program instead of just one file):
+-loglevel loglevel  set logging level
+-v loglevel         set logging level
+-report             generate a report
+-max_alloc bytes    set maximum size of a single allocated block
+-y                  overwrite output files
+-n                  never overwrite output files
+-ignore_unknown     Ignore unknown stream types
+-filter_threads     number of non-complex filter threads
+-filter_complex_threads  number of threads for -filter_complex
+-stats              print progress report during encoding
+-max_error_rate maximum error rate  ratio of decoding errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success.
+-vol volume         change audio volume (256=normal)
+ */
+namespace FFmpegArgs
 {
     /// <summary>
-    /// 
+    /// https://ffmpeg.org/ffmpeg.html
     /// </summary>
     public static class GlobalOptionsExtension
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <param name="logLevel"></param>
+        /// <returns></returns>
+        public static FFmpegArg LogLevel(this FFmpegArg ffmpegArg, LogLevel logLevel)
+            => ffmpegArg.SetOption("-v", (int)logLevel);
+
+        /// <summary>
+        /// Generate a report
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <returns></returns>
+        public static FFmpegArg Report(this FFmpegArg ffmpegArg)
+            => ffmpegArg.SetFlag("-report");
+
+        /// <summary>
+        /// Set the maximum size limit for allocating a block on the heap by ffmpeg’s family of malloc functions. Exercise extreme caution when using this option. Don’t use if you do not understand the full consequence of doing so. Default is INT_MAX.
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <param name="maxAlloc"></param>
+        /// <returns></returns>
+        public static FFmpegArg MaxAlloc(this FFmpegArg ffmpegArg, int maxAlloc)
+            => ffmpegArg.SetOptionRange("-max_alloc", maxAlloc, 1, int.MaxValue);
+
         /// <summary>
         /// Overwrite output files without asking.
         /// </summary>
@@ -12,59 +53,118 @@
         /// <returns></returns>
         public static FFmpegArg OverWriteOutput(this FFmpegArg ffmpegArg)
           => ffmpegArg.SetFlag("-y");
+
         /// <summary>
-        /// Allow forcing a decoder of a different media type than the one detected or designated by the demuxer. Useful for decoding media data muxed as data streams.
+        /// Overwrite output files without asking.
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static FFmpegArg RecastMedia(this FFmpegArg ffmpegArg)
-          => ffmpegArg.SetFlag("-recast_media");
+        public static FFmpegArg Y(this FFmpegArg ffmpegArg)
+          => ffmpegArg.SetFlag("-y");
+
         /// <summary>
-        /// Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.
+        /// Ignore input streams with unknown type instead of failing if copying such streams is attempted.
         /// </summary>
         /// <param name="ffmpegArg"></param>
-        /// <param name="time">Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.</param>
         /// <returns></returns>
-        public static FFmpegArg StatsPeriod(this FFmpegArg ffmpegArg, double time)
-          => ffmpegArg.SetOptionRange("-stats_period", time, 0, double.MaxValue);
+        public static FFmpegArg IgnoreUnknown(this FFmpegArg ffmpegArg)
+            => ffmpegArg.SetFlag("-ignore_unknown");
+
+
         /// <summary>
-        /// Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.
+        /// Defines how many threads are used to process a filter pipeline. Each pipeline will produce a thread pool with this many threads available for parallel processing. The default is the number of available CPUs.
         /// </summary>
         /// <param name="ffmpegArg"></param>
-        /// <param name="time">Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.</param>
+        /// <param name="filter_threads"></param>
         /// <returns></returns>
-        public static FFmpegArg StatsPeriod(this FFmpegArg ffmpegArg, TimeSpan time)
-          => ffmpegArg.SetOptionRange("-stats_period", time, TimeSpan.Zero, TimeSpan.MaxValue);
+        public static FFmpegArg FilterThreads(this FFmpegArg ffmpegArg, int filter_threads)
+            => ffmpegArg.SetOptionRange("-filter_threads", filter_threads, -1, int.MaxValue);
+
         /// <summary>
         /// Defines how many threads are used to process a filter_complex graph. Similar to filter_threads but used for -filter_complex graphs only. The default is the number of available CPUs.
         /// </summary>
         /// <param name="ffmpegArg"></param>
-        /// <param name="threads"></param>
+        /// <param name="filter_complex_threads"></param>
         /// <returns></returns>
-        public static FFmpegArg FilterComplexThreads(this FFmpegArg ffmpegArg, int threads)
-          => ffmpegArg.SetOptionRange("-filter_complex_threads", threads, 1, int.MaxValue);
+        public static FFmpegArg FilterComplexThreads(this FFmpegArg ffmpegArg, int filter_complex_threads)
+           => ffmpegArg.SetOptionRange("-filter_complex_threads", filter_complex_threads, -1, int.MaxValue);
+
+        /// <summary>
+        /// Print encoding progress/statistics. It is on by default, to explicitly disable it you need to specify -nostats.
+        /// </summary>
+        /// <param name="ffmpegArg"></param>
+        /// <returns></returns>
+        public static FFmpegArg Stats(this FFmpegArg ffmpegArg)
+            => ffmpegArg.SetFlag("-stats");
+
         /// <summary>
         /// Set fraction of decoding frame failures across all inputs which when crossed ffmpeg will return exit code 69. Crossing this threshold does not terminate processing. Range is a floating-point number between 0 to 1. Default is 2/3.
         /// </summary>
         /// <param name="ffmpegArg"></param>
-        /// <param name="rate"></param>
+        /// <param name="max_error_rate"></param>
         /// <returns></returns>
-        public static FFmpegArg MaxErrorRate(this FFmpegArg ffmpegArg, float rate)
-          => ffmpegArg.SetOptionRange("-max_error_rate", rate, 0, 1);
-        /// <summary>
-        /// Enable automatically inserting format conversion filters in all filter graphs, including those defined by -vf, -af, -filter_complex and -lavfi. If filter format negotiation requires a conversion, the initialization of the filters will fail. Conversions can still be performed by inserting the relevant conversion filter (scale, aresample) in the graph. On by default, to explicitly disable it you need to specify -noauto_conversion_filters.
-        /// </summary>
-        /// <param name="ffmpegArg"></param>
-        /// <returns></returns>
-        public static FFmpegArg noauto_conversion_filters(this FFmpegArg ffmpegArg)
-            => ffmpegArg.SetFlag("-noauto_conversion_filters");
-        /// <summary>
-        /// Set threads using, default: 0 (auto detect cpu core)
-        /// </summary>
-        /// <param name="ffmpegArg"></param>
-        /// <param name="threads"></param>
-        /// <returns></returns>
-        public static FFmpegArg Threads(this FFmpegArg ffmpegArg, int threads)
-            => ffmpegArg.SetOptionRange("-threads", threads, 0, int.MaxValue);
+        public static FFmpegArg MaxErrorRate(this FFmpegArg ffmpegArg, float max_error_rate)
+            => ffmpegArg.SetOptionRange("-max_error_rate", max_error_rate, 0.0, 1.0);
+
+        ///// <summary>
+        ///// change audio volume (256=normal)
+        ///// </summary>
+        ///// <param name="ffmpegArg"></param>
+        ///// <param name="vol"></param>
+        ///// <returns></returns>
+        //public static FFmpegArg Vol(this FFmpegArg ffmpegArg, double vol)
+        //    => ffmpegArg.SetOptionRange("-vol", vol, 0.0, 1.0);
     }
+
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    [Flags]
+    public enum LogLevel : int
+    {
+        /// <summary>
+        /// Show nothing at all; be silent.
+        /// </summary>
+        quiet = -8,//
+        /// <summary>
+        /// Only show fatal errors which could lead the process to crash, such as an assertion failure. This is not currently used for anything.
+        /// </summary>
+        panic = 0,
+        /// <summary>
+        /// Indicates that repeated log output should not be compressed to the first line and the "Last message repeated n times" line will be omitted.
+        /// </summary>
+        repeat = 2,
+        /// <summary>
+        /// Indicates that log output should add a [level] prefix to each message line. This can be used as an alternative to log coloring, e.g. when dumping the log to file.
+        /// </summary>
+        level = 4,
+        /// <summary>
+        /// Only show fatal errors. These are errors after which the process absolutely cannot continue.
+        /// </summary>
+        fatal = 8,//8                       0b00001000
+        /// <summary>
+        /// Show all errors, including ones which can be recovered from.
+        /// </summary>
+        error = 16,//16                     0b00010000
+        /// <summary>
+        /// Show all warnings and errors. Any message related to possibly incorrect or unexpected events will be shown.
+        /// </summary>
+        warning = fatal | error,//24        0b00011000
+        /// <summary>
+        /// Show informative messages during processing. This is in addition to warnings and errors. This is the default value.
+        /// </summary>
+        info = 32,//32                      0b00100000
+        /// <summary>
+        /// Same as info, except more verbose.
+        /// </summary>
+        verbose = info | fatal,//40         0b00101000
+        /// <summary>
+        /// Show everything, including debugging information.
+        /// </summary>
+        debug = info | error,//48           0b00110000
+        /// <summary>
+        /// fatal | info | error
+        /// </summary>
+        trace = fatal | info | error,//56   0b00111000
+    }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

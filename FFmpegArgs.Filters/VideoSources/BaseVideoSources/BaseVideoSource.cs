@@ -5,7 +5,7 @@
     /// </summary>
     public abstract class BaseVideoSource : SourceImageFilter
     {
-        internal BaseVideoSource(string filterName, BaseFilterGraph filterGraph) : base(filterName, filterGraph)
+        internal BaseVideoSource(string filterName, IImageFilterGraph filterGraph) : base(filterName, filterGraph)
         {
         }
     }

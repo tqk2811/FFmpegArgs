@@ -23,7 +23,7 @@ namespace FFmpegArgs.Filters.AudioSources
             "n", "pts", "t", "TB"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal SineFilter(BaseFilterGraph filterGraph) : base("sine", filterGraph)
+        internal SineFilter(IAudioFilterGraph filterGraph) : base("sine", filterGraph)
         {
             AddMapOut();
         }
@@ -75,7 +75,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static SineFilter SineFilter(this BaseFilterGraph filterGraph)
+        public static SineFilter SineFilter(this IAudioFilterGraph filterGraph)
           => new SineFilter(filterGraph);
     }
 }

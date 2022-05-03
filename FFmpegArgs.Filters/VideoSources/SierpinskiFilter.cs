@@ -6,7 +6,7 @@
     /// </summary>
     public class SierpinskiFilter : SourceImageFilter, ISliceThreading
     {
-        internal SierpinskiFilter(BaseFilterGraph filterGraph) : base("sierpinski", filterGraph)
+        internal SierpinskiFilter(IImageFilterGraph filterGraph) : base("sierpinski", filterGraph)
         {
             AddMapOut();
         }
@@ -65,7 +65,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static SierpinskiFilter SierpinskiFilter(this BaseFilterGraph filterGraph)
+        public static SierpinskiFilter SierpinskiFilter(this IImageFilterGraph filterGraph)
           => new SierpinskiFilter(filterGraph);
     }
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member

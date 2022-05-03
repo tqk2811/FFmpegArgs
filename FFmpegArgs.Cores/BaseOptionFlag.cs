@@ -3,17 +3,22 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseOptionFlag : BaseOption
+    public abstract class BaseOptionFlag : BaseOption, IFlag
     {
         internal readonly HashSet<string> _flags = new HashSet<string>();
 
         /// <summary>
         /// 
         /// </summary>
+        public IEnumerable<string> Flags => _flags;
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
-        protected string GetArgs()
+        public string GetFlagArgs()
         {
-            return string.Join(" ", _flags.Concat(_options.Select(x => $"{x.Key} {x.Value}")));
+            return string.Join(" ", _flags);
         }
     }
 

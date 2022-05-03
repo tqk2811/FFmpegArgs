@@ -17,7 +17,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class AnullsrcFilter : SourceAudioFilter
     {
-        internal AnullsrcFilter(BaseFilterGraph filterGraph) : base("anullsrc", filterGraph)
+        internal AnullsrcFilter(IAudioFilterGraph filterGraph) : base("anullsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -65,7 +65,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AnullsrcFilter AnullsrcFilter(this BaseFilterGraph filterGraph)
+        public static AnullsrcFilter AnullsrcFilter(this IAudioFilterGraph filterGraph)
           => new AnullsrcFilter(filterGraph);
     }
 }

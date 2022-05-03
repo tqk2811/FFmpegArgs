@@ -8,15 +8,15 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(".\\Images");
             var files = directoryInfo.GetFiles("*.jpg");
-            return files.Select(x => ffmpegArg.AddImageInput(new ImageFileInput($"Images\\{x.Name}").SetOption("-loop", 1))).ToList();
+            return files.Select(x => ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\{x.Name}").SetOption("-loop", 1)).First()).ToList();
         }
         public static ImageMap FilmStripH(this FFmpegArg ffmpegArg)
         {
-            return ffmpegArg.AddImageInput(new ImageFileInput($"Images\\film_strip.png").SetOption("-loop", 1));
+            return ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\film_strip.png").SetOption("-loop", 1)).First();
         }
         public static ImageMap FilmStripV(this FFmpegArg ffmpegArg)
         {
-            return ffmpegArg.AddImageInput(new ImageFileInput($"Images\\film_strip_vertical.png").SetOption("-loop", 1));
+            return ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\film_strip_vertical.png").SetOption("-loop", 1)).First();
         }
         public static List<IEnumerable<ImageMap>> InputScreenModes(this IEnumerable<ImageMap> inputs,
             ScreenMode screenMode, Config config, string lumaRadius = "100")
@@ -152,7 +152,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             }
             return startEnd;
         }
-        public static List<ImageMap> Blendeds(this StartEnd startEnd, Config config,Action<BlendFilter> blend)
+        public static List<ImageMap> Blendeds(this StartEnd startEnd, Config config, Action<BlendFilter> blend)
         {
             List<ImageMap> blendeds = new List<ImageMap>();
             for (int i = 0; i < startEnd.Startings.Count; i++)

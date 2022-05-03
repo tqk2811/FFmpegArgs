@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseMap
+    public abstract class BaseMap : IMap
     {
         /// <summary>
         /// Name
@@ -18,17 +18,40 @@
         /// <summary>
         /// This map is output from input or filter output
         /// </summary>
-        public bool IsInput { get; } = false;
-
-        /// <summary>
-        /// Stream Index Of Input
-        /// </summary>
-        public int StreamIndexOfInput { get; }
+        public bool IsInput { get { return InputAVStream != null; } }
 
         /// <summary>
         /// 
         /// </summary>
-        public BaseFilterGraph FilterGraph { get; }
+        public int IndexOfInput
+        {
+            get
+            {
+                if (!IsInput) return -1;
+                return BaseFFArg.Inputs.ToList().IndexOf(InputAVStream.BaseInput);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IFilterGraph FilterGraph { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IBaseFFArg BaseFFArg { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public InputAVStream InputAVStream { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public OutputAVStream OutputAVStream { get; internal set; }
+
 
         /// <summary>
         /// 
@@ -37,28 +60,32 @@
         {
             get
             {
-                return OutputMapped != null || FilterGraph.Filters.SelectMany(x => x.MapsIn).Any(y => this.Equals(y));
+                return OutputAVStream != null || FilterGraph.Filters.SelectMany(x => x.MapsIn).Any(y => this.Equals(y));
             }
         }
+
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <param name="name"></param>
-        /// <param name="streamIndexOfInput"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        protected BaseMap(BaseFilterGraph filterGraph, string name, int? streamIndexOfInput = null)
+        protected BaseMap(IFilterGraph filterGraph, string name)
         {
             this.FilterGraph = filterGraph ?? throw new ArgumentNullException(nameof(filterGraph));
-            this.IsInput = streamIndexOfInput != null;
-            if (this.IsInput)
-            {
-                this.StreamIndexOfInput = streamIndexOfInput.Value;
-                //name can be empty by source sink filter (non input)
-                if (string.IsNullOrWhiteSpace(name)) throw new ArgumentNullException(nameof(name));
-            }
-            this._name = name;
+            this._name = name;//no check, can be empty by filter input/filter source
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        protected BaseMap(IBaseFFArg baseFFArg, IFilterGraph filterGraph, InputAVStream inputAVStream)
+        {
+            this.FilterGraph = filterGraph ?? throw new ArgumentNullException(nameof(filterGraph));
+            this.BaseFFArg = baseFFArg ?? throw new ArgumentNullException(nameof(baseFFArg));
+            this.InputAVStream = inputAVStream ?? throw new ArgumentNullException(nameof(inputAVStream));
         }
 
         /// <summary>
@@ -69,7 +96,5 @@
         {
             return MapName;
         }
-
-        internal BaseOutput OutputMapped { get; set; }
     }
 }

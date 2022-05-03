@@ -6,7 +6,7 @@
     /// </summary>
     public class RgbtestsrcFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal RgbtestsrcFilter(BaseFilterGraph filterGraph) : base("rgbtestsrc", filterGraph)
+        internal RgbtestsrcFilter(IImageFilterGraph filterGraph) : base("rgbtestsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static RgbtestsrcFilter RgbtestsrcFilter(this BaseFilterGraph filterGraph)
+        public static RgbtestsrcFilter RgbtestsrcFilter(this IImageFilterGraph filterGraph)
           => new RgbtestsrcFilter(filterGraph);
     }
 }

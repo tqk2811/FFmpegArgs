@@ -57,7 +57,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class HilbertFilter : SourceAudioFilter
     {
-        internal HilbertFilter(BaseFilterGraph filterGraph) : base("hilbert", filterGraph)
+        internal HilbertFilter(IAudioFilterGraph filterGraph) : base("hilbert", filterGraph)
         {
             AddMapOut();
         }
@@ -102,7 +102,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static HilbertFilter HilbertFilter(this BaseFilterGraph filterGraph)
+        public static HilbertFilter HilbertFilter(this IAudioFilterGraph filterGraph)
           => new HilbertFilter(filterGraph);
     }
     /// <summary>

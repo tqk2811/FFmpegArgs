@@ -25,12 +25,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-            FilterGraphInput background_fi = new FilterGraphInput();
+            ImageFilterGraphInput background_fi = new ImageFilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
-            VideoMap background = ffmpegArg.AddVideoInput(background_fi);
-            FilterGraphInput transparent_fi = new FilterGraphInput();
+            ImageMap background = ffmpegArg.AddImagesInput(background_fi).First();
+            ImageFilterGraphInput transparent_fi = new ImageFilterGraphInput();
             transparent_fi.FilterGraph.NullsrcFilter().Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
-            VideoMap transparent = ffmpegArg.AddVideoInput(transparent_fi);
+            ImageMap transparent = ffmpegArg.AddImagesInput(transparent_fi).First();
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             List<ImageMap> overlaids = new List<ImageMap>();
             List<ImageMap> startings = new List<ImageMap>();
@@ -38,14 +38,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             for (int i = 0; i < images_inputmap.Count; i++)
             {
                 overlaids.Add(prepareInputs[i].First()
-                    .OverlayFilterOn(background.ImageMaps.First())
+                    .OverlayFilterOn(background)
                         .X("(main_w-overlay_w)/2")
                         .Y("(main_h-overlay_h)/2")
                         .Format(OverlayPixFmt.rgb).MapOut
                     .TrimFilter().Duration(config.ImageDuration).MapOut
                     .SelectFilter($"lte(n,{config.ImageFrameCount})").MapOut);
                 var temp = prepareInputs[i].Last()
-                    .OverlayFilterOn(background.ImageMaps.First())
+                    .OverlayFilterOn(background)
                         .X($"(main_w-overlay_w)/2")
                         .Y($"(main_h-overlay_h)/2")
                         .Format(OverlayPixFmt.rgb).MapOut
@@ -74,7 +74,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case VerticalDirection.TopToBottom:
                         {
                             var moving = endings[i]
-                                .OverlayFilterOn(transparent.ImageMaps.First())
+                                .OverlayFilterOn(transparent)
                                     .X("0")
                                     .Y($"t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}").MapOut
                                 .TrimFilter()
@@ -93,7 +93,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case VerticalDirection.BottomToTop:
                         {
                             var moving = endings[i]
-                                .OverlayFilterOn(transparent.ImageMaps.First())
+                                .OverlayFilterOn(transparent)
                                     .X("0")
                                     .Y($"-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}").MapOut
                                 .TrimFilter()
@@ -143,12 +143,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
-            FilterGraphInput background_fi = new FilterGraphInput();
+            ImageFilterGraphInput background_fi = new ImageFilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
-            VideoMap background = ffmpegArg.AddVideoInput(background_fi);
-            FilterGraphInput transparent_fi = new FilterGraphInput();
+            ImageMap background = ffmpegArg.AddImagesInput(background_fi).First();
+            ImageFilterGraphInput transparent_fi = new ImageFilterGraphInput();
             transparent_fi.FilterGraph.NullsrcFilter().Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
-            VideoMap transparent = ffmpegArg.AddVideoInput(transparent_fi);
+            ImageMap transparent = ffmpegArg.AddImagesInput(transparent_fi).First();
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             List<ImageMap> overlaids = new List<ImageMap>();
             List<ImageMap> startings = new List<ImageMap>();
@@ -156,14 +156,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             for (int i = 0; i < images_inputmap.Count; i++)
             {
                 overlaids.Add(prepareInputs[i].First()
-                    .OverlayFilterOn(background.ImageMaps.First())
+                    .OverlayFilterOn(background)
                         .X("(main_w-overlay_w)/2")
                         .Y("(main_h-overlay_h)/2")
                         .Format(OverlayPixFmt.rgb).MapOut
                     .TrimFilter().Duration(config.ImageDuration).MapOut
                     .SelectFilter($"lte(n,{config.ImageFrameCount})").MapOut);
                 var temp = prepareInputs[i].Last()
-                    .OverlayFilterOn(background.ImageMaps.First())
+                    .OverlayFilterOn(background)
                         .X($"(main_w-overlay_w)/2")
                         .Y($"(main_h-overlay_h)/2")
                         .Format(OverlayPixFmt.rgb).MapOut
@@ -192,7 +192,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case HorizontalDirection.LeftToRight:
                         {
                             var moving = endings[i]
-                                .OverlayFilterOn(transparent.ImageMaps.First())
+                                .OverlayFilterOn(transparent)
                                     .X($"t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y($"0").MapOut
                                 .TrimFilter()
@@ -211,7 +211,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     case HorizontalDirection.RightToLeft:
                         {
                             var moving = endings[i]
-                                .OverlayFilterOn(transparent.ImageMaps.First())
+                                .OverlayFilterOn(transparent)
                                     .X($"-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y("0").MapOut
                                 .TrimFilter()
