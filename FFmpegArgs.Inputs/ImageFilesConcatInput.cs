@@ -31,10 +31,11 @@
             return result;
         }
         /// <summary>
-        /// Note: *.png Not a available on window <br></br>
-        /// https://stackoverflow.com/a/31513542/5034139
+        /// 
         /// </summary>
-        /// <param name="search">Example: *.png, imagename%04d.png</param>
+        /// <param name="search">Example: *.png, imagename%04d.png<br>
+        /// </br>Note: *.png Not a available on window <br>
+        /// </br><see href="https://stackoverflow.com/a/31513542/5034139"/></param>
         /// <returns></returns>
         public static ImageFilesConcatInput FromFilesSearch(string search)
         {

@@ -16,6 +16,11 @@
         /// <summary>
         /// 
         /// </summary>
+        public IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<ImageMap> ImageMaps => _imageMaps;
 
         /// <summary>

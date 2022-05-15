@@ -2,6 +2,7 @@
 using FFmpegArgs.Cores.Enums;
 using FFmpegArgs.Cores.Utils;
 using FFmpegArgs.Filters;
+using FFmpegArgs;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -58,7 +59,7 @@ namespace Autogens.Filter
                         break;
                     case "<boolean>":
                         filterFunction.FunctionParamType = $"bool";
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.ToFFmpegFlag)}());";
+                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(UtilsExtension.ToFFmpegFlag)}());";
                         break;
                     case "<string>":
                         filterFunction.FunctionParamType = $"string";
@@ -74,7 +75,7 @@ namespace Autogens.Filter
                         break;
                     case "<color>":
                         filterFunction.FunctionParamType = $"Color";
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(FilterExtensions.ToHexStringRGBA)}());";
+                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(UtilsExtension.ToHexStringRGBA)}());";
                         break;
                     case "<pix_fmt>":
                         filterFunction.FunctionParamType = nameof(PixFmt);

@@ -7,6 +7,9 @@ global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores;
 global using FFmpegArgs.Cores.Inputs;
 global using FFmpegArgs.Cores.Extensions;
+global using FFmpegArgs.Cores.Interfaces;
+global using FFmpegArgs.Cores.Streams;
+global using FFmpegArgs.Cores.Utils;
 
 global using System;
 global using System.IO;

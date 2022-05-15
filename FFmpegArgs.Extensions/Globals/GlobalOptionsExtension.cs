@@ -26,7 +26,7 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="logLevel"></param>
         /// <returns></returns>
-        public static FFmpegArg LogLevel(this FFmpegArg ffmpegArg, LogLevel logLevel)
+        public static T LogLevel<T>(this T ffmpegArg, LogLevel logLevel) where T : BaseOptionFlag, IFFmpegArg
             => ffmpegArg.SetOption("-v", (int)logLevel);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static FFmpegArg Report(this FFmpegArg ffmpegArg)
+        public static T Report<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
             => ffmpegArg.SetFlag("-report");
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="maxAlloc"></param>
         /// <returns></returns>
-        public static FFmpegArg MaxAlloc(this FFmpegArg ffmpegArg, int maxAlloc)
+        public static T MaxAlloc<T>(this T ffmpegArg, int maxAlloc) where T : BaseOptionFlag, IFFmpegArg
             => ffmpegArg.SetOptionRange("-max_alloc", maxAlloc, 1, int.MaxValue);
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static FFmpegArg OverWriteOutput(this FFmpegArg ffmpegArg)
+        public static T OverWriteOutput<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
           => ffmpegArg.SetFlag("-y");
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static FFmpegArg Y(this FFmpegArg ffmpegArg)
+        public static T Y<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
           => ffmpegArg.SetFlag("-y");
 
         /// <summary>
@@ -67,9 +67,8 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static FFmpegArg IgnoreUnknown(this FFmpegArg ffmpegArg)
+        public static T IgnoreUnknown<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
             => ffmpegArg.SetFlag("-ignore_unknown");
-
 
         /// <summary>
         /// Defines how many threads are used to process a filter pipeline. Each pipeline will produce a thread pool with this many threads available for parallel processing. The default is the number of available CPUs.
@@ -77,7 +76,7 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="filter_threads"></param>
         /// <returns></returns>
-        public static FFmpegArg FilterThreads(this FFmpegArg ffmpegArg, int filter_threads)
+        public static T FilterThreads<T>(this T ffmpegArg, int filter_threads) where T : BaseOptionFlag, IFFmpegArg
             => ffmpegArg.SetOptionRange("-filter_threads", filter_threads, -1, int.MaxValue);
 
         /// <summary>
@@ -86,7 +85,7 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="filter_complex_threads"></param>
         /// <returns></returns>
-        public static FFmpegArg FilterComplexThreads(this FFmpegArg ffmpegArg, int filter_complex_threads)
+        public static T FilterComplexThreads<T>(this T ffmpegArg, int filter_complex_threads) where T : BaseOptionFlag, IFFmpegArg
            => ffmpegArg.SetOptionRange("-filter_complex_threads", filter_complex_threads, -1, int.MaxValue);
 
         /// <summary>
@@ -94,7 +93,7 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static FFmpegArg Stats(this FFmpegArg ffmpegArg)
+        public static T Stats<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
             => ffmpegArg.SetFlag("-stats");
 
         /// <summary>
@@ -103,8 +102,9 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="max_error_rate"></param>
         /// <returns></returns>
-        public static FFmpegArg MaxErrorRate(this FFmpegArg ffmpegArg, float max_error_rate)
+        public static T MaxErrorRate<T>(this T ffmpegArg, float max_error_rate) where T : BaseOptionFlag, IFFmpegArg
             => ffmpegArg.SetOptionRange("-max_error_rate", max_error_rate, 0.0, 1.0);
+
 
         ///// <summary>
         ///// change audio volume (256=normal)

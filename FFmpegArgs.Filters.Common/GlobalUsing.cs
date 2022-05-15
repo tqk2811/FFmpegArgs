@@ -5,6 +5,7 @@ global using System.Collections.Generic;
 global using System.Text.RegularExpressions;
 global using System.ComponentModel;
 
+global using FFmpegArgs;
 global using FFmpegArgs.Cores;
 global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores.Attributes;
