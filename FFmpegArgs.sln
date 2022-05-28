@@ -46,7 +46,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{562D25
 		.other\NotAutoGen_window.txt = .other\NotAutoGen_window.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Extensions", "FFmpegArgs.Extensions\FFmpegArgs.Extensions.csproj", "{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Extensions", "FFmpegArgs.Extensions\FFmpegArgs.Extensions.csproj", "{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,9 +12,11 @@
         /// <param name="t"></param>
         /// <param name="condition"></param>
         /// <param name="action"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <returns></returns>
-        public static T SetIf<T>(this T t, bool condition, Action<T> action)
+        public static T AndSetIf<T>(this T t, bool condition, Action<T> action)
         {
+            if (action == null) throw new ArgumentNullException(nameof(action));
             if (condition) action.Invoke(t);
             return t;
         }
@@ -26,8 +28,10 @@
         /// <param name="t"></param>
         /// <param name="action"></param>
         /// <returns></returns>
-        public static T With<T>(this T t, Action<T> action)
+        /// <exception cref="ArgumentNullException"></exception>
+        public static T AndSet<T>(this T t, Action<T> action)
         {
+            if (action == null) throw new ArgumentNullException(nameof(action));
             action.Invoke(t);
             return t;
         }
@@ -92,6 +96,6 @@
             => dateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
 
-        
+
     }
 }

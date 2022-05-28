@@ -10,13 +10,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         public void BarsOneVerticalTest_Blur()
         {
             Config config = new Config();
-            BarsOneVerticalTest(config,ScreenMode.Blur);
+            BarsOneVerticalTest(config, ScreenMode.Blur);
         }
         public void BarsOneVerticalTest(Config config, ScreenMode screenMode)
         {
             string outputFileName = $"{nameof(BarsOneVerticalTest)}-{screenMode}.mp4";
             string filterFileName = $"{nameof(BarsOneVerticalTest)}-{screenMode}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             int BAR_COUNT = 16;
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
@@ -30,11 +30,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-              .VSync(VSyncMethod.vfr)
-              .SetOption("-c:v", "libx264")
-              .Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                .ImageOutputAVStreams.First()
+                .SetOption("-c:v", "libx264")
+                .Fps(config.Fps)
+                .SetOption("-g", "0")
+                .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
@@ -48,7 +48,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             string outputFileName = $"{nameof(BarsOneHorizontalTest)}-{screenMode}.mp4";
             string filterFileName = $"{nameof(BarsOneHorizontalTest)}-{screenMode}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             int BAR_COUNT = 16;
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
@@ -62,11 +62,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-              .VSync(VSyncMethod.vfr)
-              .SetOption("-c:v", "libx264")
-              .Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                .ImageOutputAVStreams.First()
+                .Codec("libx264")
+                .Fps(config.Fps)
+                .SetOption("-g", "0")
+                .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }

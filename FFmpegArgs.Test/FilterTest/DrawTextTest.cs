@@ -36,7 +36,7 @@ namespace FFmpegArgs.Test.FilterTest
                     .MapOut
                     ;
             ImageFileOutput imageFileOutput = new ImageFileOutput("DrawTextTest.DrawText.mp4", output)
-                .Duration(TimeSpan.FromSeconds(30)).Fps(fps);
+                .Duration(TimeSpan.FromSeconds(30)).AndSet(x => x.ImageOutputAVStreams.First().Fps(fps));
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender("DrawText.fs", "DrawTextTest.DrawText.mp4");
         }

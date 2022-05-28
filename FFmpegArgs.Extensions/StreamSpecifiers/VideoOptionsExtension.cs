@@ -208,9 +208,22 @@
 
         // -hwaccels
         #endregion
-        
+
+        #region Main Options
+        /// <summary>
+        /// Select an encoder (when used before an output file) or a decoder (when used before an input file) for one or more streams. codec is the name of a decoder/encoder or a special value copy (output only) to indicate that the stream is not to be re-encoded.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="codec"></param>
+        /// <returns></returns>
+        public static T Codec<T>(this T t, string codec) where T : BaseAVStream, IImage // (input/output,per-stream)
+           => t.SetOption("-c:v", codec);
+
+
+        #endregion
     }
-    
+
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum OutputVStreamTop
     {
