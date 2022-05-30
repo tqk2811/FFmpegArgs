@@ -14,11 +14,11 @@ namespace FFmpegArgs.Test.FilterTest
             int y = 500;
             FFmpegArg ffmpegArg = new FFmpegArg();
             ffmpegArg.OverWriteOutput();
-            FilterGraphInput filterInput = new FilterGraphInput();
+            ImageFilterGraphInput filterInput = new ImageFilterGraphInput();
             filterInput.FilterGraph
                 .ColorFilter().Color(Color.Red).Size(videoSize).MapOut
                 .FpsFilter().Fps(fps);
-            var videos = ffmpegArg.AddVideoInput(filterInput, 1, 0);
+            var imageMaps = ffmpegArg.AddImagesInput(filterInput);
             string from = $"main_w";
             string to = $"-text_w";
             string range = $"(main_w+text_w)";//from - to
@@ -26,7 +26,7 @@ namespace FFmpegArgs.Test.FilterTest
             string durationFrame = $"({range}/{pixelPerFrame})";
             string time = $"mod(n,{durationFrame})";//from 0 to durationFrame, durationFrame + 1 -> durationFrame*2,......
             string x = $"{from}-{time}*{pixelPerFrame}";
-            var output = videos.ImageMaps.First()
+            var output = imageMaps.First()
                 .DrawTextFilter()
                     .Text("Bản dịch chính xác cho dòng thứ 2: Theo những gì tôi \"nghe ngóng\" được, có thể là Zhongli và Ganyu. Nhưng không có chứng cứ nên phần lớn là Xiao.")
                     .X(x)
@@ -36,7 +36,7 @@ namespace FFmpegArgs.Test.FilterTest
                     .MapOut
                     ;
             ImageFileOutput imageFileOutput = new ImageFileOutput("DrawTextTest.DrawText.mp4", output)
-                .Duration(TimeSpan.FromSeconds(30)).Fps(fps);
+                .Duration(TimeSpan.FromSeconds(30)).AndSet(x => x.ImageOutputAVStreams.First().Fps(fps));
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender("DrawText.fs", "DrawTextTest.DrawText.mp4");
         }

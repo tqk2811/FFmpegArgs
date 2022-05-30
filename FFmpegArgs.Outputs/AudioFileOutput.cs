@@ -25,9 +25,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
-                "-map",
-                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
+                GetAVStreamArg(),
+                GetFlagArgs(),
+                GetOptionArgs(),
                 _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

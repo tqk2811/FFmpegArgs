@@ -11,7 +11,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             string outputFileName = $"{nameof(CheckerBoardTest)}.mp4";
             string filterFileName = $"{nameof(CheckerBoardTest)}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
@@ -37,8 +37,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
-            imageFileOutput
-              .VSync(VSyncMethod.vfr)
+            imageFileOutput.ImageOutputAVStreams.First()
+              .Codec("libx264")
               .SetOption("-c:v", "libx264")
               .Fps(config.Fps)
               .SetOption("-g", "0")

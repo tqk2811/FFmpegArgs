@@ -8,11 +8,13 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="stream"></param>
-        /// <param name="format"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public VideoPipeInput(Stream stream,DemuxingFileFormat format)
+        public VideoPipeInput(
+            Stream stream,
+            DemuxingFileFormat format,
+            int imageStreamCount = 1,
+            int audioStreamCount = 1) : base(imageStreamCount, audioStreamCount)
         {
             this.PipeStream = stream ?? throw new ArgumentNullException(nameof(stream));
             if (!stream.CanRead) throw new InvalidOperationException("input stream.CanRead is required");
@@ -32,7 +34,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
+                GetFlagArgs(),
+                GetOptionArgs(),
+                GetAVStreamArg(),
                 $"-i pipe:{StdIn}"
             };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";

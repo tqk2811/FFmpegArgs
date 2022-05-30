@@ -15,7 +15,8 @@
         /// <param name="imageMap"></param>
         /// <param name="audioMap"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public VideoUrlOutput(Uri url, MuxingFileFormat format, ImageMap imageMap, AudioMap audioMap) : base(imageMap, audioMap)
+        public VideoUrlOutput(Uri url, MuxingFileFormat format, ImageMap imageMap, AudioMap audioMap)
+            : base(new List<ImageMap>() { imageMap }, new List<AudioMap>() { audioMap })
         {
             this._url = url ?? throw new ArgumentNullException(nameof(url));
             this.Format(format);
@@ -29,11 +30,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
-                "-map",
-                ImageMap.IsInput ? ImageMap.MapName : $"[{ImageMap.MapName}]",
-                "-map",
-                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
+                GetAVStreamArg(),
+                GetFlagArgs(),
+                GetOptionArgs(),
                 _url.ToString()
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

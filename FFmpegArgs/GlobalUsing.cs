@@ -5,8 +5,7 @@ global using FFmpegArgs.Cores.Maps;
 global using FFmpegArgs.Cores.Inputs;
 global using FFmpegArgs.Cores.Outputs;
 global using FFmpegArgs.Cores.Exceptions;
-
-global using FFmpegArgs.Filters.FilterGraphs;
+global using FFmpegArgs.Cores.Interfaces;
 
 global using System;
 global using System.Collections.Generic;

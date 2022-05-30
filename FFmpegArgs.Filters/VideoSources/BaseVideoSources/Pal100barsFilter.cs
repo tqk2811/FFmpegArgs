@@ -10,7 +10,7 @@
         /// 
         /// </summary>
         /// <param name="filterGraph"></param>
-        internal Pal100barsFilter(BaseFilterGraph filterGraph) : base("pal100bars", filterGraph)
+        internal Pal100barsFilter(IImageFilterGraph filterGraph) : base("pal100bars", filterGraph)
         {
             AddMapOut();
         }
@@ -25,7 +25,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static Pal100barsFilter Pal100barsFilter(this BaseFilterGraph filterGraph)
+        public static Pal100barsFilter Pal100barsFilter(this IImageFilterGraph filterGraph)
           => new Pal100barsFilter(filterGraph);
     }
 }

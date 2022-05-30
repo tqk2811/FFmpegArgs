@@ -19,7 +19,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             string outputFileName = $"{nameof(PushHorizontalFilmTest)}-{screenMode}-{direction}.mp4";
             string filterFileName = $"{nameof(PushHorizontalFilmTest)}-{screenMode}-{direction}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = config.TransitionDuration * images_inputmap.Count;
@@ -127,11 +127,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .TrimFilter().Duration(TOTAL_DURATION).MapOut
                 .FpsFilter().Fps(config.Fps).MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
-            var videoOut = new ImageFileOutput(outputFileName, out_map)
-                .VSync(VSyncMethod.vfr)
+            var videoOut = new ImageFileOutput(outputFileName, out_map);
+            videoOut.ImageOutputAVStreams.First()
+                .Codec("libx264")
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
-                .VCodec("libx264")
                 //.SetOption("-b:v", "3000")
                 .Fps(config.Fps);
             ffmpegArg.AddOutput(videoOut);
@@ -151,7 +151,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             string outputFileName = $"{nameof(PushVerticalFilmTest)}-{screenMode}-{direction}.mp4";
             string filterFileName = $"{nameof(PushVerticalFilmTest)}-{screenMode}-{direction}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = config.TransitionDuration * images_inputmap.Count;
@@ -260,11 +260,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .TrimFilter().Duration(TOTAL_DURATION).MapOut
                 .FpsFilter().Fps(config.Fps).MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
-            var videoOut = new ImageFileOutput(outputFileName, out_map)
-                .VSync(VSyncMethod.vfr)
+            var videoOut = new ImageFileOutput(outputFileName, out_map);
+            videoOut.ImageOutputAVStreams.First()                
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
-                .VCodec("libx264")
+                .Codec("libx264")
                 //.SetOption("-b:v", "3000")
                 .Fps(config.Fps);
             ffmpegArg.AddOutput(videoOut);

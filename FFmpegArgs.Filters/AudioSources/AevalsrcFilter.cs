@@ -23,7 +23,7 @@ namespace FFmpegArgs.Filters.AudioSources
             "n","t","s"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal AevalsrcFilter(BaseFilterGraph filterGraph) : base("aevalsrc", filterGraph)
+        internal AevalsrcFilter(IAudioFilterGraph filterGraph) : base("aevalsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -85,6 +85,6 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AevalsrcFilter AevalsrcFilter(this BaseFilterGraph filterGraph) => new AevalsrcFilter(filterGraph);
+        public static AevalsrcFilter AevalsrcFilter(this IAudioFilterGraph filterGraph) => new AevalsrcFilter(filterGraph);
     }
 }

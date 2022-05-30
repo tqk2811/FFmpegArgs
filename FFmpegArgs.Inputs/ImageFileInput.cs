@@ -6,16 +6,17 @@
     public class ImageFileInput : ImageInput
     {
         readonly string _filePath;
+        
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="filePath"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public ImageFileInput(string filePath)
+        public ImageFileInput(string filePath, int streamCount = 1) : base(streamCount)
         {
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -24,7 +25,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
+                GetFlagArgs(),
+                GetOptionArgs(),
+                GetAVStreamArg(),
                 _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
             };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";

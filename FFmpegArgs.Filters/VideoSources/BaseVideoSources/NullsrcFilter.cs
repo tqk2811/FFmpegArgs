@@ -6,7 +6,7 @@
     /// </summary>
     public class NullsrcFilter : BaseVideoSource, IBaseVideoSourceSize
     {
-        internal NullsrcFilter(BaseFilterGraph filterGraph) : base("nullsrc", filterGraph)
+        internal NullsrcFilter(IImageFilterGraph filterGraph) : base("nullsrc", filterGraph)
         {
             AddMapOut();
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static NullsrcFilter NullsrcFilter(this BaseFilterGraph filterGraph)
+        public static NullsrcFilter NullsrcFilter(this IImageFilterGraph filterGraph)
           => new NullsrcFilter(filterGraph);
     }
 }

@@ -10,7 +10,7 @@
         /// </summary>
         /// <param name="filterName"></param>
         /// <param name="filterGraph"></param>
-        protected SourceAudioFilter(string filterName, BaseFilterGraph filterGraph)
+        protected SourceAudioFilter(string filterName, IAudioFilterGraph filterGraph)
           : base(filterName, new AudioMap(filterGraph, string.Empty))
         {
         }

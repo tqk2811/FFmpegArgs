@@ -13,7 +13,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             CollapseExpandMode collapseMode = CollapseExpandMode.Circular;
             string outputFileName = $"{nameof(ExpandTest)}-{screenMode}-{collapseMode}.mp4";
             string filterFileName = $"{nameof(ExpandTest)}-{screenMode}-{collapseMode}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count - config.TransitionDuration;
@@ -71,12 +71,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-              .VSync(VSyncMethod.vfr)
-              .SetOption("-c:v", "libx264")
-              .Duration(TOTAL_DURATION)
-              .Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                .Duration(TOTAL_DURATION)
+                .ImageOutputAVStreams.First()
+                    .Codec("libx264")
+                    .Fps(config.Fps)
+                    .SetOption("-g", "0")
+                    .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }

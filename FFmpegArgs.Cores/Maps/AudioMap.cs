@@ -10,19 +10,25 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <param name="name"></param>
-        /// <param name="streamIndexOfInput"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public AudioMap(BaseFilterGraph filterGraph, string name, int? streamIndexOfInput = null) : base(filterGraph, name, streamIndexOfInput)
+        public AudioMap(IFilterGraph filterGraph, string name) : base(filterGraph, name)
         {
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        public AudioMap(IBaseFFArg baseFFArg, IFilterGraph filterGraph, AudioInputAVStream audioInputAVStream)
+            : base(baseFFArg, filterGraph, audioInputAVStream)
+        {
 
+        }
         /// <summary>
         /// Unique name of map
         /// </summary>
         public override string MapName
         {
-            get { return IsInput ? $"{_name}:a:{StreamIndexOfInput}" : _name; }
+            get { return IsInput ? $"{IndexOfInput}:a:{InputAVStream.StreamIndex}" : _name; }
         }
     }
 }

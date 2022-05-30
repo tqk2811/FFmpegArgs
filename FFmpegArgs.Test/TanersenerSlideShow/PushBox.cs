@@ -21,7 +21,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ScreenMode screenMode = ScreenMode.Blur;
             string outputFileName = $"{nameof(PushBoxVerticalTest)}-{screenMode}-{verticalDirection}.mp4";
             string filterFileName = $"{nameof(PushBoxVerticalTest)}-{screenMode}-{verticalDirection}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             config.TransitionDuration = TimeSpan.FromSeconds(1);
@@ -30,9 +30,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             TOTAL_DURATION = config.ImageDuration * images_inputmap.Count + (29 * config.TransitionDuration * images_inputmap.Count + 5 * config.TransitionDuration) / 10;
             var TRANSITION_PHASE_DURATION = config.TransitionDuration / 2;
             var CHECKPOINT_DURATION = config.TransitionDuration / 5;
-            FilterGraphInput background_fi = new FilterGraphInput();
+            ImageFilterGraphInput background_fi = new ImageFilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
-            ImageMap background = ffmpegArg.AddVideoInput(background_fi).ImageMaps.First();
+            ImageMap background = ffmpegArg.AddImagesInput(background_fi).First();
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             List<ImageMap> overlaids = prepareInputs.Select(x => x.First()
                 .TrimFilter().Duration(config.ImageDuration).MapOut
@@ -132,12 +132,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-              .VSync(VSyncMethod.vfr)
-              .SetOption("-c:v", "libx264")
-              .Duration(TOTAL_DURATION)
-              .Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                .Duration(TOTAL_DURATION)
+                    .ImageOutputAVStreams.First()
+                    .Codec("libx264")
+                    .Fps(config.Fps)
+                    .SetOption("-g", "0")
+                    .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
@@ -157,7 +157,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ScreenMode screenMode = ScreenMode.Blur;
             string outputFileName = $"{nameof(PushBoxHorizontalTest)}-{screenMode}-{horizontalDirection}.mp4";
             string filterFileName = $"{nameof(PushBoxHorizontalTest)}-{screenMode}-{horizontalDirection}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             config.TransitionDuration = TimeSpan.FromSeconds(1);
@@ -166,9 +166,9 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             TOTAL_DURATION = config.ImageDuration * images_inputmap.Count + (29 * config.TransitionDuration * images_inputmap.Count + 5 * config.TransitionDuration) / 10;
             var TRANSITION_PHASE_DURATION = config.TransitionDuration / 2;
             var CHECKPOINT_DURATION = config.TransitionDuration / 5;
-            FilterGraphInput background_fi = new FilterGraphInput();
+            ImageFilterGraphInput background_fi = new ImageFilterGraphInput();
             background_fi.FilterGraph.ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut.FpsFilter().Fps(config.Fps);
-            ImageMap background = ffmpegArg.AddVideoInput(background_fi).ImageMaps.First();
+            ImageMap background = ffmpegArg.AddImagesInput(background_fi).First();
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             List<ImageMap> overlaids = prepareInputs.Select(x => x.First()
                 .TrimFilter().Duration(config.ImageDuration).MapOut
@@ -268,12 +268,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-              .VSync(VSyncMethod.vfr)
-              .SetOption("-c:v", "libx264")
-              .Duration(TOTAL_DURATION)
-              .Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                .Duration(TOTAL_DURATION)
+                
+                .ImageOutputAVStreams.First()
+                .Codec("libx264")
+                .Fps(config.Fps)
+                .SetOption("-g", "0")
+                .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }

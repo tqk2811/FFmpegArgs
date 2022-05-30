@@ -10,5 +10,4 @@ global using FFmpegArgs.Cores.Exceptions;
 global using FFmpegArgs.Cores.Inputs;
 global using FFmpegArgs.Cores.Filters;
 global using FFmpegArgs.Cores.Attributes;
-
-global using FFmpegArgs.Filters.FilterGraphs;
+global using FFmpegArgs.Cores.Interfaces;

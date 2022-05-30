@@ -5,19 +5,38 @@
     /// </summary>
     public abstract class AudioOutput : BaseOutput, IAudio
     {
+        readonly List<AudioOutputAVStream> _audioOutputAVStreams = new List<AudioOutputAVStream>();
+        readonly List<AudioMap> _audioMaps = new List<AudioMap>();
+
+
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="audioMap"></param>
+        public IEnumerable<AudioOutputAVStream> AudioOutputAVStreams => _audioOutputAVStreams;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override IEnumerable<OutputAVStream> OutputAVStreams => _audioOutputAVStreams;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IEnumerable<AudioMap> AudioMaps => _audioMaps;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="audioMaps"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        protected AudioOutput(AudioMap audioMap) : base(audioMap)
+        protected AudioOutput(params AudioMap[] audioMaps) : base(audioMaps)
         {
-            this.AudioMap = audioMap;
+            _audioMaps.AddRange(audioMaps);
+            for (int i = 0; i < audioMaps.Length; i++)
+            {
+                _audioOutputAVStreams.Add(new AudioOutputAVStream(audioMaps[i]));
+            }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public AudioMap AudioMap { get; }
     }
 }

@@ -6,7 +6,7 @@
     /// </summary>
     public class AllrgbFilter : BaseVideoSource
     {
-        internal AllrgbFilter(BaseFilterGraph filterGraph) : base("allrgb", filterGraph)
+        internal AllrgbFilter(IImageFilterGraph filterGraph) : base("allrgb", filterGraph)
         {
             AddMapOut();
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AllrgbFilter AllrgbFilter(this BaseFilterGraph filterGraph)
+        public static AllrgbFilter AllrgbFilter(this IImageFilterGraph filterGraph)
           => new AllrgbFilter(filterGraph);
     }
 }

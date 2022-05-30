@@ -13,7 +13,7 @@
         /// <param name="audioMap"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public AudioPipeOutput(Stream streamOutput,MuxingFileFormat format, AudioMap audioMap) : base(audioMap)
+        public AudioPipeOutput(Stream streamOutput, MuxingFileFormat format, AudioMap audioMap) : base(audioMap)
         {
             PipeStream = streamOutput ?? throw new ArgumentNullException(nameof(streamOutput));
             if (!streamOutput.CanWrite) throw new InvalidOperationException("input stream.CanWrite is required");
@@ -33,9 +33,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
-                "-map",
-                AudioMap.IsInput ? AudioMap.MapName : $"[{AudioMap.MapName}]",
+                GetAVStreamArg(),
+                GetFlagArgs(),
+                GetOptionArgs(),
                 $"pipe:{StdOut}"
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));

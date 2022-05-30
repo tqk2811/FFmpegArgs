@@ -6,7 +6,7 @@
     /// </summary>
     public class BufferFilter : SourceImageFilter
     {
-        internal BufferFilter(BaseFilterGraph filterGraph) : base("buffer", filterGraph)
+        internal BufferFilter(IImageFilterGraph filterGraph) : base("buffer", filterGraph)
         {
             AddMapOut();
         }
@@ -85,7 +85,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static BufferFilter BufferFilter(this BaseFilterGraph filterGraph)
+        public static BufferFilter BufferFilter(this IImageFilterGraph filterGraph)
           => new BufferFilter(filterGraph);
     }
 }

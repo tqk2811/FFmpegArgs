@@ -1,7 +1,8 @@
 ﻿namespace FFmpegArgs.Cores.Enums
 {
     /// <summary>
-    /// https://github.com/FFmpeg/FFmpeg/blob/f6ab103bb5c2dd494620f7a28ae232efe497a4d1/libavutil/samplefmt.h#L58
+    /// ffmpeg -sample_fmts<br>
+    /// </br>https://github.com/FFmpeg/FFmpeg/blob/f6ab103bb5c2dd494620f7a28ae232efe497a4d1/libavutil/samplefmt.h#L58
     /// </summary>
     public enum AVSampleFormat
     {

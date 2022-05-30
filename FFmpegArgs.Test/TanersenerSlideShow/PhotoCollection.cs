@@ -13,7 +13,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             string outputFileName = $"{nameof(PhotoCollectionCustomTest)}.mp4";
             string filterFileName = $"{nameof(PhotoCollectionCustomTest)}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             int MAX_IMAGE_ANGLE = 25;
@@ -66,11 +66,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-              .VSync(VSyncMethod.vfr)
-              .SetOption("-c:v", "libx264")
-              .Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                .ImageOutputAVStreams.First()
+                    .Codec("libx264")
+                    .Fps(config.Fps)
+                    .SetOption("-g", "0")
+                    .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
@@ -79,7 +79,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             string outputFileName = $"{nameof(PhotoCollectionTest)}.mp4";
             string filterFileName = $"{nameof(PhotoCollectionTest)}.txt";
-            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput();
+            FFmpegArg ffmpegArg = new FFmpegArg().OverWriteOutput().VSync(VSyncMethod.vfr);
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             int MAX_IMAGE_ANGLE = 25;
@@ -87,9 +87,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
             
             Random random = new Random();
-            var background = ffmpegArg.AddVideoInput(
-                new FilterStringInput($"color={config.BackgroundColor.ToHexStringRGBA()}:s={config.Size.Width}x{config.Size.Height},fps={config.Fps}"),1,0)
-                .ImageMaps.First().TrimFilter().Duration(TOTAL_DURATION).MapOut;
+            var background = ffmpegArg.AddImagesInput(
+                new ImageFilterGraphInput().AddFilter(x => x
+                    .ColorFilter().Color(config.BackgroundColor).Size(config.Size).MapOut
+                    .FpsFilter().Fps(config.Fps)))
+                .First().TrimFilter().Duration(TOTAL_DURATION).MapOut;
             var lastOverLay = background;
             images_inputmap = images_inputmap.InputScreenMode(ScreenMode.Center, config);
             for (int c = 0; c < images_inputmap.Count; c++)
@@ -127,11 +129,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-              .VSync(VSyncMethod.vfr)
-              .SetOption("-c:v", "libx264")
-              .Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                .ImageOutputAVStreams.First()
+                .Codec("libx264")
+                .Fps(config.Fps)
+                .SetOption("-g", "0")
+                .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }

@@ -5,6 +5,8 @@ global using FFmpegArgs.Cores.Outputs;
 global using FFmpegArgs.Cores.Exceptions;
 global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores;
+global using FFmpegArgs.Cores.Streams;
+global using FFmpegArgs.Cores.Interfaces;
 global using FFmpegArgs.Cores.Inputs;
 global using FFmpegArgs.Cores.Extensions;
 

@@ -6,7 +6,7 @@
     /// </summary>
     public class AllyuvFilter : BaseVideoSource
     {
-        internal AllyuvFilter(BaseFilterGraph filterGraph) : base("allyuv", filterGraph)
+        internal AllyuvFilter(IImageFilterGraph filterGraph) : base("allyuv", filterGraph)
         {
             AddMapOut();
         }
@@ -21,7 +21,7 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static AllyuvFilter AllyuvFilter(this BaseFilterGraph filterGraph)
+        public static AllyuvFilter AllyuvFilter(this IImageFilterGraph filterGraph)
           => new AllyuvFilter(filterGraph);
     }
 }

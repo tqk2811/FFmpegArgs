@@ -21,7 +21,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class SincFilter : SourceAudioFilter
     {
-        internal SincFilter(BaseFilterGraph filterGraph) : base("sinc", filterGraph)
+        internal SincFilter(IAudioFilterGraph filterGraph) : base("sinc", filterGraph)
         {
             AddMapOut();
         }
@@ -108,7 +108,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static SincFilter SincFilter(this BaseFilterGraph filterGraph)
+        public static SincFilter SincFilter(this IAudioFilterGraph filterGraph)
           => new SincFilter(filterGraph);
     }
 }

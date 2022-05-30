@@ -31,10 +31,11 @@
             return result;
         }
         /// <summary>
-        /// Note: *.png Not a available on window <br></br>
-        /// https://stackoverflow.com/a/31513542/5034139
+        /// 
         /// </summary>
-        /// <param name="search">Example: *.png, imagename%04d.png</param>
+        /// <param name="search">Example: *.png, imagename%04d.png<br>
+        /// </br>Note: *.png Not a available on window <br>
+        /// </br><see href="https://stackoverflow.com/a/31513542/5034139"/></param>
         /// <returns></returns>
         public static ImageFilesConcatInput FromFilesSearch(string search)
         {
@@ -50,7 +51,7 @@
         /// 
         /// </summary>
         /// <param name="input"></param>
-        private ImageFilesConcatInput(string input)
+        private ImageFilesConcatInput(string input) : base(1)
         {
             if (string.IsNullOrEmpty(input)) throw new ArgumentNullException(nameof(input));
             this._filePath = input;
@@ -63,7 +64,9 @@
         {
             List<string> args = new List<string>()
             {
-                GetArgs(),
+                GetFlagArgs(),
+                GetOptionArgs(),
+                GetAVStreamArg(),
                 _filePath.Contains(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
             };
             return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";

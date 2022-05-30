@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// </summary>
     public class FliteFilter : SourceAudioFilter
     {
-        internal FliteFilter(BaseFilterGraph filterGraph) : base("flite", filterGraph)
+        internal FliteFilter(IAudioFilterGraph filterGraph) : base("flite", filterGraph)
         {
             AddMapOut();
         }
@@ -61,7 +61,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
-        public static FliteFilter FliteFilter(this BaseFilterGraph filterGraph)
+        public static FliteFilter FliteFilter(this IAudioFilterGraph filterGraph)
           => new FliteFilter(filterGraph);
     }
 }

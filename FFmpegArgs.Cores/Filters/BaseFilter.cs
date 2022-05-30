@@ -9,12 +9,12 @@
       where TIn : BaseMap
       where TOut : BaseMap
     {
-        private List<TIn> _mapsIn { get; } = new List<TIn>();
+        private List<BaseMap> _mapsIn { get; } = new List<BaseMap>();
 
         /// <summary>
         /// 
         /// </summary>
-        protected List<TOut> _mapsOut { get; } = new List<TOut>();
+        protected List<BaseMap> _mapsOut { get; } = new List<BaseMap>();
 
         /// <summary>
         /// 
@@ -27,24 +27,32 @@
         /// <summary>
         /// 
         /// </summary>
-        public BaseFilterGraph FilterGraph { get; }
+        public IFilterGraph FilterGraph { get; }
+                
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<TOut> MapsOut { get { return _mapsOut; } }
+        public IEnumerable<TOut> MapsOut => _mapsOut.Cast<TOut>();
+        
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<TIn> MapsIn { get { return _mapsIn; } }
+        public IEnumerable<TIn> MapsIn => _mapsIn.Cast<TIn>();
+        
         /// <summary>
         /// 
         /// </summary>
-        public TOut MapOut { get { return MapsOut.FirstOrDefault(); } }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IEnumerable<KeyValuePair<string, string>> Options { get { return _options; } }
+        public TOut MapOut => _mapsOut.Cast<TOut>().FirstOrDefault();
 
+
+        IEnumerable<BaseMap> IFilter.MapsOut => _mapsOut;
+
+        IEnumerable<BaseMap> IFilter.MapsIn => _mapsIn;
+
+        BaseMap IFilter.MapOut => MapOut;
+
+
+        
         /// <summary>
         /// 
         /// </summary>

@@ -10,9 +10,17 @@
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <param name="name"></param>
-        /// <param name="streamIndexOfInput"></param>
         /// <exception cref="ArgumentNullException"></exception>
-        public ImageMap(BaseFilterGraph filterGraph, string name, int? streamIndexOfInput = null) : base(filterGraph, name, streamIndexOfInput)
+        public ImageMap(IFilterGraph filterGraph, string name) : base(filterGraph, name)
+        {
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public ImageMap(IBaseFFArg baseFFArg, IFilterGraph filterGraph, ImageInputAVStream imageInputAVStream) 
+            : base(baseFFArg, filterGraph, imageInputAVStream)
         {
 
         }
@@ -22,7 +30,7 @@
         /// </summary>
         public override string MapName
         {
-            get { return IsInput ? $"{_name}:v:{StreamIndexOfInput}" : _name; }
+            get { return IsInput ? $"{IndexOfInput}:v:{InputAVStream.StreamIndex}" : _name; }
         }
     }
 }
