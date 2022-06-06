@@ -8,11 +8,15 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(".\\Images");
             var files = directoryInfo.GetFiles("*.jpg");
-            return files.Select(x => ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\{x.Name}").StreamLoop(1)).First()).ToList();
+            return files
+                .Select(x => ffmpegArg
+                    .AddImagesInput(new ImageFileInput($"Images\\{x.Name}")
+                    .SetOption("-loop", 1)//https://ffmpeg.org/ffmpeg-formats.html#image2-1 image demux option
+                    ).First()).ToList();
         }
         public static ImageMap FilmStripH(this FFmpegArg ffmpegArg)
         {
-            return ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\film_strip.png").StreamLoop(1)).First();
+            return ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\film_strip.png").SetOption("-loop", 1)).First();
         }
         public static ImageMap FilmStripV(this FFmpegArg ffmpegArg)
         {
