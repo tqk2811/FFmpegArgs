@@ -51,6 +51,7 @@ function NugetPush
 }
 
 $result = NugetPack "FFmpegArgs" `
+                    "FFmpegArgs.Extensions" `
                     "FFmpegArgs.Cores" `
                     "FFmpegArgs.Filters.Common" `
                     "FFmpegArgs.Filters" `
@@ -72,6 +73,7 @@ if($result)
         pause
 
         NugetPush   "FFmpegArgs" `
+                    "FFmpegArgs.Extensions" `
                     "FFmpegArgs.Cores" `
                     "FFmpegArgs.Filters.Common" `
                     "FFmpegArgs.Filters" `
