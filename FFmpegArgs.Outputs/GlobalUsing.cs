@@ -10,3 +10,4 @@ global using FFmpegArgs.Cores.Interfaces;
 global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores.Maps;
 global using FFmpegArgs.Cores.Outputs;
+global using FFmpegArgs.Cores.Streams;

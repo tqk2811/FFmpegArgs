@@ -19,6 +19,11 @@
             if (!streamOutput.CanWrite) throw new InvalidOperationException("input stream.CanWrite is required");
             this.Format(format);
         }
+        
+        /// <summary>
+        /// Get FirstOrDefault of <see cref="ImageOutput.ImageOutputAVStreams"/>
+        /// </summary>
+        public ImageOutputAVStream ImageOutputAVStream { get { return this.ImageOutputAVStreams.FirstOrDefault(); } }
 
         /// <summary>
         /// 

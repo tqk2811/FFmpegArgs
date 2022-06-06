@@ -17,6 +17,12 @@
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
         }
+
+        /// <summary>
+        /// Get FirstOrDefault of <see cref="ImageOutput.ImageOutputAVStreams"/>
+        /// </summary>
+        public ImageOutputAVStream ImageOutputAVStream { get { return this.ImageOutputAVStreams.FirstOrDefault(); } }
+
         /// <summary>
         /// 
         /// </summary>

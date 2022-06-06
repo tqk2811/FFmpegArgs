@@ -56,6 +56,12 @@
             if (string.IsNullOrEmpty(input)) throw new ArgumentNullException(nameof(input));
             this._filePath = input;
         }
+
+        /// <summary>
+        /// Image Stream Input
+        /// </summary>
+        public ImageInputAVStream ImageInputAVStream { get { return base.ImageInputAVStreams.FirstOrDefault(); } }
+        
         /// <summary>
         /// 
         /// </summary>

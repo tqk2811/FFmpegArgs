@@ -18,6 +18,19 @@
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
         }
+
+
+        /// <summary>
+        /// Image Stream Input
+        /// </summary>
+        public ImageInputAVStream ImageInputAVStream { get { return base.ImageInputAVStreams.FirstOrDefault(); } }
+
+        /// <summary>
+        /// Audio Stream Input
+        /// </summary>
+        public AudioInputAVStream AudioInputAVStream { get { return base.AudioInputAVStreams.FirstOrDefault(); } }
+
+        
         /// <summary>
         /// 
         /// </summary>

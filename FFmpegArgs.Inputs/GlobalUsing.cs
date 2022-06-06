@@ -4,6 +4,7 @@ global using System.Linq;
 global using System.Collections;
 global using System.Collections.Generic;
 
+global using FFmpegArgs.Cores.Streams;
 global using FFmpegArgs.Cores;
 global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores.Exceptions;
