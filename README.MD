@@ -42,13 +42,13 @@ ffmpegArg.AddOutput(
     new VideoFileOutput(@"out.mp4", overlay_map, background_videoMap.AudioMaps.First())
     .T(TimeSpan.FromSeconds(5))//output extension ( -t )
     .AndSet(
-        x => x.ImageInputAVStream//output video stream
+        x => x.ImageOutputAVStream//output video stream
             .R(24)//output, video, per-stream extension ( -r )
         )
     );
 ffmpegArg.AddOutput(
     new VideoFileOutput(@"out2.mp4", image_maps.Last(), background_videoMap.AudioMaps.First())
-    .AndSet(x => x.ImageInputAVStream.R(30)));
+    .AndSet(x => x.ImageOutputAVStream.R(30)));
 
 var renderResult = ffmpegArg
     .Render(c => c
