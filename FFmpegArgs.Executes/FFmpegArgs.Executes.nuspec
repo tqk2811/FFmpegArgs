@@ -7,7 +7,7 @@
 		<description>Executable for FFmpegArgs</description>
 		<authors>tqk2811</authors>
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
-		<tags>ffmpeg ffmpeg-command ffmpeg-script</tags>
+		<tags>ffmpeg ffmpeg-cli</tags>
 		<readme>docs\README.MD</readme>
 		<license type="expression">MIT</license>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git"/>
