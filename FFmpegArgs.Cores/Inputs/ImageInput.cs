@@ -21,13 +21,13 @@
         }
 
         /// <summary>
-        /// 
+        /// Streams Input
         /// </summary>
         public override IEnumerable<InputAVStream> InputAVStreams => _imageInputAVStreams;
 
 
         /// <summary>
-        /// 
+        /// Images Stream Input
         /// </summary>
         public IEnumerable<ImageInputAVStream> ImageInputAVStreams { get { return _imageInputAVStreams; } }
     }

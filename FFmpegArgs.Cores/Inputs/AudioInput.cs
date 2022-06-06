@@ -20,13 +20,13 @@
         }
 
         /// <summary>
-        /// 
+        /// Streams Input
         /// </summary>
         public override IEnumerable<InputAVStream> InputAVStreams => _inputAudioFFStreams;
 
 
         /// <summary>
-        /// 
+        /// Audios Stream Input
         /// </summary>
         public IEnumerable<AudioInputAVStream> AudioInputAVStreams { get { return _inputAudioFFStreams; } }
     }
