@@ -7,7 +7,7 @@
     {
         readonly List<ImageOutputAVStream> _imageOutputAVStreams = new List<ImageOutputAVStream>();
         readonly List<ImageMap> _imageMaps = new List<ImageMap>();
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,7 +17,7 @@
         /// 
         /// </summary>
         public IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -34,7 +34,7 @@
             _imageMaps.AddRange(imageMaps);
             for (int i = 0; i < imageMaps.Length; i++)
             {
-                _imageOutputAVStreams.Add(new ImageOutputAVStream(imageMaps[i]));
+                _imageOutputAVStreams.Add(new ImageOutputAVStream(imageMaps[i], i));
             }
         }
     }

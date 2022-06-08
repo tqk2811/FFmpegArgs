@@ -8,7 +8,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public ImageInputAVStream(BaseInput baseInput, int streamIndex) : base(baseInput, streamIndex)
+        internal ImageInputAVStream(BaseInput baseInput, int streamIndex) : base(baseInput, streamIndex)
         {
         }
         
@@ -16,7 +16,6 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public override string ToString()
         {
             List<string> options = base._options.Select(x => $"{x.Key}:v:{StreamIndex} {x.Value}").ToList();

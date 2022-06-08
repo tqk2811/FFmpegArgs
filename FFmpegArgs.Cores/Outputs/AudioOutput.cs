@@ -35,7 +35,7 @@
             _audioMaps.AddRange(audioMaps);
             for (int i = 0; i < audioMaps.Length; i++)
             {
-                _audioOutputAVStreams.Add(new AudioOutputAVStream(audioMaps[i]));
+                _audioOutputAVStreams.Add(new AudioOutputAVStream(audioMaps[i], i));
             }
         }
     }

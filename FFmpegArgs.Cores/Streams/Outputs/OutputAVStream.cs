@@ -14,7 +14,7 @@
         /// <summary>
         /// 
         /// </summary>
-        protected OutputAVStream(BaseMap baseMap)
+        internal OutputAVStream(BaseMap baseMap, int streamIndex) : base(streamIndex)
         {
             this.BaseMap = baseMap ?? throw new ArgumentNullException(nameof(baseMap));
             baseMap.OutputAVStream = this;

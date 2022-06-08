@@ -8,7 +8,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public AudioInputAVStream(BaseInput baseInput, int streamIndex) : base(baseInput, streamIndex)
+        internal AudioInputAVStream(BaseInput baseInput, int streamIndex) : base(baseInput, streamIndex)
         {
         }
         /// <summary>

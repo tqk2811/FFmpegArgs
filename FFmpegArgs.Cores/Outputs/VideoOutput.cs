@@ -50,11 +50,11 @@
 
             for (int i = 0; i < _imageMaps.Count; i++)
             {
-                _imageOutputAVStreams.Add(new ImageOutputAVStream(_imageMaps[i]));
+                _imageOutputAVStreams.Add(new ImageOutputAVStream(_imageMaps[i], i));
             }
             for (int i = 0; i < _audioMaps.Count; i++)
             {
-                _audioOutputAVStreams.Add(new AudioOutputAVStream(_audioMaps[i]));
+                _audioOutputAVStreams.Add(new AudioOutputAVStream(_audioMaps[i], i));
             }
         }
     }

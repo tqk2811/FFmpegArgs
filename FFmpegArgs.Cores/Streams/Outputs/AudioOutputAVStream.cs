@@ -12,7 +12,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public AudioOutputAVStream(AudioMap audioMap) : base(audioMap)
+        internal AudioOutputAVStream(AudioMap audioMap, int streamIndex) : base(audioMap, streamIndex)
         {
             this.AudioMap = audioMap;
         }
@@ -23,7 +23,7 @@
         /// <returns></returns>
         public override string ToString()
         {
-            List<string> options = base._options.Select(x => $"{x.Key} {x.Value}").ToList();
+            List<string> options = base._options.Select(x => $"{x.Key}:a:{StreamIndex} {x.Value}").ToList();
             options.AddRange(base._flags.Select(x => x));
             if (this.AudioMap.IsInput) options.Add($"-map {this.AudioMap.MapName}");
             else options.Add($"-map [{this.AudioMap.MapName}]");
