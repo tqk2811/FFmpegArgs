@@ -4,7 +4,7 @@
     /// https://ffmpeg.org/ffmpeg.html#Audio-Options<br>
     /// </br>https://ffmpeg.org/ffmpeg.html#Advanced-Audio-options
     /// </summary>
-    public static class AudioOptionsExtension
+    public static class AudioAVStreamOptionsExtension
     {
         #region Audio Options
         /// <summary>
@@ -45,7 +45,7 @@
         /// <param name="ac"></param>
         /// <returns></returns>
         public static T Ac<T>(this T t, int ac) where T : BaseAVStream, IAudio // (input/output,per-stream)
-            => t.SetOptionRange("", ac, 0, int.MaxValue);
+            => t.SetOptionRange("-ac", ac, 0, int.MaxValue);
 
         /// <summary>
         /// As an input option, blocks all audio streams of a file from being filtered or being automatically selected or mapped for any output. See -discard option to disable streams individually.<br>

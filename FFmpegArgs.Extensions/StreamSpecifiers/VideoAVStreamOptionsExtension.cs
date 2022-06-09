@@ -4,11 +4,9 @@
     /// https://ffmpeg.org/ffmpeg.html#Video-Options<br>
     /// </br>https://ffmpeg.org/ffmpeg.html#Advanced-Video-options
     /// </summary>
-    public static class VideoOptionsExtension
+    public static class VideoAVStreamOptionsExtension
     {
-        
         #region Video Options
-        
         /// <summary>
         /// Set the number of video frames to output. This is an obsolete alias for <b>-frames:v</b>, which you should use instead.
         /// </summary>
@@ -16,6 +14,7 @@
         /// <param name="t"></param>
         /// <param name="vframes"></param>
         /// <returns></returns>
+        [Obsolete("This is an obsolete alias for -frames:v, which you should use instead.")]
         public static T Vframes<T>(this T t, int vframes) where T : BaseOutput, IImage // (output)
             => t.SetOption("-vframes", vframes.ToString());
 
@@ -27,7 +26,6 @@
         /// <param name="t"></param>
         /// <param name="fps"></param>
         /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static T R<T>(this T t, int fps) where T : BaseAVStream, IImage // (input/output,per-stream)
             => t.SetOption($"-r", fps);
 
@@ -39,7 +37,6 @@
         /// <param name="t"></param>
         /// <param name="fps"></param>
         /// <returns></returns>
-        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public static T Fps<T>(this T t, int fps) where T : BaseAVStream, IImage // (input/output,per-stream)
             => t.SetOption($"-r", fps);
         
@@ -207,20 +204,6 @@
         // -hwaccel_device[:stream_specifier] hwaccel_device (input,per-stream)
 
         // -hwaccels
-        #endregion
-
-        #region Main Options
-        /// <summary>
-        /// Select an encoder (when used before an output file) or a decoder (when used before an input file) for one or more streams. codec is the name of a decoder/encoder or a special value copy (output only) to indicate that the stream is not to be re-encoded.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="codec"></param>
-        /// <returns></returns>
-        public static T Codec<T>(this T t, string codec) where T : BaseAVStream, IImage // (input/output,per-stream)
-           => t.SetOption("-c:v", codec);
-
-
         #endregion
     }
 

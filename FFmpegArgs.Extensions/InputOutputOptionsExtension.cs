@@ -75,7 +75,8 @@
 
         #region Output
         /// <summary>
-        /// -f
+        /// -f<br>
+        /// </br>Force input or output file format. The format is normally auto detected for input files and guessed from the file extension for output files, so this option is not needed in most cases.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
@@ -85,7 +86,8 @@
             => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
 
         /// <summary>
-        /// -f
+        /// -f<br>
+        /// </br>Force input or output file format. The format is normally auto detected for input files and guessed from the file extension for output files, so this option is not needed in most cases.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
