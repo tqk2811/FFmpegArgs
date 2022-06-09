@@ -7,7 +7,7 @@
 		<description>Filters for FFmpegArgs</description>
 		<authors>tqk2811</authors>
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
-		<tags>ffmpeg ffmpeg-cli</tags>
+		<tags>ffmpeg ffmpeg-cli-wrapper</tags>
 		<readme>docs\README.MD</readme>
 		<license type="expression">MIT</license>
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git"/>
