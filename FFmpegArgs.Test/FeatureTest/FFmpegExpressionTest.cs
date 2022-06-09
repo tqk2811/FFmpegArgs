@@ -1,4 +1,4 @@
-namespace FFmpegArgs.Test
+namespace FFmpegArgs.Test.FeatureTest
 {
     [TestClass]
     public class FFmpegExpressionTest

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFmpegArgs.Test.PipeTest
+namespace FFmpegArgs.Test.FeatureTest
 {
     [TestClass]
     public class PipeTest
@@ -12,7 +12,7 @@ namespace FFmpegArgs.Test.PipeTest
         [TestMethod]
         public void TestStdInOut()
         {
-            using FileStream input = new FileStream(".\\Images\\img0.jpg", FileMode.Open, FileAccess.Read, FileShare.Read);
+            using FileStream input = new FileStream(".\\Resources\\img0.jpg", FileMode.Open, FileAccess.Read, FileShare.Read);
             using FileStream output = new FileStream("img0_out.jpg", FileMode.Create, FileAccess.Write, FileShare.Read);
             FFmpegArg ffmpegArg = new FFmpegArg();
             var videoMap = ffmpegArg.AddVideoInput(new VideoPipeInput(input, DemuxingFileFormat.mjpeg, 1, 0));

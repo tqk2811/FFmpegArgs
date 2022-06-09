@@ -41,22 +41,25 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Images\film_strip.png">
+	  <None Update="Resources\2.mp4">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Images\film_strip_vertical.png">
+	  <None Update="Resources\film_strip.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Images\img0.jpg">
+	  <None Update="Resources\film_strip_vertical.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Images\img1.jpg">
+	  <None Update="Resources\img0.jpg">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Images\img2.jpg">
+	  <None Update="Resources\img1.jpg">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
-	  <None Update="Images\img3.jpg">
+	  <None Update="Resources\img2.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Resources\img3.jpg">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

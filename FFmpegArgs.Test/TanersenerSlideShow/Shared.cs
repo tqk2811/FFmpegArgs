@@ -6,21 +6,21 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
     {
         public static List<ImageMap> GetImagesInput(this FFmpegArg ffmpegArg)
         {
-            DirectoryInfo directoryInfo = new DirectoryInfo(".\\Images");
+            DirectoryInfo directoryInfo = new DirectoryInfo(".\\Resources");
             var files = directoryInfo.GetFiles("*.jpg");
             return files
                 .Select(x => ffmpegArg
-                    .AddImagesInput(new ImageFileInput($"Images\\{x.Name}")
+                    .AddImagesInput(new ImageFileInput($"Resources\\{x.Name}")
                     .SetOption("-loop", 1)//https://ffmpeg.org/ffmpeg-formats.html#image2-1 image demux option
                     ).First()).ToList();
         }
         public static ImageMap FilmStripH(this FFmpegArg ffmpegArg)
         {
-            return ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\film_strip.png").SetOption("-loop", 1)).First();
+            return ffmpegArg.AddImagesInput(new ImageFileInput($"Resources\\film_strip.png").SetOption("-loop", 1)).First();
         }
         public static ImageMap FilmStripV(this FFmpegArg ffmpegArg)
         {
-            return ffmpegArg.AddImagesInput(new ImageFileInput($"Images\\film_strip_vertical.png").SetOption("-loop", 1)).First();
+            return ffmpegArg.AddImagesInput(new ImageFileInput($"Resources\\film_strip_vertical.png").SetOption("-loop", 1)).First();
         }
         public static List<IEnumerable<ImageMap>> InputScreenModes(this IEnumerable<ImageMap> inputs,
             ScreenMode screenMode, Config config, string lumaRadius = "100")
