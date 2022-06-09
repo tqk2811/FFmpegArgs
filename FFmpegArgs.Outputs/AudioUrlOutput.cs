@@ -21,6 +21,33 @@
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="format"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public AudioUrlOutput(Uri url, MuxingFileFormat format, params AudioMap[] audioMaps) : base(audioMaps)
+        {
+            this._url = url ?? throw new ArgumentNullException(nameof(url));
+            this.Format(format);
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="format"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public AudioUrlOutput(Uri url, MuxingFileFormat format, IEnumerable<AudioMap> audioMaps) : base(audioMaps.ToArray())
+        {
+            this._url = url ?? throw new ArgumentNullException(nameof(url));
+            this.Format(format);
+        }
+
+
+        /// <summary>
         /// Get FirstOrDefault of <see cref="AudioOutput.AudioOutputAVStreams"/>
         /// </summary>
         public AudioOutputAVStream AudioOutputAVStream { get { return this.AudioOutputAVStreams.FirstOrDefault(); } }

@@ -23,6 +23,42 @@
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="streamOutput"></param>
+        /// <param name="format"></param>
+        /// <param name="imageMaps"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        public VideoPipeOutput(Stream streamOutput, MuxingFileFormat format, IEnumerable<ImageMap> imageMaps, IEnumerable<AudioMap> audioMaps)
+            : base(imageMaps, audioMaps)
+        {
+            PipeStream = streamOutput ?? throw new ArgumentNullException(nameof(streamOutput));
+            if (!streamOutput.CanWrite) throw new InvalidOperationException("input stream.CanWrite is required");
+            this.Format(format);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="streamOutput"></param>
+        /// <param name="format"></param>
+        /// <param name="imageMaps"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="InvalidOperationException"></exception>
+        public VideoPipeOutput(Stream streamOutput, MuxingFileFormat format, ImageMap[] imageMaps, AudioMap[] audioMaps)
+            : base(imageMaps, audioMaps)
+        {
+            PipeStream = streamOutput ?? throw new ArgumentNullException(nameof(streamOutput));
+            if (!streamOutput.CanWrite) throw new InvalidOperationException("input stream.CanWrite is required");
+            this.Format(format);
+        }
+
+
+
+        /// <summary>
         /// Get FirstOrDefault of <see cref="VideoOutput.AudioOutputAVStreams"/>
         /// </summary>
         public AudioOutputAVStream AudioOutputAVStream { get { return this.AudioOutputAVStreams.FirstOrDefault(); } }
@@ -32,7 +68,7 @@
         /// </summary>
         public ImageOutputAVStream ImageOutputAVStream { get { return this.ImageOutputAVStreams.FirstOrDefault(); } }
 
-        
+
         /// <summary>
         /// 
         /// </summary>

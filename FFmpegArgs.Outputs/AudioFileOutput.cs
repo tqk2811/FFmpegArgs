@@ -6,6 +6,7 @@
     public class AudioFileOutput : AudioOutput
     {
         readonly string _filePath;
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,7 +18,31 @@
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public AudioFileOutput(string filePath, params AudioMap[] audioMaps) : base(audioMaps)
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
+        }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public AudioFileOutput(string filePath, IEnumerable<AudioMap> audioMaps) : base(audioMaps.ToArray())
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
+        }
+        
         /// <summary>
         /// Get FirstOrDefault of <see cref="AudioOutput.AudioOutputAVStreams"/>
         /// </summary>

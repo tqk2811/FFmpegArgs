@@ -6,6 +6,7 @@
     public class ImageFileOutput : ImageOutput
     {
         readonly string _filePath;
+
         /// <summary>
         /// 
         /// </summary>
@@ -17,6 +18,31 @@
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="imageMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ImageFileOutput(string filePath, params ImageMap[] imageMaps) : base(imageMaps)
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <param name="imageMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ImageFileOutput(string filePath, IEnumerable<ImageMap> imageMaps) : base(imageMaps.ToArray())
+        {
+            if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
+            this._filePath = filePath;
+        }
+
 
         /// <summary>
         /// Get FirstOrDefault of <see cref="ImageOutput.ImageOutputAVStreams"/>

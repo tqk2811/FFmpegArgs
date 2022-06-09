@@ -21,6 +21,36 @@
             this._url = url ?? throw new ArgumentNullException(nameof(url));
             this.Format(format);
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="format"></param>
+        /// <param name="imageMaps"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public VideoUrlOutput(Uri url, MuxingFileFormat format, IEnumerable<ImageMap> imageMaps, IEnumerable<AudioMap> audioMaps)
+            : base(imageMaps, audioMaps)
+        {
+            this._url = url ?? throw new ArgumentNullException(nameof(url));
+            this.Format(format);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="format"></param>
+        /// <param name="imageMaps"></param>
+        /// <param name="audioMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public VideoUrlOutput(Uri url, MuxingFileFormat format, ImageMap[] imageMaps, AudioMap[] audioMaps)
+            : base(imageMaps, audioMaps)
+        {
+            this._url = url ?? throw new ArgumentNullException(nameof(url));
+            this.Format(format);
+        }
+
 
         /// <summary>
         /// Get FirstOrDefault of <see cref="VideoOutput.AudioOutputAVStreams"/>

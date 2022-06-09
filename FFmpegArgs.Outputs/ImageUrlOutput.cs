@@ -21,6 +21,32 @@
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="format"></param>
+        /// <param name="imageMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ImageUrlOutput(Uri url, MuxingFileFormat format, params ImageMap[] imageMaps) : base(imageMaps)
+        {
+            this._url = url ?? throw new ArgumentNullException(nameof(url));
+            this.Format(format);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="format"></param>
+        /// <param name="imageMaps"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ImageUrlOutput(Uri url, MuxingFileFormat format, IEnumerable<ImageMap> imageMaps) : base(imageMaps.ToArray())
+        {
+            this._url = url ?? throw new ArgumentNullException(nameof(url));
+            this.Format(format);
+        }
+
+        /// <summary>
         /// Get FirstOrDefault of <see cref="ImageOutput.ImageOutputAVStreams"/>
         /// </summary>
         public ImageOutputAVStream ImageOutputAVStream { get { return this.ImageOutputAVStreams.FirstOrDefault(); } }
