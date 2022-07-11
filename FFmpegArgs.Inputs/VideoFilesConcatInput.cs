@@ -11,18 +11,18 @@
         /// Do not use with MP4.
         /// </summary>
         /// <returns></returns>
-        public static VideoFilesConcatInput ConcatProtocol(IEnumerable<string> files, int imageCount = 1, int audioCount = 1)
+        public static VideoFilesConcatInput ConcatProtocol(IEnumerable<string> files, int imageStreamCount = 1, int audioStreamCount = 1)
         {
-            return new VideoFilesConcatInput($"concat:{string.Join("|", files)}", imageCount, audioCount);//filter
+            return new VideoFilesConcatInput($"concat:{string.Join("|", files)}", imageStreamCount, audioStreamCount);//filter
         }
         /// <summary>
         /// Use this method when you want to avoid a re-encode and your format does not support file-level concatenation <br></br>
         /// (most files used by general users do not support file-level concatenation).
         /// </summary>
         /// <returns></returns>
-        public static VideoFilesConcatInput ConcatDemuxer(string textFile, bool safe = true, int imageCount = 1, int audioCount = 1)
+        public static VideoFilesConcatInput ConcatDemuxer(string textFile, bool safe = true, int imageStreamCount = 1, int audioStreamCount = 1)
         {
-            var result = new VideoFilesConcatInput(textFile, imageCount, audioCount);
+            var result = new VideoFilesConcatInput(textFile, imageStreamCount, audioStreamCount);
             if (safe) result.SetOption("-safe", "0");
             result.Format(DemuxingFileFormat.concat);
             return result;
@@ -33,12 +33,12 @@
         /// <param name="search">Example: *.png, imagename%04d.png<br>
         /// </br>Note: *.png Not a available on window <br>
         /// </br><see href="https://stackoverflow.com/a/31513542/5034139"/></param>
-        /// <param name="audioCount"></param>
-        /// <param name="imageCount"></param>
+        /// <param name="audioStreamCount"></param>
+        /// <param name="imageStreamCount"></param>
         /// <returns></returns>
-        public static VideoFilesConcatInput FromFilesSearch(string search, int imageCount = 1, int audioCount = 1)
+        public static VideoFilesConcatInput FromFilesSearch(string search, int imageStreamCount = 1, int audioStreamCount = 1)
         {
-            var result = new VideoFilesConcatInput(search, imageCount, audioCount);
+            var result = new VideoFilesConcatInput(search, imageStreamCount, audioStreamCount);
             //result.SetOption("-pattern_type", "glob");
             return result;
         }

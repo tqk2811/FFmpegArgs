@@ -11,10 +11,11 @@
         /// Do not use with MP4.
         /// </summary>
         /// <param name="files"></param>
+        /// <param name="imageStreamCount"></param>
         /// <returns></returns>
-        public static ImageFilesConcatInput ConcatProtocol(IEnumerable<string> files)
+        public static ImageFilesConcatInput ConcatProtocol(IEnumerable<string> files, int imageStreamCount = 1)
         {
-            return new ImageFilesConcatInput($"concat:{string.Join("|", files)}");//filter
+            return new ImageFilesConcatInput($"concat:{string.Join("|", files)}", imageStreamCount);//filter
         }
         /// <summary>
         /// Use this method when you want to avoid a re-encode and your format does not support file-level concatenation <br></br>
@@ -22,10 +23,11 @@
         /// </summary>
         /// <param name="textFile"></param>
         /// <param name="safe"></param>
+        /// <param name="imageStreamCount"></param>
         /// <returns></returns>
-        public static ImageFilesConcatInput ConcatDemuxer(string textFile, bool safe = true)
+        public static ImageFilesConcatInput ConcatDemuxer(string textFile, bool safe = true, int imageStreamCount = 1)
         {
-            var result = new ImageFilesConcatInput(textFile);
+            var result = new ImageFilesConcatInput(textFile, imageStreamCount);
             if (safe) result.SetOption("-safe", "0");
             result.Format(DemuxingFileFormat.concat);
             return result;
@@ -36,12 +38,13 @@
         /// <param name="search">Example: *.png, imagename%04d.png<br>
         /// </br>Note: *.png Not a available on window <br>
         /// </br><see href="https://stackoverflow.com/a/31513542/5034139"/></param>
+        /// <param name="imageStreamCount"></param>
         /// <returns></returns>
-        public static ImageFilesConcatInput FromFilesSearch(string search)
+        public static ImageFilesConcatInput FromFilesSearch(string search, int imageStreamCount = 1)
         {
-            var result = new ImageFilesConcatInput(search);
+            var result = new ImageFilesConcatInput(search, imageStreamCount);
             //result.SetOption("-pattern_type", "glob");
-            return new ImageFilesConcatInput(search);
+            return result;
         }
 
 
@@ -51,7 +54,8 @@
         /// 
         /// </summary>
         /// <param name="input"></param>
-        private ImageFilesConcatInput(string input) : base(1)
+        /// <param name="imageStreamCount"></param>
+        private ImageFilesConcatInput(string input, int imageStreamCount = 1) : base(imageStreamCount)
         {
             if (string.IsNullOrEmpty(input)) throw new ArgumentNullException(nameof(input));
             this._filePath = input;
@@ -61,7 +65,7 @@
         /// Image Stream Input
         /// </summary>
         public ImageInputAVStream ImageInputAVStream { get { return base.ImageInputAVStreams.FirstOrDefault(); } }
-        
+
         /// <summary>
         /// 
         /// </summary>
