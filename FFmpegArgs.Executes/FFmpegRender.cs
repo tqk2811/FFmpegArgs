@@ -151,7 +151,7 @@
                 throw new InvalidOperationException("Failed to obtain the handle when starting a process. " +
                     "This could mean that the target executable doesn't exist or that execute permission is missing.");
             }
-            using var register = token.Register(() => process.Kill());
+            using var register = token.Register(() => { try { process.Kill(); } catch { } });
             process.BeginErrorReadLine();
             if (this.StdIn != null)
             {
@@ -201,7 +201,7 @@
                 throw new InvalidOperationException("Failed to obtain the handle when starting a process. " +
                     "This could mean that the target executable doesn't exist or that execute permission is missing.");
             }
-            using var register = token.Register(() => process.Kill());
+            using var register = token.Register(() => { try { process.Kill(); } catch { } });
             process.BeginErrorReadLine();
             if (this.StdIn != null)
             {
