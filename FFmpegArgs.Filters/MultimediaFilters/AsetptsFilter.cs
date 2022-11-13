@@ -6,7 +6,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... setapts            V->V       Set PTS for the output audio frame.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts"/>
     /// </summary>
     public class AsetptsFilter : AudioToAudioFilter
     {
@@ -44,7 +44,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     public static class AsetptsFilterExtension
     {
         /// <summary>
-        /// Change the PTS (presentation timestamp) of the input frames.
+        /// Change the PTS (presentation timestamp) of the input frames.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts"/>>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
@@ -53,8 +54,11 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         {
             return new AsetptsFilter(expr, audioMap);
         }
+
+
         /// <summary>
-        /// Change the PTS (presentation timestamp) of the input frames.
+        /// Change the PTS (presentation timestamp) of the input frames.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>

@@ -6,7 +6,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... setpts            V->V       Set PTS for the output video frame.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts"/>
     /// </summary>
     public class SetPtsFilter : ImageToImageFilter
     {
@@ -44,7 +44,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
     public static class SetPtsFilterExtension
     {
         /// <summary>
-        /// Change the PTS (presentation timestamp) of the input frames.
+        /// Change the PTS (presentation timestamp) of the input frames.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts"/>
         /// </summary>
         /// <param name="imageMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
@@ -54,7 +55,8 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             return new SetPtsFilter(expr, imageMap);
         }
         /// <summary>
-        /// Change the PTS (presentation timestamp) of the input frames.
+        /// Change the PTS (presentation timestamp) of the input frames.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#setpts_002c-asetpts"/>
         /// </summary>
         /// <param name="imageMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>

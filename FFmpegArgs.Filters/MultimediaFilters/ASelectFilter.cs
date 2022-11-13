@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// ... aselect           A->N       Select audio frames to pass in output.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect"/>
     /// </summary>
     public class ASelectFilter : AudioToAudioFilter
     {
@@ -32,7 +32,8 @@
     public static class ASelectFilterExtension
     {
         /// <summary>
-        /// Select frames to pass in output.
+        /// Select frames to pass in output.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="e">Set expression, which is evaluated for each input frame.</param>
@@ -41,7 +42,8 @@
         public static ASelectFilter ASelectFilter(this AudioMap audioMap, Action<FFmpegExpression> e, int n)
             => new ASelectFilter(e, n, audioMap);
         /// <summary>
-        /// Select frames to pass in output.
+        /// Select frames to pass in output.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="e">Set expression, which is evaluated for each input frame.</param>

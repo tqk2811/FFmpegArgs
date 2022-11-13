@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// ... select            V->N       Select video frames to pass in output.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect"/>
     /// </summary>
     public class SelectFilter : ImageToImageFilter
     {
@@ -25,10 +25,15 @@
             this.SetOption("n", n);
         }
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class SelectFilterExtension
     {
         /// <summary>
-        /// Select frames to pass in output.
+        /// Select frames to pass in output.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect"/>
         /// </summary>
         /// <param name="imageMap"></param>
         /// <param name="e">Set expression, which is evaluated for each input frame.</param>
@@ -39,7 +44,8 @@
             return new SelectFilter(e, n, imageMap);
         }
         /// <summary>
-        /// Select frames to pass in output.
+        /// Select frames to pass in output.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#select_002c-aselect"/>
         /// </summary>
         /// <param name="imageMap"></param>
         /// <param name="e">Set expression, which is evaluated for each input frame.</param>

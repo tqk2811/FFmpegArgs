@@ -2,7 +2,7 @@
 {
     /// <summary>
     /// ... asplit            A->N       Pass on the audio input to N audio outputs.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#split_002c-asplit 
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#split_002c-asplit"/>
     /// </summary>
     public class ASplitFilter : AudioToAudioFilter
     {
@@ -13,10 +13,15 @@
             this.SetOption("outputs", number);//libavfilter/split.c
         }
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class ASplitFilterExtension
     {
         /// <summary>
-        /// Split input into several identical outputs.
+        /// Split input into several identical outputs.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#split_002c-asplit"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="number">The filter accepts a single parameter which specifies the number of outputs. If unspecified, it defaults to 2.</param>

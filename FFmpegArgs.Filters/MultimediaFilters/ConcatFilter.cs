@@ -9,7 +9,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ..C concat            N->N       Concatenate audio and video streams.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#concat
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#concat"/>
     /// </summary>
     public class ConcatFilter : VideoToVideoFilter, ICommandSupport
     {
@@ -25,10 +25,11 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// 
         /// </summary>
         public IEnumerable<AudioMap> AudioMapsOut { get { return _audioMapsOut; } }
-        
+
         /// <summary>
         /// Concatenate audio and video streams, joining them together one after the other.<br>
         /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
+        /// <br></br><see href="https://ffmpeg.org/ffmpeg-filters.html#concat"/>
         /// </summary>
         /// <param name="concatGroups">input: n * (v + a) => output: (v + a)</param>
         public ConcatFilter(IEnumerable<ConcatGroup> concatGroups) : this(concatGroups.ToArray())
@@ -37,6 +38,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// <summary>
         /// Concatenate audio and video streams, joining them together one after the other.<br>
         /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
+        /// <br></br><see href="https://ffmpeg.org/ffmpeg-filters.html#concat"/>
         /// </summary>
         /// <param name="concatGroups">input: n * (v + a) => output: (v + a)</param>
         public ConcatFilter(params ConcatGroup[] concatGroups)
@@ -89,6 +91,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// <summary>
         /// Concatenate audio and video streams, joining them together one after the other.<br>
         /// </br>The filter works on segments of synchronized video and audio streams.All segments must have the same number of streams of each type, and that will also be the number of streams at output.
+        /// <br></br><see href="https://ffmpeg.org/ffmpeg-filters.html#concat"/>
         /// </summary>
         /// <param name="concatGroups">input: n * (v + a) => output: (v + a)</param>
         public static ConcatFilter ConcatFilter(this IEnumerable<ConcatGroup> concatGroups)
