@@ -53,7 +53,7 @@ namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     /// ... hilbert           |->A       Generate a Hilbert transform FIR coefficients.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#hilbert
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#hilbert"/>
     /// </summary>
     public class HilbertFilter : SourceAudioFilter
     {
@@ -99,6 +99,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// Generate odd-tap Hilbert transform FIR coefficients.<br></br>
         /// The resulting stream can be used with <see cref="AfirFilter"/> for phase-shifting the signal by 90 degrees.<br></br>
         /// This is used in many matrix coding schemes and for analytic signal generation.The process is often written as a multiplication by i(or j), the imaginary unit.
+        /// <br></br><see href="https://ffmpeg.org/ffmpeg-filters.html#hilbert"/>
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>

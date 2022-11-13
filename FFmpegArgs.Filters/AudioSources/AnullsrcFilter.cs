@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     /// ... anullsrc          |->A       Null audio source, return empty audio frames.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#anullsrc
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#anullsrc"/>
     /// </summary>
     public class AnullsrcFilter : SourceAudioFilter
     {
@@ -62,6 +62,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <summary>
         /// The null audio source, return unprocessed audio frames.<br>
         /// </br> It is mainly useful as a template and to be employed in analysis / debugging tools, or as the source for filters which ignore the input data (for example the sox synth filter).
+        /// <br></br><see href="https://ffmpeg.org/ffmpeg-filters.html#anullsrc"/>
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>

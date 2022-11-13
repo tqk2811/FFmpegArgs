@@ -36,7 +36,7 @@ namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     /// ... anoisesrc         |->A       Generate a noise audio signal.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#anoisesrc
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#anoisesrc"/>
     /// </summary>
     public class AnoisesrcFilter : SourceAudioFilter
     {
@@ -94,7 +94,8 @@ namespace FFmpegArgs.Filters.AudioSources
     public static class AnoisesrcFilterExtensions
     {
         /// <summary>
-        /// Generate a noise audio signal.
+        /// Generate a noise audio signal.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#anoisesrc"/>
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>

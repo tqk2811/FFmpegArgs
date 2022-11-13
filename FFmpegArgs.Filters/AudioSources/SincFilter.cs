@@ -17,7 +17,7 @@ namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     /// ... sinc              |->A       Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#sinc
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#sinc"/>
     /// </summary>
     public class SincFilter : SourceAudioFilter
     {
@@ -104,7 +104,8 @@ namespace FFmpegArgs.Filters.AudioSources
     {
         /// <summary>
         /// Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients.<br></br>
-        /// The resulting stream can be used with <see cref="AfirFilter"/> for filtering the audio signal.
+        /// The resulting stream can be used with <see cref="AfirFilter"/> for filtering the audio signal.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#sinc"/>
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>

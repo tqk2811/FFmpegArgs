@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     ///  ... sine              |->A       Generate sine wave audio signal.<br></br>
-    ///  https://ffmpeg.org/ffmpeg-filters.html#sine
+    ///  <see href="https://ffmpeg.org/ffmpeg-filters.html#sine"/>
     /// </summary>
     public class SineFilter : SourceAudioFilter
     {
@@ -71,7 +71,8 @@ namespace FFmpegArgs.Filters.AudioSources
     {
         /// <summary>
         /// Generate an audio signal made of a sine wave with amplitude 1/8.<br></br>
-        /// The audio signal is bit-exact.
+        /// The audio signal is bit-exact.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#sine"/>
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>

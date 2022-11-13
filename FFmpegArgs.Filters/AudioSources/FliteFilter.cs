@@ -4,7 +4,7 @@ namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     /// <br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#flite
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#flite"/>
     /// </summary>
     public class FliteFilter : SourceAudioFilter
     {
@@ -57,7 +57,8 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <summary>
         /// Synthesize a voice utterance using the libflite library.<br></br>
         /// To enable compilation of this filter you need to configure FFmpeg with --enable-libflite.<br></br>
-        /// Note that versions of the flite library prior to 2.0 are not thread-safe.
+        /// Note that versions of the flite library prior to 2.0 are not thread-safe.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#flite"/>
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>

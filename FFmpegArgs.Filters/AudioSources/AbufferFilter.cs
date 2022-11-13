@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.AudioSources
 {
     /// <summary>
     /// ... abuffer           |->A       Buffer audio frames, and make them accessible to the filterchain.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#abuffer
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#abuffer"/>
     /// </summary>
     public class AbufferFilter : SourceAudioFilter
     {
@@ -63,7 +63,8 @@ namespace FFmpegArgs.Filters.AudioSources
     {
         /// <summary>
         /// Buffer audio frames, and make them available to the filter chain.<br></br>
-        /// This source is mainly intended for a programmatic use, in particular through the interface defined in libavfilter/buffersrc.h.
+        /// This source is mainly intended for a programmatic use, in particular through the interface defined in libavfilter/buffersrc.h.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#abuffer"/>
         /// </summary>
         /// <param name="filterGraph"></param>
         /// <returns></returns>
