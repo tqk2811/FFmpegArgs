@@ -11,7 +11,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC adenorm           A->A       Remedy denormals by adding extremely low-level noise.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#adenorm
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#adenorm"/>
     /// </summary>
     public class AdenormFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -43,7 +43,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Remedy denormals in audio by adding extremely low-level noise.<br>
-        /// </br>This filter shall be placed before any filter that can produce denormals.
+        /// </br>This filter shall be placed before any filter that can produce denormals.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#adenorm"/>
         /// </summary>
         public static AdenormFilter AdenormFilter(this AudioMap audioMap)
           => new AdenormFilter(audioMap);

@@ -11,7 +11,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... aformat           A->A       Convert the input audio to one of the specified formats.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#aformat
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aformat"/>
     /// </summary>
     public class AformatFilter : AudioToAudioFilter
     {
@@ -35,7 +35,7 @@ namespace FFmpegArgs.Filters.AudioFilters
           => this.SetOption("r", string.Join("|", r));
         /// <summary>
         /// A ’|’-separated list of requested channel layouts.<br>
-        /// </br>https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax
+        /// </br><see href="https://ffmpeg.org/ffmpeg-utils.html#channel-layout-syntax"/>
         /// </summary>
         /// <param name="cls"></param>
         /// <returns></returns>
@@ -48,7 +48,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AformatFilterExtensions
     {
         /// <summary>
-        /// Set output format constraints for the input audio. The framework will negotiate the most appropriate format to minimize conversions.
+        /// Set output format constraints for the input audio. The framework will negotiate the most appropriate format to minimize conversions.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aformat"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

@@ -23,7 +23,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     ///  T.C agate             A->A       Audio gate.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#agate
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#agate"/>
     /// </summary>
     public class AgateFilter : AudioToAudioFilter, ITimelineSupport, ICommandSupport
     {
@@ -132,7 +132,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// A gate is mainly used to reduce lower parts of a signal. This kind of signal processing reduces disturbing noise between useful signals.<br>
         /// </br>Gating is done by detecting the volume below a chosen level threshold and dividing it by the factor set with ratio.The bottom of the noise floor is set via range.Because an exact manipulation of the signal would cause distortion of the waveform the reduction can be levelled over time.This is done by setting attack and release.<br>
-        /// </br>attack determines how long the signal has to fall below the threshold before any reduction will occur and release sets the time the signal has to rise above the threshold to reduce the reduction again. Shorter signals than the chosen attack time will be left untouched.
+        /// </br>attack determines how long the signal has to fall below the threshold before any reduction will occur and release sets the time the signal has to rise above the threshold to reduce the reduction again. Shorter signals than the chosen attack time will be left untouched.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#agate"/>
         /// </summary>
         public static AgateFilter AgateFilter(this AudioMap audioMap)
           => new AgateFilter(audioMap);

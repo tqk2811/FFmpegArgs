@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     ///  ... alimiter          A->A       Audio lookahead limiter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#alimiter
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#alimiter"/>
     /// </summary>
     public class AlimiterFilter : AudioToAudioFilter
     {
@@ -97,7 +97,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </br> This limiter uses lookahead technology to prevent your signal from distorting.<br>
         /// </br> It means that there is a small delay after the signal is processed. Keep in mind that the delay it produces is the attack time you set.<br>
         /// </br><br>
-        /// </br>Depending on picked setting it is recommended to upsample input 2x or 4x times with <see cref="AresampleFilter"/> before applying this filter.
+        /// </br>Depending on picked setting it is recommended to upsample input 2x or 4x times with <see cref="AresampleFilter"/> before applying this filter.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#alimiter"/>
         /// </summary>
         public static AlimiterFilter AlimiterFilter(this AudioMap audioMap)
           => new AlimiterFilter(audioMap);

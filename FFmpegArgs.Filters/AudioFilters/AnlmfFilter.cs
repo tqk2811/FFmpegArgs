@@ -5,7 +5,7 @@
 //{
 //    /// <summary>
 //    /// .SC anlms             AA->A      Apply Normalized Least-Mean-Squares algorithm to first audio stream.<br></br>
-//    /// https://ffmpeg.org/ffmpeg-filters.html#anlmf_002c-anlms
+//    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#anlmf_002c-anlms"/>
 //    /// </summary>
 //    public class AnlmfFilter : AudioToAudioFilter
 //    {
@@ -20,7 +20,7 @@
 //    public static class AnlmfFilterExtensions
 //    {
 //        /// <summary>
-//        /// 
+//        /// <see href="https://ffmpeg.org/ffmpeg-filters.html#anlmf_002c-anlms"/>
 //        /// </summary>
 //        public static AnlmfFilter AnlmfFilter(this AudioMap audioMap)
 //          => new AnlmfFilter(audioMap);

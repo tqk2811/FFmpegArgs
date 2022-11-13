@@ -18,7 +18,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     ///  ..C acrusher          A->A       Reduce audio bit resolution.<br>
-    ///  </br>https://ffmpeg.org/ffmpeg-filters.html#acrusher (need more info)
+    ///  </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acrusher"/> (need more info)
     /// </summary>
     public class AcrusherFilter : AudioToAudioFilter, ICommandSupport
     {
@@ -112,7 +112,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// Reduce audio bit resolution.<br>
         /// </br>This filter is bit crusher with enhanced functionality.A bit crusher is used to audibly reduce number of bits an audio signal is sampled with.This doesn’t change the bit depth at all, it just produces the effect.Material reduced in bit depth sounds more harsh and "digital". This filter is able to even round to continuous values instead of discrete bit depths. Additionally it has a D/C offset which results in different crushing of the lower and the upper half of the signal. An Anti-Aliasing setting is able to produce "softer" crushing sounds.<br>
-        /// </br>Another feature of this filter is the logarithmic mode.This setting switches from linear distances between bits to logarithmic ones.The result is a much more "natural" sounding crusher which doesn’t gate low signals for example.The human ear has a logarithmic perception, so this kind of crushing is much more pleasant.Logarithmic crushing is also able to get anti-aliased.
+        /// </br>Another feature of this filter is the logarithmic mode.This setting switches from linear distances between bits to logarithmic ones.The result is a much more "natural" sounding crusher which doesn’t gate low signals for example.The human ear has a logarithmic perception, so this kind of crushing is much more pleasant.Logarithmic crushing is also able to get anti-aliased.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acrusher"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

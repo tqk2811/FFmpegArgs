@@ -6,7 +6,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... drmeter           A->A       Measure audio dynamic range.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#drmeter
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#drmeter"/>
     /// </summary>
     public class DrmeterFilter : AudioToAudioFilter
     {
@@ -31,7 +31,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Measure audio dynamic range.<br>
-        /// </br>DR values of 14 and higher is found in very dynamic material.DR of 8 to 13 is found in transition material.And anything less that 8 have very poor dynamics and is very compressed.
+        /// </br>DR values of 14 and higher is found in very dynamic material.DR of 8 to 13 is found in transition material.And anything less that 8 have very poor dynamics and is very compressed.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#drmeter"/>
         /// </summary>
         public static DrmeterFilter DrmeterFilter(this AudioMap audioMap)
           => new DrmeterFilter(audioMap);

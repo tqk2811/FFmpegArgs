@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.C volume            A->A       Change input volume. <br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#volume
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#volume"/>
     /// </summary>
     public class VolumeFilter : AudioToAudioFilter, ITimelineSupport, ICommandSupport
     {
@@ -124,14 +124,16 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class VolumeFilterExtension
     {
         /// <summary>
-        /// Adjust the input audio volume.
+        /// Adjust the input audio volume.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#volume"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>
         public static VolumeFilter VolumeFilter(this AudioMap audioMap)
             => new VolumeFilter(audioMap);
         /// <summary>
-        /// Adjust the input audio volume.
+        /// Adjust the input audio volume.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#volume"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
@@ -139,7 +141,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         public static VolumeFilter VolumeFilter(this AudioMap audioMap, Action<FFmpegExpression> volume)
             => new VolumeFilter(audioMap).Volume(volume);
         /// <summary>
-        /// Adjust the input audio volume.
+        /// Adjust the input audio volume.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#volume"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>

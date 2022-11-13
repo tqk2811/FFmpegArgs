@@ -24,7 +24,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... apulsator         A->A       Audio pulsator.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#apulsator
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#apulsator"/>
     /// </summary>
     public class ApulsatorFilter : AudioToAudioFilter
     {
@@ -127,7 +127,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class ApulsatorFilterExtensions
     {
         /// <summary>
-        /// Audio pulsator is something between an autopanner and a tremolo. But it can produce funny stereo effects as well. Pulsator changes the volume of the left and right channel based on a LFO (low frequency oscillator) with different waveforms and shifted phases. This filter have the ability to define an offset between left and right channel. An offset of 0 means that both LFO shapes match each other. The left and right channel are altered equally - a conventional tremolo. An offset of 50% means that the shape of the right channel is exactly shifted in phase (or moved backwards about half of the frequency) - pulsator acts as an autopanner. At 1 both curves match again. Every setting in between moves the phase shift gapless between all stages and produces some "bypassing" sounds with sine and triangle waveforms. The more you set the offset near 1 (starting from the 0.5) the faster the signal passes from the left to the right speaker.
+        /// Audio pulsator is something between an autopanner and a tremolo. But it can produce funny stereo effects as well. Pulsator changes the volume of the left and right channel based on a LFO (low frequency oscillator) with different waveforms and shifted phases. This filter have the ability to define an offset between left and right channel. An offset of 0 means that both LFO shapes match each other. The left and right channel are altered equally - a conventional tremolo. An offset of 50% means that the shape of the right channel is exactly shifted in phase (or moved backwards about half of the frequency) - pulsator acts as an autopanner. At 1 both curves match again. Every setting in between moves the phase shift gapless between all stages and produces some "bypassing" sounds with sine and triangle waveforms. The more you set the offset near 1 (starting from the 0.5) the faster the signal passes from the left to the right speaker.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#apulsator"/>
         /// </summary>
         public static ApulsatorFilter ApulsatorFilter(this AudioMap audioMap)
           => new ApulsatorFilter(audioMap);

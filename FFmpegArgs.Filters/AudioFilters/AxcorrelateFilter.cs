@@ -9,7 +9,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... axcorrelate       AA->A      Cross-correlate two audio streams.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#axcorrelate
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#axcorrelate"/>
     /// </summary>
     public class AxcorrelateFilter : AudioToAudioFilter
     {
@@ -41,7 +41,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Calculate normalized windowed cross-correlation between two input audio streams.<br>
-        /// </br>Resulted samples are always between -1 and 1 inclusive.If result is 1 it means two input samples are highly correlated in that selected segment.Result 0 means they are not correlated at all.If result is -1 it means two input samples are out of phase, which means they cancel each other.
+        /// </br>Resulted samples are always between -1 and 1 inclusive.If result is 1 it means two input samples are highly correlated in that selected segment.Result 0 means they are not correlated at all.If result is -1 it means two input samples are out of phase, which means they cancel each other.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#axcorrelate"/>
         /// </summary>
         public static AxcorrelateFilter AxcorrelateFilter(this AudioMap audioMap)
           => new AxcorrelateFilter(audioMap);

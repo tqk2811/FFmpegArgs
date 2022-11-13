@@ -24,8 +24,8 @@ adeclip AVOptions:
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    ///  TS. adeclip           A->A       Remove clipping from input audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#adeclip
+    /// TS. adeclip           A->A       Remove clipping from input audio.<br></br>
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#adeclip"/>
     /// </summary>
     public class AdeclipFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
@@ -88,9 +88,11 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Remove clipped samples from input audio.<br>
-        /// </br>Samples detected as clipped are replaced by interpolated samples using autoregressive modelling.
+        /// </br>Samples detected as clipped are replaced by interpolated samples using autoregressive modelling.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#adeclip"/>
         /// </summary>
-        public static AdeclipFilter AdeclipFilter(this AudioMap audioMap) => new AdeclipFilter(audioMap);
+        public static AdeclipFilter AdeclipFilter(this AudioMap audioMap) 
+            => new AdeclipFilter(audioMap);
     }
     /// <summary>
     /// 

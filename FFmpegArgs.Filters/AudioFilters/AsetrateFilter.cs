@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... asetrate          A->A       Change the sample rate without altering the data.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#asetrate
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#asetrate"/>
     /// </summary>
     public class AsetrateFilter : AudioToAudioFilter
     {
@@ -29,7 +29,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AsetrateFilterExtensions
     {
         /// <summary>
-        /// Set the sample rate without altering the PCM data. This will result in a change of speed and pitch.
+        /// Set the sample rate without altering the PCM data. This will result in a change of speed and pitch.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#asetrate"/>
         /// </summary>
         public static AsetrateFilter AsetrateFilter(this AudioMap audioMap)
           => new AsetrateFilter(audioMap);

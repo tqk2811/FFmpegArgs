@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.. adelay            A->A       Delay one or more audio channels.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#adelay
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#adelay"/>
     /// </summary>
     public class AdelayFilter : AudioToAudioFilter, ITimelineSupport
     {
@@ -50,7 +50,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Delay one or more audio channels.<br>
-        /// </br>Samples in delayed channel are filled with silence.
+        /// </br>Samples in delayed channel are filled with silence.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#adelay"/>
         /// </summary>
         public static AdelayFilter AdelayFilter(this AudioMap audioMap)
           => new AdelayFilter(audioMap);

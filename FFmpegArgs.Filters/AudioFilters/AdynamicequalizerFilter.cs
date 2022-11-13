@@ -21,7 +21,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC adynamicequalizer A->A       Apply Dynamic Equalization of input audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#adynamicequalizer
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#adynamicequalizer"/>
     /// </summary>
     public class AdynamicequalizerFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -139,7 +139,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AdynamicequalizerFilterExtensions
     {
         /// <summary>
-        /// Apply dynamic equalization to input audio stream.
+        /// Apply dynamic equalization to input audio stream.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#adynamicequalizer"/>
         /// </summary>
         public static AdynamicequalizerFilter AdynamicequalizerFilter(this AudioMap audioMap)
           => new AdynamicequalizerFilter(audioMap);

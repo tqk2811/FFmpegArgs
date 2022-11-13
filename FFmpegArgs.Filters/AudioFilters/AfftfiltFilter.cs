@@ -31,7 +31,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#afftfilt
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afftfilt"/>
     /// </summary>
     public class AfftfiltFilter : AudioToAudioFilter
     {
@@ -114,7 +114,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AfftfiltFilterExtension
     {
         /// <summary>
-        /// Apply arbitrary expressions to samples in frequency domain.
+        /// Apply arbitrary expressions to samples in frequency domain.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afftfilt"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

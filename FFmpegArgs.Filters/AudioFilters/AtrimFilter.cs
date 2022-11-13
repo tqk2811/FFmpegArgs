@@ -15,7 +15,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... atrim             A->A       Pick one continuous section from the input, drop the rest.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#atrim
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#atrim"/>
     /// </summary>
     public class AtrimFilter : AudioToAudioFilter
     {
@@ -79,7 +79,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AtrimFilterExtensions
     {
         /// <summary>
-        /// Trim the input so that the output contains one continuous subpart of the input.
+        /// Trim the input so that the output contains one continuous subpart of the input.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#atrim"/>
         /// </summary>
         public static AtrimFilter AtrimFilter(this AudioMap audioMap)
           => new AtrimFilter(audioMap);

@@ -19,7 +19,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// .S. acrossover        A->N       Split audio into per-bands streams.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#acrossover
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acrossover"/>
     /// </summary>
     public class AcrossoverFilter : AudioToAudioFilter, ISliceThreading
     {
@@ -57,7 +57,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Split audio stream into several bands.<br>
-        /// </br>This filter splits audio stream into two or more frequency ranges.Summing all streams back will give flat output.
+        /// </br>This filter splits audio stream into two or more frequency ranges.Summing all streams back will give flat output.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acrossover"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="hzSplit">Set split frequencies. Those must be positive and increasing.</param>

@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... areverse          A->A       Reverse an audio clip.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#areverse
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#areverse"/>
     /// </summary>
     public class AreverseFilter : AudioToAudioFilter
     {
@@ -20,7 +20,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AreverseFilterExtensions
     {
         /// <summary>
-        /// Reverse an audio clip.
+        /// Reverse an audio clip.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#areverse"/>
         /// </summary>
         public static AreverseFilter AreverseFilter(this AudioMap audioMap)
           => new AreverseFilter(audioMap);

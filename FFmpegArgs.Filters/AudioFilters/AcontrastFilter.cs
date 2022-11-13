@@ -5,8 +5,8 @@ acontrast AVOptions:
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    ///  ... acontrast         A->A       Simple audio dynamic range compression/expansion filter.<br></br>
-    ///  https://ffmpeg.org/ffmpeg-filters.html#acontrast
+    /// ... acontrast         A->A       Simple audio dynamic range compression/expansion filter.<br></br>
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#acontrast"/>
     /// </summary>
     public class AcontrastFilter : AudioToAudioFilter
     {
@@ -14,6 +14,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         {
             AddMapOut();
         }
+
         /// <summary>
         /// Set contrast. Default is 33. Allowed range is between 0 and 100.
         /// </summary>
@@ -29,7 +30,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AcontrastFilterExtension
     {
         /// <summary>
-        /// Simple audio dynamic range compression/expansion filter.
+        /// Simple audio dynamic range compression/expansion filter.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acontrast"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... acue              A->A       Delay filtering to match a cue.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#acue
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acue"/>
     /// </summary>
     public class AcueFilter : AudioToAudioFilter
     {
@@ -44,7 +44,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AcueFilterExtension
     {
         /// <summary>
-        /// Delay audio filtering until a given wallclock timestamp. See the <see cref="CueFilter"/>.
+        /// Delay audio filtering until a given wallclock timestamp. See the <see cref="CueFilter"/>.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acue"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

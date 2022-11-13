@@ -9,7 +9,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC asuperstop        A->A       Apply high order Butterworth band-stop filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#asuperstop
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#asuperstop"/>
     /// </summary>
     public class AsuperstopFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -56,7 +56,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AsuperstopFilterExtensions
     {
         /// <summary>
-        /// Apply high order Butterworth band-stop filter.
+        /// Apply high order Butterworth band-stop filter.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#asuperstop"/>
         /// </summary>
         public static AsuperstopFilter AsuperstopFilter(this AudioMap audioMap)
           => new AsuperstopFilter(audioMap);

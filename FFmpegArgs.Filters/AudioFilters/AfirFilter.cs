@@ -26,7 +26,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// .SC afir              N->N       Apply Finite Impulse Response filter with supplied coefficients in additional stream(s)<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#afir-1
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afir-1"/>
     /// </summary>
     public class AfirFilter : AudioToAudioFilter, ISliceThreading, ICommandSupport
     {
@@ -157,7 +157,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// Apply an arbitrary Finite Impulse Response filter.
         /// This filter is designed for applying long FIR filters, up to 60 seconds long.
         /// It can be used as component for digital crossover filters, room equalization, cross talk cancellation, wavefield synthesis, auralization, ambiophonics, ambisonics and spatialization.
-        /// This filter uses the streams higher than first one as FIR coefficients.If the non-first stream holds a single channel, it will be used for all input channels in the first stream, otherwise the number of channels in the non-first stream must be same as the number of channels in the first stream.
+        /// This filter uses the streams higher than first one as FIR coefficients.If the non-first stream holds a single channel, it will be used for all input channels in the first stream, otherwise the number of channels in the non-first stream must be same as the number of channels in the first stream.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afir-1"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

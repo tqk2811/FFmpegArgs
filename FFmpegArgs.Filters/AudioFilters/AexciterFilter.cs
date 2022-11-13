@@ -12,8 +12,8 @@ aexciter AVOptions:
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    ///  T.C aexciter          A->A       Enhance high frequency part of audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#aexciter
+    /// T.C aexciter          A->A       Enhance high frequency part of audio.<br></br>
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#aexciter"/>
     /// </summary>
     public class AexciterFilter : AudioToAudioFilter, ITimelineSupport, ICommandSupport
     {
@@ -84,7 +84,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AexciterFilterExtensions
     {
         /// <summary>
-        /// An exciter is used to produce high sound that is not present in the original signal. This is done by creating harmonic distortions of the signal which are restricted in range and added to the original signal. An Exciter raises the upper end of an audio signal without simply raising the higher frequencies like an equalizer would do to create a more "crisp" or "brilliant" sound.
+        /// An exciter is used to produce high sound that is not present in the original signal. This is done by creating harmonic distortions of the signal which are restricted in range and added to the original signal. An Exciter raises the upper end of an audio signal without simply raising the higher frequencies like an equalizer would do to create a more "crisp" or "brilliant" sound.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aexciter"/>
         /// </summary>
         public static AexciterFilter AexciterFilter(this AudioMap audioMap)
           => new AexciterFilter(audioMap);

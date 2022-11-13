@@ -15,7 +15,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... aphaser           A->A       Add a phasing effect to the audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#aphaser
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#aphaser"/>
     /// </summary>
     public class AphaserFilter : AudioToAudioFilter
     {
@@ -78,7 +78,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Add a phasing effect to the input audio.<br>
-        /// </br>A phaser filter creates series of peaks and troughs in the frequency spectrum.The position of the peaks and troughs are modulated so that they vary over time, creating a sweeping effect.
+        /// </br>A phaser filter creates series of peaks and troughs in the frequency spectrum.The position of the peaks and troughs are modulated so that they vary over time, creating a sweeping effect.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aphaser"/>
         /// </summary>
         public static AphaserFilter AphaserFilter(this AudioMap audioMap)
           => new AphaserFilter(audioMap);

@@ -49,7 +49,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC bandreject        A->A       Apply a two-pole Butterworth band-reject filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#bandreject
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#bandreject"/>
     /// </summary>
     public class BandrejectFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
         IWidthType, ITransform, IPrecision, INormalize, IChannels, IFrequency
@@ -81,7 +81,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class BandrejectFilterExtensions
     {
         /// <summary>
-        /// Apply a two-pole Butterworth band-reject filter with central frequency frequency, and (3dB-point) band-width width. The filter roll off at 6dB per octave (20dB per decade).
+        /// Apply a two-pole Butterworth band-reject filter with central frequency frequency, and (3dB-point) band-width width. The filter roll off at 6dB per octave (20dB per decade).<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#bandreject"/>
         /// </summary>
         public static BandrejectFilter BandrejectFilter(this AudioMap audioMap)
           => new BandrejectFilter(audioMap);

@@ -54,7 +54,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     ///  .S. aiir              A->N       Apply Infinite Impulse Response filter with supplied coefficients.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#aiir
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#aiir"/>
     /// </summary>
     public class AiirFilter : AudioToAudioFilter, ISliceThreading
     {
@@ -189,7 +189,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AiirFilterExtensions
     {
         /// <summary>
-        /// Apply an arbitrary Infinite Impulse Response filter.
+        /// Apply an arbitrary Infinite Impulse Response filter.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aiir"/>
         /// </summary>
         public static AiirFilter AiirFilter(this AudioMap audioMap)
           => new AiirFilter(audioMap);

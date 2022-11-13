@@ -39,7 +39,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC biquad            A->A       Apply a biquad IIR filter with the given coefficients.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#biquad
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#biquad"/>
     /// </summary>
     public class BiquadFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
         IPrecision, ITransform, INormalize, IChannels
@@ -105,7 +105,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class BiquadFilterExtensions
     {
         /// <summary>
-        /// Apply a biquad IIR filter with the given coefficients. Where b0, b1, b2 and a0, a1, a2 are the numerator and denominator coefficients respectively. and channels, c specify which channels to filter, by default all available are filtered.
+        /// Apply a biquad IIR filter with the given coefficients. Where b0, b1, b2 and a0, a1, a2 are the numerator and denominator coefficients respectively. and channels, c specify which channels to filter, by default all available are filtered.<br></br>
+        /// <see href="https://ffmpeg.org/ffmpeg-filters.html#biquad"/>
         /// </summary>
         public static BiquadFilter BiquadFilter(this AudioMap audioMap)
           => new BiquadFilter(audioMap);

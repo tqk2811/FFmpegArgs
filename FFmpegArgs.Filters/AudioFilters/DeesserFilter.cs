@@ -12,7 +12,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.. deesser           A->A       Apply de-essing to the audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#deesser
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#deesser"/>
     /// </summary>
     public class DeesserFilter : AudioToAudioFilter, ITimelineSupport
     {
@@ -59,7 +59,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class DeesserFilterExtensions
     {
         /// <summary>
-        /// Apply de-essing to the audio samples.
+        /// Apply de-essing to the audio samples.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#deesser"/>
         /// </summary>
         public static DeesserFilter DeesserFilter(this AudioMap audioMap)
           => new DeesserFilter(audioMap);

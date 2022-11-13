@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... channelsplit      A->N       Split audio into per-channel streams.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#channelsplit
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#channelsplit"/>
     /// </summary>
     public class ChannelsplitFilter : AudioToAudioFilter
     {
@@ -26,7 +26,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class ChannelsplitFilterExtensions
     {
         /// <summary>
-        /// Split each channel from an input audio stream into a separate output stream.
+        /// Split each channel from an input audio stream into a separate output stream.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#channelsplit"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <param name="outputCount"></param>
@@ -34,7 +35,11 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="channels">Select channel from <see cref="ChannelLayout"/><br></br>Default 'all'</param>
         /// <returns></returns>
         [Obsolete("Need more information")]
-        public static ChannelsplitFilter ChannelsplitFilter(this AudioMap audioMap, int outputCount, ChannelLayout channelLayout, string channels = null)
+        public static ChannelsplitFilter ChannelsplitFilter(
+            this AudioMap audioMap, 
+            int outputCount, 
+            ChannelLayout channelLayout, 
+            string channels = null)
           => new ChannelsplitFilter(audioMap, outputCount, channelLayout, channels);
     }
 }

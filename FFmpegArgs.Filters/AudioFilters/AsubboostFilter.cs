@@ -12,7 +12,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC asubboost         A->A       Boost subwoofer frequencies.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#asubboost
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#asubboost"/>
     /// </summary>
     public class AsubboostFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -82,7 +82,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AsubboostFilterExtensions
     {
         /// <summary>
-        /// Boost subwoofer frequencies.
+        /// Boost subwoofer frequencies.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#asubboost"/>
         /// </summary>
         public static AsubboostFilter AsubboostFilter(this AudioMap audioMap)
           => new AsubboostFilter(audioMap);

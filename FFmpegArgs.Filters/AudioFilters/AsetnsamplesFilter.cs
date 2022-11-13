@@ -9,7 +9,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     ///  ... asetnsamples      A->A       Set the number of samples for each output audio frames.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#asetnsamples
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#asetnsamples"/>
     /// </summary>
     public class AsetnsamplesFilter : AudioToAudioFilter
     {
@@ -41,7 +41,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Set the number of samples per each output audio frame.<br>
-        /// </br>The last output packet may contain a different number of samples, as the filter will flush all the remaining samples when the input audio signals its end.
+        /// </br>The last output packet may contain a different number of samples, as the filter will flush all the remaining samples when the input audio signals its end.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#asetnsamples"/>
         /// </summary>
         public static AsetnsamplesFilter AsetnsamplesFilter(this AudioMap audioMap)
           => new AsetnsamplesFilter(audioMap);

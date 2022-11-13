@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC arnndn            A->A       Reduce noise from speech using Recurrent Neural Networks.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#arnndn
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#arnndn"/>
     /// </summary>
     public class ArnndnFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -41,7 +41,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class ArnndnFilterExtensions
     {
         /// <summary>
-        /// Reduce noise from speech using Recurrent Neural Networks.
+        /// Reduce noise from speech using Recurrent Neural Networks.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#arnndn"/>
         /// </summary>
         public static ArnndnFilter ArnndnFilter(this AudioMap audioMap)
           => new ArnndnFilter(audioMap);

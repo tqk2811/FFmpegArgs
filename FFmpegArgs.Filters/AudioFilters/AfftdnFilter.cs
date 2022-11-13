@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC afftdn            A->A       Denoise audio samples using FFT.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#afftdn
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afftdn"/>
     /// </summary>
     public class AfftdnFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -92,7 +92,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AfftdnFilterExtension
     {
         /// <summary>
-        /// Denoise audio samples with FFT.
+        /// Denoise audio samples with FFT.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afftdn"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

@@ -53,7 +53,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC lowshelf          A->A       Apply a low shelf filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#bass_002c-lowshelf
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#bass_002c-lowshelf"/>
     /// </summary>
     public class LowshelfFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
         IPrecision, ITransform, INormalize, IChannels, IWidthType
@@ -110,7 +110,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class LowshelfFilterExtensions
     {
         /// <summary>
-        /// Boost or cut the bass (lower) frequencies of the audio using a two-pole shelving filter with a response similar to that of a standard hi-fi’s tone-controls. This is also known as shelving equalisation (EQ).
+        /// Boost or cut the bass (lower) frequencies of the audio using a two-pole shelving filter with a response similar to that of a standard hi-fi’s tone-controls. This is also known as shelving equalisation (EQ).<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#bass_002c-lowshelf"/>
         /// </summary>
         public static LowshelfFilter LowshelfFilter(this AudioMap audioMap)
           => new LowshelfFilter(audioMap);

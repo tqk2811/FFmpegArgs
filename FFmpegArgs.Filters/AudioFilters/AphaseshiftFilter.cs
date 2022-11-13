@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC aphaseshift       A->A       Apply phase shifting to input audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#aphaseshift
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#aphaseshift"/>
     /// </summary>
     public class AphaseshiftFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -38,7 +38,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AphaseshiftFilterExtensions
     {
         /// <summary>
-        /// Apply phase shift to input audio samples.
+        /// Apply phase shift to input audio samples.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aphaseshift"/>
         /// </summary>
         public static AphaseshiftFilter AphaseshiftFilter(this AudioMap audioMap)
           => new AphaseshiftFilter(audioMap);

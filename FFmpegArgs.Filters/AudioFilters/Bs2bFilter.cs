@@ -5,7 +5,7 @@
 //{
 //    /// <summary>
 //    /// <br></br>
-//    /// https://ffmpeg.org/ffmpeg-filters.html#bs2b
+//    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#bs2b"/>
 //    /// </summary>
 //    public class Bs2bFilter : AudioToAudioFilter
 //    {
@@ -23,7 +23,8 @@
 //    public static class Bs2bFilterExtensions
 //    {
 //        /// <summary>
-//        /// Bauer stereo to binaural transformation, which improves headphone listening of stereo audio records.
+//        /// Bauer stereo to binaural transformation, which improves headphone listening of stereo audio records.<br></br>
+//        /// <see href="https://ffmpeg.org/ffmpeg-filters.html#bs2b"/>
 //        /// </summary>
 //        public static Bs2bFilter Bs2bFilter(this AudioMap audioMap)
 //          => new Bs2bFilter(audioMap);

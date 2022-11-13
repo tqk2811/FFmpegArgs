@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC anequalizer       A->N       Apply high-order audio parametric multi band equalizer.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#anequalizer
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#anequalizer"/>
     /// </summary>
     public class AnequalizerFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -87,7 +87,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AnequalizerFilterExtensions
     {
         /// <summary>
-        /// High-order parametric multiband equalizer for each channel.
+        /// High-order parametric multiband equalizer for each channel.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#anequalizer"/>
         /// </summary>
         public static AnequalizerFilter AnequalizerFilter(this AudioMap audioMap)
           => new AnequalizerFilter(audioMap);

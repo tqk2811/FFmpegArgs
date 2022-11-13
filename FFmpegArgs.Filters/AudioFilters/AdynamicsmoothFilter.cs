@@ -5,7 +5,7 @@
 //{
 //    /// <summary>
 //    /// <br></br>
-//    /// https://ffmpeg.org/ffmpeg-filters.html#adynamicsmooth
+//    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#adynamicsmooth"/>
 //    /// </summary>
 //    public class AdynamicsmoothFilter : AudioToAudioFilter
 //    {
@@ -23,7 +23,7 @@
 //    public static class AdynamicsmoothFilterExtensions
 //    {
 //        /// <summary>
-//        /// 
+//        /// <see href="https://ffmpeg.org/ffmpeg-filters.html#adynamicsmooth"/>
 //        /// </summary>
 //        public static AdynamicsmoothFilter AdynamicsmoothFilter(this AudioMap audioMap)
 //          => new AdynamicsmoothFilter(audioMap);

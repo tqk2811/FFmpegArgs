@@ -13,7 +13,7 @@
 //{
 //    /// <summary>
 //    /// <br></br>
-//    /// https://ffmpeg.org/ffmpeg-filters.html#afwtdn
+//    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#afwtdn"/>
 //    /// </summary>
 //    public class AfwtdnFilter : AudioToAudioFilter
 //    {
@@ -28,7 +28,7 @@
 //    public static class AfwtdnFilterExtensions
 //    {
 //        /// <summary>
-//        /// 
+//        /// <see href="https://ffmpeg.org/ffmpeg-filters.html#afwtdn"/>
 //        /// </summary>
 //        public static AfwtdnFilter AfwtdnFilter(this AudioMap audioMap)
 //          => new AfwtdnFilter(audioMap);

@@ -62,7 +62,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     ///  .S. astats            A->A       Show time domain statistics about audio frames.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#astats-1
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#astats-1"/>
     /// </summary>
     public class AstatsFilter : AudioToAudioFilter, ISliceThreading
     {
@@ -116,7 +116,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AstatsExtensions
     {
         /// <summary>
-        /// Display time domain statistical information about the audio channels. Statistics are calculated and displayed for each audio channel and, where applicable, an overall figure is also given.
+        /// Display time domain statistical information about the audio channels. Statistics are calculated and displayed for each audio channel and, where applicable, an overall figure is also given.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#astats-1"/>
         /// </summary>
         public static AstatsFilter Astats(this AudioMap audioMap)
           => new AstatsFilter(audioMap);

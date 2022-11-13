@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC afreqshift        A->A       Apply frequency shifting to input audio.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#afreqshift
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afreqshift"/>
     /// </summary>
     public class AfreqshiftFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -43,7 +43,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AfreqshiftFilterExtensions
     {
         /// <summary>
-        /// Apply frequency shift to input audio samples.
+        /// Apply frequency shift to input audio samples.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afreqshift"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

@@ -61,7 +61,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.C afade             A->A       Fade in/out input audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#afade-1
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#afade-1"/>
     /// </summary>
     public class AfadeFilter : AudioToAudioFilter, ITimelineSupport, ICommandSupport
     {
@@ -123,7 +123,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AfadeFilterExtension
     {
         /// <summary>
-        /// Apply fade-in/out effect to input audio.
+        /// Apply fade-in/out effect to input audio.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#afade-1"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

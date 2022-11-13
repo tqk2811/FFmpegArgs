@@ -50,7 +50,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC bandpass          A->A       Apply a two-pole Butterworth band-pass filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#bandpass
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#bandpass"/>
     /// </summary>
     public class BandpassFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
         IWidthType, ITransform, IPrecision, INormalize, IChannels, IFrequency
@@ -90,7 +90,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class BandpassFilterExtensions
     {
         /// <summary>
-        /// Apply a two-pole Butterworth band-pass filter with central frequency frequency, and (3dB-point) band-width width. The csg option selects a constant skirt gain (peak gain = Q) instead of the default: constant 0dB peak gain. The filter roll off at 6dB per octave (20dB per decade).
+        /// Apply a two-pole Butterworth band-pass filter with central frequency frequency, and (3dB-point) band-width width. The csg option selects a constant skirt gain (peak gain = Q) instead of the default: constant 0dB peak gain. The filter roll off at 6dB per octave (20dB per decade).<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#bandpass"/>
         /// </summary>
         public static BandpassFilter BandpassFilter(this AudioMap audioMap)
           => new BandpassFilter(audioMap);

@@ -95,7 +95,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... acrossfade        AA->A      Cross fade two input audio streams.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#acrossfade
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#acrossfade"/>
     /// </summary>
     public class AcrossfadeFilter : AudioToAudioFilter
     {
@@ -150,7 +150,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Apply cross fade from one input audio stream to another input audio stream.<br>
-        /// </br> The cross fade is applied for specified duration near the end of first stream.
+        /// </br> The cross fade is applied for specified duration near the end of first stream.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acrossfade"/>
         /// </summary>
         /// <returns></returns>
         public static AcrossfadeFilter AcrossfadeFilter(this AudioMap first, AudioMap second)

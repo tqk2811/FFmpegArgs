@@ -25,7 +25,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.C dynaudnorm        A->A       Dynamic Audio Normalizer.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#dynaudnorm
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#dynaudnorm"/>
     /// </summary>
     public class DynaudnormFilter : AudioToAudioFilter, ITimelineSupport, ICommandSupport
     {
@@ -130,7 +130,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Dynamic Audio Normalizer.<br>
-        /// </br>This filter applies a certain amount of gain to the input audio in order to bring its peak magnitude to a target level(e.g. 0 dBFS). However, in contrast to more "simple" normalization algorithms, the Dynamic Audio Normalizer* dynamically* re-adjusts the gain factor to the input audio.This allows for applying extra gain to the "quiet" sections of the audio while avoiding distortions or clipping the "loud" sections.In other words: The Dynamic Audio Normalizer will "even out" the volume of quiet and loud sections, in the sense that the volume of each section is brought to the same target level. Note, however, that the Dynamic Audio Normalizer achieves this goal* without* applying "dynamic range compressing". It will retain 100% of the dynamic range *within* each section of the audio file.
+        /// </br>This filter applies a certain amount of gain to the input audio in order to bring its peak magnitude to a target level(e.g. 0 dBFS). However, in contrast to more "simple" normalization algorithms, the Dynamic Audio Normalizer* dynamically* re-adjusts the gain factor to the input audio.This allows for applying extra gain to the "quiet" sections of the audio while avoiding distortions or clipping the "loud" sections.In other words: The Dynamic Audio Normalizer will "even out" the volume of quiet and loud sections, in the sense that the volume of each section is brought to the same target level. Note, however, that the Dynamic Audio Normalizer achieves this goal* without* applying "dynamic range compressing". It will retain 100% of the dynamic range *within* each section of the audio file.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#dynaudnorm"/>
         /// </summary>
         public static DynaudnormFilter DynaudnormFilter(this AudioMap audioMap)
           => new DynaudnormFilter(audioMap);

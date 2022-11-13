@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     ///  T.. aeval             A->A       Filter audio signal according to a specified expression.<br>
-    ///  </br>https://ffmpeg.org/ffmpeg-filters.html#aeval (need more info)
+    ///  </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aeval"/> (need more info)
     /// </summary>
     public class AevalFilter : AudioToAudioFilter, ITimelineSupport
     {
@@ -48,11 +48,16 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AevalFilter ChannelLayout(string c)
             => this.SetOption("c", c);
     }
+
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AevalFilterExtensions
     {
         /// <summary>
         /// Modify an audio signal according to the specified expressions.<br>
-        /// </br>This filter accepts one or more expressions(one for each channel), which are evaluated and used to modify a corresponding audio signal.
+        /// </br>This filter accepts one or more expressions(one for each channel), which are evaluated and used to modify a corresponding audio signal.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aeval"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

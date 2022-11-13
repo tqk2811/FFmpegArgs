@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.C crossfeed         A->A       Apply headphone crossfeed filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#crossfeed
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#crossfeed"/>
     /// </summary>
     public class CrossfeedFilter : AudioToAudioFilter, ITimelineSupport, ICommandSupport
     {
@@ -66,6 +66,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// Apply headphone crossfeed filter.<br>
         /// </br>Crossfeed is the process of blending the left and right channels of stereo audio recording.It is mainly used to reduce extreme stereo separation of low frequencies.<br>
         /// </br>The intent is to produce more speaker like sound to the listener.
+        /// <br></br><see href="https://ffmpeg.org/ffmpeg-filters.html#crossfeed"/>
         /// </summary>
         public static CrossfeedFilter CrossfeedFilter(this AudioMap audioMap)
           => new CrossfeedFilter(audioMap);

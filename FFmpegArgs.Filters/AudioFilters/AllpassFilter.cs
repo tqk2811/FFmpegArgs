@@ -50,8 +50,8 @@ allpass AVOptions:
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    ///  TSC allpass           A->A       Apply a two-pole all-pass filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#allpass
+    /// TSC allpass           A->A       Apply a two-pole all-pass filter.<br></br>
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#allpass"/>
     /// </summary>
     public class AllpassFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -139,7 +139,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AllpassFilterExtensions
     {
         /// <summary>
-        /// Apply a two-pole all-pass filter with central frequency (in Hz) frequency, and filter-width width. An all-pass filter changes the audio’s frequency to phase relationship without changing its frequency to amplitude relationship.
+        /// Apply a two-pole all-pass filter with central frequency (in Hz) frequency, and filter-width width. An all-pass filter changes the audio’s frequency to phase relationship without changing its frequency to amplitude relationship.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#allpass"/>
         /// </summary>
         public static AllpassFilter AllpassFilter(this AudioMap audioMap)
           => new AllpassFilter(audioMap);

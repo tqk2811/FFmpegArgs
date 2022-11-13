@@ -45,5 +45,12 @@ namespace FFmpegArgs.Test.FeatureTest
             FFmpegExpression expression = new FFmpegExpression(new List<string>() { "t" });
             Assert.AreEqual("2 t max_2 10 t * 3 3 PI * sin_1 * between_3", expression.Check("between(max(2,t),10*t,3*sin(3*PI))"));
         }
+
+        [TestMethod]
+        public void Test8()
+        {
+            FFmpegExpression expression = new FFmpegExpression(new List<string>() { });
+            Assert.AreEqual("2 3 * 1 +", expression.Check("1+2*3"));
+        }
     }
 }

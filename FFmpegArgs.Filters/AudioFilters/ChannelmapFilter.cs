@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... channelmap        A->A       Remap audio channels.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#channelmap
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#channelmap"/>
     /// </summary>
     public class ChannelmapFilter : AudioToAudioFilter
     {
@@ -32,7 +32,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class ChannelmapFilterExtensions
     {
         /// <summary>
-        /// Remap input channels to new locations.
+        /// Remap input channels to new locations.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#channelmap"/>
         /// </summary>
         [Obsolete("Need more information")]
         public static ChannelmapFilter ChannelmapFilter(this AudioMap audioMap, params Tuple<ChannelLayout, ChannelLayout>[] maps)

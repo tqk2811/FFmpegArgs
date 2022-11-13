@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC asubcut           A->A       Cut subwoofer frequencies.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#asubcut
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#asubcut"/>
     /// </summary>
     public class AsubcutFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -47,7 +47,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Cut subwoofer frequencies.<br>
-        /// </br>This filter allows to set custom, steeper roll off than highpass filter, and thus is able to more attenuate frequency content in stop-band.
+        /// </br>This filter allows to set custom, steeper roll off than highpass filter, and thus is able to more attenuate frequency content in stop-band.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#asubcut"/>
         /// </summary>
         public static AsubcutFilter AsubcutFilter(this AudioMap audioMap)
           => new AsubcutFilter(audioMap);

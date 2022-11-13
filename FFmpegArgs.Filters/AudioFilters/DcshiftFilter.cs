@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.. dcshift           A->A       Apply a DC shift to the audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#dcshift
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#dcshift"/>
     /// </summary>
     public class DcshiftFilter : AudioToAudioFilter, ITimelineSupport
     {
@@ -39,7 +39,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Apply a DC shift to the audio.<br>
-        /// </br>This can be useful to remove a DC offset(caused perhaps by a hardware problem in the recording chain) from the audio.The effect of a DC offset is reduced headroom and hence volume.The <see cref="AstatsFilter"/> filter can be used to determine if a signal has a DC offset.
+        /// </br>This can be useful to remove a DC offset(caused perhaps by a hardware problem in the recording chain) from the audio.The effect of a DC offset is reduced headroom and hence volume.The <see cref="AstatsFilter"/> filter can be used to determine if a signal has a DC offset.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#dcshift"/>
         /// </summary>
         public static DcshiftFilter DcshiftFilter(this AudioMap audioMap)
           => new DcshiftFilter(audioMap);

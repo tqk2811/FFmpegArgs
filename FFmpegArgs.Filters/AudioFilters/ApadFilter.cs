@@ -10,7 +10,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// T.. apad              A->A       Pad audio with silence.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#apad
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#apad"/>
     /// </summary>
     public class ApadFilter : AudioToAudioFilter, ITimelineSupport
     {
@@ -66,7 +66,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Pad the end of an audio stream with silence.<br></br>
-        /// This can be used together with ffmpeg -shortest to extend audio streams to the same length as the video stream.
+        /// This can be used together with ffmpeg -shortest to extend audio streams to the same length as the video stream.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#apad"/>
         /// </summary>
         public static ApadFilter ApadFilter(this AudioMap audioMap)
           => new ApadFilter(audioMap);

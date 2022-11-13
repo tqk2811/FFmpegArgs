@@ -11,7 +11,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... chorus            A->A       Add a chorus effect to the audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#chorus
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#chorus"/>
     /// </summary>
     public class ChorusFilter : AudioToAudioFilter
     {
@@ -59,7 +59,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <summary>
         /// Add a chorus effect to the audio.<br>
         /// </br>Can make a single vocal sound like a chorus, but can also be applied to instrumentation.<br>
-        /// </br>Chorus resembles an echo effect with a short delay, but whereas with echo the delay is constant, with chorus, it is varied using using sinusoidal or triangular modulation.The modulation depth defines the range the modulated delay is played before or after the delay.Hence the delayed sound will sound slower or faster, that is the delayed sound tuned around the original one, like in a chorus where some vocals are slightly off key.
+        /// </br>Chorus resembles an echo effect with a short delay, but whereas with echo the delay is constant, with chorus, it is varied using using sinusoidal or triangular modulation.The modulation depth defines the range the modulated delay is played before or after the delay.Hence the delayed sound will sound slower or faster, that is the delayed sound tuned around the original one, like in a chorus where some vocals are slightly off key.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#chorus"/>
         /// </summary>
         public static ChorusFilter ChorusFilter(this AudioMap audioMap)
           => new ChorusFilter(audioMap);

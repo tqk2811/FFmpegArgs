@@ -7,8 +7,8 @@ aloop AVOptions:
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    ///  ... aloop             A->A       Loop audio samples.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#aloop
+    /// ... aloop             A->A       Loop audio samples.<br></br>
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#aloop"/>
     /// </summary>
     public class AloopFilter : AudioToAudioFilter
     {

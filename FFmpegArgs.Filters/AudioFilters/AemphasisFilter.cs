@@ -20,7 +20,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC aemphasis         A->A       Audio emphasis.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#aemphasis
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#aemphasis"/>
     /// </summary>
     public class AemphasisFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -65,7 +65,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AemphasisFilterExtensions
     {
         /// <summary>
-        /// Audio emphasis filter creates or restores material directly taken from LPs or emphased CDs with different filter curves. E.g. to store music on vinyl the signal has to be altered by a filter first to even out the disadvantages of this recording medium. Once the material is played back the inverse filter has to be applied to restore the distortion of the frequency response.
+        /// Audio emphasis filter creates or restores material directly taken from LPs or emphased CDs with different filter curves. E.g. to store music on vinyl the signal has to be altered by a filter first to even out the disadvantages of this recording medium. Once the material is played back the inverse filter has to be applied to restore the distortion of the frequency response.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aemphasis"/>
         /// </summary>
         public static AemphasisFilter AemphasisFilter(this AudioMap audioMap)
           => new AemphasisFilter(audioMap);
@@ -79,7 +80,7 @@ namespace FFmpegArgs.Filters.AudioFilters
     }
     public enum AemphasisType
     {
-        [Name("col")]col,
+        [Name("col")] col,
         [Name("emi")] emi,
         [Name("bsi")] bsi,
         [Name("riaa")] riaa,

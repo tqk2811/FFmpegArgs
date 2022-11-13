@@ -13,7 +13,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ..C amix              N->A       Audio mixing.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#amix
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#amix"/>
     /// </summary>
     public class AmixFilter : AudioToAudioFilter, ICommandSupport
     {
@@ -59,7 +59,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Mixes multiple audio inputs into a single output.<br>
-        /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.
+        /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#amix"/>
         /// </summary>
         /// <param name="audioMap0"></param>
         /// <param name="audioMaps"></param>
@@ -70,17 +71,21 @@ namespace FFmpegArgs.Filters.AudioFilters
             audioMapsList.AddRange(audioMaps);
             return new AmixFilter(audioMapsList.ToArray());
         }
+
         /// <summary>
         /// Mixes multiple audio inputs into a single output.<br>
-        /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.
+        /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#amix"/>
         /// </summary>
         /// <param name="audioMaps"></param>
         /// <returns></returns>
         public static AmixFilter AmixFilter(this IEnumerable<AudioMap> audioMaps)
             => new AmixFilter(audioMaps.ToArray());
+
         /// <summary>
         /// Mixes multiple audio inputs into a single output.<br>
-        /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.
+        /// </br>Note that this filter only supports float samples(the amerge and pan audio filters support many formats). If the amix input has integer samples then aresample will be automatically inserted to perform the conversion to float samples.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#amix"/>
         /// </summary>
         /// <param name="audioMaps"></param>
         /// <returns></returns>

@@ -5,7 +5,7 @@
 //{
 //    /// <summary>
 //    /// <br></br>
-//    /// https://ffmpeg.org/ffmpeg-filters.html#atilt
+//    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#atilt"/>
 //    /// </summary>
 //    public class AtiltFilter : AudioToAudioFilter
 //    {
@@ -24,7 +24,8 @@
 //    {
 //        /// <summary>
 //        /// Apply spectral tilt filter to audio stream.<br>
-//        /// </br>This filter apply any spectral roll-off slope over any specified frequency band.
+//        /// </br>This filter apply any spectral roll-off slope over any specified frequency band.<br></br>
+//        /// <see href="https://ffmpeg.org/ffmpeg-filters.html#atilt"/>
 //        /// </summary>
 //        public static AtiltFilter AtiltFilter(this AudioMap audioMap)
 //          => new AtiltFilter(audioMap);

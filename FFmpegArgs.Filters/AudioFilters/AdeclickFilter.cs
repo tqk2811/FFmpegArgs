@@ -25,7 +25,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TS. adeclick          A->A       Remove impulsive noise from input audio.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#adeclick
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#adeclick"/>
     /// </summary>
     public class AdeclickFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
@@ -92,7 +92,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AdeclickFilterExtension
     {
         /// <summary>
-        /// Remove impulsive noise from input audio.
+        /// Remove impulsive noise from input audio.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#adeclick"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>

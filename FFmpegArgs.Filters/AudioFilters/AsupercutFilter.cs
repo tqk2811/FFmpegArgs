@@ -8,7 +8,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC asupercut         A->A       Cut super frequencies.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#asupercut
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#asupercut"/>
     /// </summary>
     public class AsupercutFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -48,7 +48,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class AsupercutFilterExtensions
     {
         /// <summary>
-        /// Cut super frequencies.
+        /// Cut super frequencies.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#asupercut"/>
         /// </summary>
         public static AsupercutFilter AsupercutFilter(this AudioMap audioMap)
           => new AsupercutFilter(audioMap);

@@ -12,8 +12,8 @@ anlmdn AVOptions:
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
-    ///  TSC anlmdn            A->A       Reduce broadband noise from stream using Non-Local Means.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#anlmdn
+    /// TSC anlmdn            A->A       Reduce broadband noise from stream using Non-Local Means.<br></br>
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#anlmdn"/>
     /// </summary>
     public class AnlmdnFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -69,7 +69,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Reduce broadband noise in audio samples using Non-Local Means algorithm.<br>
-        /// </br>Each sample is adjusted by looking for other samples with similar contexts.This context similarity is defined by comparing their surrounding patches of size p.Patches are searched in an area of r around the sample.
+        /// </br>Each sample is adjusted by looking for other samples with similar contexts.This context similarity is defined by comparing their surrounding patches of size p.Patches are searched in an area of r around the sample.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#anlmdn"/>
         /// </summary>
         public static AnlmdnFilter AnlmdnFilter(this AudioMap audioMap)
           => new AnlmdnFilter(audioMap);

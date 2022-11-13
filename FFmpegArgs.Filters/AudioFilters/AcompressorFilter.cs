@@ -23,7 +23,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ..C acompressor       A->A       Audio compressor.<br>
-    /// </br>https://ffmpeg.org/ffmpeg-filters.html#acompressor
+    /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#acompressor"/>
     /// </summary>
     public class AcompressorFilter : AudioToAudioFilter, ICommandSupport
     {
@@ -126,16 +126,22 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AcompressorFilter LevelSc(double level_sc)
             => this.SetOptionRange("level_sc", level_sc, 0.015625, 64);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AcompressorFilterExtension
     {
         /// <summary>
         /// A compressor is mainly used to reduce the dynamic range of a signal. Especially modern music is mostly compressed at a high ratio to improve the overall loudness. It’s done to get the highest attention of a listener, "fatten" the sound and bring more "power" to the track. If a signal is compressed too much it may sound dull or "dead" afterwards or it may start to "pump" (which could be a powerful effect but can also destroy a track completely). The right compression is the key to reach a professional sound and is the high art of mixing and mastering. Because of its complex settings it may take a long time to get the right feeling for this kind of effect.<br></br><br></br>
         /// Compression is done by detecting the volume above a chosen level threshold and dividing it by the factor set with ratio.So if you set the threshold to -12dB and your signal reaches -6dB a ratio of 2:1 will result in a signal at -9dB.Because an exact manipulation of the signal would cause distortion of the waveform the reduction can be levelled over the time.This is done by setting "Attack" and "Release". attack determines how long the signal has to rise above the threshold before any reduction will occur and release sets the time the signal has to fall below the threshold to reduce the reduction again.Shorter signals than the chosen attack time will be left untouched. The overall reduction of the signal can be made up afterwards with the makeup setting.So compressing the peaks of a signal about 6dB and raising the makeup to this level results in a signal twice as loud than the source. To gain a softer entry in the compression the knee flattens the hard edge at the threshold in the range of the chosen decibels.
+        /// <br></br><see href="https://ffmpeg.org/ffmpeg-filters.html#acompressor"/>
         /// </summary>
         /// <param name="audioMap"></param>
         /// <returns></returns>
         public static AcompressorFilter AcompressorFilter(this AudioMap audioMap) => new AcompressorFilter(audioMap);
     }
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum AcompressorMode
     {
         Upward,
@@ -151,4 +157,5 @@ namespace FFmpegArgs.Filters.AudioFilters
         Peak,
         Rms
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

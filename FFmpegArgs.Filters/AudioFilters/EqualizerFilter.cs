@@ -53,7 +53,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC equalizer         A->A       Apply two-pole peaking equalization (EQ) filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#equalizer
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#equalizer"/>
     /// </summary>
     public class EqualizerFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport,
         IWidthType, ITransform, IPrecision
@@ -112,7 +112,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Apply a two-pole peaking equalisation (EQ) filter. With this filter, the signal-level at and around a selected frequency can be increased or decreased, whilst (unlike bandpass and bandreject filters) that at all other frequencies is unchanged.<br>
-        /// </br>In order to produce complex equalisation curves, this filter can be given several times, each with a different central frequency.
+        /// </br>In order to produce complex equalisation curves, this filter can be given several times, each with a different central frequency.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#equalizer"/>
         /// </summary>
         public static EqualizerFilter EqualizerFilter(this AudioMap audioMap)
           => new EqualizerFilter(audioMap);

@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// .SC anlms             AA->A      Apply Normalized Least-Mean-Squares algorithm to first audio stream.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#anlmf_002c-anlms
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#anlmf_002c-anlms"/>
     /// </summary>
     public class AnlmsFilter : AudioToAudioFilter, ISliceThreading, ICommandSupport
     {
@@ -70,7 +70,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Apply Normalized Least-Mean-(Squares|Fourth) algorithm to the first audio stream using the second audio stream.<br></br>
-        /// This adaptive filter is used to mimic a desired filter by finding the filter coefficients that relate to producing the least mean square of the error signal(difference between the desired, 2nd input audio stream and the actual signal, the 1st input audio stream).
+        /// This adaptive filter is used to mimic a desired filter by finding the filter coefficients that relate to producing the least mean square of the error signal(difference between the desired, 2nd input audio stream and the actual signal, the 1st input audio stream).<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#anlmf_002c-anlms"/>
         /// </summary>
         public static AnlmsFilter AnlmsFilter(this AudioMap audioMap, AudioMap second)
           => new AnlmsFilter(audioMap, second);

@@ -5,7 +5,7 @@
 //{
 //    /// <summary>
 //    ///  ... amultiply         AA->A      Multiply two audio streams.<br></br>
-//    /// https://ffmpeg.org/ffmpeg-filters.html#amultiply
+//    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#amultiply"/>
 //    /// </summary>
 //    public class AmultiplyFilter : AudioToAudioFilter
 //    {
@@ -20,7 +20,7 @@
 //    public static class AmultiplyFilterExtensions
 //    {
 //        /// <summary>
-//        /// 
+//        /// <see href="https://ffmpeg.org/ffmpeg-filters.html#amultiply"/>
 //        /// </summary>
 //        public static AmultiplyFilter AmultiplyFilter(this AudioMap audioMap)
 //          => new AmultiplyFilter(audioMap);

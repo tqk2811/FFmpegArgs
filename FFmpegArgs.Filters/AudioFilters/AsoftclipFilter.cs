@@ -19,7 +19,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC asoftclip         A->A       Audio Soft Clipper.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#asoftclip
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#asoftclip"/>
     /// </summary>
     public class AsoftclipFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -75,7 +75,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Apply audio soft clipping.<br>
-        /// </br>Soft clipping is a type of distortion effect where the amplitude of a signal is saturated along a smooth curve, rather than the abrupt shape of hard-clipping.
+        /// </br>Soft clipping is a type of distortion effect where the amplitude of a signal is saturated along a smooth curve, rather than the abrupt shape of hard-clipping.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#asoftclip"/>
         /// </summary>
         public static AsoftclipFilter AsoftclipFilter(this AudioMap audioMap)
           => new AsoftclipFilter(audioMap);

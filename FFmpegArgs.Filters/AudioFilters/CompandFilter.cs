@@ -12,7 +12,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... compand           A->A       Compress or expand audio dynamic range.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#compand
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#compand"/>
     /// </summary>
     public class CompandFilter : AudioToAudioFilter
     {
@@ -78,7 +78,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     public static class CompandFilterExtensions
     {
         /// <summary>
-        /// Compress or expand the audio’s dynamic range.
+        /// Compress or expand the audio’s dynamic range.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#compand"/>
         /// </summary>
         public static CompandFilter CompandFilter(this AudioMap audioMap)
           => new CompandFilter(audioMap);

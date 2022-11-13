@@ -7,7 +7,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// TSC crystalizer       A->A       Simple audio noise sharpening filter.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#crystalizer
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#crystalizer"/>
     /// </summary>
     public class CrystalizerFilter : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
     {
@@ -38,7 +38,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Simple algorithm for audio noise sharpening.<br>
-        /// </br>This filter linearly increases differences betweeen each audio sample.
+        /// </br>This filter linearly increases differences betweeen each audio sample.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#crystalizer"/>
         /// </summary>
         public static CrystalizerFilter CrystalizerFilter(this AudioMap audioMap)
           => new CrystalizerFilter(audioMap);

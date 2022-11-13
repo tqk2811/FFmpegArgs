@@ -9,7 +9,7 @@ namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
     /// ... aecho             A->A       Add echoing to the audio.<br></br>
-    /// https://ffmpeg.org/ffmpeg-filters.html#aecho
+    /// <see href="https://ffmpeg.org/ffmpeg-filters.html#aecho"/>
     /// </summary>
     public class AechoFilter : AudioToAudioFilter
     {
@@ -76,7 +76,8 @@ namespace FFmpegArgs.Filters.AudioFilters
     {
         /// <summary>
         /// Apply echoing to the input audio.<br>
-        /// </br>Echoes are reflected sound and can occur naturally amongst mountains(and sometimes large buildings) when talking or shouting; digital echo effects emulate this behaviour and are often used to help fill out the sound of a single instrument or vocal.The time difference between the original signal and the reflection is the delay, and the loudness of the reflected signal is the decay. Multiple echoes can have different delays and decays.
+        /// </br>Echoes are reflected sound and can occur naturally amongst mountains(and sometimes large buildings) when talking or shouting; digital echo effects emulate this behaviour and are often used to help fill out the sound of a single instrument or vocal.The time difference between the original signal and the reflection is the delay, and the loudness of the reflected signal is the decay. Multiple echoes can have different delays and decays.<br>
+        /// </br><see href="https://ffmpeg.org/ffmpeg-filters.html#aecho"/>
         /// </summary>
         public static AechoFilter AechoFilter(this AudioMap audioMap)
           => new AechoFilter(audioMap);
