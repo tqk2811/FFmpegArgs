@@ -58,7 +58,7 @@
         /// <param name="position"></param>
         /// <returns></returns>
         public static T SsEof<T>(this T t, TimeSpan position) where T : BaseInput
-            => t.SetOptionRange("-sseof", position, TimeSpan.Zero, TimeSpan.MaxValue);
+            => t.SetOptionRange("-sseof", position, TimeSpan.MinValue, TimeSpan.Zero);
 
         /// <summary>
         /// -itsoffset<br>
