@@ -26,8 +26,8 @@
         /// <param name="t"></param>
         /// <param name="fps"></param>
         /// <returns></returns>
-        public static T R<T>(this T t, int fps) where T : BaseAVStream, IImage // (input/output,per-stream)
-            => t.SetOption($"-r", fps);
+        public static T R<T>(this T t, Rational fps) where T : BaseAVStream, IImage // (input/output,per-stream)
+            => t.SetOption($"-r", fps.ToStringSlash());
 
         /// <summary>
         /// As an input option, ignore any timestamps stored in the file and instead generate timestamps assuming constant frame rate fps. This is not the same as the -framerate option used for some input formats like image2 or v4l2 (it used to be the same in older versions of FFmpeg). If in doubt use -framerate instead of the input option -r.<br>
@@ -37,9 +37,9 @@
         /// <param name="t"></param>
         /// <param name="fps"></param>
         /// <returns></returns>
-        public static T Fps<T>(this T t, int fps) where T : BaseAVStream, IImage // (input/output,per-stream)
-            => t.SetOption($"-r", fps);
-        
+        public static T Fps<T>(this T t, Rational fps) where T : BaseAVStream, IImage // (input/output,per-stream)
+            => t.SetOption($"-r", fps.ToStringSlash());
+
         /// <summary>
         /// Set maximum frame rate (Hz value, fraction or abbreviation).<br>
         /// </br>Clamps output frame rate when output framerate is auto-set and is higher than this value.Useful in batch processing or when input framerate is wrongly detected as very high.It cannot be set together with -r.It is ignored during streamcopy.
@@ -48,8 +48,8 @@
         /// <param name="t"></param>
         /// <param name="fps"></param>
         /// <returns></returns>
-        public static T FpsMax<T>(this T t, int fps) where T : ImageOutputAVStream, IImage // (output,per-stream)
-            => t.SetOption($"-fpsmax", fps);
+        public static T FpsMax<T>(this T t, Rational fps) where T : ImageOutputAVStream, IImage // (output,per-stream)
+            => t.SetOption($"-fpsmax", fps.ToStringSlash());
 
         /// <summary>
         /// As an input option, this is a shortcut for the video_size private option, recognized by some demuxers for which the frame size is either not stored in the file or is configurable – e.g. raw video or video grabbers.<br>
