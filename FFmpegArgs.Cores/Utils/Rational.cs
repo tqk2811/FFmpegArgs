@@ -92,6 +92,12 @@ namespace FFmpegArgs.Cores.Utils
         /// 
         /// </summary>
         /// <param name="num"></param>
+        public static implicit operator Rational(uint num) => Create((int)num);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="num"></param>
         public static implicit operator Rational(long num) => Create((int)num);
 
         /// <summary>
