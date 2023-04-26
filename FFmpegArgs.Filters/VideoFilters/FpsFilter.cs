@@ -35,6 +35,12 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="fps"></param>
         /// <returns></returns>
+        public FpsFilter Fps(double fps) => this.SetOptionRange("fps", fps, 0, double.MaxValue);
+        /// <summary>
+        /// The desired output frame rate.
+        /// </summary>
+        /// <param name="fps"></param>
+        /// <returns></returns>
         public FpsFilter Fps(FpsConstants fps) => this.SetOption("fps", fps);
         /// <summary>
         /// Assume the first PTS should be the given value, in seconds. This allows for padding/trimming at the start of stream. By default, no assumption is made about the first frame’s expected PTS, so no padding or trimming is done. For example, this could be set to 0 to pad the beginning with duplicates of the first frame if a video stream starts after the audio stream or to trim any frames with a negative PTS.
