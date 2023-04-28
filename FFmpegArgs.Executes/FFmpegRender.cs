@@ -33,15 +33,6 @@
         }
 
 
-        private void ErrorDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            if (OnEncodingProgress != null)
-            {
-                RenderProgress progress = RenderProgress.FromProgressString(e.Data);
-                if (progress != null) OnEncodingProgress?.Invoke(progress);
-            }
-        }
-
         private Process BuildProcess(FFmpegRenderResult renderResult)
         {
             ProcessStartInfo info = new ProcessStartInfo(this.Config.FFmpegBinaryPath, this.Arguments)
@@ -55,8 +46,18 @@
             };
             renderResult.Arguments = this.Arguments;
             Process process = new Process();
-            process.ErrorDataReceived += this.ErrorDataReceived;
-            process.ErrorDataReceived += (o, d) => renderResult._ErrorDatas.Add(d?.Data ?? string.Empty);
+            process.ErrorDataReceived += (s, e) =>
+            {
+                RenderProgress progress = RenderProgress.FromProgressString(e?.Data);
+                if (progress is not null)
+                {
+                    OnEncodingProgress?.Invoke(progress);
+                }
+                else
+                {
+                    renderResult._ErrorDatas.Add(e?.Data ?? string.Empty);
+                }
+            };
             process.StartInfo = info;
             return process;
         }
