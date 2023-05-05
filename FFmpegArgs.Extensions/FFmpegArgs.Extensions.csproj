@@ -2,7 +2,7 @@
 
 	<Import Project="..\ProjectBuildProperties.targets" />
 	<PropertyGroup>
-		<FileVersion>1.5.2.0</FileVersion>
+		<FileVersion>1.5.3.0</FileVersion>
 		<RootNamespace>FFmpegArgs</RootNamespace>
 	</PropertyGroup>
 	<ItemGroup>
