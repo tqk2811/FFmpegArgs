@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace FFmpegArgs.Cores.Utils
 {
@@ -10,12 +11,17 @@ namespace FFmpegArgs.Cores.Utils
         /// <summary>
         /// 
         /// </summary>
-        public int Numerator { get; set; }
+        public double Value => Numerator / Denominator;
 
         /// <summary>
         /// 
         /// </summary>
-        public int Denominator { get; set; }
+        public double Numerator { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double Denominator { get; }
 
         /// <summary>
         /// 
@@ -27,7 +33,7 @@ namespace FFmpegArgs.Cores.Utils
         /// </summary>
         /// <param name="num"></param>
         /// <param name="den"></param>
-        public Rational(int num, int den)
+        public Rational(double num, double den)
         {
             this.Numerator = num;
             this.Denominator = den;
@@ -38,18 +44,46 @@ namespace FFmpegArgs.Cores.Utils
         /// </summary>
         /// <param name="num"></param>
         /// <returns></returns>
-        public static Rational Create(int num)
-           => new Rational(num, 1);
+        public static Rational Create(double num)
+           => new Rational(num, 1.0);
 
+        /// <summary>
+        /// Num:Den or Num/Den
+        /// </summary>
+        /// <param name="rationalString"></param>
+        /// <returns></returns>
+        public static Rational Parse(string rationalString)
+        {
+            return _Parse(rationalString) ?? throw new InvalidDataException($"'{rationalString}' is invalid format");
+        }
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="num"></param>
-        /// <param name="den"></param>
+        /// <param name="rationalString"></param>
+        /// <param name="rational"></param>
         /// <returns></returns>
-        public static Rational Create(int num, int den)
-            => new Rational(num, den);
+        public static bool TryParse(string rationalString, out Rational rational)
+        {
+            rational = _Parse(rationalString);
+            return rational is not null;
+        }
 
+
+        static readonly Regex regex_parse = new Regex("^(\\d+\\.\\d+|\\d+)[:/](\\d+\\.\\d+|\\d+)$", RegexOptions.Compiled);
+        static Rational _Parse(string rationalString)
+        {
+            if (string.IsNullOrWhiteSpace(rationalString))
+                return null;
+
+            Match match = regex_parse.Match(rationalString.Trim());
+            if (match.Success &&
+                double.TryParse(match.Groups[1].Value, out double num) &&
+                double.TryParse(match.Groups[2].Value, out double den))
+            {
+                return new Rational(num, den);
+            }
+            return null;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -59,7 +93,7 @@ namespace FFmpegArgs.Cores.Utils
         /// <exception cref="InvalidRangeException"></exception>
         public Rational Check(double min, double max)
         {
-            double rate = (double)Numerator / Denominator;
+            double rate = Value;
             if (double.IsNaN(rate) || double.IsInfinity(rate) || rate < min || rate > max)
                 throw new InvalidRangeException($"Rational rate InvalidRangeException, required {min} <= {Numerator}/{Denominator} <= {max}");
             return this;
@@ -92,30 +126,48 @@ namespace FFmpegArgs.Cores.Utils
         /// 
         /// </summary>
         /// <param name="num"></param>
-        public static implicit operator Rational(uint num) => Create((int)num);
+        public static implicit operator Rational(uint num) => Create(num);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="num"></param>
-        public static implicit operator Rational(long num) => Create((int)num);
+        public static implicit operator Rational(long num) => Create(num);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="num"></param>
+        public static implicit operator Rational(double num) => Create(num);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="num"></param>
+        public static implicit operator Rational(decimal num) => Create((double)num);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="r"></param>
-        public static explicit operator double(Rational r) => (double)r.Numerator / r.Denominator;
+        public static explicit operator double(Rational r) => r.Value;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="r"></param>
-        public static explicit operator float(Rational r) => (float)r.Numerator / r.Denominator;
+        public static explicit operator float(Rational r) => (float)r.Value;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="r"></param>
-        public static explicit operator decimal(Rational r) => (decimal)r.Numerator / r.Denominator;
+        public static explicit operator decimal(Rational r) => (decimal)r.Value;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        public static explicit operator string(Rational r) => r.ToString();
     }
 }
