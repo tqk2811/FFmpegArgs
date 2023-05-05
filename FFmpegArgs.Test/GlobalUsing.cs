@@ -10,6 +10,7 @@ global using System.Collections.Generic;
 global using FFplayArgs;
 global using FFmpegArgs;
 global using FFmpegArgs.Cores;
+global using FFmpegArgs.Cores.Utils;
 global using FFmpegArgs.Cores.Enums;
 global using FFmpegArgs.Cores.Exceptions;
 global using FFmpegArgs.Cores.Inputs;
