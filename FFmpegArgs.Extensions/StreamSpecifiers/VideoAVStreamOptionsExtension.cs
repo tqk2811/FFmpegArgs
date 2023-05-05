@@ -37,30 +37,8 @@
         /// <param name="t"></param>
         /// <param name="fps"></param>
         /// <returns></returns>
-        public static T R<T>(this T t, double fps) where T : BaseAVStream, IImage // (input/output,per-stream)
-            => t.SetOption($"-r", fps);
-
-        /// <summary>
-        /// As an input option, ignore any timestamps stored in the file and instead generate timestamps assuming constant frame rate fps. This is not the same as the -framerate option used for some input formats like image2 or v4l2 (it used to be the same in older versions of FFmpeg). If in doubt use -framerate instead of the input option -r.<br>
-        /// </br>As an output option, duplicate or drop input frames to achieve constant output frame rate fps.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="fps"></param>
-        /// <returns></returns>
         public static T Fps<T>(this T t, Rational fps) where T : BaseAVStream, IImage // (input/output,per-stream)
             => t.SetOption($"-r", fps.ToStringSlash());
-
-        /// <summary>
-        /// As an input option, ignore any timestamps stored in the file and instead generate timestamps assuming constant frame rate fps. This is not the same as the -framerate option used for some input formats like image2 or v4l2 (it used to be the same in older versions of FFmpeg). If in doubt use -framerate instead of the input option -r.<br>
-        /// </br>As an output option, duplicate or drop input frames to achieve constant output frame rate fps.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="fps"></param>
-        /// <returns></returns>
-        public static T Fps<T>(this T t, double fps) where T : BaseAVStream, IImage // (input/output,per-stream)
-            => t.SetOption($"-r", fps);
 
         /// <summary>
         /// Set maximum frame rate (Hz value, fraction or abbreviation).<br>
