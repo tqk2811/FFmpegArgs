@@ -33,7 +33,6 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="channelLayout"></param>
         /// <param name="channels">Select channel from <see cref="ChannelLayout"/><br></br>Default 'all'</param>
         /// <returns></returns>
-        [Obsolete("Need more information")]
         public static ChannelsplitFilter ChannelsplitFilter(this AudioMap audioMap, int outputCount, ChannelLayout channelLayout, string channels = null)
           => new ChannelsplitFilter(audioMap, outputCount, channelLayout, channels);
     }
