@@ -79,6 +79,16 @@
         public static T ForceStyle<T>(this T t, string force_style) where T : BaseSubtitlesFilter
           => t.SetOption("force_style", force_style);
         /// <summary>
+        /// Override default style or script info parameters of the subtitles.<br>
+        /// </br> It accepts a string containing ASS style format KEY=VALUE couples separated by ",".
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="force_style"></param>
+        /// <returns></returns>
+        public static T ForceStyle<T>(this T t, SubtitleStyleConfig force_style) where T : BaseSubtitlesFilter
+          => t.SetOption("force_style", force_style);
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="color"></param>
