@@ -150,6 +150,19 @@ namespace FFmpegArgs
         /// <returns></returns>
         public static T Shortest<T>(this T t) where T : BaseOutput
             => t.SetFlag("-shortest");
+
+        /// <summary>
+        /// -shortest_buf_duration<br></br>
+        /// The -shortest option may require buffering potentially large amounts of data when at least one of the streams is "sparse" (i.e. has large gaps between frames – this is typically the case for subtitles).<br></br>
+        /// This option controls the maximum duration of buffered frames in seconds.Larger values may allow the -shortest option to produce more accurate results, but increase memory use and latency.<br></br>
+        /// The default value is 10 seconds.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="duration"></param>
+        /// <returns></returns>
+        public static T ShortestBufDuration<T>(this T t, TimeSpan duration) where T : BaseOutput
+            => t.SetOptionRange("-shortest_buf_duration", duration, TimeSpan.Zero, TimeSpan.MaxValue);
         #endregion
 
 
