@@ -138,6 +138,16 @@
         [Obsolete("This is an obsolete alias for -frames:d, which you should use instead.")]
         public static T Dframes<T>(this T t, int number) where T : BaseOutput
             => t.SetOptionRange("-dframes", number, -1, int.MaxValue);
+        /// <summary>
+        /// -shortest<br></br>
+        /// Finish encoding when the shortest output stream ends.<br></br>
+        /// Note that this option may require buffering frames, which introduces extra latency.The maximum amount of this latency may be controlled with the -shortest_buf_duration option.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static T Shortest<T>(this T t) where T : BaseOutput
+            => t.SetFlag("-shortest");
         #endregion
 
 
