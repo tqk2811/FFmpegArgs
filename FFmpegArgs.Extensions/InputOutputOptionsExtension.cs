@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs
+﻿using FFmpegArgs.Cores;
+
+namespace FFmpegArgs
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg.html#Main-options
@@ -220,6 +222,16 @@
         /// <returns></returns>
         public static T Dn<T>(this T t) where T : BaseInputOutput
             => t.SetFlag("-dn");
+
+        /// <summary>
+        /// -bitexact<br></br>
+        /// Enable bitexact mode for (de)muxer and (de/en)coder
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static T Bitexact<T>(this T t) where T : BaseInputOutput
+            => t.SetFlag("-bitexact");
         #endregion
     }
 }
