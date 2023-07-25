@@ -8,6 +8,11 @@
     /// </summary>
     public class FFmpegExpression
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        public static FFmpegExpression DefaultInstance { get; } = new FFmpegExpression();
+
         static readonly IEnumerable<string> _binaryOperators = new List<string>()
         {
           "+", "-", "*", "/", "^"
