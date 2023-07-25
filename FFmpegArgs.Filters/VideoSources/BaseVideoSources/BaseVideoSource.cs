@@ -20,7 +20,6 @@
     /// </summary>
     public static class BaseVideoSourceExtensions
     {
-        static readonly FFmpegExpression expression = new FFmpegExpression();
         /// <summary>
         /// Specify the frame rate of the sourced video, as the number of frames generated per second.<br>
         /// </br> It has to be a string in the format frame_rate_num/frame_rate_den, an integer number, a floating point number or a valid video frame rate abbreviation.<br>
@@ -50,17 +49,8 @@
         /// <param name="t"></param>
         /// <param name="sar"></param>
         /// <returns></returns>
-        public static T Sar<T>(this T t, string sar) where T : BaseVideoSource
-          => t.SetOption("sar", sar.Expression().Run(expression));
-        /// <summary>
-        /// Set the sample aspect ratio of the sourced video.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="sar"></param>
-        /// <returns></returns>
-        public static T Sar<T>(this T t, Action<FFmpegExpression> sar) where T : BaseVideoSource
-         => t.SetOption("sar", sar.Run(expression));
+        public static T Sar<T>(this T t, ExpressionValue sar) where T : BaseVideoSource
+          => t.SetOption("sar", FFmpegExpression.DefaultInstance.Check(sar));
         /// <summary>
         /// Specify the size of the sourced video.<br></br>
         /// The default value is 320x240.
