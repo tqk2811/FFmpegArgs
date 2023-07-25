@@ -62,30 +62,15 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="real"></param>
         /// <returns></returns>
-        public AfftfiltFilter Real(Action<FFmpegExpression> real)
-          => this.SetOption("real", real.Run(expression));
-        /// <summary>
-        /// Set frequency domain real expression for each separate channel separated by ’|’. Default is "re".<br>
-        /// </br> If the number of input channels is greater than the number of expressions, the last specified expression is used for the remaining output channels.
-        /// </summary>
-        /// <param name="real"></param>
-        /// <returns></returns>
-        public AfftfiltFilter Real(string real)
-         => this.SetOption("real", real.Expression().Run(expression));
+        public AfftfiltFilter Real(ExpressionValue real)
+         => this.SetOption("real", expression.Check(real));
         /// <summary>
         /// Set frequency domain imaginary expression for each separate channel separated by ’|’. Default is "im".
         /// </summary>
         /// <param name="imag"></param>
         /// <returns></returns>
-        public AfftfiltFilter Imag(Action<FFmpegExpression> imag)
-          => this.SetOption("imag", imag.Run(expression));
-        /// <summary>
-        /// Set frequency domain imaginary expression for each separate channel separated by ’|’. Default is "im".
-        /// </summary>
-        /// <param name="imag"></param>
-        /// <returns></returns>
-        public AfftfiltFilter Imag(string imag)
-         => this.SetOption("imag", imag.Expression().Run(expression));
+        public AfftfiltFilter Imag(ExpressionValue imag)
+         => this.SetOption("imag", expression.Check(imag));
         /// <summary>
         /// Set window size. Allowed range is from 16 to 131072. Default is 4096
         /// </summary>

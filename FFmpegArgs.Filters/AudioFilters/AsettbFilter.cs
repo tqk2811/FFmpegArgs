@@ -19,10 +19,10 @@ namespace FFmpegArgs.Filters.AudioFilters
 
         private readonly FFmpegExpression expression = new FFmpegExpression(_variables);
 
-        internal AsettbFilter(Action<FFmpegExpression> expr, AudioMap mapIn) : base("asettb", mapIn)
+        internal AsettbFilter(ExpressionValue expr, AudioMap mapIn) : base("asettb", mapIn)
         {
             AddMapOut();
-            this.SetOption("expr", expr.Run(expression));
+            this.SetOption("expr", expression.Check(expr));
         }
     }
     /// <summary>
@@ -36,15 +36,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated into the output timebase.</param>
         /// <returns></returns>
-        public static AsettbFilter AsettbFilter(this AudioMap audioMap, Action<FFmpegExpression> expr)
+        public static AsettbFilter AsettbFilter(this AudioMap audioMap, ExpressionValue expr)
             => new AsettbFilter(expr, audioMap);
-        /// <summary>
-        /// Set the timebase to use for the output frames timestamps. It is mainly useful for testing timebase configuration.
-        /// </summary>
-        /// <param name="audioMap"></param>
-        /// <param name="expr">The expression which is evaluated into the output timebase.</param>
-        /// <returns></returns>
-        public static AsettbFilter AsettbFilter(this AudioMap audioMap, string expr)
-            => new AsettbFilter(expr.Expression(), audioMap);
     }
 }

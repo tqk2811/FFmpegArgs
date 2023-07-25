@@ -18,10 +18,10 @@ namespace FFmpegArgs.Filters.VideoFilters
 
         private readonly FFmpegExpression expression = new FFmpegExpression(_variables);
 
-        internal SettbFilter(Action<FFmpegExpression> expr, ImageMap mapIn) : base("settb", mapIn)
+        internal SettbFilter(ExpressionValue expr, ImageMap mapIn) : base("settb", mapIn)
         {
             AddMapOut();
-            this.SetOption("expr", expr.Run(expression));
+            this.SetOption("expr", expression.Check(expr));
         }
     }
     /// <summary>
@@ -35,15 +35,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="imageMap"></param>
         /// <param name="expr">The expression which is evaluated into the output timebase.</param>
         /// <returns></returns>
-        public static SettbFilter SettbFilter(this ImageMap imageMap, Action<FFmpegExpression> expr)
+        public static SettbFilter SettbFilter(this ImageMap imageMap, ExpressionValue expr)
             => new SettbFilter(expr, imageMap);
-        /// <summary>
-        /// Set the timebase to use for the output frames timestamps. It is mainly useful for testing timebase configuration.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="expr">The expression which is evaluated into the output timebase.</param>
-        /// <returns></returns>
-        public static SettbFilter SettbFilter(this ImageMap imageMap, string expr)
-            => new SettbFilter(expr.Expression(), imageMap);
     }
 }

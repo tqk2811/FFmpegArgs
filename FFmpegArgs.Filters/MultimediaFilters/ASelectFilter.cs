@@ -1,4 +1,11 @@
-﻿namespace FFmpegArgs.Filters.MultimediaFilters
+﻿/*
+ aselect AVOptions:
+   expr              <string>     ..F.A...... set an expression to use for selecting frames (default "1")
+   e                 <string>     ..F.A...... set an expression to use for selecting frames (default "1")
+   outputs           <int>        ..F.A...... set the number of outputs (from 1 to INT_MAX) (default 1)
+   n                 <int>        ..F.A...... set the number of outputs (from 1 to INT_MAX) (default 1)
+ */
+namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... aselect           A->N       Select audio frames to pass in output.<br></br>
@@ -17,11 +24,11 @@
             "concatdec_select"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal ASelectFilter(Action<FFmpegExpression> e, int n, AudioMap audioMap) : base($"aselect", audioMap)
+        internal ASelectFilter(ExpressionValue e, int n, AudioMap audioMap) : base($"aselect", audioMap)
         {
             if (n < 1) throw new InvalidRangeException(nameof(n));
             AddMultiMapOut(n);
-            this.SetOption("e", e.Run(expression));
+            this.SetOption("e", expression.Check(e));
             this.SetOption("n", n);
         }
     }
@@ -38,16 +45,7 @@
         /// <param name="e">Set expression, which is evaluated for each input frame.</param>
         /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation. Default value is 1.</param>
         /// <returns></returns>
-        public static ASelectFilter ASelectFilter(this AudioMap audioMap, Action<FFmpegExpression> e, int n)
+        public static ASelectFilter ASelectFilter(this AudioMap audioMap, ExpressionValue e, int n)
             => new ASelectFilter(e, n, audioMap);
-        /// <summary>
-        /// Select frames to pass in output.
-        /// </summary>
-        /// <param name="audioMap"></param>
-        /// <param name="e">Set expression, which is evaluated for each input frame.</param>
-        /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation. Default value is 1.</param>
-        /// <returns></returns>
-        public static ASelectFilter ASelectFilter(this AudioMap audioMap, string e, int n)
-                => new ASelectFilter(e.Expression(), n, audioMap);
     }
 }

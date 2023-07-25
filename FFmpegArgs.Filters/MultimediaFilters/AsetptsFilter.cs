@@ -32,10 +32,10 @@ namespace FFmpegArgs.Filters.MultimediaFilters
             "TB"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal AsetptsFilter(Action<FFmpegExpression> expr, AudioMap audioMap) : base("asetpts", audioMap)
+        internal AsetptsFilter(ExpressionValue expr, AudioMap audioMap) : base("asetpts", audioMap)
         {
             AddMapOut();
-            this.SetOption("expr", expr.Run(expression));
+            this.SetOption("expr", expression.Check(expr));
         }
     }
     /// <summary>
@@ -49,19 +49,7 @@ namespace FFmpegArgs.Filters.MultimediaFilters
         /// <param name="audioMap"></param>
         /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
         /// <returns></returns>
-        public static AsetptsFilter AsetptsFilter(this AudioMap audioMap, Action<FFmpegExpression> expr)
-        {
-            return new AsetptsFilter(expr, audioMap);
-        }
-        /// <summary>
-        /// Change the PTS (presentation timestamp) of the input frames.
-        /// </summary>
-        /// <param name="audioMap"></param>
-        /// <param name="expr">The expression which is evaluated for each frame to construct its timestamp.</param>
-        /// <returns></returns>
-        public static AsetptsFilter AsetptsFilter(this AudioMap audioMap, string expr)
-        {
-            return new AsetptsFilter(expr.Expression(), audioMap);
-        }
+        public static AsetptsFilter AsetptsFilter(this AudioMap audioMap, ExpressionValue expr)
+            => new AsetptsFilter(expr, audioMap);
     }
 }

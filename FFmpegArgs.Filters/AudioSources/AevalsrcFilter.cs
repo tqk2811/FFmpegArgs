@@ -32,15 +32,8 @@ namespace FFmpegArgs.Filters.AudioSources
         /// </summary>
         /// <param name="exprs"></param>
         /// <returns></returns>
-        public AevalsrcFilter Exprs(params string[] exprs)
-          => this.SetOption("exprs", string.Join("|", exprs.Select(x => x.Expression().Run(expression).ToString())));
-        /// <summary>
-        /// Set the ’|’-separated expressions list for each separate channel. In case the channel_layout option is not specified, the selected channel layout depends on the number of provided expressions. Otherwise the last specified expression is applied to the remaining output channels.
-        /// </summary>
-        /// <param name="exprs"></param>
-        /// <returns></returns>
-        public AevalsrcFilter Exprs(params Action<FFmpegExpression>[] exprs)
-          => this.SetOption("exprs", string.Join("|", exprs.Select(x => x.Run(expression).ToString())));
+        public AevalsrcFilter Exprs(params ExpressionValue[] exprs)
+          => this.SetOption("exprs", string.Join("|", expression.Checks(exprs)));
         // #NeedMoreInfo
         /// <summary>
         /// Set the channel layout. The number of channels in the specified layout must be equal to the number of specified expressions.

@@ -1,4 +1,30 @@
-﻿namespace FFmpegArgs.Filters.VideoFilters
+﻿/*
+ overlay AVOptions:
+   x                 <string>     ..FV....... set the x expression (default "0")
+   y                 <string>     ..FV....... set the y expression (default "0")
+   eof_action        <int>        ..FV....... Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
+     repeat          0            ..FV....... Repeat the previous frame.
+     endall          1            ..FV....... End both streams.
+     pass            2            ..FV....... Pass through the main input.
+   eval              <int>        ..FV....... specify when to evaluate expressions (from 0 to 1) (default frame)
+     init            0            ..FV....... eval expressions once during initialization
+     frame           1            ..FV....... eval expressions per-frame
+   shortest          <boolean>    ..FV....... force termination when the shortest input terminates (default false)
+   format            <int>        ..FV....... set output format (from 0 to 7) (default yuv420)
+     yuv420          0            ..FV....... 
+     yuv420p10       1            ..FV....... 
+     yuv422          2            ..FV....... 
+     yuv422p10       3            ..FV....... 
+     yuv444          4            ..FV....... 
+     rgb             5            ..FV....... 
+     gbrp            6            ..FV....... 
+     auto            7            ..FV....... 
+   repeatlast        <boolean>    ..FV....... repeat overlay of the last overlay frame (default true)
+   alpha             <int>        ..FV....... alpha format (from 0 to 1) (default straight)
+     straight        0            ..FV....... 
+     premultiplied   1            ..FV....... 
+ */
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TSC overlay           VV->V      Overlay a video source on top of the input.<br></br>
@@ -26,29 +52,15 @@
         /// </summary>
         /// <param name="x"></param>
         /// <returns></returns>
-        public OverlayFilter X(string x)
-            => this.X(x.Expression());
-        /// <summary>
-        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
-        /// </summary>
-        /// <param name="x"></param>
-        /// <returns></returns>
-        public OverlayFilter X(Action<FFmpegExpression> x)
-            => this.SetOption("x", x.Run(expression));
+        public OverlayFilter X(ExpressionValue x)
+            => this.SetOption("x", expression.Check(x));
         /// <summary>
         /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
         /// </summary>
         /// <param name="y"></param>
         /// <returns></returns>
-        public OverlayFilter Y(string y)
-            => this.Y(y.Expression());
-        /// <summary>
-        /// Set the expression for the x and y coordinates of the overlaid video on the main video. Default value is "0" for both expressions. In case the expression is invalid, it is set to a huge value (meaning that the overlay will not be displayed within the output visible area).
-        /// </summary>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public OverlayFilter Y(Action<FFmpegExpression> y)
-            => this.SetOption("y", y.Run(expression));
+        public OverlayFilter Y(ExpressionValue y)
+            => this.SetOption("y", expression.Check(y));
         /// <summary>
         /// Set when the expressions for x, and y are evaluated.
         /// </summary>
@@ -71,6 +83,9 @@
         public OverlayFilter Alpha(OverlayAlpha alpha)
           => this.SetOption("alpha", alpha.ToString().ToLower());
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class OverlayFilterExtension
     {
         /// <summary>
@@ -92,6 +107,8 @@
         public static OverlayFilter OverlayFilterOn(this ImageMap second, ImageMap first)
             => new OverlayFilter(first, second);
     }
+
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public enum OverlayAlpha
     {
         Straight,
@@ -146,4 +163,5 @@
         /// </summary>
         Frame
     }
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
 }

@@ -45,49 +45,30 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="z"></param>
         /// <returns></returns>
-        public ZoompanFilter Zoom(string z) => this.SetOption("z", z.Expression().Run(expression));
-        /// <summary>
-        /// Set the zoom expression. Range is 1-10. Default is 1.
-        /// </summary>
-        /// <param name="z"></param>
-        /// <returns></returns>
-        public ZoompanFilter Zoom(Action<FFmpegExpression> z) => this.SetOption("z", z.Run(expression));
+        public ZoompanFilter Zoom(ExpressionValue z) => this.SetOption("z", expression.Check(z));
         /// <summary>
         /// Set the x and y expression. Default is 0.
         /// </summary>
-        /// <param name="z"></param>
+        /// <param name="x"></param>
         /// <returns></returns>
-        public ZoompanFilter X(string x) => this.SetOption("x", x.Expression().Run(expression));
+        public ZoompanFilter X(ExpressionValue x) => this.SetOption("x", expression.Check(x));
         /// <summary>
         /// Set the x and y expression. Default is 0.
         /// </summary>
-        /// <param name="z"></param>
+        /// <param name="y"></param>
         /// <returns></returns>
-        public ZoompanFilter X(Action<FFmpegExpression> x) => this.SetOption("x", x.Run(expression));
-        /// <summary>
-        /// Set the x and y expression. Default is 0.
-        /// </summary>
-        /// <param name="z"></param>
-        /// <returns></returns>
-        public ZoompanFilter Y(string y) => this.SetOption("y", y.Expression().Run(expression));
-        /// <summary>
-        /// Set the x and y expression. Default is 0.
-        /// </summary>
-        /// <param name="z"></param>
-        /// <returns></returns>
-        public ZoompanFilter Y(Action<FFmpegExpression> y) => this.SetOption("y", y.Run(expression));
+        public ZoompanFilter Y(ExpressionValue y) => this.SetOption("y", expression.Check(y));
         /// <summary>
         /// Set the duration expression in number of frames. This sets for how many number of frames effect will last for single input image. Default is 90.
         /// </summary>
-        /// <param name="z"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public ZoompanFilter D(string z) => this.SetOption("d", z.Expression().Run(expression));
+        public ZoompanFilter D(ExpressionValue d) => this.SetOption("d", expression.Check(d));
         /// <summary>
-        /// Set the duration expression in number of frames. This sets for how many number of frames effect will last for single input image. Default is 90.
+        /// 
         /// </summary>
-        /// <param name="z"></param>
+        /// <param name="d"></param>
         /// <returns></returns>
-        public ZoompanFilter D(Action<FFmpegExpression> z) => this.SetOption("d", z.Run(expression));
         public ZoompanFilter D(TimeSpan d) => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
         /// <summary>
         /// Set the output image size
@@ -100,7 +81,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="fps"></param>
         /// <returns></returns>
-        public ZoompanFilter Fps(Rational fps) => this.SetOption("fps", $"{fps.Numerator}:{fps.Denominator}");
+        public ZoompanFilter Fps(Rational fps) => this.SetOption("fps", fps);
         /// <summary>
         /// Set the output frame rate, default is ’25’.
         /// </summary>
