@@ -28,6 +28,10 @@
 				<dependency id="FFmpegArgs.Cores" version="[1.4,1.5)"/>
 				<dependency id="FFmpegArgs.Filters.Common" version="[1.4,1.5)"/>
 			</group>
+			<group targetFramework="net7.0">
+				<dependency id="FFmpegArgs.Cores" version="[1.4,1.5)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[1.4,1.5)"/>
+			</group>
 		</dependencies>
 	</metadata>
 	<files>

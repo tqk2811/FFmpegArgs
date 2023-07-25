@@ -1,6 +1,6 @@
 <Project>
 	<PropertyGroup>
-		<TargetFrameworks>net462;netstandard2.0;net5.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>net462;netstandard2.0;net5.0;net6.0;net7.0</TargetFrameworks>
 		<LangVersion>10.0</LangVersion>
 		<PreserveCompilationContext>false</PreserveCompilationContext>
 		<GenerateDependencyFile>false</GenerateDependencyFile>
