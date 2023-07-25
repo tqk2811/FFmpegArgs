@@ -137,7 +137,6 @@
           "INT_MAX",
           "NAN"
         };
-        string _expression;
         readonly IEnumerable<string> _adv_variables;
         readonly IEnumerable<string> _adv_functionName;
         readonly IEnumerable<string> _adv_functionSY;
@@ -153,6 +152,57 @@
             this._adv_functionName = advFunctions?.Select(x => x.Name).Concat(_functionName) ?? _functionName;
             this._adv_functionSY = advFunctions?.Select(x => x.SY).Concat(_functionSY) ?? _functionSY;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expressions"></param>
+        /// <returns></returns>
+        public IEnumerable<string> Checks(params ExpressionValue[] expressions)
+        {
+            if (expressions is null) throw new ArgumentNullException(nameof(expressions));
+            return Checks(expressions.AsEnumerable());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expressions"></param>
+        /// <returns></returns>
+        public IEnumerable<string> Checks(IEnumerable<ExpressionValue> expressions)
+        {
+            if (expressions is null) throw new ArgumentNullException(nameof(expressions));
+            bool isEmpty = true;
+            foreach (var item in expressions)
+            {
+                isEmpty = false;
+                yield return Check(item);
+            }
+            if (isEmpty) throw new InvalidInputExpressionException($"input is empty");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <exception cref="InvalidTokenExpressionException"></exception>
+        /// <exception cref="InvalidInputExpressionException"></exception>
+        /// <returns></returns>
+        public string Check(ExpressionValue expression)
+        {
+            return Check(expression?.ToString());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="shuntingYard"></param>
+        /// <exception cref="InvalidTokenExpressionException"></exception>
+        /// <exception cref="InvalidInputExpressionException"></exception>
+        /// <returns></returns>
+        public string Check(ExpressionValue expression, out string shuntingYard)
+        {
+            return Check(expression?.ToString(), out shuntingYard);
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -162,6 +212,21 @@
         /// <returns></returns>
         public string Check(string expression)
         {
+            return Check(expression, out string tmp);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="shuntingYard"></param>
+        /// <exception cref="InvalidTokenExpressionException"></exception>
+        /// <exception cref="InvalidInputExpressionException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <returns></returns>
+        public string Check(string expression, out string shuntingYard)
+        {
+            if (string.IsNullOrWhiteSpace(expression)) throw new ArgumentNullException(nameof(expression));
+
             //https://en.wikipedia.org/wiki/Shunting-yard_algorithm
             //check....
             string[] tokens = Regex.Split(expression, @"([0-9]+\.[0-9]+|[0-9]+|[*+\-\/(),]|[A-z]+)").Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
@@ -236,18 +301,20 @@
               .Where(x => !double.TryParse(x, out double y))
               .ToList();
             if (invalid_tokens.Count > 0) throw new InvalidTokenExpressionException(string.Join(" ", invalid_tokens));
-            this._expression = expression;
-            return string.Join(" ", outputs);
-        }
-        public void NonCheck(string expression)
-        {
-            this._expression = expression;
+            shuntingYard = string.Join(" ", outputs);
+            return expression;
         }
 
+#if DEBUG
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NullReferenceException"></exception>
         public override string ToString()
         {
-            if (string.IsNullOrWhiteSpace(_expression)) throw new NullReferenceException(nameof(FFmpegExpression));
-            return _expression;
+            throw new InvalidOperationException();
         }
+#endif
     }
 }
