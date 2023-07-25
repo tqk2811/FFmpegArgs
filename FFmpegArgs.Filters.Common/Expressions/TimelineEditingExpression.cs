@@ -5,6 +5,10 @@
     /// </summary>
     public class TimelineEditingExpression : FFmpegExpression
     {
+        /// <summary>
+        /// Default instance
+        /// </summary>
+        public static TimelineEditingExpression Instance { get; } = new TimelineEditingExpression();
         static readonly List<string> variables = new List<string>()
         {
           "t",
@@ -17,7 +21,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public TimelineEditingExpression() : base(variables)
+        private TimelineEditingExpression() : base(variables)
         {
         }
     }
