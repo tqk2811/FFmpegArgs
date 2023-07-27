@@ -42,11 +42,6 @@
             if (string.IsNullOrEmpty(filePath)) throw new ArgumentNullException(nameof(filePath));
             this._filePath = filePath;
         }
-        
-        /// <summary>
-        /// Get FirstOrDefault of <see cref="AudioOutput.AudioOutputAVStreams"/>
-        /// </summary>
-        public AudioOutputAVStream AudioOutputAVStream { get { return this.AudioOutputAVStreams.FirstOrDefault(); } }
 
         /// <summary>
         /// 

@@ -57,18 +57,6 @@
         }
 
 
-
-        /// <summary>
-        /// Get FirstOrDefault of <see cref="VideoOutput.AudioOutputAVStreams"/>
-        /// </summary>
-        public AudioOutputAVStream AudioOutputAVStream { get { return this.AudioOutputAVStreams.FirstOrDefault(); } }
-
-        /// <summary>
-        /// Get FirstOrDefault of <see cref="VideoOutput.ImageOutputAVStreams"/>
-        /// </summary>
-        public ImageOutputAVStream ImageOutputAVStream { get { return this.ImageOutputAVStreams.FirstOrDefault(); } }
-
-
         /// <summary>
         /// 
         /// </summary>

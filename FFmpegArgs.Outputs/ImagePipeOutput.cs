@@ -51,11 +51,6 @@
         }
 
         /// <summary>
-        /// Get FirstOrDefault of <see cref="ImageOutput.ImageOutputAVStreams"/>
-        /// </summary>
-        public ImageOutputAVStream ImageOutputAVStream { get { return this.ImageOutputAVStreams.FirstOrDefault(); } }
-
-        /// <summary>
         /// 
         /// </summary>
         public override Stream PipeStream { get; }
