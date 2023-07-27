@@ -1,4 +1,11 @@
-﻿namespace FFmpegArgs.Filters.MultimediaFilters
+﻿/*
+ select AVOptions:
+   expr              <string>     ..FV....... set an expression to use for selecting frames (default "1")
+   e                 <string>     ..FV....... set an expression to use for selecting frames (default "1")
+   outputs           <int>        ..FV....... set the number of outputs (from 1 to INT_MAX) (default 1)
+   n                 <int>        ..FV....... set the number of outputs (from 1 to INT_MAX) (default 1)
+ */
+namespace FFmpegArgs.Filters.MultimediaFilters
 {
     /// <summary>
     /// ... select            V->N       Select video frames to pass in output.<br></br>
@@ -17,14 +24,17 @@
             "concatdec_select"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal SelectFilter(Action<FFmpegExpression> e, int n, ImageMap imageMap) : base("select", imageMap)
+        internal SelectFilter(ExpressionValue e, int n, ImageMap imageMap) : base("select", imageMap)
         {
             if (n < 1) throw new InvalidRangeException(nameof(n));
             AddMultiMapOut(n);
-            this.SetOption("e", e.Run(expression));
+            this.SetOption("e", expression.Check(e));
             this.SetOption("n", n);
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class SelectFilterExtension
     {
         /// <summary>
@@ -34,20 +44,7 @@
         /// <param name="e">Set expression, which is evaluated for each input frame.</param>
         /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation.</param>
         /// <returns></returns>
-        public static SelectFilter SelectFilter(this ImageMap imageMap, Action<FFmpegExpression> e, int n = 1)
-        {
-            return new SelectFilter(e, n, imageMap);
-        }
-        /// <summary>
-        /// Select frames to pass in output.
-        /// </summary>
-        /// <param name="imageMap"></param>
-        /// <param name="e">Set expression, which is evaluated for each input frame.</param>
-        /// <param name="n">Set the number of outputs. The output to which to send the selected frame is based on the result of the evaluation.</param>
-        /// <returns></returns>
-        public static SelectFilter SelectFilter(this ImageMap imageMap, string e, int n = 1)
-        {
-            return new SelectFilter(e.Expression(), n, imageMap);
-        }
+        public static SelectFilter SelectFilter(this ImageMap imageMap, ExpressionValue e, int n = 1)
+            => new SelectFilter(e, n, imageMap);
     }
 }

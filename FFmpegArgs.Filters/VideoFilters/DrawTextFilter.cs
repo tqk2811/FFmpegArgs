@@ -1,4 +1,58 @@
-﻿namespace FFmpegArgs.Filters.VideoFilters
+﻿/*
+ drawtext AVOptions:
+   fontfile          <string>     ..FV....... set font file
+   text              <string>     ..FV....... set text
+   textfile          <string>     ..FV....... set text file
+   fontcolor         <color>      ..FV....... set foreground color (default "black")
+   fontcolor_expr    <string>     ..FV....... set foreground color expression (default "")
+   boxcolor          <color>      ..FV....... set box color (default "white")
+   bordercolor       <color>      ..FV....... set border color (default "black")
+   shadowcolor       <color>      ..FV....... set shadow color (default "black")
+   box               <boolean>    ..FV....... set box (default false)
+   boxborderw        <int>        ..FV....... set box border width (from INT_MIN to INT_MAX) (default 0)
+   line_spacing      <int>        ..FV....... set line spacing in pixels (from INT_MIN to INT_MAX) (default 0)
+   fontsize          <string>     ..FV....... set font size
+   x                 <string>     ..FV....... set x expression (default "0")
+   y                 <string>     ..FV....... set y expression (default "0")
+   shadowx           <int>        ..FV....... set shadow x offset (from INT_MIN to INT_MAX) (default 0)
+   shadowy           <int>        ..FV....... set shadow y offset (from INT_MIN to INT_MAX) (default 0)
+   borderw           <int>        ..FV....... set border width (from INT_MIN to INT_MAX) (default 0)
+   tabsize           <int>        ..FV....... set tab size (from 0 to INT_MAX) (default 4)
+   basetime          <int64>      ..FV....... set base time (from I64_MIN to I64_MAX) (default I64_MIN)
+   font              <string>     ..FV....... Font name (default "Sans")
+   expansion         <int>        ..FV....... set the expansion mode (from 0 to 2) (default normal)
+     none            0            ..FV....... set no expansion
+     normal          1            ..FV....... set normal expansion
+     strftime        2            ..FV....... set strftime expansion (deprecated)
+   timecode          <string>     ..FV....... set initial timecode
+   tc24hmax          <boolean>    ..FV....... set 24 hours max (timecode only) (default false)
+   timecode_rate     <rational>   ..FV....... set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
+   r                 <rational>   ..FV....... set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
+   rate              <rational>   ..FV....... set rate (timecode only) (from 0 to INT_MAX) (default 0/1)
+   reload            <boolean>    ..FV....... reload text file for each frame (default false)
+   alpha             <string>     ..FV....... apply alpha while rendering (default "1")
+   fix_bounds        <boolean>    ..FV....... check and fix text coords to avoid clipping (default false)
+   start_number      <int>        ..FV....... start frame number for n/frame_num variable (from 0 to INT_MAX) (default 0)
+   text_source       <string>     ..FV....... the source of text
+   text_shaping      <boolean>    ..FV....... attempt to shape text before drawing (default true)
+   ft_load_flags     <flags>      ..FV....... set font loading flags for libfreetype (default 0)
+     default                      ..FV.......
+     no_scale                     ..FV.......
+     no_hinting                   ..FV.......
+     render                       ..FV.......
+     no_bitmap                    ..FV.......
+     vertical_layout              ..FV.......
+     force_autohint               ..FV.......
+     crop_bitmap                  ..FV.......
+     pedantic                     ..FV.......
+     ignore_global_advance_width              ..FV.......
+     no_recurse                   ..FV.......
+     ignore_transform              ..FV.......
+     monochrome                   ..FV.......
+     linear_design                ..FV.......
+     no_autohint                  ..FV.......
+ */
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// T.C drawtext          V->V       Draw text on top of video frames using libfreetype library.<br></br>
@@ -122,15 +176,8 @@
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public DrawTextFilter FontColorExpr(string color)
-          => FontColorExpr(color.Expression());
-        /// <summary>
-        /// String which is expanded the same way as text to obtain dynamic fontcolor value. By default this option has empty value and is not processed. When this option is set, it overrides fontcolor option.
-        /// </summary>
-        /// <param name="color"></param>
-        /// <returns></returns>
-        public DrawTextFilter FontColorExpr(Action<FFmpegExpression> color)
-          => this.SetOption("fontcolor_expr", color.Run(expression));
+        public DrawTextFilter FontColorExpr(ExpressionValue color)
+          => this.SetOption("fontcolor_expr", expression.Check(color));
         /// <summary>
         /// The font family to be used for drawing text. By default Sans.
         /// </summary>
@@ -229,26 +276,14 @@
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
-        public DrawTextFilter X(string x)
-            => this.X(x.Expression());
+        public DrawTextFilter X(ExpressionValue x)
+            => this.SetOption("x", expression.Check(x));
         /// <summary>
         /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
         /// </br>The default value of x and y is "0".
         /// </summary>
-        public DrawTextFilter X(Action<FFmpegExpression> x)
-            => this.SetOption("x", x.Run(expression));
-        /// <summary>
-        /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
-        /// </br>The default value of x and y is "0".
-        /// </summary>
-        public DrawTextFilter Y(string y)
-            => this.Y(y.Expression());
-        /// <summary>
-        /// The expressions which specify the offsets where text will be drawn within the video frame. They are relative to the top/left border of the output image.<br>
-        /// </br>The default value of x and y is "0".
-        /// </summary>
-        public DrawTextFilter Y(Action<FFmpegExpression> y)
-            => this.SetOption("y", y.Run(expression));
+        public DrawTextFilter Y(ExpressionValue y)
+            => this.SetOption("y", expression.Check(y));
         /// <summary>
         /// If set to 1, the textfile will be reloaded before each frame. Be sure to update it atomically, or it may be read partially, or even fail.
         /// </summary>
@@ -266,7 +301,6 @@
         /// Draw a text string or text from a specified file on top of a video, using the libfreetype library.
         /// </summary>
         /// <param name="imageMap"></param>
-        /// <param name="text"></param>
         /// <returns></returns>
         public static DrawTextFilter DrawTextFilter(this ImageMap imageMap)
             => new DrawTextFilter(imageMap);

@@ -34,17 +34,8 @@ namespace FFmpegArgs.Filters.OpenCLVideoFilters
         /// </summary>
         /// <param name="width"></param>
         /// <returns></returns>
-        public PadOpenclFilter Width(Action<FFmpegExpression> width)
-            => this.SetOption("w", width.Run(expression));
-        /// <summary>
-        /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br>
-        /// </br>The width expression can reference the value set by the height expression, and vice versa.<br>
-        /// </br>The default value of width and height is 0.
-        /// </summary>
-        /// <param name="width"></param>
-        /// <returns></returns>
-        public PadOpenclFilter Width(string width)
-            => this.Width(width.Expression());
+        public PadOpenclFilter Width(ExpressionValue width)
+            => this.SetOption("w", expression.Check(width));
         /// <summary>
         /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br>
         /// </br>The width expression can reference the value set by the height expression, and vice versa.<br>
@@ -52,17 +43,8 @@ namespace FFmpegArgs.Filters.OpenCLVideoFilters
         /// </summary>
         /// <param name="height"></param>
         /// <returns></returns>
-        public PadOpenclFilter Height(Action<FFmpegExpression> height)
-            => this.SetOption("h", height.Run(expression));
-        /// <summary>
-        /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br>
-        /// </br>The width expression can reference the value set by the height expression, and vice versa.<br>
-        /// </br>The default value of width and height is 0.
-        /// </summary>
-        /// <param name="height"></param>
-        /// <returns></returns>
-        public PadOpenclFilter Height(string height)
-            => this.Height(height.Expression());
+        public PadOpenclFilter Height(ExpressionValue height)
+            => this.SetOption("h", expression.Check(height));
         /// <summary>
         /// Specify the color of the padded area. Default <b>black</b>
         /// </summary>

@@ -92,16 +92,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="w"></param>
         /// <returns></returns>
-        public ScaleFilter W(Action<FFmpegExpression> w) => this.SetOption("w", w.Run(expression));
-        /// <summary>
-        /// Set the output video dimension expression. Default value is the input dimension.<br></br>
-        /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
-        /// If one and only one of the values is -n with n >= 1, the scale filter will use a value that maintains the aspect ratio of the input image, calculated from the other specified dimension. After that it will, however, make sure that the calculated dimension is divisible by n and adjust the value if necessary.<br></br>
-        /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
-        /// </summary>
-        /// <param name="w"></param>
-        /// <returns></returns>
-        public ScaleFilter W(string w) => this.W(w.Expression());
+        public ScaleFilter W(ExpressionValue w) => this.SetOption("w", expression.Check(w));
         /// <summary>
         /// Set the output video dimension expression. Default value is the input dimension.<br></br>
         /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
@@ -110,16 +101,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="h"></param>
         /// <returns></returns>
-        public ScaleFilter H(Action<FFmpegExpression> h) => this.SetOption("h", h.Run(expression));
-        /// <summary>
-        /// Set the output video dimension expression. Default value is the input dimension.<br></br>
-        /// If the width or w value is 0, the input width is used for the output.If the height or h value is 0, the input height is used for the output.<br></br>
-        /// If one and only one of the values is -n with n >= 1, the scale filter will use a value that maintains the aspect ratio of the input image, calculated from the other specified dimension. After that it will, however, make sure that the calculated dimension is divisible by n and adjust the value if necessary.<br></br>
-        /// If both values are -n with n >= 1, the behavior will be identical to both values being set to 0 as previously detailed.
-        /// </summary>
-        /// <param name="h"></param>
-        /// <returns></returns>
-        public ScaleFilter H(string h) => this.H(h.Expression());
+        public ScaleFilter H(ExpressionValue h) => this.SetOption("h", expression.Check(h));
         /// <summary>
         /// Set the video size
         /// </summary>

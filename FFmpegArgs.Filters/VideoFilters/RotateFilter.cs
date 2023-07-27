@@ -43,44 +43,22 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="a"></param>
         /// <returns></returns>
-        public RotateFilter Angle(string a)
-            => Angle(a.Expression());
-        /// <summary>
-        /// Set an expression for the angle by which to rotate the input video clockwise, expressed as a number of radians. A negative value will result in a counter-clockwise rotation. By default it is set to "0".<br>
-        /// </br>This expression is evaluated for each frame.
-        /// </summary>
-        /// <param name="a"></param>
-        /// <returns></returns>
-        public RotateFilter Angle(Action<FFmpegExpression> a)
-            => this.SetOption("a", a.Run(expression));
+        public RotateFilter Angle(ExpressionValue a)
+            => this.SetOption("a", expression.Check(a));
         /// <summary>
         /// Set the output width expression, default value is "iw". This expression is evaluated just once during configuration.
         /// </summary>
         /// <param name="ow"></param>
         /// <returns></returns>
-        public RotateFilter OW(string ow)
-            => OW(ow.Expression());
-        /// <summary>
-        /// Set the output width expression, default value is "iw". This expression is evaluated just once during configuration.
-        /// </summary>
-        /// <param name="ow"></param>
-        /// <returns></returns>
-        public RotateFilter OW(Action<FFmpegExpression> ow)
-            => this.SetOption("ow", ow.Run(expression));
+        public RotateFilter OW(ExpressionValue ow)
+            => this.SetOption("ow", expression.Check(ow));
         /// <summary>
         /// Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.
         /// </summary>
         /// <param name="oh"></param>
         /// <returns></returns>
-        public RotateFilter OH(string oh)
-            => OH(oh.Expression());
-        /// <summary>
-        /// Set the output height expression, default value is "ih". This expression is evaluated just once during configuration.
-        /// </summary>
-        /// <param name="oh"></param>
-        /// <returns></returns>
-        public RotateFilter OH(Action<FFmpegExpression> oh)
-            => this.SetOption("oh", oh.Run(expression));
+        public RotateFilter OH(ExpressionValue oh)
+            => this.SetOption("oh", expression.Check(oh));
         /// <summary>
         /// Enable bilinear interpolation if set to 1, a value of 0 disables it. Default value is 1.
         /// </summary>
@@ -96,6 +74,9 @@ namespace FFmpegArgs.Filters.VideoFilters
         public RotateFilter FillColor(Color color)
            => this.SetOption("c", color.ToHexStringRGBA());
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class RotateFilterExtension
     {
         /// <summary>

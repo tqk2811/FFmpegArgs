@@ -1,4 +1,232 @@
-﻿namespace FFmpegArgs.Filters.VideoFilters
+﻿/*
+ blend AVOptions:
+   c0_mode           <int>        ..FV.....T. set component #0 blend mode (from 0 to 39) (default normal)
+     addition        1            ..FV.....T. 
+     addition128     28           ..FV.....T. 
+     grainmerge      28           ..FV.....T. 
+     and             2            ..FV.....T. 
+     average         3            ..FV.....T. 
+     burn            4            ..FV.....T. 
+     darken          5            ..FV.....T. 
+     difference      6            ..FV.....T. 
+     difference128   7            ..FV.....T. 
+     grainextract    7            ..FV.....T. 
+     divide          8            ..FV.....T. 
+     dodge           9            ..FV.....T. 
+     exclusion       10           ..FV.....T. 
+     extremity       32           ..FV.....T. 
+     freeze          31           ..FV.....T. 
+     glow            27           ..FV.....T. 
+     hardlight       11           ..FV.....T. 
+     hardmix         25           ..FV.....T. 
+     heat            30           ..FV.....T. 
+     lighten         12           ..FV.....T. 
+     linearlight     26           ..FV.....T. 
+     multiply        13           ..FV.....T. 
+     multiply128     29           ..FV.....T. 
+     negation        14           ..FV.....T. 
+     normal          0            ..FV.....T. 
+     or              15           ..FV.....T. 
+     overlay         16           ..FV.....T. 
+     phoenix         17           ..FV.....T. 
+     pinlight        18           ..FV.....T. 
+     reflect         19           ..FV.....T. 
+     screen          20           ..FV.....T. 
+     softlight       21           ..FV.....T. 
+     subtract        22           ..FV.....T. 
+     vividlight      23           ..FV.....T. 
+     xor             24           ..FV.....T. 
+     softdifference  33           ..FV.....T. 
+     geometric       34           ..FV.....T. 
+     harmonic        35           ..FV.....T. 
+     bleach          36           ..FV.....T. 
+     stain           37           ..FV.....T. 
+     interpolate     38           ..FV.....T. 
+     hardoverlay     39           ..FV.....T. 
+   c1_mode           <int>        ..FV.....T. set component #1 blend mode (from 0 to 39) (default normal)
+     addition        1            ..FV.....T. 
+     addition128     28           ..FV.....T. 
+     grainmerge      28           ..FV.....T. 
+     and             2            ..FV.....T. 
+     average         3            ..FV.....T. 
+     burn            4            ..FV.....T. 
+     darken          5            ..FV.....T. 
+     difference      6            ..FV.....T. 
+     difference128   7            ..FV.....T. 
+     grainextract    7            ..FV.....T. 
+     divide          8            ..FV.....T. 
+     dodge           9            ..FV.....T. 
+     exclusion       10           ..FV.....T. 
+     extremity       32           ..FV.....T. 
+     freeze          31           ..FV.....T. 
+     glow            27           ..FV.....T. 
+     hardlight       11           ..FV.....T. 
+     hardmix         25           ..FV.....T. 
+     heat            30           ..FV.....T. 
+     lighten         12           ..FV.....T. 
+     linearlight     26           ..FV.....T. 
+     multiply        13           ..FV.....T. 
+     multiply128     29           ..FV.....T. 
+     negation        14           ..FV.....T. 
+     normal          0            ..FV.....T. 
+     or              15           ..FV.....T. 
+     overlay         16           ..FV.....T. 
+     phoenix         17           ..FV.....T. 
+     pinlight        18           ..FV.....T. 
+     reflect         19           ..FV.....T. 
+     screen          20           ..FV.....T. 
+     softlight       21           ..FV.....T. 
+     subtract        22           ..FV.....T. 
+     vividlight      23           ..FV.....T. 
+     xor             24           ..FV.....T. 
+     softdifference  33           ..FV.....T. 
+     geometric       34           ..FV.....T. 
+     harmonic        35           ..FV.....T. 
+     bleach          36           ..FV.....T. 
+     stain           37           ..FV.....T. 
+     interpolate     38           ..FV.....T. 
+     hardoverlay     39           ..FV.....T. 
+   c2_mode           <int>        ..FV.....T. set component #2 blend mode (from 0 to 39) (default normal)
+     addition        1            ..FV.....T. 
+     addition128     28           ..FV.....T. 
+     grainmerge      28           ..FV.....T. 
+     and             2            ..FV.....T. 
+     average         3            ..FV.....T. 
+     burn            4            ..FV.....T. 
+     darken          5            ..FV.....T. 
+     difference      6            ..FV.....T. 
+     difference128   7            ..FV.....T. 
+     grainextract    7            ..FV.....T. 
+     divide          8            ..FV.....T. 
+     dodge           9            ..FV.....T. 
+     exclusion       10           ..FV.....T. 
+     extremity       32           ..FV.....T. 
+     freeze          31           ..FV.....T. 
+     glow            27           ..FV.....T. 
+     hardlight       11           ..FV.....T. 
+     hardmix         25           ..FV.....T. 
+     heat            30           ..FV.....T. 
+     lighten         12           ..FV.....T. 
+     linearlight     26           ..FV.....T. 
+     multiply        13           ..FV.....T. 
+     multiply128     29           ..FV.....T. 
+     negation        14           ..FV.....T. 
+     normal          0            ..FV.....T. 
+     or              15           ..FV.....T. 
+     overlay         16           ..FV.....T. 
+     phoenix         17           ..FV.....T. 
+     pinlight        18           ..FV.....T. 
+     reflect         19           ..FV.....T. 
+     screen          20           ..FV.....T. 
+     softlight       21           ..FV.....T. 
+     subtract        22           ..FV.....T. 
+     vividlight      23           ..FV.....T. 
+     xor             24           ..FV.....T. 
+     softdifference  33           ..FV.....T. 
+     geometric       34           ..FV.....T. 
+     harmonic        35           ..FV.....T. 
+     bleach          36           ..FV.....T. 
+     stain           37           ..FV.....T. 
+     interpolate     38           ..FV.....T. 
+     hardoverlay     39           ..FV.....T. 
+   c3_mode           <int>        ..FV.....T. set component #3 blend mode (from 0 to 39) (default normal)
+     addition        1            ..FV.....T. 
+     addition128     28           ..FV.....T. 
+     grainmerge      28           ..FV.....T. 
+     and             2            ..FV.....T. 
+     average         3            ..FV.....T. 
+     burn            4            ..FV.....T. 
+     darken          5            ..FV.....T. 
+     difference      6            ..FV.....T. 
+     difference128   7            ..FV.....T. 
+     grainextract    7            ..FV.....T. 
+     divide          8            ..FV.....T. 
+     dodge           9            ..FV.....T. 
+     exclusion       10           ..FV.....T. 
+     extremity       32           ..FV.....T. 
+     freeze          31           ..FV.....T. 
+     glow            27           ..FV.....T. 
+     hardlight       11           ..FV.....T. 
+     hardmix         25           ..FV.....T. 
+     heat            30           ..FV.....T. 
+     lighten         12           ..FV.....T. 
+     linearlight     26           ..FV.....T. 
+     multiply        13           ..FV.....T. 
+     multiply128     29           ..FV.....T. 
+     negation        14           ..FV.....T. 
+     normal          0            ..FV.....T. 
+     or              15           ..FV.....T. 
+     overlay         16           ..FV.....T. 
+     phoenix         17           ..FV.....T. 
+     pinlight        18           ..FV.....T. 
+     reflect         19           ..FV.....T. 
+     screen          20           ..FV.....T. 
+     softlight       21           ..FV.....T. 
+     subtract        22           ..FV.....T. 
+     vividlight      23           ..FV.....T. 
+     xor             24           ..FV.....T. 
+     softdifference  33           ..FV.....T. 
+     geometric       34           ..FV.....T. 
+     harmonic        35           ..FV.....T. 
+     bleach          36           ..FV.....T. 
+     stain           37           ..FV.....T. 
+     interpolate     38           ..FV.....T. 
+     hardoverlay     39           ..FV.....T. 
+   all_mode          <int>        ..FV.....T. set blend mode for all components (from -1 to 39) (default -1)
+     addition        1            ..FV.....T. 
+     addition128     28           ..FV.....T. 
+     grainmerge      28           ..FV.....T. 
+     and             2            ..FV.....T. 
+     average         3            ..FV.....T. 
+     burn            4            ..FV.....T. 
+     darken          5            ..FV.....T. 
+     difference      6            ..FV.....T. 
+     difference128   7            ..FV.....T. 
+     grainextract    7            ..FV.....T. 
+     divide          8            ..FV.....T. 
+     dodge           9            ..FV.....T. 
+     exclusion       10           ..FV.....T. 
+     extremity       32           ..FV.....T. 
+     freeze          31           ..FV.....T. 
+     glow            27           ..FV.....T. 
+     hardlight       11           ..FV.....T. 
+     hardmix         25           ..FV.....T. 
+     heat            30           ..FV.....T. 
+     lighten         12           ..FV.....T. 
+     linearlight     26           ..FV.....T. 
+     multiply        13           ..FV.....T. 
+     multiply128     29           ..FV.....T. 
+     negation        14           ..FV.....T. 
+     normal          0            ..FV.....T. 
+     or              15           ..FV.....T. 
+     overlay         16           ..FV.....T. 
+     phoenix         17           ..FV.....T. 
+     pinlight        18           ..FV.....T. 
+     reflect         19           ..FV.....T. 
+     screen          20           ..FV.....T. 
+     softlight       21           ..FV.....T. 
+     subtract        22           ..FV.....T. 
+     vividlight      23           ..FV.....T. 
+     xor             24           ..FV.....T. 
+     softdifference  33           ..FV.....T. 
+     geometric       34           ..FV.....T. 
+     harmonic        35           ..FV.....T. 
+     bleach          36           ..FV.....T. 
+     stain           37           ..FV.....T. 
+     interpolate     38           ..FV.....T. 
+     hardoverlay     39           ..FV.....T. 
+   c0_expr           <string>     ..FV.....T. set color component #0 expression
+   c1_expr           <string>     ..FV.....T. set color component #1 expression
+   c2_expr           <string>     ..FV.....T. set color component #2 expression
+   c3_expr           <string>     ..FV.....T. set color component #3 expression
+   all_expr          <string>     ..FV.....T. set expression for all color components
+   c0_opacity        <double>     ..FV.....T. set color component #0 opacity (from 0 to 1) (default 1)
+   c1_opacity        <double>     ..FV.....T. set color component #1 opacity (from 0 to 1) (default 1)
+   c2_opacity        <double>     ..FV.....T. set color component #2 opacity (from 0 to 1) (default 1)
+   c3_opacity        <double>     ..FV.....T. set color component #3 opacity (from 0 to 1) (default 1)
+   all_opacity       <double>     ..FV.....T. set opacity for all color components (from 0 to 1) (default 1)
+ */
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TS. blend             VV->V      Blend two video frames into each other.<br></br>
@@ -100,72 +328,40 @@
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C0_Expr(Action<FFmpegExpression> expr)
-          => this.SetOption("c0_expr", expr.Run(expression));
+        public BlendFilter C0_Expr(ExpressionValue expr)
+          => this.SetOption("c0_expr", expression.Check(expr));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C0_Expr(string expr)
-         => C0_Expr(expr.Expression());
+        public BlendFilter C1_Expr(ExpressionValue expr)
+          => this.SetOption("c1_expr", expression.Check(expr));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C1_Expr(Action<FFmpegExpression> expr)
-          => this.SetOption("c1_expr", expr.Run(expression));
+        public BlendFilter C2_Expr(ExpressionValue expr)
+          => this.SetOption("c2_expr", expression.Check(expr));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C1_Expr(string expr)
-         => C1_Expr(expr.Expression());
+        public BlendFilter C3_Expr(ExpressionValue expr)
+          => this.SetOption("c3_expr", expression.Check(expr));
         /// <summary>
         /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public BlendFilter C2_Expr(Action<FFmpegExpression> expr)
-          => this.SetOption("c2_expr", expr.Run(expression));
-        /// <summary>
-        /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
-        /// </summary>
-        /// <param name="expr"></param>
-        /// <returns></returns>
-        public BlendFilter C2_Expr(string expr)
-         => C2_Expr(expr.Expression());
-        /// <summary>
-        /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
-        /// </summary>
-        /// <param name="expr"></param>
-        /// <returns></returns>
-        public BlendFilter C3_Expr(Action<FFmpegExpression> expr)
-          => this.SetOption("c3_expr", expr.Run(expression));
-        /// <summary>
-        /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
-        /// </summary>
-        /// <param name="expr"></param>
-        /// <returns></returns>
-        public BlendFilter C3_Expr(string expr)
-         => C3_Expr(expr.Expression());
-        /// <summary>
-        /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
-        /// </summary>
-        /// <param name="expr"></param>
-        /// <returns></returns>
-        public BlendFilter All_Expr(Action<FFmpegExpression> expr)
-          => this.SetOption("all_expr", expr.Run(expression));
-        /// <summary>
-        /// Set blend expression for specific pixel component or all pixel components in case of all_expr. Note that related mode options will be ignored if those are set.
-        /// </summary>
-        /// <param name="expr"></param>
-        /// <returns></returns>
-        public BlendFilter All_Expr(string expr)
-         => All_Expr(expr.Expression());
+        public BlendFilter All_Expr(ExpressionValue expr)
+          => this.SetOption("all_expr", expression.Check(expr));
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class BlendFilterExtension
     {
         /// <summary>

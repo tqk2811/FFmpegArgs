@@ -16,6 +16,8 @@ volume AVOptions:
   replaygain_preamp <double>     ..F.A...... Apply replaygain pre-amplification (from -15 to 15) (default 0)
   replaygain_noclip <boolean>    ..F.A...... Apply replaygain clipping prevention (default true)
  */
+using FFmpegArgs.Cores;
+
 namespace FFmpegArgs.Filters.AudioFilters
 {
     /// <summary>
@@ -53,30 +55,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="volume"></param>
         /// <returns></returns>
-        public VolumeFilter Volume(string volume)
-            => this.Volume(volume.Expression());
-        /// <summary>
-        /// Set audio volume expression.<br></br>
-        /// Output values are clipped to the maximum value.<br></br>
-        /// The output audio volume is given by the relation:<br></br>
-        /// <b>output_volume = volume * input_volume</b><br></br>
-        /// The default value for volume is "1.0".
-        /// </summary>
-        /// <param name="volume"></param>
-        /// <returns></returns>
-        public VolumeFilter Volume(Action<FFmpegExpression> volume)
-            => this.SetOption("volume", volume.Run(expression));
-        /// <summary>
-        /// Set audio volume expression.<br></br>
-        /// Output values are clipped to the maximum value.<br></br>
-        /// The output audio volume is given by the relation:<br></br>
-        /// <b>output_volume = volume * input_volume</b><br></br>
-        /// The default value for volume is "1.0".
-        /// </summary>
-        /// <param name="volume"></param>
-        /// <returns></returns>
-        public VolumeFilter Volume(float volume)
-            => this.SetOptionRange("volume", volume, 0, float.MaxValue);
+        public VolumeFilter Volume(ExpressionValue volume)
+            => this.SetOption("volume", expression.Check(volume));
         /// <summary>
         /// This parameter represents the mathematical precision.<br>
         /// </br>It determines which input sample formats will be allowed, which affects the precision of the volume scaling.
@@ -136,15 +116,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="audioMap"></param>
         /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
         /// <returns></returns>
-        public static VolumeFilter VolumeFilter(this AudioMap audioMap, Action<FFmpegExpression> volume)
-            => new VolumeFilter(audioMap).Volume(volume);
-        /// <summary>
-        /// Adjust the input audio volume.
-        /// </summary>
-        /// <param name="audioMap"></param>
-        /// <param name="volume">Set audio volume expression. Output values are clipped to the maximum value.</param>
-        /// <returns></returns>
-        public static VolumeFilter VolumeFilter(this AudioMap audioMap, string volume)
+        public static VolumeFilter VolumeFilter(this AudioMap audioMap, ExpressionValue volume)
             => new VolumeFilter(audioMap).Volume(volume);
     }
     /// <summary>
