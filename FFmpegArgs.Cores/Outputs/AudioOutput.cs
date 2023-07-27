@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class AudioOutput : BaseOutput, IAudio
+    public abstract class AudioOutput : BaseOutput, IAudioOutput
     {
         readonly List<AudioOutputAVStream> _audioOutputAVStreams = new List<AudioOutputAVStream>();
         readonly List<AudioMap> _audioMaps = new List<AudioMap>();
@@ -12,17 +12,28 @@
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<AudioOutputAVStream> AudioOutputAVStreams => _audioOutputAVStreams;
-
-        /// <summary>
-        /// 
-        /// </summary>
         public override IEnumerable<OutputAVStream> OutputAVStreams => _audioOutputAVStreams;
 
+
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<AudioMap> AudioMaps => _audioMaps;
+        public virtual IEnumerable<AudioOutputAVStream> AudioOutputAVStreams => _audioOutputAVStreams;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.FirstOrDefault();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual IEnumerable<AudioMap> AudioMaps => _audioMaps;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual AudioMap AudioMap => AudioMaps.FirstOrDefault();
 
         /// <summary>
         /// 
