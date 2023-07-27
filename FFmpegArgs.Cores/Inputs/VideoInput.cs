@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class VideoInput : BaseInput, IImage, IAudio
+    public abstract class VideoInput : BaseInput, IAudioInput, IImageInput
     {
         readonly List<AudioInputAVStream> _audioInputAVStreams = new List<AudioInputAVStream>();
         readonly List<ImageInputAVStream> _imageInputAVStreams = new List<ImageInputAVStream>();
@@ -37,11 +37,20 @@
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<ImageInputAVStream> ImageInputAVStreams { get { return _imageInputAVStreams; } }
+        public virtual IEnumerable<ImageInputAVStream> ImageInputAVStreams { get { return _imageInputAVStreams; } }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.FirstOrDefault();
 
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<AudioInputAVStream> AudioInputAVStreams { get { return _audioInputAVStreams; } }
+        public virtual IEnumerable<AudioInputAVStream> AudioInputAVStreams { get { return _audioInputAVStreams; } }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.FirstOrDefault();
     }
 }

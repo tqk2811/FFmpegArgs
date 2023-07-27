@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class AudioInput : BaseInput, IAudio
+    public abstract class AudioInput : BaseInput, IAudioInput
     {
         readonly List<AudioInputAVStream> _inputAudioFFStreams = new List<AudioInputAVStream>();
 
@@ -28,6 +28,11 @@
         /// <summary>
         /// Audios Stream Input
         /// </summary>
-        public IEnumerable<AudioInputAVStream> AudioInputAVStreams { get { return _inputAudioFFStreams; } }
+        public virtual IEnumerable<AudioInputAVStream> AudioInputAVStreams { get { return _inputAudioFFStreams; } }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.FirstOrDefault();
     }
 }

@@ -22,16 +22,6 @@
         }
 
         /// <summary>
-        /// Image Stream Input
-        /// </summary>
-        public ImageInputAVStream ImageInputAVStream { get { return base.ImageInputAVStreams.FirstOrDefault(); } }
-
-        /// <summary>
-        /// Audio Stream Input
-        /// </summary>
-        public AudioInputAVStream AudioInputAVStream { get { return base.AudioInputAVStreams.FirstOrDefault(); } }
-
-        /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
