@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class ImageOutput : BaseOutput, IImage
+    public abstract class ImageOutput : BaseOutput, IImageOutput
     {
         readonly List<ImageOutputAVStream> _imageOutputAVStreams = new List<ImageOutputAVStream>();
         readonly List<ImageMap> _imageMaps = new List<ImageMap>();
@@ -16,12 +16,22 @@
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
+        public virtual IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
 
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<ImageMap> ImageMaps => _imageMaps;
+        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.FirstOrDefault();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual IEnumerable<ImageMap> ImageMaps => _imageMaps;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual ImageMap ImageMap => ImageMaps.FirstOrDefault();
 
         /// <summary>
         /// 

@@ -46,11 +46,6 @@
             this.Format(format);
         }
 
-
-        /// <summary>
-        /// Get FirstOrDefault of <see cref="AudioOutput.AudioOutputAVStreams"/>
-        /// </summary>
-        public AudioOutputAVStream AudioOutputAVStream { get { return this.AudioOutputAVStreams.FirstOrDefault(); } }
         /// <summary>
         /// 
         /// </summary>
