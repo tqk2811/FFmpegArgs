@@ -35,18 +35,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Cores", "FFmpegA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{562D252C-5B41-4BD2-85EA-FB51EE94FB3B}"
 	ProjectSection(SolutionItems) = preProject
+		.other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt = .other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt
+		.other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt = .other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt
+		.other\ffmpegFull-v_window_x64_n5.0-4-g911d7f167c-20220327.txt = .other\ffmpegFull-v_window_x64_n5.0-4-g911d7f167c-20220327.txt
 		.other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt = .other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt
 		.other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt = .other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt
 		.other\ffmpeg_Filters-v_window_x64_n5.0-4-g911d7f167c-20220327.txt = .other\ffmpeg_Filters-v_window_x64_n5.0-4-g911d7f167c-20220327.txt
 		.other\ffmpeg_formats-v_window_x64_n4.4.1-20211027.txt = .other\ffmpeg_formats-v_window_x64_n4.4.1-20211027.txt
 		.other\ffmpeg_formats-v_window_x64_n5.0-4-g911d7f167c-20220327.txt = .other\ffmpeg_formats-v_window_x64_n5.0-4-g911d7f167c-20220327.txt
-		.other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt = .other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt
-		.other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt = .other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt
-		.other\ffmpegFull-v_window_x64_n5.0-4-g911d7f167c-20220327.txt = .other\ffmpegFull-v_window_x64_n5.0-4-g911d7f167c-20220327.txt
 		.other\NotAutoGen_window.txt = .other\NotAutoGen_window.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Extensions", "FFmpegArgs.Extensions\FFmpegArgs.Extensions.csproj", "{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Cores.Codecs", "FFmpegArgs.Cores.Codecs\FFmpegArgs.Cores.Codecs.csproj", "{9DF3BDDA-D68B-4550-A492-969DE4BE5E52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +104,10 @@ Global
 		{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DF3BDDA-D68B-4550-A492-969DE4BE5E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DF3BDDA-D68B-4550-A492-969DE4BE5E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DF3BDDA-D68B-4550-A492-969DE4BE5E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DF3BDDA-D68B-4550-A492-969DE4BE5E52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

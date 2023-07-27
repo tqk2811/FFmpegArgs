@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\ProjectBuildProperties.targets" />
+	<PropertyGroup>
+		<FileVersion>1.6.0.0</FileVersion>
+	</PropertyGroup>
+
+</Project>
