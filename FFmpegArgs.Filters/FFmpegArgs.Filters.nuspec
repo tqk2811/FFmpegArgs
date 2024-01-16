@@ -30,7 +30,7 @@
 			</group>
 			<group targetFramework="net7.0">
 				<dependency id="FFmpegArgs.Cores" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Filters.Common" version="[1.5.1,1.6)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[1.6,1.7)"/>
 			</group>
 		</dependencies>
 	</metadata>
