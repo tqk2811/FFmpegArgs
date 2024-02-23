@@ -1,21 +1,12 @@
-﻿namespace FFmpegArgs.Filters
+﻿using FFmpegArgs.Cores;
+
+namespace FFmpegArgs.Filters
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg-filters.html#Timeline-editing
     /// </summary>
     public interface ITimelineSupport
     {
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public interface ITimelineSupportConfig
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        string TimelineSupport { get; set; }
     }
     /// <summary>
     /// 
@@ -31,6 +22,6 @@
         /// <returns></returns>
         public static T Enable<T>(this T timelineSupport, ExpressionValue timelineExpression)
             where T : BaseOption, IFilter<BaseMap, BaseMap>, ITimelineSupport
-          => timelineSupport.Enable(TimelineEditingExpression.Instance.Check(timelineExpression));
+          => timelineSupport.SetOption("enable", TimelineEditingExpression.Instance.Check(timelineExpression));
     }
 }
