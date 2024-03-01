@@ -20,6 +20,14 @@
         /// 
         /// </summary>
         /// <param name="filterGraph"></param>
+        public ImageFilterGraphInput(Action<IImageFilterGraph> filterGraph) : this()
+        {
+            AddFilter(filterGraph);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public ImageFilterGraphInput AddFilter(Action<IImageFilterGraph> filterGraph)
