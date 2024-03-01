@@ -21,6 +21,14 @@
         /// 
         /// </summary>
         /// <param name="filterGraph"></param>
+        public AudioFilterGraphInput(Action<IAudioFilterGraph> filterGraph) : this()
+        {
+            AddFilter(filterGraph);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterGraph"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public AudioFilterGraphInput AddFilter(Action<IAudioFilterGraph> filterGraph)
