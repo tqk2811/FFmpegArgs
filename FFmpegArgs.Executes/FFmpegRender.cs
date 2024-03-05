@@ -265,7 +265,8 @@
                 if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
                 File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), scripts);
                 ffmpegBuild.Arguments = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName);
-                if (ffmpegBuild.Arguments.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
+                if (config.ArgumentsMaxLength > 0 &&  ffmpegBuild.Arguments.Length > config.ArgumentsMaxLength) 
+                    throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
             }
             else ffmpegBuild.Arguments = args;
             return ffmpegBuild;
