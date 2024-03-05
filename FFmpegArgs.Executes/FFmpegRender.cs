@@ -284,7 +284,8 @@
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));
-            if (commands.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(commands)} too long");
+            if (config.ArgumentsMaxLength > 0 && commands.Length > config.ArgumentsMaxLength) 
+                throw new ProcessArgumentOutOfRangeException($"{nameof(commands)} too long");
             return new FFmpegRender(config)
             {
                 Arguments = commands
