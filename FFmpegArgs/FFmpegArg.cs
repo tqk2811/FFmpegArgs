@@ -144,6 +144,7 @@
         /// <returns></returns>
         public string GetInputsArgs()
         {
+            if (!_inputs.Any()) throw new InvalidOperationException($"Input is empty");
             return string.Join(" ", _inputs);
         }
 
@@ -153,6 +154,7 @@
         /// <returns></returns>
         public string GetOutputsArgs()
         {
+            if (!_outputs.Any()) throw new InvalidOperationException($"Output is empty");
             return string.Join(" ", _outputs);
         }
         /// <summary>
