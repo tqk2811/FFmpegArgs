@@ -259,7 +259,7 @@
             ffmpegBuild.StdIn = ffmpegArg.Inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
             ffmpegBuild.StdOut = ffmpegArg.Outputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
             string args = ffmpegArg.GetFullCommandline(config.IsUseFilterChain);
-            if (config.IsForceUseScript || args.Length > config.ArgumentsMaxLength)
+            if (config.IsForceUseScript || (config.ArgumentsMaxLength > 0 && args.Length > config.ArgumentsMaxLength))
             {
                 string scripts = ffmpegArg.FilterGraph.GetFiltersArgs(true, true);
                 if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");

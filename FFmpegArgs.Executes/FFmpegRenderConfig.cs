@@ -49,7 +49,8 @@
         public string WorkingDirectory { get; set; } = Directory.GetCurrentDirectory();
 
         /// <summary>
-        /// Window default: 32766
+        /// Window default: 32766<br></br>
+        /// default: -1
         /// </summary>
         public int ArgumentsMaxLength
         {
@@ -60,7 +61,7 @@
                 else throw new InvalidDataException($"ArgumentsMaxLength should be > 10");
             }
         }
-        int _ArgumentsMaxLength = 32766;
+        int _ArgumentsMaxLength = -1;
 
 
         /// <summary>
