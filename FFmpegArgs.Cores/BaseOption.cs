@@ -5,7 +5,25 @@
     /// </summary>
     public abstract class BaseOption : IOption
     {
-        internal readonly Dictionary<string, string> _options = new Dictionary<string, string>();
+        /// <summary>
+        /// 
+        /// </summary>
+        public BaseOption()
+        {
+            this._options = new Dictionary<string, string>();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parent"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public BaseOption(BaseOption parent)
+        {
+            this._options = parent?._options ?? throw new ArgumentNullException(nameof(parent));
+        }
+
+        internal readonly Dictionary<string, string> _options;
+
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         protected const float FLT_MIN = 0;
         protected const float FLT_MAX = float.MaxValue;
@@ -13,25 +31,25 @@
         protected const int INT_MIN = int.MinValue;
         protected const long I64_MAX = long.MaxValue;
         protected const long I64_MIN = long.MinValue;
-        protected const long UINT32_MAX = long.MaxValue;
+        protected const uint UINT32_MAX = uint.MaxValue;
         protected const double DBL_MAX = double.MaxValue;
         protected const double DBL_MIN = double.MinValue;
 
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
-        
+
 
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<KeyValuePair<string, string>> Options => _options;
+        public virtual IEnumerable<KeyValuePair<string, string>> Options => _options;
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public string GetOptionArgs()
+        public virtual string GetOptionArgs()
         {
-            return string.Join(" ", _options.Select(x => $"{x.Key} {x.Value}"));
+            return string.Join(" ", Options.Select(x => $"{x.Key} {x.Value}"));
         }
     }
     /// <summary>

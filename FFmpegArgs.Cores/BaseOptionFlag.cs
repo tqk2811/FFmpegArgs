@@ -5,20 +5,34 @@
     /// </summary>
     public abstract class BaseOptionFlag : BaseOption, IFlag
     {
-        internal readonly HashSet<string> _flags = new HashSet<string>();
+        /// <summary>
+        /// 
+        /// </summary>
+        public BaseOptionFlag()
+        {
+            this._flags = new HashSet<string>();
+        }
+
+        /// <inheritdoc cref="BaseOption.BaseOption(BaseOption)"/>
+        public BaseOptionFlag(BaseOptionFlag parent) : base(parent)
+        {
+            this._flags = parent._flags;
+        }
+
+        internal readonly HashSet<string> _flags;
 
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<string> Flags => _flags;
+        public virtual IEnumerable<string> Flags => _flags;
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public string GetFlagArgs()
+        public virtual string GetFlagArgs()
         {
-            return string.Join(" ", _flags);
+            return string.Join(" ", Flags);
         }
     }
 
