@@ -17,8 +17,8 @@
         /// <returns></returns>
         public override string ToString()
         {
-            List<string> options = base._options.Select(x => $"{x.Key}:a:{StreamIndex} {x.Value}").ToList();
-            options.AddRange(base._flags.Select(x => x));
+            List<string> options = base.Options.Select(x => $"{x.Key}:a:{StreamIndex} {x.Value}").ToList();
+            options.AddRange(base.Flags.Select(x => x));
             return string.Join(" ", options);
         }
     }

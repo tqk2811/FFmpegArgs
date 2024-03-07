@@ -24,8 +24,8 @@
         /// <returns></returns>
         public override string ToString()
         {
-            List<string> options = base._options.Select(x => $"{x.Key}:v:{StreamIndex} {x.Value}").ToList();
-            options.AddRange(base._flags.Select(x => x));
+            List<string> options = base.Options.Select(x => $"{x.Key}:v:{StreamIndex} {x.Value}").ToList();
+            options.AddRange(base.Flags.Select(x => x));
             if (this.ImageMap.IsInput) options.Add($"-map {this.ImageMap.MapName}");
             else options.Add($"-map [{this.ImageMap.MapName}]");
             return string.Join(" ", options);
