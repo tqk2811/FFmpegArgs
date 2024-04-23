@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IAudioFilterGraph : IFilterGraph
+    public interface IAudioFilterGraph : IFilterGraph, IAudio
     {
         /// <summary>
         /// 
