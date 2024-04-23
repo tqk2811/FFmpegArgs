@@ -7,5 +7,13 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\FFmpegArgs.Cores\FFmpegArgs.Cores.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Decoders\Audios\" />
+	  <Folder Include="Decoders\Images\" />
+	  <Folder Include="Decoders\Subtitles\" />
+	  <Folder Include="Encoders\Audios\" />
+	  <Folder Include="Encoders\Images\" />
+	  <Folder Include="Encoders\Subtitles\" />
+	</ItemGroup>
 
 </Project>
