@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<!--https://docs.microsoft.com/en-us/nuget/reference/nuspec-->
 	<metadata>
-		<id>FFmpegArgs.Cores.Codecs</id>
+		<id>FFmpegArgs.Codecs</id>
 		<version>1.6.0$build$</version>
 		<description>Codecs of FFmpegArgs</description>
 		<authors>tqk2811</authors>
@@ -31,8 +31,8 @@
 	</metadata>
 	<files>
 		<file src="..\README.MD" target="docs\" />
-		<file src="bin\Release\**\FFmpegArgs.Cores.Codecs.dll" target="lib\" />
-		<file src="bin\Release\**\FFmpegArgs.Cores.Codecs.pdb" target="lib\" />
-		<file src="bin\Release\**\FFmpegArgs.Cores.Codecs.xml" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.Codecs.dll" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.Codecs.pdb" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.Codecs.xml" target="lib\" />
 	</files>
 </package>

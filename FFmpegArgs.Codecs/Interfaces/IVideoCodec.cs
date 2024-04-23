@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Cores.Codecs.Interfaces
+﻿namespace FFmpegArgs.Codecs.Interfaces
 {
     /// <summary>
     /// Video codec
