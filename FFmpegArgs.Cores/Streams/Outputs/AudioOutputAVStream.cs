@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class AudioOutputAVStream : OutputAVStream, IAudio
+    public class AudioOutputAVStream : OutputAVStream, IAudio, IAudioCodec
     {
         /// <summary>
         /// 

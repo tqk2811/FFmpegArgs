@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class ImageInputAVStream : InputAVStream, IImage
+    public class ImageInputAVStream : InputAVStream, IImage, IImageStream, IImageCodec
     {
         /// <summary>
         /// 
@@ -11,7 +11,7 @@
         internal ImageInputAVStream(BaseInput baseInput, int streamIndex) : base(baseInput, streamIndex)
         {
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
