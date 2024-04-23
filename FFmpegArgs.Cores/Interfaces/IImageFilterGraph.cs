@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IImageFilterGraph : IFilterGraph
+    public interface IImageFilterGraph : IFilterGraph, IImage
     {
         /// <summary>
         /// 
