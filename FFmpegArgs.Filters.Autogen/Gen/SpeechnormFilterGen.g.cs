@@ -31,13 +31,13 @@ public SpeechnormFilterGen raise(double raise) => this.SetOptionRange("raise", r
 /// </summary>
 public SpeechnormFilterGen fall(double fall) => this.SetOptionRange("fall", fall,0,1);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
+///  set channels to filter (default "all")
 /// </summary>
-public SpeechnormFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
+public SpeechnormFilterGen channels(string channels) => this.SetOption("channels",channels);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
+///  set channels to filter (default "all")
 /// </summary>
-public SpeechnormFilterGen h(ChannelLayout h) => this.SetOption("h",h.GetEnumAttribute<NameAttribute>().Name);
+public SpeechnormFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
 ///  set inverted filtering (default false)
 /// </summary>
@@ -46,6 +46,14 @@ public SpeechnormFilterGen invert(bool invert) => this.SetOption("invert",invert
 ///  set linked channels filtering (default false)
 /// </summary>
 public SpeechnormFilterGen link(bool link) => this.SetOption("link",link.ToFFmpegFlag());
+/// <summary>
+///  set the RMS value (from 0 to 1) (default 0)
+/// </summary>
+public SpeechnormFilterGen rms(double rms) => this.SetOptionRange("rms", rms,0,1);
+/// <summary>
+///  set the RMS value (from 0 to 1) (default 0)
+/// </summary>
+public SpeechnormFilterGen m(double m) => this.SetOptionRange("m", m,0,1);
 }
 /// <summary>
 /// </summary>

@@ -11,9 +11,9 @@ internal ChromaholdFilterGen(ImageMap input) : base("chromahold",input) { AddMap
 /// </summary>
 public ChromaholdFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>
-///  set the chromahold similarity value (from 0.01 to 1) (default 0.01)
+///  set the chromahold similarity value (from 1e-05 to 1) (default 0.01)
 /// </summary>
-public ChromaholdFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,0.01,1);
+public ChromaholdFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,1e-05,1);
 /// <summary>
 ///  set the chromahold blend value (from 0 to 1) (default 0)
 /// </summary>

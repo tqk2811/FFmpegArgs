@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// .S. surround          A->A       Apply audio surround upmix filter.
+/// .SC surround          A->A       Apply audio surround upmix filter.
 /// </summary>
-public class SurroundFilterGen : AudioToAudioFilter,ISliceThreading
+public class SurroundFilterGen : AudioToAudioFilter,ISliceThreading,ICommandSupport
 {
 internal SurroundFilterGen(AudioMap input) : base("surround",input) { AddMapOut(); }
 /// <summary>
@@ -39,9 +39,17 @@ public SurroundFilterGen lfe_high(int lfe_high) => this.SetOptionRange("lfe_high
 /// </summary>
 public SurroundFilterGen lfe_mode(SurroundFilterGenLfe_mode lfe_mode) => this.SetOption("lfe_mode", lfe_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
+///  set temporal smoothness strength (from 0 to 1) (default 0)
+/// </summary>
+public SurroundFilterGen smooth(float smooth) => this.SetOptionRange("smooth", smooth,0,1);
+/// <summary>
 ///  set soundfield transform angle (from 0 to 360) (default 90)
 /// </summary>
 public SurroundFilterGen angle(float angle) => this.SetOptionRange("angle", angle,0,360);
+/// <summary>
+///  set soundfield transform focus (from -1 to 1) (default 0)
+/// </summary>
+public SurroundFilterGen focus(float focus) => this.SetOptionRange("focus", focus,-1,1);
 /// <summary>
 ///  set front center channel input level (from 0 to 10) (default 1)
 /// </summary>
@@ -123,75 +131,75 @@ public SurroundFilterGen allx(float allx) => this.SetOptionRange("allx", allx,-1
 /// </summary>
 public SurroundFilterGen ally(float ally) => this.SetOptionRange("ally", ally,-1,15);
 /// <summary>
-///  set front center channel x spread (from 0 to 15) (default 1)
+///  set front center channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen fcx(float fcx) => this.SetOptionRange("fcx", fcx,0,15);
+public SurroundFilterGen fcx(float fcx) => this.SetOptionRange("fcx", fcx,0.06,15);
 /// <summary>
-///  set front left channel x spread (from 0 to 15) (default 1)
+///  set front left channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen flx(float flx) => this.SetOptionRange("flx", flx,0,15);
+public SurroundFilterGen flx(float flx) => this.SetOptionRange("flx", flx,0.06,15);
 /// <summary>
-///  set front right channel x spread (from 0 to 15) (default 1)
+///  set front right channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen frx(float frx) => this.SetOptionRange("frx", frx,0,15);
+public SurroundFilterGen frx(float frx) => this.SetOptionRange("frx", frx,0.06,15);
 /// <summary>
-///  set back left channel x spread (from 0 to 15) (default 1)
+///  set back left channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen blx(float blx) => this.SetOptionRange("blx", blx,0,15);
+public SurroundFilterGen blx(float blx) => this.SetOptionRange("blx", blx,0.06,15);
 /// <summary>
-///  set back right channel x spread (from 0 to 15) (default 1)
+///  set back right channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen brx(float brx) => this.SetOptionRange("brx", brx,0,15);
+public SurroundFilterGen brx(float brx) => this.SetOptionRange("brx", brx,0.06,15);
 /// <summary>
-///  set side left channel x spread (from 0 to 15) (default 1)
+///  set side left channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen slx(float slx) => this.SetOptionRange("slx", slx,0,15);
+public SurroundFilterGen slx(float slx) => this.SetOptionRange("slx", slx,0.06,15);
 /// <summary>
-///  set side right channel x spread (from 0 to 15) (default 1)
+///  set side right channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen srx(float srx) => this.SetOptionRange("srx", srx,0,15);
+public SurroundFilterGen srx(float srx) => this.SetOptionRange("srx", srx,0.06,15);
 /// <summary>
-///  set back center channel x spread (from 0 to 15) (default 1)
+///  set back center channel x spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen bcx(float bcx) => this.SetOptionRange("bcx", bcx,0,15);
+public SurroundFilterGen bcx(float bcx) => this.SetOptionRange("bcx", bcx,0.06,15);
 /// <summary>
-///  set front center channel y spread (from 0 to 15) (default 1)
+///  set front center channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen fcy(float fcy) => this.SetOptionRange("fcy", fcy,0,15);
+public SurroundFilterGen fcy(float fcy) => this.SetOptionRange("fcy", fcy,0.06,15);
 /// <summary>
-///  set front left channel y spread (from 0 to 15) (default 1)
+///  set front left channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen fly(float fly) => this.SetOptionRange("fly", fly,0,15);
+public SurroundFilterGen fly(float fly) => this.SetOptionRange("fly", fly,0.06,15);
 /// <summary>
-///  set front right channel y spread (from 0 to 15) (default 1)
+///  set front right channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen fry(float fry) => this.SetOptionRange("fry", fry,0,15);
+public SurroundFilterGen fry(float fry) => this.SetOptionRange("fry", fry,0.06,15);
 /// <summary>
-///  set back left channel y spread (from 0 to 15) (default 1)
+///  set back left channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen bly(float bly) => this.SetOptionRange("bly", bly,0,15);
+public SurroundFilterGen bly(float bly) => this.SetOptionRange("bly", bly,0.06,15);
 /// <summary>
-///  set back right channel y spread (from 0 to 15) (default 1)
+///  set back right channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen bry(float bry) => this.SetOptionRange("bry", bry,0,15);
+public SurroundFilterGen bry(float bry) => this.SetOptionRange("bry", bry,0.06,15);
 /// <summary>
-///  set side left channel y spread (from 0 to 15) (default 1)
+///  set side left channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen sly(float sly) => this.SetOptionRange("sly", sly,0,15);
+public SurroundFilterGen sly(float sly) => this.SetOptionRange("sly", sly,0.06,15);
 /// <summary>
-///  set side right channel y spread (from 0 to 15) (default 1)
+///  set side right channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen sry(float sry) => this.SetOptionRange("sry", sry,0,15);
+public SurroundFilterGen sry(float sry) => this.SetOptionRange("sry", sry,0.06,15);
 /// <summary>
-///  set back center channel y spread (from 0 to 15) (default 1)
+///  set back center channel y spread (from 0.06 to 15) (default 0.5)
 /// </summary>
-public SurroundFilterGen bcy(float bcy) => this.SetOptionRange("bcy", bcy,0,15);
+public SurroundFilterGen bcy(float bcy) => this.SetOptionRange("bcy", bcy,0.06,15);
 /// <summary>
 ///  set window size (from 1024 to 65536) (default 4096)
 /// </summary>
 public SurroundFilterGen win_size(int win_size) => this.SetOptionRange("win_size", win_size,1024,65536);
 /// <summary>
-///  set window function (from 0 to 19) (default hann)
+///  set window function (from 0 to 20) (default hann)
 /// </summary>
 public SurroundFilterGen win_func(SurroundFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -214,17 +222,17 @@ public static SurroundFilterGen SurroundFilterGen(this AudioMap input0) => new S
 public enum SurroundFilterGenLfe_mode
 {
 /// <summary>
-/// add             0            ..F.A...... just add LFE channel
+/// add             0            ..F.A....T. just add LFE channel
 /// </summary>
 [Name("add")] add,
 /// <summary>
-/// sub             1            ..F.A...... substract LFE channel with others
+/// sub             1            ..F.A....T. substract LFE channel with others
 /// </summary>
 [Name("sub")] sub,
 }
 
 /// <summary>
-///  set window function (from 0 to 19) (default hann)
+///  set window function (from 0 to 20) (default hann)
 /// </summary>
 public enum SurroundFilterGenWin_func
 {
@@ -312,6 +320,10 @@ public enum SurroundFilterGenWin_func
 /// bohman          19           ..F.A...... Bohman
 /// </summary>
 [Name("bohman")] bohman,
+/// <summary>
+/// kaiser          20           ..F.A...... Kaiser
+/// </summary>
+[Name("kaiser")] kaiser,
 }
 
 }

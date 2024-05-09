@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... vpp_qsv           V->V       Quick Sync Video VPP.
+/// ... vpp_qsv           V->V       Quick Sync Video "VPP"
 /// </summary>
 public class Vpp_qsvFilterGen : ImageToImageFilter
 {
@@ -63,11 +63,11 @@ public Vpp_qsvFilterGen cx(string cx) => this.SetOption("cx",cx);
 /// </summary>
 public Vpp_qsvFilterGen cy(string cy) => this.SetOption("cy",cy);
 /// <summary>
-///  Output video width (default "cw")
+///  Output video width(0=input video width, -1=keep input video aspect) (default "cw")
 /// </summary>
 public Vpp_qsvFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  Output video height (default "w*ch/cw")
+///  Output video height(0=input video height, -1=keep input video aspect) (default "w*ch/cw")
 /// </summary>
 public Vpp_qsvFilterGen height(string height) => this.SetOption("height",height);
 /// <summary>
@@ -79,16 +79,40 @@ public Vpp_qsvFilterGen format(string format) => this.SetOption("format",format)
 /// </summary>
 public Vpp_qsvFilterGen async_depth(int async_depth) => this.SetOptionRange("async_depth", async_depth,0,INT_MAX);
 /// <summary>
-///  scale mode: 0=auto, 1=low power, 2=high quality (from 0 to 2) (default 0)
+///  scaling &amp; format conversion mode (mode compute(3), vd(4) and ve(5) are only available on some platforms) (from 0 to 5) (default auto)
 /// </summary>
-public Vpp_qsvFilterGen scale_mode(int scale_mode) => this.SetOptionRange("scale_mode", scale_mode,0,2);
+public Vpp_qsvFilterGen scale_mode(Vpp_qsvFilterGenScale_mode scale_mode) => this.SetOption("scale_mode", scale_mode.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  Generate output at frame rate or field rate, available only for deinterlace mode (from 0 to 1) (default frame)
+/// </summary>
+public Vpp_qsvFilterGen rate(Vpp_qsvFilterGenRate rate) => this.SetOption("rate", rate.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  Output color range (from 0 to 2) (default 0)
+/// </summary>
+public Vpp_qsvFilterGen out_range(Vpp_qsvFilterGenOut_range out_range) => this.SetOption("out_range", out_range.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  Output color matrix coefficient set
+/// </summary>
+public Vpp_qsvFilterGen out_color_matrix(string out_color_matrix) => this.SetOption("out_color_matrix",out_color_matrix);
+/// <summary>
+///  Output color primaries
+/// </summary>
+public Vpp_qsvFilterGen out_color_primaries(string out_color_primaries) => this.SetOption("out_color_primaries",out_color_primaries);
+/// <summary>
+///  Output color transfer characteristics
+/// </summary>
+public Vpp_qsvFilterGen out_color_transfer(string out_color_transfer) => this.SetOption("out_color_transfer",out_color_transfer);
+/// <summary>
+///  Perform tonemapping (0=disable tonemapping, 1=perform tonemapping if the input has HDR metadata) (from 0 to 1) (default 0)
+/// </summary>
+public Vpp_qsvFilterGen tonemap(int tonemap) => this.SetOptionRange("tonemap", tonemap,0,1);
 }
 /// <summary>
 /// </summary>
 public static class Vpp_qsvFilterGenExtensions
 {
 /// <summary>
-/// Quick Sync Video VPP.
+/// Quick Sync Video "VPP"
 /// </summary>
 public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input0) => new Vpp_qsvFilterGen(input0);
 }
@@ -140,6 +164,83 @@ public enum Vpp_qsvFilterGenTranspose
 /// vflip           6            ..FV....... flip vertically
 /// </summary>
 [Name("vflip")] vflip,
+}
+
+/// <summary>
+///  scaling &amp; format conversion mode (mode compute(3), vd(4) and ve(5) are only available on some platforms) (from 0 to 5) (default auto)
+/// </summary>
+public enum Vpp_qsvFilterGenScale_mode
+{
+/// <summary>
+/// auto            0            ..FV....... auto mode
+/// </summary>
+[Name("auto")] auto,
+/// <summary>
+/// low_power       1            ..FV....... low power mode
+/// </summary>
+[Name("low_power")] low_power,
+/// <summary>
+/// hq              2            ..FV....... high quality mode
+/// </summary>
+[Name("hq")] hq,
+/// <summary>
+/// compute         3            ..FV....... compute
+/// </summary>
+[Name("compute")] compute,
+/// <summary>
+/// vd              4            ..FV....... vd
+/// </summary>
+[Name("vd")] vd,
+/// <summary>
+/// ve              5            ..FV....... ve
+/// </summary>
+[Name("ve")] ve,
+}
+
+/// <summary>
+///  Generate output at frame rate or field rate, available only for deinterlace mode (from 0 to 1) (default frame)
+/// </summary>
+public enum Vpp_qsvFilterGenRate
+{
+/// <summary>
+/// frame           0            ..FV....... Output at frame rate (one frame of output for each field-pair)
+/// </summary>
+[Name("frame")] frame,
+/// <summary>
+/// field           1            ..FV....... Output at field rate (one frame of output for each field)
+/// </summary>
+[Name("field")] field,
+}
+
+/// <summary>
+///  Output color range (from 0 to 2) (default 0)
+/// </summary>
+public enum Vpp_qsvFilterGenOut_range
+{
+/// <summary>
+/// full            2            ..FV....... Full range
+/// </summary>
+[Name("full")] full,
+/// <summary>
+/// limited         1            ..FV....... Limited range
+/// </summary>
+[Name("limited")] limited,
+/// <summary>
+/// jpeg            2            ..FV....... Full range
+/// </summary>
+[Name("jpeg")] jpeg,
+/// <summary>
+/// mpeg            1            ..FV....... Limited range
+/// </summary>
+[Name("mpeg")] mpeg,
+/// <summary>
+/// tv              1            ..FV....... Limited range
+/// </summary>
+[Name("tv")] tv,
+/// <summary>
+/// pc              2            ..FV....... Full range
+/// </summary>
+[Name("pc")] pc,
 }
 
 }

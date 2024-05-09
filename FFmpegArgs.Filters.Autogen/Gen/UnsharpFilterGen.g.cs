@@ -55,9 +55,29 @@ public UnsharpFilterGen chroma_amount(float chroma_amount) => this.SetOptionRang
 /// </summary>
 public UnsharpFilterGen ca(float ca) => this.SetOptionRange("ca", ca,-2,5);
 /// <summary>
-///  ignored (default false)
+///  set alpha matrix horizontal size (from 3 to 23) (default 5)
 /// </summary>
-public UnsharpFilterGen opencl(bool opencl) => this.SetOption("opencl",opencl.ToFFmpegFlag());
+public UnsharpFilterGen alpha_msize_x(int alpha_msize_x) => this.SetOptionRange("alpha_msize_x", alpha_msize_x,3,23);
+/// <summary>
+///  set alpha matrix horizontal size (from 3 to 23) (default 5)
+/// </summary>
+public UnsharpFilterGen ax(int ax) => this.SetOptionRange("ax", ax,3,23);
+/// <summary>
+///  set alpha matrix vertical size (from 3 to 23) (default 5)
+/// </summary>
+public UnsharpFilterGen alpha_msize_y(int alpha_msize_y) => this.SetOptionRange("alpha_msize_y", alpha_msize_y,3,23);
+/// <summary>
+///  set alpha matrix vertical size (from 3 to 23) (default 5)
+/// </summary>
+public UnsharpFilterGen ay(int ay) => this.SetOptionRange("ay", ay,3,23);
+/// <summary>
+///  set alpha effect strength (from -2 to 5) (default 0)
+/// </summary>
+public UnsharpFilterGen alpha_amount(float alpha_amount) => this.SetOptionRange("alpha_amount", alpha_amount,-2,5);
+/// <summary>
+///  set alpha effect strength (from -2 to 5) (default 0)
+/// </summary>
+public UnsharpFilterGen aa(float aa) => this.SetOptionRange("aa", aa,-2,5);
 }
 /// <summary>
 /// </summary>

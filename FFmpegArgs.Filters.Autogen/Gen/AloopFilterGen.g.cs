@@ -15,9 +15,13 @@ public AloopFilterGen loop(int loop) => this.SetOptionRange("loop", loop,-1,INT_
 /// </summary>
 public AloopFilterGen size(long size) => this.SetOptionRange("size", size,0,INT_MAX);
 /// <summary>
-///  set the loop start sample (from 0 to I64_MAX) (default 0)
+///  set the loop start sample (from -1 to I64_MAX) (default 0)
 /// </summary>
-public AloopFilterGen start(long start) => this.SetOptionRange("start", start,0,I64_MAX);
+public AloopFilterGen start(long start) => this.SetOptionRange("start", start,-1,I64_MAX);
+/// <summary>
+///  set the loop start time (default INT64_MAX)
+/// </summary>
+public AloopFilterGen time(TimeSpan time) => this.SetOptionRange("time",time,TimeSpan.Zero,TimeSpan.MaxValue);
 }
 /// <summary>
 /// </summary>

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... tremolo           A->A       Apply tremolo effect.
+/// T.. tremolo           A->A       Apply tremolo effect.
 /// </summary>
-public class TremoloFilterGen : AudioToAudioFilter
+public class TremoloFilterGen : AudioToAudioFilter,ITimelineSupport
 {
 internal TremoloFilterGen(AudioMap input) : base("tremolo",input) { AddMapOut(); }
 /// <summary>

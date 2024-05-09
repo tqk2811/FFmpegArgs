@@ -11,15 +11,15 @@ internal AllpassFilterGen(AudioMap input) : base("allpass",input) { AddMapOut();
 /// </summary>
 public AllpassFilterGen frequency(double frequency) => this.SetOptionRange("frequency", frequency,0,999999);
 /// <summary>
-///  set filter-width type (from 1 to 5) (default h)
+///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
 public AllpassFilterGen width_type(AllpassFilterGenWidth_type width_type) => this.SetOption("width_type", width_type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set filter-width type (from 1 to 5) (default h)
+///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
 public AllpassFilterGen t(AllpassFilterGenT t) => this.SetOption("t", t.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set filter-width (from 0 to 99999) (default 707.1)
+///  set width (from 0 to 99999) (default 0.707)
 /// </summary>
 public AllpassFilterGen width(double width) => this.SetOptionRange("width", width,0,99999);
 /// <summary>
@@ -27,9 +27,9 @@ public AllpassFilterGen width(double width) => this.SetOptionRange("width", widt
 /// </summary>
 public AllpassFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
+///  set channels to filter (default "all")
 /// </summary>
-public AllpassFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
+public AllpassFilterGen channels(string channels) => this.SetOption("channels",channels);
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
@@ -39,11 +39,11 @@ public AllpassFilterGen normalize(bool normalize) => this.SetOption("normalize",
 /// </summary>
 public AllpassFilterGen order(int order) => this.SetOptionRange("order", order,1,2);
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public AllpassFilterGen transform(AllpassFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public AllpassFilterGen a(AllpassFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -65,7 +65,7 @@ public static class AllpassFilterGenExtensions
 public static AllpassFilterGen AllpassFilterGen(this AudioMap input0) => new AllpassFilterGen(input0);
 }
 /// <summary>
-///  set filter-width type (from 1 to 5) (default h)
+///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
 public enum AllpassFilterGenWidth_type
 {
@@ -92,7 +92,7 @@ public enum AllpassFilterGenWidth_type
 }
 
 /// <summary>
-///  set filter-width type (from 1 to 5) (default h)
+///  set filter-width type (from 1 to 5) (default q)
 /// </summary>
 public enum AllpassFilterGenT
 {
@@ -119,7 +119,7 @@ public enum AllpassFilterGenT
 }
 
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum AllpassFilterGenTransform
 {
@@ -132,21 +132,29 @@ public enum AllpassFilterGenTransform
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum AllpassFilterGenA
 {
@@ -159,17 +167,25 @@ public enum AllpassFilterGenA
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>

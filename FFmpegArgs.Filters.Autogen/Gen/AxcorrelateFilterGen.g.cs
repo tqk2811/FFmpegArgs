@@ -7,11 +7,11 @@ public class AxcorrelateFilterGen : AudioToAudioFilter
 {
 internal AxcorrelateFilterGen(params AudioMap[] inputs) : base("axcorrelate",inputs) { AddMapOut(); }
 /// <summary>
-///  set segment size (from 2 to 131072) (default 256)
+///  set the segment size (from 2 to 131072) (default 256)
 /// </summary>
 public AxcorrelateFilterGen size(int size) => this.SetOptionRange("size", size,2,131072);
 /// <summary>
-///  set algorithm (from 0 to 1) (default slow)
+///  set the algorithm (from 0 to 2) (default best)
 /// </summary>
 public AxcorrelateFilterGen algo(AxcorrelateFilterGenAlgo algo) => this.SetOption("algo", algo.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -25,7 +25,7 @@ public static class AxcorrelateFilterGenExtensions
 public static AxcorrelateFilterGen AxcorrelateFilterGen(this AudioMap input0, AudioMap input1) => new AxcorrelateFilterGen(input0, input1);
 }
 /// <summary>
-///  set algorithm (from 0 to 1) (default slow)
+///  set the algorithm (from 0 to 2) (default best)
 /// </summary>
 public enum AxcorrelateFilterGenAlgo
 {
@@ -37,6 +37,10 @@ public enum AxcorrelateFilterGenAlgo
 /// fast            1            ..F.A...... fast algorithm
 /// </summary>
 [Name("fast")] fast,
+/// <summary>
+/// best            2            ..F.A...... best algorithm
+/// </summary>
+[Name("best")] best,
 }
 
 }

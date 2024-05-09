@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... vibrato           A->A       Apply vibrato effect.
+/// T.. vibrato           A->A       Apply vibrato effect.
 /// </summary>
-public class VibratoFilterGen : AudioToAudioFilter
+public class VibratoFilterGen : AudioToAudioFilter,ITimelineSupport
 {
 internal VibratoFilterGen(AudioMap input) : base("vibrato",input) { AddMapOut(); }
 /// <summary>

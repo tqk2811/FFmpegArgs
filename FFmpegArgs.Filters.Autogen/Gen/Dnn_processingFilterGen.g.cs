@@ -7,9 +7,9 @@ public class Dnn_processingFilterGen : ImageToImageFilter
 {
 internal Dnn_processingFilterGen(ImageMap input) : base("dnn_processing",input) { AddMapOut(); }
 /// <summary>
-///  DNN backend (from INT_MIN to INT_MAX) (default native)
+///  DNN backend (from INT_MIN to INT_MAX) (default 1)
 /// </summary>
-public Dnn_processingFilterGen dnn_backend(Dnn_processingFilterGenDnn_backend dnn_backend) => this.SetOption("dnn_backend", dnn_backend.GetEnumAttribute<NameAttribute>().Name);
+public Dnn_processingFilterGen dnn_backend(int dnn_backend) => this.SetOptionRange("dnn_backend", dnn_backend,INT_MIN,INT_MAX);
 /// <summary>
 ///  path to model file
 /// </summary>
@@ -44,15 +44,4 @@ public static class Dnn_processingFilterGenExtensions
 /// </summary>
 public static Dnn_processingFilterGen Dnn_processingFilterGen(this ImageMap input0) => new Dnn_processingFilterGen(input0);
 }
-/// <summary>
-///  DNN backend (from INT_MIN to INT_MAX) (default native)
-/// </summary>
-public enum Dnn_processingFilterGenDnn_backend
-{
-/// <summary>
-/// native          0            ..FV....... native backend flag
-/// </summary>
-[Name("native")] native,
-}
-
 }

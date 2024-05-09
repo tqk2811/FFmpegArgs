@@ -35,19 +35,19 @@ public BiquadFilterGen b2(double b2) => this.SetOptionRange("b2", b2,INT_MIN,INT
 /// </summary>
 public BiquadFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
+///  set channels to filter (default "all")
 /// </summary>
-public BiquadFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
+public BiquadFilterGen channels(string channels) => this.SetOption("channels",channels);
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
 public BiquadFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public BiquadFilterGen transform(BiquadFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public BiquadFilterGen a(BiquadFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -58,6 +58,10 @@ public BiquadFilterGen precision(BiquadFilterGenPrecision precision) => this.Set
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
 public BiquadFilterGen r(BiquadFilterGenR r) => this.SetOption("r", r.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set the block size (from 0 to 32768) (default 0)
+/// </summary>
+public BiquadFilterGen blocksize(int blocksize) => this.SetOptionRange("blocksize", blocksize,0,32768);
 }
 /// <summary>
 /// </summary>
@@ -69,7 +73,7 @@ public static class BiquadFilterGenExtensions
 public static BiquadFilterGen BiquadFilterGen(this AudioMap input0) => new BiquadFilterGen(input0);
 }
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum BiquadFilterGenTransform
 {
@@ -82,21 +86,29 @@ public enum BiquadFilterGenTransform
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum BiquadFilterGenA
 {
@@ -109,17 +121,25 @@ public enum BiquadFilterGenA
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>

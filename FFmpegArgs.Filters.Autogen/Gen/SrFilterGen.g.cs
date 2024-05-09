@@ -7,9 +7,9 @@ public class SrFilterGen : ImageToImageFilter
 {
 internal SrFilterGen(ImageMap input) : base("sr",input) { AddMapOut(); }
 /// <summary>
-///  DNN backend used for model execution (from 0 to 1) (default native)
+///  DNN backend used for model execution (from 0 to 1) (default 1)
 /// </summary>
-public SrFilterGen dnn_backend(SrFilterGenDnn_backend dnn_backend) => this.SetOption("dnn_backend", dnn_backend.GetEnumAttribute<NameAttribute>().Name);
+public SrFilterGen dnn_backend(int dnn_backend) => this.SetOptionRange("dnn_backend", dnn_backend,0,1);
 /// <summary>
 ///  scale factor for SRCNN model (from 2 to 4) (default 2)
 /// </summary>
@@ -36,15 +36,4 @@ public static class SrFilterGenExtensions
 /// </summary>
 public static SrFilterGen SrFilterGen(this ImageMap input0) => new SrFilterGen(input0);
 }
-/// <summary>
-///  DNN backend used for model execution (from 0 to 1) (default native)
-/// </summary>
-public enum SrFilterGenDnn_backend
-{
-/// <summary>
-/// native          0            ..FV....... native backend flag
-/// </summary>
-[Name("native")] native,
-}
-
 }

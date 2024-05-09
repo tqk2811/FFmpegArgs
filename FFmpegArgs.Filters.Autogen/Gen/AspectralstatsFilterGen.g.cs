@@ -11,13 +11,17 @@ internal AspectralstatsFilterGen(AudioMap input) : base("aspectralstats",input) 
 /// </summary>
 public AspectralstatsFilterGen win_size(int win_size) => this.SetOptionRange("win_size", win_size,32,65536);
 /// <summary>
-///  set window function (from 0 to 19) (default hann)
+///  set window function (from 0 to 20) (default hann)
 /// </summary>
 public AspectralstatsFilterGen win_func(AspectralstatsFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set window overlap (from 0 to 1) (default 0.5)
 /// </summary>
 public AspectralstatsFilterGen overlap(float overlap) => this.SetOptionRange("overlap", overlap,0,1);
+/// <summary>
+///  select the parameters which are measured (default all+mean+variance+centroid+spread+skewness+kurtosis+entropy+flatness+crest+flux+slope+decrease+rolloff)
+/// </summary>
+public AspectralstatsFilterGen measure(AspectralstatsFilterGenMeasure measure) => this.SetOption("measure", measure.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -29,7 +33,7 @@ public static class AspectralstatsFilterGenExtensions
 public static AspectralstatsFilterGen AspectralstatsFilterGen(this AudioMap input0) => new AspectralstatsFilterGen(input0);
 }
 /// <summary>
-///  set window function (from 0 to 19) (default hann)
+///  set window function (from 0 to 20) (default hann)
 /// </summary>
 public enum AspectralstatsFilterGenWin_func
 {
@@ -117,6 +121,77 @@ public enum AspectralstatsFilterGenWin_func
 /// bohman          19           ..F.A...... Bohman
 /// </summary>
 [Name("bohman")] bohman,
+/// <summary>
+/// kaiser          20           ..F.A...... Kaiser
+/// </summary>
+[Name("kaiser")] kaiser,
+}
+
+/// <summary>
+///  select the parameters which are measured (default all+mean+variance+centroid+spread+skewness+kurtosis+entropy+flatness+crest+flux+slope+decrease+rolloff)
+/// </summary>
+public enum AspectralstatsFilterGenMeasure
+{
+/// <summary>
+/// none                         ..F.A......
+/// </summary>
+[Name("none")] none,
+/// <summary>
+/// all                          ..F.A......
+/// </summary>
+[Name("all")] all,
+/// <summary>
+/// mean                         ..F.A......
+/// </summary>
+[Name("mean")] mean,
+/// <summary>
+/// variance                     ..F.A......
+/// </summary>
+[Name("variance")] variance,
+/// <summary>
+/// centroid                     ..F.A......
+/// </summary>
+[Name("centroid")] centroid,
+/// <summary>
+/// spread                       ..F.A......
+/// </summary>
+[Name("spread")] spread,
+/// <summary>
+/// skewness                     ..F.A......
+/// </summary>
+[Name("skewness")] skewness,
+/// <summary>
+/// kurtosis                     ..F.A......
+/// </summary>
+[Name("kurtosis")] kurtosis,
+/// <summary>
+/// entropy                      ..F.A......
+/// </summary>
+[Name("entropy")] entropy,
+/// <summary>
+/// flatness                     ..F.A......
+/// </summary>
+[Name("flatness")] flatness,
+/// <summary>
+/// crest                        ..F.A......
+/// </summary>
+[Name("crest")] crest,
+/// <summary>
+/// flux                         ..F.A......
+/// </summary>
+[Name("flux")] flux,
+/// <summary>
+/// slope                        ..F.A......
+/// </summary>
+[Name("slope")] slope,
+/// <summary>
+/// decrease                     ..F.A......
+/// </summary>
+[Name("decrease")] decrease,
+/// <summary>
+/// rolloff                      ..F.A......
+/// </summary>
+[Name("rolloff")] rolloff,
 }
 
 }

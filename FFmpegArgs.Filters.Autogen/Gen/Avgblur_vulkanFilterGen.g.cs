@@ -11,13 +11,13 @@ internal Avgblur_vulkanFilterGen(ImageMap input) : base("avgblur_vulkan",input) 
 /// </summary>
 public Avgblur_vulkanFilterGen sizeX(int sizeX) => this.SetOptionRange("sizeX", sizeX,1,32);
 /// <summary>
-///  Set planes to filter (bitmask) (from 0 to 15) (default 15)
-/// </summary>
-public Avgblur_vulkanFilterGen planes(int planes) => this.SetOptionRange("planes", planes,0,15);
-/// <summary>
 ///  Set vertical radius (from 1 to 32) (default 3)
 /// </summary>
 public Avgblur_vulkanFilterGen sizeY(int sizeY) => this.SetOptionRange("sizeY", sizeY,1,32);
+/// <summary>
+///  Set planes to filter (bitmask) (from 0 to 15) (default 15)
+/// </summary>
+public Avgblur_vulkanFilterGen planes(int planes) => this.SetOptionRange("planes", planes,0,15);
 }
 /// <summary>
 /// </summary>

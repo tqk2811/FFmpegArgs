@@ -42,6 +42,10 @@ public CiescopeFilterGen showwhite(bool showwhite) => this.SetOption("showwhite"
 ///  (from 0.1 to 6) (default 2.6)
 /// </summary>
 public CiescopeFilterGen gamma(double gamma) => this.SetOptionRange("gamma", gamma,0.1,6);
+/// <summary>
+///  fill with CIE colors (default true)
+/// </summary>
+public CiescopeFilterGen fill(bool fill) => this.SetOption("fill",fill.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

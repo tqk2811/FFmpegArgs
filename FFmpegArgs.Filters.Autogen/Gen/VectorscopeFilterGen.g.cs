@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... vectorscope       V->V       Video vectorscope.
+/// ..C vectorscope       V->V       Video vectorscope.
 /// </summary>
-public class VectorscopeFilterGen : ImageToImageFilter
+public class VectorscopeFilterGen : ImageToImageFilter,ICommandSupport
 {
 internal VectorscopeFilterGen(ImageMap input) : base("vectorscope",input) { AddMapOut(); }
 /// <summary>
@@ -121,19 +121,19 @@ public enum VectorscopeFilterGenMode
 public enum VectorscopeFilterGenEnvelope
 {
 /// <summary>
-/// none            0            ..FV.......
+/// none            0            ..FV.....T.
 /// </summary>
 [Name("none")] none,
 /// <summary>
-/// instant         1            ..FV.......
+/// instant         1            ..FV.....T.
 /// </summary>
 [Name("instant")] instant,
 /// <summary>
-/// peak            2            ..FV.......
+/// peak            2            ..FV.....T.
 /// </summary>
 [Name("peak")] peak,
 /// <summary>
-/// peak+instant    3            ..FV.......
+/// peak+instant    3            ..FV.....T.
 /// </summary>
 [Name("peak+instant")] peakPlusinstant,
 }
@@ -167,15 +167,15 @@ public enum VectorscopeFilterGenGraticule
 public enum VectorscopeFilterGenFlags
 {
 /// <summary>
-/// white                        ..FV....... draw white point
+/// white                        ..FV.....T. draw white point
 /// </summary>
 [Name("white")] white,
 /// <summary>
-/// black                        ..FV....... draw black point
+/// black                        ..FV.....T. draw black point
 /// </summary>
 [Name("black")] black,
 /// <summary>
-/// name                         ..FV....... draw point name
+/// name                         ..FV.....T. draw point name
 /// </summary>
 [Name("name")] name,
 }

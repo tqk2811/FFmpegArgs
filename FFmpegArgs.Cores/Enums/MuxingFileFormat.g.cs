@@ -29,6 +29,12 @@ a64,
 ac3,
 
 /// <summary>
+/// raw AC-4
+/// </summary>
+[Name("ac4")]
+ac4,
+
+/// <summary>
 /// ADTS AAC (Advanced Audio Coding)
 /// </summary>
 [Name("adts")]
@@ -143,6 +149,12 @@ au,
 avi,
 
 /// <summary>
+/// AVIF
+/// </summary>
+[Name("avif")]
+avif,
+
+/// <summary>
 /// SWF (ShockWave Flash) (AVM2)
 /// </summary>
 [Name("avm2")]
@@ -177,6 +189,12 @@ caf,
 /// </summary>
 [Name("cavsvideo")]
 cavsvideo,
+
+/// <summary>
+/// Chromaprint
+/// </summary>
+[Name("chromaprint")]
+chromaprint,
 
 /// <summary>
 /// codec2 .c2 muxer
@@ -215,6 +233,12 @@ data,
 daud,
 
 /// <summary>
+/// raw DFPWM1a
+/// </summary>
+[Name("dfpwm")]
+dfpwm,
+
+/// <summary>
 /// raw Dirac
 /// </summary>
 [Name("dirac")]
@@ -249,6 +273,12 @@ dvd,
 /// </summary>
 [Name("eac3")]
 eac3,
+
+/// <summary>
+/// raw EVC video
+/// </summary>
+[Name("evc")]
+evc,
 
 /// <summary>
 /// PCM 32-bit floating-point big-endian
@@ -815,7 +845,7 @@ smjpeg,
 smoothstreaming,
 
 /// <summary>
-/// SoX native
+/// SoX (Sound eXchange) native
 /// </summary>
 [Name("sox")]
 sox,
@@ -981,6 +1011,12 @@ vob,
 /// </summary>
 [Name("voc")]
 voc,
+
+/// <summary>
+/// raw H.266/VVC video
+/// </summary>
+[Name("vvc")]
+vvc,
 
 /// <summary>
 /// Sony Wave64

@@ -11,6 +11,10 @@ internal Lut3dFilterGen(ImageMap input) : base("lut3d",input) { AddMapOut(); }
 /// </summary>
 public Lut3dFilterGen file(string file) => this.SetOption("file",file);
 /// <summary>
+///  when to process CLUT (from 0 to 1) (default all)
+/// </summary>
+public Lut3dFilterGen clut(Lut3dFilterGenClut clut) => this.SetOption("clut", clut.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)
 /// </summary>
 public Lut3dFilterGen interp(Lut3dFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
@@ -24,6 +28,21 @@ public static class Lut3dFilterGenExtensions
 /// </summary>
 public static Lut3dFilterGen Lut3dFilterGen(this ImageMap input0) => new Lut3dFilterGen(input0);
 }
+/// <summary>
+///  when to process CLUT (from 0 to 1) (default all)
+/// </summary>
+public enum Lut3dFilterGenClut
+{
+/// <summary>
+/// first           0            ..FV.....T. process only first CLUT, ignore rest
+/// </summary>
+[Name("first")] first,
+/// <summary>
+/// all             1            ..FV.....T. process all CLUTs
+/// </summary>
+[Name("all")] all,
+}
+
 /// <summary>
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)
 /// </summary>

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... compensationdelay A->A       Audio Compensation Delay Line.
+/// T.C compensationdelay A->A       Audio Compensation Delay Line.
 /// </summary>
-public class CompensationdelayFilterGen : AudioToAudioFilter
+public class CompensationdelayFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal CompensationdelayFilterGen(AudioMap input) : base("compensationdelay",input) { AddMapOut(); }
 /// <summary>
@@ -27,7 +27,7 @@ public CompensationdelayFilterGen dry(double dry) => this.SetOptionRange("dry", 
 /// </summary>
 public CompensationdelayFilterGen wet(double wet) => this.SetOptionRange("wet", wet,0,1);
 /// <summary>
-///  set temperature °C (from -50 to 50) (default 20)
+///  set temperature ┬░C (from -50 to 50) (default 20)
 /// </summary>
 public CompensationdelayFilterGen temp(int temp) => this.SetOptionRange("temp", temp,-50,50);
 }

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ..C zscale            V->V       Apply resizing, colorspace and bit depth conversion.
+/// .SC zscale            V->V       Apply resizing, colorspace and bit depth conversion.
 /// </summary>
-public class ZscaleFilterGen : ImageToImageFilter,ICommandSupport
+public class ZscaleFilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
 {
 internal ZscaleFilterGen(ImageMap input) : base("zscale",input) { AddMapOut(); }
 /// <summary>
@@ -404,6 +404,10 @@ public enum ZscaleFilterGenTransfer
 /// </summary>
 [Name("smpte170m")] smpte170m,
 /// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
+[Name("smpte240m")] smpte240m,
+/// <summary>
 /// bt709           1            ..FV.......
 /// </summary>
 [Name("bt709")] bt709,
@@ -499,9 +503,9 @@ public enum ZscaleFilterGenMatrix
 /// </summary>
 [Name("smpte170m")] smpte170m,
 /// <summary>
-/// smpte2400m      7            ..FV.......
+/// smpte240m       7            ..FV.......
 /// </summary>
-[Name("smpte2400m")] smpte2400m,
+[Name("smpte240m")] smpte240m,
 /// <summary>
 /// ycgco           8            ..FV.......
 /// </summary>
@@ -837,6 +841,10 @@ public enum ZscaleFilterGenTransferin
 /// </summary>
 [Name("smpte170m")] smpte170m,
 /// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
+[Name("smpte240m")] smpte240m,
+/// <summary>
 /// bt709           1            ..FV.......
 /// </summary>
 [Name("bt709")] bt709,
@@ -923,6 +931,10 @@ public enum ZscaleFilterGenTin
 /// smpte170m       6            ..FV.......
 /// </summary>
 [Name("smpte170m")] smpte170m,
+/// <summary>
+/// smpte240m       7            ..FV.......
+/// </summary>
+[Name("smpte240m")] smpte240m,
 /// <summary>
 /// bt709           1            ..FV.......
 /// </summary>
@@ -1019,9 +1031,9 @@ public enum ZscaleFilterGenMatrixin
 /// </summary>
 [Name("smpte170m")] smpte170m,
 /// <summary>
-/// smpte2400m      7            ..FV.......
+/// smpte240m       7            ..FV.......
 /// </summary>
-[Name("smpte2400m")] smpte2400m,
+[Name("smpte240m")] smpte240m,
 /// <summary>
 /// ycgco           8            ..FV.......
 /// </summary>
@@ -1106,9 +1118,9 @@ public enum ZscaleFilterGenMin
 /// </summary>
 [Name("smpte170m")] smpte170m,
 /// <summary>
-/// smpte2400m      7            ..FV.......
+/// smpte240m       7            ..FV.......
 /// </summary>
-[Name("smpte2400m")] smpte2400m,
+[Name("smpte240m")] smpte240m,
 /// <summary>
 /// ycgco           8            ..FV.......
 /// </summary>

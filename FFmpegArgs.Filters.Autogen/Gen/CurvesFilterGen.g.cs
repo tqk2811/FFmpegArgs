@@ -38,6 +38,10 @@ public CurvesFilterGen psfile(string psfile) => this.SetOption("psfile",psfile);
 ///  save Gnuplot script of the curves in specified file
 /// </summary>
 public CurvesFilterGen plot(string plot) => this.SetOption("plot",plot);
+/// <summary>
+///  specify the kind of interpolation (from 0 to 1) (default natural)
+/// </summary>
+public CurvesFilterGen interp(CurvesFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -97,6 +101,21 @@ public enum CurvesFilterGenPreset
 /// vintage         10           ..FV.....T.
 /// </summary>
 [Name("vintage")] vintage,
+}
+
+/// <summary>
+///  specify the kind of interpolation (from 0 to 1) (default natural)
+/// </summary>
+public enum CurvesFilterGenInterp
+{
+/// <summary>
+/// natural         0            ..FV.....T. natural cubic spline
+/// </summary>
+[Name("natural")] natural,
+/// <summary>
+/// pchip           1            ..FV.....T. monotonically cubic interpolation
+/// </summary>
+[Name("pchip")] pchip,
 }
 
 }

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ..C acrusher          A->A       Reduce audio bit resolution.
+/// T.C acrusher          A->A       Reduce audio bit resolution.
 /// </summary>
-public class AcrusherFilterGen : AudioToAudioFilter,ICommandSupport
+public class AcrusherFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal AcrusherFilterGen(AudioMap input) : base("acrusher",input) { AddMapOut(); }
 /// <summary>

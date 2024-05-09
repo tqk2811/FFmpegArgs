@@ -35,7 +35,7 @@ public AfirsrcFilterGen r(int r) => this.SetOptionRange("r", r,1,INT_MAX);
 /// </summary>
 public AfirsrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,1,INT_MAX);
 /// <summary>
-///  set window function (from 0 to 19) (default blackman)
+///  set window function (from 0 to 20) (default blackman)
 /// </summary>
 public AfirsrcFilterGen win_func(AfirsrcFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -49,7 +49,7 @@ public static class AfirsrcFilterGenExtensions
 public static AfirsrcFilterGen AfirsrcFilterGen(this IAudioFilterGraph input0) => new AfirsrcFilterGen(input0);
 }
 /// <summary>
-///  set window function (from 0 to 19) (default blackman)
+///  set window function (from 0 to 20) (default blackman)
 /// </summary>
 public enum AfirsrcFilterGenWin_func
 {
@@ -137,6 +137,10 @@ public enum AfirsrcFilterGenWin_func
 /// bohman          19           ..F.A...... Bohman
 /// </summary>
 [Name("bohman")] bohman,
+/// <summary>
+/// kaiser          20           ..F.A...... Kaiser
+/// </summary>
+[Name("kaiser")] kaiser,
 }
 
 }

@@ -23,7 +23,7 @@ public HilbertFilterGen taps(int taps) => this.SetOptionRange("taps", taps,11,65
 /// </summary>
 public HilbertFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,1,INT_MAX);
 /// <summary>
-///  set window function (from 0 to 19) (default blackman)
+///  set window function (from 0 to 20) (default blackman)
 /// </summary>
 public HilbertFilterGen win_func(HilbertFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -37,7 +37,7 @@ public static class HilbertFilterGenExtensions
 public static HilbertFilterGen HilbertFilterGen(this IAudioFilterGraph input0) => new HilbertFilterGen(input0);
 }
 /// <summary>
-///  set window function (from 0 to 19) (default blackman)
+///  set window function (from 0 to 20) (default blackman)
 /// </summary>
 public enum HilbertFilterGenWin_func
 {
@@ -125,6 +125,10 @@ public enum HilbertFilterGenWin_func
 /// bohman          19           ..F.A...... Bohman
 /// </summary>
 [Name("bohman")] bohman,
+/// <summary>
+/// kaiser          20           ..F.A...... Kaiser
+/// </summary>
+[Name("kaiser")] kaiser,
 }
 
 }

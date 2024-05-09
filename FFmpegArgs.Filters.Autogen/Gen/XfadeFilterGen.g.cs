@@ -7,7 +7,7 @@ public class XfadeFilterGen : ImageToImageFilter,ISliceThreading
 {
 internal XfadeFilterGen(params ImageMap[] inputs) : base("xfade",inputs) { AddMapOut(); }
 /// <summary>
-///  set cross fade transition (from -1 to 43) (default fade)
+///  set cross fade transition (from -1 to 57) (default fade)
 /// </summary>
 public XfadeFilterGen transition(XfadeFilterGenTransition transition) => this.SetOption("transition", transition.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -33,7 +33,7 @@ public static class XfadeFilterGenExtensions
 public static XfadeFilterGen XfadeFilterGen(this ImageMap input0, ImageMap input1) => new XfadeFilterGen(input0, input1);
 }
 /// <summary>
-///  set cross fade transition (from -1 to 43) (default fade)
+///  set cross fade transition (from -1 to 57) (default fade)
 /// </summary>
 public enum XfadeFilterGenTransition
 {
@@ -217,6 +217,62 @@ public enum XfadeFilterGenTransition
 /// zoomin          43           ..FV....... zoom in transition
 /// </summary>
 [Name("zoomin")] zoomin,
+/// <summary>
+/// fadefast        44           ..FV....... fast fade transition
+/// </summary>
+[Name("fadefast")] fadefast,
+/// <summary>
+/// fadeslow        45           ..FV....... slow fade transition
+/// </summary>
+[Name("fadeslow")] fadeslow,
+/// <summary>
+/// hlwind          46           ..FV....... hl wind transition
+/// </summary>
+[Name("hlwind")] hlwind,
+/// <summary>
+/// hrwind          47           ..FV....... hr wind transition
+/// </summary>
+[Name("hrwind")] hrwind,
+/// <summary>
+/// vuwind          48           ..FV....... vu wind transition
+/// </summary>
+[Name("vuwind")] vuwind,
+/// <summary>
+/// vdwind          49           ..FV....... vd wind transition
+/// </summary>
+[Name("vdwind")] vdwind,
+/// <summary>
+/// coverleft       50           ..FV....... cover left transition
+/// </summary>
+[Name("coverleft")] coverleft,
+/// <summary>
+/// coverright      51           ..FV....... cover right transition
+/// </summary>
+[Name("coverright")] coverright,
+/// <summary>
+/// coverup         52           ..FV....... cover up transition
+/// </summary>
+[Name("coverup")] coverup,
+/// <summary>
+/// coverdown       53           ..FV....... cover down transition
+/// </summary>
+[Name("coverdown")] coverdown,
+/// <summary>
+/// revealleft      54           ..FV....... reveal left transition
+/// </summary>
+[Name("revealleft")] revealleft,
+/// <summary>
+/// revealright     55           ..FV....... reveal right transition
+/// </summary>
+[Name("revealright")] revealright,
+/// <summary>
+/// revealup        56           ..FV....... reveal up transition
+/// </summary>
+[Name("revealup")] revealup,
+/// <summary>
+/// revealdown      57           ..FV....... reveal down transition
+/// </summary>
+[Name("revealdown")] revealdown,
 }
 
 }

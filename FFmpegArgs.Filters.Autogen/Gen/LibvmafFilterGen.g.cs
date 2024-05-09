@@ -7,37 +7,13 @@ public class LibvmafFilterGen : ImageToImageFilter
 {
 internal LibvmafFilterGen(params ImageMap[] inputs) : base("libvmaf",inputs) { AddMapOut(); }
 /// <summary>
-///  Set the model to be used for computing vmaf. (default "/usr/local/share/model/vmaf_v0.6.1.pkl")
-/// </summary>
-public LibvmafFilterGen model_path(string model_path) => this.SetOption("model_path",model_path);
-/// <summary>
-///  Set the file path to be used to store logs.
+///  Set the file path to be used to write log.
 /// </summary>
 public LibvmafFilterGen log_path(string log_path) => this.SetOption("log_path",log_path);
 /// <summary>
-///  Set the format of the log (csv, json or xml).
+///  Set the format of the log (csv, json, xml, or sub). (default "xml")
 /// </summary>
 public LibvmafFilterGen log_fmt(string log_fmt) => this.SetOption("log_fmt",log_fmt);
-/// <summary>
-///  Enables transform for computing vmaf. (default false)
-/// </summary>
-public LibvmafFilterGen enable_transform(bool enable_transform) => this.SetOption("enable_transform",enable_transform.ToFFmpegFlag());
-/// <summary>
-///  Invokes the phone model that will generate higher VMAF scores. (default false)
-/// </summary>
-public LibvmafFilterGen phone_model(bool phone_model) => this.SetOption("phone_model",phone_model.ToFFmpegFlag());
-/// <summary>
-///  Enables computing psnr along with vmaf. (default false)
-/// </summary>
-public LibvmafFilterGen psnr(bool psnr) => this.SetOption("psnr",psnr.ToFFmpegFlag());
-/// <summary>
-///  Enables computing ssim along with vmaf. (default false)
-/// </summary>
-public LibvmafFilterGen ssim(bool ssim) => this.SetOption("ssim",ssim.ToFFmpegFlag());
-/// <summary>
-///  Enables computing ms-ssim along with vmaf. (default false)
-/// </summary>
-public LibvmafFilterGen ms_ssim(bool ms_ssim) => this.SetOption("ms_ssim",ms_ssim.ToFFmpegFlag());
 /// <summary>
 ///  Set the pool method to be used for computing vmaf.
 /// </summary>
@@ -51,9 +27,13 @@ public LibvmafFilterGen n_threads(int n_threads) => this.SetOptionRange("n_threa
 /// </summary>
 public LibvmafFilterGen n_subsample(int n_subsample) => this.SetOptionRange("n_subsample", n_subsample,1,UINT32_MAX);
 /// <summary>
-///  Enables confidence interval. (default false)
+///  Set the model to be used for computing vmaf. (default "version=vmaf_v0.6.1")
 /// </summary>
-public LibvmafFilterGen enable_conf_interval(bool enable_conf_interval) => this.SetOption("enable_conf_interval",enable_conf_interval.ToFFmpegFlag());
+public LibvmafFilterGen model(string model) => this.SetOption("model",model);
+/// <summary>
+///  Set the feature to be used for computing vmaf.
+/// </summary>
+public LibvmafFilterGen feature(string feature) => this.SetOption("feature",feature);
 }
 /// <summary>
 /// </summary>

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// T.C morpho            VV->V      Apply Morphological filter.
+/// TSC morpho            VV->V      Apply Morphological filter.
 /// </summary>
-public class MorphoFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
+public class MorphoFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal MorphoFilterGen(params ImageMap[] inputs) : base("morpho",inputs) { AddMapOut(); }
 /// <summary>

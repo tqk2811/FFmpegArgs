@@ -38,6 +38,10 @@ public AlimiterFilterGen asc_level(double asc_level) => this.SetOptionRange("asc
 ///  auto level (default true)
 /// </summary>
 public AlimiterFilterGen level(bool level) => this.SetOption("level",level.ToFFmpegFlag());
+/// <summary>
+///  compensate delay (default false)
+/// </summary>
+public AlimiterFilterGen latency(bool latency) => this.SetOption("latency",latency.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

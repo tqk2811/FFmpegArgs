@@ -78,6 +78,10 @@ public GradientsFilterGen duration(TimeSpan duration) => this.SetOptionRange("du
 ///  set gradients rotation speed (from 1e-05 to 1) (default 0.01)
 /// </summary>
 public GradientsFilterGen speed(float speed) => this.SetOptionRange("speed", speed,1e-05,1);
+/// <summary>
+///  set gradient type (from 0 to 3) (default linear)
+/// </summary>
+public GradientsFilterGen type(GradientsFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -88,4 +92,27 @@ public static class GradientsFilterGenExtensions
 /// </summary>
 public static GradientsFilterGen GradientsFilterGen(this IImageFilterGraph input0) => new GradientsFilterGen(input0);
 }
+/// <summary>
+///  set gradient type (from 0 to 3) (default linear)
+/// </summary>
+public enum GradientsFilterGenType
+{
+/// <summary>
+/// linear          0            ..FV....... set gradient type
+/// </summary>
+[Name("linear")] linear,
+/// <summary>
+/// radial          1            ..FV....... set gradient type
+/// </summary>
+[Name("radial")] radial,
+/// <summary>
+/// circular        2            ..FV....... set gradient type
+/// </summary>
+[Name("circular")] circular,
+/// <summary>
+/// spiral          3            ..FV....... set gradient type
+/// </summary>
+[Name("spiral")] spiral,
+}
+
 }

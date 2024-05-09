@@ -15,13 +15,13 @@ public LoudnormFilterGen I(double I) => this.SetOptionRange("I", I,-70,-5);
 /// </summary>
 public LoudnormFilterGen i(double i) => this.SetOptionRange("i", i,-70,-5);
 /// <summary>
-///  set loudness range target (from 1 to 20) (default 7)
+///  set loudness range target (from 1 to 50) (default 7)
 /// </summary>
-public LoudnormFilterGen LRA(double LRA) => this.SetOptionRange("LRA", LRA,1,20);
+public LoudnormFilterGen LRA(double LRA) => this.SetOptionRange("LRA", LRA,1,50);
 /// <summary>
-///  set loudness range target (from 1 to 20) (default 7)
+///  set loudness range target (from 1 to 50) (default 7)
 /// </summary>
-public LoudnormFilterGen lra(double lra) => this.SetOptionRange("lra", lra,1,20);
+public LoudnormFilterGen lra(double lra) => this.SetOptionRange("lra", lra,1,50);
 /// <summary>
 ///  set maximum true peak (from -9 to 0) (default -2)
 /// </summary>

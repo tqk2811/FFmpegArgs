@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... deinterlace_qsv   V->V       QuickSync video deinterlacing
+/// ... deinterlace_qsv   V->V       Quick Sync Video "deinterlacing"
 /// </summary>
 public class Deinterlace_qsvFilterGen : ImageToImageFilter
 {
@@ -16,7 +16,7 @@ public Deinterlace_qsvFilterGen mode(Deinterlace_qsvFilterGenMode mode) => this.
 public static class Deinterlace_qsvFilterGenExtensions
 {
 /// <summary>
-/// QuickSync video deinterlacing
+/// Quick Sync Video "deinterlacing"
 /// </summary>
 public static Deinterlace_qsvFilterGen Deinterlace_qsvFilterGen(this ImageMap input0) => new Deinterlace_qsvFilterGen(input0);
 }

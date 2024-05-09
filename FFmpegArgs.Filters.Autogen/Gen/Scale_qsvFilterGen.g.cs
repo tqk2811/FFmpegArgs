@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... scale_qsv         V->V       QuickSync video scaling and format conversion
+/// ... scale_qsv         V->V       Quick Sync Video "scaling and format conversion"
 /// </summary>
 public class Scale_qsvFilterGen : ImageToImageFilter
 {
 internal Scale_qsvFilterGen(ImageMap input) : base("scale_qsv",input) { AddMapOut(); }
 /// <summary>
-///  Output video width (default "iw")
+///  Output video width(0=input video width, -1=keep input video aspect) (default "iw")
 /// </summary>
 public Scale_qsvFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Output video height (default "ih")
+///  Output video height(0=input video height, -1=keep input video aspect) (default "ih")
 /// </summary>
 public Scale_qsvFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
@@ -19,7 +19,7 @@ public Scale_qsvFilterGen h(string h) => this.SetOption("h",h);
 /// </summary>
 public Scale_qsvFilterGen format(string format) => this.SetOption("format",format);
 /// <summary>
-///  set scaling mode (from 0 to 2) (default 0)
+///  scaling &amp; format conversion mode (mode compute(3), vd(4) and ve(5) are only available on some platforms) (from 0 to 5) (default 0)
 /// </summary>
 public Scale_qsvFilterGen mode(Scale_qsvFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -28,12 +28,12 @@ public Scale_qsvFilterGen mode(Scale_qsvFilterGenMode mode) => this.SetOption("m
 public static class Scale_qsvFilterGenExtensions
 {
 /// <summary>
-/// QuickSync video scaling and format conversion
+/// Quick Sync Video "scaling and format conversion"
 /// </summary>
 public static Scale_qsvFilterGen Scale_qsvFilterGen(this ImageMap input0) => new Scale_qsvFilterGen(input0);
 }
 /// <summary>
-///  set scaling mode (from 0 to 2) (default 0)
+///  scaling &amp; format conversion mode (mode compute(3), vd(4) and ve(5) are only available on some platforms) (from 0 to 5) (default 0)
 /// </summary>
 public enum Scale_qsvFilterGenMode
 {
@@ -45,6 +45,18 @@ public enum Scale_qsvFilterGenMode
 /// hq              2            ..FV....... high quality mode
 /// </summary>
 [Name("hq")] hq,
+/// <summary>
+/// compute         3            ..FV....... compute
+/// </summary>
+[Name("compute")] compute,
+/// <summary>
+/// vd              4            ..FV....... vd
+/// </summary>
+[Name("vd")] vd,
+/// <summary>
+/// ve              5            ..FV....... ve
+/// </summary>
+[Name("ve")] ve,
 }
 
 }

@@ -7,6 +7,10 @@ public class HaldclutFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThrea
 {
 internal HaldclutFilterGen(params ImageMap[] inputs) : base("haldclut",inputs) { AddMapOut(); }
 /// <summary>
+///  when to process CLUT (from 0 to 1) (default all)
+/// </summary>
+public HaldclutFilterGen clut(HaldclutFilterGenClut clut) => this.SetOption("clut", clut.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)
 /// </summary>
 public HaldclutFilterGen interp(HaldclutFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
@@ -20,6 +24,21 @@ public static class HaldclutFilterGenExtensions
 /// </summary>
 public static HaldclutFilterGen HaldclutFilterGen(this ImageMap input0, ImageMap input1) => new HaldclutFilterGen(input0, input1);
 }
+/// <summary>
+///  when to process CLUT (from 0 to 1) (default all)
+/// </summary>
+public enum HaldclutFilterGenClut
+{
+/// <summary>
+/// first           0            ..FV.....T. process only first CLUT, ignore rest
+/// </summary>
+[Name("first")] first,
+/// <summary>
+/// all             1            ..FV.....T. process all CLUTs
+/// </summary>
+[Name("all")] all,
+}
+
 /// <summary>
 ///  select interpolation mode (from 0 to 4) (default tetrahedral)
 /// </summary>

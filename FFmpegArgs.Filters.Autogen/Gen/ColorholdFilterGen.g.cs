@@ -11,9 +11,9 @@ internal ColorholdFilterGen(ImageMap input) : base("colorhold",input) { AddMapOu
 /// </summary>
 public ColorholdFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>
-///  set the colorhold similarity value (from 0.01 to 1) (default 0.01)
+///  set the colorhold similarity value (from 1e-05 to 1) (default 0.01)
 /// </summary>
-public ColorholdFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,0.01,1);
+public ColorholdFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,1e-05,1);
 /// <summary>
 ///  set the colorhold blend value (from 0 to 1) (default 0)
 /// </summary>

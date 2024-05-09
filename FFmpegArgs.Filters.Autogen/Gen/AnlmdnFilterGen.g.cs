@@ -7,9 +7,9 @@ public class AnlmdnFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreadi
 {
 internal AnlmdnFilterGen(AudioMap input) : base("anlmdn",input) { AddMapOut(); }
 /// <summary>
-///  set denoising strength (from 1e-05 to 10) (default 1e-05)
+///  set denoising strength (from 1e-05 to 10000) (default 1e-05)
 /// </summary>
-public AnlmdnFilterGen strength(float strength) => this.SetOptionRange("strength", strength,1e-05,10);
+public AnlmdnFilterGen strength(float strength) => this.SetOptionRange("strength", strength,1e-05,10000);
 /// <summary>
 ///  set patch duration (default 0.002)
 /// </summary>
@@ -23,13 +23,13 @@ public AnlmdnFilterGen research(TimeSpan research) => this.SetOptionRange("resea
 /// </summary>
 public AnlmdnFilterGen output(AnlmdnFilterGenOutput output) => this.SetOption("output", output.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set smooth factor (from 1 to 15) (default 11)
+///  set smooth factor (from 1 to 1000) (default 11)
 /// </summary>
-public AnlmdnFilterGen smooth(float smooth) => this.SetOptionRange("smooth", smooth,1,15);
+public AnlmdnFilterGen smooth(float smooth) => this.SetOptionRange("smooth", smooth,1,1000);
 /// <summary>
-///  set smooth factor (from 1 to 15) (default 11)
+///  set smooth factor (from 1 to 1000) (default 11)
 /// </summary>
-public AnlmdnFilterGen m(float m) => this.SetOptionRange("m", m,1,15);
+public AnlmdnFilterGen m(float m) => this.SetOptionRange("m", m,1,1000);
 }
 /// <summary>
 /// </summary>

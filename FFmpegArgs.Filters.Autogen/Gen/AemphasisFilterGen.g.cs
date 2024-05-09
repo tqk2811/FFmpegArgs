@@ -73,19 +73,19 @@ public enum AemphasisFilterGenType
 /// </summary>
 [Name("cd")] cd,
 /// <summary>
-/// 50fm            5            ..F.A....T. 50µs (FM)
+/// 50fm            5            ..F.A....T. 50┬╡s (FM)
 /// </summary>
 [Name("50fm")] _50fm,
 /// <summary>
-/// 75fm            6            ..F.A....T. 75µs (FM)
+/// 75fm            6            ..F.A....T. 75┬╡s (FM)
 /// </summary>
 [Name("75fm")] _75fm,
 /// <summary>
-/// 50kf            7            ..F.A....T. 50µs (FM-KF)
+/// 50kf            7            ..F.A....T. 50┬╡s (FM-KF)
 /// </summary>
 [Name("50kf")] _50kf,
 /// <summary>
-/// 75kf            8            ..F.A....T. 75µs (FM-KF)
+/// 75kf            8            ..F.A....T. 75┬╡s (FM-KF)
 /// </summary>
 [Name("75kf")] _75kf,
 }

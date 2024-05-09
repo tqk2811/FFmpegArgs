@@ -31,19 +31,19 @@ public LowpassFilterGen poles(int poles) => this.SetOptionRange("poles", poles,1
 /// </summary>
 public LowpassFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
+///  set channels to filter (default "all")
 /// </summary>
-public LowpassFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
+public LowpassFilterGen channels(string channels) => this.SetOption("channels",channels);
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
 public LowpassFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public LowpassFilterGen transform(LowpassFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public LowpassFilterGen a(LowpassFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -54,6 +54,10 @@ public LowpassFilterGen precision(LowpassFilterGenPrecision precision) => this.S
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
 public LowpassFilterGen r(LowpassFilterGenR r) => this.SetOption("r", r.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set the block size (from 0 to 32768) (default 0)
+/// </summary>
+public LowpassFilterGen blocksize(int blocksize) => this.SetOptionRange("blocksize", blocksize,0,32768);
 }
 /// <summary>
 /// </summary>
@@ -119,7 +123,7 @@ public enum LowpassFilterGenT
 }
 
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum LowpassFilterGenTransform
 {
@@ -132,21 +136,29 @@ public enum LowpassFilterGenTransform
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum LowpassFilterGenA
 {
@@ -159,17 +171,25 @@ public enum LowpassFilterGenA
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>

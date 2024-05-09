@@ -34,6 +34,10 @@ public VidstabdetectFilterGen show(int show) => this.SetOptionRange("show", show
 ///  virtual tripod mode (if >0): motion is compared to a reference reference frame (frame # is the value) (from 0 to INT_MAX) (default 0)
 /// </summary>
 public VidstabdetectFilterGen tripod(int tripod) => this.SetOptionRange("tripod", tripod,0,INT_MAX);
+/// <summary>
+///  transforms data file format (from 1 to 2) (default binary)
+/// </summary>
+public VidstabdetectFilterGen fileformat(VidstabdetectFilterGenFileformat fileformat) => this.SetOption("fileformat", fileformat.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -44,4 +48,19 @@ public static class VidstabdetectFilterGenExtensions
 /// </summary>
 public static VidstabdetectFilterGen VidstabdetectFilterGen(this ImageMap input0) => new VidstabdetectFilterGen(input0);
 }
+/// <summary>
+///  transforms data file format (from 1 to 2) (default binary)
+/// </summary>
+public enum VidstabdetectFilterGenFileformat
+{
+/// <summary>
+/// ascii           1            ..FV....... ASCII text
+/// </summary>
+[Name("ascii")] ascii,
+/// <summary>
+/// binary          2            ..FV....... binary
+/// </summary>
+[Name("binary")] binary,
+}
+
 }

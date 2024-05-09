@@ -41,6 +41,12 @@ aax,
 ac3,
 
 /// <summary>
+/// raw AC-4
+/// </summary>
+[Name("ac4")]
+ac4,
+
+/// <summary>
 /// tri-Ace Audio Container
 /// </summary>
 [Name("ace")]
@@ -147,6 +153,12 @@ amrwb,
 /// </summary>
 [Name("anm")]
 anm,
+
+/// <summary>
+/// raw APAC
+/// </summary>
+[Name("apac")]
+apac,
 
 /// <summary>
 /// CRYO APC
@@ -347,6 +359,12 @@ bmv,
 boa,
 
 /// <summary>
+/// raw Bonk
+/// </summary>
+[Name("bonk")]
+bonk,
+
+/// <summary>
 /// BRender PIX image
 /// </summary>
 [Name("brender_pix")]
@@ -461,6 +479,12 @@ derf,
 dfa,
 
 /// <summary>
+/// raw DFPWM1a
+/// </summary>
+[Name("dfpwm")]
+dfpwm,
+
+/// <summary>
 /// Video DAV
 /// </summary>
 [Name("dhav")]
@@ -567,6 +591,12 @@ eac3,
 /// </summary>
 [Name("epaf")]
 epaf,
+
+/// <summary>
+/// raw EVC video
+/// </summary>
+[Name("evc")]
+evc,
 
 /// <summary>
 /// piped exr sequence
@@ -767,6 +797,12 @@ hca,
 hcom,
 
 /// <summary>
+/// piped hdr sequence
+/// </summary>
+[Name("hdr_pipe")]
+hdr_pipe,
+
+/// <summary>
 /// raw HEVC video
 /// </summary>
 [Name("hevc")]
@@ -911,6 +947,18 @@ jpeg_pipe,
 jpegls_pipe,
 
 /// <summary>
+/// Animated JPEG XL
+/// </summary>
+[Name("jpegxl_anim")]
+jpegxl_anim,
+
+/// <summary>
+/// piped jpegxl sequence
+/// </summary>
+[Name("jpegxl_pipe")]
+jpegxl_pipe,
+
+/// <summary>
 /// Bitmap Brothers JV
 /// </summary>
 [Name("jv")]
@@ -927,6 +975,12 @@ kux,
 /// </summary>
 [Name("kvag")]
 kvag,
+
+/// <summary>
+/// LAF (Limitless Audio Format)
+/// </summary>
+[Name("laf")]
+laf,
 
 /// <summary>
 /// Libavfilter virtual input device
@@ -1295,6 +1349,18 @@ ogg,
 oma,
 
 /// <summary>
+/// OpenAL audio capture device
+/// </summary>
+[Name("openal")]
+openal,
+
+/// <summary>
+/// raw OSQ
+/// </summary>
+[Name("osq")]
+osq,
+
+/// <summary>
 /// Amazing Studio Packed Animation File
 /// </summary>
 [Name("paf")]
@@ -1319,6 +1385,18 @@ pbm_pipe,
 pcx_pipe,
 
 /// <summary>
+/// PlayDate Video
+/// </summary>
+[Name("pdv")]
+pdv,
+
+/// <summary>
+/// piped pfm sequence
+/// </summary>
+[Name("pfm_pipe")]
+pfm_pipe,
+
+/// <summary>
 /// piped pgm sequence
 /// </summary>
 [Name("pgm_pipe")]
@@ -1335,6 +1413,12 @@ pgmyuv_pipe,
 /// </summary>
 [Name("pgx_pipe")]
 pgx_pipe,
+
+/// <summary>
+/// piped phm sequence
+/// </summary>
+[Name("phm_pipe")]
+phm_pipe,
 
 /// <summary>
 /// piped photocd sequence
@@ -1415,6 +1499,12 @@ qcp,
 qdraw_pipe,
 
 /// <summary>
+/// piped qoi sequence
+/// </summary>
+[Name("qoi_pipe")]
+qoi_pipe,
+
+/// <summary>
 /// REDCODE R3D
 /// </summary>
 [Name("r3d")]
@@ -1437,6 +1527,12 @@ realtext,
 /// </summary>
 [Name("redspark")]
 redspark,
+
+/// <summary>
+/// RKA (RK Audio)
+/// </summary>
+[Name("rka")]
+rka,
 
 /// <summary>
 /// RL2
@@ -1571,6 +1667,12 @@ scc,
 scd,
 
 /// <summary>
+/// Xbox SDNS
+/// </summary>
+[Name("sdns")]
+sdns,
+
+/// <summary>
 /// SDP
 /// </summary>
 [Name("sdp")]
@@ -1661,7 +1763,7 @@ smush,
 sol,
 
 /// <summary>
-/// SoX native
+/// SoX (Sound eXchange) native
 /// </summary>
 [Name("sox")]
 sox,
@@ -1841,6 +1943,12 @@ u32le,
 u8,
 
 /// <summary>
+/// CRI USM
+/// </summary>
+[Name("usm")]
+usm,
+
+/// <summary>
 /// Uncompressed 4:2:2 10-bit
 /// </summary>
 [Name("v210")]
@@ -1857,6 +1965,12 @@ v210x,
 /// </summary>
 [Name("vag")]
 vag,
+
+/// <summary>
+/// piped vbn sequence
+/// </summary>
+[Name("vbn_pipe")]
+vbn_pipe,
 
 /// <summary>
 /// raw VC-1 video
@@ -1931,16 +2045,34 @@ vplayer,
 vqf,
 
 /// <summary>
+/// raw H.266/VVC video
+/// </summary>
+[Name("vvc")]
+vvc,
+
+/// <summary>
 /// Sony Wave64
 /// </summary>
 [Name("w64")]
 w64,
 
 /// <summary>
+/// Marble WADY
+/// </summary>
+[Name("wady")]
+wady,
+
+/// <summary>
 /// WAV / WAVE (Waveform Audio)
 /// </summary>
 [Name("wav")]
 wav,
+
+/// <summary>
+/// Waveform Archiver
+/// </summary>
+[Name("wavarc")]
+wavarc,
 
 /// <summary>
 /// Wing Commander III movie
@@ -2019,6 +2151,12 @@ xbin,
 /// </summary>
 [Name("xbm_pipe")]
 xbm_pipe,
+
+/// <summary>
+/// Konami XMD
+/// </summary>
+[Name("xmd")]
+xmd,
 
 /// <summary>
 /// Microsoft XMV

@@ -26,6 +26,10 @@ public CrossfeedFilterGen level_in(double level_in) => this.SetOptionRange("leve
 ///  set level out (from 0 to 1) (default 1)
 /// </summary>
 public CrossfeedFilterGen level_out(double level_out) => this.SetOptionRange("level_out", level_out,0,1);
+/// <summary>
+///  set the block size (from 0 to 32768) (default 0)
+/// </summary>
+public CrossfeedFilterGen block_size(int block_size) => this.SetOptionRange("block_size", block_size,0,32768);
 }
 /// <summary>
 /// </summary>

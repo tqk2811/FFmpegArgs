@@ -11,9 +11,9 @@ internal DblurFilterGen(ImageMap input) : base("dblur",input) { AddMapOut(); }
 /// </summary>
 public DblurFilterGen angle(float angle) => this.SetOptionRange("angle", angle,0,360);
 /// <summary>
-///  set radius (from 1 to 8192) (default 5)
+///  set radius (from 0 to 8192) (default 5)
 /// </summary>
-public DblurFilterGen radius(float radius) => this.SetOptionRange("radius", radius,1,8192);
+public DblurFilterGen radius(float radius) => this.SetOptionRange("radius", radius,0,8192);
 /// <summary>
 ///  set planes to filter (from 0 to 15) (default 15)
 /// </summary>

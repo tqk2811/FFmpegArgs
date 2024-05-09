@@ -19,7 +19,7 @@ public EqualizerFilterGen width_type(EqualizerFilterGenWidth_type width_type) =>
 /// </summary>
 public EqualizerFilterGen t(EqualizerFilterGenT t) => this.SetOption("t", t.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set band-width (from 0 to 99999) (default 1)
+///  set width (from 0 to 99999) (default 1)
 /// </summary>
 public EqualizerFilterGen width(double width) => this.SetOptionRange("width", width,0,99999);
 /// <summary>
@@ -31,19 +31,19 @@ public EqualizerFilterGen gain(double gain) => this.SetOptionRange("gain", gain,
 /// </summary>
 public EqualizerFilterGen mix(double mix) => this.SetOptionRange("mix", mix,0,1);
 /// <summary>
-///  set channels to filter (default 0xffffffffffffffff)
+///  set channels to filter (default "all")
 /// </summary>
-public EqualizerFilterGen channels(ChannelLayout channels) => this.SetOption("channels",channels.GetEnumAttribute<NameAttribute>().Name);
+public EqualizerFilterGen channels(string channels) => this.SetOption("channels",channels);
 /// <summary>
 ///  normalize coefficients (default false)
 /// </summary>
 public EqualizerFilterGen normalize(bool normalize) => this.SetOption("normalize",normalize.ToFFmpegFlag());
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public EqualizerFilterGen transform(EqualizerFilterGenTransform transform) => this.SetOption("transform", transform.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public EqualizerFilterGen a(EqualizerFilterGenA a) => this.SetOption("a", a.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -54,6 +54,10 @@ public EqualizerFilterGen precision(EqualizerFilterGenPrecision precision) => th
 ///  set filtering precision (from -1 to 3) (default auto)
 /// </summary>
 public EqualizerFilterGen r(EqualizerFilterGenR r) => this.SetOption("r", r.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set the block size (from 0 to 32768) (default 0)
+/// </summary>
+public EqualizerFilterGen blocksize(int blocksize) => this.SetOptionRange("blocksize", blocksize,0,32768);
 }
 /// <summary>
 /// </summary>
@@ -119,7 +123,7 @@ public enum EqualizerFilterGenT
 }
 
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum EqualizerFilterGenTransform
 {
@@ -132,21 +136,29 @@ public enum EqualizerFilterGenTransform
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>
-///  set transform type (from 0 to 4) (default di)
+///  set transform type (from 0 to 6) (default di)
 /// </summary>
 public enum EqualizerFilterGenA
 {
@@ -159,17 +171,25 @@ public enum EqualizerFilterGenA
 /// </summary>
 [Name("dii")] dii,
 /// <summary>
-/// tdii            2            ..F.A...... transposed direct form II
+/// tdi             2            ..F.A...... transposed direct form I
+/// </summary>
+[Name("tdi")] tdi,
+/// <summary>
+/// tdii            3            ..F.A...... transposed direct form II
 /// </summary>
 [Name("tdii")] tdii,
 /// <summary>
-/// latt            3            ..F.A...... lattice-ladder form
+/// latt            4            ..F.A...... lattice-ladder form
 /// </summary>
 [Name("latt")] latt,
 /// <summary>
-/// svf             4            ..F.A...... state variable filter form
+/// svf             5            ..F.A...... state variable filter form
 /// </summary>
 [Name("svf")] svf,
+/// <summary>
+/// zdf             6            ..F.A...... zero-delay filter form
+/// </summary>
+[Name("zdf")] zdf,
 }
 
 /// <summary>

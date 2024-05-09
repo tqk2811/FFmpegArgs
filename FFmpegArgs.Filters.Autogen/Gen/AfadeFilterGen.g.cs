@@ -35,9 +35,17 @@ public AfadeFilterGen start_time(TimeSpan start_time) => this.SetOptionRange("st
 /// </summary>
 public AfadeFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set fade curve type (from -1 to 18) (default tri)
+///  set fade curve type (from -1 to 22) (default tri)
 /// </summary>
 public AfadeFilterGen curve(AfadeFilterGenCurve curve) => this.SetOption("curve", curve.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set the silence gain (from 0 to 1) (default 0)
+/// </summary>
+public AfadeFilterGen silence(double silence) => this.SetOptionRange("silence", silence,0,1);
+/// <summary>
+///  set the unity gain (from 0 to 1) (default 1)
+/// </summary>
+public AfadeFilterGen unity(double unity) => this.SetOptionRange("unity", unity,0,1);
 }
 /// <summary>
 /// </summary>
@@ -64,7 +72,7 @@ public enum AfadeFilterGenType
 }
 
 /// <summary>
-///  set fade curve type (from -1 to 18) (default tri)
+///  set fade curve type (from -1 to 22) (default tri)
 /// </summary>
 public enum AfadeFilterGenCurve
 {
@@ -148,6 +156,22 @@ public enum AfadeFilterGenCurve
 /// isinc           18           ..F.A....T. inverted sine cardinal function
 /// </summary>
 [Name("isinc")] isinc,
+/// <summary>
+/// quat            19           ..F.A....T. quartic
+/// </summary>
+[Name("quat")] quat,
+/// <summary>
+/// quatr           20           ..F.A....T. quartic root
+/// </summary>
+[Name("quatr")] quatr,
+/// <summary>
+/// qsin2           21           ..F.A....T. squared quarter of sine wave
+/// </summary>
+[Name("qsin2")] qsin2,
+/// <summary>
+/// hsin2           22           ..F.A....T. squared half of sine wave
+/// </summary>
+[Name("hsin2")] hsin2,
 }
 
 }

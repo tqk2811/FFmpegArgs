@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... setpts            V->V       Set PTS for the output video frame.
+/// ..C setpts            V->V       Set PTS for the output video frame.
 /// </summary>
-public class SetptsFilterGen : ImageToImageFilter
+public class SetptsFilterGen : ImageToImageFilter,ICommandSupport
 {
 internal SetptsFilterGen(ImageMap input) : base("setpts",input) { AddMapOut(); }
 /// <summary>

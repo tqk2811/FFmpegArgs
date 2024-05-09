@@ -25,11 +25,11 @@ public AmplifyFilterGen tolerance(float tolerance) => this.SetOptionRange("toler
 /// <summary>
 ///  set low limit for amplification (from 0 to 65535) (default 65535)
 /// </summary>
-public AmplifyFilterGen low(int low) => this.SetOptionRange("low", low,0,65535);
+public AmplifyFilterGen low(float low) => this.SetOptionRange("low", low,0,65535);
 /// <summary>
 ///  set high limit for amplification (from 0 to 65535) (default 65535)
 /// </summary>
-public AmplifyFilterGen high(int high) => this.SetOptionRange("high", high,0,65535);
+public AmplifyFilterGen high(float high) => this.SetOptionRange("high", high,0,65535);
 /// <summary>
 ///  set what planes to filter (default 7)
 /// </summary>

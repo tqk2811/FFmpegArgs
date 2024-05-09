@@ -27,7 +27,7 @@ public OverlayFilterGen eval(OverlayFilterGenEval eval) => this.SetOption("eval"
 /// </summary>
 public OverlayFilterGen shortest(bool shortest) => this.SetOption("shortest",shortest.ToFFmpegFlag());
 /// <summary>
-///  set output format (from 0 to 7) (default yuv420)
+///  set output format (from 0 to 8) (default yuv420)
 /// </summary>
 public OverlayFilterGen format(OverlayFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -83,7 +83,7 @@ public enum OverlayFilterGenEval
 }
 
 /// <summary>
-///  set output format (from 0 to 7) (default yuv420)
+///  set output format (from 0 to 8) (default yuv420)
 /// </summary>
 public enum OverlayFilterGenFormat
 {
@@ -108,15 +108,19 @@ public enum OverlayFilterGenFormat
 /// </summary>
 [Name("yuv444")] yuv444,
 /// <summary>
-/// rgb             5            ..FV.......
+/// yuv444p10       5            ..FV.......
+/// </summary>
+[Name("yuv444p10")] yuv444p10,
+/// <summary>
+/// rgb             6            ..FV.......
 /// </summary>
 [Name("rgb")] rgb,
 /// <summary>
-/// gbrp            6            ..FV.......
+/// gbrp            7            ..FV.......
 /// </summary>
 [Name("gbrp")] gbrp,
 /// <summary>
-/// auto            7            ..FV.......
+/// auto            8            ..FV.......
 /// </summary>
 [Name("auto")] auto,
 }

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// T.. displace          VVV->V     Displace pixels.
+/// TSC displace          VVV->V     Displace pixels.
 /// </summary>
-public class DisplaceFilterGen : ImageToImageFilter,ITimelineSupport
+public class DisplaceFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal DisplaceFilterGen(params ImageMap[] inputs) : base("displace",inputs) { AddMapOut(); }
 /// <summary>
@@ -26,19 +26,19 @@ public static DisplaceFilterGen DisplaceFilterGen(this ImageMap input0, ImageMap
 public enum DisplaceFilterGenEdge
 {
 /// <summary>
-/// blank           0            ..FV.......
+/// blank           0            ..FV.....T.
 /// </summary>
 [Name("blank")] blank,
 /// <summary>
-/// smear           1            ..FV.......
+/// smear           1            ..FV.....T.
 /// </summary>
 [Name("smear")] smear,
 /// <summary>
-/// wrap            2            ..FV.......
+/// wrap            2            ..FV.....T.
 /// </summary>
 [Name("wrap")] wrap,
 /// <summary>
-/// mirror          3            ..FV.......
+/// mirror          3            ..FV.....T.
 /// </summary>
 [Name("mirror")] mirror,
 }

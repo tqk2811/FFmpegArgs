@@ -11,9 +11,9 @@ internal ColorkeyFilterGen(ImageMap input) : base("colorkey",input) { AddMapOut(
 /// </summary>
 public ColorkeyFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>
-///  set the colorkey similarity value (from 0.01 to 1) (default 0.01)
+///  set the colorkey similarity value (from 1e-05 to 1) (default 0.01)
 /// </summary>
-public ColorkeyFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,0.01,1);
+public ColorkeyFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,1e-05,1);
 /// <summary>
 ///  set the colorkey key blend value (from 0 to 1) (default 0)
 /// </summary>

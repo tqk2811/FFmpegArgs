@@ -11,9 +11,9 @@ internal ChromakeyFilterGen(ImageMap input) : base("chromakey",input) { AddMapOu
 /// </summary>
 public ChromakeyFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>
-///  set the chromakey similarity value (from 0.01 to 1) (default 0.01)
+///  set the chromakey similarity value (from 1e-05 to 1) (default 0.01)
 /// </summary>
-public ChromakeyFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,0.01,1);
+public ChromakeyFilterGen similarity(float similarity) => this.SetOptionRange("similarity", similarity,1e-05,1);
 /// <summary>
 ///  set the chromakey key blend value (from 0 to 1) (default 0)
 /// </summary>

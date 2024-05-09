@@ -11,7 +11,7 @@ internal FieldhintFilterGen(ImageMap input) : base("fieldhint",input) { AddMapOu
 /// </summary>
 public FieldhintFilterGen hint(string hint) => this.SetOption("hint",hint);
 /// <summary>
-///  set hint mode (from 0 to 1) (default absolute)
+///  set hint mode (from 0 to 2) (default absolute)
 /// </summary>
 public FieldhintFilterGen mode(FieldhintFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -25,7 +25,7 @@ public static class FieldhintFilterGenExtensions
 public static FieldhintFilterGen FieldhintFilterGen(this ImageMap input0) => new FieldhintFilterGen(input0);
 }
 /// <summary>
-///  set hint mode (from 0 to 1) (default absolute)
+///  set hint mode (from 0 to 2) (default absolute)
 /// </summary>
 public enum FieldhintFilterGenMode
 {
@@ -37,6 +37,10 @@ public enum FieldhintFilterGenMode
 /// relative        1            ..FV.......
 /// </summary>
 [Name("relative")] relative,
+/// <summary>
+/// pattern         2            ..FV.......
+/// </summary>
+[Name("pattern")] pattern,
 }
 
 }

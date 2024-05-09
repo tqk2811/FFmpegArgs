@@ -11,11 +11,11 @@ internal ChromanrFilterGen(ImageMap input) : base("chromanr",input) { AddMapOut(
 /// </summary>
 public ChromanrFilterGen thres(float thres) => this.SetOptionRange("thres", thres,1,200);
 /// <summary>
-///  set horizontal size (from 1 to 100) (default 5)
+///  set horizontal patch size (from 1 to 100) (default 5)
 /// </summary>
 public ChromanrFilterGen sizew(int sizew) => this.SetOptionRange("sizew", sizew,1,100);
 /// <summary>
-///  set vertical size (from 1 to 100) (default 5)
+///  set vertical patch size (from 1 to 100) (default 5)
 /// </summary>
 public ChromanrFilterGen sizeh(int sizeh) => this.SetOptionRange("sizeh", sizeh,1,100);
 /// <summary>

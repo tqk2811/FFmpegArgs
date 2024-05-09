@@ -42,6 +42,10 @@ public AnoisesrcFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1
 ///  set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
 /// </summary>
 public AnoisesrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples,1,INT_MAX);
+/// <summary>
+///  set density (from 0 to 1) (default 0.05)
+/// </summary>
+public AnoisesrcFilterGen density(double density) => this.SetOptionRange("density", density,0,1);
 }
 /// <summary>
 /// </summary>

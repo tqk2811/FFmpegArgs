@@ -22,6 +22,10 @@ public Gblur_vulkanFilterGen planes(int planes) => this.SetOptionRange("planes",
 ///  Set kernel size (from 1 to 127) (default 19)
 /// </summary>
 public Gblur_vulkanFilterGen size(int size) => this.SetOptionRange("size", size,1,127);
+/// <summary>
+///  Set vertical kernel size (from 0 to 127) (default 0)
+/// </summary>
+public Gblur_vulkanFilterGen sizeV(int sizeV) => this.SetOptionRange("sizeV", sizeV,0,127);
 }
 /// <summary>
 /// </summary>

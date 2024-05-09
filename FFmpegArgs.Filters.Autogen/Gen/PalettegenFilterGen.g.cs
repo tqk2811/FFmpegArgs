@@ -7,9 +7,9 @@ public class PalettegenFilterGen : ImageToImageFilter
 {
 internal PalettegenFilterGen(ImageMap input) : base("palettegen",input) { AddMapOut(); }
 /// <summary>
-///  set the maximum number of colors to use in the palette (from 4 to 256) (default 256)
+///  set the maximum number of colors to use in the palette (from 2 to 256) (default 256)
 /// </summary>
-public PalettegenFilterGen max_colors(int max_colors) => this.SetOptionRange("max_colors", max_colors,4,256);
+public PalettegenFilterGen max_colors(int max_colors) => this.SetOptionRange("max_colors", max_colors,2,256);
 /// <summary>
 ///  reserve a palette entry for transparency (default true)
 /// </summary>
@@ -22,10 +22,6 @@ public PalettegenFilterGen transparency_color(Color transparency_color) => this.
 ///  set statistics mode (from 0 to 2) (default full)
 /// </summary>
 public PalettegenFilterGen stats_mode(PalettegenFilterGenStats_mode stats_mode) => this.SetOption("stats_mode", stats_mode.GetEnumAttribute<NameAttribute>().Name);
-/// <summary>
-///  create a palette including alpha values (default false)
-/// </summary>
-public PalettegenFilterGen use_alpha(bool use_alpha) => this.SetOption("use_alpha",use_alpha.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

@@ -43,9 +43,9 @@ public DrawtextFilterGen shadowcolor(Color shadowcolor) => this.SetOption("shado
 /// </summary>
 public DrawtextFilterGen box(bool box) => this.SetOption("box",box.ToFFmpegFlag());
 /// <summary>
-///  set box border width (from INT_MIN to INT_MAX) (default 0)
+///  set box borders width (default "0")
 /// </summary>
-public DrawtextFilterGen boxborderw(int boxborderw) => this.SetOptionRange("boxborderw", boxborderw,INT_MIN,INT_MAX);
+public DrawtextFilterGen boxborderw(string boxborderw) => this.SetOption("boxborderw",boxborderw);
 /// <summary>
 ///  set line spacing in pixels (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
@@ -55,6 +55,10 @@ public DrawtextFilterGen line_spacing(int line_spacing) => this.SetOptionRange("
 /// </summary>
 public DrawtextFilterGen fontsize(string fontsize) => this.SetOption("fontsize",fontsize);
 /// <summary>
+///  set text alignment (default 0)
+/// </summary>
+public DrawtextFilterGen text_align(DrawtextFilterGenText_align text_align) => this.SetOption("text_align", text_align.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
 ///  set x expression (default "0")
 /// </summary>
 public DrawtextFilterGen x(string x) => this.SetOption("x",x);
@@ -62,6 +66,14 @@ public DrawtextFilterGen x(string x) => this.SetOption("x",x);
 ///  set y expression (default "0")
 /// </summary>
 public DrawtextFilterGen y(string y) => this.SetOption("y",y);
+/// <summary>
+///  set box width (from 0 to INT_MAX) (default 0)
+/// </summary>
+public DrawtextFilterGen boxw(int boxw) => this.SetOptionRange("boxw", boxw,0,INT_MAX);
+/// <summary>
+///  set box height (from 0 to INT_MAX) (default 0)
+/// </summary>
+public DrawtextFilterGen boxh(int boxh) => this.SetOptionRange("boxh", boxh,0,INT_MAX);
 /// <summary>
 ///  set shadow x offset (from INT_MIN to INT_MAX) (default 0)
 /// </summary>
@@ -91,6 +103,10 @@ public DrawtextFilterGen font(string font) => this.SetOption("font",font);
 /// </summary>
 public DrawtextFilterGen expansion(DrawtextFilterGenExpansion expansion) => this.SetOption("expansion", expansion.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
+///  set the y alignment (from 0 to 2) (default text)
+/// </summary>
+public DrawtextFilterGen y_align(DrawtextFilterGenY_align y_align) => this.SetOption("y_align", y_align.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
 ///  set initial timecode
 /// </summary>
 public DrawtextFilterGen timecode(string timecode) => this.SetOption("timecode",timecode);
@@ -111,9 +127,9 @@ public DrawtextFilterGen r(Rational r) => this.SetOption("r",r.Check(0,INT_MAX))
 /// </summary>
 public DrawtextFilterGen rate(Rational rate) => this.SetOption("rate",rate.Check(0,INT_MAX));
 /// <summary>
-///  reload text file for each frame (default false)
+///  reload text file at specified frame interval (from 0 to INT_MAX) (default 0)
 /// </summary>
-public DrawtextFilterGen reload(bool reload) => this.SetOption("reload",reload.ToFFmpegFlag());
+public DrawtextFilterGen reload(int reload) => this.SetOptionRange("reload", reload,0,INT_MAX);
 /// <summary>
 ///  apply alpha while rendering (default "1")
 /// </summary>
@@ -149,6 +165,61 @@ public static class DrawtextFilterGenExtensions
 public static DrawtextFilterGen DrawtextFilterGen(this ImageMap input0) => new DrawtextFilterGen(input0);
 }
 /// <summary>
+///  set text alignment (default 0)
+/// </summary>
+public enum DrawtextFilterGenText_align
+{
+/// <summary>
+/// left                         ..FV.....T.
+/// </summary>
+[Name("left")] left,
+/// <summary>
+/// L                            ..FV.....T.
+/// </summary>
+[Name("L")] L,
+/// <summary>
+/// right                        ..FV.....T.
+/// </summary>
+[Name("right")] right,
+/// <summary>
+/// R                            ..FV.....T.
+/// </summary>
+[Name("R")] R,
+/// <summary>
+/// center                       ..FV.....T.
+/// </summary>
+[Name("center")] center,
+/// <summary>
+/// C                            ..FV.....T.
+/// </summary>
+[Name("C")] C,
+/// <summary>
+/// top                          ..FV.....T.
+/// </summary>
+[Name("top")] top,
+/// <summary>
+/// T                            ..FV.....T.
+/// </summary>
+[Name("T")] T,
+/// <summary>
+/// bottom                       ..FV.....T.
+/// </summary>
+[Name("bottom")] bottom,
+/// <summary>
+/// B                            ..FV.....T.
+/// </summary>
+[Name("B")] B,
+/// <summary>
+/// middle                       ..FV.....T.
+/// </summary>
+[Name("middle")] middle,
+/// <summary>
+/// M                            ..FV.....T.
+/// </summary>
+[Name("M")] M,
+}
+
+/// <summary>
 ///  set the expansion mode (from 0 to 2) (default normal)
 /// </summary>
 public enum DrawtextFilterGenExpansion
@@ -165,6 +236,25 @@ public enum DrawtextFilterGenExpansion
 /// strftime        2            ..FV....... set strftime expansion (deprecated)
 /// </summary>
 [Name("strftime")] strftime,
+}
+
+/// <summary>
+///  set the y alignment (from 0 to 2) (default text)
+/// </summary>
+public enum DrawtextFilterGenY_align
+{
+/// <summary>
+/// text            0            ..FV....... y is referred to the top of the first text line
+/// </summary>
+[Name("text")] text,
+/// <summary>
+/// baseline        1            ..FV....... y is referred to the baseline of the first line
+/// </summary>
+[Name("baseline")] baseline,
+/// <summary>
+/// font            2            ..FV....... y is referred to the font defined line metrics
+/// </summary>
+[Name("font")] font,
 }
 
 /// <summary>

@@ -11,6 +11,10 @@ internal MpdecimateFilterGen(ImageMap input) : base("mpdecimate",input) { AddMap
 /// </summary>
 public MpdecimateFilterGen max(int max) => this.SetOptionRange("max", max,INT_MIN,INT_MAX);
 /// <summary>
+///  set the number of similar consecutive frames to be kept before starting to drop similar frames (from 0 to INT_MAX) (default 0)
+/// </summary>
+public MpdecimateFilterGen keep(int keep) => this.SetOptionRange("keep", keep,0,INT_MAX);
+/// <summary>
 ///  set high dropping threshold (from INT_MIN to INT_MAX) (default 768)
 /// </summary>
 public MpdecimateFilterGen hi(int hi) => this.SetOptionRange("hi", hi,INT_MIN,INT_MAX);

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// ... silenceremove     A->A       Remove silence.
+/// T.C silenceremove     A->A       Remove silence.
 /// </summary>
-public class SilenceremoveFilterGen : AudioToAudioFilter
+public class SilenceremoveFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal SilenceremoveFilterGen(AudioMap input) : base("silenceremove",input) { AddMapOut(); }
 /// <summary>
@@ -31,7 +31,7 @@ public SilenceremoveFilterGen start_mode(SilenceremoveFilterGenStart_mode start_
 /// </summary>
 public SilenceremoveFilterGen stop_periods(int stop_periods) => this.SetOptionRange("stop_periods", stop_periods,-9000,9000);
 /// <summary>
-///  set stop duration of non-silence part (default 0)
+///  set stop duration of silence part (default 0)
 /// </summary>
 public SilenceremoveFilterGen stop_duration(TimeSpan stop_duration) => this.SetOptionRange("stop_duration",stop_duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
@@ -43,17 +43,21 @@ public SilenceremoveFilterGen stop_threshold(double stop_threshold) => this.SetO
 /// </summary>
 public SilenceremoveFilterGen stop_silence(TimeSpan stop_silence) => this.SetOptionRange("stop_silence",stop_silence,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set which channel will trigger trimming from end (from 0 to 1) (default any)
+///  set which channel will trigger trimming from end (from 0 to 1) (default all)
 /// </summary>
 public SilenceremoveFilterGen stop_mode(SilenceremoveFilterGenStop_mode stop_mode) => this.SetOption("stop_mode", stop_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set how silence is detected (from 0 to 1) (default rms)
+///  set how silence is detected (from 0 to 5) (default rms)
 /// </summary>
 public SilenceremoveFilterGen detection(SilenceremoveFilterGenDetection detection) => this.SetOption("detection", detection.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set duration of window for silence detection (default 0.02)
 /// </summary>
 public SilenceremoveFilterGen window(TimeSpan window) => this.SetOptionRange("window",window,TimeSpan.Zero,TimeSpan.MaxValue);
+/// <summary>
+///  set how every output frame timestamp is processed (from 0 to 1) (default write)
+/// </summary>
+public SilenceremoveFilterGen timestamp(SilenceremoveFilterGenTimestamp timestamp) => this.SetOption("timestamp", timestamp.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -70,43 +74,74 @@ public static SilenceremoveFilterGen SilenceremoveFilterGen(this AudioMap input0
 public enum SilenceremoveFilterGenStart_mode
 {
 /// <summary>
-/// any             0            ..F.A......
+/// any             0            ..F.A....T.
 /// </summary>
 [Name("any")] any,
 /// <summary>
-/// all             1            ..F.A......
+/// all             1            ..F.A....T.
 /// </summary>
 [Name("all")] all,
 }
 
 /// <summary>
-///  set which channel will trigger trimming from end (from 0 to 1) (default any)
+///  set which channel will trigger trimming from end (from 0 to 1) (default all)
 /// </summary>
 public enum SilenceremoveFilterGenStop_mode
 {
 /// <summary>
-/// any             0            ..F.A......
+/// any             0            ..F.A....T.
 /// </summary>
 [Name("any")] any,
 /// <summary>
-/// all             1            ..F.A......
+/// all             1            ..F.A....T.
 /// </summary>
 [Name("all")] all,
 }
 
 /// <summary>
-///  set how silence is detected (from 0 to 1) (default rms)
+///  set how silence is detected (from 0 to 5) (default rms)
 /// </summary>
 public enum SilenceremoveFilterGenDetection
 {
 /// <summary>
-/// peak            0            ..F.A...... use absolute values of samples
+/// avg             0            ..F.A...... use mean absolute values of samples
+/// </summary>
+[Name("avg")] avg,
+/// <summary>
+/// rms             1            ..F.A...... use root mean squared values of samples
+/// </summary>
+[Name("rms")] rms,
+/// <summary>
+/// peak            2            ..F.A...... use max absolute values of samples
 /// </summary>
 [Name("peak")] peak,
 /// <summary>
-/// rms             1            ..F.A...... use squared values of samples
+/// median          3            ..F.A...... use median of absolute values of samples
 /// </summary>
-[Name("rms")] rms,
+[Name("median")] median,
+/// <summary>
+/// ptp             4            ..F.A...... use absolute of max peak to min peak difference
+/// </summary>
+[Name("ptp")] ptp,
+/// <summary>
+/// dev             5            ..F.A...... use standard deviation from values of samples
+/// </summary>
+[Name("dev")] dev,
+}
+
+/// <summary>
+///  set how every output frame timestamp is processed (from 0 to 1) (default write)
+/// </summary>
+public enum SilenceremoveFilterGenTimestamp
+{
+/// <summary>
+/// write           0            ..F.A...... full timestamps rewrite, keep only the start time
+/// </summary>
+[Name("write")] write,
+/// <summary>
+/// copy            1            ..F.A...... non-dropped frames are left with same timestamp
+/// </summary>
+[Name("copy")] copy,
 }
 
 }

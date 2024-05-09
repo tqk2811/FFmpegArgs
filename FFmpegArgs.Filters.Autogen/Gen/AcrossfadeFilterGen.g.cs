@@ -23,19 +23,19 @@ public AcrossfadeFilterGen duration(TimeSpan duration) => this.SetOptionRange("d
 /// </summary>
 public AcrossfadeFilterGen overlap(bool overlap) => this.SetOption("overlap",overlap.ToFFmpegFlag());
 /// <summary>
-///  set fade curve type for 1st stream (from -1 to 18) (default tri)
+///  set fade curve type for 1st stream (from -1 to 22) (default tri)
 /// </summary>
 public AcrossfadeFilterGen curve1(AcrossfadeFilterGenCurve1 curve1) => this.SetOption("curve1", curve1.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set fade curve type for 1st stream (from -1 to 18) (default tri)
+///  set fade curve type for 1st stream (from -1 to 22) (default tri)
 /// </summary>
 public AcrossfadeFilterGen c1(AcrossfadeFilterGenC1 c1) => this.SetOption("c1", c1.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
+///  set fade curve type for 2nd stream (from -1 to 22) (default tri)
 /// </summary>
 public AcrossfadeFilterGen curve2(AcrossfadeFilterGenCurve2 curve2) => this.SetOption("curve2", curve2.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
+///  set fade curve type for 2nd stream (from -1 to 22) (default tri)
 /// </summary>
 public AcrossfadeFilterGen c2(AcrossfadeFilterGenC2 c2) => this.SetOption("c2", c2.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -49,7 +49,7 @@ public static class AcrossfadeFilterGenExtensions
 public static AcrossfadeFilterGen AcrossfadeFilterGen(this AudioMap input0, AudioMap input1) => new AcrossfadeFilterGen(input0, input1);
 }
 /// <summary>
-///  set fade curve type for 1st stream (from -1 to 18) (default tri)
+///  set fade curve type for 1st stream (from -1 to 22) (default tri)
 /// </summary>
 public enum AcrossfadeFilterGenCurve1
 {
@@ -133,10 +133,26 @@ public enum AcrossfadeFilterGenCurve1
 /// isinc           18           ..F.A...... inverted sine cardinal function
 /// </summary>
 [Name("isinc")] isinc,
+/// <summary>
+/// quat            19           ..F.A...... quartic
+/// </summary>
+[Name("quat")] quat,
+/// <summary>
+/// quatr           20           ..F.A...... quartic root
+/// </summary>
+[Name("quatr")] quatr,
+/// <summary>
+/// qsin2           21           ..F.A...... squared quarter of sine wave
+/// </summary>
+[Name("qsin2")] qsin2,
+/// <summary>
+/// hsin2           22           ..F.A...... squared half of sine wave
+/// </summary>
+[Name("hsin2")] hsin2,
 }
 
 /// <summary>
-///  set fade curve type for 1st stream (from -1 to 18) (default tri)
+///  set fade curve type for 1st stream (from -1 to 22) (default tri)
 /// </summary>
 public enum AcrossfadeFilterGenC1
 {
@@ -220,10 +236,26 @@ public enum AcrossfadeFilterGenC1
 /// isinc           18           ..F.A...... inverted sine cardinal function
 /// </summary>
 [Name("isinc")] isinc,
+/// <summary>
+/// quat            19           ..F.A...... quartic
+/// </summary>
+[Name("quat")] quat,
+/// <summary>
+/// quatr           20           ..F.A...... quartic root
+/// </summary>
+[Name("quatr")] quatr,
+/// <summary>
+/// qsin2           21           ..F.A...... squared quarter of sine wave
+/// </summary>
+[Name("qsin2")] qsin2,
+/// <summary>
+/// hsin2           22           ..F.A...... squared half of sine wave
+/// </summary>
+[Name("hsin2")] hsin2,
 }
 
 /// <summary>
-///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
+///  set fade curve type for 2nd stream (from -1 to 22) (default tri)
 /// </summary>
 public enum AcrossfadeFilterGenCurve2
 {
@@ -307,10 +339,26 @@ public enum AcrossfadeFilterGenCurve2
 /// isinc           18           ..F.A...... inverted sine cardinal function
 /// </summary>
 [Name("isinc")] isinc,
+/// <summary>
+/// quat            19           ..F.A...... quartic
+/// </summary>
+[Name("quat")] quat,
+/// <summary>
+/// quatr           20           ..F.A...... quartic root
+/// </summary>
+[Name("quatr")] quatr,
+/// <summary>
+/// qsin2           21           ..F.A...... squared quarter of sine wave
+/// </summary>
+[Name("qsin2")] qsin2,
+/// <summary>
+/// hsin2           22           ..F.A...... squared half of sine wave
+/// </summary>
+[Name("hsin2")] hsin2,
 }
 
 /// <summary>
-///  set fade curve type for 2nd stream (from -1 to 18) (default tri)
+///  set fade curve type for 2nd stream (from -1 to 22) (default tri)
 /// </summary>
 public enum AcrossfadeFilterGenC2
 {
@@ -394,6 +442,22 @@ public enum AcrossfadeFilterGenC2
 /// isinc           18           ..F.A...... inverted sine cardinal function
 /// </summary>
 [Name("isinc")] isinc,
+/// <summary>
+/// quat            19           ..F.A...... quartic
+/// </summary>
+[Name("quat")] quat,
+/// <summary>
+/// quatr           20           ..F.A...... quartic root
+/// </summary>
+[Name("quatr")] quatr,
+/// <summary>
+/// qsin2           21           ..F.A...... squared quarter of sine wave
+/// </summary>
+[Name("qsin2")] qsin2,
+/// <summary>
+/// hsin2           22           ..F.A...... squared half of sine wave
+/// </summary>
+[Name("hsin2")] hsin2,
 }
 
 }

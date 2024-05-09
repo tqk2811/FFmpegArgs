@@ -38,10 +38,6 @@ public BufferFilterGen time_base(Rational time_base) => this.SetOption("time_bas
 ///  (from 0 to DBL_MAX) (default 0/1)
 /// </summary>
 public BufferFilterGen frame_rate(Rational frame_rate) => this.SetOption("frame_rate",frame_rate.Check(0,DBL_MAX));
-/// <summary>
-/// 
-/// </summary>
-public BufferFilterGen sws_param(string sws_param) => this.SetOption("sws_param",sws_param);
 }
 /// <summary>
 /// </summary>

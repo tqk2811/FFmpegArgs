@@ -38,6 +38,10 @@ public SubtitlesFilterGen si(int si) => this.SetOptionRange("si", si,-1,INT_MAX)
 ///  force subtitle style
 /// </summary>
 public SubtitlesFilterGen force_style(string force_style) => this.SetOption("force_style",force_style);
+/// <summary>
+///  break lines according to the Unicode Line Breaking Algorithm (default auto)
+/// </summary>
+public SubtitlesFilterGen wrap_unicode(bool wrap_unicode) => this.SetOption("wrap_unicode",wrap_unicode.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

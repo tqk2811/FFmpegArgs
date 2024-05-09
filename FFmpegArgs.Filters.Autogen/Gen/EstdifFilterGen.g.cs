@@ -27,17 +27,17 @@ public EstdifFilterGen rslope(int rslope) => this.SetOptionRange("rslope", rslop
 /// </summary>
 public EstdifFilterGen redge(int redge) => this.SetOptionRange("redge", redge,0,15);
 /// <summary>
-///  specify the edge cost for edge matching (from 0 to 1) (default 0.03125)
+///  specify the edge cost for edge matching (from 0 to 50) (default 2)
 /// </summary>
-public EstdifFilterGen ecost(float ecost) => this.SetOptionRange("ecost", ecost,0,1);
+public EstdifFilterGen ecost(int ecost) => this.SetOptionRange("ecost", ecost,0,50);
 /// <summary>
-///  specify the middle cost for edge matching (from 0 to 1) (default 0.5)
+///  specify the middle cost for edge matching (from 0 to 50) (default 1)
 /// </summary>
-public EstdifFilterGen mcost(float mcost) => this.SetOptionRange("mcost", mcost,0,1);
+public EstdifFilterGen mcost(int mcost) => this.SetOptionRange("mcost", mcost,0,50);
 /// <summary>
-///  specify the distance cost for edge matching (from 0 to 1) (default 0.5)
+///  specify the distance cost for edge matching (from 0 to 50) (default 1)
 /// </summary>
-public EstdifFilterGen dcost(float dcost) => this.SetOptionRange("dcost", dcost,0,1);
+public EstdifFilterGen dcost(int dcost) => this.SetOptionRange("dcost", dcost,0,50);
 /// <summary>
 ///  specify the type of interpolation (from 0 to 2) (default 4p)
 /// </summary>

@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// .S. waveform          V->V       Video waveform monitor.
+/// .SC waveform          V->V       Video waveform monitor.
 /// </summary>
-public class WaveformFilterGen : ImageToImageFilter,ISliceThreading
+public class WaveformFilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
 {
 internal WaveformFilterGen(ImageMap input) : base("waveform",input) { AddMapOut(); }
 /// <summary>
@@ -82,6 +82,10 @@ public WaveformFilterGen fitmode(WaveformFilterGenFitmode fitmode) => this.SetOp
 ///  set fit mode (from 0 to 1) (default none)
 /// </summary>
 public WaveformFilterGen fm(WaveformFilterGenFm fm) => this.SetOption("fm", fm.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  set input formats selection (from 0 to 1) (default first)
+/// </summary>
+public WaveformFilterGen input(WaveformFilterGenInput input) => this.SetOption("input", input.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
@@ -132,19 +136,19 @@ public enum WaveformFilterGenDisplay
 public enum WaveformFilterGenEnvelope
 {
 /// <summary>
-/// none            0            ..FV.......
+/// none            0            ..FV.....T.
 /// </summary>
 [Name("none")] none,
 /// <summary>
-/// instant         1            ..FV.......
+/// instant         1            ..FV.....T.
 /// </summary>
 [Name("instant")] instant,
 /// <summary>
-/// peak            2            ..FV.......
+/// peak            2            ..FV.....T.
 /// </summary>
 [Name("peak")] peak,
 /// <summary>
-/// peak+instant    3            ..FV.......
+/// peak+instant    3            ..FV.....T.
 /// </summary>
 [Name("peak+instant")] peakPlusinstant,
 }
@@ -217,11 +221,11 @@ public enum WaveformFilterGenGraticule
 public enum WaveformFilterGenFlags
 {
 /// <summary>
-/// numbers                      ..FV....... draw numbers
+/// numbers                      ..FV.....T. draw numbers
 /// </summary>
 [Name("numbers")] numbers,
 /// <summary>
-/// dots                         ..FV....... draw dots instead of lines
+/// dots                         ..FV.....T. draw dots instead of lines
 /// </summary>
 [Name("dots")] dots,
 }
@@ -273,6 +277,21 @@ public enum WaveformFilterGenFm
 /// size            1            ..FV.......
 /// </summary>
 [Name("size")] size,
+}
+
+/// <summary>
+///  set input formats selection (from 0 to 1) (default first)
+/// </summary>
+public enum WaveformFilterGenInput
+{
+/// <summary>
+/// all             0            ..FV....... try to select from all available formats
+/// </summary>
+[Name("all")] all,
+/// <summary>
+/// first           1            ..FV....... pick first available format
+/// </summary>
+[Name("first")] first,
 }
 
 }

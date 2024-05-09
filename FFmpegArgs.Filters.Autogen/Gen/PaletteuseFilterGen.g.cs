@@ -7,7 +7,7 @@ public class PaletteuseFilterGen : ImageToImageFilter
 {
 internal PaletteuseFilterGen(params ImageMap[] inputs) : base("paletteuse",inputs) { AddMapOut(); }
 /// <summary>
-///  select dithering mode (from 0 to 5) (default sierra2_4a)
+///  select dithering mode (from 0 to 8) (default sierra2_4a)
 /// </summary>
 public PaletteuseFilterGen dither(PaletteuseFilterGenDither dither) => this.SetOption("dither", dither.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -27,25 +27,9 @@ public PaletteuseFilterGen _new(bool _new) => this.SetOption("new",_new.ToFFmpeg
 /// </summary>
 public PaletteuseFilterGen alpha_threshold(int alpha_threshold) => this.SetOptionRange("alpha_threshold", alpha_threshold,0,255);
 /// <summary>
-///  use alpha channel for mapping (default false)
-/// </summary>
-public PaletteuseFilterGen use_alpha(bool use_alpha) => this.SetOption("use_alpha",use_alpha.ToFFmpegFlag());
-/// <summary>
 ///  save Graphviz graph of the kdtree in specified file
 /// </summary>
 public PaletteuseFilterGen debug_kdtree(string debug_kdtree) => this.SetOption("debug_kdtree",debug_kdtree);
-/// <summary>
-///  set reverse colormap color search method (from 0 to 2) (default nns_iterative)
-/// </summary>
-public PaletteuseFilterGen color_search(PaletteuseFilterGenColor_search color_search) => this.SetOption("color_search", color_search.GetEnumAttribute<NameAttribute>().Name);
-/// <summary>
-///  compute and print mean error (default false)
-/// </summary>
-public PaletteuseFilterGen mean_err(bool mean_err) => this.SetOption("mean_err",mean_err.ToFFmpegFlag());
-/// <summary>
-///  test color search accuracy (default false)
-/// </summary>
-public PaletteuseFilterGen debug_accuracy(bool debug_accuracy) => this.SetOption("debug_accuracy",debug_accuracy.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>
@@ -57,7 +41,7 @@ public static class PaletteuseFilterGenExtensions
 public static PaletteuseFilterGen PaletteuseFilterGen(this ImageMap input0, ImageMap input1) => new PaletteuseFilterGen(input0, input1);
 }
 /// <summary>
-///  select dithering mode (from 0 to 5) (default sierra2_4a)
+///  select dithering mode (from 0 to 8) (default sierra2_4a)
 /// </summary>
 public enum PaletteuseFilterGenDither
 {
@@ -81,6 +65,18 @@ public enum PaletteuseFilterGenDither
 /// sierra2_4a      5            ..FV....... Frankie Sierra dithering v2 "Lite" (error diffusion)
 /// </summary>
 [Name("sierra2_4a")] sierra2_4a,
+/// <summary>
+/// sierra3         6            ..FV....... Frankie Sierra dithering v3 (error diffusion)
+/// </summary>
+[Name("sierra3")] sierra3,
+/// <summary>
+/// burkes          7            ..FV....... Burkes dithering (error diffusion)
+/// </summary>
+[Name("burkes")] burkes,
+/// <summary>
+/// atkinson        8            ..FV....... Atkinson dithering by Bill Atkinson at Apple Computer (error diffusion)
+/// </summary>
+[Name("atkinson")] atkinson,
 }
 
 /// <summary>
@@ -92,25 +88,6 @@ public enum PaletteuseFilterGenDiff_mode
 /// rectangle       1            ..FV....... process smallest different rectangle
 /// </summary>
 [Name("rectangle")] rectangle,
-}
-
-/// <summary>
-///  set reverse colormap color search method (from 0 to 2) (default nns_iterative)
-/// </summary>
-public enum PaletteuseFilterGenColor_search
-{
-/// <summary>
-/// nns_iterative   0            ..FV....... iterative search
-/// </summary>
-[Name("nns_iterative")] nns_iterative,
-/// <summary>
-/// nns_recursive   1            ..FV....... recursive search
-/// </summary>
-[Name("nns_recursive")] nns_recursive,
-/// <summary>
-/// bruteforce      2            ..FV....... brute-force into the palette
-/// </summary>
-[Name("bruteforce")] bruteforce,
 }
 
 }

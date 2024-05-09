@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Autogens
 {
 /// <summary>
-/// T.. afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.
+/// TS. afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.
 /// </summary>
-public class AfftfiltFilterGen : AudioToAudioFilter,ITimelineSupport
+public class AfftfiltFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading
 {
 internal AfftfiltFilterGen(AudioMap input) : base("afftfilt",input) { AddMapOut(); }
 /// <summary>
@@ -19,7 +19,7 @@ public AfftfiltFilterGen imag(string imag) => this.SetOption("imag",imag);
 /// </summary>
 public AfftfiltFilterGen win_size(int win_size) => this.SetOptionRange("win_size", win_size,16,131072);
 /// <summary>
-///  set window function (from 0 to 19) (default hann)
+///  set window function (from 0 to 20) (default hann)
 /// </summary>
 public AfftfiltFilterGen win_func(AfftfiltFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -37,7 +37,7 @@ public static class AfftfiltFilterGenExtensions
 public static AfftfiltFilterGen AfftfiltFilterGen(this AudioMap input0) => new AfftfiltFilterGen(input0);
 }
 /// <summary>
-///  set window function (from 0 to 19) (default hann)
+///  set window function (from 0 to 20) (default hann)
 /// </summary>
 public enum AfftfiltFilterGenWin_func
 {
@@ -125,6 +125,10 @@ public enum AfftfiltFilterGenWin_func
 /// bohman          19           ..F.A...... Bohman
 /// </summary>
 [Name("bohman")] bohman,
+/// <summary>
+/// kaiser          20           ..F.A...... Kaiser
+/// </summary>
+[Name("kaiser")] kaiser,
 }
 
 }

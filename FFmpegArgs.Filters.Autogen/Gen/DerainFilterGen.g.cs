@@ -11,9 +11,9 @@ internal DerainFilterGen(ImageMap input) : base("derain",input) { AddMapOut(); }
 /// </summary>
 public DerainFilterGen filter_type(DerainFilterGenFilter_type filter_type) => this.SetOption("filter_type", filter_type.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  DNN backend (from 0 to 1) (default native)
+///  DNN backend (from 0 to 1) (default 1)
 /// </summary>
-public DerainFilterGen dnn_backend(DerainFilterGenDnn_backend dnn_backend) => this.SetOption("dnn_backend", dnn_backend.GetEnumAttribute<NameAttribute>().Name);
+public DerainFilterGen dnn_backend(int dnn_backend) => this.SetOptionRange("dnn_backend", dnn_backend,0,1);
 /// <summary>
 ///  path to model file
 /// </summary>
@@ -49,17 +49,6 @@ public enum DerainFilterGenFilter_type
 /// dehaze          1            ..FV....... dehaze filter flag
 /// </summary>
 [Name("dehaze")] dehaze,
-}
-
-/// <summary>
-///  DNN backend (from 0 to 1) (default native)
-/// </summary>
-public enum DerainFilterGenDnn_backend
-{
-/// <summary>
-/// native          0            ..FV....... native backend flag
-/// </summary>
-[Name("native")] native,
 }
 
 }
