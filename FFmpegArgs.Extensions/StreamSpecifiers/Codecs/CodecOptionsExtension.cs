@@ -12,7 +12,7 @@
         /// <param name="t"></param>
         /// <param name="codec"></param>
         /// <returns></returns>
-        public static T Codec<T>(this T t, string codec) where T : BaseAVStream, ICodec // (input/output,per-stream)
+        public static T Codec<T>(this T t, string codec) where T : BaseOption, ICodec // (input/output,per-stream)
            => t.SetOption("-c", codec);
 
 
