@@ -3,19 +3,20 @@
     /// <summary>
     /// 
     /// </summary>
-    /// <typeparam name="TIn"></typeparam>
-    /// <typeparam name="TOut"></typeparam>
-    public abstract class BaseFilter<TIn, TOut> : BaseOption, IFilter<TIn, TOut>
-      where TIn : BaseMap
-      where TOut : BaseMap
+    public abstract class BaseFilter : BaseOption, IFilter
     {
         private List<BaseMap> _mapsIn { get; } = new List<BaseMap>();
-
         /// <summary>
         /// 
         /// </summary>
         protected List<BaseMap> _mapsOut { get; } = new List<BaseMap>();
 
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IFilterGraph FilterGraph { get; }
         /// <summary>
         /// 
         /// </summary>
@@ -27,30 +28,15 @@
         /// <summary>
         /// 
         /// </summary>
-        public IFilterGraph FilterGraph { get; }
-
+        public IEnumerable<BaseMap> MapsOut => _mapsOut;
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<TOut> MapsOut => _mapsOut.Cast<TOut>();
-
+        public IEnumerable<BaseMap> MapsIn => _mapsIn;
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<TIn> MapsIn => _mapsIn.Cast<TIn>();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public TOut MapOut => _mapsOut.Cast<TOut>().FirstOrDefault();
-
-
-        IEnumerable<BaseMap> IFilter.MapsOut => _mapsOut;
-
-        IEnumerable<BaseMap> IFilter.MapsIn => _mapsIn;
-
-        BaseMap IFilter.MapOut => MapOut;
-
+        public BaseMap MapOut => _mapsOut.First();//if throw then it InvalidOperationException
 
 
         /// <summary>
@@ -60,7 +46,7 @@
         /// <param name="mapsIn"></param>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        protected BaseFilter(string filterName, params TIn[] mapsIn)
+        protected BaseFilter(string filterName, params BaseMap[] mapsIn)
         {
             if (string.IsNullOrWhiteSpace(filterName)) throw new ArgumentNullException(nameof(filterName));
 
@@ -76,6 +62,7 @@
 
             FilterIndex = this.FilterGraph.AddFilter(this);
         }
+
 
         /// <summary>
         /// 
@@ -102,7 +89,6 @@
             return string.Join(":", Options.Select(x => $"{x.Key}={x.Value.FiltergraphEscapingLv1()}")).FiltergraphEscapingLv2();
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -121,6 +107,29 @@
         protected virtual void AddMultiMapOut(int count)
         {
             for (int i = 0; i < count; i++) AddMapOut(i);
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TIn"></typeparam>
+    /// <typeparam name="TOut"></typeparam>
+    public abstract class BaseFilter<TIn, TOut> : BaseFilter, IFilter<TIn, TOut>
+      where TIn : BaseMap
+      where TOut : BaseMap
+    {
+        IEnumerable<TOut> IFilter<TIn, TOut>.MapsOut => base.MapsOut.Cast<TOut>();
+
+        IEnumerable<TIn> IFilter<TIn, TOut>.MapsIn => base.MapsIn.Cast<TIn>();
+
+        TOut IFilter<TIn, TOut>.MapOut => (TOut)base.MapOut;//if throw then it InvalidOperationException
+
+
+        /// <inheritdoc cref="BaseFilter.BaseFilter(string, BaseMap[])"/>
+        protected BaseFilter(string filterName, params TIn[] mapsIn) : base(filterName, mapsIn)
+        {
+
         }
     }
 }
