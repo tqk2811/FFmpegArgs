@@ -16,23 +16,14 @@
         /// <summary>
         /// 
         /// </summary>
-        protected void AddMapOut()
+        protected override void AddMapOut()
           => _mapsOut.Add(new ImageMap(FilterGraph, $"f_{FilterIndex}"));
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="index"></param>
-        protected void AddMapOut(int index)
+        protected override void AddMapOut(int index)
           => _mapsOut.Add(new ImageMap(FilterGraph, $"f_{FilterIndex}_{index}"));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="count"></param>
-        protected void AddMultiMapOut(int count)
-        {
-            for (int i = 0; i < count; i++) AddMapOut(i);
-        }
     }
 }

@@ -28,17 +28,17 @@
         /// 
         /// </summary>
         public IFilterGraph FilterGraph { get; }
-                
+
         /// <summary>
         /// 
         /// </summary>
         public IEnumerable<TOut> MapsOut => _mapsOut.Cast<TOut>();
-        
+
         /// <summary>
         /// 
         /// </summary>
         public IEnumerable<TIn> MapsIn => _mapsIn.Cast<TIn>();
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -52,7 +52,7 @@
         BaseMap IFilter.MapOut => MapOut;
 
 
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -100,6 +100,27 @@
         public string GetFilterOptions()
         {
             return string.Join(":", Options.Select(x => $"{x.Key}={x.Value.FiltergraphEscapingLv1()}")).FiltergraphEscapingLv2();
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected abstract void AddMapOut();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        protected abstract void AddMapOut(int index);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="count"></param>
+        protected virtual void AddMultiMapOut(int count)
+        {
+            for (int i = 0; i < count; i++) AddMapOut(i);
         }
     }
 }
