@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+	<!--https://docs.microsoft.com/en-us/nuget/reference/nuspec-->
+	<metadata>
+		<id>FFmpegArgs.Filters.Generated</id>
+		<version>1.5.0$build$</version>
+		<description>Filters auto generated for FFmpegArgs</description>
+		<authors>tqk2811</authors>
+		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
+		<tags>ffmpeg ffmpeg-cli-wrapper</tags>
+		<readme>docs\README.MD</readme>
+		<license type="expression">MIT</license>
+		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git"/>
+		<dependencies>
+			<group targetFramework="net462">
+				<dependency id="FFmpegArgs.Cores" version="[1.5,1.6)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[1.5,1.6)"/>
+			</group>
+			<group targetFramework="netstandard2.0">
+				<dependency id="FFmpegArgs.Cores" version="[1.5,1.6)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[1.5,1.6)"/>
+			</group>
+			<group targetFramework="net5.0">
+				<dependency id="FFmpegArgs.Cores" version="[1.5,1.6)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[1.5,1.6)"/>
+			</group>
+			<group targetFramework="net6.0">
+				<dependency id="FFmpegArgs.Cores" version="[1.5,1.6)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[1.5,1.6)"/>
+			</group>
+			<group targetFramework="net7.0">
+				<dependency id="FFmpegArgs.Cores" version="[1.5,1.6)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[1.5,1.6)"/>
+			</group>
+		</dependencies>
+	</metadata>
+	<files>
+		<file src="..\README.MD" target="docs\" />
+		<file src="bin\Release\**\FFmpegArgs.Filters.Generated.dll" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.Filters.Generated.pdb" target="lib\" />
+		<file src="bin\Release\**\FFmpegArgs.Filters.Generated.xml" target="lib\" />
+	</files>
+</package>

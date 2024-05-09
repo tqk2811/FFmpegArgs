@@ -12,6 +12,7 @@ namespace Autogens.Filter
 {
     internal static class FiltersGen
     {
+        const string _FilterNamespace = "FFmpegArgs.Filters.Generated";
         static readonly IEnumerable<string> _skip = new string[]
         {
             //"concat"
@@ -24,13 +25,13 @@ namespace Autogens.Filter
 
         private static StreamWriter WriteAutogensNameSpace(this StreamWriter streamWriter, string child = null)
         {
-            if (string.IsNullOrWhiteSpace(child)) return streamWriter.WriteNameSpace("FFmpegArgs.Filters.Autogens");
-            else return streamWriter.WriteNameSpace($"FFmpegArgs.Filters.Autogens.{child}");
+            if (string.IsNullOrWhiteSpace(child)) return streamWriter.WriteNameSpace(_FilterNamespace);
+            else return streamWriter.WriteNameSpace($"{_FilterNamespace}.{child}");
         }
 
         public static void Gen(List<string> filters, List<DocLine> docLines)
         {
-            var genDir = Path.Combine("FFmpegArgs.Filters.Autogen", "Gen");
+            var genDir = Path.Combine(_FilterNamespace, "Gen");
             Directory.CreateDirectory(genDir);
             foreach (var file in Directory.GetFiles(genDir, "*.g.cs"))
             {
@@ -66,7 +67,7 @@ namespace Autogens.Filter
                     var interfaces = GetFilterInterface(support).ToList();
                     interfaces.Insert(0, typeName.Inheritance);
                     string className = $"{name.UpperFirst()}FilterGen";
-                    using StreamWriter streamWriter = new StreamWriter(Path.Combine("FFmpegArgs.Filters.Autogen", "Gen", $"{className}.g.cs"), false);
+                    using StreamWriter streamWriter = new StreamWriter(Path.Combine(_FilterNamespace, "Gen", $"{className}.g.cs"), false);
                     streamWriter.WriteAutogensNameSpace();
                     streamWriter.WriteLine("{");
                     streamWriter.WriteSummary(filter);

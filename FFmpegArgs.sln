@@ -21,8 +21,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Test", "FFmpegAr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Outputs", "FFmpegArgs.Outputs\FFmpegArgs.Outputs.csproj", "{4CF85209-92D2-436F-AA1B-B8CA55F912E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Autogen", "FFmpegArgs.Filters.Autogen\FFmpegArgs.Filters.Autogen.csproj", "{95229EC5-1AE4-4FD8-A403-2974C5684778}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Executes", "FFmpegArgs.Executes\FFmpegArgs.Executes.csproj", "{AA51A707-006C-4C35-BA66-080DD805E3A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Common", "FFmpegArgs.Filters.Common\FFmpegArgs.Filters.Common.csproj", "{885B3603-7C38-4094-BC08-49B1D9938B70}"
@@ -50,6 +48,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Extensions", "FF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Codecs", "FFmpegArgs.Codecs\FFmpegArgs.Codecs.csproj", "{22177082-3A5C-4D8F-960F-F7CE673296E4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Generated", "FFmpegArgs.Filters.Generated\FFmpegArgs.Filters.Generated.csproj", "{6E46958E-A12A-4BA3-977B-935D415D364D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,10 +76,6 @@ Global
 		{4CF85209-92D2-436F-AA1B-B8CA55F912E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CF85209-92D2-436F-AA1B-B8CA55F912E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CF85209-92D2-436F-AA1B-B8CA55F912E6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95229EC5-1AE4-4FD8-A403-2974C5684778}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -108,6 +104,10 @@ Global
 		{22177082-3A5C-4D8F-960F-F7CE673296E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22177082-3A5C-4D8F-960F-F7CE673296E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22177082-3A5C-4D8F-960F-F7CE673296E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E46958E-A12A-4BA3-977B-935D415D364D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E46958E-A12A-4BA3-977B-935D415D364D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E46958E-A12A-4BA3-977B-935D415D364D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E46958E-A12A-4BA3-977B-935D415D364D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
