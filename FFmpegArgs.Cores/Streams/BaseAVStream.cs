@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseAVStream : BaseOptionFlag, IStream, ICodec
+    public abstract class BaseAVStream : BaseArgsOptionFlag, IStream, ICodec
     {
         /// <summary>
         /// 

@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseInputOutput : BaseOptionFlag
+    public abstract class BaseInputOutput : BaseArgsOptionFlag
     {
         /// <summary>
         /// Pipe for input/output

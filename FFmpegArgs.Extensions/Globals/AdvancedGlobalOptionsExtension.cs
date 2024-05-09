@@ -54,7 +54,7 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="count"></param>
         /// <returns></returns>
-        public static T CpuCount<T>(this T ffmpegArg, int count) where T : BaseOptionFlag, IFFmpegArg
+        public static T CpuCount<T>(this T ffmpegArg, int count) where T : BaseArgsOptionFlag, IFFmpegArg
             => ffmpegArg.SetOptionRange("-cpucount", count, 0, int.MaxValue);
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static T HideBanner<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
+        public static T HideBanner<T>(this T ffmpegArg) where T : BaseArgsOptionFlag, IFFmpegArg
             => ffmpegArg.SetFlag("-hide_banner");
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static T RecastMedia<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
+        public static T RecastMedia<T>(this T ffmpegArg) where T : BaseArgsOptionFlag, IFFmpegArg
           => ffmpegArg.SetFlag("-recast_media");
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="time">Set period at which encoding progress/statistics are updated. Default is 0.5 seconds.</param>
         /// <returns></returns>
-        public static T StatsPeriod<T>(this T ffmpegArg, TimeSpan time) where T : BaseOptionFlag, IFFmpegArg
+        public static T StatsPeriod<T>(this T ffmpegArg, TimeSpan time) where T : BaseArgsOptionFlag, IFFmpegArg
           => ffmpegArg.SetOptionRange("-stats_period", time, TimeSpan.Zero, TimeSpan.MaxValue);
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="ffmpegArg"></param>
         /// <returns></returns>
-        public static T NoautoConversionFilters<T>(this T ffmpegArg) where T : BaseOptionFlag, IFFmpegArg
+        public static T NoautoConversionFilters<T>(this T ffmpegArg) where T : BaseArgsOptionFlag, IFFmpegArg
             => ffmpegArg.SetFlag("-noauto_conversion_filters");
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace FFmpegArgs
         /// <param name="ffmpegArg"></param>
         /// <param name="threads"></param>
         /// <returns></returns>
-        public static T Threads<T>(this T ffmpegArg, int threads) where T : BaseOptionFlag, IFFmpegArg
+        public static T Threads<T>(this T ffmpegArg, int threads) where T : BaseArgsOptionFlag, IFFmpegArg
             => ffmpegArg.SetOptionRange("-threads", threads, 0, int.MaxValue);
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace FFmpegArgs
         /// <param name="output"></param>
         /// <param name="vsync"></param>
         /// <returns></returns>
-        public static T VSync<T>(this T output, VSyncMethod vsync) where T : BaseOptionFlag, IFFmpegArg
+        public static T VSync<T>(this T output, VSyncMethod vsync) where T : BaseArgsOptionFlag, IFFmpegArg
             => output.SetOption("-vsync", vsync);
     }
 

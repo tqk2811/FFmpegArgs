@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class FFmpegArg : BaseOptionFlag, IFFmpegArg
+    public class FFmpegArg : BaseArgsOptionFlag, IFFmpegArg
     {
         /// <summary>
         /// 

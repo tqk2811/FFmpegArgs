@@ -3,18 +3,18 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseOptionFlag : BaseArgsOption, IFlag
+    public abstract class BaseArgsOptionFlag : BaseArgsOption, IFlag
     {
         /// <summary>
         /// 
         /// </summary>
-        public BaseOptionFlag()
+        public BaseArgsOptionFlag()
         {
             this._flags = new HashSet<string>();
         }
 
         /// <inheritdoc cref="BaseOption.BaseOption(BaseOption)"/>
-        public BaseOptionFlag(BaseOptionFlag parent) : base(parent)
+        public BaseArgsOptionFlag(BaseArgsOptionFlag parent) : base(parent)
         {
             this._flags = parent._flags;
         }
@@ -49,7 +49,7 @@
         /// <param name="flag"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetFlag<T>(this T baseOptionFlag, string flag) where T : BaseOptionFlag
+        public static T SetFlag<T>(this T baseOptionFlag, string flag) where T : BaseArgsOptionFlag
         {
             if (string.IsNullOrEmpty(flag)) throw new ArgumentNullException(nameof(flag));
             baseOptionFlag._flags.Add(flag);

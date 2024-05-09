@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class FFplayArg : BaseOptionFlag, IFFplayArg
+    public class FFplayArg : BaseArgsOptionFlag, IFFplayArg
     {
         readonly List<BaseInput> _inputs = new List<BaseInput>();
 
