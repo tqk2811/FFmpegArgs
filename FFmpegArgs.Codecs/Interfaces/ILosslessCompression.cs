@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs.Codecs.Interfaces
+﻿using FFmpegArgs.Cores.Interfaces;
+
+namespace FFmpegArgs.Codecs.Interfaces
 {
     /// <summary>
     /// Lossless compression
