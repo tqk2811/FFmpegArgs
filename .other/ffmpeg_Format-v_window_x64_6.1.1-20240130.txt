@@ -11,6 +11,7 @@ File formats:
  D  aac             raw ADTS AAC (Advanced Audio Coding)
  D  aax             CRI AAX
  DE ac3             raw AC-3
+ DE ac4             raw AC-4
  D  ace             tri-Ace Audio Container
  D  acm             Interplay ACM
  D  act             ACT Voice file format
@@ -31,6 +32,7 @@ File formats:
  D  amrwb           raw AMR-WB
   E amv             AMV
  D  anm             Deluxe Paint Animation
+ D  apac            raw APAC
  D  apc             CRYO APC
  D  ape             Monkey's Audio
  DE apm             Ubisoft Rayman 2 APM
@@ -40,6 +42,7 @@ File formats:
  D  aqtitle         AQTitle subtitles
  DE argo_asf        Argonaut Games ASF
  D  argo_brp        Argonaut Games BRP
+ DE argo_cvg        Argonaut Games CVG
  DE asf             ASF (Advanced / Active Streaming Format)
  D  asf_o           ASF (Advanced / Active Streaming Format)
   E asf_stream      ASF (Advanced / Active Streaming Format)
@@ -48,12 +51,13 @@ File formats:
  DE au              Sun AU
  D  av1             AV1 Annex B
  DE avi             AVI (Audio Video Interleaved)
+  E avif            AVIF
  D  avisynth        AviSynth script
   E avm2            SWF (ShockWave Flash) (AVM2)
  D  avr             AVR (Audio Visual Research)
  D  avs             Argonaut Games Creature Shock
  DE avs2            raw AVS2-P2/IEEE1857.4 video
- D  avs3            raw AVS3-P2/IEEE1857.10
+ DE avs3            AVS3-P2/IEEE1857.10
  D  bethsoftvid     Bethesda Softworks VID
  D  bfi             Brute Force & Ignorance
  D  bfstm           BFSTM (Binary Cafe Stream)
@@ -61,9 +65,11 @@ File formats:
  D  bink            Bink
  D  binka           Bink Audio
  DE bit             G.729 BIT file format
+ D  bitpacked       Bitpacked
  D  bmp_pipe        piped bmp sequence
  D  bmv             Discworld II BMV
  D  boa             Black Ops Audio
+ D  bonk            raw Bonk
  D  brender_pix     BRender PIX image
  D  brstm           BRSTM (Binary Revolution Stream)
  D  c93             Interplay C93
@@ -71,6 +77,7 @@ File formats:
  DE cavsvideo       raw Chinese AVS (Audio Video Standard) video
  D  cdg             CD Graphics
  D  cdxl            Commodore CDXL video
+  E chromaprint     Chromaprint
  D  cine            Phantom Cine
  DE codec2          codec2 .c2 muxer
  DE codec2raw       raw codec2 muxer
@@ -84,6 +91,7 @@ File formats:
  D  dds_pipe        piped dds sequence
  D  derf            Xilam DERF
  D  dfa             Chronomaster DFA
+ DE dfpwm           raw DFPWM1a
  D  dhav            Video DAV
  DE dirac           raw Dirac
  DE dnxhd           raw DNxHD (SMPTE VC-3)
@@ -103,6 +111,7 @@ File formats:
  D  ea_cdata        Electronic Arts cdata
  DE eac3            raw E-AC-3
  D  epaf            Ensoniq Paris Audio File
+ DE evc             raw EVC video
  D  exr_pipe        piped exr sequence
  DE f32be           PCM 32-bit floating-point big-endian
  DE f32le           PCM 32-bit floating-point little-endian
@@ -131,6 +140,7 @@ File formats:
  D  g729            G.729 raw format demuxer
  D  gdigrab         GDI API Windows frame grabber
  D  gdv             Gremlin Digital Video
+ D  gem_pipe        piped gem sequence
  D  genh            GENeric Header
  DE gif             CompuServe Graphics Interchange Format (GIF)
  D  gif_pipe        piped gif sequence
@@ -142,6 +152,7 @@ File formats:
   E hash            Hash testing
  D  hca             CRI HCA
  D  hcom            Macintosh HCOM
+ D  hdr_pipe        piped hdr sequence
   E hds             HDS Muxer
  DE hevc            raw HEVC video
  DE hls             Apple HTTP Live Streaming
@@ -154,6 +165,7 @@ File formats:
  DE ilbc            iLBC storage
  DE image2          image2 sequence
  DE image2pipe      piped image2 sequence
+ D  imf             IMF (Interoperable Master Format)
  D  ingenient       raw Ingenient MJPEG
  D  ipmovie         Interplay MVE
   E ipod            iPod H.264 MP4 (MPEG-4 Part 14)
@@ -168,12 +180,16 @@ File formats:
  DE jacosub         JACOsub subtitle format
  D  jpeg_pipe       piped jpeg sequence
  D  jpegls_pipe     piped jpegls sequence
+ D  jpegxl_anim     Animated JPEG XL
+ D  jpegxl_pipe     piped jpegxl sequence
  D  jv              Bitmap Brothers JV
  D  kux             KUX (YouKu)
  DE kvag            Simon & Schuster Interactive VAG
+ D  laf             LAF (Limitless Audio Format)
   E latm            LOAS/LATM
  D  lavfi           Libavfilter virtual input device
  D  libgme          Game Music Emu demuxer
+ D  libopenmpt      Tracker formats (libopenmpt)
  D  live_flv        live RTMP FLV (Flash Video)
  D  lmlm4           raw lmlm4
  D  loas            LOAS AudioSyncStream
@@ -234,19 +250,24 @@ File formats:
   E null            raw null video
  DE nut             NUT
  D  nuv             NuppelVideo
- D  obu             AV1 low overhead OBU
+ DE obu             AV1 low overhead OBU
   E oga             Ogg Audio
  DE ogg             Ogg
   E ogv             Ogg Video
  DE oma             Sony OpenMG audio
+ D  openal          OpenAL audio capture device
   E opus            Ogg Opus
+ D  osq             raw OSQ
  D  paf             Amazing Studio Packed Animation File
  D  pam_pipe        piped pam sequence
  D  pbm_pipe        piped pbm sequence
  D  pcx_pipe        piped pcx sequence
+ D  pdv             PlayDate Video
+ D  pfm_pipe        piped pfm sequence
  D  pgm_pipe        piped pgm sequence
  D  pgmyuv_pipe     piped pgmyuv sequence
  D  pgx_pipe        piped pgx sequence
+ D  phm_pipe        piped phm sequence
  D  photocd_pipe    piped photocd sequence
  D  pictor_pipe     piped pictor sequence
  D  pjs             PJS (Phoenix Japanimation Society) subtitles
@@ -261,10 +282,12 @@ File formats:
  D  pvf             PVF (Portable Voice Format)
  D  qcp             QCP
  D  qdraw_pipe      piped qdraw sequence
+ D  qoi_pipe        piped qoi sequence
  D  r3d             REDCODE R3D
  DE rawvideo        raw video
  D  realtext        RealText subtitle format
  D  redspark        RedSpark
+ D  rka             RKA (RK Audio)
  D  rl2             RL2
  DE rm              RealMedia
  DE roq             raw id RoQ
@@ -287,7 +310,9 @@ File formats:
  DE sbc             raw SBC
  D  sbg             SBaGen binaural beats script
  DE scc             Scenarist Closed Captions
+ D  scd             Square Enix SCD
   E sdl,sdl2        SDL2 output device
+ D  sdns            Xbox SDNS
  D  sdp             SDP
  D  sdr2            SDR2
  D  sds             MIDI Sample Dump Standard
@@ -299,14 +324,13 @@ File formats:
  D  shn             raw Shorten
  D  siff            Beam Software SIFF
  D  simbiosis_imx   Simbiosis Interactive IMX
-  E singlejpeg      JPEG single image
  D  sln             Asterisk raw pcm
  DE smjpeg          Loki SDL MJPEG
  D  smk             Smacker
   E smoothstreaming Smooth Streaming Muxer
  D  smush           LucasArts Smush
  D  sol             Sierra SOL
- DE sox             SoX native
+ DE sox             SoX (Sound eXchange) native
  DE spdif           IEC 61937 (used on S/PDIF - IEC958)
   E spx             Ogg Speex
  DE srt             SubRip subtitle
@@ -343,9 +367,11 @@ File formats:
  DE u32le           PCM unsigned 32-bit little-endian
  DE u8              PCM unsigned 8-bit
   E uncodedframecrc uncoded framecrc testing
+ D  usm             CRI USM
  D  v210            Uncompressed 4:2:2 10-bit
  D  v210x           Uncompressed 4:2:2 10-bit
  D  vag             Sony PS2 VAG
+ D  vbn_pipe        piped vbn sequence
  DE vc1             raw VC-1 video
  DE vc1test         VC-1 test bitstream
   E vcd             MPEG-1 Systems / MPEG program stream (VCD)
@@ -360,8 +386,11 @@ File formats:
  D  vpk             Sony PS2 VPK
  D  vplayer         VPlayer subtitles
  D  vqf             Nippon Telegraph and Telephone Corporation (NTT) TwinVQ
+ DE vvc             raw H.266/VVC video
  DE w64             Sony Wave64
+ D  wady            Marble WADY
  DE wav             WAV / WAVE (Waveform Audio)
+ D  wavarc          Waveform Archiver
  D  wc3movie        Wing Commander III movie
   E webm            WebM
   E webm_chunk      WebM Chunk Muxer
@@ -369,7 +398,7 @@ File formats:
   E webp            WebP
  D  webp_pipe       piped webp sequence
  DE webvtt          WebVTT subtitle
- D  wsaud           Westwood Studios audio
+ DE wsaud           Westwood Studios audio
  D  wsd             Wideband Single-bit Data (WSD)
  D  wsvqa           Westwood Studios VQA
  DE wtv             Windows Television (WTV)
@@ -378,6 +407,7 @@ File formats:
  D  xa              Maxis XA
  D  xbin            eXtended BINary text (XBIN)
  D  xbm_pipe        piped xbm sequence
+ D  xmd             Konami XMD
  D  xmv             Microsoft XMV
  D  xpm_pipe        piped xpm sequence
  D  xvag            Sony PS3 XVAG
