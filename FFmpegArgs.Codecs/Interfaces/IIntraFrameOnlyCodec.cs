@@ -1,6 +1,4 @@
-﻿using FFmpegArgs.Cores.Interfaces;
-
-namespace FFmpegArgs.Codecs.Interfaces
+﻿namespace FFmpegArgs.Codecs.Interfaces
 {
     /// <summary>
     /// Intra frame-only codec
