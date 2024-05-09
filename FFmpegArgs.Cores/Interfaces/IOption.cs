@@ -9,11 +9,5 @@
         /// 
         /// </summary>
         IEnumerable<KeyValuePair<string, string>> Options { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        string GetOptionArgs();
     }
 }

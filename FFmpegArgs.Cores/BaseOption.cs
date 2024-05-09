@@ -43,14 +43,6 @@
         /// </summary>
         public virtual IEnumerable<KeyValuePair<string, string>> Options => _options;
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public virtual string GetOptionArgs()
-        {
-            return string.Join(" ", Options.Select(x => $"{x.Key} {x.Value}"));
-        }
     }
     /// <summary>
     /// 

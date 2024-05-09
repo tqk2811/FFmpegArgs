@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseOptionFlag : BaseOption, IFlag
+    public abstract class BaseOptionFlag : BaseArgsOption, IFlag
     {
         /// <summary>
         /// 
