@@ -50,18 +50,18 @@ namespace Autogens.Filter
                     DocLine docLine = docLines.FirstOrDefault(x => x.LineData.StartsWith($"{name} AVOptions:"));
                     if (docLine == null)
                     {
-                        Console.WriteLine($"Filters.Gen not found ({name}):{filter}");
+                        Console.WriteLine($"{"Filters.Gen not found",-40}: {filter}");
                         continue;
                     }
                     if (_skip.Contains(name))
                     {
-                        Console.WriteLine($"Filters.Gen skip ({name}):{filter}");
+                        Console.WriteLine($"{"Filters.Gen skip",-40}: {filter}");
                         continue;
                     }
                     FilterTypeName typeName = GetFilterInheritance(type);
                     if (typeName == null)
                     {
-                        Console.WriteLine($"Filters.Gen skip ({type}):{filter}");
+                        Console.WriteLine($"{"Filters.Gen can't get Inheritance",-40}: {filter}");
                         continue;
                     }
                     var interfaces = GetFilterInterface(support).ToList();
@@ -100,7 +100,7 @@ namespace Autogens.Filter
                     foreach (var filterFunction in filterFunctions.Except(removes))
                     {
                         streamWriter.WriteSummary(filterFunction.Description);
-                        if (filterFunction.IsObsolete) 
+                        if (filterFunction.IsObsolete)
                             streamWriter.WriteLine("[Obsolete]");
                         streamWriter.WriteLine(filterFunction);
                         if (!string.IsNullOrWhiteSpace(filterFunction.EnumData))
@@ -128,7 +128,7 @@ namespace Autogens.Filter
                 }
                 else
                 {
-                    Console.WriteLine($"Filters.Gen error:{filter}");
+                    Console.WriteLine($"{"Filters.Gen error",-40}:{filter}");
                 }
             }
         }
