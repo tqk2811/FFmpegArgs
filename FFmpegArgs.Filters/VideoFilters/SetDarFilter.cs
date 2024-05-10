@@ -31,14 +31,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
-        public SetDarFilter Ratio(Action<FFmpegExpression> r) => this.SetOption("r", r.Run(expression));
-        /// <summary>
-        /// Set the aspect ratio used by the filter.<br>
-        /// </br>The parameter can be a floating point number string, an expression, or a string of the form num:den, where num and den are the numerator and denominator of the aspect ratio.If the parameter is not specified, it is assumed the value "0".
-        /// </summary>
-        /// <param name="r"></param>
-        /// <returns></returns>
-        public SetDarFilter Ratio(string r) => this.SetOption("r", r.Expression().Run(expression));
+        public SetDarFilter Ratio(ExpressionValue r) => this.SetOption("r", expression.Check(r));
         /// <summary>
         /// Set the aspect ratio used by the filter.<br>
         /// </br>The parameter can be a floating point number string, an expression, or a string of the form num:den, where num and den are the numerator and denominator of the aspect ratio.If the parameter is not specified, it is assumed the value "0".

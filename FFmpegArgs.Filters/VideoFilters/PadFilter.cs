@@ -1,4 +1,18 @@
-﻿namespace FFmpegArgs.Filters.VideoFilters
+﻿/*
+ pad AVOptions:
+   width             <string>     ..FV....... set the pad area width expression (default "iw")
+   w                 <string>     ..FV....... set the pad area width expression (default "iw")
+   height            <string>     ..FV....... set the pad area height expression (default "ih")
+   h                 <string>     ..FV....... set the pad area height expression (default "ih")
+   x                 <string>     ..FV....... set the x offset expression for the input image position (default "0")
+   y                 <string>     ..FV....... set the y offset expression for the input image position (default "0")
+   color             <color>      ..FV....... set the color of the padded area border (default "black")
+   eval              <int>        ..FV....... specify when to evaluate expressions (from 0 to 1) (default init)
+     init            0            ..FV....... eval expressions once during initialization
+     frame           1            ..FV....... eval expressions during initialization and per-frame
+   aspect            <rational>   ..FV....... pad to fit an aspect instead of a resolution (from 0 to DBL_MAX) (default 0/1)
+ */
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// ... pad               V->V       Pad the input video.<br></br>
@@ -27,7 +41,7 @@
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public PadFilter X(string x) => this.SetOption("x", x.Expression().Run(expression));
+        public PadFilter X(ExpressionValue x) => this.SetOption("x", expression.Check(x));
         /// <summary>
         /// Specify the offsets to place the input image at within the padded area, with respect to the top/left border of the output image.<br></br>
         /// The x expression can reference the value set by the y expression, and vice versa.<br></br>
@@ -37,27 +51,7 @@
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
-        public PadFilter Y(string y) => this.SetOption("y", y.Expression().Run(expression));
-        /// <summary>
-        /// Specify the offsets to place the input image at within the padded area, with respect to the top/left border of the output image.<br></br>
-        /// The x expression can reference the value set by the y expression, and vice versa.<br></br>
-        /// The default value of x and y is 0.<br></br>
-        /// If x or y evaluate to a negative number, they’ll be changed so the input image is centered on the padded area.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public PadFilter X(Action<FFmpegExpression> x) => this.SetOption("x", x.Run(expression));
-        /// <summary>
-        /// Specify the offsets to place the input image at within the padded area, with respect to the top/left border of the output image.<br></br>
-        /// The x expression can reference the value set by the y expression, and vice versa.<br></br>
-        /// The default value of x and y is 0.<br></br>
-        /// If x or y evaluate to a negative number, they’ll be changed so the input image is centered on the padded area.
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <returns></returns>
-        public PadFilter Y(Action<FFmpegExpression> y) => this.SetOption("y", y.Run(expression));
+        public PadFilter Y(ExpressionValue y) => this.SetOption("y", expression.Check(y));
         /// <summary>
         /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br></br>
         /// The width expression can reference the value set by the height expression, and vice versa.<br>
@@ -65,7 +59,7 @@
         /// </summary>
         /// <param name="w"></param>
         /// <returns></returns>
-        public PadFilter W(string w) => this.SetOption("w", w.Expression().Run(expression));
+        public PadFilter W(ExpressionValue w) => this.SetOption("w", expression.Check(w));
         /// <summary>
         /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br></br>
         /// The width expression can reference the value set by the height expression, and vice versa.<br>
@@ -73,23 +67,7 @@
         /// </summary>
         /// <param name="h"></param>
         /// <returns></returns>
-        public PadFilter H(string h) => this.SetOption("h", h.Expression().Run(expression));
-        /// <summary>
-        /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br></br>
-        /// The width expression can reference the value set by the height expression, and vice versa.<br>
-        /// </br>The default value of width and height is 0.
-        /// </summary>
-        /// <param name="w"></param>
-        /// <returns></returns>
-        public PadFilter W(Action<FFmpegExpression> w) => this.SetOption("w", w.Run(expression));
-        /// <summary>
-        /// Specify an expression for the size of the output image with the paddings added. If the value for width or height is 0, the corresponding input size is used for the output.<br></br>
-        /// The width expression can reference the value set by the height expression, and vice versa.<br>
-        /// </br>The default value of width and height is 0.
-        /// </summary>
-        /// <param name="h"></param>
-        /// <returns></returns>
-        public PadFilter H(Action<FFmpegExpression> h) => this.SetOption("h", h.Run(expression));
+        public PadFilter H(ExpressionValue h) => this.SetOption("h", expression.Check(h));
         /// <summary>
         /// Specify the color of the padded area.
         /// </summary>
@@ -112,6 +90,9 @@
         public PadFilter Aspect(Rational rational)
             => this.SetOption("aspect", rational.Check(0, DBL_MAX));
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class PadFilterExtension
     {
         /// <summary>
@@ -120,9 +101,18 @@
         public static PadFilter PadFilter(this ImageMap imageMap)
             => new PadFilter(imageMap);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public enum PadEval
     {
+        /// <summary>
+        /// 
+        /// </summary>
         Init,
+        /// <summary>
+        /// 
+        /// </summary>
         Frame
     }
 }

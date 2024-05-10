@@ -1,4 +1,13 @@
-﻿namespace FFmpegArgs.Filters.VideoFilters
+﻿/*
+ dctdnoiz AVOptions:
+   sigma             <float>      ..FV....... set noise sigma constant (from 0 to 999) (default 0)
+   s                 <float>      ..FV....... set noise sigma constant (from 0 to 999) (default 0)
+   overlap           <int>        ..FV....... set number of block overlapping pixels (from -1 to 15) (default -1)
+   expr              <string>     ..FV....... set coefficient factor expression
+   e                 <string>     ..FV....... set coefficient factor expression
+   n                 <int>        ..FV....... set the block size, expressed in bits (from 3 to 4) (default 3)
+ */
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// TS. dctdnoiz          V->V       Denoise frames using 2D DCT.<br></br>
@@ -38,18 +47,8 @@
         /// </summary>
         /// <param name="e"></param>
         /// <returns></returns>
-        public DctdnoizFilter Expr(string e)
-            => Expr(e.Expression());
-        /// <summary>
-        /// Set the coefficient factor expression.<br>
-        /// </br>For each coefficient of a DCT block, this expression will be evaluated as a multiplier value for the coefficient.<br>
-        /// </br>If this is option is set, the sigma option will be ignored.<br>
-        /// </br>The absolute value of the coefficient can be accessed through the c variable.
-        /// </summary>
-        /// <param name="e"></param>
-        /// <returns></returns>
-        public DctdnoizFilter Expr(Action<FFmpegExpression> e)
-            => this.SetOption("e", e.Run(expression));
+        public DctdnoizFilter Expr(ExpressionValue e)
+            => this.SetOption("e", expression.Check(e));
         /// <summary>
         /// Set the blocksize using the number of bits. 1&lt;&lt;n defines the blocksize, which is the width and height of the processed blocks.<br>
         /// </br>The default value is 3 (8x8) and can be raised to 4 for a blocksize of 16x16.Note that changing this setting has huge consequences on the speed processing. Also, a larger block size does not necessarily means a better de-noising.<br>
@@ -60,6 +59,9 @@
         public DctdnoizFilter Blocksize(int n)
             => this.SetOptionRange("n", n, 3, 4);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class DctdnoizFilterExtensions
     {
         /// <summary>

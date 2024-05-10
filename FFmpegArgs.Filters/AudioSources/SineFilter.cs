@@ -56,24 +56,14 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <returns></returns>
         public SineFilter Duration(TimeSpan d)
           => this.SetOptionRange("d", d, TimeSpan.MinValue, TimeSpan.MaxValue);
-
         /// <summary>
         /// Set the number of samples per output frame.<br>
         /// </br>Default: 1024
         /// </summary>
         /// <param name="samples_per_frame">Default is 1024.</param>
         /// <returns></returns>
-        public SineFilter SamplesPerFrame(string samples_per_frame)
-          => this.SamplesPerFrame(samples_per_frame.Expression());
-
-        /// <summary>
-        /// Set the number of samples per output frame.<br>
-        /// </br>Default: 1024
-        /// </summary>
-        /// <param name="samples_per_frame">Default is 1024.</param>
-        /// <returns></returns>
-        public SineFilter SamplesPerFrame(Action<FFmpegExpression> samples_per_frame)
-          => this.SetOption("samples_per_frame", samples_per_frame.Run(expression));
+        public SineFilter SamplesPerFrame(ExpressionValue samples_per_frame)
+          => this.SetOption("samples_per_frame", expression.Check(samples_per_frame));
     }
     /// <summary>
     /// 

@@ -35,45 +35,22 @@ namespace FFmpegArgs.Filters.OpenCLVideoFilters
         /// </summary>
         /// <param name="luma_radius"></param>
         /// <returns></returns>
-        public BoxblurOpenclFilter LumaRadius(string luma_radius)
-            => this.LumaRadius(luma_radius.Expression());
-        /// <summary>
-        /// Radius of the luma blurring box (default "2")
-        /// </summary>
-        /// <param name="luma_radius"></param>
-        /// <returns></returns>
-        public BoxblurOpenclFilter LumaRadius(Action<FFmpegExpression> luma_radius)
-            => this.SetOption("lr", luma_radius.Run(expression));
-
+        public BoxblurOpenclFilter LumaRadius(ExpressionValue luma_radius)
+            => this.SetOption("lr", expression.Check(luma_radius));
         /// <summary>
         /// Radius of the chroma blurring box
         /// </summary>
         /// <param name="chroma_radius"></param>
         /// <returns></returns>
-        public BoxblurOpenclFilter ChromaRadius(string chroma_radius)
-            => this.ChromaRadius(chroma_radius.Expression());
-        /// <summary>
-        /// Radius of the chroma blurring box
-        /// </summary>
-        /// <param name="chroma_radius"></param>
-        /// <returns></returns>
-        public BoxblurOpenclFilter ChromaRadius(Action<FFmpegExpression> chroma_radius)
-            => this.SetOption("cr", chroma_radius.Run(expression));
-
+        public BoxblurOpenclFilter ChromaRadius(ExpressionValue chroma_radius)
+            => this.SetOption("cr", expression.Check(chroma_radius));
         /// <summary>
         /// Radius of the alpha blurring box
         /// </summary>
         /// <param name="alpha_radius"></param>
         /// <returns></returns>
-        public BoxblurOpenclFilter AlphaRadius(string alpha_radius)
-            => this.AlphaRadius(alpha_radius.Expression());
-        /// <summary>
-        /// Radius of the alpha blurring box
-        /// </summary>
-        /// <param name="alpha_radius"></param>
-        /// <returns></returns>
-        public BoxblurOpenclFilter AlphaRadius(Action<FFmpegExpression> alpha_radius)
-            => this.SetOption("ar", alpha_radius.Run(expression));
+        public BoxblurOpenclFilter AlphaRadius(ExpressionValue alpha_radius)
+            => this.SetOption("ar", expression.Check(alpha_radius));
 
 
         /// <summary>

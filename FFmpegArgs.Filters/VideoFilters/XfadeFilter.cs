@@ -108,16 +108,8 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="expr"></param>
         /// <returns></returns>
-        public XfadeFilter Expr(string expr)
-            => this.Expr(expr.Expression());
-
-        /// <summary>
-        /// Set expression for custom transition effect.
-        /// </summary>
-        /// <param name="expr"></param>
-        /// <returns></returns>
-        public XfadeFilter Expr(Action<FFmpegExpression> expr)
-            => this.SetOption("expr", expr.Run(expression));
+        public XfadeFilter Expr(ExpressionValue expr)
+            => this.SetOption("expr", expression.Check(expr));
     }
     /// <summary>
     /// 

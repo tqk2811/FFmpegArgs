@@ -28,16 +28,8 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// </summary>
         /// <param name="exprs"></param>
         /// <returns></returns>
-        public AevalFilter Exprs(params Action<FFmpegExpression>[] exprs)
-            => this.SetOption("exprs", string.Join("|", exprs.Select(x => x.Run(expression))));
-        /// <summary>
-        /// Set the ’|’-separated expressions list for each separate channel. <br>
-        /// </br>If the number of input channels is greater than the number of expressions, the last specified expression is used for the remaining output channels.
-        /// </summary>
-        /// <param name="exprs"></param>
-        /// <returns></returns>
-        public AevalFilter Exprs(params string[] exprs)
-            => Exprs(exprs.Select(x => x.Expression()).ToArray());
+        public AevalFilter Exprs(params ExpressionValue[] exprs)
+            => this.SetOption("exprs", string.Join("|", expression.Checks(exprs)));
         /// <summary>
         /// Set output channel layout.<br>
         /// </br> If not specified, the channel layout is specified by the number of expressions.<br>
@@ -48,6 +40,9 @@ namespace FFmpegArgs.Filters.AudioFilters
         public AevalFilter ChannelLayout(string c)
             => this.SetOption("c", c);
     }
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AevalFilterExtensions
     {
         /// <summary>
