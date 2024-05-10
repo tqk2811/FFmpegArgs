@@ -9,7 +9,7 @@ internal VolumeFilterGen(AudioMap input) : base("volume",input) { AddMapOut(); }
 /// <summary>
 ///  set volume adjustment expression (default "1.0")
 /// </summary>
-public VolumeFilterGen volume(string volume) => this.SetOption("volume",volume);
+public VolumeFilterGen volume(ExpressionValue volume) => this.SetOption("volume",(string)volume);
 /// <summary>
 ///  select mathematical precision (from 0 to 2) (default float)
 /// </summary>

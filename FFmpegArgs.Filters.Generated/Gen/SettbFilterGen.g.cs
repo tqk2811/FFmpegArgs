@@ -9,11 +9,11 @@ internal SettbFilterGen(ImageMap input) : base("settb",input) { AddMapOut(); }
 /// <summary>
 ///  set expression determining the output timebase (default "intb")
 /// </summary>
-public SettbFilterGen expr(string expr) => this.SetOption("expr",expr);
+public SettbFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 /// <summary>
 ///  set expression determining the output timebase (default "intb")
 /// </summary>
-public SettbFilterGen tb(string tb) => this.SetOption("tb",tb);
+public SettbFilterGen tb(ExpressionValue tb) => this.SetOption("tb",(string)tb);
 }
 /// <summary>
 /// </summary>

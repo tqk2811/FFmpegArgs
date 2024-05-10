@@ -9,7 +9,7 @@ internal AsetptsFilterGen(AudioMap input) : base("asetpts",input) { AddMapOut();
 /// <summary>
 ///  Expression determining the frame timestamp (default "PTS")
 /// </summary>
-public AsetptsFilterGen expr(string expr) => this.SetOption("expr",expr);
+public AsetptsFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 }
 /// <summary>
 /// </summary>

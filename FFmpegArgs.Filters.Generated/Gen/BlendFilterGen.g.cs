@@ -29,23 +29,23 @@ public BlendFilterGen all_mode(BlendFilterGenAll_mode all_mode) => this.SetOptio
 /// <summary>
 ///  set color component #0 expression
 /// </summary>
-public BlendFilterGen c0_expr(string c0_expr) => this.SetOption("c0_expr",c0_expr);
+public BlendFilterGen c0_expr(ExpressionValue c0_expr) => this.SetOption("c0_expr",(string)c0_expr);
 /// <summary>
 ///  set color component #1 expression
 /// </summary>
-public BlendFilterGen c1_expr(string c1_expr) => this.SetOption("c1_expr",c1_expr);
+public BlendFilterGen c1_expr(ExpressionValue c1_expr) => this.SetOption("c1_expr",(string)c1_expr);
 /// <summary>
 ///  set color component #2 expression
 /// </summary>
-public BlendFilterGen c2_expr(string c2_expr) => this.SetOption("c2_expr",c2_expr);
+public BlendFilterGen c2_expr(ExpressionValue c2_expr) => this.SetOption("c2_expr",(string)c2_expr);
 /// <summary>
 ///  set color component #3 expression
 /// </summary>
-public BlendFilterGen c3_expr(string c3_expr) => this.SetOption("c3_expr",c3_expr);
+public BlendFilterGen c3_expr(ExpressionValue c3_expr) => this.SetOption("c3_expr",(string)c3_expr);
 /// <summary>
 ///  set expression for all color components
 /// </summary>
-public BlendFilterGen all_expr(string all_expr) => this.SetOption("all_expr",all_expr);
+public BlendFilterGen all_expr(ExpressionValue all_expr) => this.SetOption("all_expr",(string)all_expr);
 /// <summary>
 ///  set color component #0 opacity (from 0 to 1) (default 1)
 /// </summary>

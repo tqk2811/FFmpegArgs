@@ -25,7 +25,7 @@ public MetadataFilterGen function(MetadataFilterGenFunction function) => this.Se
 /// <summary>
 ///  set expression for expr function
 /// </summary>
-public MetadataFilterGen expr(string expr) => this.SetOption("expr",expr);
+public MetadataFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 /// <summary>
 ///  set file where to print metadata information
 /// </summary>

@@ -49,19 +49,19 @@ public Vpp_qsvFilterGen transpose(Vpp_qsvFilterGenTranspose transpose) => this.S
 /// <summary>
 ///  set the width crop area expression (default "iw")
 /// </summary>
-public Vpp_qsvFilterGen cw(string cw) => this.SetOption("cw",cw);
+public Vpp_qsvFilterGen cw(ExpressionValue cw) => this.SetOption("cw",(string)cw);
 /// <summary>
 ///  set the height crop area expression (default "ih")
 /// </summary>
-public Vpp_qsvFilterGen ch(string ch) => this.SetOption("ch",ch);
+public Vpp_qsvFilterGen ch(ExpressionValue ch) => this.SetOption("ch",(string)ch);
 /// <summary>
 ///  set the x crop area expression (default "(in_w-out_w)/2")
 /// </summary>
-public Vpp_qsvFilterGen cx(string cx) => this.SetOption("cx",cx);
+public Vpp_qsvFilterGen cx(ExpressionValue cx) => this.SetOption("cx",(string)cx);
 /// <summary>
 ///  set the y crop area expression (default "(in_h-out_h)/2")
 /// </summary>
-public Vpp_qsvFilterGen cy(string cy) => this.SetOption("cy",cy);
+public Vpp_qsvFilterGen cy(ExpressionValue cy) => this.SetOption("cy",(string)cy);
 /// <summary>
 ///  Output video width(0=input video width, -1=keep input video aspect) (default "cw")
 /// </summary>

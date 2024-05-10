@@ -29,23 +29,23 @@ public TblendFilterGen all_mode(TblendFilterGenAll_mode all_mode) => this.SetOpt
 /// <summary>
 ///  set color component #0 expression
 /// </summary>
-public TblendFilterGen c0_expr(string c0_expr) => this.SetOption("c0_expr",c0_expr);
+public TblendFilterGen c0_expr(ExpressionValue c0_expr) => this.SetOption("c0_expr",(string)c0_expr);
 /// <summary>
 ///  set color component #1 expression
 /// </summary>
-public TblendFilterGen c1_expr(string c1_expr) => this.SetOption("c1_expr",c1_expr);
+public TblendFilterGen c1_expr(ExpressionValue c1_expr) => this.SetOption("c1_expr",(string)c1_expr);
 /// <summary>
 ///  set color component #2 expression
 /// </summary>
-public TblendFilterGen c2_expr(string c2_expr) => this.SetOption("c2_expr",c2_expr);
+public TblendFilterGen c2_expr(ExpressionValue c2_expr) => this.SetOption("c2_expr",(string)c2_expr);
 /// <summary>
 ///  set color component #3 expression
 /// </summary>
-public TblendFilterGen c3_expr(string c3_expr) => this.SetOption("c3_expr",c3_expr);
+public TblendFilterGen c3_expr(ExpressionValue c3_expr) => this.SetOption("c3_expr",(string)c3_expr);
 /// <summary>
 ///  set expression for all color components
 /// </summary>
-public TblendFilterGen all_expr(string all_expr) => this.SetOption("all_expr",all_expr);
+public TblendFilterGen all_expr(ExpressionValue all_expr) => this.SetOption("all_expr",(string)all_expr);
 /// <summary>
 ///  set color component #0 opacity (from 0 to 1) (default 1)
 /// </summary>

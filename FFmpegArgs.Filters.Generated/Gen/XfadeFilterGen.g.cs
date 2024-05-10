@@ -21,7 +21,7 @@ public XfadeFilterGen offset(TimeSpan offset) => this.SetOptionRange("offset",of
 /// <summary>
 ///  set expression for custom transition
 /// </summary>
-public XfadeFilterGen expr(string expr) => this.SetOption("expr",expr);
+public XfadeFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 }
 /// <summary>
 /// </summary>

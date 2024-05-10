@@ -9,19 +9,19 @@ internal ZoompanFilterGen(ImageMap input) : base("zoompan",input) { AddMapOut();
 /// <summary>
 ///  set the zoom expression (default "1")
 /// </summary>
-public ZoompanFilterGen zoom(string zoom) => this.SetOption("zoom",zoom);
+public ZoompanFilterGen zoom(ExpressionValue zoom) => this.SetOption("zoom",(string)zoom);
 /// <summary>
 ///  set the x expression (default "0")
 /// </summary>
-public ZoompanFilterGen x(string x) => this.SetOption("x",x);
+public ZoompanFilterGen x(ExpressionValue x) => this.SetOption("x",(string)x);
 /// <summary>
 ///  set the y expression (default "0")
 /// </summary>
-public ZoompanFilterGen y(string y) => this.SetOption("y",y);
+public ZoompanFilterGen y(ExpressionValue y) => this.SetOption("y",(string)y);
 /// <summary>
 ///  set the duration expression (default "90")
 /// </summary>
-public ZoompanFilterGen d(string d) => this.SetOption("d",d);
+public ZoompanFilterGen d(ExpressionValue d) => this.SetOption("d",(string)d);
 /// <summary>
 ///  set the output image size (default "hd720")
 /// </summary>

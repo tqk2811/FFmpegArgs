@@ -9,11 +9,11 @@ internal Overlay_cudaFilterGen(params ImageMap[] inputs) : base("overlay_cuda",i
 /// <summary>
 ///  set the x expression of overlay (default "0")
 /// </summary>
-public Overlay_cudaFilterGen x(string x) => this.SetOption("x",x);
+public Overlay_cudaFilterGen x(ExpressionValue x) => this.SetOption("x",(string)x);
 /// <summary>
 ///  set the y expression of overlay (default "0")
 /// </summary>
-public Overlay_cudaFilterGen y(string y) => this.SetOption("y",y);
+public Overlay_cudaFilterGen y(ExpressionValue y) => this.SetOption("y",(string)y);
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>

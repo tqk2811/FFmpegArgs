@@ -25,7 +25,7 @@ public DrawtextFilterGen fontcolor(Color fontcolor) => this.SetOption("fontcolor
 /// <summary>
 ///  set foreground color expression (default "")
 /// </summary>
-public DrawtextFilterGen fontcolor_expr(string fontcolor_expr) => this.SetOption("fontcolor_expr",fontcolor_expr);
+public DrawtextFilterGen fontcolor_expr(ExpressionValue fontcolor_expr) => this.SetOption("fontcolor_expr",(string)fontcolor_expr);
 /// <summary>
 ///  set box color (default "white")
 /// </summary>
@@ -61,11 +61,11 @@ public DrawtextFilterGen text_align(DrawtextFilterGenText_align text_align) => t
 /// <summary>
 ///  set x expression (default "0")
 /// </summary>
-public DrawtextFilterGen x(string x) => this.SetOption("x",x);
+public DrawtextFilterGen x(ExpressionValue x) => this.SetOption("x",(string)x);
 /// <summary>
 ///  set y expression (default "0")
 /// </summary>
-public DrawtextFilterGen y(string y) => this.SetOption("y",y);
+public DrawtextFilterGen y(ExpressionValue y) => this.SetOption("y",(string)y);
 /// <summary>
 ///  set box width (from 0 to INT_MAX) (default 0)
 /// </summary>

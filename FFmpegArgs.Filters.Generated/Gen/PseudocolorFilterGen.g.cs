@@ -9,19 +9,19 @@ internal PseudocolorFilterGen(ImageMap input) : base("pseudocolor",input) { AddM
 /// <summary>
 ///  set component #0 expression (default "val")
 /// </summary>
-public PseudocolorFilterGen c0(string c0) => this.SetOption("c0",c0);
+public PseudocolorFilterGen c0(ExpressionValue c0) => this.SetOption("c0",(string)c0);
 /// <summary>
 ///  set component #1 expression (default "val")
 /// </summary>
-public PseudocolorFilterGen c1(string c1) => this.SetOption("c1",c1);
+public PseudocolorFilterGen c1(ExpressionValue c1) => this.SetOption("c1",(string)c1);
 /// <summary>
 ///  set component #2 expression (default "val")
 /// </summary>
-public PseudocolorFilterGen c2(string c2) => this.SetOption("c2",c2);
+public PseudocolorFilterGen c2(ExpressionValue c2) => this.SetOption("c2",(string)c2);
 /// <summary>
 ///  set component #3 expression (default "val")
 /// </summary>
-public PseudocolorFilterGen c3(string c3) => this.SetOption("c3",c3);
+public PseudocolorFilterGen c3(ExpressionValue c3) => this.SetOption("c3",(string)c3);
 /// <summary>
 ///  set component as base (from 0 to 3) (default 0)
 /// </summary>

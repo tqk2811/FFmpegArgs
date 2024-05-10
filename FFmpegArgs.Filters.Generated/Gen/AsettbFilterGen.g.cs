@@ -9,11 +9,11 @@ internal AsettbFilterGen(AudioMap input) : base("asettb",input) { AddMapOut(); }
 /// <summary>
 ///  set expression determining the output timebase (default "intb")
 /// </summary>
-public AsettbFilterGen expr(string expr) => this.SetOption("expr",expr);
+public AsettbFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 /// <summary>
 ///  set expression determining the output timebase (default "intb")
 /// </summary>
-public AsettbFilterGen tb(string tb) => this.SetOption("tb",tb);
+public AsettbFilterGen tb(ExpressionValue tb) => this.SetOption("tb",(string)tb);
 }
 /// <summary>
 /// </summary>

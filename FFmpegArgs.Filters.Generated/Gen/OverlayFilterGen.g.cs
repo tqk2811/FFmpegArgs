@@ -9,11 +9,11 @@ internal OverlayFilterGen(params ImageMap[] inputs) : base("overlay",inputs) { A
 /// <summary>
 ///  set the x expression (default "0")
 /// </summary>
-public OverlayFilterGen x(string x) => this.SetOption("x",x);
+public OverlayFilterGen x(ExpressionValue x) => this.SetOption("x",(string)x);
 /// <summary>
 ///  set the y expression (default "0")
 /// </summary>
-public OverlayFilterGen y(string y) => this.SetOption("y",y);
+public OverlayFilterGen y(ExpressionValue y) => this.SetOption("y",(string)y);
 /// <summary>
 ///  Action to take when encountering EOF from secondary input  (from 0 to 2) (default repeat)
 /// </summary>

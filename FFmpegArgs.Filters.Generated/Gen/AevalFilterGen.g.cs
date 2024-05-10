@@ -9,7 +9,7 @@ internal AevalFilterGen(AudioMap input) : base("aeval",input) { AddMapOut(); }
 /// <summary>
 ///  set the '|'-separated list of channels expressions
 /// </summary>
-public AevalFilterGen exprs(string exprs) => this.SetOption("exprs",exprs);
+public AevalFilterGen exprs(ExpressionValue exprs) => this.SetOption("exprs",(string)exprs);
 /// <summary>
 ///  set channel layout
 /// </summary>

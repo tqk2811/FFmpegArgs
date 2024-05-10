@@ -21,15 +21,15 @@ public FftfiltFilterGen dc_V(int dc_V) => this.SetOptionRange("dc_V", dc_V,0,100
 /// <summary>
 ///  set luminance expression in Y plane (default "1")
 /// </summary>
-public FftfiltFilterGen weight_Y(string weight_Y) => this.SetOption("weight_Y",weight_Y);
+public FftfiltFilterGen weight_Y(ExpressionValue weight_Y) => this.SetOption("weight_Y",(string)weight_Y);
 /// <summary>
 ///  set chrominance expression in U plane
 /// </summary>
-public FftfiltFilterGen weight_U(string weight_U) => this.SetOption("weight_U",weight_U);
+public FftfiltFilterGen weight_U(ExpressionValue weight_U) => this.SetOption("weight_U",(string)weight_U);
 /// <summary>
 ///  set chrominance expression in V plane
 /// </summary>
-public FftfiltFilterGen weight_V(string weight_V) => this.SetOption("weight_V",weight_V);
+public FftfiltFilterGen weight_V(ExpressionValue weight_V) => this.SetOption("weight_V",(string)weight_V);
 /// <summary>
 ///  specify when to evaluate expressions (from 0 to 1) (default init)
 /// </summary>

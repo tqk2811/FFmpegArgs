@@ -9,7 +9,7 @@ internal AevalsrcFilterGen(IAudioFilterGraph input) : base("aevalsrc",input) { A
 /// <summary>
 ///  set the '|'-separated list of channels expressions
 /// </summary>
-public AevalsrcFilterGen exprs(string exprs) => this.SetOption("exprs",exprs);
+public AevalsrcFilterGen exprs(ExpressionValue exprs) => this.SetOption("exprs",(string)exprs);
 /// <summary>
 ///  set the number of samples per requested frame (from 0 to INT_MAX) (default 1024)
 /// </summary>

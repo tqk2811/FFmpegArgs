@@ -9,19 +9,19 @@ internal Tlut2FilterGen(ImageMap input) : base("tlut2",input) { AddMapOut(); }
 /// <summary>
 ///  set component #0 expression (default "x")
 /// </summary>
-public Tlut2FilterGen c0(string c0) => this.SetOption("c0",c0);
+public Tlut2FilterGen c0(ExpressionValue c0) => this.SetOption("c0",(string)c0);
 /// <summary>
 ///  set component #1 expression (default "x")
 /// </summary>
-public Tlut2FilterGen c1(string c1) => this.SetOption("c1",c1);
+public Tlut2FilterGen c1(ExpressionValue c1) => this.SetOption("c1",(string)c1);
 /// <summary>
 ///  set component #2 expression (default "x")
 /// </summary>
-public Tlut2FilterGen c2(string c2) => this.SetOption("c2",c2);
+public Tlut2FilterGen c2(ExpressionValue c2) => this.SetOption("c2",(string)c2);
 /// <summary>
 ///  set component #3 expression (default "x")
 /// </summary>
-public Tlut2FilterGen c3(string c3) => this.SetOption("c3",c3);
+public Tlut2FilterGen c3(ExpressionValue c3) => this.SetOption("c3",(string)c3);
 }
 /// <summary>
 /// </summary>

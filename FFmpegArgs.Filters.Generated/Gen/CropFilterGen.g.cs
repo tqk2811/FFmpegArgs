@@ -9,27 +9,27 @@ internal CropFilterGen(ImageMap input) : base("crop",input) { AddMapOut(); }
 /// <summary>
 ///  set the width crop area expression (default "iw")
 /// </summary>
-public CropFilterGen out_w(string out_w) => this.SetOption("out_w",out_w);
+public CropFilterGen out_w(ExpressionValue out_w) => this.SetOption("out_w",(string)out_w);
 /// <summary>
 ///  set the width crop area expression (default "iw")
 /// </summary>
-public CropFilterGen w(string w) => this.SetOption("w",w);
+public CropFilterGen w(ExpressionValue w) => this.SetOption("w",(string)w);
 /// <summary>
 ///  set the height crop area expression (default "ih")
 /// </summary>
-public CropFilterGen out_h(string out_h) => this.SetOption("out_h",out_h);
+public CropFilterGen out_h(ExpressionValue out_h) => this.SetOption("out_h",(string)out_h);
 /// <summary>
 ///  set the height crop area expression (default "ih")
 /// </summary>
-public CropFilterGen h(string h) => this.SetOption("h",h);
+public CropFilterGen h(ExpressionValue h) => this.SetOption("h",(string)h);
 /// <summary>
 ///  set the x crop area expression (default "(in_w-out_w)/2")
 /// </summary>
-public CropFilterGen x(string x) => this.SetOption("x",x);
+public CropFilterGen x(ExpressionValue x) => this.SetOption("x",(string)x);
 /// <summary>
 ///  set the y crop area expression (default "(in_h-out_h)/2")
 /// </summary>
-public CropFilterGen y(string y) => this.SetOption("y",y);
+public CropFilterGen y(ExpressionValue y) => this.SetOption("y",(string)y);
 /// <summary>
 ///  keep aspect ratio (default false)
 /// </summary>

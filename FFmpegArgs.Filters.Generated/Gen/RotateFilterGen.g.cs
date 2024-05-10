@@ -13,19 +13,19 @@ public RotateFilterGen angle(string angle) => this.SetOption("angle",angle);
 /// <summary>
 ///  set output width expression (default "iw")
 /// </summary>
-public RotateFilterGen out_w(string out_w) => this.SetOption("out_w",out_w);
+public RotateFilterGen out_w(ExpressionValue out_w) => this.SetOption("out_w",(string)out_w);
 /// <summary>
 ///  set output width expression (default "iw")
 /// </summary>
-public RotateFilterGen ow(string ow) => this.SetOption("ow",ow);
+public RotateFilterGen ow(ExpressionValue ow) => this.SetOption("ow",(string)ow);
 /// <summary>
 ///  set output height expression (default "ih")
 /// </summary>
-public RotateFilterGen out_h(string out_h) => this.SetOption("out_h",out_h);
+public RotateFilterGen out_h(ExpressionValue out_h) => this.SetOption("out_h",(string)out_h);
 /// <summary>
 ///  set output height expression (default "ih")
 /// </summary>
-public RotateFilterGen oh(string oh) => this.SetOption("oh",oh);
+public RotateFilterGen oh(ExpressionValue oh) => this.SetOption("oh",(string)oh);
 /// <summary>
 ///  set background fill color (default "black")
 /// </summary>

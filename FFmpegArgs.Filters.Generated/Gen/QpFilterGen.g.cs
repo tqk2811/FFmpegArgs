@@ -9,7 +9,7 @@ internal QpFilterGen(ImageMap input) : base("qp",input) { AddMapOut(); }
 /// <summary>
 ///  set qp expression
 /// </summary>
-public QpFilterGen qp(string qp) => this.SetOption("qp",qp);
+public QpFilterGen qp(ExpressionValue qp) => this.SetOption("qp",(string)qp);
 }
 /// <summary>
 /// </summary>

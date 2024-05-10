@@ -9,11 +9,11 @@ internal AfftfiltFilterGen(AudioMap input) : base("afftfilt",input) { AddMapOut(
 /// <summary>
 ///  set channels real expressions (default "re")
 /// </summary>
-public AfftfiltFilterGen real(string real) => this.SetOption("real",real);
+public AfftfiltFilterGen real(ExpressionValue real) => this.SetOption("real",(string)real);
 /// <summary>
 ///  set channels imaginary expressions (default "im")
 /// </summary>
-public AfftfiltFilterGen imag(string imag) => this.SetOption("imag",imag);
+public AfftfiltFilterGen imag(ExpressionValue imag) => this.SetOption("imag",(string)imag);
 /// <summary>
 ///  set window size (from 16 to 131072) (default 4096)
 /// </summary>

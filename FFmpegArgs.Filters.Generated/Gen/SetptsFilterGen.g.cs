@@ -9,7 +9,7 @@ internal SetptsFilterGen(ImageMap input) : base("setpts",input) { AddMapOut(); }
 /// <summary>
 ///  Expression determining the frame timestamp (default "PTS")
 /// </summary>
-public SetptsFilterGen expr(string expr) => this.SetOption("expr",expr);
+public SetptsFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 }
 /// <summary>
 /// </summary>

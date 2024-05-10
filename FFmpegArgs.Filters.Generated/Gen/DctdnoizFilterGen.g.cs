@@ -17,7 +17,7 @@ public DctdnoizFilterGen overlap(int overlap) => this.SetOptionRange("overlap", 
 /// <summary>
 ///  set coefficient factor expression
 /// </summary>
-public DctdnoizFilterGen expr(string expr) => this.SetOption("expr",expr);
+public DctdnoizFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 /// <summary>
 ///  set the block size, expressed in bits (from 3 to 4) (default 3)
 /// </summary>

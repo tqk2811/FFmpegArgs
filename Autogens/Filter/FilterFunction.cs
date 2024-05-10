@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using FFmpegArgs.Filters.Expressions;
 namespace Autogens.Filter
 {
     internal class FilterFunction
@@ -61,10 +62,6 @@ namespace Autogens.Filter
                         filterFunction.FunctionParamType = $"bool";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(UtilsExtension.ToFFmpegFlag)}());";
                         break;
-                    case "<string>":
-                        filterFunction.FunctionParamType = $"string";
-                        filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName});";
-                        break;
                     case "<image_size>":
                         filterFunction.FunctionParamType = $"Size";
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",$\"{{{filterFunction.FunctionName}.Width}}x{{{filterFunction.FunctionName}.Height}}\");";
@@ -96,6 +93,19 @@ namespace Autogens.Filter
                     case "<sample_fmt>":
                         filterFunction.FunctionParamType = nameof(AVSampleFormat);
                         filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName}.{nameof(AttributeExtensions.GetEnumAttribute)}<{nameof(NameAttribute)}>().{nameof(NameAttribute.Name)});";
+                        break;
+                    case "<string>":
+                        if (filterFunction.Description.Contains("expression", StringComparison.OrdinalIgnoreCase) ||
+                           filterFunction.FunctionName.EndsWith("expr", StringComparison.OrdinalIgnoreCase))
+                        {
+                            filterFunction.FunctionParamType = nameof(ExpressionValue);
+                            filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",(string){filterFunction.FunctionName});";
+                        }
+                        else
+                        {
+                            filterFunction.FunctionParamType = $"string";
+                            filterFunction.FunctionBody = $"=> this.SetOption(\"{filterData.Name}\",{filterFunction.FunctionName});";
+                        }
                         break;
                     //dictionary
                     //binary

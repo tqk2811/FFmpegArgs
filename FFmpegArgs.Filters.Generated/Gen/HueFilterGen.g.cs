@@ -9,19 +9,19 @@ internal HueFilterGen(ImageMap input) : base("hue",input) { AddMapOut(); }
 /// <summary>
 ///  set the hue angle degrees expression
 /// </summary>
-public HueFilterGen h(string h) => this.SetOption("h",h);
+public HueFilterGen h(ExpressionValue h) => this.SetOption("h",(string)h);
 /// <summary>
 ///  set the saturation expression (default "1")
 /// </summary>
-public HueFilterGen s(string s) => this.SetOption("s",s);
+public HueFilterGen s(ExpressionValue s) => this.SetOption("s",(string)s);
 /// <summary>
 ///  set the hue angle radians expression
 /// </summary>
-public HueFilterGen H(string H) => this.SetOption("H",H);
+public HueFilterGen H(ExpressionValue H) => this.SetOption("H",(string)H);
 /// <summary>
 ///  set the brightness expression (default "0")
 /// </summary>
-public HueFilterGen b(string b) => this.SetOption("b",b);
+public HueFilterGen b(ExpressionValue b) => this.SetOption("b",(string)b);
 }
 /// <summary>
 /// </summary>

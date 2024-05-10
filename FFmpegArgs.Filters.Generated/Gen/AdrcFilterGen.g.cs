@@ -9,7 +9,7 @@ internal AdrcFilterGen(AudioMap input) : base("adrc",input) { AddMapOut(); }
 /// <summary>
 ///  set the transfer expression (default "p")
 /// </summary>
-public AdrcFilterGen transfer(string transfer) => this.SetOption("transfer",transfer);
+public AdrcFilterGen transfer(ExpressionValue transfer) => this.SetOption("transfer",(string)transfer);
 /// <summary>
 ///  set the attack (from 1 to 1000) (default 50)
 /// </summary>
