@@ -29,6 +29,7 @@ public Dnn_detectFilterGen backend_configs(string backend_configs) => this.SetOp
 /// <summary>
 ///  backend configs (deprecated, use backend_configs)
 /// </summary>
+[Obsolete]
 public Dnn_detectFilterGen options(string options) => this.SetOption("options",options);
 /// <summary>
 ///  use DNN async inference (ignored, use backend_configs='async=1') (default true)

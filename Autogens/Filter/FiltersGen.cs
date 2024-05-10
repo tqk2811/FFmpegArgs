@@ -100,6 +100,8 @@ namespace Autogens.Filter
                     foreach (var filterFunction in filterFunctions.Except(removes))
                     {
                         streamWriter.WriteSummary(filterFunction.Description);
+                        if (filterFunction.IsObsolete) 
+                            streamWriter.WriteLine("[Obsolete]");
                         streamWriter.WriteLine(filterFunction);
                         if (!string.IsNullOrWhiteSpace(filterFunction.EnumData))
                             enumDatas.Add(filterFunction.EnumData);

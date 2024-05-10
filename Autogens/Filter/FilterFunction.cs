@@ -21,6 +21,7 @@ namespace Autogens.Filter
         public string FunctionParamType { get; private set; }
         public string FunctionBody { get; private set; }
         public string EnumData { get; private set; }
+        public bool IsObsolete { get; private set; } = false;
         public override string ToString()
         {
             return $"public {ReturnTypeName} {FunctionName}({FunctionParamType} {FunctionName}) {FunctionBody}";
@@ -33,6 +34,7 @@ namespace Autogens.Filter
                 filterFunction.ReturnTypeName = returnTypeName;
                 filterFunction.FunctionName = filterData.Name.FixNameRule();
                 filterFunction.Description = filterData.Description;
+                if (filterData.Flag.EndsWith('P')) filterFunction.IsObsolete = true;
                 switch (filterData.Type)
                 {
                     case "<double>":
