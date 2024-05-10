@@ -62,11 +62,6 @@
         }
 
         /// <summary>
-        /// Image Stream Input
-        /// </summary>
-        public ImageInputAVStream ImageInputAVStream { get { return base.ImageInputAVStreams.FirstOrDefault(); } }
-
-        /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>

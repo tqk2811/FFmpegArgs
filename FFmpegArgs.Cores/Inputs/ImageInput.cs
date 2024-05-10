@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class ImageInput : BaseInput, IImage
+    public abstract class ImageInput : BaseInput, IImageInput
     {
         readonly List<ImageInputAVStream> _imageInputAVStreams = new List<ImageInputAVStream>();
 
@@ -25,10 +25,14 @@
         /// </summary>
         public override IEnumerable<InputAVStream> InputAVStreams => _imageInputAVStreams;
 
-
         /// <summary>
         /// Images Stream Input
         /// </summary>
-        public IEnumerable<ImageInputAVStream> ImageInputAVStreams { get { return _imageInputAVStreams; } }
+        public virtual IEnumerable<ImageInputAVStream> ImageInputAVStreams { get { return _imageInputAVStreams; } }
+
+        /// <summary>
+        /// Image Stream Input
+        /// </summary>
+        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.FirstOrDefault();
     }
 }
