@@ -119,63 +119,7 @@ namespace Autogens.Filter
                     //default extension
                     streamWriter.WriteSummary(description);
                     streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)}) => new {className}({string.Join(", ", paramsInput)});");
-                    //config extension
-                    //streamWriter.WriteSummary(description);
-                    //streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)},{className}Config config)");
-                    //streamWriter.WriteLine("{");
-                    //streamWriter.WriteLine($"var result = new {className}({string.Join(", ", paramsInput)});");
-                    //foreach (var filterFunction in filterFunctions.Except(removes))
-                    //{
-                    //    switch (filterFunction.FunctionParamType)
-                    //    {
-                    //        case "string":
-                    //            streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{filterFunction.FunctionName})) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
-                    //            break;
-                    //        case nameof(Rational)://class
-                    //            streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName});");
-                    //            break;
-
-                    //        default://struct
-                    //            streamWriter.WriteLine($"if(config?.{filterFunction.FunctionName} != null) result.{filterFunction.FunctionName}(config.{filterFunction.FunctionName}.Value);");
-                    //            break;
-                    //    }
-                    //}
-                    //if (interfaces.Contains(nameof(ITimelineSupport)))
-                    //{
-                    //    streamWriter.WriteLine($"if(!string.{nameof(string.IsNullOrWhiteSpace)}(config?.{nameof(ITimelineSupport).Substring(1)})) result.{nameof(TimelineSupportExtension.Enable)}(config.{nameof(ITimelineSupport).Substring(1)});");
-                    //}
-                    //streamWriter.WriteLine("return result;");
-                    //streamWriter.WriteLine("}");
                     streamWriter.WriteLine("}");
-                    //config class
-                    //var interfaceConfigs = new List<string>();
-                    //if (interfaces.Contains(nameof(ITimelineSupport)))
-                    //{
-                    //    interfaceConfigs.Add(nameof(ITimelineSupportConfig));
-                    //}
-                    //streamWriter.WriteLine($"public class {className}Config");
-                    //if (interfaceConfigs.Count > 0) streamWriter.WriteLine(":" + string.Join(",", interfaceConfigs));
-                    //streamWriter.WriteLine("{");
-                    //foreach (var filterFunction in filterFunctions.Except(removes))
-                    //{
-                    //    streamWriter.WriteSummary(filterFunction.Description);
-                    //    switch (filterFunction.FunctionParamType)
-                    //    {
-                    //        case "string":
-                    //        case nameof(Rational)://class
-                    //            streamWriter.WriteLine($"public {filterFunction.FunctionParamType} {filterFunction.FunctionName} {{ get; set; }}");
-                    //            break;
-
-                    //        default://struct
-                    //            streamWriter.WriteLine($"public {filterFunction.FunctionParamType}? {filterFunction.FunctionName} {{ get; set; }}");
-                    //            break;
-                    //    }
-                    //}
-                    //if (interfaces.Contains(nameof(ITimelineSupport)))
-                    //{
-                    //    streamWriter.WriteLine($"public string {nameof(ITimelineSupport).Substring(1)} {{ get; set; }}");
-                    //}
-                    //streamWriter.WriteLine("}");
                     //enum
                     enumDatas.ForEach(x => streamWriter.WriteLine(x));
                     streamWriter.WriteLine("}");
