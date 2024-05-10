@@ -90,6 +90,10 @@ public enum AfireqsrcFilterGenPreset
 /// </summary>
 [Name("clear")] clear,
 /// <summary>
+/// deep bass       6            ..F.A......
+/// </summary>
+[Name("deep bass")] deep_bass,
+/// <summary>
 /// dubstep         7            ..F.A......
 /// </summary>
 [Name("dubstep")] dubstep,
@@ -122,9 +126,17 @@ public enum AfireqsrcFilterGenPreset
 /// </summary>
 [Name("pop")] pop,
 /// <summary>
+/// r&amp;b             15           ..F.A......
+/// </summary>
+[Name("r&b")] r_And_b,
+/// <summary>
 /// rock            16           ..F.A......
 /// </summary>
 [Name("rock")] rock,
+/// <summary>
+/// vocal booster   17           ..F.A......
+/// </summary>
+[Name("vocal booster")] vocal_booster,
 }
 
 /// <summary>

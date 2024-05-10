@@ -18,7 +18,7 @@ namespace Autogens.Filter
         ///          T      AV_OPT_FLAG_RUNTIME_PARAM
         ///           P     AV_OPT_FLAG_DEPRECATED
         /// </summary>
-        internal static Regex regex_DocLineMethod { get; } = new Regex("^([0-9A-z-+<>_-]+) +(|[0-9A-z<>-]+) +([.EDFVASXRBTP]{11})(.*?|)$");
+        internal static Regex regex_DocLineMethod { get; } = new Regex("^(.*?) +(|[0-9A-z<>-]+) +([.EDFVASXRBTP]{11})(.*?|)$");
         static Regex regex_DocLineMethodFromTo { get; } = new Regex("from ([0-9A-Z-+._e]+) to ([0-9A-Z-+._e]+)");
         internal FilterData(DocLine function)
         {

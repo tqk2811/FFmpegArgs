@@ -56,7 +56,10 @@ namespace Autogens
                 .Replace(".", "Dot")
                 .Replace("+", "Plus")
                 .Replace("<", "LessThan")
-                .Replace(">", "GreaterThan");
+                .Replace(">", "GreaterThan")
+                .Replace("&", "_And_")
+                .Replace(" ", "_")
+                ;
             if (int.TryParse(input.First().ToString(), out int r)) return $"_{input}";
             if (_NameRule.Contains(input)) return $"_{input}";
             return input;
