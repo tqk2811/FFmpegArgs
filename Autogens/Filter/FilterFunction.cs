@@ -15,12 +15,12 @@ namespace Autogens.Filter
         private FilterFunction()
         {
         }
-        public string ReturnTypeName { get; set; }
-        public string FunctionName { get; set; }
-        public string Description { get; set; }
-        public string FunctionParamType { get; set; }
-        public string FunctionBody { get; set; }
-        public string EnumData { get; set; }
+        public string ReturnTypeName { get; private set; }
+        public string FunctionName { get; private set; }
+        public string Description { get; private set; }
+        public string FunctionParamType { get; private set; }
+        public string FunctionBody { get; private set; }
+        public string EnumData { get; private set; }
         public override string ToString()
         {
             return $"public {ReturnTypeName} {FunctionName}({FunctionParamType} {FunctionName}) {FunctionBody}";
