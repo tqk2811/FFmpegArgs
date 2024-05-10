@@ -149,7 +149,7 @@
         /// <param name="advFunctions"></param>
         public FFmpegExpression(IEnumerable<string> variables = null, IEnumerable<ShuntingYardFunction> advFunctions = null)
         {
-            this._adv_variables = variables ?? new List<string>();
+            this._adv_variables = variables ?? Enumerable.Empty<string>();
             this._adv_functionName = advFunctions?.Select(x => x.Name).Concat(_functionName) ?? _functionName;
             this._adv_functionSY = advFunctions?.Select(x => x.SY).Concat(_functionSY) ?? _functionSY;
         }
