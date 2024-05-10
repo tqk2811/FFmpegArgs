@@ -17,7 +17,7 @@ public ColormatrixFilterGen dst(ColormatrixFilterGenDst dst) => this.SetOption("
 }
 /// <summary>
 /// </summary>
-public static class ColormatrixFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Convert color matrix.

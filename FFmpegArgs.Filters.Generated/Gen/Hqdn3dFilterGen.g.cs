@@ -25,7 +25,7 @@ public Hqdn3dFilterGen chroma_tmp(double chroma_tmp) => this.SetOptionRange("chr
 }
 /// <summary>
 /// </summary>
-public static class Hqdn3dFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a High Quality 3D Denoiser.

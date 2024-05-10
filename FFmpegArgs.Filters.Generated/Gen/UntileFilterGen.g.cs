@@ -13,7 +13,7 @@ public UntileFilterGen layout(Size layout) => this.SetOption("layout",$"{layout.
 }
 /// <summary>
 /// </summary>
-public static class UntileFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Untile a frame into a sequence of frames.

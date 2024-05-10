@@ -25,7 +25,7 @@ public Frei0r_srcFilterGen filter_params(string filter_params) => this.SetOption
 }
 /// <summary>
 /// </summary>
-public static class Frei0r_srcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a frei0r source.

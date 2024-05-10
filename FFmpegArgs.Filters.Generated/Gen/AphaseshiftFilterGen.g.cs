@@ -21,7 +21,7 @@ public AphaseshiftFilterGen order(int order) => this.SetOptionRange("order", ord
 }
 /// <summary>
 /// </summary>
-public static class AphaseshiftFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply phase shifting to input audio.

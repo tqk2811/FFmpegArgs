@@ -17,7 +17,7 @@ public NegateFilterGen negate_alpha(bool negate_alpha) => this.SetOption("negate
 }
 /// <summary>
 /// </summary>
-public static class NegateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Negate input video.

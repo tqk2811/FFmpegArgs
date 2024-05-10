@@ -17,7 +17,7 @@ public Pp7FilterGen mode(Pp7FilterGenMode mode) => this.SetOption("mode", mode.G
 }
 /// <summary>
 /// </summary>
-public static class Pp7FilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Postprocessing 7 filter.

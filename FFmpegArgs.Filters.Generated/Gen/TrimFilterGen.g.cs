@@ -37,7 +37,7 @@ public TrimFilterGen end_frame(long end_frame) => this.SetOptionRange("end_frame
 }
 /// <summary>
 /// </summary>
-public static class TrimFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pick one continuous section from the input, drop the rest.

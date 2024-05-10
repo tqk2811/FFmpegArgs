@@ -21,7 +21,7 @@ public BackgroundkeyFilterGen blend(float blend) => this.SetOptionRange("blend",
 }
 /// <summary>
 /// </summary>
-public static class BackgroundkeyFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Turns a static background into transparency.

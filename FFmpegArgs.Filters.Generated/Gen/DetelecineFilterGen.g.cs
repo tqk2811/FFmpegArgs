@@ -21,7 +21,7 @@ public DetelecineFilterGen start_frame(int start_frame) => this.SetOptionRange("
 }
 /// <summary>
 /// </summary>
-public static class DetelecineFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply an inverse telecine pattern.

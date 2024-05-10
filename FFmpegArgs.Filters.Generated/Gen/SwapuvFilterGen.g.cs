@@ -9,7 +9,7 @@ internal SwapuvFilterGen(ImageMap input) : base("swapuv",input) { AddMapOut(); }
 }
 /// <summary>
 /// </summary>
-public static class SwapuvFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Swap U and V components.

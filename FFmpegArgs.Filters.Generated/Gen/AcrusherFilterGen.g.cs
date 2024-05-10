@@ -53,7 +53,7 @@ public AcrusherFilterGen lforate(double lforate) => this.SetOptionRange("lforate
 }
 /// <summary>
 /// </summary>
-public static class AcrusherFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Reduce audio bit resolution.

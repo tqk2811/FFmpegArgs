@@ -21,7 +21,7 @@ public DeflickerFilterGen bypass(bool bypass) => this.SetOption("bypass",bypass.
 }
 /// <summary>
 /// </summary>
-public static class DeflickerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove temporal frame luminance variations.

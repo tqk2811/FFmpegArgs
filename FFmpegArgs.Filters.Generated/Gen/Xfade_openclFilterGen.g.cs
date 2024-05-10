@@ -29,7 +29,7 @@ public Xfade_openclFilterGen offset(TimeSpan offset) => this.SetOptionRange("off
 }
 /// <summary>
 /// </summary>
-public static class Xfade_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cross fade one video with another video.

@@ -33,7 +33,7 @@ public BlackdetectFilterGen pix_th(double pix_th) => this.SetOptionRange("pix_th
 }
 /// <summary>
 /// </summary>
-public static class BlackdetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Detect video intervals that are (almost) black.

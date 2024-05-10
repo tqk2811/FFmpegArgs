@@ -33,7 +33,7 @@ public AdeclickFilterGen method(AdeclickFilterGenMethod method) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class AdeclickFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove impulsive noise from input audio.

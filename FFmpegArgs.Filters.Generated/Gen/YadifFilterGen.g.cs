@@ -21,7 +21,7 @@ public YadifFilterGen deint(YadifFilterGenDeint deint) => this.SetOption("deint"
 }
 /// <summary>
 /// </summary>
-public static class YadifFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deinterlace the input image.

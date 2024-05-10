@@ -41,7 +41,7 @@ public OverlayFilterGen alpha(OverlayFilterGenAlpha alpha) => this.SetOption("al
 }
 /// <summary>
 /// </summary>
-public static class OverlayFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Overlay a video source on top of the input.

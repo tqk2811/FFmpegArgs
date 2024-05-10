@@ -13,7 +13,7 @@ public SetptsFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(stri
 }
 /// <summary>
 /// </summary>
-public static class SetptsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set PTS for the output video frame.

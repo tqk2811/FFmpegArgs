@@ -29,7 +29,7 @@ public NormalizeFilterGen strength(float strength) => this.SetOptionRange("stren
 }
 /// <summary>
 /// </summary>
-public static class NormalizeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Normalize RGB video.

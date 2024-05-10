@@ -25,7 +25,7 @@ public PhotosensitivityFilterGen bypass(bool bypass) => this.SetOption("bypass",
 }
 /// <summary>
 /// </summary>
-public static class PhotosensitivityFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Filter out photosensitive epilepsy seizure-inducing flashes.

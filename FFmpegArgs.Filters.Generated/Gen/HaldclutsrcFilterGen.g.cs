@@ -25,7 +25,7 @@ public HaldclutsrcFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(
 }
 /// <summary>
 /// </summary>
-public static class HaldclutsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Provide an identity Hald CLUT.

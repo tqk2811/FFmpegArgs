@@ -29,7 +29,7 @@ public RgbtestsrcFilterGen complement(bool complement) => this.SetOption("comple
 }
 /// <summary>
 /// </summary>
-public static class RgbtestsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate RGB test pattern.

@@ -21,7 +21,7 @@ public BilateralFilterGen planes(int planes) => this.SetOptionRange("planes", pl
 }
 /// <summary>
 /// </summary>
-public static class BilateralFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Bilateral filter.

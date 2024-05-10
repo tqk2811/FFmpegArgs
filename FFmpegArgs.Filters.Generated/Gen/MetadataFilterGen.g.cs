@@ -37,7 +37,7 @@ public MetadataFilterGen direct(bool direct) => this.SetOption("direct",direct.T
 }
 /// <summary>
 /// </summary>
-public static class MetadataFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Manipulate video frame metadata.

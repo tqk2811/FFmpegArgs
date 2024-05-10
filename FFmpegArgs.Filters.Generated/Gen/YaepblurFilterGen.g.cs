@@ -21,7 +21,7 @@ public YaepblurFilterGen sigma(int sigma) => this.SetOptionRange("sigma", sigma,
 }
 /// <summary>
 /// </summary>
-public static class YaepblurFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Yet another edge preserving blur filter.

@@ -21,7 +21,7 @@ public DeconvolveFilterGen noise(float noise) => this.SetOptionRange("noise", no
 }
 /// <summary>
 /// </summary>
-public static class DeconvolveFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deconvolve first video stream with second video stream.

@@ -17,7 +17,7 @@ public SsimFilterGen f(string f) => this.SetOption("f",f);
 }
 /// <summary>
 /// </summary>
-public static class SsimFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the SSIM between two video streams.

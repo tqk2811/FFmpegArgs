@@ -41,7 +41,7 @@ public CropFilterGen exact(bool exact) => this.SetOption("exact",exact.ToFFmpegF
 }
 /// <summary>
 /// </summary>
-public static class CropFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Crop the input video.

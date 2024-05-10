@@ -17,7 +17,7 @@ public CrystalizerFilterGen c(bool c) => this.SetOption("c",c.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>
-public static class CrystalizerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Simple audio noise sharpening filter.

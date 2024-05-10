@@ -45,7 +45,7 @@ public ChromanrFilterGen distance(ChromanrFilterGenDistance distance) => this.Se
 }
 /// <summary>
 /// </summary>
-public static class ChromanrFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Reduce chrominance noise.

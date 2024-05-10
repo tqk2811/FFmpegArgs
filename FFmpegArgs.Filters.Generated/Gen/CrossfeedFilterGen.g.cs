@@ -33,7 +33,7 @@ public CrossfeedFilterGen block_size(int block_size) => this.SetOptionRange("blo
 }
 /// <summary>
 /// </summary>
-public static class CrossfeedFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply headphone crossfeed filter.

@@ -49,7 +49,7 @@ public Blend_vulkanFilterGen all_opacity(double all_opacity) => this.SetOptionRa
 }
 /// <summary>
 /// </summary>
-public static class Blend_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Blend two video frames in Vulkan

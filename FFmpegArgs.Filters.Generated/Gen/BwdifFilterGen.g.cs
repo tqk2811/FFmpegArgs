@@ -21,7 +21,7 @@ public BwdifFilterGen deint(BwdifFilterGenDeint deint) => this.SetOption("deint"
 }
 /// <summary>
 /// </summary>
-public static class BwdifFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deinterlace the input image.

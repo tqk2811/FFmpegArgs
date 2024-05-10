@@ -21,7 +21,7 @@ public MaskedthresholdFilterGen mode(MaskedthresholdFilterGenMode mode) => this.
 }
 /// <summary>
 /// </summary>
-public static class MaskedthresholdFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pick pixels comparing absolute difference of two streams with threshold.

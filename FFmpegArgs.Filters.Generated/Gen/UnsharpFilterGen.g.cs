@@ -81,7 +81,7 @@ public UnsharpFilterGen aa(float aa) => this.SetOptionRange("aa", aa,-2,5);
 }
 /// <summary>
 /// </summary>
-public static class UnsharpFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Sharpen or blur the input video.

@@ -21,7 +21,7 @@ public DialoguenhanceFilterGen voice(double voice) => this.SetOptionRange("voice
 }
 /// <summary>
 /// </summary>
-public static class DialoguenhanceFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio Dialogue Enhancement.

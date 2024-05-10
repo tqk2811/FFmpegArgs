@@ -37,7 +37,7 @@ public LibvmafFilterGen feature(string feature) => this.SetOption("feature",feat
 }
 /// <summary>
 /// </summary>
-public static class LibvmafFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the VMAF between two video streams.

@@ -57,7 +57,7 @@ public Nlmeans_vulkanFilterGen p4(int p4) => this.SetOptionRange("p4", p4,0,99);
 }
 /// <summary>
 /// </summary>
-public static class Nlmeans_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Non-local means denoiser (Vulkan)

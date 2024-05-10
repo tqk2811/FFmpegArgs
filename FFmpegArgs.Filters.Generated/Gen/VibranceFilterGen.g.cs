@@ -41,7 +41,7 @@ public VibranceFilterGen alternate(bool alternate) => this.SetOption("alternate"
 }
 /// <summary>
 /// </summary>
-public static class VibranceFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Boost or alter saturation.

@@ -9,7 +9,7 @@ internal Hflip_vulkanFilterGen(ImageMap input) : base("hflip_vulkan",input) { Ad
 }
 /// <summary>
 /// </summary>
-public static class Hflip_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Horizontally flip the input video in Vulkan

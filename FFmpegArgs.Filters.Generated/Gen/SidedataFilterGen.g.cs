@@ -17,7 +17,7 @@ public SidedataFilterGen type(SidedataFilterGenType type) => this.SetOption("typ
 }
 /// <summary>
 /// </summary>
-public static class SidedataFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Manipulate video frame side data.

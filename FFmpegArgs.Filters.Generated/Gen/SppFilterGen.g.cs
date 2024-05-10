@@ -25,7 +25,7 @@ public SppFilterGen use_bframe_qp(bool use_bframe_qp) => this.SetOption("use_bfr
 }
 /// <summary>
 /// </summary>
-public static class SppFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a simple post processing filter.

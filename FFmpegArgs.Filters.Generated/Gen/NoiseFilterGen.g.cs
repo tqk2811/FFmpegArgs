@@ -109,7 +109,7 @@ public NoiseFilterGen c3f(NoiseFilterGenC3f c3f) => this.SetOption("c3f", c3f.Ge
 }
 /// <summary>
 /// </summary>
-public static class NoiseFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Add noise.

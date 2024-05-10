@@ -29,7 +29,7 @@ public ChromashiftFilterGen edge(ChromashiftFilterGenEdge edge) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class ChromashiftFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Shift chroma.

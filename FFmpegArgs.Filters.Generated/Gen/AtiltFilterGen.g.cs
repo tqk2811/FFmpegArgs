@@ -29,7 +29,7 @@ public AtiltFilterGen level(double level) => this.SetOptionRange("level", level,
 }
 /// <summary>
 /// </summary>
-public static class AtiltFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply spectral tilt to audio.

@@ -13,7 +13,7 @@ public TinterlaceFilterGen mode(TinterlaceFilterGenMode mode) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class TinterlaceFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Perform temporal field interlacing.

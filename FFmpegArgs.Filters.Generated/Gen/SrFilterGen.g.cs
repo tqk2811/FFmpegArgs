@@ -29,7 +29,7 @@ public SrFilterGen output(string output) => this.SetOption("output",output);
 }
 /// <summary>
 /// </summary>
-public static class SrFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply DNN-based image super resolution to the input.

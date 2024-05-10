@@ -29,7 +29,7 @@ public FramerateFilterGen flags(FramerateFilterGenFlags flags) => this.SetOption
 }
 /// <summary>
 /// </summary>
-public static class FramerateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Upsamples or downsamples progressive source between specified frame rates.

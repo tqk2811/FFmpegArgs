@@ -37,7 +37,7 @@ public DeblockFilterGen planes(int planes) => this.SetOptionRange("planes", plan
 }
 /// <summary>
 /// </summary>
-public static class DeblockFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deblock video.

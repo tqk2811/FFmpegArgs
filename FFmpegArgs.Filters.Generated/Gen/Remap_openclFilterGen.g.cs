@@ -17,7 +17,7 @@ public Remap_openclFilterGen fill(Color fill) => this.SetOption("fill",fill.ToHe
 }
 /// <summary>
 /// </summary>
-public static class Remap_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remap pixels using OpenCL.

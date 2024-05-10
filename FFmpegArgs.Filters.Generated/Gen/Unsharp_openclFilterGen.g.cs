@@ -57,7 +57,7 @@ public Unsharp_openclFilterGen ca(float ca) => this.SetOptionRange("ca", ca,-10,
 }
 /// <summary>
 /// </summary>
-public static class Unsharp_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply unsharp mask to input video

@@ -33,7 +33,7 @@ public ChorusFilterGen depths(string depths) => this.SetOption("depths",depths);
 }
 /// <summary>
 /// </summary>
-public static class ChorusFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Add a chorus effect to the audio.

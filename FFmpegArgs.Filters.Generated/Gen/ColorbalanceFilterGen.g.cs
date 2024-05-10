@@ -49,7 +49,7 @@ public ColorbalanceFilterGen pl(bool pl) => this.SetOption("pl",pl.ToFFmpegFlag(
 }
 /// <summary>
 /// </summary>
-public static class ColorbalanceFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust the color balance.

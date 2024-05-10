@@ -157,7 +157,7 @@ public DrawtextFilterGen ft_load_flags(DrawtextFilterGenFt_load_flags ft_load_fl
 }
 /// <summary>
 /// </summary>
-public static class DrawtextFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Draw text on top of video frames using libfreetype library.

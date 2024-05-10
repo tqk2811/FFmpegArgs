@@ -25,7 +25,7 @@ public ScrollFilterGen vpos(float vpos) => this.SetOptionRange("vpos", vpos,0,1)
 }
 /// <summary>
 /// </summary>
-public static class ScrollFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Scroll input video.

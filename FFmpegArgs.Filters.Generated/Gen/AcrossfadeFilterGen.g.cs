@@ -41,7 +41,7 @@ public AcrossfadeFilterGen c2(AcrossfadeFilterGenC2 c2) => this.SetOption("c2", 
 }
 /// <summary>
 /// </summary>
-public static class AcrossfadeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cross fade two input audio streams.

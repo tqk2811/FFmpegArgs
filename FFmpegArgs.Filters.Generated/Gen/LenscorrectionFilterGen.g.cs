@@ -33,7 +33,7 @@ public LenscorrectionFilterGen fc(Color fc) => this.SetOption("fc",fc.ToHexStrin
 }
 /// <summary>
 /// </summary>
-public static class LenscorrectionFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Rectify the image by correcting for lens distortion.

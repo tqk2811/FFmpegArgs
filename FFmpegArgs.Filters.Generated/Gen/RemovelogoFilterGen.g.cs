@@ -13,7 +13,7 @@ public RemovelogoFilterGen filename(string filename) => this.SetOption("filename
 }
 /// <summary>
 /// </summary>
-public static class RemovelogoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove a TV logo based on a mask image.

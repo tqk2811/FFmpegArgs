@@ -89,7 +89,7 @@ public ZoneplateFilterGen kv(int kv) => this.SetOptionRange("kv", kv,INT_MIN,INT
 }
 /// <summary>
 /// </summary>
-public static class ZoneplateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate zone-plate.

@@ -21,7 +21,7 @@ public HwmapFilterGen reverse(int reverse) => this.SetOptionRange("reverse", rev
 }
 /// <summary>
 /// </summary>
-public static class HwmapFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Map hardware frames

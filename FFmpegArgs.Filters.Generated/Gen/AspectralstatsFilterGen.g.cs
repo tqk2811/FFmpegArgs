@@ -25,7 +25,7 @@ public AspectralstatsFilterGen measure(AspectralstatsFilterGenMeasure measure) =
 }
 /// <summary>
 /// </summary>
-public static class AspectralstatsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Show frequency domain statistics about audio frames.

@@ -37,7 +37,7 @@ public FftfiltFilterGen eval(FftfiltFilterGenEval eval) => this.SetOption("eval"
 }
 /// <summary>
 /// </summary>
-public static class FftfiltFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply arbitrary expressions to pixels in frequency domain.

@@ -33,7 +33,7 @@ public VaguedenoiserFilterGen type(VaguedenoiserFilterGenType type) => this.SetO
 }
 /// <summary>
 /// </summary>
-public static class VaguedenoiserFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a Wavelet based Denoiser.

@@ -25,7 +25,7 @@ public ChromakeyFilterGen yuv(bool yuv) => this.SetOption("yuv",yuv.ToFFmpegFlag
 }
 /// <summary>
 /// </summary>
-public static class ChromakeyFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Turns a certain color into transparency. Operates on YUV colors.

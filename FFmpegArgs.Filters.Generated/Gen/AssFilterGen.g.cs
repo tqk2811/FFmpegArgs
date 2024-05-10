@@ -29,7 +29,7 @@ public AssFilterGen shaping(AssFilterGenShaping shaping) => this.SetOption("shap
 }
 /// <summary>
 /// </summary>
-public static class AssFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Render ASS subtitles onto input video using the libass library.

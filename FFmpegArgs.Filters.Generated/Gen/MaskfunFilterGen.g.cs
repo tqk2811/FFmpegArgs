@@ -29,7 +29,7 @@ public MaskfunFilterGen sum(int sum) => this.SetOptionRange("sum", sum,0,65535);
 }
 /// <summary>
 /// </summary>
-public static class MaskfunFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Create Mask.

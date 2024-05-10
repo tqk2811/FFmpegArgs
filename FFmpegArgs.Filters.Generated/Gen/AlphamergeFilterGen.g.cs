@@ -9,7 +9,7 @@ internal AlphamergeFilterGen(params ImageMap[] inputs) : base("alphamerge",input
 }
 /// <summary>
 /// </summary>
-public static class AlphamergeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Copy the luma value of the second input into the alpha channel of the first input.

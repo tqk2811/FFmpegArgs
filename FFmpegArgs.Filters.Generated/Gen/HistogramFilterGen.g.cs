@@ -49,7 +49,7 @@ public HistogramFilterGen l(HistogramFilterGenL l) => this.SetOption("l", l.GetE
 }
 /// <summary>
 /// </summary>
-public static class HistogramFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Compute and draw a histogram.

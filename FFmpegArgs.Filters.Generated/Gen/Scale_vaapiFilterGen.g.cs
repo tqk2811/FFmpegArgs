@@ -53,7 +53,7 @@ public Scale_vaapiFilterGen force_divisible_by(int force_divisible_by) => this.S
 }
 /// <summary>
 /// </summary>
-public static class Scale_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Scale to/from VAAPI surfaces.

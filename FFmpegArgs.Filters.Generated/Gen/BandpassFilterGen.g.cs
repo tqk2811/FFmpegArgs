@@ -61,7 +61,7 @@ public BandpassFilterGen blocksize(int blocksize) => this.SetOptionRange("blocks
 }
 /// <summary>
 /// </summary>
-public static class BandpassFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a two-pole Butterworth band-pass filter.

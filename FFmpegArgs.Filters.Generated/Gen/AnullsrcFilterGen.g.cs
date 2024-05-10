@@ -33,7 +33,7 @@ public AnullsrcFilterGen duration(TimeSpan duration) => this.SetOptionRange("dur
 }
 /// <summary>
 /// </summary>
-public static class AnullsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Null audio source, return empty audio frames.

@@ -21,7 +21,7 @@ public BlockdetectFilterGen planes(int planes) => this.SetOptionRange("planes", 
 }
 /// <summary>
 /// </summary>
-public static class BlockdetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Blockdetect filter.

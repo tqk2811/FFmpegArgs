@@ -209,7 +209,7 @@ public SurroundFilterGen overlap(float overlap) => this.SetOptionRange("overlap"
 }
 /// <summary>
 /// </summary>
-public static class SurroundFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply audio surround upmix filter.

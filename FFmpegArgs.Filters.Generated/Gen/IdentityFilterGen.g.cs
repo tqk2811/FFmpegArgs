@@ -9,7 +9,7 @@ internal IdentityFilterGen(params ImageMap[] inputs) : base("identity",inputs) {
 }
 /// <summary>
 /// </summary>
-public static class IdentityFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the Identity between two video streams.

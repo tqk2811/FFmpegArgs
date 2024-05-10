@@ -33,7 +33,7 @@ public VolumeFilterGen replaygain_noclip(bool replaygain_noclip) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class VolumeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Change input volume.

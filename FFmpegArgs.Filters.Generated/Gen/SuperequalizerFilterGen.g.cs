@@ -81,7 +81,7 @@ public SuperequalizerFilterGen _18b(float _18b) => this.SetOptionRange("18b", _1
 }
 /// <summary>
 /// </summary>
-public static class SuperequalizerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply 18 band equalization filter.

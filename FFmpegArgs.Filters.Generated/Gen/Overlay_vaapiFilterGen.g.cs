@@ -41,7 +41,7 @@ public Overlay_vaapiFilterGen repeatlast(bool repeatlast) => this.SetOption("rep
 }
 /// <summary>
 /// </summary>
-public static class Overlay_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Overlay one video on top of another

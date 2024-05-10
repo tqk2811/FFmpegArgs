@@ -37,7 +37,7 @@ public Dnn_processingFilterGen async(bool async) => this.SetOption("async",async
 }
 /// <summary>
 /// </summary>
-public static class Dnn_processingFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply DNN processing filter to the input.

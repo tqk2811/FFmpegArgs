@@ -45,7 +45,7 @@ public AlimiterFilterGen latency(bool latency) => this.SetOption("latency",laten
 }
 /// <summary>
 /// </summary>
-public static class AlimiterFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio lookahead limiter.

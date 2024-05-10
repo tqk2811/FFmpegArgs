@@ -57,7 +57,7 @@ public AtadenoiseFilterGen _2s(float _2s) => this.SetOptionRange("2s", _2s,0,327
 }
 /// <summary>
 /// </summary>
-public static class AtadenoiseFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply an Adaptive Temporal Averaging Denoiser.

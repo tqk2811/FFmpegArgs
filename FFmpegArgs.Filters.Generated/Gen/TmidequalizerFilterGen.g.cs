@@ -21,7 +21,7 @@ public TmidequalizerFilterGen planes(int planes) => this.SetOptionRange("planes"
 }
 /// <summary>
 /// </summary>
-public static class TmidequalizerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Temporal Midway Equalization.

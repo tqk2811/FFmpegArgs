@@ -17,7 +17,7 @@ public BitplanenoiseFilterGen filter(bool filter) => this.SetOption("filter",fil
 }
 /// <summary>
 /// </summary>
-public static class BitplanenoiseFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Measure bit plane noise.

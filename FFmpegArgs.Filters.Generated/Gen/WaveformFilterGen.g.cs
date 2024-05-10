@@ -89,7 +89,7 @@ public WaveformFilterGen input(WaveformFilterGenInput input) => this.SetOption("
 }
 /// <summary>
 /// </summary>
-public static class WaveformFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Video waveform monitor.

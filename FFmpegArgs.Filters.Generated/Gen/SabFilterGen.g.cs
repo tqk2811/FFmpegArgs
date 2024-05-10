@@ -57,7 +57,7 @@ public SabFilterGen cs(float cs) => this.SetOptionRange("cs", cs,-0.9,100);
 }
 /// <summary>
 /// </summary>
-public static class SabFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply shape adaptive blur.

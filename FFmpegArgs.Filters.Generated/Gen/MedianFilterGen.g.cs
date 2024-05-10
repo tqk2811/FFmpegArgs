@@ -25,7 +25,7 @@ public MedianFilterGen percentile(float percentile) => this.SetOptionRange("perc
 }
 /// <summary>
 /// </summary>
-public static class MedianFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Median filter.

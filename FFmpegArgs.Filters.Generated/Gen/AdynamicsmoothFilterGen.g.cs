@@ -17,7 +17,7 @@ public AdynamicsmoothFilterGen basefreq(double basefreq) => this.SetOptionRange(
 }
 /// <summary>
 /// </summary>
-public static class AdynamicsmoothFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Dynamic Smoothing of input audio.

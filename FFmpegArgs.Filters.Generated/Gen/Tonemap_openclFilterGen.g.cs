@@ -49,7 +49,7 @@ public Tonemap_openclFilterGen threshold(double threshold) => this.SetOptionRang
 }
 /// <summary>
 /// </summary>
-public static class Tonemap_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Perform HDR to SDR conversion with tonemapping.

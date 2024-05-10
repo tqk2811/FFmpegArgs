@@ -85,7 +85,7 @@ public GradientsFilterGen type(GradientsFilterGenType type) => this.SetOption("t
 }
 /// <summary>
 /// </summary>
-public static class GradientsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Draw a gradients.

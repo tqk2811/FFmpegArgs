@@ -37,7 +37,7 @@ public VignetteFilterGen aspect(Rational aspect) => this.SetOption("aspect",aspe
 }
 /// <summary>
 /// </summary>
-public static class VignetteFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Make or reverse a vignette effect.

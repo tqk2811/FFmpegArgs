@@ -17,7 +17,7 @@ public VibratoFilterGen d(double d) => this.SetOptionRange("d", d,0,1);
 }
 /// <summary>
 /// </summary>
-public static class VibratoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply vibrato effect.

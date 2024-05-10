@@ -37,7 +37,7 @@ public TpadFilterGen color(Color color) => this.SetOption("color",color.ToHexStr
 }
 /// <summary>
 /// </summary>
-public static class TpadFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Temporarily pad video frames.

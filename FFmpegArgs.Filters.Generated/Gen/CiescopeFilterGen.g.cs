@@ -49,7 +49,7 @@ public CiescopeFilterGen fill(bool fill) => this.SetOption("fill",fill.ToFFmpegF
 }
 /// <summary>
 /// </summary>
-public static class CiescopeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Video CIE scope.

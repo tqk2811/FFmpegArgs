@@ -61,7 +61,7 @@ public EqualizerFilterGen blocksize(int blocksize) => this.SetOptionRange("block
 }
 /// <summary>
 /// </summary>
-public static class EqualizerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply two-pole peaking equalization (EQ) filter.

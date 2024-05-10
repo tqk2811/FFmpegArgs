@@ -69,7 +69,7 @@ public TblendFilterGen all_opacity(double all_opacity) => this.SetOptionRange("a
 }
 /// <summary>
 /// </summary>
-public static class TblendFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Blend successive frames.

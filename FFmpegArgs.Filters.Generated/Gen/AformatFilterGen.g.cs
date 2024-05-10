@@ -33,7 +33,7 @@ public AformatFilterGen cl(string cl) => this.SetOption("cl",cl);
 }
 /// <summary>
 /// </summary>
-public static class AformatFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Convert the input audio to one of the specified formats.

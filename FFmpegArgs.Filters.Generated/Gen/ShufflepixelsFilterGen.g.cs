@@ -29,7 +29,7 @@ public ShufflepixelsFilterGen seed(long seed) => this.SetOptionRange("seed", see
 }
 /// <summary>
 /// </summary>
-public static class ShufflepixelsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Shuffle video pixels.

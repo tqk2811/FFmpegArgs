@@ -17,7 +17,7 @@ public Transpose_vulkanFilterGen passthrough(Transpose_vulkanFilterGenPassthroug
 }
 /// <summary>
 /// </summary>
-public static class Transpose_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Transpose Vulkan Filter

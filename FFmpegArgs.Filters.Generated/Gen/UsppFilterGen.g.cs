@@ -25,7 +25,7 @@ public UsppFilterGen codec(string codec) => this.SetOption("codec",codec);
 }
 /// <summary>
 /// </summary>
-public static class UsppFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Ultra Simple / Slow Post-processing filter.

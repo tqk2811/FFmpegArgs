@@ -21,7 +21,7 @@ public VarblurFilterGen planes(int planes) => this.SetOptionRange("planes", plan
 }
 /// <summary>
 /// </summary>
-public static class VarblurFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Variable Blur filter.

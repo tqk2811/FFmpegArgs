@@ -33,7 +33,7 @@ public ColorcorrectFilterGen analyze(ColorcorrectFilterGenAnalyze analyze) => th
 }
 /// <summary>
 /// </summary>
-public static class ColorcorrectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust color white balance selectively for blacks and whites.

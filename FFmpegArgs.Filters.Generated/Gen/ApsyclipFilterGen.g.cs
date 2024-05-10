@@ -37,7 +37,7 @@ public ApsyclipFilterGen level(bool level) => this.SetOption("level",level.ToFFm
 }
 /// <summary>
 /// </summary>
-public static class ApsyclipFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio Psychoacoustic Clipper.

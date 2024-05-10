@@ -21,7 +21,7 @@ public MestimateFilterGen search_param(int search_param) => this.SetOptionRange(
 }
 /// <summary>
 /// </summary>
-public static class MestimateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate motion vectors.

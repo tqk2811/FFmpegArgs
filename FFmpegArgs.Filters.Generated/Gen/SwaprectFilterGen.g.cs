@@ -33,7 +33,7 @@ public SwaprectFilterGen y2(string y2) => this.SetOption("y2",y2);
 }
 /// <summary>
 /// </summary>
-public static class SwaprectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Swap 2 rectangular objects in video.

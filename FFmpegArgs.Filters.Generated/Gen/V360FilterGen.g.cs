@@ -153,7 +153,7 @@ public V360FilterGen reset_rot(bool reset_rot) => this.SetOption("reset_rot",res
 }
 /// <summary>
 /// </summary>
-public static class V360FilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Convert 360 projection of video.

@@ -29,7 +29,7 @@ public DerainFilterGen output(string output) => this.SetOption("output",output);
 }
 /// <summary>
 /// </summary>
-public static class DerainFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply derain filter to the input.

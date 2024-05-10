@@ -37,7 +37,7 @@ public AmetadataFilterGen direct(bool direct) => this.SetOption("direct",direct.
 }
 /// <summary>
 /// </summary>
-public static class AmetadataFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Manipulate audio frame metadata.

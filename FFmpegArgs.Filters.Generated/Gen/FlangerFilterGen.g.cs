@@ -41,7 +41,7 @@ public FlangerFilterGen interp(FlangerFilterGenInterp interp) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class FlangerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a flanging effect to the audio.

@@ -17,7 +17,7 @@ public FieldhintFilterGen mode(FieldhintFilterGenMode mode) => this.SetOption("m
 }
 /// <summary>
 /// </summary>
-public static class FieldhintFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Field matching using hints.

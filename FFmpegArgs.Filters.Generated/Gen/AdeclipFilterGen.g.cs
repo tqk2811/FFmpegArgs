@@ -37,7 +37,7 @@ public AdeclipFilterGen method(AdeclipFilterGenMethod method) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class AdeclipFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove clipping from input audio.

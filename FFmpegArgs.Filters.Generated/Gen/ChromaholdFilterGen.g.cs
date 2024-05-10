@@ -25,7 +25,7 @@ public ChromaholdFilterGen yuv(bool yuv) => this.SetOption("yuv",yuv.ToFFmpegFla
 }
 /// <summary>
 /// </summary>
-public static class ChromaholdFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Turns a certain color range into gray.

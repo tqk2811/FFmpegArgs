@@ -45,7 +45,7 @@ public DdagrabFilterGen force_fmt(bool force_fmt) => this.SetOption("force_fmt",
 }
 /// <summary>
 /// </summary>
-public static class DdagrabFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Grab Windows Desktop images using Desktop Duplication API

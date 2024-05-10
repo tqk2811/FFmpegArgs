@@ -29,7 +29,7 @@ public SetparamsFilterGen colorspace(SetparamsFilterGenColorspace colorspace) =>
 }
 /// <summary>
 /// </summary>
-public static class SetparamsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Force field, or color property for the output video frame.

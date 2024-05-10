@@ -21,7 +21,7 @@ public LumakeyFilterGen softness(double softness) => this.SetOptionRange("softne
 }
 /// <summary>
 /// </summary>
-public static class LumakeyFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Turns a certain luma into transparency.

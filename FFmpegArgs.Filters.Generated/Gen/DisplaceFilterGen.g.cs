@@ -13,7 +13,7 @@ public DisplaceFilterGen edge(DisplaceFilterGenEdge edge) => this.SetOption("edg
 }
 /// <summary>
 /// </summary>
-public static class DisplaceFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Displace pixels.

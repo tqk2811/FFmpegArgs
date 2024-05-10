@@ -61,7 +61,7 @@ public OscilloscopeFilterGen sc(bool sc) => this.SetOption("sc",sc.ToFFmpegFlag(
 }
 /// <summary>
 /// </summary>
-public static class OscilloscopeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// 2D Video Oscilloscope.

@@ -25,7 +25,7 @@ public RemovegrainFilterGen m3(int m3) => this.SetOptionRange("m3", m3,0,24);
 }
 /// <summary>
 /// </summary>
-public static class RemovegrainFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove grain.

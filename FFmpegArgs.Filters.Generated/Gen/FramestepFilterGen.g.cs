@@ -13,7 +13,7 @@ public FramestepFilterGen step(int step) => this.SetOptionRange("step", step,1,I
 }
 /// <summary>
 /// </summary>
-public static class FramestepFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Select one frame every N frames.

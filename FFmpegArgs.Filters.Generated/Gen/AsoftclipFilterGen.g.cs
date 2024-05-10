@@ -29,7 +29,7 @@ public AsoftclipFilterGen oversample(int oversample) => this.SetOptionRange("ove
 }
 /// <summary>
 /// </summary>
-public static class AsoftclipFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio Soft Clipper.

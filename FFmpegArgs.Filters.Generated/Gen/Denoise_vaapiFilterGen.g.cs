@@ -13,7 +13,7 @@ public Denoise_vaapiFilterGen denoise(int denoise) => this.SetOptionRange("denoi
 }
 /// <summary>
 /// </summary>
-public static class Denoise_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// VAAPI VPP for de-noise

@@ -29,7 +29,7 @@ public DelogoFilterGen show(bool show) => this.SetOption("show",show.ToFFmpegFla
 }
 /// <summary>
 /// </summary>
-public static class DelogoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove logo from input video.

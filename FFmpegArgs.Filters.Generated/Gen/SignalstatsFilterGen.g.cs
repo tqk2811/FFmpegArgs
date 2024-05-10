@@ -21,7 +21,7 @@ public SignalstatsFilterGen color(Color color) => this.SetOption("color",color.T
 }
 /// <summary>
 /// </summary>
-public static class SignalstatsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate statistics from video analysis.

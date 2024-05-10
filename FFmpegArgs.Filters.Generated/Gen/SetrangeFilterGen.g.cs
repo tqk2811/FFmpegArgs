@@ -13,7 +13,7 @@ public SetrangeFilterGen range(SetrangeFilterGenRange range) => this.SetOption("
 }
 /// <summary>
 /// </summary>
-public static class SetrangeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Force color range for the output video frame.

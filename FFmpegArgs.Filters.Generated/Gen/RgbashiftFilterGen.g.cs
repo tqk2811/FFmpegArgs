@@ -45,7 +45,7 @@ public RgbashiftFilterGen edge(RgbashiftFilterGenEdge edge) => this.SetOption("e
 }
 /// <summary>
 /// </summary>
-public static class RgbashiftFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Shift RGBA.

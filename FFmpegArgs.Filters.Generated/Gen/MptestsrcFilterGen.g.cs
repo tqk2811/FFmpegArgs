@@ -25,7 +25,7 @@ public MptestsrcFilterGen max_frames(long max_frames) => this.SetOptionRange("ma
 }
 /// <summary>
 /// </summary>
-public static class MptestsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate various test pattern.

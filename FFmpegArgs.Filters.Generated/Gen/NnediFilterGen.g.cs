@@ -45,7 +45,7 @@ public NnediFilterGen pscrn(NnediFilterGenPscrn pscrn) => this.SetOption("pscrn"
 }
 /// <summary>
 /// </summary>
-public static class NnediFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply neural network edge directed interpolation intra-only deinterlacer.

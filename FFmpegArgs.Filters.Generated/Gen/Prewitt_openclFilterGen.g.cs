@@ -21,7 +21,7 @@ public Prewitt_openclFilterGen delta(float delta) => this.SetOptionRange("delta"
 }
 /// <summary>
 /// </summary>
-public static class Prewitt_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply prewitt operator

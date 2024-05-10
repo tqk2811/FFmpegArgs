@@ -17,7 +17,7 @@ public Transpose_vaapiFilterGen passthrough(Transpose_vaapiFilterGenPassthrough 
 }
 /// <summary>
 /// </summary>
-public static class Transpose_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// VAAPI VPP for transpose

@@ -33,7 +33,7 @@ public AnlmdnFilterGen m(float m) => this.SetOptionRange("m", m,1,1000);
 }
 /// <summary>
 /// </summary>
-public static class AnlmdnFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Reduce broadband noise from stream using Non-Local Means.

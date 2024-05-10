@@ -21,7 +21,7 @@ public Yadif_cudaFilterGen deint(Yadif_cudaFilterGenDeint deint) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class Yadif_cudaFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deinterlace CUDA frames

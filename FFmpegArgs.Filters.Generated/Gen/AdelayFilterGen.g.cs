@@ -17,7 +17,7 @@ public AdelayFilterGen all(bool all) => this.SetOption("all",all.ToFFmpegFlag())
 }
 /// <summary>
 /// </summary>
-public static class AdelayFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Delay one or more audio channels.

@@ -21,7 +21,7 @@ public LimiterFilterGen planes(int planes) => this.SetOptionRange("planes", plan
 }
 /// <summary>
 /// </summary>
-public static class LimiterFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Limit pixels components to the specified range.

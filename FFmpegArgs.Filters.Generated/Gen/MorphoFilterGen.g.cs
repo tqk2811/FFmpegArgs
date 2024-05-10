@@ -21,7 +21,7 @@ public MorphoFilterGen structure(MorphoFilterGenStructure structure) => this.Set
 }
 /// <summary>
 /// </summary>
-public static class MorphoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Morphological filter.

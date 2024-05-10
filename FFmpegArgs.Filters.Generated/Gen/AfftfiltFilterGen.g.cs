@@ -29,7 +29,7 @@ public AfftfiltFilterGen overlap(float overlap) => this.SetOptionRange("overlap"
 }
 /// <summary>
 /// </summary>
-public static class AfftfiltFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply arbitrary expressions to samples in frequency domain.

@@ -109,7 +109,7 @@ public Vpp_qsvFilterGen tonemap(int tonemap) => this.SetOptionRange("tonemap", t
 }
 /// <summary>
 /// </summary>
-public static class Vpp_qsvFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Quick Sync Video "VPP"

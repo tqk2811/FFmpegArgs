@@ -45,7 +45,7 @@ public Dnn_detectFilterGen labels(string labels) => this.SetOption("labels",labe
 }
 /// <summary>
 /// </summary>
-public static class Dnn_detectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply DNN detect filter to the input.

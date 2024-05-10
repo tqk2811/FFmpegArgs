@@ -21,7 +21,7 @@ public MaskedclampFilterGen planes(int planes) => this.SetOptionRange("planes", 
 }
 /// <summary>
 /// </summary>
-public static class MaskedclampFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Clamp first stream with second stream and third stream.

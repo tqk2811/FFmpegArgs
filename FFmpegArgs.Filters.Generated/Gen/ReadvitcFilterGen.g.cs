@@ -21,7 +21,7 @@ public ReadvitcFilterGen thr_w(double thr_w) => this.SetOptionRange("thr_w", thr
 }
 /// <summary>
 /// </summary>
-public static class ReadvitcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Read vertical interval timecode and write it to frame metadata.

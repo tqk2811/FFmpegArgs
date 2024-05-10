@@ -33,7 +33,7 @@ public AddroiFilterGen clear(bool clear) => this.SetOption("clear",clear.ToFFmpe
 }
 /// <summary>
 /// </summary>
-public static class AddroiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Add region of interest to frame.

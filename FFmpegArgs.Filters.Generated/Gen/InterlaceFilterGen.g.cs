@@ -17,7 +17,7 @@ public InterlaceFilterGen lowpass(InterlaceFilterGenLowpass lowpass) => this.Set
 }
 /// <summary>
 /// </summary>
-public static class InterlaceFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Convert progressive video into interlaced.

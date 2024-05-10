@@ -9,7 +9,7 @@ internal GrayworldFilterGen(ImageMap input) : base("grayworld",input) { AddMapOu
 }
 /// <summary>
 /// </summary>
-public static class GrayworldFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust white balance using LAB gray world algorithm

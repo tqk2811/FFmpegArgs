@@ -114,7 +114,7 @@ namespace Autogens.Filter
                         paramsInput.Add($"input{i}");
                     }
                     streamWriter.WriteSummary();
-                    streamWriter.WriteLine($"public static class {className}Extensions");
+                    streamWriter.WriteLine($"public static partial class FilterGeneratedExtensions");
                     streamWriter.WriteLine("{");
                     //default extension
                     streamWriter.WriteSummary(description);

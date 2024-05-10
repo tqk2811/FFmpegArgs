@@ -65,7 +65,7 @@ public BiquadFilterGen blocksize(int blocksize) => this.SetOptionRange("blocksiz
 }
 /// <summary>
 /// </summary>
-public static class BiquadFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a biquad IIR filter with the given coefficients.

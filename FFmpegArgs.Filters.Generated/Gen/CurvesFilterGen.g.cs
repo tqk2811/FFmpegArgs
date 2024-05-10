@@ -45,7 +45,7 @@ public CurvesFilterGen interp(CurvesFilterGenInterp interp) => this.SetOption("i
 }
 /// <summary>
 /// </summary>
-public static class CurvesFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust components curves.

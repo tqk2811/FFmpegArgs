@@ -9,7 +9,7 @@ internal CorrFilterGen(params ImageMap[] inputs) : base("corr",inputs) { AddMapO
 }
 /// <summary>
 /// </summary>
-public static class CorrFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the correlation between two video streams.

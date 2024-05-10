@@ -29,7 +29,7 @@ public Readeia608FilterGen lp(bool lp) => this.SetOption("lp",lp.ToFFmpegFlag())
 }
 /// <summary>
 /// </summary>
-public static class Readeia608FilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Read EIA-608 Closed Caption codes from input video and write them to frame metadata.

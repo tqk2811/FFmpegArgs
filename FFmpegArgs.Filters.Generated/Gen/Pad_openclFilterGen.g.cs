@@ -33,7 +33,7 @@ public Pad_openclFilterGen aspect(Rational aspect) => this.SetOption("aspect",as
 }
 /// <summary>
 /// </summary>
-public static class Pad_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pad the input video.

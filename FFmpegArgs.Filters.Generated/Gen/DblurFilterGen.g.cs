@@ -21,7 +21,7 @@ public DblurFilterGen planes(int planes) => this.SetOptionRange("planes", planes
 }
 /// <summary>
 /// </summary>
-public static class DblurFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Directional Blur filter.

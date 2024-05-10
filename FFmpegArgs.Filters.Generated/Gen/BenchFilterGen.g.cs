@@ -13,7 +13,7 @@ public BenchFilterGen action(BenchFilterGenAction action) => this.SetOption("act
 }
 /// <summary>
 /// </summary>
-public static class BenchFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Benchmark part of a filtergraph.

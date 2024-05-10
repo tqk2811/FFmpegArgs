@@ -17,7 +17,7 @@ public BlackframeFilterGen threshold(int threshold) => this.SetOptionRange("thre
 }
 /// <summary>
 /// </summary>
-public static class BlackframeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Detect frames that are (almost) black.

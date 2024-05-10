@@ -41,7 +41,7 @@ public Overlay_qsvFilterGen repeatlast(bool repeatlast) => this.SetOption("repea
 }
 /// <summary>
 /// </summary>
-public static class Overlay_qsvFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Quick Sync Video overlay.

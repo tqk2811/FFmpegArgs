@@ -13,7 +13,7 @@ public FramepackFilterGen format(FramepackFilterGenFormat format) => this.SetOpt
 }
 /// <summary>
 /// </summary>
-public static class FramepackFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a frame packed stereoscopic video.

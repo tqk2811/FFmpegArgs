@@ -13,7 +13,7 @@ public BboxFilterGen min_val(int min_val) => this.SetOptionRange("min_val", min_
 }
 /// <summary>
 /// </summary>
-public static class BboxFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Compute bounding box for each frame.

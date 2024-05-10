@@ -41,7 +41,7 @@ public AfwtdnFilterGen softness(double softness) => this.SetOptionRange("softnes
 }
 /// <summary>
 /// </summary>
-public static class AfwtdnFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Denoise audio stream using Wavelets.

@@ -37,7 +37,7 @@ public ColorcontrastFilterGen pl(float pl) => this.SetOptionRange("pl", pl,0,1);
 }
 /// <summary>
 /// </summary>
-public static class ColorcontrastFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust color contrast between RGB components.

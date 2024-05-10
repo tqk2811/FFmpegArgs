@@ -61,7 +61,7 @@ public LifeFilterGen mold_color(Color mold_color) => this.SetOption("mold_color"
 }
 /// <summary>
 /// </summary>
-public static class LifeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Create life.

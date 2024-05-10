@@ -57,7 +57,7 @@ public Boxblur_openclFilterGen ap(int ap) => this.SetOptionRange("ap", ap,-1,INT
 }
 /// <summary>
 /// </summary>
-public static class Boxblur_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply boxblur filter to input video

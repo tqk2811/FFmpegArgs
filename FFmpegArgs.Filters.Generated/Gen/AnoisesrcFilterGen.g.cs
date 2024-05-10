@@ -49,7 +49,7 @@ public AnoisesrcFilterGen density(double density) => this.SetOptionRange("densit
 }
 /// <summary>
 /// </summary>
-public static class AnoisesrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a noise audio signal.

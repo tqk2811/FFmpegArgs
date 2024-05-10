@@ -113,7 +113,7 @@ public AfftdnFilterGen gs(int gs) => this.SetOptionRange("gs", gs,0,50);
 }
 /// <summary>
 /// </summary>
-public static class AfftdnFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Denoise audio samples using FFT.

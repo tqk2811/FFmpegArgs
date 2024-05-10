@@ -25,7 +25,7 @@ public AloopFilterGen time(TimeSpan time) => this.SetOptionRange("time",time,Tim
 }
 /// <summary>
 /// </summary>
-public static class AloopFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Loop audio samples.

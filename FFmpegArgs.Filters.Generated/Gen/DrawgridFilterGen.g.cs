@@ -37,7 +37,7 @@ public DrawgridFilterGen replace(bool replace) => this.SetOption("replace",repla
 }
 /// <summary>
 /// </summary>
-public static class DrawgridFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Draw a colored grid on the input video.

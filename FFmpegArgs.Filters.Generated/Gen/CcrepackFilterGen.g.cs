@@ -9,7 +9,7 @@ internal CcrepackFilterGen(ImageMap input) : base("ccrepack",input) { AddMapOut(
 }
 /// <summary>
 /// </summary>
-public static class CcrepackFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Repack CEA-708 closed caption metadata

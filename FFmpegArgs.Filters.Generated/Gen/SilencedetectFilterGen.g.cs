@@ -21,7 +21,7 @@ public SilencedetectFilterGen mono(bool mono) => this.SetOption("mono",mono.ToFF
 }
 /// <summary>
 /// </summary>
-public static class SilencedetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Detect silence.

@@ -29,7 +29,7 @@ public HsvholdFilterGen blend(float blend) => this.SetOptionRange("blend", blend
 }
 /// <summary>
 /// </summary>
-public static class HsvholdFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Turns a certain HSV range into gray.

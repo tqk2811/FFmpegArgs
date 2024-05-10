@@ -81,7 +81,7 @@ public ColorchannelmixerFilterGen pa(double pa) => this.SetOptionRange("pa", pa,
 }
 /// <summary>
 /// </summary>
-public static class ColorchannelmixerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust colors by mixing color channels.

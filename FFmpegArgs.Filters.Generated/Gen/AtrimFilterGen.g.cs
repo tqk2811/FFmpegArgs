@@ -37,7 +37,7 @@ public AtrimFilterGen end_sample(long end_sample) => this.SetOptionRange("end_sa
 }
 /// <summary>
 /// </summary>
-public static class AtrimFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pick one continuous section from the input, drop the rest.

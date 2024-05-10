@@ -25,7 +25,7 @@ public EdgedetectFilterGen planes(EdgedetectFilterGenPlanes planes) => this.SetO
 }
 /// <summary>
 /// </summary>
-public static class EdgedetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Detect and draw edge.

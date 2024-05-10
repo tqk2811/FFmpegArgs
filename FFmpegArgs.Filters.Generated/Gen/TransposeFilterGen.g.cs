@@ -17,7 +17,7 @@ public TransposeFilterGen passthrough(TransposeFilterGenPassthrough passthrough)
 }
 /// <summary>
 /// </summary>
-public static class TransposeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Transpose input video.

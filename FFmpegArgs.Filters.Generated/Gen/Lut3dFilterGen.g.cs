@@ -21,7 +21,7 @@ public Lut3dFilterGen interp(Lut3dFilterGenInterp interp) => this.SetOption("int
 }
 /// <summary>
 /// </summary>
-public static class Lut3dFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust colors using a 3D LUT.

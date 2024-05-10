@@ -29,7 +29,7 @@ public IdetFilterGen analyze_interlaced_flag(int analyze_interlaced_flag) => thi
 }
 /// <summary>
 /// </summary>
-public static class IdetFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Interlace detect Filter.

@@ -25,7 +25,7 @@ public MonochromeFilterGen high(float high) => this.SetOptionRange("high", high,
 }
 /// <summary>
 /// </summary>
-public static class MonochromeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Convert video to gray using custom color filter.

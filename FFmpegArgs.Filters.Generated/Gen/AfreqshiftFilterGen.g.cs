@@ -21,7 +21,7 @@ public AfreqshiftFilterGen order(int order) => this.SetOptionRange("order", orde
 }
 /// <summary>
 /// </summary>
-public static class AfreqshiftFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply frequency shifting to input audio.

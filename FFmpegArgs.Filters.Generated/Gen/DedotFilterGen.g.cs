@@ -29,7 +29,7 @@ public DedotFilterGen ct(float ct) => this.SetOptionRange("ct", ct,0,1);
 }
 /// <summary>
 /// </summary>
-public static class DedotFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Reduce cross-luminance and cross-color.

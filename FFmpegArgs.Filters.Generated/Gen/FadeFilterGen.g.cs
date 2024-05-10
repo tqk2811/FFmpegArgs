@@ -37,7 +37,7 @@ public FadeFilterGen color(Color color) => this.SetOption("color",color.ToHexStr
 }
 /// <summary>
 /// </summary>
-public static class FadeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Fade in/out input video.

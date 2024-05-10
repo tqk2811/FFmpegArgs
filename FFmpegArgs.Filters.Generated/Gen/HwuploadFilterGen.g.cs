@@ -13,7 +13,7 @@ public HwuploadFilterGen derive_device(string derive_device) => this.SetOption("
 }
 /// <summary>
 /// </summary>
-public static class HwuploadFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Upload a normal frame to a hardware frame

@@ -17,7 +17,7 @@ public ExtrastereoFilterGen c(bool c) => this.SetOption("c",c.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>
-public static class ExtrastereoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Increase difference between stereo audio channels.

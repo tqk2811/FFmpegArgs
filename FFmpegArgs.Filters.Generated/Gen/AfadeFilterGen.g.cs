@@ -49,7 +49,7 @@ public AfadeFilterGen unity(double unity) => this.SetOptionRange("unity", unity,
 }
 /// <summary>
 /// </summary>
-public static class AfadeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Fade in/out input audio.

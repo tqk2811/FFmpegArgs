@@ -17,7 +17,7 @@ public AsettbFilterGen tb(ExpressionValue tb) => this.SetOption("tb",(string)tb)
 }
 /// <summary>
 /// </summary>
-public static class AsettbFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set timebase for the audio output link.

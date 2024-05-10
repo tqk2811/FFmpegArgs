@@ -57,7 +57,7 @@ public SpeechnormFilterGen m(double m) => this.SetOptionRange("m", m,0,1);
 }
 /// <summary>
 /// </summary>
-public static class SpeechnormFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Speech Normalizer.

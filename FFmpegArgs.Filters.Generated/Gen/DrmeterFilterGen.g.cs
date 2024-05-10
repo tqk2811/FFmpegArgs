@@ -13,7 +13,7 @@ public DrmeterFilterGen length(double length) => this.SetOptionRange("length", l
 }
 /// <summary>
 /// </summary>
-public static class DrmeterFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Measure audio dynamic range.

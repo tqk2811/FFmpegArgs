@@ -29,7 +29,7 @@ public AstatsFilterGen measure_overall(AstatsFilterGenMeasure_overall measure_ov
 }
 /// <summary>
 /// </summary>
-public static class AstatsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Show time domain statistics about audio frames.

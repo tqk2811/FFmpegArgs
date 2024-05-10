@@ -37,7 +37,7 @@ public AmplifyFilterGen planes(AmplifyFilterGenPlanes planes) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class AmplifyFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Amplify changes between successive video frames.

@@ -25,7 +25,7 @@ public ArlsFilterGen out_mode(ArlsFilterGenOut_mode out_mode) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class ArlsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Recursive Least Squares algorithm to first audio stream.

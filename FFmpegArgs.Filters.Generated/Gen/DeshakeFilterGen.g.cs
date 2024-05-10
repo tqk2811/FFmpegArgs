@@ -57,7 +57,7 @@ public DeshakeFilterGen opencl(bool opencl) => this.SetOption("opencl",opencl.To
 }
 /// <summary>
 /// </summary>
-public static class DeshakeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Stabilize shaky video.

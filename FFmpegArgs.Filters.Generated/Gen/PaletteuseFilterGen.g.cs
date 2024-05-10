@@ -33,7 +33,7 @@ public PaletteuseFilterGen debug_kdtree(string debug_kdtree) => this.SetOption("
 }
 /// <summary>
 /// </summary>
-public static class PaletteuseFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Use a palette to downsample an input video stream.

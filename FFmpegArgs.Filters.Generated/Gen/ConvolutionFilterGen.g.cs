@@ -73,7 +73,7 @@ public ConvolutionFilterGen _3mode(ConvolutionFilterGen_3mode _3mode) => this.Se
 }
 /// <summary>
 /// </summary>
-public static class ConvolutionFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply convolution filter.

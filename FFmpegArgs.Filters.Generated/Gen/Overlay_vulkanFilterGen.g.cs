@@ -17,7 +17,7 @@ public Overlay_vulkanFilterGen y(int y) => this.SetOptionRange("y", y,0,INT_MAX)
 }
 /// <summary>
 /// </summary>
-public static class Overlay_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Overlay a source on top of another

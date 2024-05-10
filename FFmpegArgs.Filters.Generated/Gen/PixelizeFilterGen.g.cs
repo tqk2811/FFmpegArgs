@@ -25,7 +25,7 @@ public PixelizeFilterGen planes(PixelizeFilterGenPlanes planes) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class PixelizeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pixelize video.

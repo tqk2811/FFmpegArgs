@@ -17,7 +17,7 @@ public HysteresisFilterGen threshold(int threshold) => this.SetOptionRange("thre
 }
 /// <summary>
 /// </summary>
-public static class HysteresisFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Grow first stream into second stream by connecting components.

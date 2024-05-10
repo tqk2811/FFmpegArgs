@@ -13,7 +13,7 @@ public AcontrastFilterGen contrast(float contrast) => this.SetOptionRange("contr
 }
 /// <summary>
 /// </summary>
-public static class AcontrastFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Simple audio dynamic range compression/expansion filter.

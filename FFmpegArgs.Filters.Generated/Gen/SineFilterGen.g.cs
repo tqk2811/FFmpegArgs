@@ -33,7 +33,7 @@ public SineFilterGen samples_per_frame(string samples_per_frame) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class SineFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate sine wave audio signal.

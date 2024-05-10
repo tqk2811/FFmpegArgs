@@ -25,7 +25,7 @@ public DctdnoizFilterGen n(int n) => this.SetOptionRange("n", n,3,4);
 }
 /// <summary>
 /// </summary>
-public static class DctdnoizFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Denoise frames using 2D DCT.

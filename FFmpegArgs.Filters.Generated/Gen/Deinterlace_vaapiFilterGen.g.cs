@@ -21,7 +21,7 @@ public Deinterlace_vaapiFilterGen auto(int auto) => this.SetOptionRange("auto", 
 }
 /// <summary>
 /// </summary>
-public static class Deinterlace_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deinterlacing of VAAPI surfaces

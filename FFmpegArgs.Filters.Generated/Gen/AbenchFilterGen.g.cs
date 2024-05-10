@@ -13,7 +13,7 @@ public AbenchFilterGen action(AbenchFilterGenAction action) => this.SetOption("a
 }
 /// <summary>
 /// </summary>
-public static class AbenchFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Benchmark part of a filtergraph.

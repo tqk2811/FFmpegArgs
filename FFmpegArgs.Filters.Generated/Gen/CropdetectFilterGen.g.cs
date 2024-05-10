@@ -45,7 +45,7 @@ public CropdetectFilterGen mv_threshold(int mv_threshold) => this.SetOptionRange
 }
 /// <summary>
 /// </summary>
-public static class CropdetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Auto-detect crop size.

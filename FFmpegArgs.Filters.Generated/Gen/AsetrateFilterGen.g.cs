@@ -17,7 +17,7 @@ public AsetrateFilterGen r(int r) => this.SetOptionRange("r", r,1,INT_MAX);
 }
 /// <summary>
 /// </summary>
-public static class AsetrateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Change the sample rate without altering the data.

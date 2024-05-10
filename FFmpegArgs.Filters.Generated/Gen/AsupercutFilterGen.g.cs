@@ -21,7 +21,7 @@ public AsupercutFilterGen level(double level) => this.SetOptionRange("level", le
 }
 /// <summary>
 /// </summary>
-public static class AsupercutFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cut super frequencies.

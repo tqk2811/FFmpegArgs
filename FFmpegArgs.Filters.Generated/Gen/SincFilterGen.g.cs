@@ -53,7 +53,7 @@ public SincFilterGen lptaps(int lptaps) => this.SetOptionRange("lptaps", lptaps,
 }
 /// <summary>
 /// </summary>
-public static class SincFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients.

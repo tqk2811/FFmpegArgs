@@ -17,7 +17,7 @@ public Transpose_openclFilterGen passthrough(Transpose_openclFilterGenPassthroug
 }
 /// <summary>
 /// </summary>
-public static class Transpose_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Transpose input video

@@ -21,7 +21,7 @@ public Roberts_openclFilterGen delta(float delta) => this.SetOptionRange("delta"
 }
 /// <summary>
 /// </summary>
-public static class Roberts_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply roberts operator

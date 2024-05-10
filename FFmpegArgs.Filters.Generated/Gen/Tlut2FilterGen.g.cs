@@ -25,7 +25,7 @@ public Tlut2FilterGen c3(ExpressionValue c3) => this.SetOption("c3",(string)c3);
 }
 /// <summary>
 /// </summary>
-public static class Tlut2FilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Compute and apply a lookup table from two successive frames.

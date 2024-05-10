@@ -53,7 +53,7 @@ public ApulsatorFilterGen hz(double hz) => this.SetOptionRange("hz", hz,0.01,100
 }
 /// <summary>
 /// </summary>
-public static class ApulsatorFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio pulsator.

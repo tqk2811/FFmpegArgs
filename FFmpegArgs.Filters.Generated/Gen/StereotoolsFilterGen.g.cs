@@ -89,7 +89,7 @@ public StereotoolsFilterGen bmode_out(StereotoolsFilterGenBmode_out bmode_out) =
 }
 /// <summary>
 /// </summary>
-public static class StereotoolsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply various stereo tools.

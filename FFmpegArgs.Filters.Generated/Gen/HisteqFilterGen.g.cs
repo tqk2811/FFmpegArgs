@@ -21,7 +21,7 @@ public HisteqFilterGen antibanding(HisteqFilterGenAntibanding antibanding) => th
 }
 /// <summary>
 /// </summary>
-public static class HisteqFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply global color histogram equalization.

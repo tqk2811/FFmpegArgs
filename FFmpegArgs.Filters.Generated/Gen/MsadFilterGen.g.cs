@@ -9,7 +9,7 @@ internal MsadFilterGen(params ImageMap[] inputs) : base("msad",inputs) { AddMapO
 }
 /// <summary>
 /// </summary>
-public static class MsadFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the MSAD between two video streams.

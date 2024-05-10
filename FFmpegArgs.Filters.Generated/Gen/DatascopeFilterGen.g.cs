@@ -41,7 +41,7 @@ public DatascopeFilterGen components(int components) => this.SetOptionRange("com
 }
 /// <summary>
 /// </summary>
-public static class DatascopeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Video data analysis.

@@ -25,7 +25,7 @@ public AemphasisFilterGen type(AemphasisFilterGenType type) => this.SetOption("t
 }
 /// <summary>
 /// </summary>
-public static class AemphasisFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio emphasis.

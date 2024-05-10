@@ -13,7 +13,7 @@ public EntropyFilterGen mode(EntropyFilterGenMode mode) => this.SetOption("mode"
 }
 /// <summary>
 /// </summary>
-public static class EntropyFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Measure video frames entropy.

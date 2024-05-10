@@ -49,7 +49,7 @@ public FloodfillFilterGen d3(int d3) => this.SetOptionRange("d3", d3,0,65535);
 }
 /// <summary>
 /// </summary>
-public static class FloodfillFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Fill area with same color with another color.

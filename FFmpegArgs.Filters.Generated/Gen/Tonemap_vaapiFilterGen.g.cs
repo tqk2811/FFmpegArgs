@@ -25,7 +25,7 @@ public Tonemap_vaapiFilterGen transfer(string transfer) => this.SetOption("trans
 }
 /// <summary>
 /// </summary>
-public static class Tonemap_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// VAAPI VPP for tone-mapping

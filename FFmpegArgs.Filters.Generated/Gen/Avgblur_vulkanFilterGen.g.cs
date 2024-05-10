@@ -21,7 +21,7 @@ public Avgblur_vulkanFilterGen planes(int planes) => this.SetOptionRange("planes
 }
 /// <summary>
 /// </summary>
-public static class Avgblur_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply avgblur mask to input video

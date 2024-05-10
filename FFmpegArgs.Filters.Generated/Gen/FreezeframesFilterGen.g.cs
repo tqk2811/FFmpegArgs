@@ -21,7 +21,7 @@ public FreezeframesFilterGen replace(long replace) => this.SetOptionRange("repla
 }
 /// <summary>
 /// </summary>
-public static class FreezeframesFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Freeze video frames.

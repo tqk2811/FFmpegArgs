@@ -13,7 +13,7 @@ public AsetptsFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(str
 }
 /// <summary>
 /// </summary>
-public static class AsetptsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set PTS for the output audio frame.

@@ -17,7 +17,7 @@ public AsetnsamplesFilterGen pad(bool pad) => this.SetOption("pad",pad.ToFFmpegF
 }
 /// <summary>
 /// </summary>
-public static class AsetnsamplesFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set the number of samples for each output audio frames.

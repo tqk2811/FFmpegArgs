@@ -17,7 +17,7 @@ public Chromaber_vulkanFilterGen dist_y(float dist_y) => this.SetOptionRange("di
 }
 /// <summary>
 /// </summary>
-public static class Chromaber_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Offset chroma of input video (chromatic aberration)

@@ -29,7 +29,7 @@ public OwdenoiseFilterGen cs(double cs) => this.SetOptionRange("cs", cs,0,1000);
 }
 /// <summary>
 /// </summary>
-public static class OwdenoiseFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Denoise using wavelets.

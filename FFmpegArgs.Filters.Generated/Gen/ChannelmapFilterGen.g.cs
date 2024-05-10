@@ -17,7 +17,7 @@ public ChannelmapFilterGen channel_layout(string channel_layout) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class ChannelmapFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remap audio channels.

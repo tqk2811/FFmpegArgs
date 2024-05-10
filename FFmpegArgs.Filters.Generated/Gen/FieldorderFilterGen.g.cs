@@ -13,7 +13,7 @@ public FieldorderFilterGen order(FieldorderFilterGenOrder order) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class FieldorderFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set the field order.

@@ -25,7 +25,7 @@ public GblurFilterGen sigmaV(float sigmaV) => this.SetOptionRange("sigmaV", sigm
 }
 /// <summary>
 /// </summary>
-public static class GblurFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Gaussian Blur filter.

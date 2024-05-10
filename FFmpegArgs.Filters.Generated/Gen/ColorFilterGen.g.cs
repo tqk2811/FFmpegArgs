@@ -29,7 +29,7 @@ public ColorFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,INT_
 }
 /// <summary>
 /// </summary>
-public static class ColorFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Provide an uniformly colored input.

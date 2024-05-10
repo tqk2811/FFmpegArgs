@@ -41,7 +41,7 @@ public RotateFilterGen bilinear(bool bilinear) => this.SetOption("bilinear",bili
 }
 /// <summary>
 /// </summary>
-public static class RotateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Rotate the input image.

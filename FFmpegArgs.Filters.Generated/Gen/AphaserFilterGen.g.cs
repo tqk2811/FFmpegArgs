@@ -33,7 +33,7 @@ public AphaserFilterGen type(AphaserFilterGenType type) => this.SetOption("type"
 }
 /// <summary>
 /// </summary>
-public static class AphaserFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Add a phasing effect to the audio.

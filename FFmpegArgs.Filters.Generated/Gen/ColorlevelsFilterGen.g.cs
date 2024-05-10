@@ -77,7 +77,7 @@ public ColorlevelsFilterGen preserve(ColorlevelsFilterGenPreserve preserve) => t
 }
 /// <summary>
 /// </summary>
-public static class ColorlevelsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust the color levels.

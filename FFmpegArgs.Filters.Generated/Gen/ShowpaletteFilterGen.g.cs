@@ -13,7 +13,7 @@ public ShowpaletteFilterGen s(int s) => this.SetOptionRange("s", s,1,100);
 }
 /// <summary>
 /// </summary>
-public static class ShowpaletteFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Display frame palette.

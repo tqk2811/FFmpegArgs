@@ -33,7 +33,7 @@ public PullupFilterGen mp(PullupFilterGenMp mp) => this.SetOption("mp", mp.GetEn
 }
 /// <summary>
 /// </summary>
-public static class PullupFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pullup from field sequence to frames.

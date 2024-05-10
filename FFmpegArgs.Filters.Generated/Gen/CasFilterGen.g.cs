@@ -17,7 +17,7 @@ public CasFilterGen planes(CasFilterGenPlanes planes) => this.SetOption("planes"
 }
 /// <summary>
 /// </summary>
-public static class CasFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Contrast Adaptive Sharpen.

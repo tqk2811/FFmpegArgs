@@ -65,7 +65,7 @@ public MandelbrotFilterGen inner(MandelbrotFilterGenInner inner) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class MandelbrotFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Render a Mandelbrot fractal.

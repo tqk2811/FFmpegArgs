@@ -85,7 +85,7 @@ public DynaudnormFilterGen v(string v) => this.SetOption("v",v);
 }
 /// <summary>
 /// </summary>
-public static class DynaudnormFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Dynamic Audio Normalizer.

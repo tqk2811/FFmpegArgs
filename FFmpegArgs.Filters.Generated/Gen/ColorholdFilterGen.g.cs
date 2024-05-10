@@ -21,7 +21,7 @@ public ColorholdFilterGen blend(float blend) => this.SetOptionRange("blend", ble
 }
 /// <summary>
 /// </summary>
-public static class ColorholdFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Turns a certain color range into gray. Operates on RGB colors.

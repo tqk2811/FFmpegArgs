@@ -21,7 +21,7 @@ public Colorkey_openclFilterGen blend(float blend) => this.SetOptionRange("blend
 }
 /// <summary>
 /// </summary>
-public static class Colorkey_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Turns a certain color into transparency. Operates on RGB colors.

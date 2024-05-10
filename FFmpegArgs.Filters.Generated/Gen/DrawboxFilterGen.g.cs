@@ -41,7 +41,7 @@ public DrawboxFilterGen box_source(string box_source) => this.SetOption("box_sou
 }
 /// <summary>
 /// </summary>
-public static class DrawboxFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Draw a colored box on the input video.

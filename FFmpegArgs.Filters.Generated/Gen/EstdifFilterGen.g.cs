@@ -45,7 +45,7 @@ public EstdifFilterGen interp(EstdifFilterGenInterp interp) => this.SetOption("i
 }
 /// <summary>
 /// </summary>
-public static class EstdifFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Edge Slope Tracing deinterlace.

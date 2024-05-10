@@ -25,7 +25,7 @@ public Scale_qsvFilterGen mode(Scale_qsvFilterGenMode mode) => this.SetOption("m
 }
 /// <summary>
 /// </summary>
-public static class Scale_qsvFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Quick Sync Video "scaling and format conversion"

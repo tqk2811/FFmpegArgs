@@ -17,7 +17,7 @@ public Frei0rFilterGen filter_params(string filter_params) => this.SetOption("fi
 }
 /// <summary>
 /// </summary>
-public static class Frei0rFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a frei0r effect.

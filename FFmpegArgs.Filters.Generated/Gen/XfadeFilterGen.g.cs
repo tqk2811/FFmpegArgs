@@ -25,7 +25,7 @@ public XfadeFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(strin
 }
 /// <summary>
 /// </summary>
-public static class XfadeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cross fade one video with another video.

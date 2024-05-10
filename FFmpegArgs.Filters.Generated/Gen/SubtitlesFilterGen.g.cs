@@ -45,7 +45,7 @@ public SubtitlesFilterGen wrap_unicode(bool wrap_unicode) => this.SetOption("wra
 }
 /// <summary>
 /// </summary>
-public static class SubtitlesFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Render text subtitles onto input video using the libass library.

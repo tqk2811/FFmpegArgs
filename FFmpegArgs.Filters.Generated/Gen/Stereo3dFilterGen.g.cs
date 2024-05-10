@@ -17,7 +17,7 @@ public Stereo3dFilterGen _out(Stereo3dFilterGenOut _out) => this.SetOption("out"
 }
 /// <summary>
 /// </summary>
-public static class Stereo3dFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Convert video stereoscopic 3D view.

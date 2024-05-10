@@ -17,7 +17,7 @@ public DcshiftFilterGen limitergain(double limitergain) => this.SetOptionRange("
 }
 /// <summary>
 /// </summary>
-public static class DcshiftFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a DC shift to the audio.

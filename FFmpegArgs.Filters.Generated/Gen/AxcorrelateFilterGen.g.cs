@@ -17,7 +17,7 @@ public AxcorrelateFilterGen algo(AxcorrelateFilterGenAlgo algo) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class AxcorrelateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cross-correlate two audio streams.

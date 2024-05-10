@@ -29,7 +29,7 @@ public ColorspectrumFilterGen type(ColorspectrumFilterGenType type) => this.SetO
 }
 /// <summary>
 /// </summary>
-public static class ColorspectrumFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate colors spectrum.

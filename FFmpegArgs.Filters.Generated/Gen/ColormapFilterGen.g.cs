@@ -25,7 +25,7 @@ public ColormapFilterGen kernel(ColormapFilterGenKernel kernel) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class ColormapFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply custom Color Maps to video stream.

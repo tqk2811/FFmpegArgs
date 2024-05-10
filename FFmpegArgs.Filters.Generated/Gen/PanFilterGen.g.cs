@@ -13,7 +13,7 @@ public PanFilterGen args(string args) => this.SetOption("args",args);
 }
 /// <summary>
 /// </summary>
-public static class PanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remix channels with coefficients (panning).

@@ -25,7 +25,7 @@ public StereowidenFilterGen drymix(float drymix) => this.SetOptionRange("drymix"
 }
 /// <summary>
 /// </summary>
-public static class StereowidenFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply stereo widening effect.

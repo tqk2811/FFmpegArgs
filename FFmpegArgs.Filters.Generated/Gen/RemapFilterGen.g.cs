@@ -17,7 +17,7 @@ public RemapFilterGen fill(Color fill) => this.SetOption("fill",fill.ToHexString
 }
 /// <summary>
 /// </summary>
-public static class RemapFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remap pixels.

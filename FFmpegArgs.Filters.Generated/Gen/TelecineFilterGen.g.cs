@@ -17,7 +17,7 @@ public TelecineFilterGen pattern(string pattern) => this.SetOption("pattern",pat
 }
 /// <summary>
 /// </summary>
-public static class TelecineFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a telecine pattern.

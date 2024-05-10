@@ -53,7 +53,7 @@ public PerspectiveFilterGen eval(PerspectiveFilterGenEval eval) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class PerspectiveFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Correct the perspective of video.

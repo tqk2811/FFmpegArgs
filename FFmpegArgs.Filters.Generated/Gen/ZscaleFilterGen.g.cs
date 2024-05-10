@@ -117,7 +117,7 @@ public ZscaleFilterGen param_b(double param_b) => this.SetOptionRange("param_b",
 }
 /// <summary>
 /// </summary>
-public static class ZscaleFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply resizing, colorspace and bit depth conversion.

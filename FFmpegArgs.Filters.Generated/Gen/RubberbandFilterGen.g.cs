@@ -49,7 +49,7 @@ public RubberbandFilterGen channels(RubberbandFilterGenChannels channels) => thi
 }
 /// <summary>
 /// </summary>
-public static class RubberbandFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply time-stretching and pitch-shifting.

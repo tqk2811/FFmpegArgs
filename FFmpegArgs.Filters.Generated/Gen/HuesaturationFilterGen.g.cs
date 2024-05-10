@@ -45,7 +45,7 @@ public HuesaturationFilterGen lightness(bool lightness) => this.SetOption("light
 }
 /// <summary>
 /// </summary>
-public static class HuesaturationFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply hue-saturation-intensity adjustments.

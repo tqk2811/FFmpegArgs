@@ -17,7 +17,7 @@ public GradfunFilterGen radius(int radius) => this.SetOptionRange("radius", radi
 }
 /// <summary>
 /// </summary>
-public static class GradfunFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Debands video quickly using gradients.

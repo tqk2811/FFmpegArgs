@@ -45,7 +45,7 @@ public FftdnoizFilterGen window(FftdnoizFilterGenWindow window) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class FftdnoizFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Denoise frames using 3D FFT.

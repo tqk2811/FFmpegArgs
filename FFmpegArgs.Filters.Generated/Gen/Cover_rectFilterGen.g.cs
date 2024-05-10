@@ -17,7 +17,7 @@ public Cover_rectFilterGen mode(Cover_rectFilterGenMode mode) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class Cover_rectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Find and cover a user specified object.

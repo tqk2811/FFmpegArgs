@@ -65,7 +65,7 @@ public ColorspaceFilterGen itrc(ColorspaceFilterGenItrc itrc) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class ColorspaceFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Convert between colorspaces.

@@ -13,7 +13,7 @@ public QpFilterGen qp(ExpressionValue qp) => this.SetOption("qp",(string)qp);
 }
 /// <summary>
 /// </summary>
-public static class QpFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Change video quantization parameters.

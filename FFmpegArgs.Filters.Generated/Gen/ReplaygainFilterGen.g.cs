@@ -17,7 +17,7 @@ public ReplaygainFilterGen track_peak(float track_peak) => this.SetOptionRange("
 }
 /// <summary>
 /// </summary>
-public static class ReplaygainFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// ReplayGain scanner.

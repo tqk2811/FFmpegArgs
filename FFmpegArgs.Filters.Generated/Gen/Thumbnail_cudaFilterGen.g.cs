@@ -13,7 +13,7 @@ public Thumbnail_cudaFilterGen n(int n) => this.SetOptionRange("n", n,2,INT_MAX)
 }
 /// <summary>
 /// </summary>
-public static class Thumbnail_cudaFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Select the most representative frame in a given sequence of consecutive frames.

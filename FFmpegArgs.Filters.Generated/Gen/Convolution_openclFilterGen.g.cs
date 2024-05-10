@@ -57,7 +57,7 @@ public Convolution_openclFilterGen _3bias(float _3bias) => this.SetOptionRange("
 }
 /// <summary>
 /// </summary>
-public static class Convolution_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply convolution mask to input video

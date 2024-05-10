@@ -29,7 +29,7 @@ public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 }
 /// <summary>
 /// </summary>
-public static class OpenclsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate video using an OpenCL program

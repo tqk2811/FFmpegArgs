@@ -33,7 +33,7 @@ public AfdelaysrcFilterGen channel_layout(string channel_layout) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class AfdelaysrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a Fractional delay FIR coefficients.

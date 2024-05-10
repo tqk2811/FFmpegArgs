@@ -45,7 +45,7 @@ public EqFilterGen eval(EqFilterGenEval eval) => this.SetOption("eval", eval.Get
 }
 /// <summary>
 /// </summary>
-public static class EqFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust brightness, contrast, gamma, and saturation.

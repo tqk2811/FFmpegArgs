@@ -25,7 +25,7 @@ public W3fdifFilterGen deint(W3fdifFilterGenDeint deint) => this.SetOption("dein
 }
 /// <summary>
 /// </summary>
-public static class W3fdifFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Martin Weston three field deinterlace.

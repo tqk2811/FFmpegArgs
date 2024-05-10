@@ -29,7 +29,7 @@ public ShearFilterGen interp(ShearFilterGenInterp interp) => this.SetOption("int
 }
 /// <summary>
 /// </summary>
-public static class ShearFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Shear transform the input image.

@@ -21,7 +21,7 @@ public GreyedgeFilterGen sigma(double sigma) => this.SetOptionRange("sigma", sig
 }
 /// <summary>
 /// </summary>
-public static class GreyedgeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Estimates scene illumination by grey edge assumption.

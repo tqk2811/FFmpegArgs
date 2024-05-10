@@ -65,7 +65,7 @@ public Ssim360FilterGen default_heatmap_height(int default_heatmap_height) => th
 }
 /// <summary>
 /// </summary>
-public static class Ssim360FilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the SSIM between two 360 video streams.

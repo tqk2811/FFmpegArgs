@@ -17,7 +17,7 @@ public SettbFilterGen tb(ExpressionValue tb) => this.SetOption("tb",(string)tb);
 }
 /// <summary>
 /// </summary>
-public static class SettbFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set timebase for the video output link.

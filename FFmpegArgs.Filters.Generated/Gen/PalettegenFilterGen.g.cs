@@ -25,7 +25,7 @@ public PalettegenFilterGen stats_mode(PalettegenFilterGenStats_mode stats_mode) 
 }
 /// <summary>
 /// </summary>
-public static class PalettegenFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Find the optimal palette for a given stream.

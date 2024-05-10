@@ -33,7 +33,7 @@ public CompensationdelayFilterGen temp(int temp) => this.SetOptionRange("temp", 
 }
 /// <summary>
 /// </summary>
-public static class CompensationdelayFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio Compensation Delay Line.

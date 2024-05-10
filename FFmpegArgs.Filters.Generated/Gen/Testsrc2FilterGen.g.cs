@@ -29,7 +29,7 @@ public Testsrc2FilterGen alpha(int alpha) => this.SetOptionRange("alpha", alpha,
 }
 /// <summary>
 /// </summary>
-public static class Testsrc2FilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate another test pattern.

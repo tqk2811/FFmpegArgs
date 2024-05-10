@@ -21,7 +21,7 @@ public McdeintFilterGen qp(int qp) => this.SetOptionRange("qp", qp,INT_MIN,INT_M
 }
 /// <summary>
 /// </summary>
-public static class McdeintFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply motion compensating deinterlacing.

@@ -29,7 +29,7 @@ public KerndeintFilterGen twoway(bool twoway) => this.SetOption("twoway",twoway.
 }
 /// <summary>
 /// </summary>
-public static class KerndeintFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply kernel deinterlacing to the input.

@@ -17,7 +17,7 @@ public AdecorrelateFilterGen seed(long seed) => this.SetOptionRange("seed", seed
 }
 /// <summary>
 /// </summary>
-public static class AdecorrelateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply decorrelation to input audio.

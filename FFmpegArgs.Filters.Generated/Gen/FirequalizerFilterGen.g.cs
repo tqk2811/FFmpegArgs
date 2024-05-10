@@ -61,7 +61,7 @@ public FirequalizerFilterGen min_phase(bool min_phase) => this.SetOption("min_ph
 }
 /// <summary>
 /// </summary>
-public static class FirequalizerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Finite Impulse Response Equalizer.

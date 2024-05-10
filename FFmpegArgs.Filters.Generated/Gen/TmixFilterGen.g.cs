@@ -25,7 +25,7 @@ public TmixFilterGen planes(TmixFilterGenPlanes planes) => this.SetOption("plane
 }
 /// <summary>
 /// </summary>
-public static class TmixFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Mix successive video frames.

@@ -13,7 +13,7 @@ public PhaseFilterGen mode(PhaseFilterGenMode mode) => this.SetOption("mode", mo
 }
 /// <summary>
 /// </summary>
-public static class PhaseFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Phase shift fields.

@@ -29,7 +29,7 @@ public Dilation_openclFilterGen coordinates(int coordinates) => this.SetOptionRa
 }
 /// <summary>
 /// </summary>
-public static class Dilation_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply dilation effect

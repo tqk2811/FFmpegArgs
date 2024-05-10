@@ -17,7 +17,7 @@ public AdenormFilterGen type(AdenormFilterGenType type) => this.SetOption("type"
 }
 /// <summary>
 /// </summary>
-public static class AdenormFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remedy denormals by adding extremely low-level noise.

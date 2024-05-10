@@ -9,7 +9,7 @@ internal Flip_vulkanFilterGen(ImageMap input) : base("flip_vulkan",input) { AddM
 }
 /// <summary>
 /// </summary>
-public static class Flip_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Flip both horizontally and vertically

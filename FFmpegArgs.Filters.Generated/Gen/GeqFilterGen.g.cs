@@ -41,7 +41,7 @@ public GeqFilterGen interpolation(GeqFilterGenInterpolation interpolation) => th
 }
 /// <summary>
 /// </summary>
-public static class GeqFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply generic equation to each pixel.

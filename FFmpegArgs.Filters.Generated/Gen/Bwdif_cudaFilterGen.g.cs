@@ -21,7 +21,7 @@ public Bwdif_cudaFilterGen deint(Bwdif_cudaFilterGenDeint deint) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class Bwdif_cudaFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deinterlace CUDA frames

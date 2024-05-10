@@ -33,7 +33,7 @@ public Deshake_openclFilterGen smooth_window_multiplier(float smooth_window_mult
 }
 /// <summary>
 /// </summary>
-public static class Deshake_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Feature-point based video stabilization filter

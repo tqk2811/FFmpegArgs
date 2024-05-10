@@ -29,7 +29,7 @@ public Gblur_vulkanFilterGen sizeV(int sizeV) => this.SetOptionRange("sizeV", si
 }
 /// <summary>
 /// </summary>
-public static class Gblur_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Gaussian Blur in Vulkan

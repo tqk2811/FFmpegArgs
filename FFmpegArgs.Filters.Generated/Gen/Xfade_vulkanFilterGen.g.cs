@@ -21,7 +21,7 @@ public Xfade_vulkanFilterGen offset(TimeSpan offset) => this.SetOptionRange("off
 }
 /// <summary>
 /// </summary>
-public static class Xfade_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cross fade one video with another video.

@@ -29,7 +29,7 @@ public ApadFilterGen whole_dur(TimeSpan whole_dur) => this.SetOptionRange("whole
 }
 /// <summary>
 /// </summary>
-public static class ApadFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pad audio with silence.

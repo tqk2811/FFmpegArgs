@@ -37,7 +37,7 @@ public CodecviewFilterGen block(bool block) => this.SetOption("block",block.ToFF
 }
 /// <summary>
 /// </summary>
-public static class CodecviewFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Visualize information about some codecs.

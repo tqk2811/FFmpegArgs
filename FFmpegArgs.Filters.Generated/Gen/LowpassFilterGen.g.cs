@@ -61,7 +61,7 @@ public LowpassFilterGen blocksize(int blocksize) => this.SetOptionRange("blocksi
 }
 /// <summary>
 /// </summary>
-public static class LowpassFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a low-pass filter with 3dB point frequency.

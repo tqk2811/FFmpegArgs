@@ -29,7 +29,7 @@ public Erosion_openclFilterGen coordinates(int coordinates) => this.SetOptionRan
 }
 /// <summary>
 /// </summary>
-public static class Erosion_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply erosion effect

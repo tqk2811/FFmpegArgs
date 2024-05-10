@@ -29,7 +29,7 @@ public ColorchartFilterGen preset(ColorchartFilterGenPreset preset) => this.SetO
 }
 /// <summary>
 /// </summary>
-public static class ColorchartFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate color checker chart.

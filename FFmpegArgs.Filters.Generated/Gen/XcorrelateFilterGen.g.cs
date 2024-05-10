@@ -17,7 +17,7 @@ public XcorrelateFilterGen secondary(XcorrelateFilterGenSecondary secondary) => 
 }
 /// <summary>
 /// </summary>
-public static class XcorrelateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cross-correlate first video stream with second video stream.

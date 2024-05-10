@@ -25,7 +25,7 @@ public LoopFilterGen time(TimeSpan time) => this.SetOptionRange("time",time,Time
 }
 /// <summary>
 /// </summary>
-public static class LoopFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Loop video frames.

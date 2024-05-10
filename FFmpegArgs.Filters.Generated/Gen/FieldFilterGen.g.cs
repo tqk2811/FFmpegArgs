@@ -13,7 +13,7 @@ public FieldFilterGen type(FieldFilterGenType type) => this.SetOption("type", ty
 }
 /// <summary>
 /// </summary>
-public static class FieldFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Extract a field from the input video.

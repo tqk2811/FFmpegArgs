@@ -13,7 +13,7 @@ public PpFilterGen subfilters(string subfilters) => this.SetOption("subfilters",
 }
 /// <summary>
 /// </summary>
-public static class PpFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Filter video using libpostproc.

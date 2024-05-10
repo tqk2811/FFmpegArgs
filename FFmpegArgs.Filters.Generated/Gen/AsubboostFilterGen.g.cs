@@ -45,7 +45,7 @@ public AsubboostFilterGen channels(string channels) => this.SetOption("channels"
 }
 /// <summary>
 /// </summary>
-public static class AsubboostFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Boost subwoofer frequencies.

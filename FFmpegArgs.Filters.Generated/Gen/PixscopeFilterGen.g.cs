@@ -37,7 +37,7 @@ public PixscopeFilterGen wy(float wy) => this.SetOptionRange("wy", wy,-1,1);
 }
 /// <summary>
 /// </summary>
-public static class PixscopeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pixel data analysis.

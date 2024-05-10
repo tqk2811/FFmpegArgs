@@ -17,7 +17,7 @@ public AevalFilterGen channel_layout(string channel_layout) => this.SetOption("c
 }
 /// <summary>
 /// </summary>
-public static class AevalFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Filter audio signal according to a specified expression.

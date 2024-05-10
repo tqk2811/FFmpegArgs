@@ -13,7 +13,7 @@ public HqxFilterGen n(int n) => this.SetOptionRange("n", n,2,4);
 }
 /// <summary>
 /// </summary>
-public static class HqxFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Scale the input by 2, 3 or 4 using the hq*x magnification algorithm.

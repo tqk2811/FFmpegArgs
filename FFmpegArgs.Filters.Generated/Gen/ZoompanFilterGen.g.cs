@@ -33,7 +33,7 @@ public ZoompanFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 }
 /// <summary>
 /// </summary>
-public static class ZoompanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Zoom &amp; Pan effect.

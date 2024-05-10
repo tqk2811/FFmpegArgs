@@ -13,7 +13,7 @@ public XbrFilterGen n(int n) => this.SetOptionRange("n", n,2,4);
 }
 /// <summary>
 /// </summary>
-public static class XbrFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Scale the input using xBR algorithm.

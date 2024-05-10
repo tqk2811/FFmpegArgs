@@ -37,7 +37,7 @@ public CompandFilterGen delay(double delay) => this.SetOptionRange("delay", dela
 }
 /// <summary>
 /// </summary>
-public static class CompandFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Compress or expand audio dynamic range.

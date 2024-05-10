@@ -37,7 +37,7 @@ public TileFilterGen init_padding(int init_padding) => this.SetOptionRange("init
 }
 /// <summary>
 /// </summary>
-public static class TileFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Tile several successive frames together.

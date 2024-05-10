@@ -25,7 +25,7 @@ public Procamp_vaapiFilterGen hue(float hue) => this.SetOptionRange("hue", hue,-
 }
 /// <summary>
 /// </summary>
-public static class Procamp_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// ProcAmp (color balance) adjustments for hue, saturation, brightness, contrast

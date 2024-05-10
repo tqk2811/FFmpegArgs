@@ -73,7 +73,7 @@ public VectorscopeFilterGen t1(float t1) => this.SetOptionRange("t1", t1,-1,1);
 }
 /// <summary>
 /// </summary>
-public static class VectorscopeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Video vectorscope.

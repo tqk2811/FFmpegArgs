@@ -13,7 +13,7 @@ public MidequalizerFilterGen planes(int planes) => this.SetOptionRange("planes",
 }
 /// <summary>
 /// </summary>
-public static class MidequalizerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Midway Equalization.

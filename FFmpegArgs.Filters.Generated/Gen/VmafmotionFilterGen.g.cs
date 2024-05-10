@@ -13,7 +13,7 @@ public VmafmotionFilterGen stats_file(string stats_file) => this.SetOption("stat
 }
 /// <summary>
 /// </summary>
-public static class VmafmotionFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the VMAF Motion score.

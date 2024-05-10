@@ -13,7 +13,7 @@ public Sharpness_vaapiFilterGen sharpness(int sharpness) => this.SetOptionRange(
 }
 /// <summary>
 /// </summary>
-public static class Sharpness_vaapiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// VAAPI VPP for sharpness

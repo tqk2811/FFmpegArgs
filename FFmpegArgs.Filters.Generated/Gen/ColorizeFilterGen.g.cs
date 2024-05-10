@@ -25,7 +25,7 @@ public ColorizeFilterGen mix(float mix) => this.SetOptionRange("mix", mix,0,1);
 }
 /// <summary>
 /// </summary>
-public static class ColorizeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Overlay a solid color on the video stream.

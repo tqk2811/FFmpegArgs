@@ -25,7 +25,7 @@ public TonemapFilterGen peak(double peak) => this.SetOptionRange("peak", peak,0,
 }
 /// <summary>
 /// </summary>
-public static class TonemapFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Conversion to/from different dynamic ranges.

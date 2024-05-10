@@ -41,7 +41,7 @@ public BufferFilterGen frame_rate(Rational frame_rate) => this.SetOption("frame_
 }
 /// <summary>
 /// </summary>
-public static class BufferFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Buffer video frames, and make them accessible to the filterchain.

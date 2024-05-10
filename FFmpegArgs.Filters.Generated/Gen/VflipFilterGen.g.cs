@@ -9,7 +9,7 @@ internal VflipFilterGen(ImageMap input) : base("vflip",input) { AddMapOut(); }
 }
 /// <summary>
 /// </summary>
-public static class VflipFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Flip the input video vertically.

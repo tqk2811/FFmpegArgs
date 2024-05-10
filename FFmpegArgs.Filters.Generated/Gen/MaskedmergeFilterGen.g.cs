@@ -13,7 +13,7 @@ public MaskedmergeFilterGen planes(int planes) => this.SetOptionRange("planes", 
 }
 /// <summary>
 /// </summary>
-public static class MaskedmergeFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Merge first stream with second stream using third stream as mask.

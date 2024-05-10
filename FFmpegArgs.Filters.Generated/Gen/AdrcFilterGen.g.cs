@@ -25,7 +25,7 @@ public AdrcFilterGen channels(string channels) => this.SetOption("channels",chan
 }
 /// <summary>
 /// </summary>
-public static class AdrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio Spectral Dynamic Range Controller.

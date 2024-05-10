@@ -13,7 +13,7 @@ public SitiFilterGen print_summary(bool print_summary) => this.SetOption("print_
 }
 /// <summary>
 /// </summary>
-public static class SitiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate spatial information (SI) and temporal information (TI).

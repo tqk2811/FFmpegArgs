@@ -37,7 +37,7 @@ public BlurdetectFilterGen planes(int planes) => this.SetOptionRange("planes", p
 }
 /// <summary>
 /// </summary>
-public static class BlurdetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Blurdetect filter.

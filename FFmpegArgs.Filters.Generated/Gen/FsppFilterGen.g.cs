@@ -25,7 +25,7 @@ public FsppFilterGen use_bframe_qp(bool use_bframe_qp) => this.SetOption("use_bf
 }
 /// <summary>
 /// </summary>
-public static class FsppFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Fast Simple Post-processing filter.

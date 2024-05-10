@@ -21,7 +21,7 @@ public Sobel_openclFilterGen delta(float delta) => this.SetOptionRange("delta", 
 }
 /// <summary>
 /// </summary>
-public static class Sobel_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply sobel operator

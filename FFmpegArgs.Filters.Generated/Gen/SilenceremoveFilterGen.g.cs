@@ -61,7 +61,7 @@ public SilenceremoveFilterGen timestamp(SilenceremoveFilterGenTimestamp timestam
 }
 /// <summary>
 /// </summary>
-public static class SilenceremoveFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove silence.

@@ -13,7 +13,7 @@ public DejudderFilterGen cycle(int cycle) => this.SetOptionRange("cycle", cycle,
 }
 /// <summary>
 /// </summary>
-public static class DejudderFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove judder produced by pullup.

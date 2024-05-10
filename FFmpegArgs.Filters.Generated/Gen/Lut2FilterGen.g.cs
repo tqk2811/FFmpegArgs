@@ -29,7 +29,7 @@ public Lut2FilterGen d(int d) => this.SetOptionRange("d", d,0,16);
 }
 /// <summary>
 /// </summary>
-public static class Lut2FilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Compute and apply a lookup table from two video inputs.

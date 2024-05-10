@@ -13,7 +13,7 @@ public ShowinfoFilterGen checksum(bool checksum) => this.SetOption("checksum",ch
 }
 /// <summary>
 /// </summary>
-public static class ShowinfoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Show textual information for each video frame.

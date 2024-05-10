@@ -25,7 +25,7 @@ public DeesserFilterGen s(DeesserFilterGenS s) => this.SetOption("s", s.GetEnumA
 }
 /// <summary>
 /// </summary>
-public static class DeesserFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply de-essing to the audio.

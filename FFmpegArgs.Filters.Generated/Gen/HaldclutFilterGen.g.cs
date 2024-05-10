@@ -17,7 +17,7 @@ public HaldclutFilterGen interp(HaldclutFilterGenInterp interp) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class HaldclutFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust colors using a Hald CLUT.

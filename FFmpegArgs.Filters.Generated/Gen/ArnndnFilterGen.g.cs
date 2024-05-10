@@ -17,7 +17,7 @@ public ArnndnFilterGen mix(float mix) => this.SetOptionRange("mix", mix,-1,1);
 }
 /// <summary>
 /// </summary>
-public static class ArnndnFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Reduce noise from speech using Recurrent Neural Networks.

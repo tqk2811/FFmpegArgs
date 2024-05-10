@@ -13,7 +13,7 @@ public AresampleFilterGen sample_rate(int sample_rate) => this.SetOptionRange("s
 }
 /// <summary>
 /// </summary>
-public static class AresampleFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Resample audio data.

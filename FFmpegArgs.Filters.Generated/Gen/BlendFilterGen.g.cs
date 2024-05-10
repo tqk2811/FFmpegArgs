@@ -69,7 +69,7 @@ public BlendFilterGen all_opacity(double all_opacity) => this.SetOptionRange("al
 }
 /// <summary>
 /// </summary>
-public static class BlendFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Blend two video frames into each other.

@@ -21,7 +21,7 @@ public MultiplyFilterGen planes(MultiplyFilterGenPlanes planes) => this.SetOptio
 }
 /// <summary>
 /// </summary>
-public static class MultiplyFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Multiply first video stream with second video stream.

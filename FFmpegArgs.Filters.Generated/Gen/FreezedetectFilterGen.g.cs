@@ -17,7 +17,7 @@ public FreezedetectFilterGen duration(TimeSpan duration) => this.SetOptionRange(
 }
 /// <summary>
 /// </summary>
-public static class FreezedetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Detects frozen video input.

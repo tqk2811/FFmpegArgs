@@ -33,7 +33,7 @@ public Overlay_cudaFilterGen repeatlast(bool repeatlast) => this.SetOption("repe
 }
 /// <summary>
 /// </summary>
-public static class Overlay_cudaFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Overlay one video on top of another using CUDA

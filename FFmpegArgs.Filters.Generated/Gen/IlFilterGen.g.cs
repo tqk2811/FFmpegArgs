@@ -45,7 +45,7 @@ public IlFilterGen _as(bool _as) => this.SetOption("as",_as.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>
-public static class IlFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deinterleave or interleave fields.

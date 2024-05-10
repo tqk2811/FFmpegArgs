@@ -13,7 +13,7 @@ public SetfieldFilterGen mode(SetfieldFilterGenMode mode) => this.SetOption("mod
 }
 /// <summary>
 /// </summary>
-public static class SetfieldFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Force field for the output video frame.

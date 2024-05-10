@@ -13,7 +13,7 @@ public McompandFilterGen args(string args) => this.SetOption("args",args);
 }
 /// <summary>
 /// </summary>
-public static class McompandFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Multiband Compress or expand audio dynamic range.

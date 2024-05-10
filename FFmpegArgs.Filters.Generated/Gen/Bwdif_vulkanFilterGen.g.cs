@@ -21,7 +21,7 @@ public Bwdif_vulkanFilterGen deint(Bwdif_vulkanFilterGenDeint deint) => this.Set
 }
 /// <summary>
 /// </summary>
-public static class Bwdif_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Deinterlace Vulkan frames via bwdif

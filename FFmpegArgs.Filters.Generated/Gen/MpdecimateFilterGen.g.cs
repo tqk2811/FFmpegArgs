@@ -29,7 +29,7 @@ public MpdecimateFilterGen frac(float frac) => this.SetOptionRange("frac", frac,
 }
 /// <summary>
 /// </summary>
-public static class MpdecimateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Remove near-duplicate frames.

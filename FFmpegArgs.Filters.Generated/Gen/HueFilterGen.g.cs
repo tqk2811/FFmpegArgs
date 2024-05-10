@@ -25,7 +25,7 @@ public HueFilterGen b(ExpressionValue b) => this.SetOption("b",(string)b);
 }
 /// <summary>
 /// </summary>
-public static class HueFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust the hue and saturation of the input video.

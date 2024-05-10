@@ -29,7 +29,7 @@ public Scale_vulkanFilterGen out_range(Scale_vulkanFilterGenOut_range out_range)
 }
 /// <summary>
 /// </summary>
-public static class Scale_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Scale Vulkan frames

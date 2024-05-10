@@ -57,7 +57,7 @@ public SmartblurFilterGen ct(int ct) => this.SetOptionRange("ct", ct,-31,30);
 }
 /// <summary>
 /// </summary>
-public static class SmartblurFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Blur the input video without impacting the outlines.

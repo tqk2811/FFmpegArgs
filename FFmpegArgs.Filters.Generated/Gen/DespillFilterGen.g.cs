@@ -41,7 +41,7 @@ public DespillFilterGen alpha(bool alpha) => this.SetOption("alpha",alpha.ToFFmp
 }
 /// <summary>
 /// </summary>
-public static class DespillFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Despill video.

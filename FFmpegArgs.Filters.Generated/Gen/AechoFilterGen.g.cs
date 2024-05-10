@@ -25,7 +25,7 @@ public AechoFilterGen decays(string decays) => this.SetOption("decays",decays);
 }
 /// <summary>
 /// </summary>
-public static class AechoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Add echoing to the audio.

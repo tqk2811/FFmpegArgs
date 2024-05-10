@@ -49,7 +49,7 @@ public AfireqsrcFilterGen h(AfireqsrcFilterGenH h) => this.SetOption("h", h.GetE
 }
 /// <summary>
 /// </summary>
-public static class AfireqsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a FIR equalizer coefficients audio stream.

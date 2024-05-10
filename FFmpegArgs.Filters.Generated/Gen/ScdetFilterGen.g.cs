@@ -17,7 +17,7 @@ public ScdetFilterGen sc_pass(bool sc_pass) => this.SetOption("sc_pass",sc_pass.
 }
 /// <summary>
 /// </summary>
-public static class ScdetFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Detect video scene change

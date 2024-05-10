@@ -29,7 +29,7 @@ public SierpinskiFilterGen type(SierpinskiFilterGenType type) => this.SetOption(
 }
 /// <summary>
 /// </summary>
-public static class SierpinskiFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Render a Sierpinski fractal.

@@ -21,7 +21,7 @@ public AsubcutFilterGen level(double level) => this.SetOptionRange("level", leve
 }
 /// <summary>
 /// </summary>
-public static class AsubcutFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Cut subwoofer frequencies.

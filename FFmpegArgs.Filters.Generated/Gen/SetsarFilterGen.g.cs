@@ -25,7 +25,7 @@ public SetsarFilterGen max(int max) => this.SetOptionRange("max", max,1,INT_MAX)
 }
 /// <summary>
 /// </summary>
-public static class SetsarFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set the pixel sample aspect ratio.

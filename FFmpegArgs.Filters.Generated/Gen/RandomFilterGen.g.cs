@@ -17,7 +17,7 @@ public RandomFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1,UI
 }
 /// <summary>
 /// </summary>
-public static class RandomFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Return random frames.

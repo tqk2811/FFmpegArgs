@@ -17,7 +17,7 @@ public ExposureFilterGen black(float black) => this.SetOptionRange("black", blac
 }
 /// <summary>
 /// </summary>
-public static class ExposureFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust exposure of the video stream.

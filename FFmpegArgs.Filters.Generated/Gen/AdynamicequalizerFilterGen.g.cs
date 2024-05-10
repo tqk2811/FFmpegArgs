@@ -73,7 +73,7 @@ public AdynamicequalizerFilterGen precision(AdynamicequalizerFilterGenPrecision 
 }
 /// <summary>
 /// </summary>
-public static class AdynamicequalizerFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Dynamic Equalization of input audio.

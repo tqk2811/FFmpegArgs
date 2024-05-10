@@ -33,7 +33,7 @@ public ElbgFilterGen use_alpha(bool use_alpha) => this.SetOption("use_alpha",use
 }
 /// <summary>
 /// </summary>
-public static class ElbgFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply posterize effect, using the ELBG algorithm.

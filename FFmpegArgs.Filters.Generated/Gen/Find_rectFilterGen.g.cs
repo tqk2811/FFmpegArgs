@@ -41,7 +41,7 @@ public Find_rectFilterGen discard(bool discard) => this.SetOption("discard",disc
 }
 /// <summary>
 /// </summary>
-public static class Find_rectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Find a user specified object.

@@ -77,7 +77,7 @@ public LoudnormFilterGen print_format(LoudnormFilterGenPrint_format print_format
 }
 /// <summary>
 /// </summary>
-public static class LoudnormFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// EBU R128 loudness normalization

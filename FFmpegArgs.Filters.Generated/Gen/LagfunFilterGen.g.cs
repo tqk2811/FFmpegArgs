@@ -17,7 +17,7 @@ public LagfunFilterGen planes(LagfunFilterGenPlanes planes) => this.SetOption("p
 }
 /// <summary>
 /// </summary>
-public static class LagfunFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Slowly update darker pixels.

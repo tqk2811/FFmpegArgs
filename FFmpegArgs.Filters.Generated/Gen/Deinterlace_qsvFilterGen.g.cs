@@ -13,7 +13,7 @@ public Deinterlace_qsvFilterGen mode(Deinterlace_qsvFilterGenMode mode) => this.
 }
 /// <summary>
 /// </summary>
-public static class Deinterlace_qsvFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Quick Sync Video "deinterlacing"

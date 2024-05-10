@@ -13,7 +13,7 @@ public ShuffleframesFilterGen mapping(string mapping) => this.SetOption("mapping
 }
 /// <summary>
 /// </summary>
-public static class ShuffleframesFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Shuffle video frames.

@@ -29,7 +29,7 @@ public AbufferFilterGen channels(int channels) => this.SetOptionRange("channels"
 }
 /// <summary>
 /// </summary>
-public static class AbufferFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Buffer audio frames, and make them accessible to the filterchain.

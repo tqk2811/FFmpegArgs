@@ -33,7 +33,7 @@ public TestsrcFilterGen n(int n) => this.SetOptionRange("n", n,0,17);
 }
 /// <summary>
 /// </summary>
-public static class TestsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate test pattern.

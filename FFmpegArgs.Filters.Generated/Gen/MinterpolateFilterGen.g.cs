@@ -49,7 +49,7 @@ public MinterpolateFilterGen scd_threshold(double scd_threshold) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class MinterpolateFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Frame rate conversion using Motion Interpolation.

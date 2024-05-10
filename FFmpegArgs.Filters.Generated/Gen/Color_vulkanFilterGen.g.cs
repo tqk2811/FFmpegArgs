@@ -37,7 +37,7 @@ public Color_vulkanFilterGen out_range(Color_vulkanFilterGenOut_range out_range)
 }
 /// <summary>
 /// </summary>
-public static class Color_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a constant color (Vulkan)

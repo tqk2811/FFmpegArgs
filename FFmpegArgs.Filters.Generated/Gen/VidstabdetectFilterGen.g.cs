@@ -41,7 +41,7 @@ public VidstabdetectFilterGen fileformat(VidstabdetectFilterGenFileformat filefo
 }
 /// <summary>
 /// </summary>
-public static class VidstabdetectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).

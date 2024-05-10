@@ -57,7 +57,7 @@ public AllpassFilterGen r(AllpassFilterGenR r) => this.SetOption("r", r.GetEnumA
 }
 /// <summary>
 /// </summary>
-public static class AllpassFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a two-pole all-pass filter.

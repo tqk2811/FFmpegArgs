@@ -9,7 +9,7 @@ internal HflipFilterGen(ImageMap input) : base("hflip",input) { AddMapOut(); }
 }
 /// <summary>
 /// </summary>
-public static class HflipFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Horizontally flip the input video.

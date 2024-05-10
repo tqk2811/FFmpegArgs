@@ -17,7 +17,7 @@ public VirtualbassFilterGen strength(double strength) => this.SetOptionRange("st
 }
 /// <summary>
 /// </summary>
-public static class VirtualbassFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Audio Virtual Bass.

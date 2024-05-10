@@ -29,7 +29,7 @@ public Nlmeans_openclFilterGen rc(int rc) => this.SetOptionRange("rc", rc,0,99);
 }
 /// <summary>
 /// </summary>
-public static class Nlmeans_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Non-local means denoiser through OpenCL

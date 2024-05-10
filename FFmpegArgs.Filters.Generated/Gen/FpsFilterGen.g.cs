@@ -25,7 +25,7 @@ public FpsFilterGen eof_action(FpsFilterGenEof_action eof_action) => this.SetOpt
 }
 /// <summary>
 /// </summary>
-public static class FpsFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Force constant framerate.

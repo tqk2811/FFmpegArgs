@@ -37,7 +37,7 @@ public PseudocolorFilterGen opacity(float opacity) => this.SetOptionRange("opaci
 }
 /// <summary>
 /// </summary>
-public static class PseudocolorFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Make pseudocolored video frames.

@@ -41,7 +41,7 @@ public AexciterFilterGen listen(bool listen) => this.SetOption("listen",listen.T
 }
 /// <summary>
 /// </summary>
-public static class AexciterFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Enhance high frequency part of audio.

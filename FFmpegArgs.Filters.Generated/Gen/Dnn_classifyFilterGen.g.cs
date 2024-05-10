@@ -49,7 +49,7 @@ public Dnn_classifyFilterGen target(string target) => this.SetOption("target",ta
 }
 /// <summary>
 /// </summary>
-public static class Dnn_classifyFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply DNN classify filter to the input.

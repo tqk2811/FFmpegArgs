@@ -41,7 +41,7 @@ public AfirsrcFilterGen win_func(AfirsrcFilterGenWin_func win_func) => this.SetO
 }
 /// <summary>
 /// </summary>
-public static class AfirsrcFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a FIR coefficients audio stream.

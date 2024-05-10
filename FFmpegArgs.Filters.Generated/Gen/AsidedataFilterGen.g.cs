@@ -17,7 +17,7 @@ public AsidedataFilterGen type(AsidedataFilterGenType type) => this.SetOption("t
 }
 /// <summary>
 /// </summary>
-public static class AsidedataFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Manipulate audio frame side data.

@@ -41,7 +41,7 @@ public DebandFilterGen coupling(bool coupling) => this.SetOption("coupling",coup
 }
 /// <summary>
 /// </summary>
-public static class DebandFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Debands video.

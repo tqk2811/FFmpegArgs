@@ -13,7 +13,7 @@ public ThresholdFilterGen planes(int planes) => this.SetOptionRange("planes", pl
 }
 /// <summary>
 /// </summary>
-public static class ThresholdFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Threshold first video stream using other video streams.

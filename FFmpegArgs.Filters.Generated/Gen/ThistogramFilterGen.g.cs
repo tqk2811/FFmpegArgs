@@ -45,7 +45,7 @@ public ThistogramFilterGen slide(ThistogramFilterGenSlide slide) => this.SetOpti
 }
 /// <summary>
 /// </summary>
-public static class ThistogramFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Compute and draw a temporal histogram.

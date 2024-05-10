@@ -29,7 +29,7 @@ public HilbertFilterGen win_func(HilbertFilterGenWin_func win_func) => this.SetO
 }
 /// <summary>
 /// </summary>
-public static class HilbertFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Generate a Hilbert transform FIR coefficients.

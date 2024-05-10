@@ -65,7 +65,7 @@ public VidstabtransformFilterGen debug(bool debug) => this.SetOption("debug",deb
 }
 /// <summary>
 /// </summary>
-public static class VidstabtransformFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).

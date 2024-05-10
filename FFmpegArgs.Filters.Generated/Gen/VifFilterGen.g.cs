@@ -9,7 +9,7 @@ internal VifFilterGen(params ImageMap[] inputs) : base("vif",inputs) { AddMapOut
 }
 /// <summary>
 /// </summary>
-public static class VifFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the VIF between two video streams.

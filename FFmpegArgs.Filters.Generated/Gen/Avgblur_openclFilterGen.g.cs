@@ -21,7 +21,7 @@ public Avgblur_openclFilterGen sizeY(int sizeY) => this.SetOptionRange("sizeY", 
 }
 /// <summary>
 /// </summary>
-public static class Avgblur_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply average blur filter

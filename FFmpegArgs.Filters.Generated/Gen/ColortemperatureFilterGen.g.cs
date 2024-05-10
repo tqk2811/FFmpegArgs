@@ -21,7 +21,7 @@ public ColortemperatureFilterGen pl(float pl) => this.SetOptionRange("pl", pl,0,
 }
 /// <summary>
 /// </summary>
-public static class ColortemperatureFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust color temperature of video.

@@ -57,7 +57,7 @@ public BandrejectFilterGen blocksize(int blocksize) => this.SetOptionRange("bloc
 }
 /// <summary>
 /// </summary>
-public static class BandrejectFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a two-pole Butterworth band-reject filter.

@@ -53,7 +53,7 @@ public SelectivecolorFilterGen psfile(string psfile) => this.SetOption("psfile",
 }
 /// <summary>
 /// </summary>
-public static class SelectivecolorFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply CMYK adjustments to specific color ranges.

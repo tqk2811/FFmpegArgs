@@ -25,7 +25,7 @@ public ShuffleplanesFilterGen map3(int map3) => this.SetOptionRange("map3", map3
 }
 /// <summary>
 /// </summary>
-public static class ShuffleplanesFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Shuffle video planes.

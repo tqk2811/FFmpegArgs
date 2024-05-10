@@ -61,7 +61,7 @@ public HighpassFilterGen blocksize(int blocksize) => this.SetOptionRange("blocks
 }
 /// <summary>
 /// </summary>
-public static class HighpassFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply a high-pass filter with 3dB point frequency.

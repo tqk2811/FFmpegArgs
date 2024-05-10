@@ -61,7 +61,7 @@ public HaasFilterGen right_phase(bool right_phase) => this.SetOption("right_phas
 }
 /// <summary>
 /// </summary>
-public static class HaasFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply Haas Stereo Enhancer.

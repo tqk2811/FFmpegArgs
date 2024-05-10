@@ -33,7 +33,7 @@ public HdcdFilterGen bits_per_sample(HdcdFilterGenBits_per_sample bits_per_sampl
 }
 /// <summary>
 /// </summary>
-public static class HdcdFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Apply High Definition Compatible Digital (HDCD) decoding.

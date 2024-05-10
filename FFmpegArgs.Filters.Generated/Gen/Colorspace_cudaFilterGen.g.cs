@@ -13,7 +13,7 @@ public Colorspace_cudaFilterGen range(Colorspace_cudaFilterGenRange range) => th
 }
 /// <summary>
 /// </summary>
-public static class Colorspace_cudaFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// CUDA accelerated video color converter

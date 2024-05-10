@@ -25,7 +25,7 @@ public PsnrFilterGen output_max(bool output_max) => this.SetOption("output_max",
 }
 /// <summary>
 /// </summary>
-public static class PsnrFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Calculate the PSNR between two video streams.

@@ -17,7 +17,7 @@ public Overlay_openclFilterGen y(int y) => this.SetOptionRange("y", y,0,INT_MAX)
 }
 /// <summary>
 /// </summary>
-public static class Overlay_openclFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Overlay one video on top of another

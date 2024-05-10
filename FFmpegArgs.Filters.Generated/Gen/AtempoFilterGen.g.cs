@@ -13,7 +13,7 @@ public AtempoFilterGen tempo(double tempo) => this.SetOptionRange("tempo", tempo
 }
 /// <summary>
 /// </summary>
-public static class AtempoFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Adjust audio tempo.

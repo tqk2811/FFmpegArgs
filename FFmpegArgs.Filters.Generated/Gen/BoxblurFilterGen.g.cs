@@ -57,7 +57,7 @@ public BoxblurFilterGen ap(int ap) => this.SetOptionRange("ap", ap,-1,INT_MAX);
 }
 /// <summary>
 /// </summary>
-public static class BoxblurFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Blur the input.

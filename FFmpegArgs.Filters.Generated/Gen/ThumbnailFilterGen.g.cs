@@ -17,7 +17,7 @@ public ThumbnailFilterGen log(ThumbnailFilterGenLog log) => this.SetOption("log"
 }
 /// <summary>
 /// </summary>
-public static class ThumbnailFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Select the most representative frame in a given sequence of consecutive frames.

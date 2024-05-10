@@ -9,7 +9,7 @@ internal Vflip_vulkanFilterGen(ImageMap input) : base("vflip_vulkan",input) { Ad
 }
 /// <summary>
 /// </summary>
-public static class Vflip_vulkanFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Vertically flip the input video in Vulkan

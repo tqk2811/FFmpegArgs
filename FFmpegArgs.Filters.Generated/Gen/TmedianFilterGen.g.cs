@@ -21,7 +21,7 @@ public TmedianFilterGen percentile(float percentile) => this.SetOptionRange("per
 }
 /// <summary>
 /// </summary>
-public static class TmedianFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Pick median pixels from successive frames.

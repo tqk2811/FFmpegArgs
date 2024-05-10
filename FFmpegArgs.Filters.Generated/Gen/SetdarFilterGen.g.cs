@@ -25,7 +25,7 @@ public SetdarFilterGen max(int max) => this.SetOptionRange("max", max,1,INT_MAX)
 }
 /// <summary>
 /// </summary>
-public static class SetdarFilterGenExtensions
+public static partial class FilterGeneratedExtensions
 {
 /// <summary>
 /// Set the frame display aspect ratio.
