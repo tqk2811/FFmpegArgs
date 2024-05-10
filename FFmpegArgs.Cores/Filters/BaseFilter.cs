@@ -25,18 +25,10 @@
         /// 
         /// </summary>
         public string FilterName { get; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public IEnumerable<BaseMap> MapsOut => _mapsOut;
-        /// <summary>
-        /// 
-        /// </summary>
-        public IEnumerable<BaseMap> MapsIn => _mapsIn;
-        /// <summary>
-        /// 
-        /// </summary>
-        public BaseMap MapOut => _mapsOut.First();//if throw then it InvalidOperationException
+
+        IEnumerable<BaseMap> IFilter.MapsOut => _mapsOut;
+        IEnumerable<BaseMap> IFilter.MapsIn => _mapsIn;
+        BaseMap IFilter.MapOut => _mapsOut.First();//if throw then it InvalidOperationException
 
 
         /// <summary>
@@ -119,11 +111,18 @@
       where TIn : BaseMap
       where TOut : BaseMap
     {
-        IEnumerable<TOut> IFilter<TIn, TOut>.MapsOut => base.MapsOut.Cast<TOut>();
-
-        IEnumerable<TIn> IFilter<TIn, TOut>.MapsIn => base.MapsIn.Cast<TIn>();
-
-        TOut IFilter<TIn, TOut>.MapOut => (TOut)base.MapOut;//if throw then it InvalidOperationException
+        /// <summary>
+        /// 
+        /// </summary>
+        public IEnumerable<TOut> MapsOut => ((IFilter)this).MapsOut.Cast<TOut>();
+        /// <summary>
+        /// 
+        /// </summary>
+        public IEnumerable<TIn> MapsIn => ((IFilter)this).MapsIn.Cast<TIn>();
+        /// <summary>
+        /// 
+        /// </summary>
+        public TOut MapOut => (TOut)this._mapsOut.First();//if throw then it InvalidOperationException
 
 
         /// <inheritdoc cref="BaseFilter.BaseFilter(string, BaseMap[])"/>
