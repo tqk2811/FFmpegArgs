@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class VideoOutput : BaseOutput, IImage, IAudio
+    public abstract class VideoOutput : BaseOutput, IAudioOutput, IImageOutput
     {
         readonly List<ImageOutputAVStream> _imageOutputAVStreams = new List<ImageOutputAVStream>();
         readonly List<AudioOutputAVStream> _audioOutputAVStreams = new List<AudioOutputAVStream>();
@@ -16,25 +16,50 @@
         public override IEnumerable<OutputAVStream> OutputAVStreams
             => _imageOutputAVStreams.Cast<OutputAVStream>().Concat(_audioOutputAVStreams);
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
+
 
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<AudioOutputAVStream> AudioOutputAVStreams => _audioOutputAVStreams;
+        public virtual IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
 
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<ImageMap> ImageMaps => _imageMaps;
+        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.FirstOrDefault();
 
         /// <summary>
         /// 
         /// </summary>
-        public IEnumerable<AudioMap> AudioMaps => _audioMaps;
+        public virtual IEnumerable<AudioOutputAVStream> AudioOutputAVStreams => _audioOutputAVStreams;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.FirstOrDefault();
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual IEnumerable<ImageMap> ImageMaps => _imageMaps;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual ImageMap ImageMap => ImageMaps.FirstOrDefault();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual IEnumerable<AudioMap> AudioMaps => _audioMaps;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual AudioMap AudioMap => AudioMaps.FirstOrDefault();
 
 
         /// <summary>

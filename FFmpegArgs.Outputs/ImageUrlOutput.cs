@@ -45,11 +45,6 @@
             this._url = url ?? throw new ArgumentNullException(nameof(url));
             this.Format(format);
         }
-
-        /// <summary>
-        /// Get FirstOrDefault of <see cref="ImageOutput.ImageOutputAVStreams"/>
-        /// </summary>
-        public ImageOutputAVStream ImageOutputAVStream { get { return this.ImageOutputAVStreams.FirstOrDefault(); } }
         
         /// <summary>
         /// 
