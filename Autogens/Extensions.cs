@@ -44,7 +44,8 @@ namespace Autogens
         static readonly IEnumerable<string> _NameRule = new string[]
         {
             "float", "double", "short", "long", "int", "null",
-            "object", "out", "in", "base", "fixed",  "as", "new", "string", "if", "default"
+            "object", "out", "in", "base", "fixed",  "as", "new", "string", "if", "default", "params", "ref", "using", "switch",
+            "async", "await", "true", "false",
         };
         internal static string FixNameRule(this string input)
         {
@@ -78,7 +79,7 @@ namespace Autogens
                 do
                 {
                     index = input.IndexOf(item.Key, index);
-                    if(index >= 0)
+                    if (index >= 0)
                     {
                         int valIndex = input.IndexOf(item.Value, index);
                         if (valIndex == index)

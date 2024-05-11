@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... hilbert           |->A       Generate a Hilbert transform FIR coefficients.
 /// </summary>
-public class HilbertFilterGen : SourceAudioFilter
+public class HilbertFilterGen : SourceToAudioFilter
 {
 internal HilbertFilterGen(IAudioFilterGraph input) : base("hilbert",input) { AddMapOut(); }
 /// <summary>

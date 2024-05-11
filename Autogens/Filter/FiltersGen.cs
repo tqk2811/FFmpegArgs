@@ -73,14 +73,9 @@ namespace Autogens.Filter
                     streamWriter.WriteSummary(filter);
                     streamWriter.WriteLine($"public class {className} : {string.Join(",", interfaces)}");
                     streamWriter.WriteLine("{");
-                    if (typeName.InputCount == 1)
-                    {
-                        streamWriter.WriteLine($"internal {className}({typeName.Input} input) : base(\"{name}\",input) {{ AddMapOut(); }}");
-                    }
-                    else
-                    {
-                        streamWriter.WriteLine($"internal {className}(params {typeName.Input}[] inputs) : base(\"{name}\",inputs) {{ AddMapOut(); }}");
-                    }
+                    streamWriter.WriteLine($"internal {className}({string.Join(", ", typeName.CtorArgs)}) " +
+                        $": base(\"{name}\",{typeName.CtorArgsInheritance}) " +
+                        $"{{ {typeName.CtorBody} }}");
                     List<string> enumDatas = new List<string>();
 
                     var filterFunctions = docLine.ChildLines
@@ -108,19 +103,13 @@ namespace Autogens.Filter
                     }
                     streamWriter.WriteLine("}");
                     //Extensions
-                    List<string> inputs = new List<string>();
-                    List<string> paramsInput = new List<string>();
-                    for (int i = 0; i < typeName.InputCount; i++)
-                    {
-                        inputs.Add($"{typeName.Input} input{i}");
-                        paramsInput.Add($"input{i}");
-                    }
                     streamWriter.WriteSummary();
                     streamWriter.WriteLine($"public static partial class FilterGeneratedExtensions");
                     streamWriter.WriteLine("{");
                     //default extension
                     streamWriter.WriteSummary(description);
-                    streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", inputs)}) => new {className}({string.Join(", ", paramsInput)});");
+                    streamWriter.WriteLine($"public static {className} {className}(this {string.Join(", ", typeName.ExtensionArgs)}) " +
+                        $"=> new {className}({string.Join(", ", typeName.ExtensionParams)});");
                     streamWriter.WriteLine("}");
                     //enum
                     enumDatas.ForEach(x => streamWriter.WriteLine(x));
@@ -133,55 +122,160 @@ namespace Autogens.Filter
             }
         }
 
+        static readonly Regex regex_parseTypeConvert = new Regex("(\\||N|V+|A+)->(N|V+|A+)");
         static FilterTypeName GetFilterInheritance(string type)
         {
-            if (type.Equals("V->V")) return new FilterTypeName()
+            Match match = regex_parseTypeConvert.Match(type);
+            if (match.Success &&
+                !type.Contains("N->N", StringComparison.OrdinalIgnoreCase) && //ignore N->N
+                !type.Contains("|->N", StringComparison.OrdinalIgnoreCase) //ignore |->N
+                )
             {
-                Inheritance = nameof(ImageToImageFilter),
-                Input = nameof(ImageMap),
-            };
-            if (type.Equals("VV->V")) return new FilterTypeName()
-            {
-                Inheritance = nameof(ImageToImageFilter),
-                Input = nameof(ImageMap),
-                InputCount = 2,
-            };
-            if (type.Equals("VVV->V")) return new FilterTypeName()
-            {
-                Inheritance = nameof(ImageToImageFilter),
-                Input = nameof(ImageMap),
-                InputCount = 3,
-            };
-            if (type.Equals("VVVV->V")) return new FilterTypeName()
-            {
-                Inheritance = nameof(ImageToImageFilter),
-                Input = nameof(ImageMap),
-                InputCount = 4,
-            };
-            if (type.Equals("|->V")) return new FilterTypeName()
-            {
-                Inheritance = nameof(SourceImageFilter),
-                Input = nameof(IImageFilterGraph)
-            };
+                string from = match.Groups[1].Value;
+                string to = match.Groups[2].Value;
+                int InputCount = from.Count(x => x == 'A' || x == 'V');// 'N' or '|' result count 0
+                int OutputCount = to.Count(x => x == 'A' || x == 'V');// 'N' result count 0
+                string InType = from[0] switch
+                {
+                    '|' => "Source",
+                    'A' => "Audio",
+                    'V' => "Image",
+                    _ => string.Empty,// N
+                };
+                string OutType = to[0] switch
+                {
+                    'V' => "Image",
+                    'A' => "Audio",
+                    _ => string.Empty,// N
+                };
+                if (string.IsNullOrWhiteSpace(InType)) InType = OutType;
+                if (string.IsNullOrWhiteSpace(OutType)) OutType = InType;
 
-            if (type.Equals("A->A")) return new FilterTypeName()
-            {
-                Inheritance = nameof(AudioToAudioFilter),
-                Input = nameof(AudioMap)
-            };
-            if (type.Equals("AA->A")) return new FilterTypeName()
-            {
-                Inheritance = nameof(AudioToAudioFilter),
-                Input = nameof(AudioMap),
-                InputCount = 2,
-            };
-            if (type.Equals("|->A")) return new FilterTypeName()
-            {
-                Inheritance = nameof(SourceAudioFilter),
-                Input = nameof(IAudioFilterGraph)
-            };
 
-            //skip N->? , ?->N 
+                FilterTypeName filterTypeName = new FilterTypeName();
+                switch (from[0])
+                {
+                    case '|'://InType = OutType
+                        filterTypeName.Inheritance = $"{InType}To{OutType}Filter";
+                        filterTypeName.CtorArgs.Add($"I{OutType}FilterGraph input");
+                        filterTypeName.CtorArgsInheritance = $"input";
+                        filterTypeName.ExtensionArgs.Add($"I{OutType}FilterGraph input0");
+                        filterTypeName.ExtensionParams.Add($"input0");
+                        break;
+
+                    case 'N'://InType = OutType
+                        filterTypeName.Inheritance = $"{InType}To{OutType}Filter";
+                        filterTypeName.CtorArgs.Add($"params {InType}Map[] inputs");
+                        filterTypeName.CtorArgsInheritance = $"inputs";
+                        filterTypeName.ExtensionArgs.Add($"IEnumerable<{InType}Map> inputs");
+                        filterTypeName.ExtensionParams.Add($"inputs.ToArray()");
+                        break;
+
+                    case 'A'://InputCount > 0
+                    case 'V':
+                        filterTypeName.Inheritance = $"{InType}To{OutType}Filter";
+                        if (InputCount == 1)
+                        {
+                            filterTypeName.CtorArgs.Add($"{InType}Map input");
+                            filterTypeName.CtorArgsInheritance = $"input";
+                        }
+                        else
+                        {
+                            filterTypeName.CtorArgs.Add($"params {InType}Map[] inputs");
+                            filterTypeName.CtorArgsInheritance = $"inputs";
+                        }
+                        for (int i = 0; i < InputCount; i++)
+                        {
+                            filterTypeName.ExtensionArgs.Add($"{InType}Map input{i}");
+                            filterTypeName.ExtensionParams.Add($"input{i}");
+                        }
+                        break;
+                }
+                switch (OutputCount)
+                {
+                    case 0://N
+                        filterTypeName.CtorArgs.Insert(0, $"int outputCount");
+                        filterTypeName.CtorBody = "AddMultiMapOut(outputCount);";
+                        filterTypeName.ExtensionArgs.Add($"int outputCount");
+                        filterTypeName.ExtensionParams.Insert(0, $"outputCount");
+                        break;
+                    case 1:
+                        filterTypeName.CtorBody = "AddMapOut();";
+                        break;
+                    default:
+                        filterTypeName.CtorBody = $"AddMultiMapOut({OutputCount});";
+                        break;
+                }
+                return filterTypeName;
+
+
+
+
+                //filterTypeName.Inheritance = $"{InType}{OutType}Filter";
+
+
+                //if (type.Contains('A'))
+                //{
+                //}
+                //else if (type.Contains('V'))
+                //{
+                //    int InputCount = from.Count(x => x == 'V');// 'N' or '|' result count 0
+                //    int OutputCount = to.Count(x => x == 'V');// 'N' result count 0
+                //    switch (from[0])
+                //    {
+                //        case '|':
+                //            filterTypeName.Inheritance = nameof(SourceImageFilter);
+                //            filterTypeName.CtorArgs.Add($"{nameof(IImageFilterGraph)} input");
+                //            filterTypeName.CtorArgsInheritance = $"input";
+                //            filterTypeName.ExtensionArgs.Add($"{nameof(IImageFilterGraph)} input0");
+                //            filterTypeName.ExtensionParams.Add($"input0");
+                //            break;
+
+                //        case 'N':
+                //            filterTypeName.Inheritance = nameof(ImageToImageFilter);
+                //            filterTypeName.CtorArgs.Add($"params {nameof(ImageMap)}[] inputs");
+                //            filterTypeName.CtorArgsInheritance = $"inputs";
+                //            filterTypeName.ExtensionArgs.Add($"IEnumerable<{nameof(ImageMap)}> inputs");
+                //            filterTypeName.ExtensionParams.Add($"inputs.ToArray()");
+                //            break;
+
+                //        case 'V'://InputCount > 0
+                //            filterTypeName.Inheritance = nameof(ImageToImageFilter);
+                //            if (InputCount == 1)
+                //            {
+                //                filterTypeName.CtorArgs.Add($"{nameof(ImageMap)} input");
+                //                filterTypeName.CtorArgsInheritance = $"input";
+                //            }
+                //            else
+                //            {
+                //                filterTypeName.CtorArgs.Add($"params {nameof(ImageMap)}[] inputs");
+                //                filterTypeName.CtorArgsInheritance = $"inputs";
+                //            }
+                //            for (int i = 0; i < InputCount; i++)
+                //            {
+                //                filterTypeName.ExtensionArgs.Add($"{nameof(ImageMap)} input{i}");
+                //                filterTypeName.ExtensionParams.Add($"input{i}");
+                //            }
+                //            break;
+                //    }
+                //    switch (OutputCount)
+                //    {
+                //        case 0://N
+                //            filterTypeName.CtorArgs.Insert(0, $"int outputCount");
+                //            filterTypeName.CtorBody = "AddMultiMapOut(outputCount);";
+                //            filterTypeName.ExtensionArgs.Add($"int outputCount");
+                //            filterTypeName.ExtensionParams.Insert(0, $"outputCount");
+                //            break;
+                //        case 1:
+                //            filterTypeName.CtorBody = "AddMapOut();";
+                //            break;
+                //        default:
+                //            filterTypeName.CtorBody = $"AddMultiMapOut({OutputCount});";
+                //            break;
+                //    }
+                //    return filterTypeName;
+                //}
+            }
             return null;
         }
         static IEnumerable<string> GetFilterInterface(string support)

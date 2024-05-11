@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... buffer            |->V       Buffer video frames, and make them accessible to the filterchain.
 /// </summary>
-public class BufferFilterGen : SourceImageFilter
+public class BufferFilterGen : SourceToImageFilter
 {
 internal BufferFilterGen(IImageFilterGraph input) : base("buffer",input) { AddMapOut(); }
 /// <summary>

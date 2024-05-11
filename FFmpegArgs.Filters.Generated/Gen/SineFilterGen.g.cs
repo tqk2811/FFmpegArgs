@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... sine              |->A       Generate sine wave audio signal.
 /// </summary>
-public class SineFilterGen : SourceAudioFilter
+public class SineFilterGen : SourceToAudioFilter
 {
 internal SineFilterGen(IAudioFilterGraph input) : base("sine",input) { AddMapOut(); }
 /// <summary>

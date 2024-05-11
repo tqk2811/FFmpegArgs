@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... afdelaysrc        |->A       Generate a Fractional delay FIR coefficients.
 /// </summary>
-public class AfdelaysrcFilterGen : SourceAudioFilter
+public class AfdelaysrcFilterGen : SourceToAudioFilter
 {
 internal AfdelaysrcFilterGen(IAudioFilterGraph input) : base("afdelaysrc",input) { AddMapOut(); }
 /// <summary>

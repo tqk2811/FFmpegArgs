@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... colorspectrum     |->V       Generate colors spectrum.
 /// </summary>
-public class ColorspectrumFilterGen : SourceImageFilter
+public class ColorspectrumFilterGen : SourceToImageFilter
 {
 internal ColorspectrumFilterGen(IImageFilterGraph input) : base("colorspectrum",input) { AddMapOut(); }
 /// <summary>

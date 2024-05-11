@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ..C color             |->V       Provide an uniformly colored input.
 /// </summary>
-public class ColorFilterGen : SourceImageFilter,ICommandSupport
+public class ColorFilterGen : SourceToImageFilter,ICommandSupport
 {
 internal ColorFilterGen(IImageFilterGraph input) : base("color",input) { AddMapOut(); }
 /// <summary>

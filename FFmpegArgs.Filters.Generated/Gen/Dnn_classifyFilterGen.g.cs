@@ -34,7 +34,7 @@ public Dnn_classifyFilterGen options(string options) => this.SetOption("options"
 /// <summary>
 ///  use DNN async inference (ignored, use backend_configs='async=1') (default true)
 /// </summary>
-public Dnn_classifyFilterGen async(bool async) => this.SetOption("async",async.ToFFmpegFlag());
+public Dnn_classifyFilterGen _async(bool _async) => this.SetOption("async",_async.ToFFmpegFlag());
 /// <summary>
 ///  threshold of confidence (from 0 to 1) (default 0.5)
 /// </summary>

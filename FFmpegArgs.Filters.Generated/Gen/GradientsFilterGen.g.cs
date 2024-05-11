@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// .S. gradients         |->V       Draw a gradients.
 /// </summary>
-public class GradientsFilterGen : SourceImageFilter,ISliceThreading
+public class GradientsFilterGen : SourceToImageFilter,ISliceThreading
 {
 internal GradientsFilterGen(IImageFilterGraph input) : base("gradients",input) { AddMapOut(); }
 /// <summary>

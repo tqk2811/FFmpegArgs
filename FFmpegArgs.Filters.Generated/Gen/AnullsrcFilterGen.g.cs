@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... anullsrc          |->A       Null audio source, return empty audio frames.
 /// </summary>
-public class AnullsrcFilterGen : SourceAudioFilter
+public class AnullsrcFilterGen : SourceToAudioFilter
 {
 internal AnullsrcFilterGen(IAudioFilterGraph input) : base("anullsrc",input) { AddMapOut(); }
 /// <summary>

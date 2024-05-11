@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// .SC zoneplate         |->V       Generate zone-plate.
 /// </summary>
-public class ZoneplateFilterGen : SourceImageFilter,ISliceThreading,ICommandSupport
+public class ZoneplateFilterGen : SourceToImageFilter,ISliceThreading,ICommandSupport
 {
 internal ZoneplateFilterGen(IImageFilterGraph input) : base("zoneplate",input) { AddMapOut(); }
 /// <summary>

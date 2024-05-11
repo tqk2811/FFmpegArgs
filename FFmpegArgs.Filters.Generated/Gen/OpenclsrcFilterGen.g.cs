@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... openclsrc         |->V       Generate video using an OpenCL program
 /// </summary>
-public class OpenclsrcFilterGen : SourceImageFilter
+public class OpenclsrcFilterGen : SourceToImageFilter
 {
 internal OpenclsrcFilterGen(IImageFilterGraph input) : base("openclsrc",input) { AddMapOut(); }
 /// <summary>

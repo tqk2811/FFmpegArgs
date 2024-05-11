@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... sinc              |->A       Generate a sinc kaiser-windowed low-pass, high-pass, band-pass, or band-reject FIR coefficients.
 /// </summary>
-public class SincFilterGen : SourceAudioFilter
+public class SincFilterGen : SourceToAudioFilter
 {
 internal SincFilterGen(IAudioFilterGraph input) : base("sinc",input) { AddMapOut(); }
 /// <summary>

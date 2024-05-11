@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... ddagrab           |->V       Grab Windows Desktop images using Desktop Duplication API
 /// </summary>
-public class DdagrabFilterGen : SourceImageFilter
+public class DdagrabFilterGen : SourceToImageFilter
 {
 internal DdagrabFilterGen(IImageFilterGraph input) : base("ddagrab",input) { AddMapOut(); }
 /// <summary>

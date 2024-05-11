@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... mandelbrot        |->V       Render a Mandelbrot fractal.
 /// </summary>
-public class MandelbrotFilterGen : SourceImageFilter
+public class MandelbrotFilterGen : SourceToImageFilter
 {
 internal MandelbrotFilterGen(IImageFilterGraph input) : base("mandelbrot",input) { AddMapOut(); }
 /// <summary>

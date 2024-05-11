@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... mptestsrc         |->V       Generate various test pattern.
 /// </summary>
-public class MptestsrcFilterGen : SourceImageFilter
+public class MptestsrcFilterGen : SourceToImageFilter
 {
 internal MptestsrcFilterGen(IImageFilterGraph input) : base("mptestsrc",input) { AddMapOut(); }
 /// <summary>

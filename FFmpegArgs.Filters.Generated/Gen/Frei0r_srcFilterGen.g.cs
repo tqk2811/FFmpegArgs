@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... frei0r_src        |->V       Generate a frei0r source.
 /// </summary>
-public class Frei0r_srcFilterGen : SourceImageFilter
+public class Frei0r_srcFilterGen : SourceToImageFilter
 {
 internal Frei0r_srcFilterGen(IImageFilterGraph input) : base("frei0r_src",input) { AddMapOut(); }
 /// <summary>

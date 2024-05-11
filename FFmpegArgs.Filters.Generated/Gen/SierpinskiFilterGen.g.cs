@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// .S. sierpinski        |->V       Render a Sierpinski fractal.
 /// </summary>
-public class SierpinskiFilterGen : SourceImageFilter,ISliceThreading
+public class SierpinskiFilterGen : SourceToImageFilter,ISliceThreading
 {
 internal SierpinskiFilterGen(IImageFilterGraph input) : base("sierpinski",input) { AddMapOut(); }
 /// <summary>

@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... anoisesrc         |->A       Generate a noise audio signal.
 /// </summary>
-public class AnoisesrcFilterGen : SourceAudioFilter
+public class AnoisesrcFilterGen : SourceToAudioFilter
 {
 internal AnoisesrcFilterGen(IAudioFilterGraph input) : base("anoisesrc",input) { AddMapOut(); }
 /// <summary>

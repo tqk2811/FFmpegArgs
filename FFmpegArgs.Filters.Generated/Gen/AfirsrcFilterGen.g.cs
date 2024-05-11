@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... afirsrc           |->A       Generate a FIR coefficients audio stream.
 /// </summary>
-public class AfirsrcFilterGen : SourceAudioFilter
+public class AfirsrcFilterGen : SourceToAudioFilter
 {
 internal AfirsrcFilterGen(IAudioFilterGraph input) : base("afirsrc",input) { AddMapOut(); }
 /// <summary>

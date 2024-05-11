@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... color_vulkan      |->V       Generate a constant color (Vulkan)
 /// </summary>
-public class Color_vulkanFilterGen : SourceImageFilter
+public class Color_vulkanFilterGen : SourceToImageFilter
 {
 internal Color_vulkanFilterGen(IImageFilterGraph input) : base("color_vulkan",input) { AddMapOut(); }
 /// <summary>

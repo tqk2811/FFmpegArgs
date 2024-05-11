@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... haldclutsrc       |->V       Provide an identity Hald CLUT.
 /// </summary>
-public class HaldclutsrcFilterGen : SourceImageFilter
+public class HaldclutsrcFilterGen : SourceToImageFilter
 {
 internal HaldclutsrcFilterGen(IImageFilterGraph input) : base("haldclutsrc",input) { AddMapOut(); }
 /// <summary>

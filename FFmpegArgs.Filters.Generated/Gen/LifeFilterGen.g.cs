@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... life              |->V       Create life.
 /// </summary>
-public class LifeFilterGen : SourceImageFilter
+public class LifeFilterGen : SourceToImageFilter
 {
 internal LifeFilterGen(IImageFilterGraph input) : base("life",input) { AddMapOut(); }
 /// <summary>

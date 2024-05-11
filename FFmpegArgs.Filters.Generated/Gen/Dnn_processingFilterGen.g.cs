@@ -34,7 +34,7 @@ public Dnn_processingFilterGen options(string options) => this.SetOption("option
 /// <summary>
 ///  use DNN async inference (ignored, use backend_configs='async=1') (default true)
 /// </summary>
-public Dnn_processingFilterGen async(bool async) => this.SetOption("async",async.ToFFmpegFlag());
+public Dnn_processingFilterGen _async(bool _async) => this.SetOption("async",_async.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

@@ -3,7 +3,7 @@ namespace FFmpegArgs.Filters.Generated
 /// <summary>
 /// ... colorchart        |->V       Generate color checker chart.
 /// </summary>
-public class ColorchartFilterGen : SourceImageFilter
+public class ColorchartFilterGen : SourceToImageFilter
 {
 internal ColorchartFilterGen(IImageFilterGraph input) : base("colorchart",input) { AddMapOut(); }
 /// <summary>
