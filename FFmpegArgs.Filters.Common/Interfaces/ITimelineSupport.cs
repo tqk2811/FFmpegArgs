@@ -6,17 +6,6 @@
     public interface ITimelineSupport
     {
     }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    public interface ITimelineSupportConfig
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        string TimelineSupport { get; set; }
-    }
     /// <summary>
     /// 
     /// </summary>
