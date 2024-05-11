@@ -61,7 +61,7 @@ namespace Autogens.Filter
                     FilterTypeName typeName = GetFilterTypeName(type);
                     if (typeName == null)
                     {
-                        Console.WriteLine($"{"Filters.Gen can't get Inheritance",-40}: {filter}");
+                        Console.WriteLine($"{"Filters.Gen can't get FilterTypeName",-40}: {filter}");
                         continue;
                     }
                     var interfaces = GetFilterInterface(support).ToList();
