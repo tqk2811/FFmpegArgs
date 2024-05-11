@@ -14,6 +14,15 @@
         /// <returns></returns>
         public static T Codec<T>(this T t, string codec) where T : BaseOption, ICodec // (input/output,per-stream)
            => t.SetOption("-c", codec);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="codec"></param>
+        /// <returns></returns>
+        public static T Codec<T>(this T t, Codecs codec) where T : BaseOption, ICodec // (input/output,per-stream)
+            => t.SetOption("-c", codec.GetEnumAttribute<NameAttribute>().Name);
 
 
         #region audio,video

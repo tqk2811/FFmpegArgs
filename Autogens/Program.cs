@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Autogens.Codec;
 namespace Autogens
 {
     internal class Program
@@ -17,6 +18,8 @@ namespace Autogens
             var formats = GetDoc("-formats").ToList();
             FormatsGen.Gen(formats);
 
+            var codecs = GetDoc("-codecs").ToList();
+            CodecGen.Gen(codecs);
         }
 
         static IEnumerable<string> GetDoc(string arg)
