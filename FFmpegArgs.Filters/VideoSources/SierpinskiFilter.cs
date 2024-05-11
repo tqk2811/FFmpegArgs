@@ -4,7 +4,7 @@
     /// .S. sierpinski        |->V       Render a Sierpinski fractal.<br>
     /// </br>https://ffmpeg.org/ffmpeg-filters.html#sierpinski
     /// </summary>
-    public class SierpinskiFilter : SourceImageFilter, ISliceThreading
+    public class SierpinskiFilter : SourceToImageFilter, ISliceThreading
     {
         internal SierpinskiFilter(IImageFilterGraph filterGraph) : base("sierpinski", filterGraph)
         {

@@ -3,14 +3,14 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class SourceAudioFilter : BaseFilter<BaseMap, AudioMap>
+    public abstract class SourceToAudioFilter : BaseFilter<BaseMap, AudioMap>
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="filterName"></param>
         /// <param name="filterGraph"></param>
-        protected SourceAudioFilter(string filterName, IAudioFilterGraph filterGraph)
+        protected SourceToAudioFilter(string filterName, IAudioFilterGraph filterGraph)
           : base(filterName, new AudioMap(filterGraph, string.Empty))
         {
         }

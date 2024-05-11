@@ -61,7 +61,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// ... afirsrc           |->A       Generate a FIR coefficients audio stream.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#afirsrc
     /// </summary>
-    public class AfirsrcFilter : SourceAudioFilter
+    public class AfirsrcFilter : SourceToAudioFilter
     {
         internal AfirsrcFilter(IAudioFilterGraph filterGraph) : base("afirsrc", filterGraph)
         {

@@ -5,7 +5,7 @@ namespace FFmpegArgs.Filters.VideoSources
     /// ... life              |->V       Create life.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#life
     /// </summary>
-    public class LifeFilter : SourceImageFilter
+    public class LifeFilter : SourceToImageFilter
     {
         readonly FFmpegExpression expression = new FFmpegExpression();
         internal LifeFilter(IImageFilterGraph filterGraph) : base("life", filterGraph)

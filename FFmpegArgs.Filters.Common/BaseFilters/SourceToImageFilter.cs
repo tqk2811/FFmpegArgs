@@ -3,14 +3,14 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class SourceImageFilter : BaseFilter<BaseMap, ImageMap>
+    public abstract class SourceToImageFilter : BaseFilter<BaseMap, ImageMap>
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="filterName"></param>
         /// <param name="filterGraph"></param>
-        protected SourceImageFilter(string filterName, IImageFilterGraph filterGraph)
+        protected SourceToImageFilter(string filterName, IImageFilterGraph filterGraph)
           : base(filterName, new ImageMap(filterGraph, string.Empty))
         {
         }

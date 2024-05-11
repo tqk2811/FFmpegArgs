@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseVideoSource : SourceImageFilter
+    public abstract class BaseVideoSource : SourceToImageFilter
     {
         internal BaseVideoSource(string filterName, IImageFilterGraph filterGraph) : base(filterName, filterGraph)
         {

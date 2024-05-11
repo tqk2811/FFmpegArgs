@@ -4,7 +4,7 @@
     /// ... openclsrc         |->V       Generate video using an OpenCL program<br>
     /// </br>https://ffmpeg.org/ffmpeg-filters.html#openclsrc
     /// </summary>
-    public class OpenclsrcFilter : SourceImageFilter
+    public class OpenclsrcFilter : SourceToImageFilter
     {
         internal OpenclsrcFilter(IImageFilterGraph filterGraph) : base("openclsrc", filterGraph)
         {

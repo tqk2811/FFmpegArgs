@@ -4,7 +4,7 @@
     /// ... buffer            |->V       Buffer video frames, and make them accessible to the filterchain.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#buffer
     /// </summary>
-    public class BufferFilter : SourceImageFilter
+    public class BufferFilter : SourceToImageFilter
     {
         internal BufferFilter(IImageFilterGraph filterGraph) : base("buffer", filterGraph)
         {

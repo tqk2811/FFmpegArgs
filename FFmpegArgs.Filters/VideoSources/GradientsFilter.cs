@@ -4,7 +4,7 @@
     /// .S. gradients         |->V       Draw a gradients.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#gradients
     /// </summary>
-    public class GradientsFilter : SourceImageFilter, ISliceThreading
+    public class GradientsFilter : SourceToImageFilter, ISliceThreading
     {
         internal GradientsFilter(IImageFilterGraph filterGraph) : base("gradients", filterGraph)
         {

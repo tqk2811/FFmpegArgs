@@ -15,7 +15,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// ... anullsrc          |->A       Null audio source, return empty audio frames.<br>
     /// </br>https://ffmpeg.org/ffmpeg-filters.html#anullsrc
     /// </summary>
-    public class AnullsrcFilter : SourceAudioFilter
+    public class AnullsrcFilter : SourceToAudioFilter
     {
         internal AnullsrcFilter(IAudioFilterGraph filterGraph) : base("anullsrc", filterGraph)
         {

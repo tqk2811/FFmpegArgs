@@ -4,7 +4,7 @@
     /// ... mptestsrc         |->V       Generate various test pattern.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#mptestsrc
     /// </summary>
-    public class MptestsrcFilter : SourceImageFilter
+    public class MptestsrcFilter : SourceToImageFilter
     {
         internal MptestsrcFilter(IImageFilterGraph filterGraph) : base("mptestsrc", filterGraph)
         {

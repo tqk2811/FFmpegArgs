@@ -55,7 +55,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// ... hilbert           |->A       Generate a Hilbert transform FIR coefficients.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#hilbert
     /// </summary>
-    public class HilbertFilter : SourceAudioFilter
+    public class HilbertFilter : SourceToAudioFilter
     {
         internal HilbertFilter(IAudioFilterGraph filterGraph) : base("hilbert", filterGraph)
         {

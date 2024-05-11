@@ -16,7 +16,7 @@ namespace FFmpegArgs.Filters.AudioSources
     ///  ... sine              |->A       Generate sine wave audio signal.<br></br>
     ///  https://ffmpeg.org/ffmpeg-filters.html#sine
     /// </summary>
-    public class SineFilter : SourceAudioFilter
+    public class SineFilter : SourceToAudioFilter
     {
         static readonly IEnumerable<string> _variables = new List<string>()
         {

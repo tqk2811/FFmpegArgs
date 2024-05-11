@@ -12,7 +12,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// ... abuffer           |->A       Buffer audio frames, and make them accessible to the filterchain.<br>
     /// </br>https://ffmpeg.org/ffmpeg-filters.html#abuffer
     /// </summary>
-    public class AbufferFilter : SourceAudioFilter
+    public class AbufferFilter : SourceToAudioFilter
     {
         internal AbufferFilter(IAudioFilterGraph filterGraph) : base("abuffer", filterGraph)
         {

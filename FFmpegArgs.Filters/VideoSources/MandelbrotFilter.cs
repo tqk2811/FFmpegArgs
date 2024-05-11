@@ -4,7 +4,7 @@
     /// ... mandelbrot        |->V       Render a Mandelbrot fractal.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#mandelbrot
     /// </summary>
-    public class MandelbrotFilter : SourceImageFilter
+    public class MandelbrotFilter : SourceToImageFilter
     {
         internal MandelbrotFilter(IImageFilterGraph filterGraph) : base("mandelbrot", filterGraph)
         {

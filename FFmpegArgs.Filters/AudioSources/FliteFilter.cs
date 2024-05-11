@@ -6,7 +6,7 @@ namespace FFmpegArgs.Filters.AudioSources
     /// <br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#flite
     /// </summary>
-    public class FliteFilter : SourceAudioFilter
+    public class FliteFilter : SourceToAudioFilter
     {
         internal FliteFilter(IAudioFilterGraph filterGraph) : base("flite", filterGraph)
         {
