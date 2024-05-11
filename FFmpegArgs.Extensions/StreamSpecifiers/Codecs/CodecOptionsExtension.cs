@@ -25,14 +25,15 @@
         public static T Codec<T>(this T t, Codecs codec) where T : BaseOption, ICodec // (input/output,per-stream)
         {
             CodecFlagAttribute codecFlag = codec.GetEnumAttribute<CodecFlagAttribute>();
+            Type type = t.GetType();
 
-            if (t.GetType().IsInstanceOfType(typeof(ICodecEncoding)) && !codecFlag.CheckFlag('E'))
+            if (typeof(ICodecEncoding).IsAssignableFrom(type) && !codecFlag.CheckFlag('E'))
                 throw new InvalidException($"Codec '{codec.GetEnumAttribute<NameAttribute>().Name}' is not support encoding");
-            if (t.GetType().IsInstanceOfType(typeof(ICodecDecoding)) && !codecFlag.CheckFlag('D'))
+            if (typeof(ICodecDecoding).IsAssignableFrom(type) && !codecFlag.CheckFlag('D'))
                 throw new InvalidException($"Codec '{codec.GetEnumAttribute<NameAttribute>().Name}' is not support decoding");
-            if (t.GetType().IsInstanceOfType(typeof(IAudio)) && !codecFlag.CheckFlag('A'))
+            if (typeof(IAudio).IsAssignableFrom(type) && !codecFlag.CheckFlag('A'))
                 throw new InvalidException($"Codec '{codec.GetEnumAttribute<NameAttribute>().Name}' is not support audio stream");
-            if (t.GetType().IsInstanceOfType(typeof(IImage)) && !codecFlag.CheckFlag('V'))
+            if (typeof(IImage).IsAssignableFrom(type) && !codecFlag.CheckFlag('V'))
                 throw new InvalidException($"Codec '{codec.GetEnumAttribute<NameAttribute>().Name}' is not support image stream");
 
             return t.SetOption("-c", codec.GetEnumAttribute<NameAttribute>().Name);
