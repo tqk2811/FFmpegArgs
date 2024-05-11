@@ -28,6 +28,7 @@ namespace Autogens.Codec
                 if (match.Success)
                 {
                     codecs.WriteSummary(match.Groups[3].Value);
+                    codecs.Write($"[CodecFlag(\"{match.Groups[1].Value}\")]");
                     codecs.Write($"[Name(\"{match.Groups[2].Value}\")]");
                     codecs.WriteLine($"{match.Groups[2].Value.FixNameRule()},");
                     codecs.WriteLine();
