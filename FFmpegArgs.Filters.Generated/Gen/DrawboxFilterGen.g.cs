@@ -1,33 +1,33 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C drawbox           V->V       Draw a colored box on the input video.
+/// T.C drawbox           V-&gt;V       Draw a colored box on the input video.
 /// </summary>
 public class DrawboxFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal DrawboxFilterGen(ImageMap input) : base("drawbox",input) { AddMapOut(); }
 /// <summary>
-///  set horizontal position of the left box edge (default "0")
+///  set horizontal position of the left box edge (default &quot;0&quot;)
 /// </summary>
 public DrawboxFilterGen x(string x) => this.SetOption("x",x);
 /// <summary>
-///  set vertical position of the top box edge (default "0")
+///  set vertical position of the top box edge (default &quot;0&quot;)
 /// </summary>
 public DrawboxFilterGen y(string y) => this.SetOption("y",y);
 /// <summary>
-///  set width of the box (default "0")
+///  set width of the box (default &quot;0&quot;)
 /// </summary>
 public DrawboxFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  set height of the box (default "0")
+///  set height of the box (default &quot;0&quot;)
 /// </summary>
 public DrawboxFilterGen height(string height) => this.SetOption("height",height);
 /// <summary>
-///  set color of the box (default "black")
+///  set color of the box (default &quot;black&quot;)
 /// </summary>
 public DrawboxFilterGen color(string color) => this.SetOption("color",color);
 /// <summary>
-///  set the box thickness (default "3")
+///  set the box thickness (default &quot;3&quot;)
 /// </summary>
 public DrawboxFilterGen thickness(string thickness) => this.SetOption("thickness",thickness);
 /// <summary>

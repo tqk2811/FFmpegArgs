@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... scale_vaapi       V->V       Scale to/from VAAPI surfaces.
+/// ... scale_vaapi       V-&gt;V       Scale to/from VAAPI surfaces.
 /// </summary>
 public class Scale_vaapiFilterGen : ImageToImageFilter
 {
 internal Scale_vaapiFilterGen(ImageMap input) : base("scale_vaapi",input) { AddMapOut(); }
 /// <summary>
-///  Output video width (default "iw")
+///  Output video width (default &quot;iw&quot;)
 /// </summary>
 public Scale_vaapiFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Output video height (default "ih")
+///  Output video height (default &quot;ih&quot;)
 /// </summary>
 public Scale_vaapiFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>

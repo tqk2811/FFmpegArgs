@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... thumbnail_cuda    V->V       Select the most representative frame in a given sequence of consecutive frames.
+/// ... thumbnail_cuda    V-&gt;V       Select the most representative frame in a given sequence of consecutive frames.
 /// </summary>
 public class Thumbnail_cudaFilterGen : ImageToImageFilter
 {

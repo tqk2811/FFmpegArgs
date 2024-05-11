@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... detelecine        V->V       Apply an inverse telecine pattern.
+/// ... detelecine        V-&gt;V       Apply an inverse telecine pattern.
 /// </summary>
 public class DetelecineFilterGen : ImageToImageFilter
 {
@@ -11,7 +11,7 @@ internal DetelecineFilterGen(ImageMap input) : base("detelecine",input) { AddMap
 /// </summary>
 public DetelecineFilterGen first_field(DetelecineFilterGenFirst_field first_field) => this.SetOption("first_field", first_field.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  pattern that describe for how many fields a frame is to be displayed (default "23")
+///  pattern that describe for how many fields a frame is to be displayed (default &quot;23&quot;)
 /// </summary>
 public DetelecineFilterGen pattern(string pattern) => this.SetOption("pattern",pattern);
 /// <summary>

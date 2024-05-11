@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... ebur128           A->N       EBU R128 scanner.
+/// ... ebur128           A-&gt;N       EBU R128 scanner.
 /// </summary>
 public class Ebur128FilterGen : AudioToAudioFilter
 {
@@ -11,7 +11,7 @@ internal Ebur128FilterGen(int outputCount, AudioMap input) : base("ebur128",inpu
 /// </summary>
 public Ebur128FilterGen video(bool video) => this.SetOption("video",video.ToFFmpegFlag());
 /// <summary>
-///  set video size (default "640x480")
+///  set video size (default &quot;640x480&quot;)
 /// </summary>
 public Ebur128FilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>

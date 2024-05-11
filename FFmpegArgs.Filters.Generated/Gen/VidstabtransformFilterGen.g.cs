@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... vidstabtransform  V->V       Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).
+/// ... vidstabtransform  V-&gt;V       Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).
 /// </summary>
 public class VidstabtransformFilterGen : ImageToImageFilter
 {
 internal VidstabtransformFilterGen(ImageMap input) : base("vidstabtransform",input) { AddMapOut(); }
 /// <summary>
-///  set path to the file storing the transforms (default "transforms.trf")
+///  set path to the file storing the transforms (default &quot;transforms.trf&quot;)
 /// </summary>
 public VidstabtransformFilterGen input(string input) => this.SetOption("input",input);
 /// <summary>
@@ -39,7 +39,7 @@ public VidstabtransformFilterGen invert(int invert) => this.SetOptionRange("inve
 /// </summary>
 public VidstabtransformFilterGen relative(int relative) => this.SetOptionRange("relative", relative,0,1);
 /// <summary>
-///  set percentage to zoom (>0: zoom in, <0: zoom out (from -100 to 100) (default 0)
+///  set percentage to zoom (&gt;0: zoom in, &lt;0: zoom out (from -100 to 100) (default 0)
 /// </summary>
 public VidstabtransformFilterGen zoom(double zoom) => this.SetOptionRange("zoom", zoom,-100,100);
 /// <summary>

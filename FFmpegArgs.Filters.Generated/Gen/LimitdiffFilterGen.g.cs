@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC limitdiff         N->V       Apply filtering with limiting difference.
+/// TSC limitdiff         N-&gt;V       Apply filtering with limiting difference.
 /// </summary>
 public class LimitdiffFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

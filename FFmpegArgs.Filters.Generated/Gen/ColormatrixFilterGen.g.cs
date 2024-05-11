@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. colormatrix       V->V       Convert color matrix.
+/// TS. colormatrix       V-&gt;V       Convert color matrix.
 /// </summary>
 public class ColormatrixFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

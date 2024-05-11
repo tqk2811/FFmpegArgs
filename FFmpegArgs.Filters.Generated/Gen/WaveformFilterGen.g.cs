@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .SC waveform          V->V       Video waveform monitor.
+/// .SC waveform          V-&gt;V       Video waveform monitor.
 /// </summary>
 public class WaveformFilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
 {

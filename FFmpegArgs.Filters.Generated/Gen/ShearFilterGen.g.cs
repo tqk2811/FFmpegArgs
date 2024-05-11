@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC shear             V->V       Shear transform the input image.
+/// TSC shear             V-&gt;V       Shear transform the input image.
 /// </summary>
 public class ShearFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
@@ -15,11 +15,11 @@ public ShearFilterGen shx(float shx) => this.SetOptionRange("shx", shx,-2,2);
 /// </summary>
 public ShearFilterGen shy(float shy) => this.SetOptionRange("shy", shy,-2,2);
 /// <summary>
-///  set background fill color (default "black")
+///  set background fill color (default &quot;black&quot;)
 /// </summary>
 public ShearFilterGen fillcolor(string fillcolor) => this.SetOption("fillcolor",fillcolor);
 /// <summary>
-///  set background fill color (default "black")
+///  set background fill color (default &quot;black&quot;)
 /// </summary>
 public ShearFilterGen c(string c) => this.SetOption("c",c);
 /// <summary>

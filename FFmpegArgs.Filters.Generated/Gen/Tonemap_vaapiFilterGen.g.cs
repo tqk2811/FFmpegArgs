@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... tonemap_vaapi     V->V       VAAPI VPP for tone-mapping
+/// ... tonemap_vaapi     V-&gt;V       VAAPI VPP for tone-mapping
 /// </summary>
 public class Tonemap_vaapiFilterGen : ImageToImageFilter
 {

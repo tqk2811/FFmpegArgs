@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. selectivecolor    V->V       Apply CMYK adjustments to specific color ranges.
+/// TS. selectivecolor    V-&gt;V       Apply CMYK adjustments to specific color ranges.
 /// </summary>
 public class SelectivecolorFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

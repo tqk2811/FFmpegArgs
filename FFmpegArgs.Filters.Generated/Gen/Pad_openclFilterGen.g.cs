@@ -1,29 +1,29 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... pad_opencl        V->V       Pad the input video.
+/// ... pad_opencl        V-&gt;V       Pad the input video.
 /// </summary>
 public class Pad_openclFilterGen : ImageToImageFilter
 {
 internal Pad_openclFilterGen(ImageMap input) : base("pad_opencl",input) { AddMapOut(); }
 /// <summary>
-///  set the pad area width (default "iw")
+///  set the pad area width (default &quot;iw&quot;)
 /// </summary>
 public Pad_openclFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  set the pad area height (default "ih")
+///  set the pad area height (default &quot;ih&quot;)
 /// </summary>
 public Pad_openclFilterGen height(string height) => this.SetOption("height",height);
 /// <summary>
-///  set the x offset for the input image position (default "0")
+///  set the x offset for the input image position (default &quot;0&quot;)
 /// </summary>
 public Pad_openclFilterGen x(string x) => this.SetOption("x",x);
 /// <summary>
-///  set the y offset for the input image position (default "0")
+///  set the y offset for the input image position (default &quot;0&quot;)
 /// </summary>
 public Pad_openclFilterGen y(string y) => this.SetOption("y",y);
 /// <summary>
-///  set the color of the padded area border (default "black")
+///  set the color of the padded area border (default &quot;black&quot;)
 /// </summary>
 public Pad_openclFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>

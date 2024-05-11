@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. grayworld         V->V       Adjust white balance using LAB gray world algorithm
+/// TS. grayworld         V-&gt;V       Adjust white balance using LAB gray world algorithm
 /// </summary>
 public class GrayworldFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

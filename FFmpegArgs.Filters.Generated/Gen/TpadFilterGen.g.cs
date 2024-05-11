@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... tpad              V->V       Temporarily pad video frames.
+/// ... tpad              V-&gt;V       Temporarily pad video frames.
 /// </summary>
 public class TpadFilterGen : ImageToImageFilter
 {
@@ -31,7 +31,7 @@ public TpadFilterGen start_duration(TimeSpan start_duration) => this.SetOptionRa
 /// </summary>
 public TpadFilterGen stop_duration(TimeSpan stop_duration) => this.SetOptionRange("stop_duration",stop_duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set the color of the added frames (default "black")
+///  set the color of the added frames (default &quot;black&quot;)
 /// </summary>
 public TpadFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }

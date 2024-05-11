@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... gblur_vulkan      V->V       Gaussian Blur in Vulkan
+/// ... gblur_vulkan      V-&gt;V       Gaussian Blur in Vulkan
 /// </summary>
 public class Gblur_vulkanFilterGen : ImageToImageFilter
 {

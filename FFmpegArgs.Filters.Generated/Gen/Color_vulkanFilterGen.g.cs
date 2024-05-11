@@ -1,21 +1,21 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... color_vulkan      |->V       Generate a constant color (Vulkan)
+/// ... color_vulkan      |-&gt;V       Generate a constant color (Vulkan)
 /// </summary>
 public class Color_vulkanFilterGen : SourceToImageFilter
 {
 internal Color_vulkanFilterGen(IImageFilterGraph input) : base("color_vulkan",input) { AddMapOut(); }
 /// <summary>
-///  set color (default "black")
+///  set color (default &quot;black&quot;)
 /// </summary>
 public Color_vulkanFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>
-///  set video size (default "1920x1080")
+///  set video size (default &quot;1920x1080&quot;)
 /// </summary>
 public Color_vulkanFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "60")
+///  set video rate (default &quot;60&quot;)
 /// </summary>
 public Color_vulkanFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>

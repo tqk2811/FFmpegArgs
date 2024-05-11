@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. removelogo        V->V       Remove a TV logo based on a mask image.
+/// T.. removelogo        V-&gt;V       Remove a TV logo based on a mask image.
 /// </summary>
 public class RemovelogoFilterGen : ImageToImageFilter,ITimelineSupport
 {

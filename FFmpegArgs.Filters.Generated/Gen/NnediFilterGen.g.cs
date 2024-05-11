@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC nnedi             V->V       Apply neural network edge directed interpolation intra-only deinterlacer.
+/// TSC nnedi             V-&gt;V       Apply neural network edge directed interpolation intra-only deinterlacer.
 /// </summary>
 public class NnediFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal NnediFilterGen(ImageMap input) : base("nnedi",input) { AddMapOut(); }
 /// <summary>
-///  set weights file (default "nnedi3_weights.bin")
+///  set weights file (default &quot;nnedi3_weights.bin&quot;)
 /// </summary>
 public NnediFilterGen weights(string weights) => this.SetOption("weights",weights);
 /// <summary>

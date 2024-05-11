@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C firequalizer      A->A       Finite Impulse Response Equalizer.
+/// ..C firequalizer      A-&gt;A       Finite Impulse Response Equalizer.
 /// </summary>
 public class FirequalizerFilterGen : AudioToAudioFilter,ICommandSupport
 {
 internal FirequalizerFilterGen(AudioMap input) : base("firequalizer",input) { AddMapOut(); }
 /// <summary>
-///  set gain curve (default "gain_interpolate(f)")
+///  set gain curve (default &quot;gain_interpolate(f)&quot;)
 /// </summary>
 public FirequalizerFilterGen gain(string gain) => this.SetOption("gain",gain);
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... hilbert           |->A       Generate a Hilbert transform FIR coefficients.
+/// ... hilbert           |-&gt;A       Generate a Hilbert transform FIR coefficients.
 /// </summary>
 public class HilbertFilterGen : SourceToAudioFilter
 {

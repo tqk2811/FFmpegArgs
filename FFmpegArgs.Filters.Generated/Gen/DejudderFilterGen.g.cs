@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... dejudder          V->V       Remove judder produced by pullup.
+/// ... dejudder          V-&gt;V       Remove judder produced by pullup.
 /// </summary>
 public class DejudderFilterGen : ImageToImageFilter
 {

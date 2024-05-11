@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... telecine          V->V       Apply a telecine pattern.
+/// ... telecine          V-&gt;V       Apply a telecine pattern.
 /// </summary>
 public class TelecineFilterGen : ImageToImageFilter
 {
@@ -11,7 +11,7 @@ internal TelecineFilterGen(ImageMap input) : base("telecine",input) { AddMapOut(
 /// </summary>
 public TelecineFilterGen first_field(TelecineFilterGenFirst_field first_field) => this.SetOption("first_field", first_field.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  pattern that describe for how many fields a frame is to be displayed (default "23")
+///  pattern that describe for how many fields a frame is to be displayed (default &quot;23&quot;)
 /// </summary>
 public TelecineFilterGen pattern(string pattern) => this.SetOption("pattern",pattern);
 }

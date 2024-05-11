@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... mpdecimate        V->V       Remove near-duplicate frames.
+/// ... mpdecimate        V-&gt;V       Remove near-duplicate frames.
 /// </summary>
 public class MpdecimateFilterGen : ImageToImageFilter
 {

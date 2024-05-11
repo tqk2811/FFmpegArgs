@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... testsrc           |->V       Generate test pattern.
+/// ... testsrc           |-&gt;V       Generate test pattern.
 /// </summary>
 public class TestsrcFilterGen : SourceToImageFilter
 {
 internal TestsrcFilterGen(IImageFilterGraph input) : base("testsrc",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "320x240")
+///  set video size (default &quot;320x240&quot;)
 /// </summary>
 public TestsrcFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public TestsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>

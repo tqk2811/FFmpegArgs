@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. fspp              V->V       Apply Fast Simple Post-processing filter.
+/// T.. fspp              V-&gt;V       Apply Fast Simple Post-processing filter.
 /// </summary>
 public class FsppFilterGen : ImageToImageFilter,ITimelineSupport
 {
@@ -19,7 +19,7 @@ public FsppFilterGen qp(int qp) => this.SetOptionRange("qp", qp,0,64);
 /// </summary>
 public FsppFilterGen strength(int strength) => this.SetOptionRange("strength", strength,-15,32);
 /// <summary>
-///  use B-frames' QP (default false)
+///  use B-frames&#39; QP (default false)
 /// </summary>
 public FsppFilterGen use_bframe_qp(bool use_bframe_qp) => this.SetOption("use_bframe_qp",use_bframe_qp.ToFFmpegFlag());
 }

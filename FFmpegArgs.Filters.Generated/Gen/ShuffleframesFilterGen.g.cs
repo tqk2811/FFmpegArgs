@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. shuffleframes     V->V       Shuffle video frames.
+/// T.. shuffleframes     V-&gt;V       Shuffle video frames.
 /// </summary>
 public class ShuffleframesFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal ShuffleframesFilterGen(ImageMap input) : base("shuffleframes",input) { AddMapOut(); }
 /// <summary>
-///  set destination indexes of input frames (default "0")
+///  set destination indexes of input frames (default &quot;0&quot;)
 /// </summary>
 public ShuffleframesFilterGen mapping(string mapping) => this.SetOption("mapping",mapping);
 }

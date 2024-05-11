@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... sobel_opencl      V->V       Apply sobel operator
+/// ... sobel_opencl      V-&gt;V       Apply sobel operator
 /// </summary>
 public class Sobel_openclFilterGen : ImageToImageFilter
 {

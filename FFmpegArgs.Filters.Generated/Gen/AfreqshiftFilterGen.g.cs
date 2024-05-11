@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC afreqshift        A->A       Apply frequency shifting to input audio.
+/// TSC afreqshift        A-&gt;A       Apply frequency shifting to input audio.
 /// </summary>
 public class AfreqshiftFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

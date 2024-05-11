@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC amplify           V->V       Amplify changes between successive video frames.
+/// TSC amplify           V-&gt;V       Amplify changes between successive video frames.
 /// </summary>
 public class AmplifyFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

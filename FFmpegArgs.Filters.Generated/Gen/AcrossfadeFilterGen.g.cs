@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... acrossfade        AA->A      Cross fade two input audio streams.
+/// ... acrossfade        AA-&gt;A      Cross fade two input audio streams.
 /// </summary>
 public class AcrossfadeFilterGen : AudioToAudioFilter
 {

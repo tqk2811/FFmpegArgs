@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C afade             A->A       Fade in/out input audio.
+/// T.C afade             A-&gt;A       Fade in/out input audio.
 /// </summary>
 public class AfadeFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

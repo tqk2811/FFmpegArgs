@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... paletteuse        VV->V      Use a palette to downsample an input video stream.
+/// ... paletteuse        VV-&gt;V      Use a palette to downsample an input video stream.
 /// </summary>
 public class PaletteuseFilterGen : ImageToImageFilter
 {
@@ -62,7 +62,7 @@ public enum PaletteuseFilterGenDither
 /// </summary>
 [Name("sierra2")] sierra2,
 /// <summary>
-/// sierra2_4a      5            ..FV....... Frankie Sierra dithering v2 "Lite" (error diffusion)
+/// sierra2_4a      5            ..FV....... Frankie Sierra dithering v2 &quot;Lite&quot; (error diffusion)
 /// </summary>
 [Name("sierra2_4a")] sierra2_4a,
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... tonemap_opencl    V->V       Perform HDR to SDR conversion with tonemapping.
+/// ... tonemap_opencl    V-&gt;V       Perform HDR to SDR conversion with tonemapping.
 /// </summary>
 public class Tonemap_openclFilterGen : ImageToImageFilter
 {

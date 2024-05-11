@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... roberts_opencl    V->V       Apply roberts operator
+/// ... roberts_opencl    V-&gt;V       Apply roberts operator
 /// </summary>
 public class Roberts_openclFilterGen : ImageToImageFilter
 {

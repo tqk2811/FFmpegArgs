@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. ssim              VV->V      Calculate the SSIM between two video streams.
+/// TS. ssim              VV-&gt;V      Calculate the SSIM between two video streams.
 /// </summary>
 public class SsimFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

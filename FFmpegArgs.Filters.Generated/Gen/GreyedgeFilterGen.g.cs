@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. greyedge          V->V       Estimates scene illumination by grey edge assumption.
+/// TS. greyedge          V-&gt;V       Estimates scene illumination by grey edge assumption.
 /// </summary>
 public class GreyedgeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

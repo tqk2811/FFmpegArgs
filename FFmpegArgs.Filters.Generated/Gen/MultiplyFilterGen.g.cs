@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC multiply          VV->V      Multiply first video stream with second video stream.
+/// TSC multiply          VV-&gt;V      Multiply first video stream with second video stream.
 /// </summary>
 public class MultiplyFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

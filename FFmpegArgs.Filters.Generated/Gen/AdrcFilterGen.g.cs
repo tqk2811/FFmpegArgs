@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC adrc              A->A       Audio Spectral Dynamic Range Controller.
+/// TSC adrc              A-&gt;A       Audio Spectral Dynamic Range Controller.
 /// </summary>
 public class AdrcFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal AdrcFilterGen(AudioMap input) : base("adrc",input) { AddMapOut(); }
 /// <summary>
-///  set the transfer expression (default "p")
+///  set the transfer expression (default &quot;p&quot;)
 /// </summary>
 public AdrcFilterGen transfer(ExpressionValue transfer) => this.SetOption("transfer",(string)transfer);
 /// <summary>
@@ -19,7 +19,7 @@ public AdrcFilterGen attack(double attack) => this.SetOptionRange("attack", atta
 /// </summary>
 public AdrcFilterGen release(double release) => this.SetOptionRange("release", release,5,2000);
 /// <summary>
-///  set channels to filter (default "all")
+///  set channels to filter (default &quot;all&quot;)
 /// </summary>
 public AdrcFilterGen channels(string channels) => this.SetOption("channels",channels);
 }

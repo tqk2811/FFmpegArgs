@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... cover_rect        V->V       Find and cover a user specified object.
+/// ... cover_rect        V-&gt;V       Find and cover a user specified object.
 /// </summary>
 public class Cover_rectFilterGen : ImageToImageFilter
 {

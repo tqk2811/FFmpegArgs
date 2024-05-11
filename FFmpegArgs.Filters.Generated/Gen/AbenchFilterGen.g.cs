@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... abench            A->A       Benchmark part of a filtergraph.
+/// ... abench            A-&gt;A       Benchmark part of a filtergraph.
 /// </summary>
 public class AbenchFilterGen : AudioToAudioFilter
 {

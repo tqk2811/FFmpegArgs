@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. codecview         V->V       Visualize information about some codecs.
+/// T.. codecview         V-&gt;V       Visualize information about some codecs.
 /// </summary>
 public class CodecviewFilterGen : ImageToImageFilter,ITimelineSupport
 {

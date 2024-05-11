@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... asetrate          A->A       Change the sample rate without altering the data.
+/// ... asetrate          A-&gt;A       Change the sample rate without altering the data.
 /// </summary>
 public class AsetrateFilterGen : AudioToAudioFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC negate            V->V       Negate input video.
+/// TSC negate            V-&gt;V       Negate input video.
 /// </summary>
 public class NegateFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

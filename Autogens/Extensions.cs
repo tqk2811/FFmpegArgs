@@ -65,37 +65,11 @@ namespace Autogens
             if (_NameRule.Contains(input)) return $"_{input}";
             return input;
         }
-
-        static readonly Dictionary<string, string> _SummaryRule = new Dictionary<string, string>()
-        {
-            { "&", "&amp;" }
-        };
+         
         internal static string FixSummaryRule(this string input)
         {
             if (string.IsNullOrWhiteSpace(input)) return input;
-            foreach (var item in _SummaryRule)
-            {
-                int index = 0;
-                do
-                {
-                    index = input.IndexOf(item.Key, index);
-                    if (index >= 0)
-                    {
-                        int valIndex = input.IndexOf(item.Value, index);
-                        if (valIndex == index)
-                        {
-                            index++;
-                            continue;
-                        }
-                        else
-                        {
-                            input = input.Substring(0, index) + item.Value + input.Substring(index + item.Key.Length);
-                            index++;
-                        }
-                    }
-                }
-                while (index >= 0);
-            }
+            input = System.Web.HttpUtility.HtmlEncode(input);
             return input;
         }
     }

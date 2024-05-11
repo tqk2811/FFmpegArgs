@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... loudnorm          A->A       EBU R128 loudness normalization
+/// ... loudnorm          A-&gt;A       EBU R128 loudness normalization
 /// </summary>
 public class LoudnormFilterGen : AudioToAudioFilter
 {

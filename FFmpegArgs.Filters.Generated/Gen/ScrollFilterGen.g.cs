@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC scroll            V->V       Scroll input video.
+/// TSC scroll            V-&gt;V       Scroll input video.
 /// </summary>
 public class ScrollFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

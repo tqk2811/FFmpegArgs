@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC rgbashift         V->V       Shift RGBA.
+/// TSC rgbashift         V-&gt;V       Shift RGBA.
 /// </summary>
 public class RgbashiftFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

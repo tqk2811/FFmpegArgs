@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. xcorrelate        VV->V      Cross-correlate first video stream with second video stream.
+/// TS. xcorrelate        VV-&gt;V      Cross-correlate first video stream with second video stream.
 /// </summary>
 public class XcorrelateFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC colormap          VVV->V     Apply custom Color Maps to video stream.
+/// TSC colormap          VVV-&gt;V     Apply custom Color Maps to video stream.
 /// </summary>
 public class ColormapFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ColormapFilterGen(params ImageMap[] inputs) : base("colormap",inputs) { AddMapOut(); }
 /// <summary>
-///  set patch size (default "64x64")
+///  set patch size (default &quot;64x64&quot;)
 /// </summary>
 public ColormapFilterGen patch_size(Size patch_size) => this.SetOption("patch_size",$"{patch_size.Width}x{patch_size.Height}");
 /// <summary>

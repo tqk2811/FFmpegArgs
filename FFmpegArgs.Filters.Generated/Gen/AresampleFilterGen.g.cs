@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... aresample         A->A       Resample audio data.
+/// ... aresample         A-&gt;A       Resample audio data.
 /// </summary>
 public class AresampleFilterGen : AudioToAudioFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. colorspace        V->V       Convert between colorspaces.
+/// TS. colorspace        V-&gt;V       Convert between colorspaces.
 /// </summary>
 public class ColorspaceFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

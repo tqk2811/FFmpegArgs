@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C fillborders       V->V       Fill borders of the input video.
+/// T.C fillborders       V-&gt;V       Fill borders of the input video.
 /// </summary>
 public class FillbordersFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
@@ -27,7 +27,7 @@ public FillbordersFilterGen bottom(int bottom) => this.SetOptionRange("bottom", 
 /// </summary>
 public FillbordersFilterGen mode(FillbordersFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set the color for the fixed/fade mode (default "black")
+///  set the color for the fixed/fade mode (default &quot;black&quot;)
 /// </summary>
 public FillbordersFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }

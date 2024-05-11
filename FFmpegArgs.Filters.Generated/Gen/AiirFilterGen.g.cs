@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. aiir              A->N       Apply Infinite Impulse Response filter with supplied coefficients.
+/// .S. aiir              A-&gt;N       Apply Infinite Impulse Response filter with supplied coefficients.
 /// </summary>
 public class AiirFilterGen : AudioToAudioFilter,ISliceThreading
 {
 internal AiirFilterGen(int outputCount, AudioMap input) : base("aiir",input) { AddMultiMapOut(outputCount); }
 /// <summary>
-///  set B/numerator/zeros/reflection coefficients (default "1+0i 1-0i")
+///  set B/numerator/zeros/reflection coefficients (default &quot;1+0i 1-0i&quot;)
 /// </summary>
 public AiirFilterGen zeros(string zeros) => this.SetOption("zeros",zeros);
 /// <summary>
-///  set A/denominator/poles/ladder coefficients (default "1+0i 1-0i")
+///  set A/denominator/poles/ladder coefficients (default &quot;1+0i 1-0i&quot;)
 /// </summary>
 public AiirFilterGen poles(string poles) => this.SetOption("poles",poles);
 /// <summary>
-///  set channels gains (default "1|1")
+///  set channels gains (default &quot;1|1&quot;)
 /// </summary>
 public AiirFilterGen gains(string gains) => this.SetOption("gains",gains);
 /// <summary>
-///  set channels gains (default "1|1")
+///  set channels gains (default &quot;1|1&quot;)
 /// </summary>
 public AiirFilterGen k(string k) => this.SetOption("k",k);
 /// <summary>
@@ -67,11 +67,11 @@ public AiirFilterGen response(bool response) => this.SetOption("response",respon
 /// </summary>
 public AiirFilterGen channel(int channel) => this.SetOptionRange("channel", channel,0,1024);
 /// <summary>
-///  set video size (default "hd720")
+///  set video size (default &quot;hd720&quot;)
 /// </summary>
 public AiirFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public AiirFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 }

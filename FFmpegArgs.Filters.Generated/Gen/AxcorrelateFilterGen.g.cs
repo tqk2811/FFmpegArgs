@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... axcorrelate       AA->A      Cross-correlate two audio streams.
+/// ... axcorrelate       AA-&gt;A      Cross-correlate two audio streams.
 /// </summary>
 public class AxcorrelateFilterGen : AudioToAudioFilter
 {

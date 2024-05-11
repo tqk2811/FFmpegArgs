@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C avsynctest        |->AV      Generate an Audio Video Sync Test.
+/// ..C avsynctest        |-&gt;AV      Generate an Audio Video Sync Test.
 /// </summary>
 public class AvsynctestFilterGen : SourceToAudioFilter,ICommandSupport
 {
 internal AvsynctestFilterGen(IAudioFilterGraph input) : base("avsynctest",input) { AddMapOut(); }
 /// <summary>
-///  set frame size (default "hd720")
+///  set frame size (default &quot;hd720&quot;)
 /// </summary>
 public AvsynctestFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set frame rate (default "30")
+///  set frame rate (default &quot;30&quot;)
 /// </summary>
 public AvsynctestFilterGen framerate(Rational framerate) => this.SetOption("framerate",framerate);
 /// <summary>
@@ -47,15 +47,15 @@ public AvsynctestFilterGen cycle(bool cycle) => this.SetOption("cycle",cycle.ToF
 /// </summary>
 public AvsynctestFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set foreground color (default "white")
+///  set foreground color (default &quot;white&quot;)
 /// </summary>
 public AvsynctestFilterGen fg(Color fg) => this.SetOption("fg",fg.ToHexStringRGBA());
 /// <summary>
-///  set background color (default "black")
+///  set background color (default &quot;black&quot;)
 /// </summary>
 public AvsynctestFilterGen bg(Color bg) => this.SetOption("bg",bg.ToHexStringRGBA());
 /// <summary>
-///  set additional color (default "gray")
+///  set additional color (default &quot;gray&quot;)
 /// </summary>
 public AvsynctestFilterGen ag(Color ag) => this.SetOption("ag",ag.ToHexStringRGBA());
 }

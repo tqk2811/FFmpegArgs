@@ -1,21 +1,21 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... setdar            V->V       Set the frame display aspect ratio.
+/// ... setdar            V-&gt;V       Set the frame display aspect ratio.
 /// </summary>
 public class SetdarFilterGen : ImageToImageFilter
 {
 internal SetdarFilterGen(ImageMap input) : base("setdar",input) { AddMapOut(); }
 /// <summary>
-///  set display aspect ratio (default "0")
+///  set display aspect ratio (default &quot;0&quot;)
 /// </summary>
 public SetdarFilterGen dar(string dar) => this.SetOption("dar",dar);
 /// <summary>
-///  set display aspect ratio (default "0")
+///  set display aspect ratio (default &quot;0&quot;)
 /// </summary>
 public SetdarFilterGen ratio(string ratio) => this.SetOption("ratio",ratio);
 /// <summary>
-///  set display aspect ratio (default "0")
+///  set display aspect ratio (default &quot;0&quot;)
 /// </summary>
 public SetdarFilterGen r(string r) => this.SetOption("r",r);
 /// <summary>

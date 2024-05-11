@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... interleave        N->V       Temporally interleave video inputs.
+/// ... interleave        N-&gt;V       Temporally interleave video inputs.
 /// </summary>
 public class InterleaveFilterGen : ImageToImageFilter
 {

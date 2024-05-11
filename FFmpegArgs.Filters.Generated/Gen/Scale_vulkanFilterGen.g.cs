@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... scale_vulkan      V->V       Scale Vulkan frames
+/// ... scale_vulkan      V-&gt;V       Scale Vulkan frames
 /// </summary>
 public class Scale_vulkanFilterGen : ImageToImageFilter
 {
 internal Scale_vulkanFilterGen(ImageMap input) : base("scale_vulkan",input) { AddMapOut(); }
 /// <summary>
-///  Output video width (default "iw")
+///  Output video width (default &quot;iw&quot;)
 /// </summary>
 public Scale_vulkanFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Output video height (default "ih")
+///  Output video height (default &quot;ih&quot;)
 /// </summary>
 public Scale_vulkanFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>

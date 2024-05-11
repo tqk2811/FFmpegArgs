@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C lv2               N->A       Apply LV2 effect.
+/// ..C lv2               N-&gt;A       Apply LV2 effect.
 /// </summary>
 public class Lv2FilterGen : AudioToAudioFilter,ICommandSupport
 {

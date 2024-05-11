@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC deband            V->V       Debands video.
+/// TSC deband            V-&gt;V       Debands video.
 /// </summary>
 public class DebandFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

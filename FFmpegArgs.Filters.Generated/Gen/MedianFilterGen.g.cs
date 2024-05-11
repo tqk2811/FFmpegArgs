@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC median            V->V       Apply Median filter.
+/// TSC median            V-&gt;V       Apply Median filter.
 /// </summary>
 public class MedianFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

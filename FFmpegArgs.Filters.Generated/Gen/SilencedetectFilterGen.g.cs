@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... silencedetect     A->A       Detect silence.
+/// ... silencedetect     A-&gt;A       Detect silence.
 /// </summary>
 public class SilencedetectFilterGen : AudioToAudioFilter
 {

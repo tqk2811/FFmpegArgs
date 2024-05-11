@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... fps               V->V       Force constant framerate.
+/// ... fps               V-&gt;V       Force constant framerate.
 /// </summary>
 public class FpsFilterGen : ImageToImageFilter
 {
 internal FpsFilterGen(ImageMap input) : base("fps",input) { AddMapOut(); }
 /// <summary>
-///  A string describing desired output framerate (default "25")
+///  A string describing desired output framerate (default &quot;25&quot;)
 /// </summary>
 public FpsFilterGen fps(string fps) => this.SetOption("fps",fps);
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... vpp_qsv           V->V       Quick Sync Video "VPP"
+/// ... vpp_qsv           V-&gt;V       Quick Sync Video &quot;VPP&quot;
 /// </summary>
 public class Vpp_qsvFilterGen : ImageToImageFilter
 {
@@ -47,31 +47,31 @@ public Vpp_qsvFilterGen brightness(float brightness) => this.SetOptionRange("bri
 /// </summary>
 public Vpp_qsvFilterGen transpose(Vpp_qsvFilterGenTranspose transpose) => this.SetOption("transpose", transpose.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set the width crop area expression (default "iw")
+///  set the width crop area expression (default &quot;iw&quot;)
 /// </summary>
 public Vpp_qsvFilterGen cw(ExpressionValue cw) => this.SetOption("cw",(string)cw);
 /// <summary>
-///  set the height crop area expression (default "ih")
+///  set the height crop area expression (default &quot;ih&quot;)
 /// </summary>
 public Vpp_qsvFilterGen ch(ExpressionValue ch) => this.SetOption("ch",(string)ch);
 /// <summary>
-///  set the x crop area expression (default "(in_w-out_w)/2")
+///  set the x crop area expression (default &quot;(in_w-out_w)/2&quot;)
 /// </summary>
 public Vpp_qsvFilterGen cx(ExpressionValue cx) => this.SetOption("cx",(string)cx);
 /// <summary>
-///  set the y crop area expression (default "(in_h-out_h)/2")
+///  set the y crop area expression (default &quot;(in_h-out_h)/2&quot;)
 /// </summary>
 public Vpp_qsvFilterGen cy(ExpressionValue cy) => this.SetOption("cy",(string)cy);
 /// <summary>
-///  Output video width(0=input video width, -1=keep input video aspect) (default "cw")
+///  Output video width(0=input video width, -1=keep input video aspect) (default &quot;cw&quot;)
 /// </summary>
 public Vpp_qsvFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  Output video height(0=input video height, -1=keep input video aspect) (default "w*ch/cw")
+///  Output video height(0=input video height, -1=keep input video aspect) (default &quot;w*ch/cw&quot;)
 /// </summary>
 public Vpp_qsvFilterGen height(string height) => this.SetOption("height",height);
 /// <summary>
-///  Output pixel format (default "same")
+///  Output pixel format (default &quot;same&quot;)
 /// </summary>
 public Vpp_qsvFilterGen format(string format) => this.SetOption("format",format);
 /// <summary>
@@ -112,7 +112,7 @@ public Vpp_qsvFilterGen tonemap(int tonemap) => this.SetOptionRange("tonemap", t
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// Quick Sync Video "VPP"
+/// Quick Sync Video &quot;VPP&quot;
 /// </summary>
 public static Vpp_qsvFilterGen Vpp_qsvFilterGen(this ImageMap input0) => new Vpp_qsvFilterGen(input0);
 }

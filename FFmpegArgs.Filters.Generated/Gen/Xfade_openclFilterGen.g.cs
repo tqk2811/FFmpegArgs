@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... xfade_opencl      VV->V      Cross fade one video with another video.
+/// ... xfade_opencl      VV-&gt;V      Cross fade one video with another video.
 /// </summary>
 public class Xfade_openclFilterGen : ImageToImageFilter
 {

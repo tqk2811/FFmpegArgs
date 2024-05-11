@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... freezedetect      V->V       Detects frozen video input.
+/// ... freezedetect      V-&gt;V       Detects frozen video input.
 /// </summary>
 public class FreezedetectFilterGen : ImageToImageFilter
 {

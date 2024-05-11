@@ -1,21 +1,21 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... scale_qsv         V->V       Quick Sync Video "scaling and format conversion"
+/// ... scale_qsv         V-&gt;V       Quick Sync Video &quot;scaling and format conversion&quot;
 /// </summary>
 public class Scale_qsvFilterGen : ImageToImageFilter
 {
 internal Scale_qsvFilterGen(ImageMap input) : base("scale_qsv",input) { AddMapOut(); }
 /// <summary>
-///  Output video width(0=input video width, -1=keep input video aspect) (default "iw")
+///  Output video width(0=input video width, -1=keep input video aspect) (default &quot;iw&quot;)
 /// </summary>
 public Scale_qsvFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Output video height(0=input video height, -1=keep input video aspect) (default "ih")
+///  Output video height(0=input video height, -1=keep input video aspect) (default &quot;ih&quot;)
 /// </summary>
 public Scale_qsvFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
-///  Output pixel format (default "same")
+///  Output pixel format (default &quot;same&quot;)
 /// </summary>
 public Scale_qsvFilterGen format(string format) => this.SetOption("format",format);
 /// <summary>
@@ -28,7 +28,7 @@ public Scale_qsvFilterGen mode(Scale_qsvFilterGenMode mode) => this.SetOption("m
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// Quick Sync Video "scaling and format conversion"
+/// Quick Sync Video &quot;scaling and format conversion&quot;
 /// </summary>
 public static Scale_qsvFilterGen Scale_qsvFilterGen(this ImageMap input0) => new Scale_qsvFilterGen(input0);
 }

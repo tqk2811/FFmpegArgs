@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C bbox              V->V       Compute bounding box for each frame.
+/// T.C bbox              V-&gt;V       Compute bounding box for each frame.
 /// </summary>
 public class BboxFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

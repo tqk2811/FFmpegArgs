@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... transpose_vulkan  V->V       Transpose Vulkan Filter
+/// ... transpose_vulkan  V-&gt;V       Transpose Vulkan Filter
 /// </summary>
 public class Transpose_vulkanFilterGen : ImageToImageFilter
 {

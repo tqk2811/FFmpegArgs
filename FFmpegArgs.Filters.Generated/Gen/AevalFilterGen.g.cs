@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. aeval             A->A       Filter audio signal according to a specified expression.
+/// T.. aeval             A-&gt;A       Filter audio signal according to a specified expression.
 /// </summary>
 public class AevalFilterGen : AudioToAudioFilter,ITimelineSupport
 {
 internal AevalFilterGen(AudioMap input) : base("aeval",input) { AddMapOut(); }
 /// <summary>
-///  set the '|'-separated list of channels expressions
+///  set the &#39;|&#39;-separated list of channels expressions
 /// </summary>
 public AevalFilterGen exprs(ExpressionValue exprs) => this.SetOption("exprs",(string)exprs);
 /// <summary>

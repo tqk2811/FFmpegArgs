@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... signature         N->V       Calculate the MPEG-7 video signature
+/// ... signature         N-&gt;V       Calculate the MPEG-7 video signature
 /// </summary>
 public class SignatureFilterGen : ImageToImageFilter
 {
@@ -15,7 +15,7 @@ public SignatureFilterGen detectmode(SignatureFilterGenDetectmode detectmode) =>
 /// </summary>
 public SignatureFilterGen nb_inputs(int nb_inputs) => this.SetOptionRange("nb_inputs", nb_inputs,1,INT_MAX);
 /// <summary>
-///  filename for output files (default "")
+///  filename for output files (default &quot;&quot;)
 /// </summary>
 public SignatureFilterGen filename(string filename) => this.SetOption("filename",filename);
 /// <summary>

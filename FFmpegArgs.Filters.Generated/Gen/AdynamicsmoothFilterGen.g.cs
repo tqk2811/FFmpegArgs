@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C adynamicsmooth    A->A       Apply Dynamic Smoothing of input audio.
+/// T.C adynamicsmooth    A-&gt;A       Apply Dynamic Smoothing of input audio.
 /// </summary>
 public class AdynamicsmoothFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

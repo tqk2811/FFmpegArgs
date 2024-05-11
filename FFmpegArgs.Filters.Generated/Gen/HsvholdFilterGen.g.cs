@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC hsvhold           V->V       Turns a certain HSV range into gray.
+/// TSC hsvhold           V-&gt;V       Turns a certain HSV range into gray.
 /// </summary>
 public class HsvholdFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

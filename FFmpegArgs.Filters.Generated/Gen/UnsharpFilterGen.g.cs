@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. unsharp           V->V       Sharpen or blur the input video.
+/// TS. unsharp           V-&gt;V       Sharpen or blur the input video.
 /// </summary>
 public class UnsharpFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

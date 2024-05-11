@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... xstack_qsv        N->V       "Quick Sync Video" xstack
+/// ... xstack_qsv        N-&gt;V       &quot;Quick Sync Video&quot; xstack
 /// </summary>
 public class Xstack_qsvFilterGen : ImageToImageFilter
 {
@@ -27,7 +27,7 @@ public Xstack_qsvFilterGen grid(Size grid) => this.SetOption("grid",$"{grid.Widt
 /// </summary>
 public Xstack_qsvFilterGen grid_tile_size(Size grid_tile_size) => this.SetOption("grid_tile_size",$"{grid_tile_size.Width}x{grid_tile_size.Height}");
 /// <summary>
-///  Set the color for unused pixels (default "none")
+///  Set the color for unused pixels (default &quot;none&quot;)
 /// </summary>
 public Xstack_qsvFilterGen fill(string fill) => this.SetOption("fill",fill);
 }
@@ -36,7 +36,7 @@ public Xstack_qsvFilterGen fill(string fill) => this.SetOption("fill",fill);
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// "Quick Sync Video" xstack
+/// &quot;Quick Sync Video&quot; xstack
 /// </summary>
 public static Xstack_qsvFilterGen Xstack_qsvFilterGen(this IEnumerable<ImageMap> inputs) => new Xstack_qsvFilterGen(inputs.ToArray());
 }

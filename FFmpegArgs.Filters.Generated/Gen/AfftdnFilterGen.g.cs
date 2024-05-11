@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC afftdn            A->A       Denoise audio samples using FFT.
+/// TSC afftdn            A-&gt;A       Denoise audio samples using FFT.
 /// </summary>
 public class AfftdnFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

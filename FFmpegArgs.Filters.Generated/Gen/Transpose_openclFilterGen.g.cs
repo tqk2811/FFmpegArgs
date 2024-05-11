@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... transpose_opencl  V->V       Transpose input video
+/// ... transpose_opencl  V-&gt;V       Transpose input video
 /// </summary>
 public class Transpose_openclFilterGen : ImageToImageFilter
 {

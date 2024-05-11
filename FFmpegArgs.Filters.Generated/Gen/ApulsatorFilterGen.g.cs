@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... apulsator         A->A       Audio pulsator.
+/// ... apulsator         A-&gt;A       Audio pulsator.
 /// </summary>
 public class ApulsatorFilterGen : AudioToAudioFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. asidedata         A->A       Manipulate audio frame side data.
+/// T.. asidedata         A-&gt;A       Manipulate audio frame side data.
 /// </summary>
 public class AsidedataFilterGen : AudioToAudioFilter,ITimelineSupport
 {

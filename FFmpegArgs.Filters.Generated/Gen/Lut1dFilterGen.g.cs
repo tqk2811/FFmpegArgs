@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC lut1d             V->V       Adjust colors using a 1D LUT.
+/// TSC lut1d             V-&gt;V       Adjust colors using a 1D LUT.
 /// </summary>
 public class Lut1dFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

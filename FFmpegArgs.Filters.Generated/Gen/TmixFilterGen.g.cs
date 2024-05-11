@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC tmix              V->V       Mix successive video frames.
+/// TSC tmix              V-&gt;V       Mix successive video frames.
 /// </summary>
 public class TmixFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
@@ -11,7 +11,7 @@ internal TmixFilterGen(ImageMap input) : base("tmix",input) { AddMapOut(); }
 /// </summary>
 public TmixFilterGen frames(int frames) => this.SetOptionRange("frames", frames,1,1024);
 /// <summary>
-///  set weight for each frame (default "1 1 1")
+///  set weight for each frame (default &quot;1 1 1&quot;)
 /// </summary>
 public TmixFilterGen weights(string weights) => this.SetOption("weights",weights);
 /// <summary>

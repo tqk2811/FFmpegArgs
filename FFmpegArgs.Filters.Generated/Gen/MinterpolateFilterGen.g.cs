@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... minterpolate      V->V       Frame rate conversion using Motion Interpolation.
+/// ... minterpolate      V-&gt;V       Frame rate conversion using Motion Interpolation.
 /// </summary>
 public class MinterpolateFilterGen : ImageToImageFilter
 {
 internal MinterpolateFilterGen(ImageMap input) : base("minterpolate",input) { AddMapOut(); }
 /// <summary>
-///  output's frame rate (default "60")
+///  output&#39;s frame rate (default &quot;60&quot;)
 /// </summary>
 public MinterpolateFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 /// <summary>

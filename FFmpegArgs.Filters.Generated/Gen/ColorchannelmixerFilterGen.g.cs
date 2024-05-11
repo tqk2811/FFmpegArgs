@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC colorchannelmixer V->V       Adjust colors by mixing color channels.
+/// TSC colorchannelmixer V-&gt;V       Adjust colors by mixing color channels.
 /// </summary>
 public class ColorchannelmixerFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

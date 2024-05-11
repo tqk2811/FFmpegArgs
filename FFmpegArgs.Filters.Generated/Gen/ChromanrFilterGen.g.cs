@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC chromanr          V->V       Reduce chrominance noise.
+/// TSC chromanr          V-&gt;V       Reduce chrominance noise.
 /// </summary>
 public class ChromanrFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

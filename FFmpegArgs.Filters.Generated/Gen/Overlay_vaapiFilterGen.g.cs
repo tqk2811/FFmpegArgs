@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... overlay_vaapi     VV->V      Overlay one video on top of another
+/// ... overlay_vaapi     VV-&gt;V      Overlay one video on top of another
 /// </summary>
 public class Overlay_vaapiFilterGen : ImageToImageFilter
 {
 internal Overlay_vaapiFilterGen(params ImageMap[] inputs) : base("overlay_vaapi",inputs) { AddMapOut(); }
 /// <summary>
-///  Overlay x position (default "0")
+///  Overlay x position (default &quot;0&quot;)
 /// </summary>
 public Overlay_vaapiFilterGen x(string x) => this.SetOption("x",x);
 /// <summary>
-///  Overlay y position (default "0")
+///  Overlay y position (default &quot;0&quot;)
 /// </summary>
 public Overlay_vaapiFilterGen y(string y) => this.SetOption("y",y);
 /// <summary>
-///  Overlay width (default "overlay_iw")
+///  Overlay width (default &quot;overlay_iw&quot;)
 /// </summary>
 public Overlay_vaapiFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Overlay height (default "overlay_ih*w/overlay_iw")
+///  Overlay height (default &quot;overlay_ih*w/overlay_iw&quot;)
 /// </summary>
 public Overlay_vaapiFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C crossfeed         A->A       Apply headphone crossfeed filter.
+/// T.C crossfeed         A-&gt;A       Apply headphone crossfeed filter.
 /// </summary>
 public class CrossfeedFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

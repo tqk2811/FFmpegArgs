@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... field             V->V       Extract a field from the input video.
+/// ... field             V-&gt;V       Extract a field from the input video.
 /// </summary>
 public class FieldFilterGen : ImageToImageFilter
 {

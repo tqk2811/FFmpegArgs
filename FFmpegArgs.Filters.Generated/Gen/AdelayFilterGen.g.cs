@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C adelay            A->A       Delay one or more audio channels.
+/// T.C adelay            A-&gt;A       Delay one or more audio channels.
 /// </summary>
 public class AdelayFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

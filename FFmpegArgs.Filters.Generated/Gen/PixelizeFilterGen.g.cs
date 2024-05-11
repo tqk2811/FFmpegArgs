@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC pixelize          V->V       Pixelize video.
+/// TSC pixelize          V-&gt;V       Pixelize video.
 /// </summary>
 public class PixelizeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

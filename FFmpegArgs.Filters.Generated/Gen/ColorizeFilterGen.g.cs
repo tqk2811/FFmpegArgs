@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC colorize          V->V       Overlay a solid color on the video stream.
+/// TSC colorize          V-&gt;V       Overlay a solid color on the video stream.
 /// </summary>
 public class ColorizeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

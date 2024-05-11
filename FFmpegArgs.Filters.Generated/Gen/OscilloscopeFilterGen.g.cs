@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C oscilloscope      V->V       2D Video Oscilloscope.
+/// T.C oscilloscope      V-&gt;V       2D Video Oscilloscope.
 /// </summary>
 public class OscilloscopeFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

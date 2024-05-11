@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... tile              V->V       Tile several successive frames together.
+/// ... tile              V-&gt;V       Tile several successive frames together.
 /// </summary>
 public class TileFilterGen : ImageToImageFilter
 {
 internal TileFilterGen(ImageMap input) : base("tile",input) { AddMapOut(); }
 /// <summary>
-///  set grid size (default "6x5")
+///  set grid size (default &quot;6x5&quot;)
 /// </summary>
 public TileFilterGen layout(Size layout) => this.SetOption("layout",$"{layout.Width}x{layout.Height}");
 /// <summary>
@@ -23,7 +23,7 @@ public TileFilterGen margin(int margin) => this.SetOptionRange("margin", margin,
 /// </summary>
 public TileFilterGen padding(int padding) => this.SetOptionRange("padding", padding,0,1024);
 /// <summary>
-///  set the color of the unused area (default "black")
+///  set the color of the unused area (default &quot;black&quot;)
 /// </summary>
 public TileFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>

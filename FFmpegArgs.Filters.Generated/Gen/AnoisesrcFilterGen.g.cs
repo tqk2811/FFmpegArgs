@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... anoisesrc         |->A       Generate a noise audio signal.
+/// ... anoisesrc         |-&gt;A       Generate a noise audio signal.
 /// </summary>
 public class AnoisesrcFilterGen : SourceToAudioFilter
 {

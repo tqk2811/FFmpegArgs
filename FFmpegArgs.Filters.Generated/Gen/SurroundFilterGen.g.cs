@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .SC surround          A->A       Apply audio surround upmix filter.
+/// .SC surround          A-&gt;A       Apply audio surround upmix filter.
 /// </summary>
 public class SurroundFilterGen : AudioToAudioFilter,ISliceThreading,ICommandSupport
 {
 internal SurroundFilterGen(AudioMap input) : base("surround",input) { AddMapOut(); }
 /// <summary>
-///  set output channel layout (default "5.1")
+///  set output channel layout (default &quot;5.1&quot;)
 /// </summary>
 public SurroundFilterGen chl_out(string chl_out) => this.SetOption("chl_out",chl_out);
 /// <summary>
-///  set input channel layout (default "stereo")
+///  set input channel layout (default &quot;stereo&quot;)
 /// </summary>
 public SurroundFilterGen chl_in(string chl_in) => this.SetOption("chl_in",chl_in);
 /// <summary>
@@ -123,11 +123,11 @@ public SurroundFilterGen lfe_in(float lfe_in) => this.SetOptionRange("lfe_in", l
 /// </summary>
 public SurroundFilterGen lfe_out(float lfe_out) => this.SetOptionRange("lfe_out", lfe_out,0,10);
 /// <summary>
-///  set all channel's x spread (from -1 to 15) (default -1)
+///  set all channel&#39;s x spread (from -1 to 15) (default -1)
 /// </summary>
 public SurroundFilterGen allx(float allx) => this.SetOptionRange("allx", allx,-1,15);
 /// <summary>
-///  set all channel's y spread (from -1 to 15) (default -1)
+///  set all channel&#39;s y spread (from -1 to 15) (default -1)
 /// </summary>
 public SurroundFilterGen ally(float ally) => this.SetOptionRange("ally", ally,-1,15);
 /// <summary>

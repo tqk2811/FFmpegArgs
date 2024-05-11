@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. xstack            N->V       Stack video inputs into custom layout.
+/// .S. xstack            N-&gt;V       Stack video inputs into custom layout.
 /// </summary>
 public class XstackFilterGen : ImageToImageFilter,ISliceThreading
 {
@@ -23,7 +23,7 @@ public XstackFilterGen grid(Size grid) => this.SetOption("grid",$"{grid.Width}x{
 /// </summary>
 public XstackFilterGen shortest(bool shortest) => this.SetOption("shortest",shortest.ToFFmpegFlag());
 /// <summary>
-///  set the color for unused pixels (default "none")
+///  set the color for unused pixels (default &quot;none&quot;)
 /// </summary>
 public XstackFilterGen fill(string fill) => this.SetOption("fill",fill);
 }

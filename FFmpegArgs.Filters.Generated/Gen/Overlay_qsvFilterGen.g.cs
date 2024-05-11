@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... overlay_qsv       VV->V      Quick Sync Video overlay.
+/// ... overlay_qsv       VV-&gt;V      Quick Sync Video overlay.
 /// </summary>
 public class Overlay_qsvFilterGen : ImageToImageFilter
 {
 internal Overlay_qsvFilterGen(params ImageMap[] inputs) : base("overlay_qsv",inputs) { AddMapOut(); }
 /// <summary>
-///  Overlay x position (default "0")
+///  Overlay x position (default &quot;0&quot;)
 /// </summary>
 public Overlay_qsvFilterGen x(string x) => this.SetOption("x",x);
 /// <summary>
-///  Overlay y position (default "0")
+///  Overlay y position (default &quot;0&quot;)
 /// </summary>
 public Overlay_qsvFilterGen y(string y) => this.SetOption("y",y);
 /// <summary>
-///  Overlay width (default "overlay_iw")
+///  Overlay width (default &quot;overlay_iw&quot;)
 /// </summary>
 public Overlay_qsvFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Overlay height (default "overlay_ih*w/overlay_iw")
+///  Overlay height (default &quot;overlay_ih*w/overlay_iw&quot;)
 /// </summary>
 public Overlay_qsvFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>

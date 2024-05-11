@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C blend_vulkan      VV->V      Blend two video frames in Vulkan
+/// ..C blend_vulkan      VV-&gt;V      Blend two video frames in Vulkan
 /// </summary>
 public class Blend_vulkanFilterGen : ImageToImageFilter,ICommandSupport
 {

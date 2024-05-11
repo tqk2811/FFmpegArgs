@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. vflip             V->V       Flip the input video vertically.
+/// T.. vflip             V-&gt;V       Flip the input video vertically.
 /// </summary>
 public class VflipFilterGen : ImageToImageFilter,ITimelineSupport
 {

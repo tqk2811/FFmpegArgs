@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC guided            N->V       Apply Guided filter.
+/// TSC guided            N-&gt;V       Apply Guided filter.
 /// </summary>
 public class GuidedFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

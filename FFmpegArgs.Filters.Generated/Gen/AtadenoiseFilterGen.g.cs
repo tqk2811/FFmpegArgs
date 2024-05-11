@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC atadenoise        V->V       Apply an Adaptive Temporal Averaging Denoiser.
+/// TSC atadenoise        V-&gt;V       Apply an Adaptive Temporal Averaging Denoiser.
 /// </summary>
 public class AtadenoiseFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

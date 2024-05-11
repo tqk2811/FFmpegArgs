@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... remap_opencl      VVV->V     Remap pixels using OpenCL.
+/// ... remap_opencl      VVV-&gt;V     Remap pixels using OpenCL.
 /// </summary>
 public class Remap_openclFilterGen : ImageToImageFilter
 {
@@ -11,7 +11,7 @@ internal Remap_openclFilterGen(params ImageMap[] inputs) : base("remap_opencl",i
 /// </summary>
 public Remap_openclFilterGen interp(Remap_openclFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set the color of the unmapped pixels (default "black")
+///  set the color of the unmapped pixels (default &quot;black&quot;)
 /// </summary>
 public Remap_openclFilterGen fill(Color fill) => this.SetOption("fill",fill.ToHexStringRGBA());
 }

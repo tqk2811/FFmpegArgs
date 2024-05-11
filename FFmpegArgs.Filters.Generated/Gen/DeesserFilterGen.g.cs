@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. deesser           A->A       Apply de-essing to the audio.
+/// T.. deesser           A-&gt;A       Apply de-essing to the audio.
 /// </summary>
 public class DeesserFilterGen : AudioToAudioFilter,ITimelineSupport
 {

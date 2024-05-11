@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... pullup            V->V       Pullup from field sequence to frames.
+/// ... pullup            V-&gt;V       Pullup from field sequence to frames.
 /// </summary>
 public class PullupFilterGen : ImageToImageFilter
 {

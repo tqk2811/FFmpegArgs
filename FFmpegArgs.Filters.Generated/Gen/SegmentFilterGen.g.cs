@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... segment           V->N       Segment video stream.
+/// ... segment           V-&gt;N       Segment video stream.
 /// </summary>
 public class SegmentFilterGen : ImageToImageFilter
 {

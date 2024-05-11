@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .SC zoneplate         |->V       Generate zone-plate.
+/// .SC zoneplate         |-&gt;V       Generate zone-plate.
 /// </summary>
 public class ZoneplateFilterGen : SourceToImageFilter,ISliceThreading,ICommandSupport
 {
 internal ZoneplateFilterGen(IImageFilterGraph input) : base("zoneplate",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "320x240")
+///  set video size (default &quot;320x240&quot;)
 /// </summary>
 public ZoneplateFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ZoneplateFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>

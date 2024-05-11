@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. derain            V->V       Apply derain filter to the input.
+/// T.. derain            V-&gt;V       Apply derain filter to the input.
 /// </summary>
 public class DerainFilterGen : ImageToImageFilter,ITimelineSupport
 {
@@ -19,11 +19,11 @@ public DerainFilterGen dnn_backend(int dnn_backend) => this.SetOptionRange("dnn_
 /// </summary>
 public DerainFilterGen model(string model) => this.SetOption("model",model);
 /// <summary>
-///  input name of the model (default "x")
+///  input name of the model (default &quot;x&quot;)
 /// </summary>
 public DerainFilterGen input(string input) => this.SetOption("input",input);
 /// <summary>
-///  output name of the model (default "y")
+///  output name of the model (default &quot;y&quot;)
 /// </summary>
 public DerainFilterGen output(string output) => this.SetOption("output",output);
 }

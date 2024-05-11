@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C asetnsamples      A->A       Set the number of samples for each output audio frames.
+/// T.C asetnsamples      A-&gt;A       Set the number of samples for each output audio frames.
 /// </summary>
 public class AsetnsamplesFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

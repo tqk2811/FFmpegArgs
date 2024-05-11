@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... vidstabdetect     V->V       Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).
+/// ... vidstabdetect     V-&gt;V       Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).
 /// </summary>
 public class VidstabdetectFilterGen : ImageToImageFilter
 {
 internal VidstabdetectFilterGen(ImageMap input) : base("vidstabdetect",input) { AddMapOut(); }
 /// <summary>
-///  path to the file used to write the transforms (default "transforms.trf")
+///  path to the file used to write the transforms (default &quot;transforms.trf&quot;)
 /// </summary>
 public VidstabdetectFilterGen result(string result) => this.SetOption("result",result);
 /// <summary>
@@ -15,7 +15,7 @@ public VidstabdetectFilterGen result(string result) => this.SetOption("result",r
 /// </summary>
 public VidstabdetectFilterGen shakiness(int shakiness) => this.SetOptionRange("shakiness", shakiness,1,10);
 /// <summary>
-///  (>=shakiness) 1: low 15: high (slow) (from 1 to 15) (default 15)
+///  (&gt;=shakiness) 1: low 15: high (slow) (from 1 to 15) (default 15)
 /// </summary>
 public VidstabdetectFilterGen accuracy(int accuracy) => this.SetOptionRange("accuracy", accuracy,1,15);
 /// <summary>
@@ -31,7 +31,7 @@ public VidstabdetectFilterGen mincontrast(double mincontrast) => this.SetOptionR
 /// </summary>
 public VidstabdetectFilterGen show(int show) => this.SetOptionRange("show", show,0,2);
 /// <summary>
-///  virtual tripod mode (if >0): motion is compared to a reference reference frame (frame # is the value) (from 0 to INT_MAX) (default 0)
+///  virtual tripod mode (if &gt;0): motion is compared to a reference reference frame (frame # is the value) (from 0 to INT_MAX) (default 0)
 /// </summary>
 public VidstabdetectFilterGen tripod(int tripod) => this.SetOptionRange("tripod", tripod,0,INT_MAX);
 /// <summary>

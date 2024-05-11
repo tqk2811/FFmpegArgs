@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. thumbnail         V->V       Select the most representative frame in a given sequence of consecutive frames.
+/// TS. thumbnail         V-&gt;V       Select the most representative frame in a given sequence of consecutive frames.
 /// </summary>
 public class ThumbnailFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

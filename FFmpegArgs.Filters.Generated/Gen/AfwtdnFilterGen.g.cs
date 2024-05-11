@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC afwtdn            A->A       Denoise audio stream using Wavelets.
+/// TSC afwtdn            A-&gt;A       Denoise audio stream using Wavelets.
 /// </summary>
 public class AfwtdnFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

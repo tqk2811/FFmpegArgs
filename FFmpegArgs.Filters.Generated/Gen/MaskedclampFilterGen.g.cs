@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC maskedclamp       VVV->V     Clamp first stream with second stream and third stream.
+/// TSC maskedclamp       VVV-&gt;V     Clamp first stream with second stream and third stream.
 /// </summary>
 public class MaskedclampFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

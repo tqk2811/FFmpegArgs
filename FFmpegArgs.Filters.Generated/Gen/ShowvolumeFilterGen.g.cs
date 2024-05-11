@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... showvolume        A->V       Convert input audio volume to video output.
+/// ... showvolume        A-&gt;V       Convert input audio volume to video output.
 /// </summary>
 public class ShowvolumeFilterGen : AudioToImageFilter
 {
 internal ShowvolumeFilterGen(AudioMap input) : base("showvolume",input) { AddMapOut(); }
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ShowvolumeFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
@@ -27,7 +27,7 @@ public ShowvolumeFilterGen h(int h) => this.SetOptionRange("h", h,1,900);
 /// </summary>
 public ShowvolumeFilterGen f(double f) => this.SetOptionRange("f", f,0,1);
 /// <summary>
-///  set volume color expression (default "PEAK*255+floor((1-PEAK)*255)*256+0xff000000")
+///  set volume color expression (default &quot;PEAK*255+floor((1-PEAK)*255)*256+0xff000000&quot;)
 /// </summary>
 public ShowvolumeFilterGen c(ExpressionValue c) => this.SetOption("c",(string)c);
 /// <summary>
@@ -43,7 +43,7 @@ public ShowvolumeFilterGen v(bool v) => this.SetOption("v",v.ToFFmpegFlag());
 /// </summary>
 public ShowvolumeFilterGen dm(double dm) => this.SetOptionRange("dm", dm,0,9000);
 /// <summary>
-///  set color of the max value line (default "orange")
+///  set color of the max value line (default &quot;orange&quot;)
 /// </summary>
 public ShowvolumeFilterGen dmc(Color dmc) => this.SetOption("dmc",dmc.ToHexStringRGBA());
 /// <summary>

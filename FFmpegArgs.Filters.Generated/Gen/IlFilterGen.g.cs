@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C il                V->V       Deinterleave or interleave fields.
+/// T.C il                V-&gt;V       Deinterleave or interleave fields.
 /// </summary>
 public class IlFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

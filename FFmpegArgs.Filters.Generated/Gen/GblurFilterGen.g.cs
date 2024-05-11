@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC gblur             V->V       Apply Gaussian Blur filter.
+/// TSC gblur             V-&gt;V       Apply Gaussian Blur filter.
 /// </summary>
 public class GblurFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

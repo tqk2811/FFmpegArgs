@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... mandelbrot        |->V       Render a Mandelbrot fractal.
+/// ... mandelbrot        |-&gt;V       Render a Mandelbrot fractal.
 /// </summary>
 public class MandelbrotFilterGen : SourceToImageFilter
 {
 internal MandelbrotFilterGen(IImageFilterGraph input) : base("mandelbrot",input) { AddMapOut(); }
 /// <summary>
-///  set frame size (default "640x480")
+///  set frame size (default &quot;640x480&quot;)
 /// </summary>
 public MandelbrotFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set frame rate (default "25")
+///  set frame rate (default &quot;25&quot;)
 /// </summary>
 public MandelbrotFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>

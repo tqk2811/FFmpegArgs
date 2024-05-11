@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... random            V->V       Return random frames.
+/// ... random            V-&gt;V       Return random frames.
 /// </summary>
 public class RandomFilterGen : ImageToImageFilter
 {

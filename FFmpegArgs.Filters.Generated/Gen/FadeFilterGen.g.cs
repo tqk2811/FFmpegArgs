@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. fade              V->V       Fade in/out input video.
+/// TS. fade              V-&gt;V       Fade in/out input video.
 /// </summary>
 public class FadeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
@@ -31,7 +31,7 @@ public FadeFilterGen start_time(TimeSpan start_time) => this.SetOptionRange("sta
 /// </summary>
 public FadeFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set color (default "black")
+///  set color (default &quot;black&quot;)
 /// </summary>
 public FadeFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }

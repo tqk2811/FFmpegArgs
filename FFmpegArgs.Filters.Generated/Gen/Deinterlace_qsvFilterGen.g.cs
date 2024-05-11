@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... deinterlace_qsv   V->V       Quick Sync Video "deinterlacing"
+/// ... deinterlace_qsv   V-&gt;V       Quick Sync Video &quot;deinterlacing&quot;
 /// </summary>
 public class Deinterlace_qsvFilterGen : ImageToImageFilter
 {
@@ -16,7 +16,7 @@ public Deinterlace_qsvFilterGen mode(Deinterlace_qsvFilterGenMode mode) => this.
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// Quick Sync Video "deinterlacing"
+/// Quick Sync Video &quot;deinterlacing&quot;
 /// </summary>
 public static Deinterlace_qsvFilterGen Deinterlace_qsvFilterGen(this ImageMap input0) => new Deinterlace_qsvFilterGen(input0);
 }

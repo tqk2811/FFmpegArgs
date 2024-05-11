@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... openclsrc         |->V       Generate video using an OpenCL program
+/// ... openclsrc         |-&gt;V       Generate video using an OpenCL program
 /// </summary>
 public class OpenclsrcFilterGen : SourceToImageFilter
 {
@@ -23,7 +23,7 @@ public OpenclsrcFilterGen size(Size size) => this.SetOption("size",$"{size.Width
 /// </summary>
 public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format",format.ToString());
 /// <summary>
-///  Video frame rate (default "25")
+///  Video frame rate (default &quot;25&quot;)
 /// </summary>
 public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 }

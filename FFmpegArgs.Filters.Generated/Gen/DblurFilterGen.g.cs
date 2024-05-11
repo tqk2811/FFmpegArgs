@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C dblur             V->V       Apply Directional Blur filter.
+/// T.C dblur             V-&gt;V       Apply Directional Blur filter.
 /// </summary>
 public class DblurFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

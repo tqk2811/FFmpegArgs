@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. histeq            V->V       Apply global color histogram equalization.
+/// T.. histeq            V-&gt;V       Apply global color histogram equalization.
 /// </summary>
 public class HisteqFilterGen : ImageToImageFilter,ITimelineSupport
 {

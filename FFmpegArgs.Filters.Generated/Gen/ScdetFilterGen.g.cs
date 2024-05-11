@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... scdet             V->V       Detect video scene change
+/// ... scdet             V-&gt;V       Detect video scene change
 /// </summary>
 public class ScdetFilterGen : ImageToImageFilter
 {

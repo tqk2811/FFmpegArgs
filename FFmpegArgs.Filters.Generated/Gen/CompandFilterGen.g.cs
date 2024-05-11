@@ -1,21 +1,21 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... compand           A->A       Compress or expand audio dynamic range.
+/// ... compand           A-&gt;A       Compress or expand audio dynamic range.
 /// </summary>
 public class CompandFilterGen : AudioToAudioFilter
 {
 internal CompandFilterGen(AudioMap input) : base("compand",input) { AddMapOut(); }
 /// <summary>
-///  set time over which increase of volume is determined (default "0")
+///  set time over which increase of volume is determined (default &quot;0&quot;)
 /// </summary>
 public CompandFilterGen attacks(string attacks) => this.SetOption("attacks",attacks);
 /// <summary>
-///  set time over which decrease of volume is determined (default "0.8")
+///  set time over which decrease of volume is determined (default &quot;0.8&quot;)
 /// </summary>
 public CompandFilterGen decays(string decays) => this.SetOption("decays",decays);
 /// <summary>
-///  set points of transfer function (default "-70/-70|-60/-20|1/0")
+///  set points of transfer function (default &quot;-70/-70|-60/-20|1/0&quot;)
 /// </summary>
 public CompandFilterGen points(string points) => this.SetOption("points",points);
 /// <summary>

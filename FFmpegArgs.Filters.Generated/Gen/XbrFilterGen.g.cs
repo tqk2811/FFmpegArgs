@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. xbr               V->V       Scale the input using xBR algorithm.
+/// .S. xbr               V-&gt;V       Scale the input using xBR algorithm.
 /// </summary>
 public class XbrFilterGen : ImageToImageFilter,ISliceThreading
 {

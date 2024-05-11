@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... sine              |->A       Generate sine wave audio signal.
+/// ... sine              |-&gt;A       Generate sine wave audio signal.
 /// </summary>
 public class SineFilterGen : SourceToAudioFilter
 {
@@ -27,7 +27,7 @@ public SineFilterGen r(int r) => this.SetOptionRange("r", r,1,INT_MAX);
 /// </summary>
 public SineFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set the number of samples per frame (default "1024")
+///  set the number of samples per frame (default &quot;1024&quot;)
 /// </summary>
 public SineFilterGen samples_per_frame(string samples_per_frame) => this.SetOption("samples_per_frame",samples_per_frame);
 }

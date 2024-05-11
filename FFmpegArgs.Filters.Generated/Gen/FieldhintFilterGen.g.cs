@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... fieldhint         V->V       Field matching using hints.
+/// ... fieldhint         V-&gt;V       Field matching using hints.
 /// </summary>
 public class FieldhintFilterGen : ImageToImageFilter
 {

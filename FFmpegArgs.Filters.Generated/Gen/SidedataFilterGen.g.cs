@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. sidedata          V->V       Manipulate video frame side data.
+/// T.. sidedata          V-&gt;V       Manipulate video frame side data.
 /// </summary>
 public class SidedataFilterGen : ImageToImageFilter,ITimelineSupport
 {

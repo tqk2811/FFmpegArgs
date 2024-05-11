@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... colorspace_cuda   V->V       CUDA accelerated video color converter
+/// ... colorspace_cuda   V-&gt;V       CUDA accelerated video color converter
 /// </summary>
 public class Colorspace_cudaFilterGen : ImageToImageFilter
 {

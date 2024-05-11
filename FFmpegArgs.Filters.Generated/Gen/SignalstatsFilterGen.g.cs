@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. signalstats       V->V       Generate statistics from video analysis.
+/// .S. signalstats       V-&gt;V       Generate statistics from video analysis.
 /// </summary>
 public class SignalstatsFilterGen : ImageToImageFilter,ISliceThreading
 {
@@ -15,7 +15,7 @@ public SignalstatsFilterGen stat(SignalstatsFilterGenStat stat) => this.SetOptio
 /// </summary>
 public SignalstatsFilterGen _out(SignalstatsFilterGenOut _out) => this.SetOption("out", _out.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set highlight color (default "yellow")
+///  set highlight color (default &quot;yellow&quot;)
 /// </summary>
 public SignalstatsFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 }

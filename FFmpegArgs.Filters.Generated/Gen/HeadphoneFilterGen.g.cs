@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. headphone         N->A       Apply headphone binaural spatialization with HRTFs in additional streams.
+/// .S. headphone         N-&gt;A       Apply headphone binaural spatialization with HRTFs in additional streams.
 /// </summary>
 public class HeadphoneFilterGen : AudioToAudioFilter,ISliceThreading
 {

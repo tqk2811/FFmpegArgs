@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. hysteresis        VV->V      Grow first stream into second stream by connecting components.
+/// T.. hysteresis        VV-&gt;V      Grow first stream into second stream by connecting components.
 /// </summary>
 public class HysteresisFilterGen : ImageToImageFilter,ITimelineSupport
 {

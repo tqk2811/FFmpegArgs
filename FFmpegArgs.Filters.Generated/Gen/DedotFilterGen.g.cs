@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. dedot             V->V       Reduce cross-luminance and cross-color.
+/// TS. dedot             V-&gt;V       Reduce cross-luminance and cross-color.
 /// </summary>
 public class DedotFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

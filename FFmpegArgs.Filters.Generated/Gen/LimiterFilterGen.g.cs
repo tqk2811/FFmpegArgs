@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC limiter           V->V       Limit pixels components to the specified range.
+/// TSC limiter           V-&gt;V       Limit pixels components to the specified range.
 /// </summary>
 public class LimiterFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

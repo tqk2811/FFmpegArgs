@@ -1,21 +1,21 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. vignette          V->V       Make or reverse a vignette effect.
+/// T.. vignette          V-&gt;V       Make or reverse a vignette effect.
 /// </summary>
 public class VignetteFilterGen : ImageToImageFilter,ITimelineSupport
 {
 internal VignetteFilterGen(ImageMap input) : base("vignette",input) { AddMapOut(); }
 /// <summary>
-///  set lens angle (default "PI/5")
+///  set lens angle (default &quot;PI/5&quot;)
 /// </summary>
 public VignetteFilterGen angle(string angle) => this.SetOption("angle",angle);
 /// <summary>
-///  set circle center position on x-axis (default "w/2")
+///  set circle center position on x-axis (default &quot;w/2&quot;)
 /// </summary>
 public VignetteFilterGen x0(string x0) => this.SetOption("x0",x0);
 /// <summary>
-///  set circle center position on y-axis (default "h/2")
+///  set circle center position on y-axis (default &quot;h/2&quot;)
 /// </summary>
 public VignetteFilterGen y0(string y0) => this.SetOption("y0",y0);
 /// <summary>

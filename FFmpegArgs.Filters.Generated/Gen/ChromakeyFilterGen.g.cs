@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC chromakey         V->V       Turns a certain color into transparency. Operates on YUV colors.
+/// TSC chromakey         V-&gt;V       Turns a certain color into transparency. Operates on YUV colors.
 /// </summary>
 public class ChromakeyFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ChromakeyFilterGen(ImageMap input) : base("chromakey",input) { AddMapOut(); }
 /// <summary>
-///  set the chromakey key color (default "black")
+///  set the chromakey key color (default &quot;black&quot;)
 /// </summary>
 public ChromakeyFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>

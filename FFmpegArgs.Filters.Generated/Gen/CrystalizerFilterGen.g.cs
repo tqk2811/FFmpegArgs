@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC crystalizer       A->A       Simple audio noise sharpening filter.
+/// TSC crystalizer       A-&gt;A       Simple audio noise sharpening filter.
 /// </summary>
 public class CrystalizerFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

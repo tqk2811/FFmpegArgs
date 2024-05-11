@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... sharpness_vaapi   V->V       VAAPI VPP for sharpness
+/// ... sharpness_vaapi   V-&gt;V       VAAPI VPP for sharpness
 /// </summary>
 public class Sharpness_vaapiFilterGen : ImageToImageFilter
 {

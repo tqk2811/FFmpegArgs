@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC blend             VV->V      Blend two video frames into each other.
+/// TSC blend             VV-&gt;V      Blend two video frames into each other.
 /// </summary>
 public class BlendFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC mix               N->V       Mix video inputs.
+/// TSC mix               N-&gt;V       Mix video inputs.
 /// </summary>
 public class MixFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
@@ -11,7 +11,7 @@ internal MixFilterGen(params ImageMap[] inputs) : base("mix",inputs) { AddMapOut
 /// </summary>
 public MixFilterGen inputs(int inputs) => this.SetOptionRange("inputs", inputs,2,32767);
 /// <summary>
-///  set weight for each input (default "1 1")
+///  set weight for each input (default &quot;1 1&quot;)
 /// </summary>
 public MixFilterGen weights(string weights) => this.SetOption("weights",weights);
 /// <summary>

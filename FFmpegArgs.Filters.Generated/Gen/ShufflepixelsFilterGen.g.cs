@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. shufflepixels     V->V       Shuffle video pixels.
+/// TS. shufflepixels     V-&gt;V       Shuffle video pixels.
 /// </summary>
 public class ShufflepixelsFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

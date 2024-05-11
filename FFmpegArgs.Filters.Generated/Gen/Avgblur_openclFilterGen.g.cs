@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... avgblur_opencl    V->V       Apply average blur filter
+/// ... avgblur_opencl    V-&gt;V       Apply average blur filter
 /// </summary>
 public class Avgblur_openclFilterGen : ImageToImageFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC monochrome        V->V       Convert video to gray using custom color filter.
+/// TSC monochrome        V-&gt;V       Convert video to gray using custom color filter.
 /// </summary>
 public class MonochromeFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

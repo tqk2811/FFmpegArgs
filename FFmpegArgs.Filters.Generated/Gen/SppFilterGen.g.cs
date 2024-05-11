@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C spp               V->V       Apply a simple post processing filter.
+/// T.C spp               V-&gt;V       Apply a simple post processing filter.
 /// </summary>
 public class SppFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
@@ -19,7 +19,7 @@ public SppFilterGen qp(int qp) => this.SetOptionRange("qp", qp,0,63);
 /// </summary>
 public SppFilterGen mode(SppFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  use B-frames' QP (default false)
+///  use B-frames&#39; QP (default false)
 /// </summary>
 public SppFilterGen use_bframe_qp(bool use_bframe_qp) => this.SetOption("use_bframe_qp",use_bframe_qp.ToFFmpegFlag());
 }

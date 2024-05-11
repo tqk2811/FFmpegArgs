@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C vectorscope       V->V       Video vectorscope.
+/// ..C vectorscope       V-&gt;V       Video vectorscope.
 /// </summary>
 public class VectorscopeFilterGen : ImageToImageFilter,ICommandSupport
 {

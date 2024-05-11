@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... setparams         V->V       Force field, or color property for the output video frame.
+/// ... setparams         V-&gt;V       Force field, or color property for the output video frame.
 /// </summary>
 public class SetparamsFilterGen : ImageToImageFilter
 {

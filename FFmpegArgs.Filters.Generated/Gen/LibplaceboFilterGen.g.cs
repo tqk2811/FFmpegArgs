@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C libplacebo        N->V       Apply various GPU filters from libplacebo
+/// ..C libplacebo        N-&gt;V       Apply various GPU filters from libplacebo
 /// </summary>
 public class LibplaceboFilterGen : ImageToImageFilter,ICommandSupport
 {
@@ -11,47 +11,47 @@ internal LibplaceboFilterGen(params ImageMap[] inputs) : base("libplacebo",input
 /// </summary>
 public LibplaceboFilterGen inputs(int inputs) => this.SetOptionRange("inputs", inputs,1,INT_MAX);
 /// <summary>
-///  Output video frame width (default "iw")
+///  Output video frame width (default &quot;iw&quot;)
 /// </summary>
 public LibplaceboFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Output video frame height (default "ih")
+///  Output video frame height (default &quot;ih&quot;)
 /// </summary>
 public LibplaceboFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>
-///  Output video frame rate (default "none")
+///  Output video frame rate (default &quot;none&quot;)
 /// </summary>
 public LibplaceboFilterGen fps(string fps) => this.SetOption("fps",fps);
 /// <summary>
-///  Input video crop x (default "(iw-cw)/2")
+///  Input video crop x (default &quot;(iw-cw)/2&quot;)
 /// </summary>
 public LibplaceboFilterGen crop_x(string crop_x) => this.SetOption("crop_x",crop_x);
 /// <summary>
-///  Input video crop y (default "(ih-ch)/2")
+///  Input video crop y (default &quot;(ih-ch)/2&quot;)
 /// </summary>
 public LibplaceboFilterGen crop_y(string crop_y) => this.SetOption("crop_y",crop_y);
 /// <summary>
-///  Input video crop w (default "iw")
+///  Input video crop w (default &quot;iw&quot;)
 /// </summary>
 public LibplaceboFilterGen crop_w(string crop_w) => this.SetOption("crop_w",crop_w);
 /// <summary>
-///  Input video crop h (default "ih")
+///  Input video crop h (default &quot;ih&quot;)
 /// </summary>
 public LibplaceboFilterGen crop_h(string crop_h) => this.SetOption("crop_h",crop_h);
 /// <summary>
-///  Output video placement x (default "(ow-pw)/2")
+///  Output video placement x (default &quot;(ow-pw)/2&quot;)
 /// </summary>
 public LibplaceboFilterGen pos_x(string pos_x) => this.SetOption("pos_x",pos_x);
 /// <summary>
-///  Output video placement y (default "(oh-ph)/2")
+///  Output video placement y (default &quot;(oh-ph)/2&quot;)
 /// </summary>
 public LibplaceboFilterGen pos_y(string pos_y) => this.SetOption("pos_y",pos_y);
 /// <summary>
-///  Output video placement w (default "ow")
+///  Output video placement w (default &quot;ow&quot;)
 /// </summary>
 public LibplaceboFilterGen pos_w(string pos_w) => this.SetOption("pos_w",pos_w);
 /// <summary>
-///  Output video placement h (default "oh")
+///  Output video placement h (default &quot;oh&quot;)
 /// </summary>
 public LibplaceboFilterGen pos_h(string pos_h) => this.SetOption("pos_h",pos_h);
 /// <summary>
@@ -75,7 +75,7 @@ public LibplaceboFilterGen normalize_sar(bool normalize_sar) => this.SetOption("
 /// </summary>
 public LibplaceboFilterGen pad_crop_ratio(float pad_crop_ratio) => this.SetOptionRange("pad_crop_ratio", pad_crop_ratio,0,1);
 /// <summary>
-///  Background fill color (default "black")
+///  Background fill color (default &quot;black&quot;)
 /// </summary>
 public LibplaceboFilterGen fillcolor(string fillcolor) => this.SetOption("fillcolor",fillcolor);
 /// <summary>
@@ -103,15 +103,15 @@ public LibplaceboFilterGen color_primaries(LibplaceboFilterGenColor_primaries co
 /// </summary>
 public LibplaceboFilterGen color_trc(LibplaceboFilterGenColor_trc color_trc) => this.SetOption("color_trc", color_trc.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  Upscaler function (default "spline36")
+///  Upscaler function (default &quot;spline36&quot;)
 /// </summary>
 public LibplaceboFilterGen upscaler(string upscaler) => this.SetOption("upscaler",upscaler);
 /// <summary>
-///  Downscaler function (default "mitchell")
+///  Downscaler function (default &quot;mitchell&quot;)
 /// </summary>
 public LibplaceboFilterGen downscaler(string downscaler) => this.SetOption("downscaler",downscaler);
 /// <summary>
-///  Frame mixing function (default "none")
+///  Frame mixing function (default &quot;none&quot;)
 /// </summary>
 public LibplaceboFilterGen frame_mixer(string frame_mixer) => this.SetOption("frame_mixer",frame_mixer);
 /// <summary>
@@ -598,7 +598,7 @@ public enum LibplaceboFilterGenGamut_mode
 /// </summary>
 [Name("relative")] relative,
 /// <summary>
-/// saturation      3            ..FV....... Saturation mapping (RGB -> RGB)
+/// saturation      3            ..FV....... Saturation mapping (RGB -&gt; RGB)
 /// </summary>
 [Name("saturation")] saturation,
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC colorcontrast     V->V       Adjust color contrast between RGB components.
+/// TSC colorcontrast     V-&gt;V       Adjust color contrast between RGB components.
 /// </summary>
 public class ColorcontrastFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

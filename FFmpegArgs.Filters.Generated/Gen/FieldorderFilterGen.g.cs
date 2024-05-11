@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. fieldorder        V->V       Set the field order.
+/// T.. fieldorder        V-&gt;V       Set the field order.
 /// </summary>
 public class FieldorderFilterGen : ImageToImageFilter,ITimelineSupport
 {

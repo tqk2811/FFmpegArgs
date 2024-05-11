@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. identity          VV->V      Calculate the Identity between two video streams.
+/// TS. identity          VV-&gt;V      Calculate the Identity between two video streams.
 /// </summary>
 public class IdentityFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C avgblur           V->V       Apply Average Blur filter.
+/// T.C avgblur           V-&gt;V       Apply Average Blur filter.
 /// </summary>
 public class AvgblurFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. msad              VV->V      Calculate the MSAD between two video streams.
+/// TS. msad              VV-&gt;V      Calculate the MSAD between two video streams.
 /// </summary>
 public class MsadFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

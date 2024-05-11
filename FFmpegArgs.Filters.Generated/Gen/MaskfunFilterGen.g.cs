@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC maskfun           V->V       Create Mask.
+/// TSC maskfun           V-&gt;V       Create Mask.
 /// </summary>
 public class MaskfunFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

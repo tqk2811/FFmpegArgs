@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... aselect           A->N       Select audio frames to pass in output.
+/// ... aselect           A-&gt;N       Select audio frames to pass in output.
 /// </summary>
 public class AselectFilterGen : AudioToAudioFilter
 {
 internal AselectFilterGen(int outputCount, AudioMap input) : base("aselect",input) { AddMultiMapOut(outputCount); }
 /// <summary>
-///  set an expression to use for selecting frames (default "1")
+///  set an expression to use for selecting frames (default &quot;1&quot;)
 /// </summary>
 public AselectFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 /// <summary>

@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... boxblur_opencl    V->V       Apply boxblur filter to input video
+/// ... boxblur_opencl    V-&gt;V       Apply boxblur filter to input video
 /// </summary>
 public class Boxblur_openclFilterGen : ImageToImageFilter
 {
 internal Boxblur_openclFilterGen(ImageMap input) : base("boxblur_opencl",input) { AddMapOut(); }
 /// <summary>
-///  Radius of the luma blurring box (default "2")
+///  Radius of the luma blurring box (default &quot;2&quot;)
 /// </summary>
 public Boxblur_openclFilterGen luma_radius(string luma_radius) => this.SetOption("luma_radius",luma_radius);
 /// <summary>
-///  Radius of the luma blurring box (default "2")
+///  Radius of the luma blurring box (default &quot;2&quot;)
 /// </summary>
 public Boxblur_openclFilterGen lr(string lr) => this.SetOption("lr",lr);
 /// <summary>

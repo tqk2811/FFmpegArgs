@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... blockdetect       V->V       Blockdetect filter.
+/// ... blockdetect       V-&gt;V       Blockdetect filter.
 /// </summary>
 public class BlockdetectFilterGen : ImageToImageFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... ccrepack          V->V       Repack CEA-708 closed caption metadata
+/// ... ccrepack          V-&gt;V       Repack CEA-708 closed caption metadata
 /// </summary>
 public class CcrepackFilterGen : ImageToImageFilter
 {

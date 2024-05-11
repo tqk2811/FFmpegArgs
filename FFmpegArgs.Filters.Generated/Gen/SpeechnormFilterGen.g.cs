@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C speechnorm        A->A       Speech Normalizer.
+/// T.C speechnorm        A-&gt;A       Speech Normalizer.
 /// </summary>
 public class SpeechnormFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
@@ -31,11 +31,11 @@ public SpeechnormFilterGen raise(double raise) => this.SetOptionRange("raise", r
 /// </summary>
 public SpeechnormFilterGen fall(double fall) => this.SetOptionRange("fall", fall,0,1);
 /// <summary>
-///  set channels to filter (default "all")
+///  set channels to filter (default &quot;all&quot;)
 /// </summary>
 public SpeechnormFilterGen channels(string channels) => this.SetOption("channels",channels);
 /// <summary>
-///  set channels to filter (default "all")
+///  set channels to filter (default &quot;all&quot;)
 /// </summary>
 public SpeechnormFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>

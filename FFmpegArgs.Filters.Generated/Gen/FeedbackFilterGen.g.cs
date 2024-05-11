@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C feedback          VV->VV     Apply feedback video filter.
+/// ..C feedback          VV-&gt;VV     Apply feedback video filter.
 /// </summary>
 public class FeedbackFilterGen : ImageToImageFilter,ICommandSupport
 {

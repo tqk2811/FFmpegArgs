@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C frei0r            V->V       Apply a frei0r effect.
+/// T.C frei0r            V-&gt;V       Apply a frei0r effect.
 /// </summary>
 public class Frei0rFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. smartblur         V->V       Blur the input video without impacting the outlines.
+/// T.. smartblur         V-&gt;V       Blur the input video without impacting the outlines.
 /// </summary>
 public class SmartblurFilterGen : ImageToImageFilter,ITimelineSupport
 {

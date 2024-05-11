@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... deshake           V->V       Stabilize shaky video.
+/// ... deshake           V-&gt;V       Stabilize shaky video.
 /// </summary>
 public class DeshakeFilterGen : ImageToImageFilter
 {

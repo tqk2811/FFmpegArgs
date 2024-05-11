@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C volume            A->A       Change input volume.
+/// T.C volume            A-&gt;A       Change input volume.
 /// </summary>
 public class VolumeFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
 internal VolumeFilterGen(AudioMap input) : base("volume",input) { AddMapOut(); }
 /// <summary>
-///  set volume adjustment expression (default "1.0")
+///  set volume adjustment expression (default &quot;1.0&quot;)
 /// </summary>
 public VolumeFilterGen volume(ExpressionValue volume) => this.SetOption("volume",(string)volume);
 /// <summary>

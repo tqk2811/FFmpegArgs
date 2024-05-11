@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC vibrance          V->V       Boost or alter saturation.
+/// TSC vibrance          V-&gt;V       Boost or alter saturation.
 /// </summary>
 public class VibranceFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

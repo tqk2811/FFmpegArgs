@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. alphamerge        VV->V      Copy the luma value of the second input into the alpha channel of the first input.
+/// T.. alphamerge        VV-&gt;V      Copy the luma value of the second input into the alpha channel of the first input.
 /// </summary>
 public class AlphamergeFilterGen : ImageToImageFilter,ITimelineSupport
 {

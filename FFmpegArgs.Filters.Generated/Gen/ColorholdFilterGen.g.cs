@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC colorhold         V->V       Turns a certain color range into gray. Operates on RGB colors.
+/// TSC colorhold         V-&gt;V       Turns a certain color range into gray. Operates on RGB colors.
 /// </summary>
 public class ColorholdFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ColorholdFilterGen(ImageMap input) : base("colorhold",input) { AddMapOut(); }
 /// <summary>
-///  set the colorhold key color (default "black")
+///  set the colorhold key color (default &quot;black&quot;)
 /// </summary>
 public ColorholdFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C silenceremove     A->A       Remove silence.
+/// T.C silenceremove     A-&gt;A       Remove silence.
 /// </summary>
 public class SilenceremoveFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

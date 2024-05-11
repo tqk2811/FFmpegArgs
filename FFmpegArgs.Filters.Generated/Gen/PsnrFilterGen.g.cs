@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. psnr              VV->V      Calculate the PSNR between two video streams.
+/// TS. psnr              VV-&gt;V      Calculate the PSNR between two video streams.
 /// </summary>
 public class PsnrFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

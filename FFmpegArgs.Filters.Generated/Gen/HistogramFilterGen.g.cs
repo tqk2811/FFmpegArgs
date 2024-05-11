@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... histogram         V->V       Compute and draw a histogram.
+/// ... histogram         V-&gt;V       Compute and draw a histogram.
 /// </summary>
 public class HistogramFilterGen : ImageToImageFilter
 {

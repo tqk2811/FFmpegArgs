@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... colorchart        |->V       Generate color checker chart.
+/// ... colorchart        |-&gt;V       Generate color checker chart.
 /// </summary>
 public class ColorchartFilterGen : SourceToImageFilter
 {
 internal ColorchartFilterGen(IImageFilterGraph input) : base("colorchart",input) { AddMapOut(); }
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ColorchartFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
@@ -19,7 +19,7 @@ public ColorchartFilterGen duration(TimeSpan duration) => this.SetOptionRange("d
 /// </summary>
 public ColorchartFilterGen sar(Rational sar) => this.SetOption("sar",sar.Check(0,INT_MAX));
 /// <summary>
-///  set the single patch size (default "64x64")
+///  set the single patch size (default &quot;64x64&quot;)
 /// </summary>
 public ColorchartFilterGen patch_size(Size patch_size) => this.SetOption("patch_size",$"{patch_size.Width}x{patch_size.Height}");
 /// <summary>

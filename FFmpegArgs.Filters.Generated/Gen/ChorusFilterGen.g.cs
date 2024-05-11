@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... chorus            A->A       Add a chorus effect to the audio.
+/// ... chorus            A-&gt;A       Add a chorus effect to the audio.
 /// </summary>
 public class ChorusFilterGen : AudioToAudioFilter
 {

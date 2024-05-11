@@ -1,49 +1,49 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. gradients         |->V       Draw a gradients.
+/// .S. gradients         |-&gt;V       Draw a gradients.
 /// </summary>
 public class GradientsFilterGen : SourceToImageFilter,ISliceThreading
 {
 internal GradientsFilterGen(IImageFilterGraph input) : base("gradients",input) { AddMapOut(); }
 /// <summary>
-///  set frame size (default "640x480")
+///  set frame size (default &quot;640x480&quot;)
 /// </summary>
 public GradientsFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set frame rate (default "25")
+///  set frame rate (default &quot;25&quot;)
 /// </summary>
 public GradientsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set 1st color (default "random")
+///  set 1st color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c0(Color c0) => this.SetOption("c0",c0.ToHexStringRGBA());
 /// <summary>
-///  set 2nd color (default "random")
+///  set 2nd color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c1(Color c1) => this.SetOption("c1",c1.ToHexStringRGBA());
 /// <summary>
-///  set 3rd color (default "random")
+///  set 3rd color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c2(Color c2) => this.SetOption("c2",c2.ToHexStringRGBA());
 /// <summary>
-///  set 4th color (default "random")
+///  set 4th color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c3(Color c3) => this.SetOption("c3",c3.ToHexStringRGBA());
 /// <summary>
-///  set 5th color (default "random")
+///  set 5th color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c4(Color c4) => this.SetOption("c4",c4.ToHexStringRGBA());
 /// <summary>
-///  set 6th color (default "random")
+///  set 6th color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c5(Color c5) => this.SetOption("c5",c5.ToHexStringRGBA());
 /// <summary>
-///  set 7th color (default "random")
+///  set 7th color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c6(Color c6) => this.SetOption("c6",c6.ToHexStringRGBA());
 /// <summary>
-///  set 8th color (default "random")
+///  set 8th color (default &quot;random&quot;)
 /// </summary>
 public GradientsFilterGen c7(Color c7) => this.SetOption("c7",c7.ToHexStringRGBA());
 /// <summary>

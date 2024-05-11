@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... showfreqs         A->V       Convert input audio to a frequencies video output.
+/// ... showfreqs         A-&gt;V       Convert input audio to a frequencies video output.
 /// </summary>
 public class ShowfreqsFilterGen : AudioToImageFilter
 {
 internal ShowfreqsFilterGen(AudioMap input) : base("showfreqs",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "1024x512")
+///  set video size (default &quot;1024x512&quot;)
 /// </summary>
 public ShowfreqsFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ShowfreqsFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
@@ -43,7 +43,7 @@ public ShowfreqsFilterGen overlap(float overlap) => this.SetOptionRange("overlap
 /// </summary>
 public ShowfreqsFilterGen averaging(int averaging) => this.SetOptionRange("averaging", averaging,0,INT_MAX);
 /// <summary>
-///  set channels colors (default "red|green|blue|yellow|orange|lime|pink|magenta|brown")
+///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
 /// </summary>
 public ShowfreqsFilterGen colors(string colors) => this.SetOption("colors",colors);
 /// <summary>
@@ -59,7 +59,7 @@ public ShowfreqsFilterGen minamp(float minamp) => this.SetOptionRange("minamp", 
 /// </summary>
 public ShowfreqsFilterGen data(ShowfreqsFilterGenData data) => this.SetOption("data", data.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set channels to draw (default "all")
+///  set channels to draw (default &quot;all&quot;)
 /// </summary>
 public ShowfreqsFilterGen channels(string channels) => this.SetOption("channels",channels);
 }

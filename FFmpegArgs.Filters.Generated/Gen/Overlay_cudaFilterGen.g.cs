@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... overlay_cuda      VV->V      Overlay one video on top of another using CUDA
+/// ... overlay_cuda      VV-&gt;V      Overlay one video on top of another using CUDA
 /// </summary>
 public class Overlay_cudaFilterGen : ImageToImageFilter
 {
 internal Overlay_cudaFilterGen(params ImageMap[] inputs) : base("overlay_cuda",inputs) { AddMapOut(); }
 /// <summary>
-///  set the x expression of overlay (default "0")
+///  set the x expression of overlay (default &quot;0&quot;)
 /// </summary>
 public Overlay_cudaFilterGen x(ExpressionValue x) => this.SetOption("x",(string)x);
 /// <summary>
-///  set the y expression of overlay (default "0")
+///  set the y expression of overlay (default &quot;0&quot;)
 /// </summary>
 public Overlay_cudaFilterGen y(ExpressionValue y) => this.SetOption("y",(string)y);
 /// <summary>

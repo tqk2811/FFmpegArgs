@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C dialoguenhance    A->A       Audio Dialogue Enhancement.
+/// T.C dialoguenhance    A-&gt;A       Audio Dialogue Enhancement.
 /// </summary>
 public class DialoguenhanceFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

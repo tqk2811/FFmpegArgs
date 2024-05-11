@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C stereotools       A->A       Apply various stereo tools.
+/// T.C stereotools       A-&gt;A       Apply various stereo tools.
 /// </summary>
 public class StereotoolsFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {
@@ -43,7 +43,7 @@ public StereotoolsFilterGen phasel(bool phasel) => this.SetOption("phasel",phase
 /// </summary>
 public StereotoolsFilterGen phaser(bool phaser) => this.SetOption("phaser",phaser.ToFFmpegFlag());
 /// <summary>
-///  set stereo mode (from 0 to 10) (default lr>lr)
+///  set stereo mode (from 0 to 10) (default lr&gt;lr)
 /// </summary>
 public StereotoolsFilterGen mode(StereotoolsFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -97,52 +97,52 @@ public static partial class FilterGeneratedExtensions
 public static StereotoolsFilterGen StereotoolsFilterGen(this AudioMap input0) => new StereotoolsFilterGen(input0);
 }
 /// <summary>
-///  set stereo mode (from 0 to 10) (default lr>lr)
+///  set stereo mode (from 0 to 10) (default lr&gt;lr)
 /// </summary>
 public enum StereotoolsFilterGenMode
 {
 /// <summary>
-/// lr>lr           0            ..F.A....T.
+/// lr&gt;lr           0            ..F.A....T.
 /// </summary>
 [Name("lr>lr")] lrGreaterThanlr,
 /// <summary>
-/// lr>ms           1            ..F.A....T.
+/// lr&gt;ms           1            ..F.A....T.
 /// </summary>
 [Name("lr>ms")] lrGreaterThanms,
 /// <summary>
-/// ms>lr           2            ..F.A....T.
+/// ms&gt;lr           2            ..F.A....T.
 /// </summary>
 [Name("ms>lr")] msGreaterThanlr,
 /// <summary>
-/// lr>ll           3            ..F.A....T.
+/// lr&gt;ll           3            ..F.A....T.
 /// </summary>
 [Name("lr>ll")] lrGreaterThanll,
 /// <summary>
-/// lr>rr           4            ..F.A....T.
+/// lr&gt;rr           4            ..F.A....T.
 /// </summary>
 [Name("lr>rr")] lrGreaterThanrr,
 /// <summary>
-/// lr>l+r          5            ..F.A....T.
+/// lr&gt;l+r          5            ..F.A....T.
 /// </summary>
 [Name("lr>l+r")] lrGreaterThanlPlusr,
 /// <summary>
-/// lr>rl           6            ..F.A....T.
+/// lr&gt;rl           6            ..F.A....T.
 /// </summary>
 [Name("lr>rl")] lrGreaterThanrl,
 /// <summary>
-/// ms>ll           7            ..F.A....T.
+/// ms&gt;ll           7            ..F.A....T.
 /// </summary>
 [Name("ms>ll")] msGreaterThanll,
 /// <summary>
-/// ms>rr           8            ..F.A....T.
+/// ms&gt;rr           8            ..F.A....T.
 /// </summary>
 [Name("ms>rr")] msGreaterThanrr,
 /// <summary>
-/// ms>rl           9            ..F.A....T.
+/// ms&gt;rl           9            ..F.A....T.
 /// </summary>
 [Name("ms>rl")] msGreaterThanrl,
 /// <summary>
-/// lr>l-r          10           ..F.A....T.
+/// lr&gt;l-r          10           ..F.A....T.
 /// </summary>
 [Name("lr>l-r")] lrGreaterThanl_r,
 }

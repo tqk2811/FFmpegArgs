@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC asubboost         A->A       Boost subwoofer frequencies.
+/// TSC asubboost         A-&gt;A       Boost subwoofer frequencies.
 /// </summary>
 public class AsubboostFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
@@ -39,7 +39,7 @@ public AsubboostFilterGen slope(double slope) => this.SetOptionRange("slope", sl
 /// </summary>
 public AsubboostFilterGen delay(double delay) => this.SetOptionRange("delay", delay,1,100);
 /// <summary>
-///  set channels to filter (default "all")
+///  set channels to filter (default &quot;all&quot;)
 /// </summary>
 public AsubboostFilterGen channels(string channels) => this.SetOption("channels",channels);
 }

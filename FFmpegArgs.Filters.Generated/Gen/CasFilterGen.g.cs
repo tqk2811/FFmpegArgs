@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC cas               V->V       Contrast Adaptive Sharpen.
+/// TSC cas               V-&gt;V       Contrast Adaptive Sharpen.
 /// </summary>
 public class CasFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

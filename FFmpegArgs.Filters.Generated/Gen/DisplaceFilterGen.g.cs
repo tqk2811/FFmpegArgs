@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC displace          VVV->V     Displace pixels.
+/// TSC displace          VVV-&gt;V     Displace pixels.
 /// </summary>
 public class DisplaceFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

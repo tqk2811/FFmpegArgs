@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. bm3d              N->V       Block-Matching 3D denoiser.
+/// TS. bm3d              N-&gt;V       Block-Matching 3D denoiser.
 /// </summary>
 public class Bm3dFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

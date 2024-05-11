@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C pp                V->V       Filter video using libpostproc.
+/// T.C pp                V-&gt;V       Filter video using libpostproc.
 /// </summary>
 public class PpFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal PpFilterGen(ImageMap input) : base("pp",input) { AddMapOut(); }
 /// <summary>
-///  set postprocess subfilters (default "de")
+///  set postprocess subfilters (default &quot;de&quot;)
 /// </summary>
 public PpFilterGen subfilters(string subfilters) => this.SetOption("subfilters",subfilters);
 }

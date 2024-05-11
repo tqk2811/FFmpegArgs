@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC exposure          V->V       Adjust exposure of the video stream.
+/// TSC exposure          V-&gt;V       Adjust exposure of the video stream.
 /// </summary>
 public class ExposureFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

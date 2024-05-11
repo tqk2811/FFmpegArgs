@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC tlut2             V->V       Compute and apply a lookup table from two successive frames.
+/// TSC tlut2             V-&gt;V       Compute and apply a lookup table from two successive frames.
 /// </summary>
 public class Tlut2FilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal Tlut2FilterGen(ImageMap input) : base("tlut2",input) { AddMapOut(); }
 /// <summary>
-///  set component #0 expression (default "x")
+///  set component #0 expression (default &quot;x&quot;)
 /// </summary>
 public Tlut2FilterGen c0(ExpressionValue c0) => this.SetOption("c0",(string)c0);
 /// <summary>
-///  set component #1 expression (default "x")
+///  set component #1 expression (default &quot;x&quot;)
 /// </summary>
 public Tlut2FilterGen c1(ExpressionValue c1) => this.SetOption("c1",(string)c1);
 /// <summary>
-///  set component #2 expression (default "x")
+///  set component #2 expression (default &quot;x&quot;)
 /// </summary>
 public Tlut2FilterGen c2(ExpressionValue c2) => this.SetOption("c2",(string)c2);
 /// <summary>
-///  set component #3 expression (default "x")
+///  set component #3 expression (default &quot;x&quot;)
 /// </summary>
 public Tlut2FilterGen c3(ExpressionValue c3) => this.SetOption("c3",(string)c3);
 }

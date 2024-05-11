@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... afdelaysrc        |->A       Generate a Fractional delay FIR coefficients.
+/// ... afdelaysrc        |-&gt;A       Generate a Fractional delay FIR coefficients.
 /// </summary>
 public class AfdelaysrcFilterGen : SourceToAudioFilter
 {
@@ -27,7 +27,7 @@ public AfdelaysrcFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb
 /// </summary>
 public AfdelaysrcFilterGen taps(int taps) => this.SetOptionRange("taps", taps,0,32768);
 /// <summary>
-///  set channel layout (default "stereo")
+///  set channel layout (default &quot;stereo&quot;)
 /// </summary>
 public AfdelaysrcFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
 }

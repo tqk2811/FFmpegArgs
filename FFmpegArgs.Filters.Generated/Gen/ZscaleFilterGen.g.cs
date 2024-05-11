@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .SC zscale            V->V       Apply resizing, colorspace and bit depth conversion.
+/// .SC zscale            V-&gt;V       Apply resizing, colorspace and bit depth conversion.
 /// </summary>
 public class ZscaleFilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
 {
@@ -107,11 +107,11 @@ public ZscaleFilterGen npl(double npl) => this.SetOptionRange("npl", npl,0,DBL_M
 /// </summary>
 public ZscaleFilterGen agamma(bool agamma) => this.SetOption("agamma",agamma.ToFFmpegFlag());
 /// <summary>
-///  parameter A, which is parameter "b" for bicubic, and the number of filter taps for lanczos (from -DBL_MAX to DBL_MAX) (default nan)
+///  parameter A, which is parameter &quot;b&quot; for bicubic, and the number of filter taps for lanczos (from -DBL_MAX to DBL_MAX) (default nan)
 /// </summary>
 public ZscaleFilterGen param_a(double param_a) => this.SetOptionRange("param_a", param_a,-DBL_MAX,DBL_MAX);
 /// <summary>
-///  parameter B, which is parameter "c" for bicubic (from -DBL_MAX to DBL_MAX) (default nan)
+///  parameter B, which is parameter &quot;c&quot; for bicubic (from -DBL_MAX to DBL_MAX) (default nan)
 /// </summary>
 public ZscaleFilterGen param_b(double param_b) => this.SetOptionRange("param_b", param_b,-DBL_MAX,DBL_MAX);
 }

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C acrusher          A->A       Reduce audio bit resolution.
+/// T.C acrusher          A-&gt;A       Reduce audio bit resolution.
 /// </summary>
 public class AcrusherFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

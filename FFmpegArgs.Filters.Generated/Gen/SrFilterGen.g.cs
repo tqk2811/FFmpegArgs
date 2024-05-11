@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... sr                V->V       Apply DNN-based image super resolution to the input.
+/// ... sr                V-&gt;V       Apply DNN-based image super resolution to the input.
 /// </summary>
 public class SrFilterGen : ImageToImageFilter
 {
@@ -19,11 +19,11 @@ public SrFilterGen scale_factor(int scale_factor) => this.SetOptionRange("scale_
 /// </summary>
 public SrFilterGen model(string model) => this.SetOption("model",model);
 /// <summary>
-///  input name of the model (default "x")
+///  input name of the model (default &quot;x&quot;)
 /// </summary>
 public SrFilterGen input(string input) => this.SetOption("input",input);
 /// <summary>
-///  output name of the model (default "y")
+///  output name of the model (default &quot;y&quot;)
 /// </summary>
 public SrFilterGen output(string output) => this.SetOption("output",output);
 }

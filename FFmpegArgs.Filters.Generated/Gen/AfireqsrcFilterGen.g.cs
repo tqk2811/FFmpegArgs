@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... afireqsrc         |->A       Generate a FIR equalizer coefficients audio stream.
+/// ... afireqsrc         |-&gt;A       Generate a FIR equalizer coefficients audio stream.
 /// </summary>
 public class AfireqsrcFilterGen : SourceToAudioFilter
 {
@@ -11,11 +11,11 @@ internal AfireqsrcFilterGen(IAudioFilterGraph input) : base("afireqsrc",input) {
 /// </summary>
 public AfireqsrcFilterGen preset(AfireqsrcFilterGenPreset preset) => this.SetOption("preset", preset.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set gain values per band (default "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0")
+///  set gain values per band (default &quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0&quot;)
 /// </summary>
 public AfireqsrcFilterGen gains(string gains) => this.SetOption("gains",gains);
 /// <summary>
-///  set central frequency values per band (default "25 40 63 100 160 250 400 630 1000 1600 2500 4000 6300 10000 16000 24000")
+///  set central frequency values per band (default &quot;25 40 63 100 160 250 400 630 1000 1600 2500 4000 6300 10000 16000 24000&quot;)
 /// </summary>
 public AfireqsrcFilterGen bands(string bands) => this.SetOption("bands",bands);
 /// <summary>

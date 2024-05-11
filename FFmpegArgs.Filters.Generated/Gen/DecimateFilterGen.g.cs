@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... decimate          N->V       Decimate frames (post field matching filter).
+/// ... decimate          N-&gt;V       Decimate frames (post field matching filter).
 /// </summary>
 public class DecimateFilterGen : ImageToImageFilter
 {

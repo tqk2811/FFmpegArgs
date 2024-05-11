@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC varblur           VV->V      Apply Variable Blur filter.
+/// TSC varblur           VV-&gt;V      Apply Variable Blur filter.
 /// </summary>
 public class VarblurFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

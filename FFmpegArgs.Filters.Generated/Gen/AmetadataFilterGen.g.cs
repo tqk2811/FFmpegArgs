@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. ametadata         A->A       Manipulate audio frame metadata.
+/// T.. ametadata         A-&gt;A       Manipulate audio frame metadata.
 /// </summary>
 public class AmetadataFilterGen : AudioToAudioFilter,ITimelineSupport
 {

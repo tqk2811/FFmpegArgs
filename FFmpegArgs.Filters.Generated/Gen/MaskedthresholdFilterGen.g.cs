@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC maskedthreshold   VV->V      Pick pixels comparing absolute difference of two streams with threshold.
+/// TSC maskedthreshold   VV-&gt;V      Pick pixels comparing absolute difference of two streams with threshold.
 /// </summary>
 public class MaskedthresholdFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC arls              AA->A      Apply Recursive Least Squares algorithm to first audio stream.
+/// TSC arls              AA-&gt;A      Apply Recursive Least Squares algorithm to first audio stream.
 /// </summary>
 public class ArlsFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

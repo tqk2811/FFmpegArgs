@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... deshake_opencl    V->V       Feature-point based video stabilization filter
+/// ... deshake_opencl    V-&gt;V       Feature-point based video stabilization filter
 /// </summary>
 public class Deshake_openclFilterGen : ImageToImageFilter
 {

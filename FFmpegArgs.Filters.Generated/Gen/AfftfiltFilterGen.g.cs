@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.
+/// TS. afftfilt          A-&gt;A       Apply arbitrary expressions to samples in frequency domain.
 /// </summary>
 public class AfftfiltFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading
 {
 internal AfftfiltFilterGen(AudioMap input) : base("afftfilt",input) { AddMapOut(); }
 /// <summary>
-///  set channels real expressions (default "re")
+///  set channels real expressions (default &quot;re&quot;)
 /// </summary>
 public AfftfiltFilterGen real(ExpressionValue real) => this.SetOption("real",(string)real);
 /// <summary>
-///  set channels imaginary expressions (default "im")
+///  set channels imaginary expressions (default &quot;im&quot;)
 /// </summary>
 public AfftfiltFilterGen imag(ExpressionValue imag) => this.SetOption("imag",(string)imag);
 /// <summary>

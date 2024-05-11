@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C aexciter          A->A       Enhance high frequency part of audio.
+/// T.C aexciter          A-&gt;A       Enhance high frequency part of audio.
 /// </summary>
 public class AexciterFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

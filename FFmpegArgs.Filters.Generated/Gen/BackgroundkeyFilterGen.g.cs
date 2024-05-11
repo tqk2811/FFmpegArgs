@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC backgroundkey     V->V       Turns a static background into transparency.
+/// TSC backgroundkey     V-&gt;V       Turns a static background into transparency.
 /// </summary>
 public class BackgroundkeyFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

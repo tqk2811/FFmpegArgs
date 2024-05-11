@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC tmedian           V->V       Pick median pixels from successive frames.
+/// TSC tmedian           V-&gt;V       Pick median pixels from successive frames.
 /// </summary>
 public class TmedianFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

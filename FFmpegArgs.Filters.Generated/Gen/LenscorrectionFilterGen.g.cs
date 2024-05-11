@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC lenscorrection    V->V       Rectify the image by correcting for lens distortion.
+/// TSC lenscorrection    V-&gt;V       Rectify the image by correcting for lens distortion.
 /// </summary>
 public class LenscorrectionFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
@@ -27,7 +27,7 @@ public LenscorrectionFilterGen k2(double k2) => this.SetOptionRange("k2", k2,-1,
 /// </summary>
 public LenscorrectionFilterGen i(LenscorrectionFilterGenI i) => this.SetOption("i", i.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set the color of the unmapped pixels (default "black@0")
+///  set the color of the unmapped pixels (default &quot;black@0&quot;)
 /// </summary>
 public LenscorrectionFilterGen fc(Color fc) => this.SetOption("fc",fc.ToHexStringRGBA());
 }

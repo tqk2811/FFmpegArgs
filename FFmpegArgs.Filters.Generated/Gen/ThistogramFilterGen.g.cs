@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... thistogram        V->V       Compute and draw a temporal histogram.
+/// ... thistogram        V-&gt;V       Compute and draw a temporal histogram.
 /// </summary>
 public class ThistogramFilterGen : ImageToImageFilter
 {
@@ -35,7 +35,7 @@ public ThistogramFilterGen bgopacity(float bgopacity) => this.SetOptionRange("bg
 /// </summary>
 public ThistogramFilterGen envelope(bool envelope) => this.SetOption("envelope",envelope.ToFFmpegFlag());
 /// <summary>
-///  set envelope color (default "gold")
+///  set envelope color (default &quot;gold&quot;)
 /// </summary>
 public ThistogramFilterGen ecolor(Color ecolor) => this.SetOption("ecolor",ecolor.ToHexStringRGBA());
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... find_rect         V->V       Find a user specified object.
+/// ... find_rect         V-&gt;V       Find a user specified object.
 /// </summary>
 public class Find_rectFilterGen : ImageToImageFilter
 {

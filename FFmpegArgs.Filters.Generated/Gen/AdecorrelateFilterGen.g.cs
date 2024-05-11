@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. adecorrelate      A->A       Apply decorrelation to input audio.
+/// TS. adecorrelate      A-&gt;A       Apply decorrelation to input audio.
 /// </summary>
 public class AdecorrelateFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... hstack_qsv        N->V       "Quick Sync Video" hstack
+/// ... hstack_qsv        N-&gt;V       &quot;Quick Sync Video&quot; hstack
 /// </summary>
 public class Hstack_qsvFilterGen : ImageToImageFilter
 {
@@ -24,7 +24,7 @@ public Hstack_qsvFilterGen height(int height) => this.SetOptionRange("height", h
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// "Quick Sync Video" hstack
+/// &quot;Quick Sync Video&quot; hstack
 /// </summary>
 public static Hstack_qsvFilterGen Hstack_qsvFilterGen(this IEnumerable<ImageMap> inputs) => new Hstack_qsvFilterGen(inputs.ToArray());
 }

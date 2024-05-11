@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... anullsrc          |->A       Null audio source, return empty audio frames.
+/// ... anullsrc          |-&gt;A       Null audio source, return empty audio frames.
 /// </summary>
 public class AnullsrcFilterGen : SourceToAudioFilter
 {
 internal AnullsrcFilterGen(IAudioFilterGraph input) : base("anullsrc",input) { AddMapOut(); }
 /// <summary>
-///  set channel_layout (default "stereo")
+///  set channel_layout (default &quot;stereo&quot;)
 /// </summary>
 public AnullsrcFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
 /// <summary>
-///  set channel_layout (default "stereo")
+///  set channel_layout (default &quot;stereo&quot;)
 /// </summary>
 public AnullsrcFilterGen cl(string cl) => this.SetOption("cl",cl);
 /// <summary>
-///  set sample rate (default "44100")
+///  set sample rate (default &quot;44100&quot;)
 /// </summary>
 public AnullsrcFilterGen sample_rate(string sample_rate) => this.SetOption("sample_rate",sample_rate);
 /// <summary>
-///  set sample rate (default "44100")
+///  set sample rate (default &quot;44100&quot;)
 /// </summary>
 public AnullsrcFilterGen r(string r) => this.SetOption("r",r);
 /// <summary>

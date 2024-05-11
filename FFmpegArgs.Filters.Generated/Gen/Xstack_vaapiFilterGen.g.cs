@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... xstack_vaapi      N->V       "VA-API" xstack
+/// ... xstack_vaapi      N-&gt;V       &quot;VA-API&quot; xstack
 /// </summary>
 public class Xstack_vaapiFilterGen : ImageToImageFilter
 {
@@ -27,7 +27,7 @@ public Xstack_vaapiFilterGen grid(Size grid) => this.SetOption("grid",$"{grid.Wi
 /// </summary>
 public Xstack_vaapiFilterGen grid_tile_size(Size grid_tile_size) => this.SetOption("grid_tile_size",$"{grid_tile_size.Width}x{grid_tile_size.Height}");
 /// <summary>
-///  Set the color for unused pixels (default "none")
+///  Set the color for unused pixels (default &quot;none&quot;)
 /// </summary>
 public Xstack_vaapiFilterGen fill(string fill) => this.SetOption("fill",fill);
 }
@@ -36,7 +36,7 @@ public Xstack_vaapiFilterGen fill(string fill) => this.SetOption("fill",fill);
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// "VA-API" xstack
+/// &quot;VA-API&quot; xstack
 /// </summary>
 public static Xstack_vaapiFilterGen Xstack_vaapiFilterGen(this IEnumerable<ImageMap> inputs) => new Xstack_vaapiFilterGen(inputs.ToArray());
 }

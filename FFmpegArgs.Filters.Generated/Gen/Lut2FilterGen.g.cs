@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC lut2              VV->V      Compute and apply a lookup table from two video inputs.
+/// TSC lut2              VV-&gt;V      Compute and apply a lookup table from two video inputs.
 /// </summary>
 public class Lut2FilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal Lut2FilterGen(params ImageMap[] inputs) : base("lut2",inputs) { AddMapOut(); }
 /// <summary>
-///  set component #0 expression (default "x")
+///  set component #0 expression (default &quot;x&quot;)
 /// </summary>
 public Lut2FilterGen c0(ExpressionValue c0) => this.SetOption("c0",(string)c0);
 /// <summary>
-///  set component #1 expression (default "x")
+///  set component #1 expression (default &quot;x&quot;)
 /// </summary>
 public Lut2FilterGen c1(ExpressionValue c1) => this.SetOption("c1",(string)c1);
 /// <summary>
-///  set component #2 expression (default "x")
+///  set component #2 expression (default &quot;x&quot;)
 /// </summary>
 public Lut2FilterGen c2(ExpressionValue c2) => this.SetOption("c2",(string)c2);
 /// <summary>
-///  set component #3 expression (default "x")
+///  set component #3 expression (default &quot;x&quot;)
 /// </summary>
 public Lut2FilterGen c3(ExpressionValue c3) => this.SetOption("c3",(string)c3);
 /// <summary>

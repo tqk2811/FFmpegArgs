@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... haldclutsrc       |->V       Provide an identity Hald CLUT.
+/// ... haldclutsrc       |-&gt;V       Provide an identity Hald CLUT.
 /// </summary>
 public class HaldclutsrcFilterGen : SourceToImageFilter
 {
@@ -11,7 +11,7 @@ internal HaldclutsrcFilterGen(IImageFilterGraph input) : base("haldclutsrc",inpu
 /// </summary>
 public HaldclutsrcFilterGen level(int level) => this.SetOptionRange("level", level,2,16);
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public HaldclutsrcFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>

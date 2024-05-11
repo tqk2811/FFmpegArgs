@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC lagfun            V->V       Slowly update darker pixels.
+/// TSC lagfun            V-&gt;V       Slowly update darker pixels.
 /// </summary>
 public class LagfunFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

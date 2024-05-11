@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. remap             VVV->V     Remap pixels.
+/// .S. remap             VVV-&gt;V     Remap pixels.
 /// </summary>
 public class RemapFilterGen : ImageToImageFilter,ISliceThreading
 {
@@ -11,7 +11,7 @@ internal RemapFilterGen(params ImageMap[] inputs) : base("remap",inputs) { AddMa
 /// </summary>
 public RemapFilterGen format(RemapFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set the color of the unmapped pixels (default "black")
+///  set the color of the unmapped pixels (default &quot;black&quot;)
 /// </summary>
 public RemapFilterGen fill(Color fill) => this.SetOption("fill",fill.ToHexStringRGBA());
 }

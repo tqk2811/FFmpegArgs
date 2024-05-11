@@ -389,13 +389,13 @@ g722,
 g723_1,
 
 /// <summary>
-/// raw big-endian G.726 ("left-justified")
+/// raw big-endian G.726 (&quot;left-justified&quot;)
 /// </summary>
 [Name("g726")]
 g726,
 
 /// <summary>
-/// raw little-endian G.726 ("right-justified")
+/// raw little-endian G.726 (&quot;right-justified&quot;)
 /// </summary>
 [Name("g726le")]
 g726le,

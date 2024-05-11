@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. entropy           V->V       Measure video frames entropy.
+/// T.. entropy           V-&gt;V       Measure video frames entropy.
 /// </summary>
 public class EntropyFilterGen : ImageToImageFilter,ITimelineSupport
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. adeclip           A->A       Remove clipping from input audio.
+/// TS. adeclip           A-&gt;A       Remove clipping from input audio.
 /// </summary>
 public class AdeclipFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading
 {

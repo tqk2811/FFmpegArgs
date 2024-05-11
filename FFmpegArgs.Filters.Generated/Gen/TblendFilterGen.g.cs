@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC tblend            V->V       Blend successive frames.
+/// TSC tblend            V-&gt;V       Blend successive frames.
 /// </summary>
 public class TblendFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

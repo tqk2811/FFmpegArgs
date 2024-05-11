@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... nlmeans_vulkan    V->V       Non-local means denoiser (Vulkan)
+/// ... nlmeans_vulkan    V-&gt;V       Non-local means denoiser (Vulkan)
 /// </summary>
 public class Nlmeans_vulkanFilterGen : ImageToImageFilter
 {

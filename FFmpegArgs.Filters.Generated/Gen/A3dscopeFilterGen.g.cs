@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C a3dscope          A->V       Convert input audio to 3d scope video output.
+/// ..C a3dscope          A-&gt;V       Convert input audio to 3d scope video output.
 /// </summary>
 public class A3dscopeFilterGen : AudioToImageFilter,ICommandSupport
 {
 internal A3dscopeFilterGen(AudioMap input) : base("a3dscope",input) { AddMapOut(); }
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public A3dscopeFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set video size (default "hd720")
+///  set video size (default &quot;hd720&quot;)
 /// </summary>
 public A3dscopeFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>

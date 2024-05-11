@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC adenorm           A->A       Remedy denormals by adding extremely low-level noise.
+/// TSC adenorm           A-&gt;A       Remedy denormals by adding extremely low-level noise.
 /// </summary>
 public class AdenormFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

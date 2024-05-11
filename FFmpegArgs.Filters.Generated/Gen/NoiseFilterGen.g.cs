@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. noise             V->V       Add noise.
+/// TS. noise             V-&gt;V       Add noise.
 /// </summary>
 public class NoiseFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

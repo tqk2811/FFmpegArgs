@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... ciescope          V->V       Video CIE scope.
+/// ... ciescope          V-&gt;V       Video CIE scope.
 /// </summary>
 public class CiescopeFilterGen : ImageToImageFilter
 {
@@ -62,19 +62,19 @@ public static CiescopeFilterGen CiescopeFilterGen(this ImageMap input0) => new C
 public enum CiescopeFilterGenSystem
 {
 /// <summary>
-/// ntsc            0            ..FV....... NTSC 1953 Y'I'O' (ITU-R BT.470 System M)
+/// ntsc            0            ..FV....... NTSC 1953 Y&#39;I&#39;O&#39; (ITU-R BT.470 System M)
 /// </summary>
 [Name("ntsc")] ntsc,
 /// <summary>
-/// 470m            0            ..FV....... NTSC 1953 Y'I'O' (ITU-R BT.470 System M)
+/// 470m            0            ..FV....... NTSC 1953 Y&#39;I&#39;O&#39; (ITU-R BT.470 System M)
 /// </summary>
 [Name("470m")] _470m,
 /// <summary>
-/// ebu             1            ..FV....... EBU Y'U'V' (PAL/SECAM) (ITU-R BT.470 System B, G)
+/// ebu             1            ..FV....... EBU Y&#39;U&#39;V&#39; (PAL/SECAM) (ITU-R BT.470 System B, G)
 /// </summary>
 [Name("ebu")] ebu,
 /// <summary>
-/// 470bg           1            ..FV....... EBU Y'U'V' (PAL/SECAM) (ITU-R BT.470 System B, G)
+/// 470bg           1            ..FV....... EBU Y&#39;U&#39;V&#39; (PAL/SECAM) (ITU-R BT.470 System B, G)
 /// </summary>
 [Name("470bg")] _470bg,
 /// <summary>
@@ -82,7 +82,7 @@ public enum CiescopeFilterGenSystem
 /// </summary>
 [Name("smpte")] smpte,
 /// <summary>
-/// 240m            3            ..FV....... SMPTE-240M Y'PbPr
+/// 240m            3            ..FV....... SMPTE-240M Y&#39;PbPr
 /// </summary>
 [Name("240m")] _240m,
 /// <summary>
@@ -98,11 +98,11 @@ public enum CiescopeFilterGenSystem
 /// </summary>
 [Name("cie1931")] cie1931,
 /// <summary>
-/// hdtv            7            ..FV....... ITU.BT-709 Y'CbCr
+/// hdtv            7            ..FV....... ITU.BT-709 Y&#39;CbCr
 /// </summary>
 [Name("hdtv")] hdtv,
 /// <summary>
-/// rec709          7            ..FV....... ITU.BT-709 Y'CbCr
+/// rec709          7            ..FV....... ITU.BT-709 Y&#39;CbCr
 /// </summary>
 [Name("rec709")] rec709,
 /// <summary>

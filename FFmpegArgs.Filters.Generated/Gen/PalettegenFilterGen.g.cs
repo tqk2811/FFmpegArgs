@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... palettegen        V->V       Find the optimal palette for a given stream.
+/// ... palettegen        V-&gt;V       Find the optimal palette for a given stream.
 /// </summary>
 public class PalettegenFilterGen : ImageToImageFilter
 {
@@ -15,7 +15,7 @@ public PalettegenFilterGen max_colors(int max_colors) => this.SetOptionRange("ma
 /// </summary>
 public PalettegenFilterGen reserve_transparent(bool reserve_transparent) => this.SetOption("reserve_transparent",reserve_transparent.ToFFmpegFlag());
 /// <summary>
-///  set a background color for transparency (default "lime")
+///  set a background color for transparency (default &quot;lime&quot;)
 /// </summary>
 public PalettegenFilterGen transparency_color(Color transparency_color) => this.SetOption("transparency_color",transparency_color.ToHexStringRGBA());
 /// <summary>

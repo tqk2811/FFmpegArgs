@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... dilation_opencl   V->V       Apply dilation effect
+/// ... dilation_opencl   V-&gt;V       Apply dilation effect
 /// </summary>
 public class Dilation_openclFilterGen : ImageToImageFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... ass               V->V       Render ASS subtitles onto input video using the libass library.
+/// ... ass               V-&gt;V       Render ASS subtitles onto input video using the libass library.
 /// </summary>
 public class AssFilterGen : ImageToImageFilter
 {

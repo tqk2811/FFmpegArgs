@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC colorlevels       V->V       Adjust the color levels.
+/// TSC colorlevels       V-&gt;V       Adjust the color levels.
 /// </summary>
 public class ColorlevelsFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC colortemperature  V->V       Adjust color temperature of video.
+/// TSC colortemperature  V-&gt;V       Adjust color temperature of video.
 /// </summary>
 public class ColortemperatureFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

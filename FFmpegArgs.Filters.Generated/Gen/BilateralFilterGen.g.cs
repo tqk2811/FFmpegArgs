@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC bilateral         V->V       Apply Bilateral filter.
+/// TSC bilateral         V-&gt;V       Apply Bilateral filter.
 /// </summary>
 public class BilateralFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

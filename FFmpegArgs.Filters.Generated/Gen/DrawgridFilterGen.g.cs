@@ -1,33 +1,33 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C drawgrid          V->V       Draw a colored grid on the input video.
+/// T.C drawgrid          V-&gt;V       Draw a colored grid on the input video.
 /// </summary>
 public class DrawgridFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal DrawgridFilterGen(ImageMap input) : base("drawgrid",input) { AddMapOut(); }
 /// <summary>
-///  set horizontal offset (default "0")
+///  set horizontal offset (default &quot;0&quot;)
 /// </summary>
 public DrawgridFilterGen x(string x) => this.SetOption("x",x);
 /// <summary>
-///  set vertical offset (default "0")
+///  set vertical offset (default &quot;0&quot;)
 /// </summary>
 public DrawgridFilterGen y(string y) => this.SetOption("y",y);
 /// <summary>
-///  set width of grid cell (default "0")
+///  set width of grid cell (default &quot;0&quot;)
 /// </summary>
 public DrawgridFilterGen width(string width) => this.SetOption("width",width);
 /// <summary>
-///  set height of grid cell (default "0")
+///  set height of grid cell (default &quot;0&quot;)
 /// </summary>
 public DrawgridFilterGen height(string height) => this.SetOption("height",height);
 /// <summary>
-///  set color of the grid (default "black")
+///  set color of the grid (default &quot;black&quot;)
 /// </summary>
 public DrawgridFilterGen color(string color) => this.SetOption("color",color);
 /// <summary>
-///  set grid line thickness (default "1")
+///  set grid line thickness (default &quot;1&quot;)
 /// </summary>
 public DrawgridFilterGen thickness(string thickness) => this.SetOption("thickness",thickness);
 /// <summary>

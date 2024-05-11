@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. pp7               V->V       Apply Postprocessing 7 filter.
+/// T.. pp7               V-&gt;V       Apply Postprocessing 7 filter.
 /// </summary>
 public class Pp7FilterGen : ImageToImageFilter,ITimelineSupport
 {

@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... convolution_opencl V->V       Apply convolution mask to input video
+/// ... convolution_opencl V-&gt;V       Apply convolution mask to input video
 /// </summary>
 public class Convolution_openclFilterGen : ImageToImageFilter
 {
 internal Convolution_openclFilterGen(ImageMap input) : base("convolution_opencl",input) { AddMapOut(); }
 /// <summary>
-///  set matrix for 2nd plane (default "0 0 0 0 1 0 0 0 0")
+///  set matrix for 2nd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
 /// </summary>
 public Convolution_openclFilterGen _0m(string _0m) => this.SetOption("0m",_0m);
 /// <summary>
-///  set matrix for 2nd plane (default "0 0 0 0 1 0 0 0 0")
+///  set matrix for 2nd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
 /// </summary>
 public Convolution_openclFilterGen _1m(string _1m) => this.SetOption("1m",_1m);
 /// <summary>
-///  set matrix for 3rd plane (default "0 0 0 0 1 0 0 0 0")
+///  set matrix for 3rd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
 /// </summary>
 public Convolution_openclFilterGen _2m(string _2m) => this.SetOption("2m",_2m);
 /// <summary>
-///  set matrix for 4th plane (default "0 0 0 0 1 0 0 0 0")
+///  set matrix for 4th plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
 /// </summary>
 public Convolution_openclFilterGen _3m(string _3m) => this.SetOption("3m",_3m);
 /// <summary>

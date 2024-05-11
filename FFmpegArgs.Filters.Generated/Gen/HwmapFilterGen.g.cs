@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... hwmap             V->V       Map hardware frames
+/// ... hwmap             V-&gt;V       Map hardware frames
 /// </summary>
 public class HwmapFilterGen : ImageToImageFilter
 {

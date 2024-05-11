@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... showwavespic      A->V       Convert input audio to a video output single picture.
+/// ... showwavespic      A-&gt;V       Convert input audio to a video output single picture.
 /// </summary>
 public class ShowwavespicFilterGen : AudioToImageFilter
 {
 internal ShowwavespicFilterGen(AudioMap input) : base("showwavespic",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "600x240")
+///  set video size (default &quot;600x240&quot;)
 /// </summary>
 public ShowwavespicFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
@@ -15,7 +15,7 @@ public ShowwavespicFilterGen size(Size size) => this.SetOption("size",$"{size.Wi
 /// </summary>
 public ShowwavespicFilterGen split_channels(bool split_channels) => this.SetOption("split_channels",split_channels.ToFFmpegFlag());
 /// <summary>
-///  set channels colors (default "red|green|blue|yellow|orange|lime|pink|magenta|brown")
+///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
 /// </summary>
 public ShowwavespicFilterGen colors(string colors) => this.SetOption("colors",colors);
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C drawtext          V->V       Draw text on top of video frames using libfreetype library.
+/// T.C drawtext          V-&gt;V       Draw text on top of video frames using libfreetype library.
 /// </summary>
 public class DrawtextFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
@@ -19,23 +19,23 @@ public DrawtextFilterGen text(string text) => this.SetOption("text",text);
 /// </summary>
 public DrawtextFilterGen textfile(string textfile) => this.SetOption("textfile",textfile);
 /// <summary>
-///  set foreground color (default "black")
+///  set foreground color (default &quot;black&quot;)
 /// </summary>
 public DrawtextFilterGen fontcolor(Color fontcolor) => this.SetOption("fontcolor",fontcolor.ToHexStringRGBA());
 /// <summary>
-///  set foreground color expression (default "")
+///  set foreground color expression (default &quot;&quot;)
 /// </summary>
 public DrawtextFilterGen fontcolor_expr(ExpressionValue fontcolor_expr) => this.SetOption("fontcolor_expr",(string)fontcolor_expr);
 /// <summary>
-///  set box color (default "white")
+///  set box color (default &quot;white&quot;)
 /// </summary>
 public DrawtextFilterGen boxcolor(Color boxcolor) => this.SetOption("boxcolor",boxcolor.ToHexStringRGBA());
 /// <summary>
-///  set border color (default "black")
+///  set border color (default &quot;black&quot;)
 /// </summary>
 public DrawtextFilterGen bordercolor(Color bordercolor) => this.SetOption("bordercolor",bordercolor.ToHexStringRGBA());
 /// <summary>
-///  set shadow color (default "black")
+///  set shadow color (default &quot;black&quot;)
 /// </summary>
 public DrawtextFilterGen shadowcolor(Color shadowcolor) => this.SetOption("shadowcolor",shadowcolor.ToHexStringRGBA());
 /// <summary>
@@ -43,7 +43,7 @@ public DrawtextFilterGen shadowcolor(Color shadowcolor) => this.SetOption("shado
 /// </summary>
 public DrawtextFilterGen box(bool box) => this.SetOption("box",box.ToFFmpegFlag());
 /// <summary>
-///  set box borders width (default "0")
+///  set box borders width (default &quot;0&quot;)
 /// </summary>
 public DrawtextFilterGen boxborderw(string boxborderw) => this.SetOption("boxborderw",boxborderw);
 /// <summary>
@@ -59,11 +59,11 @@ public DrawtextFilterGen fontsize(string fontsize) => this.SetOption("fontsize",
 /// </summary>
 public DrawtextFilterGen text_align(DrawtextFilterGenText_align text_align) => this.SetOption("text_align", text_align.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set x expression (default "0")
+///  set x expression (default &quot;0&quot;)
 /// </summary>
 public DrawtextFilterGen x(ExpressionValue x) => this.SetOption("x",(string)x);
 /// <summary>
-///  set y expression (default "0")
+///  set y expression (default &quot;0&quot;)
 /// </summary>
 public DrawtextFilterGen y(ExpressionValue y) => this.SetOption("y",(string)y);
 /// <summary>
@@ -95,7 +95,7 @@ public DrawtextFilterGen tabsize(int tabsize) => this.SetOptionRange("tabsize", 
 /// </summary>
 public DrawtextFilterGen basetime(long basetime) => this.SetOptionRange("basetime", basetime,I64_MIN,I64_MAX);
 /// <summary>
-///  Font name (default "Sans")
+///  Font name (default &quot;Sans&quot;)
 /// </summary>
 public DrawtextFilterGen font(string font) => this.SetOption("font",font);
 /// <summary>
@@ -131,7 +131,7 @@ public DrawtextFilterGen rate(Rational rate) => this.SetOption("rate",rate.Check
 /// </summary>
 public DrawtextFilterGen reload(int reload) => this.SetOptionRange("reload", reload,0,INT_MAX);
 /// <summary>
-///  apply alpha while rendering (default "1")
+///  apply alpha while rendering (default &quot;1&quot;)
 /// </summary>
 public DrawtextFilterGen alpha(string alpha) => this.SetOption("alpha",alpha);
 /// <summary>

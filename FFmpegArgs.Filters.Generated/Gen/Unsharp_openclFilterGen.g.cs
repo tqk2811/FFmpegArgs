@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... unsharp_opencl    V->V       Apply unsharp mask to input video
+/// ... unsharp_opencl    V-&gt;V       Apply unsharp mask to input video
 /// </summary>
 public class Unsharp_openclFilterGen : ImageToImageFilter
 {

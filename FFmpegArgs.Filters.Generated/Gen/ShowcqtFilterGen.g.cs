@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... showcqt           A->V       Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.
+/// ... showcqt           A-&gt;V       Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.
 /// </summary>
 public class ShowcqtFilterGen : AudioToImageFilter
 {
 internal ShowcqtFilterGen(AudioMap input) : base("showcqt",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "1920x1080")
+///  set video size (default &quot;1920x1080&quot;)
 /// </summary>
 public ShowcqtFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ShowcqtFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ShowcqtFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ShowcqtFilterGen r(Rational r) => this.SetOption("r",r);
 /// <summary>
@@ -39,19 +39,19 @@ public ShowcqtFilterGen sono_h(int sono_h) => this.SetOptionRange("sono_h", sono
 /// </summary>
 public ShowcqtFilterGen fullhd(bool fullhd) => this.SetOption("fullhd",fullhd.ToFFmpegFlag());
 /// <summary>
-///  set sonogram volume (default "16")
+///  set sonogram volume (default &quot;16&quot;)
 /// </summary>
 public ShowcqtFilterGen sono_v(string sono_v) => this.SetOption("sono_v",sono_v);
 /// <summary>
-///  set sonogram volume (default "16")
+///  set sonogram volume (default &quot;16&quot;)
 /// </summary>
 public ShowcqtFilterGen volume(string volume) => this.SetOption("volume",volume);
 /// <summary>
-///  set bargraph volume (default "sono_v")
+///  set bargraph volume (default &quot;sono_v&quot;)
 /// </summary>
 public ShowcqtFilterGen bar_v(string bar_v) => this.SetOption("bar_v",bar_v);
 /// <summary>
-///  set bargraph volume (default "sono_v")
+///  set bargraph volume (default &quot;sono_v&quot;)
 /// </summary>
 public ShowcqtFilterGen volume2(string volume2) => this.SetOption("volume2",volume2);
 /// <summary>
@@ -99,7 +99,7 @@ public ShowcqtFilterGen endfreq(double endfreq) => this.SetOptionRange("endfreq"
 /// </summary>
 public ShowcqtFilterGen coeffclamp(float coeffclamp) => this.SetOptionRange("coeffclamp", coeffclamp,0.1,10);
 /// <summary>
-///  set tlength (default "384*tc/(384+tc*f)")
+///  set tlength (default &quot;384*tc/(384+tc*f)&quot;)
 /// </summary>
 public ShowcqtFilterGen tlength(string tlength) => this.SetOption("tlength",tlength);
 /// <summary>
@@ -119,7 +119,7 @@ public ShowcqtFilterGen fontfile(string fontfile) => this.SetOption("fontfile",f
 /// </summary>
 public ShowcqtFilterGen font(string font) => this.SetOption("font",font);
 /// <summary>
-///  set font color (default "st(0, (midi(f)-59.5)/12);st(1, if(between(ld(0),0,1), 0.5-0.5*cos(2*PI*ld(0)), 0));r(1-ld(1)) + b(ld(1))")
+///  set font color (default &quot;st(0, (midi(f)-59.5)/12);st(1, if(between(ld(0),0,1), 0.5-0.5*cos(2*PI*ld(0)), 0));r(1-ld(1)) + b(ld(1))&quot;)
 /// </summary>
 public ShowcqtFilterGen fontcolor(string fontcolor) => this.SetOption("fontcolor",fontcolor);
 /// <summary>
@@ -139,7 +139,7 @@ public ShowcqtFilterGen text(bool text) => this.SetOption("text",text.ToFFmpegFl
 /// </summary>
 public ShowcqtFilterGen csp(ShowcqtFilterGenCsp csp) => this.SetOption("csp", csp.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set color scheme (default "1|0.5|0|0|0.5|1")
+///  set color scheme (default &quot;1|0.5|0|0|0.5|1&quot;)
 /// </summary>
 public ShowcqtFilterGen cscheme(string cscheme) => this.SetOption("cscheme",cscheme);
 }

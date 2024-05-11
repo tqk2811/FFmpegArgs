@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... ddagrab           |->V       Grab Windows Desktop images using Desktop Duplication API
+/// ... ddagrab           |-&gt;V       Grab Windows Desktop images using Desktop Duplication API
 /// </summary>
 public class DdagrabFilterGen : SourceToImageFilter
 {
@@ -15,7 +15,7 @@ public DdagrabFilterGen output_idx(int output_idx) => this.SetOptionRange("outpu
 /// </summary>
 public DdagrabFilterGen draw_mouse(bool draw_mouse) => this.SetOption("draw_mouse",draw_mouse.ToFFmpegFlag());
 /// <summary>
-///  set video frame rate (default "30")
+///  set video frame rate (default &quot;30&quot;)
 /// </summary>
 public DdagrabFilterGen framerate(Rational framerate) => this.SetOption("framerate",framerate);
 /// <summary>
@@ -35,7 +35,7 @@ public DdagrabFilterGen offset_y(int offset_y) => this.SetOptionRange("offset_y"
 /// </summary>
 public DdagrabFilterGen output_fmt(DdagrabFilterGenOutput_fmt output_fmt) => this.SetOption("output_fmt", output_fmt.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  don't error on fallback to default 8 Bit format (default false)
+///  don&#39;t error on fallback to default 8 Bit format (default false)
 /// </summary>
 public DdagrabFilterGen allow_fallback(bool allow_fallback) => this.SetOption("allow_fallback",allow_fallback.ToFFmpegFlag());
 /// <summary>

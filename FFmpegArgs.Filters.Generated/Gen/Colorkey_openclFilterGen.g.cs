@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... colorkey_opencl   V->V       Turns a certain color into transparency. Operates on RGB colors.
+/// ... colorkey_opencl   V-&gt;V       Turns a certain color into transparency. Operates on RGB colors.
 /// </summary>
 public class Colorkey_openclFilterGen : ImageToImageFilter
 {
 internal Colorkey_openclFilterGen(ImageMap input) : base("colorkey_opencl",input) { AddMapOut(); }
 /// <summary>
-///  set the colorkey key color (default "black")
+///  set the colorkey key color (default &quot;black&quot;)
 /// </summary>
 public Colorkey_openclFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>

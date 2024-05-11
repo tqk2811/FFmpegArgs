@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... aecho             A->A       Add echoing to the audio.
+/// ... aecho             A-&gt;A       Add echoing to the audio.
 /// </summary>
 public class AechoFilterGen : AudioToAudioFilter
 {
@@ -15,11 +15,11 @@ public AechoFilterGen in_gain(float in_gain) => this.SetOptionRange("in_gain", i
 /// </summary>
 public AechoFilterGen out_gain(float out_gain) => this.SetOptionRange("out_gain", out_gain,0,1);
 /// <summary>
-///  set list of signal delays (default "1000")
+///  set list of signal delays (default &quot;1000&quot;)
 /// </summary>
 public AechoFilterGen delays(string delays) => this.SetOption("delays",delays);
 /// <summary>
-///  set list of signal decays (default "0.5")
+///  set list of signal decays (default &quot;0.5&quot;)
 /// </summary>
 public AechoFilterGen decays(string decays) => this.SetOption("decays",decays);
 }

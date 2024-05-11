@@ -1,41 +1,41 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C eq                V->V       Adjust brightness, contrast, gamma, and saturation.
+/// T.C eq                V-&gt;V       Adjust brightness, contrast, gamma, and saturation.
 /// </summary>
 public class EqFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal EqFilterGen(ImageMap input) : base("eq",input) { AddMapOut(); }
 /// <summary>
-///  set the contrast adjustment, negative values give a negative image (default "1.0")
+///  set the contrast adjustment, negative values give a negative image (default &quot;1.0&quot;)
 /// </summary>
 public EqFilterGen contrast(string contrast) => this.SetOption("contrast",contrast);
 /// <summary>
-///  set the brightness adjustment (default "0.0")
+///  set the brightness adjustment (default &quot;0.0&quot;)
 /// </summary>
 public EqFilterGen brightness(string brightness) => this.SetOption("brightness",brightness);
 /// <summary>
-///  set the saturation adjustment (default "1.0")
+///  set the saturation adjustment (default &quot;1.0&quot;)
 /// </summary>
 public EqFilterGen saturation(string saturation) => this.SetOption("saturation",saturation);
 /// <summary>
-///  set the initial gamma value (default "1.0")
+///  set the initial gamma value (default &quot;1.0&quot;)
 /// </summary>
 public EqFilterGen gamma(string gamma) => this.SetOption("gamma",gamma);
 /// <summary>
-///  gamma value for red (default "1.0")
+///  gamma value for red (default &quot;1.0&quot;)
 /// </summary>
 public EqFilterGen gamma_r(string gamma_r) => this.SetOption("gamma_r",gamma_r);
 /// <summary>
-///  gamma value for green (default "1.0")
+///  gamma value for green (default &quot;1.0&quot;)
 /// </summary>
 public EqFilterGen gamma_g(string gamma_g) => this.SetOption("gamma_g",gamma_g);
 /// <summary>
-///  gamma value for blue (default "1.0")
+///  gamma value for blue (default &quot;1.0&quot;)
 /// </summary>
 public EqFilterGen gamma_b(string gamma_b) => this.SetOption("gamma_b",gamma_b);
 /// <summary>
-///  set the gamma weight which reduces the effect of gamma on bright areas (default "1.0")
+///  set the gamma weight which reduces the effect of gamma on bright areas (default &quot;1.0&quot;)
 /// </summary>
 public EqFilterGen gamma_weight(string gamma_weight) => this.SetOption("gamma_weight",gamma_weight);
 /// <summary>

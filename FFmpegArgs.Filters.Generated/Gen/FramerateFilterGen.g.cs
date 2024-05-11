@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. framerate         V->V       Upsamples or downsamples progressive source between specified frame rates.
+/// .S. framerate         V-&gt;V       Upsamples or downsamples progressive source between specified frame rates.
 /// </summary>
 public class FramerateFilterGen : ImageToImageFilter,ISliceThreading
 {
 internal FramerateFilterGen(ImageMap input) : base("framerate",input) { AddMapOut(); }
 /// <summary>
-///  required output frames per second rate (default "50")
+///  required output frames per second rate (default &quot;50&quot;)
 /// </summary>
 public FramerateFilterGen fps(Rational fps) => this.SetOption("fps",fps);
 /// <summary>

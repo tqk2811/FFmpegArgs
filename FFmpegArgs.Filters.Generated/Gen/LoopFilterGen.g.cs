@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... loop              V->V       Loop video frames.
+/// ... loop              V-&gt;V       Loop video frames.
 /// </summary>
 public class LoopFilterGen : ImageToImageFilter
 {

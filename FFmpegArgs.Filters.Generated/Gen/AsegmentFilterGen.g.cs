@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... asegment          A->N       Segment audio stream.
+/// ... asegment          A-&gt;N       Segment audio stream.
 /// </summary>
 public class AsegmentFilterGen : AudioToAudioFilter
 {

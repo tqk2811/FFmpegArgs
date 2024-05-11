@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. blackdetect       V->V       Detect video intervals that are (almost) black.
+/// .S. blackdetect       V-&gt;V       Detect video intervals that are (almost) black.
 /// </summary>
 public class BlackdetectFilterGen : ImageToImageFilter,ISliceThreading
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. metadata          V->V       Manipulate video frame metadata.
+/// T.. metadata          V-&gt;V       Manipulate video frame metadata.
 /// </summary>
 public class MetadataFilterGen : ImageToImageFilter,ITimelineSupport
 {

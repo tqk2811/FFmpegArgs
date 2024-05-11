@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC chromahold        V->V       Turns a certain color range into gray.
+/// TSC chromahold        V-&gt;V       Turns a certain color range into gray.
 /// </summary>
 public class ChromaholdFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
 internal ChromaholdFilterGen(ImageMap input) : base("chromahold",input) { AddMapOut(); }
 /// <summary>
-///  set the chromahold key color (default "black")
+///  set the chromahold key color (default &quot;black&quot;)
 /// </summary>
 public ChromaholdFilterGen color(Color color) => this.SetOption("color",color.ToHexStringRGBA());
 /// <summary>

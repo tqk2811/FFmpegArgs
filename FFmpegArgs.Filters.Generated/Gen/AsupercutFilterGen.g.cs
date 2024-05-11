@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC asupercut         A->A       Cut super frequencies.
+/// TSC asupercut         A-&gt;A       Cut super frequencies.
 /// </summary>
 public class AsupercutFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

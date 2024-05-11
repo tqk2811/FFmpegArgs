@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. framestep         V->V       Select one frame every N frames.
+/// T.. framestep         V-&gt;V       Select one frame every N frames.
 /// </summary>
 public class FramestepFilterGen : ImageToImageFilter,ITimelineSupport
 {

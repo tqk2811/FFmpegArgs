@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C pixscope          V->V       Pixel data analysis.
+/// T.C pixscope          V-&gt;V       Pixel data analysis.
 /// </summary>
 public class PixscopeFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

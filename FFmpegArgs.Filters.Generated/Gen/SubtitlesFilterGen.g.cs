@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... subtitles         V->V       Render text subtitles onto input video using the libass library.
+/// ... subtitles         V-&gt;V       Render text subtitles onto input video using the libass library.
 /// </summary>
 public class SubtitlesFilterGen : ImageToImageFilter
 {

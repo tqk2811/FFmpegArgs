@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... colorspectrum     |->V       Generate colors spectrum.
+/// ... colorspectrum     |-&gt;V       Generate colors spectrum.
 /// </summary>
 public class ColorspectrumFilterGen : SourceToImageFilter
 {
 internal ColorspectrumFilterGen(IImageFilterGraph input) : base("colorspectrum",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "320x240")
+///  set video size (default &quot;320x240&quot;)
 /// </summary>
 public ColorspectrumFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ColorspectrumFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>

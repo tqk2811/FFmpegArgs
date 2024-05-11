@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... vstack_vaapi      N->V       "VA-API" vstack
+/// ... vstack_vaapi      N-&gt;V       &quot;VA-API&quot; vstack
 /// </summary>
 public class Vstack_vaapiFilterGen : ImageToImageFilter
 {
@@ -24,7 +24,7 @@ public Vstack_vaapiFilterGen width(int width) => this.SetOptionRange("width", wi
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// "VA-API" vstack
+/// &quot;VA-API&quot; vstack
 /// </summary>
 public static Vstack_vaapiFilterGen Vstack_vaapiFilterGen(this IEnumerable<ImageMap> inputs) => new Vstack_vaapiFilterGen(inputs.ToArray());
 }

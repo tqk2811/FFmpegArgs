@@ -1,21 +1,21 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... setsar            V->V       Set the pixel sample aspect ratio.
+/// ... setsar            V-&gt;V       Set the pixel sample aspect ratio.
 /// </summary>
 public class SetsarFilterGen : ImageToImageFilter
 {
 internal SetsarFilterGen(ImageMap input) : base("setsar",input) { AddMapOut(); }
 /// <summary>
-///  set sample (pixel) aspect ratio (default "0")
+///  set sample (pixel) aspect ratio (default &quot;0&quot;)
 /// </summary>
 public SetsarFilterGen sar(string sar) => this.SetOption("sar",sar);
 /// <summary>
-///  set sample (pixel) aspect ratio (default "0")
+///  set sample (pixel) aspect ratio (default &quot;0&quot;)
 /// </summary>
 public SetsarFilterGen ratio(string ratio) => this.SetOption("ratio",ratio);
 /// <summary>
-///  set sample (pixel) aspect ratio (default "0")
+///  set sample (pixel) aspect ratio (default &quot;0&quot;)
 /// </summary>
 public SetsarFilterGen r(string r) => this.SetOption("r",r);
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... photosensitivity  V->V       Filter out photosensitive epilepsy seizure-inducing flashes.
+/// ... photosensitivity  V-&gt;V       Filter out photosensitive epilepsy seizure-inducing flashes.
 /// </summary>
 public class PhotosensitivityFilterGen : ImageToImageFilter
 {

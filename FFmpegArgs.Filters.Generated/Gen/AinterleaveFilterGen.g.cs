@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... ainterleave       N->A       Temporally interleave audio inputs.
+/// ... ainterleave       N-&gt;A       Temporally interleave audio inputs.
 /// </summary>
 public class AinterleaveFilterGen : AudioToAudioFilter
 {

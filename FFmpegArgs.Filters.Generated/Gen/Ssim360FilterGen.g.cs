@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... ssim360           VV->V      Calculate the SSIM between two 360 video streams.
+/// ... ssim360           VV-&gt;V      Calculate the SSIM between two 360 video streams.
 /// </summary>
 public class Ssim360FilterGen : ImageToImageFilter
 {
@@ -94,11 +94,11 @@ public enum Ssim360FilterGenRef_projection
 /// </summary>
 [Name("c2x3")] c2x3,
 /// <summary>
-/// barrel          2            ..FV....... barrel facebook's 360 format
+/// barrel          2            ..FV....... barrel facebook&#39;s 360 format
 /// </summary>
 [Name("barrel")] barrel,
 /// <summary>
-/// barrelsplit     3            ..FV....... barrel split facebook's 360 format
+/// barrelsplit     3            ..FV....... barrel split facebook&#39;s 360 format
 /// </summary>
 [Name("barrelsplit")] barrelsplit,
 }
@@ -125,11 +125,11 @@ public enum Ssim360FilterGenMain_projection
 /// </summary>
 [Name("c2x3")] c2x3,
 /// <summary>
-/// barrel          2            ..FV....... barrel facebook's 360 format
+/// barrel          2            ..FV....... barrel facebook&#39;s 360 format
 /// </summary>
 [Name("barrel")] barrel,
 /// <summary>
-/// barrelsplit     3            ..FV....... barrel split facebook's 360 format
+/// barrelsplit     3            ..FV....... barrel split facebook&#39;s 360 format
 /// </summary>
 [Name("barrelsplit")] barrelsplit,
 }

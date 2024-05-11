@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC arnndn            A->A       Reduce noise from speech using Recurrent Neural Networks.
+/// TSC arnndn            A-&gt;A       Reduce noise from speech using Recurrent Neural Networks.
 /// </summary>
 public class ArnndnFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

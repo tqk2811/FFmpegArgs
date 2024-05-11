@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C compensationdelay A->A       Audio Compensation Delay Line.
+/// T.C compensationdelay A-&gt;A       Audio Compensation Delay Line.
 /// </summary>
 public class CompensationdelayFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

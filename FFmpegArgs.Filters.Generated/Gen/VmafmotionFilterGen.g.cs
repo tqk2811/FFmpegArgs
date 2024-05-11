@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... vmafmotion        V->V       Calculate the VMAF Motion score.
+/// ... vmafmotion        V-&gt;V       Calculate the VMAF Motion score.
 /// </summary>
 public class VmafmotionFilterGen : ImageToImageFilter
 {

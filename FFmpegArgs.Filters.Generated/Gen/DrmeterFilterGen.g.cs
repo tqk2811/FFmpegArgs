@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... drmeter           A->A       Measure audio dynamic range.
+/// ... drmeter           A-&gt;A       Measure audio dynamic range.
 /// </summary>
 public class DrmeterFilterGen : AudioToAudioFilter
 {

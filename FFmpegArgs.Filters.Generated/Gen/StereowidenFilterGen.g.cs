@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C stereowiden       A->A       Apply stereo widening effect.
+/// T.C stereowiden       A-&gt;A       Apply stereo widening effect.
 /// </summary>
 public class StereowidenFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

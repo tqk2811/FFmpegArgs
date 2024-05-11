@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... elbg              V->V       Apply posterize effect, using the ELBG algorithm.
+/// ... elbg              V-&gt;V       Apply posterize effect, using the ELBG algorithm.
 /// </summary>
 public class ElbgFilterGen : ImageToImageFilter
 {

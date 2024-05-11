@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. hflip             V->V       Horizontally flip the input video.
+/// TS. hflip             V-&gt;V       Horizontally flip the input video.
 /// </summary>
 public class HflipFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

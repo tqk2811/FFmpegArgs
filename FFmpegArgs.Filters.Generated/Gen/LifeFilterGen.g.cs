@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... life              |->V       Create life.
+/// ... life              |-&gt;V       Create life.
 /// </summary>
 public class LifeFilterGen : SourceToImageFilter
 {
@@ -15,11 +15,11 @@ public LifeFilterGen filename(string filename) => this.SetOption("filename",file
 /// </summary>
 public LifeFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public LifeFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set rule (default "B3/S23")
+///  set rule (default &quot;B3/S23&quot;)
 /// </summary>
 public LifeFilterGen rule(string rule) => this.SetOption("rule",rule);
 /// <summary>
@@ -47,15 +47,15 @@ public LifeFilterGen stitch(bool stitch) => this.SetOption("stitch",stitch.ToFFm
 /// </summary>
 public LifeFilterGen mold(int mold) => this.SetOptionRange("mold", mold,0,255);
 /// <summary>
-///  set life color (default "white")
+///  set life color (default &quot;white&quot;)
 /// </summary>
 public LifeFilterGen life_color(Color life_color) => this.SetOption("life_color",life_color.ToHexStringRGBA());
 /// <summary>
-///  set death color (default "black")
+///  set death color (default &quot;black&quot;)
 /// </summary>
 public LifeFilterGen death_color(Color death_color) => this.SetOption("death_color",death_color.ToHexStringRGBA());
 /// <summary>
-///  set mold color (default "black")
+///  set mold color (default &quot;black&quot;)
 /// </summary>
 public LifeFilterGen mold_color(Color mold_color) => this.SetOption("mold_color",mold_color.ToHexStringRGBA());
 }

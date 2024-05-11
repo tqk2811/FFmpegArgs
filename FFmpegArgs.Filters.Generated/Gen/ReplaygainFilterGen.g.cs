@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... replaygain        A->A       ReplayGain scanner.
+/// ... replaygain        A-&gt;A       ReplayGain scanner.
 /// </summary>
 public class ReplaygainFilterGen : AudioToAudioFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... mestimate         V->V       Generate motion vectors.
+/// ... mestimate         V-&gt;V       Generate motion vectors.
 /// </summary>
 public class MestimateFilterGen : ImageToImageFilter
 {

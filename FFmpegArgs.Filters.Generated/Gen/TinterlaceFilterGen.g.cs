@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... tinterlace        V->V       Perform temporal field interlacing.
+/// ... tinterlace        V-&gt;V       Perform temporal field interlacing.
 /// </summary>
 public class TinterlaceFilterGen : ImageToImageFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... fieldmatch        N->V       Field matching for inverse telecine.
+/// ... fieldmatch        N-&gt;V       Field matching for inverse telecine.
 /// </summary>
 public class FieldmatchFilterGen : ImageToImageFilter
 {
@@ -132,7 +132,7 @@ public enum FieldmatchFilterGenMode
 public enum FieldmatchFilterGenField
 {
 /// <summary>
-/// auto            -1           ..FV....... automatic (same value as 'order')
+/// auto            -1           ..FV....... automatic (same value as &#39;order&#39;)
 /// </summary>
 [Name("auto")] auto,
 /// <summary>

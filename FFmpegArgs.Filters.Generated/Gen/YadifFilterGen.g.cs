@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. yadif             V->V       Deinterlace the input image.
+/// TS. yadif             V-&gt;V       Deinterlace the input image.
 /// </summary>
 public class YadifFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {

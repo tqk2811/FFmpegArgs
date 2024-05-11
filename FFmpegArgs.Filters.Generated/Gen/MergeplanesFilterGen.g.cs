@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... mergeplanes       N->V       Merge planes.
+/// ... mergeplanes       N-&gt;V       Merge planes.
 /// </summary>
 public class MergeplanesFilterGen : ImageToImageFilter
 {

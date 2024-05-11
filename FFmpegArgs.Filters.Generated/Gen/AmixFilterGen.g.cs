@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ..C amix              N->A       Audio mixing.
+/// ..C amix              N-&gt;A       Audio mixing.
 /// </summary>
 public class AmixFilterGen : AudioToAudioFilter,ICommandSupport
 {
@@ -19,7 +19,7 @@ public AmixFilterGen duration(AmixFilterGenDuration duration) => this.SetOption(
 /// </summary>
 public AmixFilterGen dropout_transition(float dropout_transition) => this.SetOptionRange("dropout_transition", dropout_transition,0,INT_MAX);
 /// <summary>
-///  Set weight for each input. (default "1 1")
+///  Set weight for each input. (default &quot;1 1&quot;)
 /// </summary>
 public AmixFilterGen weights(string weights) => this.SetOption("weights",weights);
 /// <summary>

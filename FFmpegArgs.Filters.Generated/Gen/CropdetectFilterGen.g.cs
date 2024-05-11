@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C cropdetect        V->V       Auto-detect crop size.
+/// T.C cropdetect        V-&gt;V       Auto-detect crop size.
 /// </summary>
 public class CropdetectFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

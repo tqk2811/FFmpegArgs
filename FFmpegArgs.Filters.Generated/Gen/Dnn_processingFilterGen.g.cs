@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... dnn_processing    V->V       Apply DNN processing filter to the input.
+/// ... dnn_processing    V-&gt;V       Apply DNN processing filter to the input.
 /// </summary>
 public class Dnn_processingFilterGen : ImageToImageFilter
 {
@@ -32,7 +32,7 @@ public Dnn_processingFilterGen backend_configs(string backend_configs) => this.S
 [Obsolete]
 public Dnn_processingFilterGen options(string options) => this.SetOption("options",options);
 /// <summary>
-///  use DNN async inference (ignored, use backend_configs='async=1') (default true)
+///  use DNN async inference (ignored, use backend_configs=&#39;async=1&#39;) (default true)
 /// </summary>
 public Dnn_processingFilterGen _async(bool _async) => this.SetOption("async",_async.ToFFmpegFlag());
 }

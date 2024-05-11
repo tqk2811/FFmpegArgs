@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C deblock           V->V       Deblock video.
+/// T.C deblock           V-&gt;V       Deblock video.
 /// </summary>
 public class DeblockFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

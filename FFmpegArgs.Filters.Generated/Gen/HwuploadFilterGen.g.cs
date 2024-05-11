@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... hwupload          V->V       Upload a normal frame to a hardware frame
+/// ... hwupload          V-&gt;V       Upload a normal frame to a hardware frame
 /// </summary>
 public class HwuploadFilterGen : ImageToImageFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC dynaudnorm        A->A       Dynamic Audio Normalizer.
+/// TSC dynaudnorm        A-&gt;A       Dynamic Audio Normalizer.
 /// </summary>
 public class DynaudnormFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
@@ -63,11 +63,11 @@ public DynaudnormFilterGen s(double s) => this.SetOptionRange("s", s,0,30);
 /// </summary>
 public DynaudnormFilterGen threshold(double threshold) => this.SetOptionRange("threshold", threshold,0,1);
 /// <summary>
-///  set channels to filter (default "all")
+///  set channels to filter (default &quot;all&quot;)
 /// </summary>
 public DynaudnormFilterGen channels(string channels) => this.SetOption("channels",channels);
 /// <summary>
-///  set channels to filter (default "all")
+///  set channels to filter (default &quot;all&quot;)
 /// </summary>
 public DynaudnormFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>

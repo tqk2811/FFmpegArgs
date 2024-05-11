@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C normalize         V->V       Normalize RGB video.
+/// T.C normalize         V-&gt;V       Normalize RGB video.
 /// </summary>
 public class NormalizeFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {
 internal NormalizeFilterGen(ImageMap input) : base("normalize",input) { AddMapOut(); }
 /// <summary>
-///  output color to which darkest input color is mapped (default "black")
+///  output color to which darkest input color is mapped (default &quot;black&quot;)
 /// </summary>
 public NormalizeFilterGen blackpt(Color blackpt) => this.SetOption("blackpt",blackpt.ToHexStringRGBA());
 /// <summary>
-///  output color to which brightest input color is mapped (default "white")
+///  output color to which brightest input color is mapped (default &quot;white&quot;)
 /// </summary>
 public NormalizeFilterGen whitept(Color whitept) => this.SetOption("whitept",whitept.ToHexStringRGBA());
 /// <summary>

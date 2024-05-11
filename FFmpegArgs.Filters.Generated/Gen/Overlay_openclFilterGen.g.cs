@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... overlay_opencl    VV->V      Overlay one video on top of another
+/// ... overlay_opencl    VV-&gt;V      Overlay one video on top of another
 /// </summary>
 public class Overlay_openclFilterGen : ImageToImageFilter
 {

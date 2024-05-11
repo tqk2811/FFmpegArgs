@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. qp                V->V       Change video quantization parameters.
+/// T.. qp                V-&gt;V       Change video quantization parameters.
 /// </summary>
 public class QpFilterGen : ImageToImageFilter,ITimelineSupport
 {

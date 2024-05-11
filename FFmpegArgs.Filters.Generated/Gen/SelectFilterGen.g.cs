@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... select            V->N       Select video frames to pass in output.
+/// ... select            V-&gt;N       Select video frames to pass in output.
 /// </summary>
 public class SelectFilterGen : ImageToImageFilter
 {
 internal SelectFilterGen(int outputCount, ImageMap input) : base("select",input) { AddMultiMapOut(outputCount); }
 /// <summary>
-///  set an expression to use for selecting frames (default "1")
+///  set an expression to use for selecting frames (default &quot;1&quot;)
 /// </summary>
 public SelectFilterGen expr(ExpressionValue expr) => this.SetOption("expr",(string)expr);
 /// <summary>

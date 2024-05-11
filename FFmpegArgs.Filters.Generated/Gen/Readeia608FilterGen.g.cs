@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC readeia608        V->V       Read EIA-608 Closed Caption codes from input video and write them to frame metadata.
+/// TSC readeia608        V-&gt;V       Read EIA-608 Closed Caption codes from input video and write them to frame metadata.
 /// </summary>
 public class Readeia608FilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

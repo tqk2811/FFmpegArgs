@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC fftdnoiz          V->V       Denoise frames using 3D FFT.
+/// TSC fftdnoiz          V-&gt;V       Denoise frames using 3D FFT.
 /// </summary>
 public class FftdnoizFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... program_opencl    N->V       Filter video using an OpenCL program
+/// ... program_opencl    N-&gt;V       Filter video using an OpenCL program
 /// </summary>
 public class Program_openclFilterGen : ImageToImageFilter
 {

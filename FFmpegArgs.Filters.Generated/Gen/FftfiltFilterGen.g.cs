@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. fftfilt           V->V       Apply arbitrary expressions to pixels in frequency domain.
+/// TS. fftfilt           V-&gt;V       Apply arbitrary expressions to pixels in frequency domain.
 /// </summary>
 public class FftfiltFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
@@ -19,7 +19,7 @@ public FftfiltFilterGen dc_U(int dc_U) => this.SetOptionRange("dc_U", dc_U,0,100
 /// </summary>
 public FftfiltFilterGen dc_V(int dc_V) => this.SetOptionRange("dc_V", dc_V,0,1000);
 /// <summary>
-///  set luminance expression in Y plane (default "1")
+///  set luminance expression in Y plane (default &quot;1&quot;)
 /// </summary>
 public FftfiltFilterGen weight_Y(ExpressionValue weight_Y) => this.SetOption("weight_Y",(string)weight_Y);
 /// <summary>

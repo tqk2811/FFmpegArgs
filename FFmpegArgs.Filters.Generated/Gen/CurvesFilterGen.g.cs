@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC curves            V->V       Adjust components curves.
+/// TSC curves            V-&gt;V       Adjust components curves.
 /// </summary>
 public class CurvesFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

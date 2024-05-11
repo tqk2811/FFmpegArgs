@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC estdif            V->V       Apply Edge Slope Tracing deinterlace.
+/// TSC estdif            V-&gt;V       Apply Edge Slope Tracing deinterlace.
 /// </summary>
 public class EstdifFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

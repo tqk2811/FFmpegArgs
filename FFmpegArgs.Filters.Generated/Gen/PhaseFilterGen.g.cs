@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C phase             V->V       Phase shift fields.
+/// T.C phase             V-&gt;V       Phase shift fields.
 /// </summary>
 public class PhaseFilterGen : ImageToImageFilter,ITimelineSupport,ICommandSupport
 {

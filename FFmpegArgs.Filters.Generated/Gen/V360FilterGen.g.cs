@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .SC v360              V->V       Convert 360 projection of video.
+/// .SC v360              V-&gt;V       Convert 360 projection of video.
 /// </summary>
 public class V360FilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
 {
@@ -35,19 +35,19 @@ public V360FilterGen in_stereo(V360FilterGenIn_stereo in_stereo) => this.SetOpti
 /// </summary>
 public V360FilterGen out_stereo(V360FilterGenOut_stereo out_stereo) => this.SetOption("out_stereo", out_stereo.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  input cubemap face order (default "rludfb")
+///  input cubemap face order (default &quot;rludfb&quot;)
 /// </summary>
 public V360FilterGen in_forder(string in_forder) => this.SetOption("in_forder",in_forder);
 /// <summary>
-///  output cubemap face order (default "rludfb")
+///  output cubemap face order (default &quot;rludfb&quot;)
 /// </summary>
 public V360FilterGen out_forder(string out_forder) => this.SetOption("out_forder",out_forder);
 /// <summary>
-///  input cubemap face rotation (default "000000")
+///  input cubemap face rotation (default &quot;000000&quot;)
 /// </summary>
 public V360FilterGen in_frot(string in_frot) => this.SetOption("in_frot",in_frot);
 /// <summary>
-///  output cubemap face rotation (default "000000")
+///  output cubemap face rotation (default &quot;000000&quot;)
 /// </summary>
 public V360FilterGen out_frot(string out_frot) => this.SetOption("out_frot",out_frot);
 /// <summary>
@@ -79,7 +79,7 @@ public V360FilterGen pitch(float pitch) => this.SetOptionRange("pitch", pitch,-1
 /// </summary>
 public V360FilterGen roll(float roll) => this.SetOptionRange("roll", roll,-180,180);
 /// <summary>
-///  rotation order (default "ypr")
+///  rotation order (default &quot;ypr&quot;)
 /// </summary>
 public V360FilterGen rorder(string rorder) => this.SetOption("rorder",rorder);
 /// <summary>
@@ -202,11 +202,11 @@ public enum V360FilterGenInput
 /// </summary>
 [Name("gnomonic")] gnomonic,
 /// <summary>
-/// barrel          6            ..FV....... barrel facebook's 360 format
+/// barrel          6            ..FV....... barrel facebook&#39;s 360 format
 /// </summary>
 [Name("barrel")] barrel,
 /// <summary>
-/// fb              6            ..FV....... barrel facebook's 360 format
+/// fb              6            ..FV....... barrel facebook&#39;s 360 format
 /// </summary>
 [Name("fb")] fb,
 /// <summary>
@@ -250,7 +250,7 @@ public enum V360FilterGenInput
 /// </summary>
 [Name("tetrahedron")] tetrahedron,
 /// <summary>
-/// barrelsplit     18           ..FV....... barrel split facebook's 360 format
+/// barrelsplit     18           ..FV....... barrel split facebook&#39;s 360 format
 /// </summary>
 [Name("barrelsplit")] barrelsplit,
 /// <summary>
@@ -325,11 +325,11 @@ public enum V360FilterGenOutput
 /// </summary>
 [Name("gnomonic")] gnomonic,
 /// <summary>
-/// barrel          6            ..FV....... barrel facebook's 360 format
+/// barrel          6            ..FV....... barrel facebook&#39;s 360 format
 /// </summary>
 [Name("barrel")] barrel,
 /// <summary>
-/// fb              6            ..FV....... barrel facebook's 360 format
+/// fb              6            ..FV....... barrel facebook&#39;s 360 format
 /// </summary>
 [Name("fb")] fb,
 /// <summary>
@@ -377,7 +377,7 @@ public enum V360FilterGenOutput
 /// </summary>
 [Name("tetrahedron")] tetrahedron,
 /// <summary>
-/// barrelsplit     18           ..FV....... barrel split facebook's 360 format
+/// barrelsplit     18           ..FV....... barrel split facebook&#39;s 360 format
 /// </summary>
 [Name("barrelsplit")] barrelsplit,
 /// <summary>

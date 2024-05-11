@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... siti              V->V       Calculate spatial information (SI) and temporal information (TI).
+/// ... siti              V-&gt;V       Calculate spatial information (SI) and temporal information (TI).
 /// </summary>
 public class SitiFilterGen : ImageToImageFilter
 {

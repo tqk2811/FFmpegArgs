@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. showspectrum      A->V       Convert input audio to a spectrum video output.
+/// .S. showspectrum      A-&gt;V       Convert input audio to a spectrum video output.
 /// </summary>
 public class ShowspectrumFilterGen : AudioToImageFilter,ISliceThreading
 {
 internal ShowspectrumFilterGen(AudioMap input) : base("showspectrum",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "640x512")
+///  set video size (default &quot;640x512&quot;)
 /// </summary>
 public ShowspectrumFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
@@ -67,7 +67,7 @@ public ShowspectrumFilterGen start(int start) => this.SetOptionRange("start", st
 /// </summary>
 public ShowspectrumFilterGen stop(int stop) => this.SetOptionRange("stop", stop,0,INT_MAX);
 /// <summary>
-///  set video rate (default "auto")
+///  set video rate (default &quot;auto&quot;)
 /// </summary>
 public ShowspectrumFilterGen fps(string fps) => this.SetOption("fps",fps);
 /// <summary>

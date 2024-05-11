@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.C extrastereo       A->A       Increase difference between stereo audio channels.
+/// T.C extrastereo       A-&gt;A       Increase difference between stereo audio channels.
 /// </summary>
 public class ExtrastereoFilterGen : AudioToAudioFilter,ITimelineSupport,ICommandSupport
 {

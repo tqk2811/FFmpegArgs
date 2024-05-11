@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TS. uspp              V->V       Apply Ultra Simple / Slow Post-processing filter.
+/// TS. uspp              V-&gt;V       Apply Ultra Simple / Slow Post-processing filter.
 /// </summary>
 public class UsppFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
@@ -15,11 +15,11 @@ public UsppFilterGen quality(int quality) => this.SetOptionRange("quality", qual
 /// </summary>
 public UsppFilterGen qp(int qp) => this.SetOptionRange("qp", qp,0,63);
 /// <summary>
-///  use B-frames' QP (default false)
+///  use B-frames&#39; QP (default false)
 /// </summary>
 public UsppFilterGen use_bframe_qp(bool use_bframe_qp) => this.SetOption("use_bframe_qp",use_bframe_qp.ToFFmpegFlag());
 /// <summary>
-///  Codec name (default "snow")
+///  Codec name (default &quot;snow&quot;)
 /// </summary>
 public UsppFilterGen codec(string codec) => this.SetOption("codec",codec);
 }

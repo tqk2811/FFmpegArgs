@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... kerndeint         V->V       Apply kernel deinterlacing to the input.
+/// ... kerndeint         V-&gt;V       Apply kernel deinterlacing to the input.
 /// </summary>
 public class KerndeintFilterGen : ImageToImageFilter
 {

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC haldclut          VV->V      Adjust colors using a Hald CLUT.
+/// TSC haldclut          VV-&gt;V      Adjust colors using a Hald CLUT.
 /// </summary>
 public class HaldclutFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {

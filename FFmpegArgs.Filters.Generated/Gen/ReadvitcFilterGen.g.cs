@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... readvitc          V->V       Read vertical interval timecode and write it to frame metadata.
+/// ... readvitc          V-&gt;V       Read vertical interval timecode and write it to frame metadata.
 /// </summary>
 public class ReadvitcFilterGen : ImageToImageFilter
 {

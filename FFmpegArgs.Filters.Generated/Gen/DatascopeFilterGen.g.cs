@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .SC datascope         V->V       Video data analysis.
+/// .SC datascope         V-&gt;V       Video data analysis.
 /// </summary>
 public class DatascopeFilterGen : ImageToImageFilter,ISliceThreading,ICommandSupport
 {
 internal DatascopeFilterGen(ImageMap input) : base("datascope",input) { AddMapOut(); }
 /// <summary>
-///  set output size (default "hd720")
+///  set output size (default &quot;hd720&quot;)
 /// </summary>
 public DatascopeFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>

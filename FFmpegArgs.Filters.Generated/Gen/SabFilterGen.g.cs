@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. sab               V->V       Apply shape adaptive blur.
+/// T.. sab               V-&gt;V       Apply shape adaptive blur.
 /// </summary>
 public class SabFilterGen : ImageToImageFilter,ITimelineSupport
 {

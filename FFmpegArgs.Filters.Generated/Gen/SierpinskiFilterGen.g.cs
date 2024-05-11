@@ -1,17 +1,17 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. sierpinski        |->V       Render a Sierpinski fractal.
+/// .S. sierpinski        |-&gt;V       Render a Sierpinski fractal.
 /// </summary>
 public class SierpinskiFilterGen : SourceToImageFilter,ISliceThreading
 {
 internal SierpinskiFilterGen(IImageFilterGraph input) : base("sierpinski",input) { AddMapOut(); }
 /// <summary>
-///  set frame size (default "640x480")
+///  set frame size (default &quot;640x480&quot;)
 /// </summary>
 public SierpinskiFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
-///  set frame rate (default "25")
+///  set frame rate (default &quot;25&quot;)
 /// </summary>
 public SierpinskiFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 /// <summary>

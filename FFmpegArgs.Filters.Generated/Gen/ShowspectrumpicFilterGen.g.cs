@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. showspectrumpic   A->V       Convert input audio to a spectrum video output single picture.
+/// .S. showspectrumpic   A-&gt;V       Convert input audio to a spectrum video output single picture.
 /// </summary>
 public class ShowspectrumpicFilterGen : AudioToImageFilter,ISliceThreading
 {
 internal ShowspectrumpicFilterGen(AudioMap input) : base("showspectrumpic",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "4096x2048")
+///  set video size (default &quot;4096x2048&quot;)
 /// </summary>
 public ShowspectrumpicFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>

@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... blackframe        V->V       Detect frames that are (almost) black.
+/// ... blackframe        V-&gt;V       Detect frames that are (almost) black.
 /// </summary>
 public class BlackframeFilterGen : ImageToImageFilter
 {

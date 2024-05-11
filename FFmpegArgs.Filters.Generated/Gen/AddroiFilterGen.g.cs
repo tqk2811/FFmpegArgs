@@ -1,25 +1,25 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// ... addroi            V->V       Add region of interest to frame.
+/// ... addroi            V-&gt;V       Add region of interest to frame.
 /// </summary>
 public class AddroiFilterGen : ImageToImageFilter
 {
 internal AddroiFilterGen(ImageMap input) : base("addroi",input) { AddMapOut(); }
 /// <summary>
-///  Region distance from left edge of frame. (default "0")
+///  Region distance from left edge of frame. (default &quot;0&quot;)
 /// </summary>
 public AddroiFilterGen x(string x) => this.SetOption("x",x);
 /// <summary>
-///  Region distance from top edge of frame. (default "0")
+///  Region distance from top edge of frame. (default &quot;0&quot;)
 /// </summary>
 public AddroiFilterGen y(string y) => this.SetOption("y",y);
 /// <summary>
-///  Region width. (default "0")
+///  Region width. (default &quot;0&quot;)
 /// </summary>
 public AddroiFilterGen w(string w) => this.SetOption("w",w);
 /// <summary>
-///  Region height. (default "0")
+///  Region height. (default &quot;0&quot;)
 /// </summary>
 public AddroiFilterGen h(string h) => this.SetOption("h",h);
 /// <summary>

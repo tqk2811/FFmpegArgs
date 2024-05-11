@@ -1,13 +1,13 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. showspatial       A->V       Convert input audio to a spatial video output.
+/// .S. showspatial       A-&gt;V       Convert input audio to a spatial video output.
 /// </summary>
 public class ShowspatialFilterGen : AudioToImageFilter,ISliceThreading
 {
 internal ShowspatialFilterGen(AudioMap input) : base("showspatial",input) { AddMapOut(); }
 /// <summary>
-///  set video size (default "512x512")
+///  set video size (default &quot;512x512&quot;)
 /// </summary>
 public ShowspatialFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x{size.Height}");
 /// <summary>
@@ -19,7 +19,7 @@ public ShowspatialFilterGen win_size(int win_size) => this.SetOptionRange("win_s
 /// </summary>
 public ShowspatialFilterGen win_func(ShowspatialFilterGenWin_func win_func) => this.SetOption("win_func", win_func.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set video rate (default "25")
+///  set video rate (default &quot;25&quot;)
 /// </summary>
 public ShowspatialFilterGen rate(Rational rate) => this.SetOption("rate",rate);
 }
