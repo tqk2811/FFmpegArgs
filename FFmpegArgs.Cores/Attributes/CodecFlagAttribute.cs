@@ -15,7 +15,7 @@
     /// <summary>
     /// 
     /// </summary>
-    [AttributeUsage(AttributeTargets.Enum)]
+    [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Field)]
     public class CodecFlagAttribute : Attribute
     {
         /// <summary>
