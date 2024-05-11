@@ -46,8 +46,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{562D25
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Extensions", "FFmpegArgs.Extensions\FFmpegArgs.Extensions.csproj", "{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Codecs", "FFmpegArgs.Codecs\FFmpegArgs.Codecs.csproj", "{22177082-3A5C-4D8F-960F-F7CE673296E4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Generated", "FFmpegArgs.Filters.Generated\FFmpegArgs.Filters.Generated.csproj", "{6E46958E-A12A-4BA3-977B-935D415D364D}"
 EndProject
 Global
@@ -100,10 +98,6 @@ Global
 		{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22177082-3A5C-4D8F-960F-F7CE673296E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22177082-3A5C-4D8F-960F-F7CE673296E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22177082-3A5C-4D8F-960F-F7CE673296E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22177082-3A5C-4D8F-960F-F7CE673296E4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6E46958E-A12A-4BA3-977B-935D415D364D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E46958E-A12A-4BA3-977B-935D415D364D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E46958E-A12A-4BA3-977B-935D415D364D}.Release|Any CPU.ActiveCfg = Release|Any CPU
