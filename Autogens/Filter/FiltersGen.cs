@@ -58,7 +58,7 @@ namespace Autogens.Filter
                         Console.WriteLine($"{"Filters.Gen skip",-40}: {filter}");
                         continue;
                     }
-                    FilterTypeName typeName = GetFilterInheritance(type);
+                    FilterTypeName typeName = GetFilterTypeName(type);
                     if (typeName == null)
                     {
                         Console.WriteLine($"{"Filters.Gen can't get Inheritance",-40}: {filter}");
@@ -122,13 +122,14 @@ namespace Autogens.Filter
             }
         }
 
-        static readonly Regex regex_parseTypeConvert = new Regex("(\\||N|V+|A+)->(N|V+|A+)");
-        static FilterTypeName GetFilterInheritance(string type)
+        static readonly Regex regex_parseTypeConvert = new Regex("(\\||N|V+|A+)->(\\||N|V+|A+)");
+        static FilterTypeName GetFilterTypeName(string type)
         {
             Match match = regex_parseTypeConvert.Match(type);
             if (match.Success &&
                 !type.Contains("N->N", StringComparison.OrdinalIgnoreCase) && //ignore N->N
-                !type.Contains("|->N", StringComparison.OrdinalIgnoreCase) //ignore |->N
+                !type.Contains("|->N", StringComparison.OrdinalIgnoreCase) && //ignore |->N
+                !type.Contains("->|", StringComparison.OrdinalIgnoreCase)//ignore ->|
                 )
             {
                 string from = match.Groups[1].Value;
