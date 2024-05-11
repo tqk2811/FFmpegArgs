@@ -55,7 +55,7 @@ $result = NugetPack "FFmpegArgs" `
                     "FFmpegArgs.Cores" `
                     "FFmpegArgs.Filters.Common" `
                     "FFmpegArgs.Filters" `
-                    "FFmpegArgs.Filters.Autogen" `
+                    "FFmpegArgs.Filters.Generated" `
                     "FFmpegArgs.Inputs" `
                     "FFmpegArgs.Outputs" `
                     "FFmpegArgs.Executes"
@@ -77,7 +77,7 @@ if($result)
                     "FFmpegArgs.Cores" `
                     "FFmpegArgs.Filters.Common" `
                     "FFmpegArgs.Filters" `
-                    "FFmpegArgs.Filters.Autogen" `
+                    "FFmpegArgs.Filters.Generated" `
                     "FFmpegArgs.Inputs" `
                     "FFmpegArgs.Outputs" `
                     "FFmpegArgs.Executes"
