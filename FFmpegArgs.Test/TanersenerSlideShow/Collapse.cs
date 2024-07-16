@@ -76,7 +76,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
               .Duration(TOTAL_DURATION)
               .ImageOutputAVStreams.First()
                   .Codec("libx264")
-                  .Fps(config.Fps)
+                  //.Fps(config.Fps)
                   .SetOption("-g", "0")
                   .SetOption("-rc-lookahead", "0");
             ffmpegArg.AddOutput(imageFileOutput);

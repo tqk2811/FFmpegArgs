@@ -2,7 +2,7 @@
 
 	<Import Project="..\ProjectBuildProperties.targets" />
 	<PropertyGroup>
-		<TargetFrameworks>net5.0</TargetFrameworks>
+		<TargetFrameworks>net8.0</TargetFrameworks>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<GenerateDocumentationFile>False</GenerateDocumentationFile>
@@ -12,7 +12,7 @@
 		<IsPackable>false</IsPackable>
 	</PropertyGroup>
 	
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
 	  <DefineConstants>$(DefineConstants);Render</DefineConstants>
 	</PropertyGroup>
 	

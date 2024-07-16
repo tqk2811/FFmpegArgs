@@ -133,7 +133,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
                 //.SetOption("-b:v", "3000")
-                .Fps(config.Fps);
+                //.Fps(config.Fps)
+                ;
             ffmpegArg.AddOutput(videoOut);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
@@ -266,7 +267,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .SetOption("-g", 0)
                 .Codec("libx264")
                 //.SetOption("-b:v", "3000")
-                .Fps(config.Fps);
+                //.Fps(config.Fps)
+                ;
             ffmpegArg.AddOutput(videoOut);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
