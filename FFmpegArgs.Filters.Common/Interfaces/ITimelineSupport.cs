@@ -19,7 +19,7 @@
         /// <param name="timelineExpression"></param>
         /// <returns></returns>
         public static T Enable<T>(this T timelineSupport, ExpressionValue timelineExpression)
-            where T : BaseOption, IFilter<BaseMap, BaseMap>, ITimelineSupport
-          => timelineSupport.Enable(TimelineEditingExpression.Instance.Check(timelineExpression));
+            where T : BaseOption, ITimelineSupport
+          => timelineSupport.SetOption("enable", TimelineEditingExpression.Instance.Check(timelineExpression));
     }
 }
