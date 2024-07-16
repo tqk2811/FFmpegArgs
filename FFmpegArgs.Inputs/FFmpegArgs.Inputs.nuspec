@@ -3,7 +3,7 @@
 	<!--https://docs.microsoft.com/en-us/nuget/reference/nuspec-->
 	<metadata>
 		<id>FFmpegArgs.Inputs</id>
-		<version>1.6.0$build$</version>
+		<version>2.0.0$build$</version>
 		<description>Inputs for FFmpegArgs</description>
 		<authors>tqk2811</authors>
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
@@ -13,29 +13,29 @@
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git"/>
 		<dependencies>
 			<group targetFramework="net462">
-				<dependency id="FFmpegArgs.Cores" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Filters.Common" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Extensions" version="[1.6,1.7)"/>
+				<dependency id="FFmpegArgs.Cores" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Extensions" version="[2.0,3.0)"/>
 			</group>
 			<group targetFramework="netstandard2.0">
-				<dependency id="FFmpegArgs.Cores" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Filters.Common" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Extensions" version="[1.6,1.7)"/>
+				<dependency id="FFmpegArgs.Cores" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Extensions" version="[2.0,3.0)"/>
 			</group>
 			<group targetFramework="net5.0">
-				<dependency id="FFmpegArgs.Cores" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Filters.Common" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Extensions" version="[1.6,1.7)"/>
+				<dependency id="FFmpegArgs.Cores" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Extensions" version="[2.0,3.0)"/>
 			</group>
 			<group targetFramework="net6.0">
-				<dependency id="FFmpegArgs.Cores" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Filters.Common" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Extensions" version="[1.6,1.7)"/>
+				<dependency id="FFmpegArgs.Cores" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Extensions" version="[2.0,3.0)"/>
 			</group>
 			<group targetFramework="net7.0">
-				<dependency id="FFmpegArgs.Cores" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Filters.Common" version="[1.6,1.7)"/>
-				<dependency id="FFmpegArgs.Extensions" version="[1.6,1.7)"/>
+				<dependency id="FFmpegArgs.Cores" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Filters.Common" version="[2.0,3.0)"/>
+				<dependency id="FFmpegArgs.Extensions" version="[2.0,3.0)"/>
 			</group>
 		</dependencies>
 	</metadata>
