@@ -23,11 +23,5 @@
         {
             return string.Join(" ", InputAVStreams);
         }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public abstract override string ToString();
     }
 }

@@ -8,140 +8,152 @@
     /// </summary>
     public class FFmpegExpression
     {
+        static FFmpegExpression()
+        {
+            _binaryOperators = new List<string>()
+            {
+                "+", "-", "*", "/", "^"
+            };
+            _unaryOperators = new List<string>()
+            {
+                "+", "-"
+            };
+            _prefixes = new List<string>()
+            {
+            };
+            _functionName = new List<string>()
+            {
+                "abs",
+                "acos",
+                "asin",
+                "atan",
+                "atan2",
+                "between",
+                "bitand",
+                "bitor",
+                "ceil",
+                "clip",
+                "cos",
+                "cosh",
+                "eq",
+                "exp",
+                "floor",
+                "gauss",
+                "gcd",
+                "gt",
+                "gte",
+                "hypot",
+                "if",
+                "ifnot",
+                "isinf",
+                "isnan",
+                "ld",
+                "lerp",
+                "log",
+                "lt",
+                "lte",
+                "max",
+                "min",
+                "mod",
+                "not",
+                "pow",
+                "print",
+                "random",
+                "root",
+                "round",
+                "sgn",
+                "sin",
+                "sinh",
+                "sqrt",
+                "squish",
+                "st",
+                "tan",
+                "tanh",
+                "taylor",
+                "time",
+                "trunc",
+                "while",
+            };
+            _functionSY = new List<string>()
+            {
+                "abs_1",
+                "acos_1",
+                "asin_1",
+                "atan_1",
+                "atan2_2",
+                "between_3",
+                "bitand_2",
+                "bitor_2",
+                "ceil_1",
+                "clip_3",
+                "cos_1",
+                "cosh_1",
+                "eq_2",
+                "exp_1",
+                "floor_1",
+                "gauss_1",
+                "gcd_2",
+                "gt_2",
+                "gte_2",
+                "hypot_2",
+                "if_2",
+                "if_3",
+                "ifnot_2",
+                "ifnot_3",
+                "isinf_1",
+                "isnan_1",
+                "ld_1",
+                "lerp_3",
+                "log_1",
+                "lt_2",
+                "lte_2",
+                "max_2",
+                "min_2",
+                "mod_2",
+                "not_1",
+                "pow_2",
+                "print_1",
+                "print_2",
+                "random_1",
+                "root_2",
+                "round_1",
+                "sgn_1",
+                "sin_1",
+                "sinh_1",
+                "sqrt_1",
+                "squish_1",
+                "st_2",
+                "tan_1",
+                "tanh_1",
+                "taylor_2",
+                "taylor_3",
+                "time_1",
+                "trunc_1",
+                "while_2",
+            };
+            _consts = new List<string>()
+            {
+                "PI",
+                "E",
+                "PHI",
+                "INT_MAX",
+                "NAN"
+            };
+
+            DefaultInstance = new FFmpegExpression();
+        }
         /// <summary>
         /// 
         /// </summary>
-        public static FFmpegExpression DefaultInstance { get; } = new FFmpegExpression();
+        public static FFmpegExpression DefaultInstance { get; }
+        static readonly IEnumerable<string> _binaryOperators;
+        static readonly IEnumerable<string> _unaryOperators;
+        static readonly IEnumerable<string> _prefixes;
+        static readonly IEnumerable<string> _functionName;
+        static readonly IEnumerable<string> _functionSY;
+        static readonly IEnumerable<string> _consts;
 
-        static readonly IEnumerable<string> _binaryOperators = new List<string>()
-        {
-          "+", "-", "*", "/", "^"
-        };
-        static readonly IEnumerable<string> _unaryOperators = new List<string>()
-        {
-          "+", "-"
-        };
-        static readonly IEnumerable<string> _prefixes = new List<string>()
-        {
-        };
-        static readonly IEnumerable<string> _functionName = new List<string>()
-        {
-          "abs",
-          "acos",
-          "asin",
-          "atan",
-          "atan2",
-          "between",
-          "bitand",
-          "bitor",
-          "ceil",
-          "clip",
-          "cos",
-          "cosh",
-          "eq",
-          "exp",
-          "floor",
-          "gauss",
-          "gcd",
-          "gt",
-          "gte",
-          "hypot",
-          "if",
-          "ifnot",
-          "isinf",
-          "isnan",
-          "ld",
-          "lerp",
-          "log",
-          "lt",
-          "lte",
-          "max",
-          "min",
-          "mod",
-          "not",
-          "pow",
-          "print",
-          "random",
-          "root",
-          "round",
-          "sgn",
-          "sin",
-          "sinh",
-          "sqrt",
-          "squish",
-          "st",
-          "tan",
-          "tanh",
-          "taylor",
-          "time",
-          "trunc",
-          "while",
-        };
-        static readonly IEnumerable<string> _functionSY = new List<string>()
-        {
-          "abs_1",
-          "acos_1",
-          "asin_1",
-          "atan_1",
-          "atan2_2",
-          "between_3",
-          "bitand_2",
-          "bitor_2",
-          "ceil_1",
-          "clip_3",
-          "cos_1",
-          "cosh_1",
-          "eq_2",
-          "exp_1",
-          "floor_1",
-          "gauss_1",
-          "gcd_2",
-          "gt_2",
-          "gte_2",
-          "hypot_2",
-          "if_2",
-          "if_3",
-          "ifnot_2",
-          "ifnot_3",
-          "isinf_1",
-          "isnan_1",
-          "ld_1",
-          "lerp_3",
-          "log_1",
-          "lt_2",
-          "lte_2",
-          "max_2",
-          "min_2",
-          "mod_2",
-          "not_1",
-          "pow_2",
-          "print_1",
-          "print_2",
-          "random_1",
-          "root_2",
-          "round_1",
-          "sgn_1",
-          "sin_1",
-          "sinh_1",
-          "sqrt_1",
-          "squish_1",
-          "st_2",
-          "tan_1",
-          "tanh_1",
-          "taylor_2",
-          "taylor_3",
-          "time_1",
-          "trunc_1",
-          "while_2",
-        };
-        static readonly IEnumerable<string> _consts = new List<string>()
-        {
-          "PI",
-          "E",
-          "PHI",
-          "INT_MAX",
-          "NAN"
-        };
+
         readonly IEnumerable<string> _adv_variables;
         readonly IEnumerable<string> _adv_functionName;
         readonly IEnumerable<string> _adv_functionSY;

@@ -259,13 +259,14 @@
             ffmpegBuild.StdIn = ffmpegArg.Inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
             ffmpegBuild.StdOut = ffmpegArg.Outputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
             string args = ffmpegArg.GetFullCommandline(config.IsUseFilterChain);
-            if (config.IsForceUseScript || args.Length > config.ArgumentsMaxLength)
+            if (config.IsForceUseScript || (config.ArgumentsMaxLength > 0 && args.Length > config.ArgumentsMaxLength))
             {
                 string scripts = ffmpegArg.FilterGraph.GetFiltersArgs(true, true);
                 if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
                 File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), scripts);
                 ffmpegBuild.Arguments = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName);
-                if (ffmpegBuild.Arguments.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
+                if (config.ArgumentsMaxLength > 0 &&  ffmpegBuild.Arguments.Length > config.ArgumentsMaxLength) 
+                    throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
             }
             else ffmpegBuild.Arguments = args;
             return ffmpegBuild;
@@ -283,7 +284,8 @@
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));
-            if (commands.Length > config.ArgumentsMaxLength) throw new ProcessArgumentOutOfRangeException($"{nameof(commands)} too long");
+            if (config.ArgumentsMaxLength > 0 && commands.Length > config.ArgumentsMaxLength) 
+                throw new ProcessArgumentOutOfRangeException($"{nameof(commands)} too long");
             return new FFmpegRender(config)
             {
                 Arguments = commands

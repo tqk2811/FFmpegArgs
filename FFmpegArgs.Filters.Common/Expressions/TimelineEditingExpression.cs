@@ -8,20 +8,25 @@
         /// <summary>
         /// Default instance
         /// </summary>
-        public static TimelineEditingExpression Instance { get; } = new TimelineEditingExpression();
-        static readonly List<string> variables = new List<string>()
+        public static TimelineEditingExpression Instance { get; }
+        static readonly List<string> _variables;
+        static TimelineEditingExpression()
         {
-          "t",
-          "n",
-          "pos",
-          "w",
-          "h"
-        };
+            _variables = new List<string>()
+            {
+                "t",
+                "n",
+                "pos",
+                "w",
+                "h"
+            };
+            Instance = new TimelineEditingExpression(_variables);
+        }
 
         /// <summary>
         /// 
         /// </summary>
-        private TimelineEditingExpression() : base(variables)
+        private TimelineEditingExpression(IEnumerable<string> variables) : base(variables)
         {
         }
     }

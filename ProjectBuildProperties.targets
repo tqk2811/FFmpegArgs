@@ -7,6 +7,6 @@
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
-		<AssemblyVersion>1.5</AssemblyVersion>
+		<AssemblyVersion>1.6</AssemblyVersion>
 	</PropertyGroup>
 </Project>
