@@ -6,7 +6,7 @@
     public class RenderProgress
     {
         static readonly Regex regex
-            = new Regex(@"frame= *(\d+) fps= *([0-9.]+).*?size= *(N\/A|[0-9.]+kB).*?time= *(\d+:\d{1,2}:\d{1,2}\.\d+).*?bitrate= *(N\/A|[0-9.]+kbits\/s).*?speed= *([0-9.]+)x");
+            = new Regex(@"(|frame= *(\d+) fps= *([0-9.]+).*?)size= *(N\/A|[0-9.]+kB|[0-9.]+KiB).*?time= *(\d+:\d{1,2}:\d{1,2}\.\d+).*?bitrate= *(N\/A|[0-9.]+kbits\/s).*?speed= *([0-9.]+)x");
 
         /// <summary>
         /// 
@@ -22,15 +22,18 @@
                 {
                     try
                     {
-                        return new RenderProgress
+                        RenderProgress renderProgress = new RenderProgress
                         {
-                            Frame = int.Parse(match.Groups[1].Value),
-                            Fps = double.Parse(match.Groups[2].Value),
-                            Size = match.Groups[3].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[3].Value.Replace("kB", string.Empty)),
-                            Time = ParseDuration(match.Groups[4].Value),
-                            Bitrate = match.Groups[5].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[5].Value.Replace("kbits/s", string.Empty)),
-                            Speed = float.Parse(match.Groups[6].Value)
+                            Size = match.Groups[4].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[3].Value.Replace("kB", string.Empty).Replace("KiB", string.Empty)),
+                            Time = ParseDuration(match.Groups[5].Value),
+                            Bitrate = match.Groups[6].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[5].Value.Replace("kbits/s", string.Empty)),
+                            Speed = float.Parse(match.Groups[7].Value)
                         };
+                        if (match.Groups[2].Success && !string.IsNullOrWhiteSpace(match.Groups[2].Value))
+                            renderProgress.Frame = int.Parse(match.Groups[2].Value);
+                        if (match.Groups[3].Success && !string.IsNullOrWhiteSpace(match.Groups[3].Value))
+                            renderProgress.Fps = double.Parse(match.Groups[3].Value);
+                        return renderProgress;
                     }
                     catch (Exception)
                     {
@@ -81,14 +84,14 @@
         /// <summary>
         /// Frame rendered
         /// </summary>
-        public int Frame { get; private set; }
+        public int? Frame { get; private set; }
 
         /// <summary>
         /// frame per second rendered
         /// </summary>
-        public double Fps { get; private set; }
+        public double? Fps { get; private set; }
         /// <summary>
-        /// Size in kB
+        /// Size in KiB
         /// </summary>
         public double Size { get; private set; }
 
