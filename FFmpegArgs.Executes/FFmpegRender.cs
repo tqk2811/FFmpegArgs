@@ -39,7 +39,7 @@
 
         private Process BuildProcess(FFmpegRenderResult renderResult)
         {
-            ProcessStartInfo info = new ProcessStartInfo(this.Config.FFmpegBinaryPath, this.Arguments)
+            ProcessStartInfo info = new ProcessStartInfo(this.Config.FFmpegBinaryPath)
             {
                 CreateNoWindow = true,
                 UseShellExecute = false,
@@ -48,7 +48,24 @@
                 RedirectStandardError = true,
                 WorkingDirectory = this.Config.WorkingDirectory
             };
+#if NET5_0_OR_GREATER
+            if (!string.IsNullOrWhiteSpace(this.Arguments))
+            {
+                info.Arguments = this.Arguments;
+                renderResult.Arguments = this.Arguments;
+            }
+            else
+            {
+                foreach (var item in this.ArgumentsList)
+                {
+                    info.ArgumentList.Add(item);
+                }
+                renderResult.ArgumentList = info.ArgumentList;
+            }
+#else
+            info.Arguments = this.Arguments;
             renderResult.Arguments = this.Arguments;
+#endif
             Process process = new Process();
             process.ErrorDataReceived += (s, e) =>
             {

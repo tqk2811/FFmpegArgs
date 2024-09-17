@@ -5,11 +5,16 @@
     /// </summary>
     public class FFmpegRenderResult
     {
+        internal List<string> _ErrorDatas { get; } = new List<string>();
+
         /// <summary>
         /// 
         /// </summary>
         public string Arguments { get; internal set; }
-        internal List<string> _ErrorDatas { get; } = new List<string>();
+        /// <summary>
+        /// 
+        /// </summary>
+        public IReadOnlyList<string> ArgumentList { get; internal set; }
         /// <summary>
         /// 
         /// </summary>
