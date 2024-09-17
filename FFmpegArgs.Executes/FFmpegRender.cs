@@ -20,6 +20,10 @@
         /// </summary>
         public string Arguments { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public IReadOnlyList<string> ArgumentsList { get; private set; }
 
 
 
@@ -265,7 +269,7 @@
                 if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
                 File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), scripts);
                 ffmpegBuild.Arguments = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName);
-                if (config.ArgumentsMaxLength > 0 &&  ffmpegBuild.Arguments.Length > config.ArgumentsMaxLength) 
+                if (config.ArgumentsMaxLength > 0 && ffmpegBuild.Arguments.Length > config.ArgumentsMaxLength)
                     throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
             }
             else ffmpegBuild.Arguments = args;
@@ -284,7 +288,7 @@
         {
             if (string.IsNullOrWhiteSpace(commands)) throw new ArgumentNullException(nameof(commands));
             if (config == null) throw new ArgumentNullException(nameof(config));
-            if (config.ArgumentsMaxLength > 0 && commands.Length > config.ArgumentsMaxLength) 
+            if (config.ArgumentsMaxLength > 0 && commands.Length > config.ArgumentsMaxLength)
                 throw new ProcessArgumentOutOfRangeException($"{nameof(commands)} too long");
             return new FFmpegRender(config)
             {
@@ -309,6 +313,56 @@
             return FromArguments(commands, buildConfig);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
+        public static FFmpegRender FromArgumentsList(FFmpegRenderConfig config, params string[] args)
+        {
+            if (args is null || args.Length == 0 || args.Any(x => x is null)) throw new ArgumentNullException(nameof(args));
+            if (config is null) throw new ArgumentNullException(nameof(config));
+            if (config.ArgumentsMaxLength > 0 && args.Sum(x => x.Length + 1) > config.ArgumentsMaxLength)
+                throw new ProcessArgumentOutOfRangeException($"{nameof(args)} too long");
+            return new FFmpegRender(config)
+            {
+                ArgumentsList = args.ToList()
+            };
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static FFmpegRender FromArgumentsList(FFmpegRenderConfig config, IEnumerable<string> args)
+            => FromArgumentsList(config, args.ToArray());
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="ProcessArgumentOutOfRangeException"></exception>
+        public static FFmpegRender FromArgumentsList(Action<FFmpegRenderConfig> config, params string[] args)
+        {
+            FFmpegRenderConfig buildConfig = new FFmpegRenderConfig();
+            config.Invoke(buildConfig);
+            return FromArgumentsList(buildConfig, args);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="config"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static FFmpegRender FromArgumentsList(Action<FFmpegRenderConfig> config, IEnumerable<string> args)
+            => FromArgumentsList(config, args.ToArray());
         #endregion
     }
 }
