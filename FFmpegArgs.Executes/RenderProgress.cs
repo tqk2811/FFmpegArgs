@@ -18,15 +18,15 @@
             if (!string.IsNullOrWhiteSpace(progress))
             {
                 Match match = regex.Match(progress);
-                if (match.Success && match.Groups.Count == 7)
+                if (match.Success && match.Groups.Count == 8)
                 {
                     try
                     {
                         RenderProgress renderProgress = new RenderProgress
                         {
-                            Size = match.Groups[4].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[3].Value.Replace("kB", string.Empty).Replace("KiB", string.Empty)),
+                            Size = match.Groups[4].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[4].Value.Replace("kB", string.Empty).Replace("KiB", string.Empty)),
                             Time = ParseDuration(match.Groups[5].Value),
-                            Bitrate = match.Groups[6].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[5].Value.Replace("kbits/s", string.Empty)),
+                            Bitrate = match.Groups[6].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[6].Value.Replace("kbits/s", string.Empty)),
                             Speed = float.Parse(match.Groups[7].Value)
                         };
                         if (match.Groups[2].Success && !string.IsNullOrWhiteSpace(match.Groups[2].Value))
