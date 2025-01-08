@@ -17,15 +17,6 @@
         public static T Aframes<T>(this T t, int aframes) where T : BaseOutput, IAudio // (output)
             => t.SetOptionRange("-aframes", aframes, 0, int.MaxValue);
 
-        /// <summary>
-        /// Set the audio sampling frequency. For output streams it is set by default to the frequency of the corresponding input stream. For input streams this option only makes sense for audio grabbing devices and raw demuxers and is mapped to the corresponding demuxer options.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="freq"></param>
-        /// <returns></returns>
-        public static T Ar<T>(this T t, int freq) where T : BaseAVStream, IAudio // (input/output,per-stream)
-            => t.SetOptionRange("-ar", freq, 0, int.MaxValue);
 
         /// <summary>
         /// Set the audio quality (codec-specific, VBR). This is an alias for -q:a.
@@ -37,15 +28,6 @@
         public static T Aq<T>(this T t, string aq) where T : BaseOutput, IAudio // (output)
             => t.SetOption("-aq", aq);
 
-        /// <summary>
-        /// Set the number of audio channels. For output streams it is set by default to the number of input audio channels. For input streams this option only makes sense for audio grabbing devices and raw demuxers and is mapped to the corresponding demuxer options.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="ac"></param>
-        /// <returns></returns>
-        public static T Ac<T>(this T t, int ac) where T : BaseAVStream, IAudio // (input/output,per-stream)
-            => t.SetOptionRange("-ac", ac, 0, int.MaxValue);
 
         /// <summary>
         /// As an input option, blocks all audio streams of a file from being filtered or being automatically selected or mapped for any output. See -discard option to disable streams individually.<br>
