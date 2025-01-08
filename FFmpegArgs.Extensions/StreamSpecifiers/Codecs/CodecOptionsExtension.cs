@@ -117,10 +117,10 @@
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
-        /// <param name="has_b_frames"></param>
+        /// <param name="rc_override_count"></param>
         /// <returns></returns>
-        public static T RcOverrideCount<T>(this T t, int has_b_frames) where T : BaseAVStream, ICodec
-            => t.SetOptionRange("-rc_override_count", has_b_frames, int.MinValue, int.MaxValue);
+        public static T RcOverrideCount<T>(this T t, int rc_override_count) where T : BaseAVStream, ICodec
+            => t.SetOptionRange("-rc_override_count", rc_override_count, int.MinValue, int.MaxValue);
 
         /// <summary>
         /// -slice_count
