@@ -16,6 +16,15 @@
         /// <returns></returns>
         public static T B<T>(this T t, int bitrate) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio,video
             => CodecOptionsExtension.B(t, bitrate);
+        /// <summary>
+        /// -b<br></br>Set bitrate in bits/s. Default value is 200K.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="t"></param>
+        /// <param name="bitrate"></param>
+        /// <returns></returns>
+        public static T B<T>(this T t, long bitrate) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio,video
+            => CodecOptionsExtension.B(t, bitrate);
 
         /// <summary>
         /// -maxrate<br>
