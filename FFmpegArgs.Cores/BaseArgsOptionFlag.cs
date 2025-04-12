@@ -24,7 +24,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<string> Flags => _flags;
+        public virtual IReadOnlyCollection<string> Flags => _flags;
 
         /// <summary>
         /// 
