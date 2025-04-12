@@ -41,7 +41,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<KeyValuePair<string, string>> Options => _options;
+        public virtual IReadOnlyDictionary<string, string> Options => _options;
 
     }
     /// <summary>
