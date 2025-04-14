@@ -14,7 +14,7 @@
         /// <param name="t"></param>
         /// <param name="bitrate"></param>
         /// <returns></returns>
-        public static T B<T>(this T t, int bitrate) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,audio,video
+        public static T B<T>(this T t, int bitrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.B(t, bitrate);
 
         /// <summary>
@@ -25,7 +25,7 @@
         /// <param name="t"></param>
         /// <param name="maxrate"></param>
         /// <returns></returns>
-        public static T Maxrate<T>(this T t, int maxrate) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,audio,video
+        public static T Maxrate<T>(this T t, int maxrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.Maxrate(t, maxrate);
 
         /// <summary>
@@ -36,7 +36,7 @@
         /// <param name="t"></param>
         /// <param name="minrate"></param>
         /// <returns></returns>
-        public static T Minrate<T>(this T t, int minrate) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,audio,video
+        public static T Minrate<T>(this T t, int minrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.Minrate(t, minrate);
 
         /// <summary>
@@ -47,7 +47,7 @@
         /// <param name="t"></param>
         /// <param name="bufsize"></param>
         /// <returns></returns>
-        public static T Bufsize<T>(this T t, int bufsize) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,audio,video
+        public static T Bufsize<T>(this T t, int bufsize) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.Bufsize(t, bufsize);
         #endregion
 
@@ -60,7 +60,7 @@
         /// <param name="t"></param>
         /// <param name="g"></param>
         /// <returns></returns>
-        public static T G<T>(this T t, int g) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T G<T>(this T t, int g) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
             => t.SetOptionRange("-g", g, int.MinValue, int.MaxValue);
 
         /// <summary>
@@ -71,7 +71,7 @@
         /// <param name="t"></param>
         /// <param name="qcomp"></param>
         /// <returns></returns>
-        public static T Qcomp<T>(this T t, float qcomp) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T Qcomp<T>(this T t, float qcomp) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
            => t.SetOptionRange("-qcomp", qcomp, 0.0f, 1.0f);
 
         /// <summary>
@@ -82,7 +82,7 @@
         /// <param name="t"></param>
         /// <param name="qcomp"></param>
         /// <returns></returns>
-        public static T Qblur<T>(this T t, float qcomp) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T Qblur<T>(this T t, float qcomp) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
            => t.SetOptionRange("-qblur", qcomp, 0.0f, 1.0f);
 
         /// <summary>
@@ -93,7 +93,7 @@
         /// <param name="t"></param>
         /// <param name="qmin"></param>
         /// <returns></returns>
-        public static T Qmin<T>(this T t, int qmin) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T Qmin<T>(this T t, int qmin) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
            => t.SetOptionRange("-qmin", qmin, -1, 69);
 
         /// <summary>
@@ -104,7 +104,7 @@
         /// <param name="t"></param>
         /// <param name="qmax"></param>
         /// <returns></returns>
-        public static T Qmax<T>(this T t, int qmax) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T Qmax<T>(this T t, int qmax) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
            => t.SetOptionRange("-qmax", qmax, -1, 1024);
 
         /// <summary>
@@ -115,7 +115,7 @@
         /// <param name="t"></param>
         /// <param name="qdiff"></param>
         /// <returns></returns>
-        public static T Qdiff<T>(this T t, int qdiff) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T Qdiff<T>(this T t, int qdiff) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
            => t.SetOptionRange("-qdiff", qdiff, int.MinValue, int.MaxValue);
 
         /// <summary>
@@ -128,7 +128,7 @@
         /// <param name="t"></param>
         /// <param name="bf"></param>
         /// <returns></returns>
-        public static T Bf<T>(this T t, int bf) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T Bf<T>(this T t, int bf) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
            => t.SetOptionRange("-bf", bf, -1, 16);
 
         /// <summary>
@@ -139,7 +139,7 @@
         /// <param name="t"></param>
         /// <param name="b_qfactor"></param>
         /// <returns></returns>
-        public static T BQfactor<T>(this T t, float b_qfactor) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T BQfactor<T>(this T t, float b_qfactor) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
             => t.SetOptionRange("-b_qfactor", b_qfactor, 0.0f, 1.0f);
 
         // bug flags (decoding,video)
@@ -155,7 +155,7 @@
         /// <param name="t"></param>
         /// <param name="b_qoffset"></param>
         /// <returns></returns>
-        public static T BQoffset<T>(this T t, float b_qoffset) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,video
+        public static T BQoffset<T>(this T t, float b_qoffset) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,video
             => t.SetOptionRange("-b_qoffset", b_qoffset, 0.0f, 1.0f);
 
         //err_detect flags (decoding,audio,video)
