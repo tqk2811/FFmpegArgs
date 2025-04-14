@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IAudioInputStream : ICodec, IAudio, IAudioCodec, ICodecDecoder, IAudioCodecDecoder, IStream
+    public interface IAudioInputStream : ICodec, IAudio, IAudioCodec, ICodecDecoder, IAudioCodecDecoder, IStream, IInputStream
     {
 
     }

@@ -6,7 +6,7 @@
     public class AudioOutputAVStream : OutputAVStream,
         IAudio, IAudioCodec, IAudioStream,
         ICodec, ICodecEncoder, IAudioCodecEncoder,
-        IStream, IAudioOutputStream
+        IStream, IOutputStream, IAudioOutputStream
     {
         /// <summary>
         /// 

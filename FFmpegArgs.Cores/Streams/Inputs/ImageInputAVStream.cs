@@ -6,7 +6,7 @@
     public class ImageInputAVStream : InputAVStream,
         IImage, IImageStream, IImageCodec,
         ICodec, ICodecDecoder, IImageCodecDecoder,
-        IStream, IImageInputStream
+        IStream, IInputStream, IImageInputStream
     {
         /// <summary>
         /// 

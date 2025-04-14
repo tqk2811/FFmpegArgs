@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IImageInputStream : ICodec, IImage, IImageCodec, ICodecDecoder, IImageCodecDecoder, IStream
+    public interface IImageInputStream : ICodec, IImage, IImageCodec, ICodecDecoder, IImageCodecDecoder, IStream, IInputStream
     {
 
     }
