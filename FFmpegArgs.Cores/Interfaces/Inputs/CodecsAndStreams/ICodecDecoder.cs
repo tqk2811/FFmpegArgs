@@ -4,7 +4,7 @@
     /// <summary>
     /// Decoding supported
     /// </summary>
-    public interface ICodecDecoding : ICodec
+    public interface ICodecDecoder : ICodec
     {
 
     }
