@@ -56,12 +56,18 @@
         /// <param name="baseOption"></param>
         /// <param name="key"></param>
         /// <param name="val"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetOption<T>(this T baseOption, string key, string val) where T : BaseOption
+        public static T SetOption<T>(this T baseOption, string key, string val, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (string.IsNullOrEmpty(val)) throw new ArgumentNullException(nameof(val));
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (string.IsNullOrEmpty(val)) 
+                throw new ArgumentNullException(nameof(val));
+            if (throwIfDuplicate && baseOption._options.ContainsKey(key))
+                throw new InvalidOperationException($"Option '{key}' already exists with value {baseOption._options[key]}");
             baseOption._options[key] = val;
             return baseOption;
         }
@@ -72,14 +78,17 @@
         /// <param name="baseOption"></param>
         /// <param name="key"></param>
         /// <param name="val"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetOption<T>(this T baseOption, string key, object val) where T : BaseOption
+        public static T SetOption<T>(this T baseOption, string key, object val, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (val == null) throw new ArgumentNullException(nameof(val));
-            baseOption._options[key] = val.ToString();
-            return baseOption;
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (val is null) 
+                throw new ArgumentNullException(nameof(val));
+            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -90,15 +99,18 @@
         /// <param name="val"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, int val, int min, int max) where T : BaseOption
+        public static T SetOptionRange<T>(this T baseOption, string key, int val, int min, int max, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            baseOption._options[key] = val.ToString();
-            return baseOption;
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (val < min || val > max) 
+                throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
+            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -109,15 +121,18 @@
         /// <param name="val"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, float val, float min, float max) where T : BaseOption
+        public static T SetOptionRange<T>(this T baseOption, string key, float val, float min, float max, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (float.IsNaN(val) || val < min || val > max) throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            baseOption._options[key] = val.ToString();
-            return baseOption;
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (float.IsNaN(val) || val < min || val > max) 
+                throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
+            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -128,15 +143,18 @@
         /// <param name="val"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, double val, double min, double max) where T : BaseOption
+        public static T SetOptionRange<T>(this T baseOption, string key, double val, double min, double max, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (double.IsNaN(val) || val < min || val > max) throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            baseOption._options[key] = val.ToString();
-            return baseOption;
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (double.IsNaN(val) || val < min || val > max) 
+                throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
+            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -147,15 +165,18 @@
         /// <param name="val"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, long val, long min, long max) where T : BaseOption
+        public static T SetOptionRange<T>(this T baseOption, string key, long val, long min, long max, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            baseOption._options[key] = val.ToString();
-            return baseOption;
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (val < min || val > max) 
+                throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
+            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -166,15 +187,18 @@
         /// <param name="val"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, decimal val, decimal min, decimal max) where T : BaseOption
+        public static T SetOptionRange<T>(this T baseOption, string key, decimal val, decimal min, decimal max, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            baseOption._options[key] = val.ToString();
-            return baseOption;
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (val < min || val > max) 
+                throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
+            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -185,15 +209,18 @@
         /// <param name="val"></param>
         /// <param name="min"></param>
         /// <param name="max"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, TimeSpan val, TimeSpan min, TimeSpan max) where T : BaseOption
+        public static T SetOptionRange<T>(this T baseOption, string key, TimeSpan val, TimeSpan min, TimeSpan max, bool throwIfDuplicate = false) 
+            where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) throw new InvalidRangeException($"Range Required: {min:hh\\:mm\\:ss\\.fff} <= {key:hh\\:mm\\:ss\\.fff} <= {max:hh\\:mm\\:ss\\.fff}");
-            baseOption._options[key] = val.TotalSeconds.ToString();
-            return baseOption;
+            if (string.IsNullOrEmpty(key)) 
+                throw new ArgumentNullException(nameof(key));
+            if (val < min || val > max) 
+                throw new InvalidRangeException($"Range Required: {min:hh\\:mm\\:ss\\.fff} <= {key:hh\\:mm\\:ss\\.fff} <= {max:hh\\:mm\\:ss\\.fff}");
+            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
     }
 }
