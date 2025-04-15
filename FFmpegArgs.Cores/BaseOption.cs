@@ -5,6 +5,7 @@
     /// </summary>
     public abstract class BaseOption : IOption
     {
+        internal const bool DEFAULT_ThrowIfDuplicate = true;
         /// <summary>
         /// 
         /// </summary>
@@ -59,7 +60,7 @@
         /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetOption<T>(this T baseOption, string key, string val, bool throwIfDuplicate = false) 
+        public static T SetOption<T>(this T baseOption, string key, string val, bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 

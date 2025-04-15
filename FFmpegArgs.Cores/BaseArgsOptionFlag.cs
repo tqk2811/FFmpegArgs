@@ -50,10 +50,11 @@
         /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetFlag<T>(this T baseOptionFlag, string flag, bool throwIfDuplicate = false) where T : BaseArgsOptionFlag
+        public static T SetFlag<T>(this T baseOptionFlag, string flag, bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate) 
+            where T : BaseArgsOptionFlag
         {
             if (string.IsNullOrEmpty(flag)) throw new ArgumentNullException(nameof(flag));
-            if(throwIfDuplicate && baseOptionFlag._flags.Contains(flag))
+            if (throwIfDuplicate && baseOptionFlag._flags.Contains(flag))
                 throw new InvalidOperationException($"Flag '{flag}' already exists");
             baseOptionFlag._flags.Add(flag);
             return baseOptionFlag;
