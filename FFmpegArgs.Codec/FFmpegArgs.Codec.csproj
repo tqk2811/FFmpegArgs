@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\ProjectBuildProperties.targets" />
+	<PropertyGroup>
+		<FileVersion>1.6.0.0</FileVersion>
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="Decoders\Subtitles\**" />
+	  <Compile Remove="Encoders\Subtitles\**" />
+	  <EmbeddedResource Remove="Decoders\Subtitles\**" />
+	  <EmbeddedResource Remove="Encoders\Subtitles\**" />
+	  <None Remove="Decoders\Subtitles\**" />
+	  <None Remove="Encoders\Subtitles\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\FFmpegArgs.Cores\FFmpegArgs.Cores.csproj" />
+	  <ProjectReference Include="..\FFmpegArgs.Extensions\FFmpegArgs.Extensions.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Decoders\Audios\" />
+	  <Folder Include="Decoders\Videos\" />
+	  <Folder Include="Encoders\Audios\" />
+	  <Folder Include="Encoders\Images\" />
+	</ItemGroup>
+
+</Project>

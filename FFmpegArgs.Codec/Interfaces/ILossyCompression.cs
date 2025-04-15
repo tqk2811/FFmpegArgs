@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Codecs.Interfaces
+﻿namespace FFmpegArgs.Codec.Interfaces
 {
     /// <summary>
     /// Lossy compression
