@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Filters
+﻿namespace FFmpegArgs.Filters.BaseFilters
 {
     /// <summary>
     /// 
