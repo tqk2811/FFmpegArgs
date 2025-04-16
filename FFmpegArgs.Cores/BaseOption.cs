@@ -60,7 +60,12 @@
         /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetOption<T>(this T baseOption, string key, string val, bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate) 
+        public static T SetOption<T>(
+            this T baseOption,
+            string key, 
+            string val,
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
@@ -82,7 +87,12 @@
         /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetOption<T>(this T baseOption, string key, object val, bool throwIfDuplicate = false) 
+        public static T SetOption<T>(
+            this T baseOption,
+            string key, 
+            object val,
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
@@ -104,7 +114,14 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, int val, int min, int max, bool throwIfDuplicate = false) 
+        public static T SetOptionRange<T>(
+            this T baseOption, 
+            string key, 
+            int val, 
+            int min, 
+            int max, 
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
@@ -126,7 +143,14 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, float val, float min, float max, bool throwIfDuplicate = false) 
+        public static T SetOptionRange<T>(
+            this T baseOption, 
+            string key, 
+            float val, 
+            float min, 
+            float max, 
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
@@ -148,7 +172,14 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, double val, double min, double max, bool throwIfDuplicate = false) 
+        public static T SetOptionRange<T>(
+            this T baseOption, 
+            string key, 
+            double val, 
+            double min, 
+            double max, 
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
@@ -170,7 +201,14 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, long val, long min, long max, bool throwIfDuplicate = false) 
+        public static T SetOptionRange<T>(
+            this T baseOption, 
+            string key, 
+            long val, 
+            long min, 
+            long max, 
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
@@ -192,7 +230,14 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, decimal val, decimal min, decimal max, bool throwIfDuplicate = false) 
+        public static T SetOptionRange<T>(
+            this T baseOption, 
+            string key, 
+            decimal val, 
+            decimal min, 
+            decimal max, 
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
@@ -214,7 +259,14 @@
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
-        public static T SetOptionRange<T>(this T baseOption, string key, TimeSpan val, TimeSpan min, TimeSpan max, bool throwIfDuplicate = false) 
+        public static T SetOptionRange<T>(
+            this T baseOption,
+            string key,
+            TimeSpan val,
+            TimeSpan min, 
+            TimeSpan max,
+            bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
+            ) 
             where T : BaseOption
         {
             if (string.IsNullOrEmpty(key)) 
