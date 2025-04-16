@@ -14,9 +14,14 @@
         {
             this.Codec(codecName);
         }
-        protected BaseCodec(Codecs codecName, BaseAVStream stream) : base(stream)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="codec"></param>
+        /// <param name="stream"></param>
+        protected BaseCodec(Codecs codec, BaseAVStream stream) : base(stream)
         {
-            this.Codec(codecName);
+            this.Codec(codec);
         }
     }
 }
