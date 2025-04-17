@@ -110,13 +110,13 @@ namespace FFmpegArgs.Codec.Encoders.Images
     /// <summary>
     /// 
     /// </summary>
-    public class H264_h264_amf_CodecEncoder : H264CodecEncoder
+    public class H264_amf_CodecEncoder : H264CodecEncoder
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stream"></param>
-        public H264_h264_amf_CodecEncoder(ImageOutputAVStream stream) : base("h264_amf", stream)
+        public H264_amf_CodecEncoder(ImageOutputAVStream stream) : base("h264_amf", stream)
         {
         }
 
@@ -126,7 +126,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="usage"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Usage(H264_amf_Usage usage)
+        public H264_amf_CodecEncoder Usage(H264_amf_Usage usage)
             => this.SetOptionRange("-usage", (int)usage, 0, 5);
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="profile"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Profile(H264_amf_Profile profile)
+        public H264_amf_CodecEncoder Profile(H264_amf_Profile profile)
             => this.SetOptionRange("-profile", (int)profile, 66, 257);
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="level"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Level(H264_amf_Level level)
+        public H264_amf_CodecEncoder Level(H264_amf_Level level)
             => this.SetOptionRange("-level", (int)level, 0, 62);
 
         /// <summary>
@@ -150,7 +150,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="quality"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Quality(H264_amf_Quality quality)
+        public H264_amf_CodecEncoder Quality(H264_amf_Quality quality)
             => this.SetOptionRange("-quality", (int)quality, 0, 2);
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="rateControl"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder RateControl(H264_amf_RateControl rateControl)
+        public H264_amf_CodecEncoder RateControl(H264_amf_RateControl rateControl)
             => this.SetOptionRange("-rc", (int)rateControl, -1, 6);
 
         /// <summary>
@@ -166,7 +166,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="quality"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder QVBRQualityLevel(int quality)
+        public H264_amf_CodecEncoder QVBRQualityLevel(int quality)
             => this.SetOptionRange("-qvbr_quality_level", quality, -1, 51);
 
         /// <summary>
@@ -174,7 +174,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder EnforceHRD(bool flag)
+        public H264_amf_CodecEncoder EnforceHRD(bool flag)
             => this.SetOption("-enforce_hrd", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -182,7 +182,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder FillerData(bool flag)
+        public H264_amf_CodecEncoder FillerData(bool flag)
             => this.SetOption("-filler_data", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder VBAQ(bool flag)
+        public H264_amf_CodecEncoder VBAQ(bool flag)
             => this.SetOption("-vbaq", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder FrameSkipping(bool flag)
+        public H264_amf_CodecEncoder FrameSkipping(bool flag)
             => this.SetOption("-frame_skipping", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="qp"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder QPI(int qp)
+        public H264_amf_CodecEncoder QPI(int qp)
             => this.SetOptionRange("-qp_i", qp, -1, 51);
 
         /// <summary>
@@ -214,7 +214,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="qp"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder QPP(int qp)
+        public H264_amf_CodecEncoder QPP(int qp)
             => this.SetOptionRange("-qp_p", qp, -1, 51);
 
         /// <summary>
@@ -222,7 +222,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="qp"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder QPB(int qp)
+        public H264_amf_CodecEncoder QPB(int qp)
             => this.SetOptionRange("-qp_b", qp, -1, 51);
 
         /// <summary>
@@ -230,7 +230,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Preencode(bool flag)
+        public H264_amf_CodecEncoder Preencode(bool flag)
             => this.SetOption("-preencode", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="size"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder MaxAUSize(int size)
+        public H264_amf_CodecEncoder MaxAUSize(int size)
             => this.SetOptionRange("-max_au_size", size, 0, INT_MAX);
 
         /// <summary>
@@ -246,7 +246,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="spacing"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder HeaderSpacing(int spacing)
+        public H264_amf_CodecEncoder HeaderSpacing(int spacing)
             => this.SetOptionRange("-header_spacing", spacing, -1, 1000);
 
         /// <summary>
@@ -254,7 +254,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="delta"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder BfDeltaQP(int delta)
+        public H264_amf_CodecEncoder BfDeltaQP(int delta)
             => this.SetOptionRange("-bf_delta_qp", delta, -10, 10);
 
         /// <summary>
@@ -262,7 +262,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder BfRef(bool flag)
+        public H264_amf_CodecEncoder BfRef(bool flag)
             => this.SetOption("-bf_ref", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -270,7 +270,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="delta"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder BfRefDeltaQP(int delta)
+        public H264_amf_CodecEncoder BfRefDeltaQP(int delta)
             => this.SetOptionRange("-bf_ref_delta_qp", delta, -10, 10);
 
         /// <summary>
@@ -278,7 +278,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="max"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder MaxBFrames(int max)
+        public H264_amf_CodecEncoder MaxBFrames(int max)
             => this.SetOptionRange("-max_b_frames", max, -1, 3);
 
         /// <summary>
@@ -286,7 +286,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="bf"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Bf(int bf)
+        public H264_amf_CodecEncoder Bf(int bf)
             => this.SetOptionRange("-bf", bf, -1, 3);
 
         /// <summary>
@@ -294,7 +294,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="mb"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder IntraRefreshMB(int mb)
+        public H264_amf_CodecEncoder IntraRefreshMB(int mb)
             => this.SetOptionRange("-intra_refresh_mb", mb, 0, INT_MAX);
 
         /// <summary>
@@ -302,7 +302,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="coder"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Coder(H264_amf_Coder coder)
+        public H264_amf_CodecEncoder Coder(H264_amf_Coder coder)
             => this.SetOptionRange("-coder", (int)coder, 0, 2);
 
         /// <summary>
@@ -310,7 +310,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder HighMotionQualityBoostEnable(bool flag)
+        public H264_amf_CodecEncoder HighMotionQualityBoostEnable(bool flag)
             => this.SetOption("-high_motion_quality_boost_enable", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -318,7 +318,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder MEHalfPel(bool flag)
+        public H264_amf_CodecEncoder MEHalfPel(bool flag)
             => this.SetOption("-me_half_pel", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -326,7 +326,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder MEQuarterPel(bool flag)
+        public H264_amf_CodecEncoder MEQuarterPel(bool flag)
             => this.SetOption("-me_quarter_pel", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -334,7 +334,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder AUD(bool flag)
+        public H264_amf_CodecEncoder AUD(bool flag)
             => this.SetOption("-aud", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -342,7 +342,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder LogToDbg(bool flag)
+        public H264_amf_CodecEncoder LogToDbg(bool flag)
             => this.SetOption("-log_to_dbg", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -350,7 +350,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder Preanalysis(bool flag)
+        public H264_amf_CodecEncoder Preanalysis(bool flag)
             => this.SetOption("-preanalysis", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -358,7 +358,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAActivityType(H264_amf_PaActivityType type)
+        public H264_amf_CodecEncoder PAActivityType(H264_amf_PaActivityType type)
             => this.SetOptionRange("-pa_activity_type", (int)type, -1, 1);
 
         /// <summary>
@@ -366,7 +366,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PASceneChangeDetectionEnable(bool flag)
+        public H264_amf_CodecEncoder PASceneChangeDetectionEnable(bool flag)
             => this.SetOption("-pa_scene_change_detection_enable", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -374,7 +374,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="sensitivity"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PASceneChangeDetectionSensitivity(H264_amf_Sensitivity sensitivity)
+        public H264_amf_CodecEncoder PASceneChangeDetectionSensitivity(H264_amf_Sensitivity sensitivity)
             => this.SetOptionRange("-pa_scene_change_detection_sensitivity", (int)sensitivity, -1, 2);
 
         /// <summary>
@@ -382,7 +382,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAStaticSceneDetectionEnable(bool flag)
+        public H264_amf_CodecEncoder PAStaticSceneDetectionEnable(bool flag)
             => this.SetOption("-pa_static_scene_detection_enable", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -390,7 +390,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="sensitivity"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAStaticSceneDetectionSensitivity(H264_amf_Sensitivity sensitivity)
+        public H264_amf_CodecEncoder PAStaticSceneDetectionSensitivity(H264_amf_Sensitivity sensitivity)
             => this.SetOptionRange("-pa_static_scene_detection_sensitivity", (int)sensitivity, -1, 2);
 
         /// <summary>
@@ -398,7 +398,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="qp"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAInitialQPAfterSceneChange(int qp)
+        public H264_amf_CodecEncoder PAInitialQPAfterSceneChange(int qp)
             => this.SetOptionRange("-pa_initial_qp_after_scene_change", qp, -1, 51);
 
         /// <summary>
@@ -406,7 +406,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="qp"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAMaxQPBeforeForceSkip(int qp)
+        public H264_amf_CodecEncoder PAMaxQPBeforeForceSkip(int qp)
             => this.SetOptionRange("-pa_max_qp_before_force_skip", qp, -1, 51);
 
         /// <summary>
@@ -414,7 +414,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="strength"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PACaqStrength(H264_amf_Sensitivity strength)
+        public H264_amf_CodecEncoder PACaqStrength(H264_amf_Sensitivity strength)
             => this.SetOptionRange("-pa_caq_strength", (int)strength, -1, 2);
 
         /// <summary>
@@ -422,7 +422,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAFrameSADEnable(bool flag)
+        public H264_amf_CodecEncoder PAFrameSADEnable(bool flag)
             => this.SetOption("-pa_frame_sad_enable", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -430,7 +430,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PALTREnable(bool flag)
+        public H264_amf_CodecEncoder PALTREnable(bool flag)
             => this.SetOption("-pa_ltr_enable", flag.ToFFmpegFlag());
 
         /// <summary>
@@ -438,7 +438,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="depth"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PALookaheadBufferDepth(int depth)
+        public H264_amf_CodecEncoder PALookaheadBufferDepth(int depth)
             => this.SetOptionRange("-pa_lookahead_buffer_depth", depth, -1, 41);
 
         /// <summary>
@@ -446,7 +446,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAPaqMode(H264_amf_PaqMode mode)
+        public H264_amf_CodecEncoder PAPaqMode(H264_amf_PaqMode mode)
             => this.SetOptionRange("-pa_paq_mode", (int)mode, -1, 1);
 
         /// <summary>
@@ -454,7 +454,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PATaqMode(H264_amf_TaqMode mode)
+        public H264_amf_CodecEncoder PATaqMode(H264_amf_TaqMode mode)
             => this.SetOptionRange("-pa_taq_mode", (int)mode, -1, 2);
 
         /// <summary>
@@ -462,7 +462,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAHighMotionQualityBoostMode(H264_amf_HighMotionQualityBoostMode mode)
+        public H264_amf_CodecEncoder PAHighMotionQualityBoostMode(H264_amf_HighMotionQualityBoostMode mode)
             => this.SetOptionRange("-pa_high_motion_quality_boost_mode", (int)mode, -1, 1);
 
         /// <summary>
@@ -470,7 +470,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_amf_CodecEncoder PAAdaptiveMiniGOP(bool flag)
+        public H264_amf_CodecEncoder PAAdaptiveMiniGOP(bool flag)
             => this.SetOption("-pa_adaptive_mini_gop", flag.ToFFmpegFlag());
 
     }
@@ -646,7 +646,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static H264_h264_amf_CodecEncoder H264_h264_amf_Codec(this ImageOutputAVStream stream)
-            => new H264_h264_amf_CodecEncoder(stream);
+        public static H264_amf_CodecEncoder H264_amf_Codec(this ImageOutputAVStream stream)
+            => new H264_amf_CodecEncoder(stream);
     }
 }
