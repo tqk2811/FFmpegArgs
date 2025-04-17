@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public class H264_libx264rgb_CodecEncoder : H264CodecEncoder, ILibx264Encoder
+    public class H264_libx264rgb_CodecEncoder : BaseImageCodecEncoder, IH264_libx264_Encoder
     {
         /// <summary>
         /// 

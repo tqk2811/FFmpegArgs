@@ -89,7 +89,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
     /// <summary>
     /// 
     /// </summary>
-    public class H264_qsv_CodecEncoder : H264CodecEncoder
+    public class H264_qsv_CodecEncoder : BaseImageCodecEncoder
     {
         /// <summary>
         /// 

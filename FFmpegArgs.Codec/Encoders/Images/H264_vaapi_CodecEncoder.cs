@@ -59,7 +59,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
     /// <summary>
     /// 
     /// </summary>
-    public class H264_vaapi_CodecEncoder : H264CodecEncoder
+    public class H264_vaapi_CodecEncoder : BaseImageCodecEncoder
     {
         /// <summary>
         /// 

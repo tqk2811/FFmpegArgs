@@ -131,7 +131,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
     /// <summary>
     /// 
     /// </summary>
-    public class H264_nvenc_CodecEncoder : H264CodecEncoder
+    public class H264_nvenc_CodecEncoder : BaseImageCodecEncoder
     {
         /// <summary>
         /// 

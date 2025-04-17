@@ -167,7 +167,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
     /// <summary>
     /// 
     /// </summary>
-    public interface ILibx264Encoder : ICodec, ICodecEncoder, IImage, IImageCodec, IImageCodecEncoder
+    public interface IH264_libx264_Encoder : ICodec, ICodecEncoder, IImage, IImageCodec, IImageCodecEncoder
     {
     }
 
@@ -292,7 +292,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="preset"></param>
         /// <returns></returns>
-        public static T Preset<T>(this T t, Libx264_Preset preset) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Preset<T>(this T t, Libx264_Preset preset) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-preset", preset);
         /// <summary>
         /// Tune the encoding params
@@ -300,7 +300,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="tune"></param>
         /// <returns></returns>
-        public static T Tune<T>(this T t, Libx264_Tune tune) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Tune<T>(this T t, Libx264_Tune tune) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-tune", tune);
         /// <summary>
         /// Set profile restrictions
@@ -308,7 +308,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="profile"></param>
         /// <returns></returns>
-        public static T Profile<T>(this T t, Libx264_Profile profile) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Profile<T>(this T t, Libx264_Profile profile) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-profile", profile);
         /// <summary>
         /// Use fast settings when encoding first pass (default true)
@@ -316,7 +316,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T FastFirstPass<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T FastFirstPass<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-fastfirstpass", flag.ToFFmpegFlag());
         /// <summary>
         /// Specify level (as defined by Annex A)
@@ -324,7 +324,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="level"></param>
         /// <returns></returns>
-        public static T Level<T>(this T t, string level) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Level<T>(this T t, string level) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-level", level);
         /// <summary>
         /// Filename for 2 pass stats
@@ -332,7 +332,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static T PassLogFile<T>(this T t, string filename) where T : H264CodecEncoder, ILibx264Encoder
+        public static T PassLogFile<T>(this T t, string filename) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-passlogfile", filename);
         /// <summary>
         /// Weighted prediction for P-frames
@@ -340,7 +340,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="wpredp"></param>
         /// <returns></returns>
-        public static T WPredP<T>(this T t, string wpredp) where T : H264CodecEncoder, ILibx264Encoder
+        public static T WPredP<T>(this T t, string wpredp) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-wpredp", wpredp);
         /// <summary>
         /// Use A53 Closed Captions (if available) (default true)
@@ -348,7 +348,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T A53CC<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T A53CC<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-a53cc", flag.ToFFmpegFlag());
         /// <summary>
         /// x264 options
@@ -356,7 +356,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="x264opts"></param>
         /// <returns></returns>
-        public static T X264Opts<T>(this T t, string x264opts) where T : H264CodecEncoder, ILibx264Encoder
+        public static T X264Opts<T>(this T t, string x264opts) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-x264opts", x264opts);
         /// <summary>
         /// x264 options
@@ -364,7 +364,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="x264opts"></param>
         /// <returns></returns>
-        public static T X264Opts<T>(this T t, IReadOnlyDictionary<string, string> x264opts) where T : H264CodecEncoder, ILibx264Encoder
+        public static T X264Opts<T>(this T t, IReadOnlyDictionary<string, string> x264opts) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-x264opts", string.Join(":", x264opts.Select(pair => $"{pair.Key}={pair.Value}")));
         /// <summary>
         /// Select the quality for constant quality mode (from -1 to FLT_MAX) (default -1)
@@ -372,7 +372,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="crf"></param>
         /// <returns></returns>
-        public static T Crf<T>(this T t, float crf) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Crf<T>(this T t, float crf) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-crf", crf, -1, float.MaxValue);
         /// <summary>
         /// In CRF mode, prevents VBV from lowering quality beyond this point. (from -1 to FLT_MAX) (default -1)
@@ -380,7 +380,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="crfMax"></param>
         /// <returns></returns>
-        public static T CrfMax<T>(this T t, float crfMax) where T : H264CodecEncoder, ILibx264Encoder
+        public static T CrfMax<T>(this T t, float crfMax) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-crf_max", crfMax, -1, float.MaxValue);
         /// <summary>
         /// Constant quantization parameter rate control method (from -1 to INT_MAX) (default -1)
@@ -388,7 +388,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="qp"></param>
         /// <returns></returns>
-        public static T QP<T>(this T t, int qp) where T : H264CodecEncoder, ILibx264Encoder
+        public static T QP<T>(this T t, int qp) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-qp", qp, -1, int.MaxValue);
         /// <summary>
         /// AQ method (from -1 to INT_MAX) (default -1)
@@ -396,7 +396,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="aqMode"></param>
         /// <returns></returns>
-        public static T AQMode<T>(this T t, Libx264_AqMode aqMode) where T : H264CodecEncoder, ILibx264Encoder
+        public static T AQMode<T>(this T t, Libx264_AqMode aqMode) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-aq-mode", (int)aqMode, -1, int.MaxValue);
         /// <summary>
         /// AQ strength. Reduces blocking and blurring in flat and textured areas. (from -1 to FLT_MAX) (default -1)
@@ -404,7 +404,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="aqStrength"></param>
         /// <returns></returns>
-        public static T AQStrength<T>(this T t, float aqStrength) where T : H264CodecEncoder, ILibx264Encoder
+        public static T AQStrength<T>(this T t, float aqStrength) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-aq-strength", aqStrength, -1, float.MaxValue);
         /// <summary>
         /// Use psychovisual optimizations. (default auto)
@@ -412,7 +412,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T Psy<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Psy<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-psy", flag.ToFFmpegFlag());
         /// <summary>
         /// Strength of psychovisual optimization, in &lt;psy-rd&gt;:&lt;psy-trellis&gt; format.
@@ -420,7 +420,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="psyRD"></param>
         /// <returns></returns>
-        public static T PsyRD<T>(this T t, string psyRD) where T : H264CodecEncoder, ILibx264Encoder
+        public static T PsyRD<T>(this T t, string psyRD) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-psy-rd", psyRD);
         /// <summary>
         /// Number of frames to look ahead for frametype and ratecontrol (from -1 to INT_MAX) (default -1)
@@ -428,7 +428,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="rcLookahead"></param>
         /// <returns></returns>
-        public static T RCLookahead<T>(this T t, int rcLookahead) where T : H264CodecEncoder, ILibx264Encoder
+        public static T RCLookahead<T>(this T t, int rcLookahead) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-rc-lookahead", rcLookahead, -1, int.MaxValue);
         /// <summary>
         /// Weighted prediction for B-frames. (default auto)
@@ -436,7 +436,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T WeightB<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T WeightB<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-weightb", flag.ToFFmpegFlag());
         /// <summary>
         /// Weighted prediction analysis method. (from -1 to INT_MAX) (default -1)
@@ -444,7 +444,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="weightP"></param>
         /// <returns></returns>
-        public static T WeightP<T>(this T t, Libx264_WeightP weightP) where T : H264CodecEncoder, ILibx264Encoder
+        public static T WeightP<T>(this T t, Libx264_WeightP weightP) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-weightp", (int)weightP, -1, int.MaxValue);
         /// <summary>
         /// Calculate and print SSIM stats. (default auto)
@@ -452,7 +452,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T SSIM<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T SSIM<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-ssim", flag.ToFFmpegFlag());
         /// <summary>
         /// Use Periodic Intra Refresh instead of IDR frames. (default auto)
@@ -460,7 +460,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T IntraRefresh<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T IntraRefresh<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-intra-refresh", flag.ToFFmpegFlag());
         /// <summary>
         /// Bluray compatibility workarounds. (default auto)
@@ -468,7 +468,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T BlurayCompat<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T BlurayCompat<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-bluray-compat", flag.ToFFmpegFlag());
         /// <summary>
         /// Influences how often B-frames are used (from INT_MIN to INT_MAX) (default INT_MIN)
@@ -476,7 +476,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="bBias"></param>
         /// <returns></returns>
-        public static T BBias<T>(this T t, int bBias) where T : H264CodecEncoder, ILibx264Encoder
+        public static T BBias<T>(this T t, int bBias) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-b-bias", bBias, int.MinValue, int.MaxValue);
         /// <summary>
         /// Keep some B-frames as references. (from -1 to INT_MAX) (default -1)
@@ -484,7 +484,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="bPyramid"></param>
         /// <returns></returns>
-        public static T BPyramid<T>(this T t, Libx264_BPyramid bPyramid) where T : H264CodecEncoder, ILibx264Encoder
+        public static T BPyramid<T>(this T t, Libx264_BPyramid bPyramid) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-b-pyramid", (int)bPyramid, -1, int.MaxValue);
         /// <summary>
         /// One reference per partition, as opposed to one reference per macroblock (default auto)
@@ -492,7 +492,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T MixedRefs<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T MixedRefs<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-mixed-refs", flag.ToFFmpegFlag());
         /// <summary>
         /// High profile 8x8 transform. (default auto)
@@ -500,7 +500,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T EightByEightDCT<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T EightByEightDCT<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-8x8dct", flag.ToFFmpegFlag());
         /// <summary>
         /// (default auto)
@@ -508,7 +508,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T FastPSkip<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T FastPSkip<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-fast-pskip", flag.ToFFmpegFlag());
         /// <summary>
         /// Use access unit delimiters. (default auto)
@@ -516,7 +516,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T AUD<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T AUD<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-aud", flag.ToFFmpegFlag());
         /// <summary>
         /// Use macroblock tree ratecontrol. (default auto)
@@ -524,7 +524,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T MBTree<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T MBTree<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-mbtree", flag.ToFFmpegFlag());
         /// <summary>
         /// Loop filter parameters, in &lt;alpha:beta&gt; form.
@@ -532,7 +532,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="deblock"></param>
         /// <returns></returns>
-        public static T Deblock<T>(this T t, string deblock) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Deblock<T>(this T t, string deblock) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-deblock", deblock);
         /// <summary>
         /// Reduce fluctuations in QP (before curve compression) (from -1 to FLT_MAX) (default -1)
@@ -540,7 +540,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="cplxBlur"></param>
         /// <returns></returns>
-        public static T CPLXBlur<T>(this T t, float cplxBlur) where T : H264CodecEncoder, ILibx264Encoder
+        public static T CPLXBlur<T>(this T t, float cplxBlur) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-cplxblur", cplxBlur, -1, float.MaxValue);
         /// <summary>
         /// A comma-separated list of partitions to consider. Possible values: p8x8, p4x4, b8x8, i8x8, i4x4, none, all
@@ -548,7 +548,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="partitions"></param>
         /// <returns></returns>
-        public static T Partitions<T>(this T t, params Libx264_Partitions[] partitions) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Partitions<T>(this T t, params Libx264_Partitions[] partitions) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-partitions", string.Join(",", partitions.Select(x => x.ToString())));
         /// <summary>
         /// Direct MV prediction mode (from -1 to INT_MAX) (default -1)
@@ -556,7 +556,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="directPred"></param>
         /// <returns></returns>
-        public static T DirectPred<T>(this T t, Libx264_DirectPred directPred) where T : H264CodecEncoder, ILibx264Encoder
+        public static T DirectPred<T>(this T t, Libx264_DirectPred directPred) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-direct-pred", (int)directPred, -1, int.MaxValue);
         /// <summary>
         /// Limit the size of each slice in bytes (from -1 to INT_MAX) (default -1)
@@ -564,7 +564,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="sliceMaxSize"></param>
         /// <returns></returns>
-        public static T SliceMaxSize<T>(this T t, int sliceMaxSize) where T : H264CodecEncoder, ILibx264Encoder
+        public static T SliceMaxSize<T>(this T t, int sliceMaxSize) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-slice-max-size", sliceMaxSize, -1, int.MaxValue);
         /// <summary>
         /// Filename for 2 pass stats
@@ -572,7 +572,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static T Stats<T>(this T t, string filename) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Stats<T>(this T t, string filename) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-stats", filename);
         /// <summary>
         /// Signal HRD information (requires vbv-bufsize; cbr not allowed in .mp4) (from -1 to INT_MAX) (default -1)
@@ -580,7 +580,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="nalHrd"></param>
         /// <returns></returns>
-        public static T NALHRD<T>(this T t, Libx264_NALHRD nalHrd) where T : H264CodecEncoder, ILibx264Encoder
+        public static T NALHRD<T>(this T t, Libx264_NALHRD nalHrd) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-nal-hrd", (int)nalHrd, -1, int.MaxValue);
         /// <summary>
         /// AVC-Intra class 50/100/200/300/480 (from -1 to 480) (default -1)
@@ -588,7 +588,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="avcIntraClass"></param>
         /// <returns></returns>
-        public static T AVCIntraClass<T>(this T t, int avcIntraClass) where T : H264CodecEncoder, ILibx264Encoder
+        public static T AVCIntraClass<T>(this T t, int avcIntraClass) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-avcintra-class", avcIntraClass, -1, 480);
         /// <summary>
         /// Set motion estimation method (from -1 to 4) (default -1)
@@ -596,7 +596,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="meMethod"></param>
         /// <returns></returns>
-        public static T ME_Method<T>(this T t, Libx264_MotionEstimationMethod meMethod) where T : H264CodecEncoder, ILibx264Encoder
+        public static T ME_Method<T>(this T t, Libx264_MotionEstimationMethod meMethod) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-me_method", (int)meMethod, -1, 4);
         /// <summary>
         /// Set motion estimation method (from -1 to 4) (default -1)
@@ -604,7 +604,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="motionEst"></param>
         /// <returns></returns>
-        public static T MotionEst<T>(this T t, Libx264_MotionEstimationMethod motionEst) where T : H264CodecEncoder, ILibx264Encoder
+        public static T MotionEst<T>(this T t, Libx264_MotionEstimationMethod motionEst) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-motion-est", (int)motionEst, -1, 4);
         /// <summary>
         /// If forcing keyframes, force them as IDR frames. (default false)
@@ -612,7 +612,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T ForcedIDR<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T ForcedIDR<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-forced-idr", flag.ToFFmpegFlag());
         /// <summary>
         /// Coder type (from -1 to 1) (default default)
@@ -620,7 +620,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="coder"></param>
         /// <returns></returns>
-        public static T Coder<T>(this T t, Libx264_Coder coder) where T : H264CodecEncoder, ILibx264Encoder
+        public static T Coder<T>(this T t, Libx264_Coder coder) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-coder", (int)coder, -1, 1);
         /// <summary>
         /// Strategy to choose between I/P/B-frames (from -1 to 2) (default -1)
@@ -628,7 +628,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="bStrategy"></param>
         /// <returns></returns>
-        public static T BStrategy<T>(this T t, int bStrategy) where T : H264CodecEncoder, ILibx264Encoder
+        public static T BStrategy<T>(this T t, int bStrategy) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-b_strategy", bStrategy, -1, 2);
         /// <summary>
         /// QP difference between chroma and luma (from INT_MIN to INT_MAX) (default 0)
@@ -636,7 +636,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="chromaOffset"></param>
         /// <returns></returns>
-        public static T ChromaOffset<T>(this T t, int chromaOffset) where T : H264CodecEncoder, ILibx264Encoder
+        public static T ChromaOffset<T>(this T t, int chromaOffset) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-chromaoffset", chromaOffset, int.MinValue, int.MaxValue);
         /// <summary>
         /// Scene change threshold (from INT_MIN to INT_MAX) (default -1)
@@ -644,7 +644,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="scThreshold"></param>
         /// <returns></returns>
-        public static T SCThreshold<T>(this T t, int scThreshold) where T : H264CodecEncoder, ILibx264Encoder
+        public static T SCThreshold<T>(this T t, int scThreshold) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-sc_threshold", scThreshold, int.MinValue, int.MaxValue);
         /// <summary>
         /// Noise reduction (from INT_MIN to INT_MAX) (default -1)
@@ -652,7 +652,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="noiseReduction"></param>
         /// <returns></returns>
-        public static T NoiseReduction<T>(this T t, int noiseReduction) where T : H264CodecEncoder, ILibx264Encoder
+        public static T NoiseReduction<T>(this T t, int noiseReduction) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOptionRange("-noise_reduction", noiseReduction, int.MinValue, int.MaxValue);
         /// <summary>
         /// Use user data unregistered SEI if available (default false)
@@ -660,7 +660,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T UDU_SEI<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T UDU_SEI<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-udu_sei", flag.ToFFmpegFlag());
         /// <summary>
         /// Override the x264 configuration using a :-separated list of key=value parameters
@@ -668,7 +668,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="x264Params"></param>
         /// <returns></returns>
-        public static T X264Params<T>(this T t, string x264Params) where T : H264CodecEncoder, ILibx264Encoder
+        public static T X264Params<T>(this T t, string x264Params) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-x264-params", x264Params);
         /// <summary>
         /// Override the x264 configuration using a :-separated list of key=value parameters
@@ -676,7 +676,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="x264Params"></param>
         /// <returns></returns>
-        public static T X264Params<T>(this T t, IReadOnlyDictionary<string, string> x264Params) where T : H264CodecEncoder, ILibx264Encoder
+        public static T X264Params<T>(this T t, IReadOnlyDictionary<string, string> x264Params) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-x264-params", string.Join(":", x264Params.Select(pair => $"{pair.Key}={pair.Value}")));
         /// <summary>
         /// Set mb_info data through AVSideData, only useful when used from the API (default false)
@@ -684,7 +684,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="t"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public static T MBInfo<T>(this T t, bool flag) where T : H264CodecEncoder, ILibx264Encoder
+        public static T MBInfo<T>(this T t, bool flag) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
             => t.SetOption("-mb_info", flag.ToFFmpegFlag());
     }
 }

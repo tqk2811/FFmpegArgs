@@ -25,7 +25,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
     /// <summary>
     /// 
     /// </summary>
-    public class H264_libopenh264_CodecEncoder : H264CodecEncoder, ILibx264Encoder
+    public class H264_libopenh264_CodecEncoder : BaseImageCodecEncoder
     {
         /// <summary>
         /// 
