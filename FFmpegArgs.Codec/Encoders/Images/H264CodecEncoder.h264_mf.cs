@@ -24,13 +24,13 @@ namespace FFmpegArgs.Codec.Encoders.Images
     /// <summary>
     /// 
     /// </summary>
-    public class H264_h264_mf_CodecEncoder : H264CodecEncoder
+    public class H264_mf_CodecEncoder : H264CodecEncoder
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stream"></param>
-        public H264_h264_mf_CodecEncoder(ImageOutputAVStream stream) : base("h264_mf", stream)
+        public H264_mf_CodecEncoder(ImageOutputAVStream stream) : base("h264_mf", stream)
         {
         }
 
@@ -40,7 +40,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="rateControl"></param>
         /// <returns></returns>
-        public H264_h264_mf_CodecEncoder RateControl(H264_mf_RateControl rateControl)
+        public H264_mf_CodecEncoder RateControl(H264_mf_RateControl rateControl)
             => this.SetOptionRange("-rate_control", (int)rateControl, -1, INT_MAX);
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="scenario"></param>
         /// <returns></returns>
-        public H264_h264_mf_CodecEncoder Scenario(H264_mf_Scenario scenario)
+        public H264_mf_CodecEncoder Scenario(H264_mf_Scenario scenario)
             => this.SetOptionRange("-scenario", (int)scenario, -1, INT_MAX);
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="quality"></param>
         /// <returns></returns>
-        public H264_h264_mf_CodecEncoder Quality(int quality)
+        public H264_mf_CodecEncoder Quality(int quality)
             => this.SetOptionRange("-quality", quality, -1, 100);
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="flag"></param>
         /// <returns></returns>
-        public H264_h264_mf_CodecEncoder HWEncoding(bool flag)
+        public H264_mf_CodecEncoder HWEncoding(bool flag)
             => this.SetOption("-hw_encoding", flag.ToFFmpegFlag());
     }
 
@@ -144,7 +144,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// </summary>
         /// <param name="stream"></param>
         /// <returns></returns>
-        public static H264_h264_mf_CodecEncoder H264_h264_mf_Codec(this ImageOutputAVStream stream)
-            => new H264_h264_mf_CodecEncoder(stream);
+        public static H264_mf_CodecEncoder H264_mf_Codec(this ImageOutputAVStream stream)
+            => new H264_mf_CodecEncoder(stream);
     }
 }
