@@ -14,16 +14,7 @@
         /// <param name="t"></param>
         /// <param name="bitrate"></param>
         /// <returns></returns>
-        public static T B<T>(this T t, int bitrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
-            => CodecOptionsExtension.B(t, bitrate);
-        /// <summary>
-        /// -b<br></br>Set bitrate in bits/s. Default value is 200K.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
-        /// <param name="bitrate"></param>
-        /// <returns></returns>
-        public static T B<T>(this T t, long bitrate) where T : OutputAVStream, ICodec, ICodecEncoding, IImage//encoding,audio,video
+        public static T B<T>(this T t, long bitrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.B(t, bitrate);
 
         /// <summary>
@@ -34,7 +25,7 @@
         /// <param name="t"></param>
         /// <param name="maxrate"></param>
         /// <returns></returns>
-        public static T Maxrate<T>(this T t, int maxrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
+        public static T Maxrate<T>(this T t, long maxrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.Maxrate(t, maxrate);
 
         /// <summary>
@@ -45,7 +36,7 @@
         /// <param name="t"></param>
         /// <param name="minrate"></param>
         /// <returns></returns>
-        public static T Minrate<T>(this T t, int minrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
+        public static T Minrate<T>(this T t, long minrate) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.Minrate(t, minrate);
 
         /// <summary>
@@ -56,7 +47,7 @@
         /// <param name="t"></param>
         /// <param name="bufsize"></param>
         /// <returns></returns>
-        public static T Bufsize<T>(this T t, int bufsize) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
+        public static T Bufsize<T>(this T t, long bufsize) where T : OutputAVStream, ICodec, ICodecEncoder, IImage//encoding,audio,video
             => CodecOptionsExtension.Bufsize(t, bufsize);
         #endregion
 

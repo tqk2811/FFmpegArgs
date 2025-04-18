@@ -42,16 +42,14 @@
 
         #region audio,video
 
-        internal static T B<T>(this T t, int bitrate) where T : OutputAVStream, ICodec, ICodecEncoder//encoding,audio,video
-            => t.SetOptionRange("-b", bitrate, int.MinValue, int.MaxValue);
-        internal static T B<T>(this T t, long bitrate) where T : OutputAVStream, ICodec, ICodecEncoding//encoding,audio,video
+        internal static T B<T>(this T t, long bitrate) where T : OutputAVStream, ICodec, ICodecEncoder//encoding,audio,video
             => t.SetOptionRange("-b", bitrate, long.MinValue, long.MaxValue);
-        internal static T Maxrate<T>(this T t, int maxrate) where T : OutputAVStream, ICodec, ICodecEncoding//encoding,audio,video
-            => t.SetOptionRange("-maxrate", maxrate, int.MinValue, int.MaxValue);
-        internal static T Minrate<T>(this T t, int minrate) where T : OutputAVStream, ICodec, ICodecEncoder//encoding,audio,video
-            => t.SetOptionRange("-minrate", minrate, int.MinValue, int.MaxValue);
-        internal static T Bufsize<T>(this T t, int bufsize) where T : OutputAVStream, ICodec, ICodecEncoder//encoding,audio,video
-            => t.SetOptionRange("-bufsize", bufsize, int.MinValue, int.MaxValue);
+        internal static T Maxrate<T>(this T t, long maxrate) where T : OutputAVStream, ICodec, ICodecEncoder//encoding,audio,video
+            => t.SetOptionRange("-maxrate", maxrate, long.MinValue, long.MaxValue);
+        internal static T Minrate<T>(this T t, long minrate) where T : OutputAVStream, ICodec, ICodecEncoder//encoding,audio,video
+            => t.SetOptionRange("-minrate", minrate, long.MinValue, long.MaxValue);
+        internal static T Bufsize<T>(this T t, long bufsize) where T : OutputAVStream, ICodec, ICodecEncoder//encoding,audio,video
+            => t.SetOptionRange("-bufsize", bufsize, long.MinValue, long.MaxValue);
 
 
         //flags flags (decoding/encoding,audio,video,subtitles)
