@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IAudioStream : IStream, IAudio
+    public interface IImageStream : ICodec, IImage, IImageCodec, IStream
     {
 
     }

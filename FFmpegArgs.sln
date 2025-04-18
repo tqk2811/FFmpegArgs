@@ -48,6 +48,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Extensions", "FF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Generated", "FFmpegArgs.Filters.Generated\FFmpegArgs.Filters.Generated.csproj", "{6E46958E-A12A-4BA3-977B-935D415D364D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Codec", "FFmpegArgs.Codec\FFmpegArgs.Codec.csproj", "{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,6 +104,10 @@ Global
 		{6E46958E-A12A-4BA3-977B-935D415D364D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E46958E-A12A-4BA3-977B-935D415D364D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E46958E-A12A-4BA3-977B-935D415D364D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

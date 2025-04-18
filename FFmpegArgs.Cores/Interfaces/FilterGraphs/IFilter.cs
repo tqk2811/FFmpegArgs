@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IFilter
+    public interface IFilter : IOption
     {
         /// <summary>
         /// 
@@ -19,11 +19,6 @@
         /// 
         /// </summary>
         string FilterName { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        IEnumerable<KeyValuePair<string, string>> Options { get; }
 
         /// <summary>
         /// 

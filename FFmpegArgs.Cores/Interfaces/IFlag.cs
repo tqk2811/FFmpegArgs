@@ -8,6 +8,6 @@
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<string> Flags { get; }
+        IReadOnlyCollection<string> Flags { get; }
     }
 }

@@ -3,7 +3,9 @@
     /// <summary>
     /// 
     /// </summary>
-    public abstract class InputAVStream : BaseAVStream, ICodecDecoding
+    public abstract class InputAVStream : BaseAVStream,
+        ICodec, ICodecDecoder,
+        IStream, IInputStream
     {
         /// <summary>
         /// 

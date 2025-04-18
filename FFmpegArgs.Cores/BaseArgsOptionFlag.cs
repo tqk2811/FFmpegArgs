@@ -24,7 +24,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<string> Flags => _flags;
+        public virtual IReadOnlyCollection<string> Flags => _flags;
 
         /// <summary>
         /// 
@@ -47,11 +47,15 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="baseOptionFlag"></param>
         /// <param name="flag"></param>
+        /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetFlag<T>(this T baseOptionFlag, string flag) where T : BaseArgsOptionFlag
+        public static T SetFlag<T>(this T baseOptionFlag, string flag, bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate) 
+            where T : BaseArgsOptionFlag
         {
             if (string.IsNullOrEmpty(flag)) throw new ArgumentNullException(nameof(flag));
+            if (throwIfDuplicate && baseOptionFlag._flags.Contains(flag))
+                throw new InvalidOperationException($"Flag '{flag}' already exists");
             baseOptionFlag._flags.Add(flag);
             return baseOptionFlag;
         }

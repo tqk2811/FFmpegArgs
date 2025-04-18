@@ -9,7 +9,7 @@ namespace FFmpegArgs.Cores.Interfaces
     /// <summary>
     /// 
     /// </summary>
-    public interface IStream
+    public interface IStream : ICodec
     {
         /// <summary>
         /// 

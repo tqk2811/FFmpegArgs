@@ -14,7 +14,7 @@
         /// <param name="t"></param>
         /// <param name="bitrate"></param>
         /// <returns></returns>
-        public static T B<T>(this T t, int bitrate) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio,video
+        public static T B<T>(this T t, int bitrate) where T : OutputAVStream, ICodec, ICodecEncoder, IAudio//encoding,audio,video
             => CodecOptionsExtension.B(t, bitrate);
         /// <summary>
         /// -b<br></br>Set bitrate in bits/s. Default value is 200K.
@@ -34,7 +34,7 @@
         /// <param name="t"></param>
         /// <param name="maxrate"></param>
         /// <returns></returns>
-        public static T Maxrate<T>(this T t, int maxrate) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio,video
+        public static T Maxrate<T>(this T t, int maxrate) where T : OutputAVStream, ICodec, ICodecEncoder, IAudio//encoding,audio,video
             => CodecOptionsExtension.Maxrate(t, maxrate);
 
         /// <summary>
@@ -45,7 +45,7 @@
         /// <param name="t"></param>
         /// <param name="minrate"></param>
         /// <returns></returns>
-        public static T Minrate<T>(this T t, int minrate) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio,video
+        public static T Minrate<T>(this T t, int minrate) where T : OutputAVStream, ICodec, ICodecEncoder, IAudio//encoding,audio,video
             => CodecOptionsExtension.Minrate(t, minrate);
 
         /// <summary>
@@ -56,7 +56,7 @@
         /// <param name="t"></param>
         /// <param name="bufsize"></param>
         /// <returns></returns>
-        public static T Bufsize<T>(this T t, int bufsize) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio,video
+        public static T Bufsize<T>(this T t, int bufsize) where T : OutputAVStream, ICodec, ICodecEncoder, IAudio//encoding,audio,video
             => CodecOptionsExtension.Bufsize(t, bufsize);
         #endregion
 
@@ -91,7 +91,7 @@
         /// <param name="t"></param>
         /// <param name="cutoff"></param>
         /// <returns></returns>
-        public static T CutOff<T>(this T t, int cutoff) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio
+        public static T CutOff<T>(this T t, int cutoff) where T : OutputAVStream, ICodec, ICodecEncoder, IAudio//encoding,audio
             => t.SetOptionRange("-cutoff", cutoff, -1, int.MaxValue);
 
         /// <summary>
@@ -103,7 +103,7 @@
         /// <param name="t"></param>
         /// <param name="frame_size"></param>
         /// <returns></returns>
-        public static T FrameSize<T>(this T t, int frame_size) where T : OutputAVStream, ICodec, ICodecEncoding, IAudio//encoding,audio
+        public static T FrameSize<T>(this T t, int frame_size) where T : OutputAVStream, ICodec, ICodecEncoder, IAudio//encoding,audio
             => t.SetOptionRange("-frame_size", frame_size, -1, int.MaxValue);
     }
 }

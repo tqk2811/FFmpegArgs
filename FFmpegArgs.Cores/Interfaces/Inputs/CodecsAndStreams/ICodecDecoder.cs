@@ -1,9 +1,10 @@
 ﻿namespace FFmpegArgs.Cores.Interfaces
 {
+
     /// <summary>
-    /// 
+    /// Decoding supported
     /// </summary>
-    public interface ISubtitle
+    public interface ICodecDecoder : ICodec
     {
 
     }

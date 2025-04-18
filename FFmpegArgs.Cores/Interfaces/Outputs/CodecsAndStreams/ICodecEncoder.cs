@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Cores.Interfaces
 {
     /// <summary>
-    /// 
+    /// Encoding supported
     /// </summary>
-    public interface IImageStream : IStream, IImage
+    public interface ICodecEncoder : ICodec
     {
 
     }

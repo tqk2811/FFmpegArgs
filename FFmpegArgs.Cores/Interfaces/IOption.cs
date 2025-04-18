@@ -8,6 +8,6 @@
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<KeyValuePair<string, string>> Options { get; }
+        IReadOnlyDictionary<string, string> Options { get; }
     }
 }

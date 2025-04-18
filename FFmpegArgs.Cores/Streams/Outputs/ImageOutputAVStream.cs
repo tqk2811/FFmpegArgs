@@ -3,7 +3,10 @@
     /// <summary>
     /// 
     /// </summary>
-    public class ImageOutputAVStream : OutputAVStream, IImage, IImageStream, IImageCodec
+    public class ImageOutputAVStream : OutputAVStream,
+        IImage, IImageCodec, IImageStream,
+        ICodec, ICodecEncoder, IImageCodecEncoder,
+        IStream, IOutputStream, IImageOutputStream
     {
         /// <summary>
         /// 
