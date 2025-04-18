@@ -1,13 +1,13 @@
 ﻿using FFmpegArgs;
 using FFmpegArgs.Cores.Filters;
 using FFmpegArgs.Cores.Maps;
-using FFmpegArgs.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using FFmpegArgs.Cores.Interfaces;
+using FFmpegArgs.Filters;
 namespace Autogens.Filter
 {
     internal static class FiltersGen

@@ -1,4 +1,4 @@
-﻿namespace FFmpegArgs.Filters.MultimediaFilters
+﻿namespace FFmpegArgs.Filters.Multimedia
 {
     /// <summary>
     /// ... asplit            A->N       Pass on the audio input to N audio outputs.<br></br>

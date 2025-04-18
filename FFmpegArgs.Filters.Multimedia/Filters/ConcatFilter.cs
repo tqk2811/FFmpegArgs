@@ -5,7 +5,7 @@ concat AVOptions:
   a                 <int>        ..F.A...... specify the number of audio streams (from 0 to INT_MAX) (default 0)
   unsafe            <boolean>    ..FVA...... enable unsafe mode (default false)
 */
-namespace FFmpegArgs.Filters.MultimediaFilters
+namespace FFmpegArgs.Filters.Multimedia
 {
     /// <summary>
     /// ..C concat            N->N       Concatenate audio and video streams.<br></br>

@@ -2,7 +2,7 @@
 setpts AVOptions:
   expr              <string>     ..FV....... Expression determining the frame timestamp (default "PTS")
  */
-namespace FFmpegArgs.Filters.MultimediaFilters
+namespace FFmpegArgs.Filters.Multimedia
 {
     /// <summary>
     /// ... setpts            V->V       Set PTS for the output video frame.<br></br>

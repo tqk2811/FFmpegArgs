@@ -23,8 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Outputs", "FFmpe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Executes", "FFmpegArgs.Executes\FFmpegArgs.Executes.csproj", "{AA51A707-006C-4C35-BA66-080DD805E3A1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Common", "FFmpegArgs.Filters.Common\FFmpegArgs.Filters.Common.csproj", "{885B3603-7C38-4094-BC08-49B1D9938B70}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFplayArgs", "FFplayArgs\FFplayArgs.csproj", "{E13F0EA5-3D04-42D0-B97C-009A11E36762}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autogens", "Autogens\Autogens.csproj", "{E8299ED1-FE35-4C83-853A-8CF9887323AF}"
@@ -49,6 +47,26 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Generated", "FFmpegArgs.Filters.Generated\FFmpegArgs.Filters.Generated.csproj", "{6E46958E-A12A-4BA3-977B-935D415D364D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Codec", "FFmpegArgs.Codec\FFmpegArgs.Codec.csproj", "{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.AudioFilters", "FFmpegArgs.Filters.AudioFilters\FFmpegArgs.Filters.AudioFilters.csproj", "{67E4D662-5343-4E28-AFF2-E008CFEFD334}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.AudioSinks", "FFmpegArgs.Filters.AudioSinks\FFmpegArgs.Filters.AudioSinks.csproj", "{00C4CFFF-4109-4EF2-8CBC-86794B2C2020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.AudioSources", "FFmpegArgs.Filters.AudioSources\FFmpegArgs.Filters.AudioSources.csproj", "{033FE42F-75B3-4559-9B9D-3453CAC232DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.Multimedia", "FFmpegArgs.Filters.Multimedia\FFmpegArgs.Filters.Multimedia.csproj", "{C5C3CB9D-6425-B625-2535-1C072F83AD69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.MultimediaSources", "FFmpegArgs.Filters.MultimediaSources\FFmpegArgs.Filters.MultimediaSources.csproj", "{E3739551-70F2-4169-8F99-C65F7A88A205}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.OpenCLVideoFilters", "FFmpegArgs.Filters.OpenCLVideoFilters\FFmpegArgs.Filters.OpenCLVideoFilters.csproj", "{27F38D57-56E5-4189-A74B-29CADB1E9B3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.VAAPIVideoFilters", "FFmpegArgs.Filters.VAAPIVideoFilters\FFmpegArgs.Filters.VAAPIVideoFilters.csproj", "{A09A1663-6DDC-4CC4-8E4D-61BA7569CBC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.VideoFilters", "FFmpegArgs.Filters.VideoFilters\FFmpegArgs.Filters.VideoFilters.csproj", "{BC5C8BFC-9B8F-43B3-8D75-6321EDE976FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.VideoSinks", "FFmpegArgs.Filters.VideoSinks\FFmpegArgs.Filters.VideoSinks.csproj", "{F398F010-B88D-4D8A-A313-D39EF5687E5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.VideoSources", "FFmpegArgs.Filters.VideoSources\FFmpegArgs.Filters.VideoSources.csproj", "{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -80,10 +98,6 @@ Global
 		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA51A707-006C-4C35-BA66-080DD805E3A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{885B3603-7C38-4094-BC08-49B1D9938B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{885B3603-7C38-4094-BC08-49B1D9938B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{885B3603-7C38-4094-BC08-49B1D9938B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{885B3603-7C38-4094-BC08-49B1D9938B70}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E13F0EA5-3D04-42D0-B97C-009A11E36762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E13F0EA5-3D04-42D0-B97C-009A11E36762}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E13F0EA5-3D04-42D0-B97C-009A11E36762}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -108,6 +122,46 @@ Global
 		{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA9AF85B-CE7B-8057-4007-5E3D08DF582A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67E4D662-5343-4E28-AFF2-E008CFEFD334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67E4D662-5343-4E28-AFF2-E008CFEFD334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67E4D662-5343-4E28-AFF2-E008CFEFD334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67E4D662-5343-4E28-AFF2-E008CFEFD334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C4CFFF-4109-4EF2-8CBC-86794B2C2020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C4CFFF-4109-4EF2-8CBC-86794B2C2020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C4CFFF-4109-4EF2-8CBC-86794B2C2020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C4CFFF-4109-4EF2-8CBC-86794B2C2020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{033FE42F-75B3-4559-9B9D-3453CAC232DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{033FE42F-75B3-4559-9B9D-3453CAC232DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{033FE42F-75B3-4559-9B9D-3453CAC232DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{033FE42F-75B3-4559-9B9D-3453CAC232DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C3CB9D-6425-B625-2535-1C072F83AD69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C3CB9D-6425-B625-2535-1C072F83AD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C3CB9D-6425-B625-2535-1C072F83AD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C3CB9D-6425-B625-2535-1C072F83AD69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3739551-70F2-4169-8F99-C65F7A88A205}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3739551-70F2-4169-8F99-C65F7A88A205}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3739551-70F2-4169-8F99-C65F7A88A205}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3739551-70F2-4169-8F99-C65F7A88A205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F38D57-56E5-4189-A74B-29CADB1E9B3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F38D57-56E5-4189-A74B-29CADB1E9B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F38D57-56E5-4189-A74B-29CADB1E9B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F38D57-56E5-4189-A74B-29CADB1E9B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A09A1663-6DDC-4CC4-8E4D-61BA7569CBC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A09A1663-6DDC-4CC4-8E4D-61BA7569CBC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A09A1663-6DDC-4CC4-8E4D-61BA7569CBC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A09A1663-6DDC-4CC4-8E4D-61BA7569CBC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC5C8BFC-9B8F-43B3-8D75-6321EDE976FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5C8BFC-9B8F-43B3-8D75-6321EDE976FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5C8BFC-9B8F-43B3-8D75-6321EDE976FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5C8BFC-9B8F-43B3-8D75-6321EDE976FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F398F010-B88D-4D8A-A313-D39EF5687E5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F398F010-B88D-4D8A-A313-D39EF5687E5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F398F010-B88D-4D8A-A313-D39EF5687E5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F398F010-B88D-4D8A-A313-D39EF5687E5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

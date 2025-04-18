@@ -25,7 +25,7 @@ global using FFmpegArgs.Filters.Expressions;
 
 global using FFmpegArgs.Filters.AudioFilters;
 global using FFmpegArgs.Filters.VideoFilters;
-global using FFmpegArgs.Filters.MultimediaFilters;
+global using FFmpegArgs.Filters.Multimedia;
 global using FFmpegArgs.Filters.VideoSources;
 
 global using FFmpegArgs.Executes;

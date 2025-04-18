@@ -2,7 +2,7 @@
 asetpts AVOptions:
   expr              <string>     ..F.A...... Expression determining the frame timestamp (default "PTS")
  */
-namespace FFmpegArgs.Filters.MultimediaFilters
+namespace FFmpegArgs.Filters.Multimedia
 {
     /// <summary>
     /// ... setapts            V->V       Set PTS for the output audio frame.<br></br>

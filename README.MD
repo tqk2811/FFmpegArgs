@@ -94,7 +94,7 @@ using FFmpegArgs.Filters.Expressions;
 
 using FFmpegArgs.Filters.AudioFilters;
 using FFmpegArgs.Filters.VideoFilters;
-using FFmpegArgs.Filters.MultimediaFilters;
+using FFmpegArgs.Filters.Multimedia;
 using FFmpegArgs.Filters.VideoSources;
 using FFmpegArgs.Filters.AudioSources;
 //using FFmpegArgs.Filters.Generated;

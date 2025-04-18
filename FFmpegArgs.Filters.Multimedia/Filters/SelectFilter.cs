@@ -5,7 +5,7 @@
    outputs           <int>        ..FV....... set the number of outputs (from 1 to INT_MAX) (default 1)
    n                 <int>        ..FV....... set the number of outputs (from 1 to INT_MAX) (default 1)
  */
-namespace FFmpegArgs.Filters.MultimediaFilters
+namespace FFmpegArgs.Filters.Multimedia
 {
     /// <summary>
     /// ... select            V->N       Select video frames to pass in output.<br></br>

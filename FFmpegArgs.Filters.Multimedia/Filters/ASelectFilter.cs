@@ -5,7 +5,7 @@
    outputs           <int>        ..F.A...... set the number of outputs (from 1 to INT_MAX) (default 1)
    n                 <int>        ..F.A...... set the number of outputs (from 1 to INT_MAX) (default 1)
  */
-namespace FFmpegArgs.Filters.MultimediaFilters
+namespace FFmpegArgs.Filters.Multimedia
 {
     /// <summary>
     /// ... aselect           A->N       Select audio frames to pass in output.<br></br>

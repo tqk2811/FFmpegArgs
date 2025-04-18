@@ -28,11 +28,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectReference Include="..\FFmpegArgs.Codec\FFmpegArgs.Codec.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Cores\FFmpegArgs.Cores.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Executes\FFmpegArgs.Executes.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Extensions\FFmpegArgs.Extensions.csproj" />
-		<ProjectReference Include="..\FFmpegArgs.Filters.Common\FFmpegArgs.Filters.Common.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.AudioFilters\FFmpegArgs.Filters.AudioFilters.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.AudioSinks\FFmpegArgs.Filters.AudioSinks.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.AudioSources\FFmpegArgs.Filters.AudioSources.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters.Generated\FFmpegArgs.Filters.Generated.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.MultimediaSources\FFmpegArgs.Filters.MultimediaSources.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.Multimedia\FFmpegArgs.Filters.Multimedia.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.OpenCLVideoFilters\FFmpegArgs.Filters.OpenCLVideoFilters.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.VAAPIVideoFilters\FFmpegArgs.Filters.VAAPIVideoFilters.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.VideoFilters\FFmpegArgs.Filters.VideoFilters.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.VideoSinks\FFmpegArgs.Filters.VideoSinks.csproj" />
+		<ProjectReference Include="..\FFmpegArgs.Filters.VideoSources\FFmpegArgs.Filters.VideoSources.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters\FFmpegArgs.Filters.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Inputs\FFmpegArgs.Inputs.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Outputs\FFmpegArgs.Outputs.csproj" />
