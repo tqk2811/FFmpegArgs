@@ -27,27 +27,27 @@ public AdynamicequalizerFilterGen tfrequency(double tfrequency) => this.SetOptio
 /// </summary>
 public AdynamicequalizerFilterGen tqfactor(double tqfactor) => this.SetOptionRange("tqfactor", tqfactor,0.001,1000);
 /// <summary>
-///  set attack duration (from 1 to 2000) (default 20)
+///  set detection attack duration (from 0.01 to 2000) (default 20)
 /// </summary>
-public AdynamicequalizerFilterGen attack(double attack) => this.SetOptionRange("attack", attack,1,2000);
+public AdynamicequalizerFilterGen attack(double attack) => this.SetOptionRange("attack", attack,0.01,2000);
 /// <summary>
-///  set release duration (from 1 to 2000) (default 200)
+///  set detection release duration (from 0.01 to 2000) (default 200)
 /// </summary>
-public AdynamicequalizerFilterGen release(double release) => this.SetOptionRange("release", release,1,2000);
+public AdynamicequalizerFilterGen release(double release) => this.SetOptionRange("release", release,0.01,2000);
 /// <summary>
 ///  set ratio factor (from 0 to 30) (default 1)
 /// </summary>
 public AdynamicequalizerFilterGen ratio(double ratio) => this.SetOptionRange("ratio", ratio,0,30);
 /// <summary>
-///  set makeup gain (from 0 to 100) (default 0)
+///  set makeup gain (from 0 to 1000) (default 0)
 /// </summary>
-public AdynamicequalizerFilterGen makeup(double makeup) => this.SetOptionRange("makeup", makeup,0,100);
+public AdynamicequalizerFilterGen makeup(double makeup) => this.SetOptionRange("makeup", makeup,0,1000);
 /// <summary>
-///  set max gain (from 1 to 200) (default 50)
+///  set max gain (from 1 to 2000) (default 50)
 /// </summary>
-public AdynamicequalizerFilterGen range(double range) => this.SetOptionRange("range", range,1,200);
+public AdynamicequalizerFilterGen range(double range) => this.SetOptionRange("range", range,1,2000);
 /// <summary>
-///  set mode (from -1 to 1) (default cut)
+///  set mode (from -1 to 3) (default cutbelow)
 /// </summary>
 public AdynamicequalizerFilterGen mode(AdynamicequalizerFilterGenMode mode) => this.SetOption("mode", mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -59,11 +59,7 @@ public AdynamicequalizerFilterGen dftype(AdynamicequalizerFilterGenDftype dftype
 /// </summary>
 public AdynamicequalizerFilterGen tftype(AdynamicequalizerFilterGenTftype tftype) => this.SetOption("tftype", tftype.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set direction (from 0 to 1) (default downward)
-/// </summary>
-public AdynamicequalizerFilterGen direction(AdynamicequalizerFilterGenDirection direction) => this.SetOption("direction", direction.GetEnumAttribute<NameAttribute>().Name);
-/// <summary>
-///  set auto threshold (from -1 to 1) (default disabled)
+///  set auto threshold (from 1 to 4) (default off)
 /// </summary>
 public AdynamicequalizerFilterGen auto(AdynamicequalizerFilterGenAuto auto) => this.SetOption("auto", auto.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -81,7 +77,7 @@ public static partial class FilterGeneratedExtensions
 public static AdynamicequalizerFilterGen AdynamicequalizerFilterGen(this AudioMap input0) => new AdynamicequalizerFilterGen(input0);
 }
 /// <summary>
-///  set mode (from -1 to 1) (default cut)
+///  set mode (from -1 to 3) (default cutbelow)
 /// </summary>
 public enum AdynamicequalizerFilterGenMode
 {
@@ -90,13 +86,21 @@ public enum AdynamicequalizerFilterGenMode
 /// </summary>
 [Name("listen")] listen,
 /// <summary>
-/// cut             0            ..F.A....T.
+/// cutbelow        0            ..F.A....T.
 /// </summary>
-[Name("cut")] cut,
+[Name("cutbelow")] cutbelow,
 /// <summary>
-/// boost           1            ..F.A....T.
+/// cutabove        1            ..F.A....T.
 /// </summary>
-[Name("boost")] boost,
+[Name("cutabove")] cutabove,
+/// <summary>
+/// boostbelow      2            ..F.A....T.
+/// </summary>
+[Name("boostbelow")] boostbelow,
+/// <summary>
+/// boostabove      3            ..F.A....T.
+/// </summary>
+[Name("boostabove")] boostabove,
 }
 
 /// <summary>
@@ -142,37 +146,26 @@ public enum AdynamicequalizerFilterGenTftype
 }
 
 /// <summary>
-///  set direction (from 0 to 1) (default downward)
-/// </summary>
-public enum AdynamicequalizerFilterGenDirection
-{
-/// <summary>
-/// downward        0            ..F.A....T.
-/// </summary>
-[Name("downward")] downward,
-/// <summary>
-/// upward          1            ..F.A....T.
-/// </summary>
-[Name("upward")] upward,
-}
-
-/// <summary>
-///  set auto threshold (from -1 to 1) (default disabled)
+///  set auto threshold (from 1 to 4) (default off)
 /// </summary>
 public enum AdynamicequalizerFilterGenAuto
 {
 /// <summary>
-/// disabled        -1           ..F.A....T.
+/// disabled        1            ..F.A....T.
 /// </summary>
 [Name("disabled")] disabled,
 /// <summary>
-/// off             0            ..F.A....T.
+/// off             2            ..F.A....T.
 /// </summary>
 [Name("off")] off,
 /// <summary>
-/// on              1            ..F.A....T.
+/// on              3            ..F.A....T.
 /// </summary>
 [Name("on")] on,
+/// <summary>
+/// adaptive        4            ..F.A....T.
+/// </summary>
+[Name("adaptive")] adaptive,
 }
 
 /// <summary>

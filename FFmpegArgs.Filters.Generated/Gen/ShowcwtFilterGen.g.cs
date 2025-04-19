@@ -15,7 +15,7 @@ public ShowcwtFilterGen size(Size size) => this.SetOption("size",$"{size.Width}x
 /// </summary>
 public ShowcwtFilterGen rate(string rate) => this.SetOption("rate",rate);
 /// <summary>
-///  set frequency scale (from 0 to 7) (default linear)
+///  set frequency scale (from 0 to 8) (default linear)
 /// </summary>
 public ShowcwtFilterGen scale(ShowcwtFilterGenScale scale) => this.SetOption("scale", scale.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -63,7 +63,7 @@ public ShowcwtFilterGen slide(ShowcwtFilterGenSlide slide) => this.SetOption("sl
 /// </summary>
 public ShowcwtFilterGen direction(ShowcwtFilterGenDirection direction) => this.SetOption("direction", direction.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set bar ratio (from 0 to 1) (default 0)
+///  set bargraph ratio (from 0 to 1) (default 0)
 /// </summary>
 public ShowcwtFilterGen bar(float bar) => this.SetOptionRange("bar", bar,0,1);
 /// <summary>
@@ -81,7 +81,7 @@ public static partial class FilterGeneratedExtensions
 public static ShowcwtFilterGen ShowcwtFilterGen(this AudioMap input0) => new ShowcwtFilterGen(input0);
 }
 /// <summary>
-///  set frequency scale (from 0 to 7) (default linear)
+///  set frequency scale (from 0 to 8) (default linear)
 /// </summary>
 public enum ShowcwtFilterGenScale
 {
@@ -117,6 +117,10 @@ public enum ShowcwtFilterGenScale
 /// qdrt            7            ..FV....... qdrt
 /// </summary>
 [Name("qdrt")] qdrt,
+/// <summary>
+/// fm              8            ..FV....... fm
+/// </summary>
+[Name("fm")] fm,
 }
 
 /// <summary>

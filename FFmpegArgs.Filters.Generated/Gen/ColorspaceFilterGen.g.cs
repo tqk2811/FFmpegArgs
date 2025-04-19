@@ -27,7 +27,7 @@ public ColorspaceFilterGen primaries(ColorspaceFilterGenPrimaries primaries) => 
 /// </summary>
 public ColorspaceFilterGen trc(ColorspaceFilterGenTrc trc) => this.SetOption("trc", trc.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  Output pixel format (from -1 to 162) (default -1)
+///  Output pixel format (from -1 to 161) (default -1)
 /// </summary>
 public ColorspaceFilterGen format(ColorspaceFilterGenFormat format) => this.SetOption("format", format.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
@@ -296,7 +296,7 @@ public enum ColorspaceFilterGenTrc
 }
 
 /// <summary>
-///  Output pixel format (from -1 to 162) (default -1)
+///  Output pixel format (from -1 to 161) (default -1)
 /// </summary>
 public enum ColorspaceFilterGenFormat
 {

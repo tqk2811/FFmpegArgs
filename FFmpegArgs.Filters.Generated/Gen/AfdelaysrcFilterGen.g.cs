@@ -29,7 +29,7 @@ public AfdelaysrcFilterGen taps(int taps) => this.SetOptionRange("taps", taps,0,
 /// <summary>
 ///  set channel layout (default &quot;stereo&quot;)
 /// </summary>
-public AfdelaysrcFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
+public AfdelaysrcFilterGen channel_layout(ChannelLayout channel_layout) => this.SetOption("channel_layout",channel_layout.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>

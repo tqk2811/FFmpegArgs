@@ -563,6 +563,12 @@ dvbsub,
 dvbtxt,
 
 /// <summary>
+/// DVD-Video
+/// </summary>
+[Name("dvdvideo")]
+dvdvideo,
+
+/// <summary>
 /// DXA
 /// </summary>
 [Name("dxa")]
@@ -819,6 +825,12 @@ hls,
 /// </summary>
 [Name("hnm")]
 hnm,
+
+/// <summary>
+/// Raw Immersive Audio Model and Formats
+/// </summary>
+[Name("iamf")]
+iamf,
 
 /// <summary>
 /// Microsoft Windows ICO
@@ -1497,6 +1509,12 @@ qcp,
 /// </summary>
 [Name("qdraw_pipe")]
 qdraw_pipe,
+
+/// <summary>
+/// QOA
+/// </summary>
+[Name("qoa")]
+qoa,
 
 /// <summary>
 /// piped qoi sequence

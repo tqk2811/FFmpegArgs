@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// T.. corr              VV-&gt;V      Calculate the correlation between two video streams.
+/// TS. corr              VV-&gt;V      Calculate the correlation between two video streams.
 /// </summary>
-public class CorrFilterGen : ImageToImageFilter,ITimelineSupport
+public class CorrFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading
 {
 internal CorrFilterGen(params ImageMap[] inputs) : base("corr",inputs) { AddMapOut(); }
 }

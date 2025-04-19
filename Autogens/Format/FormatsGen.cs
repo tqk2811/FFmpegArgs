@@ -10,7 +10,7 @@ namespace Autogens.Format
 {
     internal static class FormatsGen
     {
-        static Regex format_filter { get; } = new Regex("^ ([DE ]{2}) (.*?) +(.*?)$");
+        static Regex format_filter { get; } = new Regex("^ ([DEd ]{3}) (.*?) +(.*?)$");
         internal static void Gen(List<string> lines)
         {
             using StreamWriter DemuxingFileFormat = new StreamWriter(Path.Combine("FFmpegArgs.Cores", "Enums", $"DemuxingFileFormat.g.cs"), false);

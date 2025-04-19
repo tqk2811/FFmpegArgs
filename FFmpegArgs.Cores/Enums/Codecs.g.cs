@@ -100,7 +100,7 @@ public enum Codecs
 [CodecFlag("D.VIL.")][Name("aura2")]aura2,
 
 /// <summary>
-/// Alliance for Open Media AV1 (decoders: libdav1d libaom-av1 av1 av1_cuvid av1_qsv) (encoders: libaom-av1 librav1e libsvtav1 av1_nvenc av1_qsv av1_amf av1_vaapi)
+/// Alliance for Open Media AV1 (decoders: libdav1d libaom-av1 av1 av1_cuvid av1_qsv) (encoders: libaom-av1 librav1e av1_nvenc av1_qsv av1_amf av1_vaapi)
 /// </summary>
 [CodecFlag("DEV.L.")][Name("av1")]av1,
 
@@ -133,11 +133,6 @@ public enum Codecs
 /// Avid Meridien Uncompressed
 /// </summary>
 [CodecFlag("DEVI.S")][Name("avui")]avui,
-
-/// <summary>
-/// Uncompressed packed MS 4:4:4:4
-/// </summary>
-[CodecFlag("DEVI.S")][Name("ayuv")]ayuv,
 
 /// <summary>
 /// Bethesda VID video
@@ -307,7 +302,7 @@ public enum Codecs
 /// <summary>
 /// Resolume DXV
 /// </summary>
-[CodecFlag("D.VIL.")][Name("dxv")]dxv,
+[CodecFlag("DEVIL.")][Name("dxv")]dxv,
 
 /// <summary>
 /// Escape 124
@@ -432,7 +427,7 @@ public enum Codecs
 /// <summary>
 /// Vidvox Hap
 /// </summary>
-[CodecFlag("D.VIL.")][Name("hap")]hap,
+[CodecFlag("DEVIL.")][Name("hap")]hap,
 
 /// <summary>
 /// HDR (Radiance RGBE format) image
@@ -558,6 +553,11 @@ public enum Codecs
 /// Lagarith lossless
 /// </summary>
 [CodecFlag("D.VI.S")][Name("lagarith")]lagarith,
+
+/// <summary>
+/// LEAD MCMP
+/// </summary>
+[CodecFlag("D.VIL.")][Name("lead")]lead,
 
 /// <summary>
 /// Lossless JPEG
@@ -1252,7 +1252,7 @@ public enum Codecs
 /// <summary>
 /// H.266 / VVC (Versatile Video Coding)
 /// </summary>
-[CodecFlag("..V.L.")][Name("vvc")]vvc,
+[CodecFlag("D.V.L.")][Name("vvc")]vvc,
 
 /// <summary>
 /// WBMP (Wireless Application Protocol Bitmap) image
@@ -2223,6 +2223,11 @@ public enum Codecs
 /// QDesign Music
 /// </summary>
 [CodecFlag("D.AIL.")][Name("qdmc")]qdmc,
+
+/// <summary>
+/// QOA (Quite OK Audio)
+/// </summary>
+[CodecFlag("D.AIL.")][Name("qoa")]qoa,
 
 /// <summary>
 /// RealAudio 1.0 (14.4K) (decoders: real_144) (encoders: real_144)

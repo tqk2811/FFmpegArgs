@@ -9,11 +9,11 @@ internal SurroundFilterGen(AudioMap input) : base("surround",input) { AddMapOut(
 /// <summary>
 ///  set output channel layout (default &quot;5.1&quot;)
 /// </summary>
-public SurroundFilterGen chl_out(string chl_out) => this.SetOption("chl_out",chl_out);
+public SurroundFilterGen chl_out(ChannelLayout chl_out) => this.SetOption("chl_out",chl_out.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input channel layout (default &quot;stereo&quot;)
 /// </summary>
-public SurroundFilterGen chl_in(string chl_in) => this.SetOption("chl_in",chl_in);
+public SurroundFilterGen chl_in(ChannelLayout chl_in) => this.SetOption("chl_in",chl_in.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set input level (from 0 to 10) (default 1)
 /// </summary>
@@ -226,7 +226,7 @@ public enum SurroundFilterGenLfe_mode
 /// </summary>
 [Name("add")] add,
 /// <summary>
-/// sub             1            ..F.A....T. substract LFE channel with others
+/// sub             1            ..F.A....T. subtract LFE channel with others
 /// </summary>
 [Name("sub")] sub,
 }

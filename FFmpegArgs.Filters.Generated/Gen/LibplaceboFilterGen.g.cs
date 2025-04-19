@@ -227,50 +227,6 @@ public LibplaceboFilterGen contrast_recovery(float contrast_recovery) => this.Se
 /// </summary>
 public LibplaceboFilterGen contrast_smoothness(float contrast_smoothness) => this.SetOptionRange("contrast_smoothness", contrast_smoothness,1,32);
 /// <summary>
-///  Desaturation strength (from -1 to 1) (default -1)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen desaturation_strength(float desaturation_strength) => this.SetOptionRange("desaturation_strength", desaturation_strength,-1,1);
-/// <summary>
-///  Desaturation exponent (from -1 to 10) (default -1)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen desaturation_exponent(float desaturation_exponent) => this.SetOptionRange("desaturation_exponent", desaturation_exponent,-1,10);
-/// <summary>
-///  Highlight out-of-gamut colors (default false)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen gamut_warning(bool gamut_warning) => this.SetOption("gamut_warning",gamut_warning.ToFFmpegFlag());
-/// <summary>
-///  Enable desaturating colorimetric gamut clipping (default false)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen gamut_clipping(bool gamut_clipping) => this.SetOption("gamut_clipping",gamut_clipping.ToFFmpegFlag());
-/// <summary>
-///  Rendering intent (from 0 to 3) (default perceptual)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen intent(LibplaceboFilterGenIntent intent) => this.SetOption("intent", intent.GetEnumAttribute<NameAttribute>().Name);
-/// <summary>
-///  Tone-mapping mode (from 0 to 4) (default auto)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen tonemapping_mode(LibplaceboFilterGenTonemapping_mode tonemapping_mode) => this.SetOption("tonemapping_mode", tonemapping_mode.GetEnumAttribute<NameAttribute>().Name);
-/// <summary>
-///  Crosstalk factor for tone-mapping (from 0 to 0.3) (default 0.04)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen tonemapping_crosstalk(float tonemapping_crosstalk) => this.SetOptionRange("tonemapping_crosstalk", tonemapping_crosstalk,0,0.3);
-/// <summary>
-///  Tone-mapping overshoot margin (from 0 to 1) (default 0.05)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen overshoot(float overshoot) => this.SetOptionRange("overshoot", overshoot,0,1);
-/// <summary>
-///  Tone-mapping hybrid LMS mixing coefficient (from 0 to 1) (default 0.2)
-/// </summary>
-public LibplaceboFilterGen hybrid_mix(float hybrid_mix) => this.SetOptionRange("hybrid_mix", hybrid_mix,0,1);
-/// <summary>
 ///  Dither method to use (from -1 to 3) (default blue)
 /// </summary>
 public LibplaceboFilterGen dithering(LibplaceboFilterGenDithering dithering) => this.SetOption("dithering", dithering.GetEnumAttribute<NameAttribute>().Name);
@@ -314,11 +270,6 @@ public LibplaceboFilterGen disable_linear(bool disable_linear) => this.SetOption
 ///  Disable built-in scalers (default false)
 /// </summary>
 public LibplaceboFilterGen disable_builtin(bool disable_builtin) => this.SetOption("disable_builtin",disable_builtin.ToFFmpegFlag());
-/// <summary>
-///  Deprecated, does nothing (default false)
-/// </summary>
-[Obsolete]
-public LibplaceboFilterGen force_icc_lut(bool force_icc_lut) => this.SetOption("force_icc_lut",force_icc_lut.ToFFmpegFlag());
 /// <summary>
 ///  Force dithering (default false)
 /// </summary>
@@ -676,56 +627,6 @@ public enum LibplaceboFilterGenTonemapping
 /// linear          11           ..FV....... Perceptually linear stretch
 /// </summary>
 [Name("linear")] linear,
-}
-
-/// <summary>
-///  Rendering intent (from 0 to 3) (default perceptual)
-/// </summary>
-public enum LibplaceboFilterGenIntent
-{
-/// <summary>
-/// perceptual      0            ..FV....... Perceptual
-/// </summary>
-[Name("perceptual")] perceptual,
-/// <summary>
-/// relative        1            ..FV....... Relative colorimetric
-/// </summary>
-[Name("relative")] relative,
-/// <summary>
-/// absolute        3            ..FV....... Absolute colorimetric
-/// </summary>
-[Name("absolute")] absolute,
-/// <summary>
-/// saturation      2            ..FV....... Saturation mapping
-/// </summary>
-[Name("saturation")] saturation,
-}
-
-/// <summary>
-///  Tone-mapping mode (from 0 to 4) (default auto)
-/// </summary>
-public enum LibplaceboFilterGenTonemapping_mode
-{
-/// <summary>
-/// auto            0            ..FV....... Automatic selection
-/// </summary>
-[Name("auto")] auto,
-/// <summary>
-/// rgb             1            ..FV....... Per-channel (RGB)
-/// </summary>
-[Name("rgb")] rgb,
-/// <summary>
-/// max             2            ..FV....... Maximum component
-/// </summary>
-[Name("max")] max,
-/// <summary>
-/// hybrid          3            ..FV....... Hybrid of Luma/RGB
-/// </summary>
-[Name("hybrid")] hybrid,
-/// <summary>
-/// luma            4            ..FV....... Luminance
-/// </summary>
-[Name("luma")] luma,
 }
 
 /// <summary>

@@ -1,138 +1,99 @@
-Filters.Gen not found (acompressor):..C acompressor       A->A       Audio compressor.
-Filters.Gen not found (acopy):... acopy             A->A       Copy the input audio unchanged to the output.
-Filters.Gen not found (acue):... acue              A->A       Delay filtering to match a cue.
-Filters.Gen skip (A->N):.S. acrossover        A->N       Split audio into per-bands streams.
-Filters.Gen not found (aderivative):... aderivative       A->A       Compute derivative of input audio.
-Filters.Gen skip (N->N):.SC afir              N->N       Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).
-Filters.Gen not found (agate):T.C agate             A->A       Audio gate.
-Filters.Gen skip (A->N):.S. aiir              A->N       Apply Infinite Impulse Response filter with supplied coefficients.
-Filters.Gen not found (aintegral):... aintegral         A->A       Compute integral of input audio.
-Filters.Gen skip (N->A):... ainterleave       N->A       Temporally interleave audio inputs.
-Filters.Gen not found (alatency):T.. alatency          A->A       Report audio filtering latency.
-Filters.Gen skip (N->A):... amerge            N->A       Merge two or more audio streams into a single multi-channel stream.
-Filters.Gen skip (N->A):..C amix              N->A       Audio mixing.
-Filters.Gen not found (amultiply):... amultiply         AA->A      Multiply two audio streams.
-Filters.Gen skip (A->N):TSC anequalizer       A->N       Apply high-order audio parametric multi band equalizer.
-Filters.Gen not found (anlmf):.SC anlmf             AA->A      Apply Normalized Least-Mean-Fourth algorithm to first audio stream.
-Filters.Gen not found (anlms):.SC anlms             AA->A      Apply Normalized Least-Mean-Squares algorithm to first audio stream.
-Filters.Gen not found (anull):... anull             A->A       Pass the source unchanged to the output.
-Filters.Gen not found (aperms):T.. aperms            A->A       Set permissions for the output audio frame.
-Filters.Gen not found (arealtime):... arealtime         A->A       Slow down filtering to match realtime.
-Filters.Gen not found (areverse):... areverse          A->A       Reverse an audio clip.
-Filters.Gen not found (asdr):... asdr              AA->A      Measure Audio Signal-to-Distortion Ratio.
-Filters.Gen skip (A->N):... asegment          A->N       Segment audio stream.
-Filters.Gen skip (A->N):... aselect           A->N       Select audio frames to pass in output.
-Filters.Gen not found (asendcmd):... asendcmd          A->A       Send commands to filters.
-Filters.Gen not found (ashowinfo):... ashowinfo         A->A       Show textual information for each audio frame.
-Filters.Gen not found (asplit):... asplit            A->N       Pass on the audio input to N audio outputs.
-Filters.Gen not found (astreamselect):..C astreamselect     N->N       Select audio streams
-Filters.Gen not found (asuperpass):TSC asuperpass        A->A       Apply high order Butterworth band-pass filter.
-Filters.Gen not found (asuperstop):TSC asuperstop        A->A       Apply high order Butterworth band-stop filter.
-Filters.Gen not found (bass):TSC bass              A->A       Boost or cut lower frequencies.
-Filters.Gen skip (A->N):... channelsplit      A->N       Split audio into per-channel streams.
-Filters.Gen not found (earwax):... earwax            A->A       Widen the stereo image.
-Filters.Gen skip (A->N):... ebur128           A->N       EBU R128 scanner.
-Filters.Gen skip (N->A):.S. headphone         N->A       Apply headphone binaural spatialization with HRTFs in additional streams.
-Filters.Gen not found (highshelf):TSC highshelf         A->A       Apply a high shelf filter.
-Filters.Gen skip (N->A):... join              N->A       Join multiple audio streams into multi-channel output.
-Filters.Gen not found (lowshelf):TSC lowshelf          A->A       Apply a low shelf filter.
-Filters.Gen skip (N->A):... lv2               N->A       Apply LV2 effect.
-Filters.Gen not found (replaygain):... replaygain        A->A       ReplayGain scanner.
-Filters.Gen not found (sidechaincompress):..C sidechaincompress AA->A      Sidechain compressor.
-Filters.Gen not found (sidechaingate):T.C sidechaingate     AA->A      Audio sidechain gate.
-Filters.Gen not found (treble):TSC treble            A->A       Boost or cut upper frequencies.
-Filters.Gen not found (volumedetect):... volumedetect      A->A       Detect audio volume.
-Filters.Gen not found (anullsink):... anullsink         A->|       Do absolutely nothing with the input audio.
-Filters.Gen not found (alphaextract):... alphaextract      V->V       Extract an alpha channel as a grayscale image component.
-Filters.Gen skip (N->V):TS. bm3d              N->V       Block-Matching 3D denoiser.
-Filters.Gen not found (copy):... copy              V->V       Copy the input video unchanged to the output.
-Filters.Gen not found (cue):... cue               V->V       Delay filtering to match a cue.
-Filters.Gen skip (N->V):... decimate          N->V       Decimate frames (post field matching filter).
-Filters.Gen not found (deflate):TSC deflate           V->V       Apply deflate effect.
-Filters.Gen not found (dilation):TSC dilation          V->V       Apply dilation effect.
-Filters.Gen not found (doubleweave):.S. doubleweave       V->V       Weave input video fields into double number of frames.
-Filters.Gen not found (drawgraph):... drawgraph         V->V       Draw a graph using input video metadata.
-Filters.Gen not found (erosion):TSC erosion           V->V       Apply erosion effect.
-Filters.Gen skip (V->N):... extractplanes     V->N       Extract planes as grayscale frames.
-Filters.Gen skip (N->V):... fieldmatch        N->V       Field matching for inverse telecine.
-Filters.Gen not found (format):... format            V->V       Convert the input video to one of the specified pixel formats.
-Filters.Gen not found (graphmonitor):... graphmonitor      V->V       Show various filtergraph stats.
-Filters.Gen skip (N->V):TSC guided            N->V       Apply Guided filter.
-Filters.Gen not found (hstack):.S. hstack            N->V       Stack video inputs horizontally.
-Filters.Gen not found (hwdownload):... hwdownload        V->V       Download a hardware frame to a normal frame
-Filters.Gen not found (hwupload_cuda):... hwupload_cuda     V->V       Upload a system memory frame to a CUDA device.
-Filters.Gen not found (inflate):TSC inflate           V->V       Apply inflate effect.
-Filters.Gen skip (N->V):... interleave        N->V       Temporally interleave video inputs.
-Filters.Gen not found (kirsch):TSC kirsch            V->V       Apply kirsch operator.
-Filters.Gen not found (latency):T.. latency           V->V       Report video filtering latency.
-enum LibplaceboFilterGenTonemapping error: bt.2390         6            ..FV....... ITU-R BT.2390 tone-mapping
+Filters.Gen not found                   : ..C acompressor       A->A       Audio compressor.
+Filters.Gen not found                   : ... acopy             A->A       Copy the input audio unchanged to the output.
+Filters.Gen not found                   : ... acue              A->A       Delay filtering to match a cue.
+Filters.Gen not found                   : T.. aderivative       A->A       Compute derivative of input audio.
+Filters.Gen not found                   : T.C agate             A->A       Audio gate.
+Filters.Gen not found                   : T.. aintegral         A->A       Compute integral of input audio.
+Filters.Gen not found                   : T.. alatency          A->A       Report audio filtering latency.
+Filters.Gen not found                   : ... amultiply         AA->A      Multiply two audio streams.
+Filters.Gen not found                   : TSC anlmf             AA->A      Apply Normalized Least-Mean-Fourth algorithm to first audio stream.
+Filters.Gen not found                   : TSC anlms             AA->A      Apply Normalized Least-Mean-Squares algorithm to first audio stream.
+Filters.Gen not found                   : ... anull             A->A       Pass the source unchanged to the output.
+Filters.Gen not found                   : T.C aperms            A->A       Set permissions for the output audio frame.
+Filters.Gen not found                   : TS. apsnr             AA->A      Measure Audio Peak Signal-to-Noise Ratio.
+Filters.Gen not found                   : ..C arealtime         A->A       Slow down filtering to match realtime.
+Filters.Gen not found                   : ... areverse          A->A       Reverse an audio clip.
+Filters.Gen not found                   : TS. asdr              AA->A      Measure Audio Signal-to-Distortion Ratio.
+Filters.Gen not found                   : ... asendcmd          A->A       Send commands to filters.
+Filters.Gen not found                   : ... ashowinfo         A->A       Show textual information for each audio frame.
+Filters.Gen not found                   : TS. asisdr            AA->A      Measure Audio Scale-Invariant Signal-to-Distortion Ratio.
+Filters.Gen not found                   : ... asplit            A->N       Pass on the audio input to N audio outputs.
+Filters.Gen not found                   : ..C astreamselect     N->N       Select audio streams
+Filters.Gen not found                   : TSC asuperpass        A->A       Apply high order Butterworth band-pass filter.
+Filters.Gen not found                   : TSC asuperstop        A->A       Apply high order Butterworth band-stop filter.
+Filters.Gen not found                   : ... azmq              A->A       Receive commands through ZMQ and broker them to filters.
+Filters.Gen not found                   : TSC bass              A->A       Boost or cut lower frequencies.
+Filters.Gen not found                   : ... earwax            A->A       Widen the stereo image.
+Filters.Gen not found                   : TSC highshelf         A->A       Apply a high shelf filter.
+Filters.Gen not found                   : TSC lowshelf          A->A       Apply a low shelf filter.
+Filters.Gen not found                   : ..C sidechaincompress AA->A      Sidechain compressor.
+Filters.Gen not found                   : T.C sidechaingate     AA->A      Audio sidechain gate.
+Filters.Gen not found                   : TSC tiltshelf         A->A       Apply a tilt shelf filter.
+Filters.Gen not found                   : TSC treble            A->A       Boost or cut upper frequencies.
+Filters.Gen not found                   : ... volumedetect      A->A       Detect audio volume.
+Filters.Gen not found                   : ... anullsink         A->|       Do absolutely nothing with the input audio.
+Filters.Gen not found                   : ... alphaextract      V->V       Extract an alpha channel as a grayscale image component.
+Filters.Gen not found                   : ... bilateral_cuda    V->V       GPU accelerated bilateral filter
+Filters.Gen not found                   : ... chromakey_cuda    V->V       GPU accelerated chromakey filter
+Filters.Gen not found                   : ... copy              V->V       Copy the input video unchanged to the output.
+Filters.Gen not found                   : ... cue               V->V       Delay filtering to match a cue.
+Filters.Gen not found                   : TSC deflate           V->V       Apply deflate effect.
+Filters.Gen not found                   : TSC dilation          V->V       Apply dilation effect.
+Filters.Gen not found                   : .S. doubleweave       V->V       Weave input video fields into double number of frames.
+Filters.Gen not found                   : ... drawgraph         V->V       Draw a graph using input video metadata.
+Filters.Gen not found                   : TSC erosion           V->V       Apply erosion effect.
+Filters.Gen not found                   : ... format            V->V       Convert the input video to one of the specified pixel formats.
+Filters.Gen not found                   : ..C graphmonitor      V->V       Show various filtergraph stats.
+Filters.Gen not found                   : .S. hstack            N->V       Stack video inputs horizontally.
+Filters.Gen not found                   : ... hwdownload        V->V       Download a hardware frame to a normal frame
+Filters.Gen not found                   : ... hwupload_cuda     V->V       Upload a system memory frame to a CUDA device.
+Filters.Gen not found                   : TSC inflate           V->V       Apply inflate effect.
+Filters.Gen not found                   : TSC kirsch            V->V       Apply kirsch operator.
+Filters.Gen not found                   : T.. latency           V->V       Report video filtering latency.
+LibplaceboFilterGen: function error: extra_opts        <dictionary> ..FV.....T. Pass extra libplacebo-specific options using a :-separated list of key=value pairs
 LibplaceboFilterGen: function error: custom_shader_bin <binary>     ..FV....... Custom user shader as binary (mpv .hook format)
-Filters.Gen skip (N->V):TSC limitdiff         N->V       Apply filtering with limiting difference.
-Filters.Gen not found (lut):TSC lut               V->V       Compute and apply a lookup table to the RGB/YUV input video.
-Filters.Gen not found (lutrgb):TSC lutrgb            V->V       Compute and apply a lookup table to the RGB input video.
-Filters.Gen not found (lutyuv):TSC lutyuv            V->V       Compute and apply a lookup table to the YUV input video.
-Filters.Gen not found (maskedmax):TSC maskedmax         VVV->V     Apply filtering with maximum difference of two streams.
-Filters.Gen not found (maskedmin):TSC maskedmin         VVV->V     Apply filtering with minimum difference of two streams.
-Filters.Gen skip (N->V):... mergeplanes       N->V       Merge planes.
-Filters.Gen skip (N->V):TSC mix               N->V       Mix video inputs.
-Filters.Gen not found (noformat):... noformat          V->V       Force libavfilter not to use any of the specified pixel formats for the input to the next filter.
-Filters.Gen not found (null):... null              V->V       Pass the source unchanged to the output.
-Filters.Gen not found (perms):T.. perms             V->V       Set permissions for the output video frame.
-Filters.Gen not found (pixdesctest):... pixdesctest       V->V       Test pixel format definitions.
-Filters.Gen not found (premultiply):TS. premultiply       N->V       PreMultiply first stream with first plane of second stream.
-Filters.Gen not found (prewitt):TSC prewitt           V->V       Apply prewitt operator.
-Filters.Gen skip (N->V):... program_opencl    N->V       Filter video using an OpenCL program
-Filters.Gen not found (realtime):... realtime          V->V       Slow down filtering to match realtime.
-Filters.Gen not found (repeatfields):... repeatfields      V->V       Hard repeat fields based on MPEG repeat field flag.
-Filters.Gen not found (reverse):... reverse           V->V       Reverse a clip.
-Filters.Gen not found (roberts):TSC roberts           V->V       Apply roberts cross operator.
-Filters.Gen not found (scale):..C scale             V->V       Scale the input video size and/or convert the image format.
-Filters.Gen not found (scale_cuda):... scale_cuda        V->V       GPU accelerated video resizer
-Filters.Gen not found (scale2ref):..C scale2ref         VV->VV     Scale the input video size and/or convert the image format to the given reference.
-Filters.Gen not found (scharr):TSC scharr            V->V       Apply scharr operator.
-Filters.Gen skip (V->N):... segment           V->N       Segment video stream.
-Filters.Gen skip (V->N):... select            V->N       Select video frames to pass in output.
-Filters.Gen not found (sendcmd):... sendcmd           V->V       Send commands to filters.
-Filters.Gen not found (separatefields):... separatefields    V->V       Split input video frames into fields.
-Filters.Gen skip (N->V):... signature         N->V       Calculate the MPEG-7 video signature
-Filters.Gen not found (sobel):TSC sobel             V->V       Apply sobel operator.
-Filters.Gen not found (split):... split             V->N       Pass on the input to N video outputs.
-Filters.Gen not found (streamselect):..C streamselect      N->N       Select video streams
-Filters.Gen not found (super2xsai):.S. super2xsai        V->V       Scale the input by 2x using the Super2xSaI pixel art algorithm.
-Filters.Gen not found (unpremultiply):TS. unpremultiply     N->V       UnPreMultiply first stream with first plane of second stream.
-Filters.Gen not found (vfrdet):... vfrdet            V->V       Variable frame rate detect filter.
-Filters.Gen not found (vstack):.S. vstack            N->V       Stack video inputs vertically.
-Filters.Gen not found (weave):.S. weave             V->V       Weave input video fields into frames.
-Filters.Gen skip (N->V):TSC xmedian           N->V       Pick median pixels from several video inputs.
-Filters.Gen skip (N->V):.S. xstack            N->V       Stack video inputs into custom layout.
-Filters.Gen not found (allrgb):... allrgb            |->V       Generate all RGB colors.
-Filters.Gen not found (allyuv):... allyuv            |->V       Generate all yuv colors.
-Filters.Gen not found (nullsrc):... nullsrc           |->V       Null video source, return unprocessed video frames.
-Filters.Gen not found (pal75bars):... pal75bars         |->V       Generate PAL 75% color bars.
-Filters.Gen not found (pal100bars):... pal100bars        |->V       Generate PAL 100% color bars.
-Filters.Gen not found (smptebars):... smptebars         |->V       Generate SMPTE color bars.
-Filters.Gen not found (smptehdbars):... smptehdbars       |->V       Generate SMPTE HD color bars.
-Filters.Gen not found (yuvtestsrc):... yuvtestsrc        |->V       Generate YUV test pattern.
-Filters.Gen not found (nullsink):... nullsink          V->|       Do absolutely nothing with the input video.
-Filters.Gen skip (A->V):... abitscope         A->V       Convert input audio to audio bit scope video output.
-Filters.Gen not found (adrawgraph):... adrawgraph        A->V       Draw a graph using input audio metadata.
-Filters.Gen not found (agraphmonitor):... agraphmonitor     A->V       Show various filtergraph stats.
-Filters.Gen skip (A->V):... ahistogram        A->V       Convert input audio to histogram video output.
-Filters.Gen skip (A->N):... aphasemeter       A->N       Convert input audio to phase meter video output.
-Filters.Gen skip (A->V):.SC avectorscope      A->V       Convert input audio to vectorscope video output.
-Filters.Gen skip (N->N):..C concat            N->N       Concatenate audio and video streams.
-Filters.Gen skip (A->V):... showcqt           A->V       Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.
-Filters.Gen skip (A->V):... showfreqs         A->V       Convert input audio to a frequencies video output.
-Filters.Gen skip (A->V):.S. showspatial       A->V       Convert input audio to a spatial video output.
-Filters.Gen skip (A->V):.S. showspectrum      A->V       Convert input audio to a spectrum video output.
-Filters.Gen skip (A->V):.S. showspectrumpic   A->V       Convert input audio to a spectrum video output single picture.
-Filters.Gen skip (A->V):... showvolume        A->V       Convert input audio volume to video output.
-Filters.Gen skip (A->V):... showwaves         A->V       Convert input audio to a video output.
-Filters.Gen skip (A->V):... showwavespic      A->V       Convert input audio to a video output single picture.
-Filters.Gen skip (VV->A):... spectrumsynth     VV->A      Convert input spectrum videos to audio output.
-Filters.Gen not found (amovie):..C amovie            |->N       Read audio from a movie source.
-Filters.Gen not found (movie):..C movie             |->N       Read from a movie source.
-Filters.Gen not found (afifo):... afifo             A->A       Buffer input frames and send them when they are requested.
-Filters.Gen not found (fifo):... fifo              V->V       Buffer input images and send them when they are requested.
-Filters.Gen skip (A->|):... abuffersink       A->|       Buffer audio frames, and make them available to the end of the filter graph.
-Filters.Gen skip (V->|):... buffersink        V->|       Buffer video frames, and make them available to the end of the filter graph.
+Filters.Gen not found                   : TSC lut               V->V       Compute and apply a lookup table to the RGB/YUV input video.
+Filters.Gen not found                   : TSC lutrgb            V->V       Compute and apply a lookup table to the RGB input video.
+Filters.Gen not found                   : TSC lutyuv            V->V       Compute and apply a lookup table to the YUV input video.
+Filters.Gen not found                   : TSC maskedmax         VVV->V     Apply filtering with maximum difference of two streams.
+Filters.Gen not found                   : TSC maskedmin         VVV->V     Apply filtering with minimum difference of two streams.
+Filters.Gen not found                   : ... noformat          V->V       Force libavfilter not to use any of the specified pixel formats for the input to the next filter.
+Filters.Gen not found                   : ... null              V->V       Pass the source unchanged to the output.
+Filters.Gen not found                   : T.C perms             V->V       Set permissions for the output video frame.
+Filters.Gen not found                   : ... pixdesctest       V->V       Test pixel format definitions.
+Filters.Gen not found                   : TS. premultiply       N->V       PreMultiply first stream with first plane of second stream.
+Filters.Gen not found                   : TSC prewitt           V->V       Apply prewitt operator.
+Filters.Gen not found                   : ..C realtime          V->V       Slow down filtering to match realtime.
+Filters.Gen not found                   : ... repeatfields      V->V       Hard repeat fields based on MPEG repeat field flag.
+Filters.Gen not found                   : ... reverse           V->V       Reverse a clip.
+Filters.Gen not found                   : TSC roberts           V->V       Apply roberts cross operator.
+Filters.Gen not found                   : ..C scale             V->V       Scale the input video size and/or convert the image format.
+Filters.Gen not found                   : ... scale_cuda        V->V       GPU accelerated video resizer
+Filters.Gen not found                   : ..C scale2ref         VV->VV     Scale the input video size and/or convert the image format to the given reference.
+Filters.Gen not found                   : TSC scharr            V->V       Apply scharr operator.
+Filters.Gen not found                   : ... sendcmd           V->V       Send commands to filters.
+Filters.Gen not found                   : ... separatefields    V->V       Split input video frames into fields.
+Filters.Gen not found                   : TSC sobel             V->V       Apply sobel operator.
+Filters.Gen not found                   : ... split             V->N       Pass on the input to N video outputs.
+Filters.Gen not found                   : ..C streamselect      N->N       Select video streams
+Filters.Gen not found                   : .S. super2xsai        V->V       Scale the input by 2x using the Super2xSaI pixel art algorithm.
+Filters.Gen not found                   : TS. unpremultiply     N->V       UnPreMultiply first stream with first plane of second stream.
+Filters.Gen not found                   : ... vfrdet            V->V       Variable frame rate detect filter.
+Filters.Gen not found                   : .S. vstack            N->V       Stack video inputs vertically.
+Filters.Gen not found                   : .S. weave             V->V       Weave input video fields into frames.
+Filters.Gen not found                   : ... allrgb            |->V       Generate all RGB colors.
+Filters.Gen not found                   : ... allyuv            |->V       Generate all yuv colors.
+Filters.Gen not found                   : ... nullsrc           |->V       Null video source, return unprocessed video frames.
+Filters.Gen not found                   : ... pal75bars         |->V       Generate PAL 75% color bars.
+Filters.Gen not found                   : ... pal100bars        |->V       Generate PAL 100% color bars.
+Filters.Gen not found                   : ... smptebars         |->V       Generate SMPTE color bars.
+Filters.Gen not found                   : ... smptehdbars       |->V       Generate SMPTE HD color bars.
+Filters.Gen not found                   : ... yuvtestsrc        |->V       Generate YUV test pattern.
+Filters.Gen not found                   : ... nullsink          V->|       Do absolutely nothing with the input video.
+Filters.Gen not found                   : ... adrawgraph        A->V       Draw a graph using input audio metadata.
+Filters.Gen not found                   : ..C agraphmonitor     A->V       Show various filtergraph stats.
+Filters.Gen can't get FilterTypeName    : ..C concat            N->N       Concatenate audio and video streams.
+Filters.Gen not found                   : ..C amovie            |->N       Read audio from a movie source.
+Filters.Gen not found                   : ..C movie             |->N       Read from a movie source.
+Filters.Gen can't get FilterTypeName    : ... abuffersink       A->|       Buffer audio frames, and make them available to the end of the filter graph.
+Filters.Gen can't get FilterTypeName    : ... buffersink        V->|       Buffer video frames, and make them available to the end of the filter graph.

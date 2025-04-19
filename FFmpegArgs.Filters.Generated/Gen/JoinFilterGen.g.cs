@@ -13,7 +13,7 @@ public JoinFilterGen inputs(int inputs) => this.SetOptionRange("inputs", inputs,
 /// <summary>
 ///  Channel layout of the output stream. (default &quot;stereo&quot;)
 /// </summary>
-public JoinFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
+public JoinFilterGen channel_layout(ChannelLayout channel_layout) => this.SetOption("channel_layout",channel_layout.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  A comma-separated list of channels maps in the format &#39;input_stream.input_channel-output_channel.
 /// </summary>

@@ -9,19 +9,19 @@ internal AnullsrcFilterGen(IAudioFilterGraph input) : base("anullsrc",input) { A
 /// <summary>
 ///  set channel_layout (default &quot;stereo&quot;)
 /// </summary>
-public AnullsrcFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
+public AnullsrcFilterGen channel_layout(ChannelLayout channel_layout) => this.SetOption("channel_layout",channel_layout.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set channel_layout (default &quot;stereo&quot;)
 /// </summary>
-public AnullsrcFilterGen cl(string cl) => this.SetOption("cl",cl);
+public AnullsrcFilterGen cl(ChannelLayout cl) => this.SetOption("cl",cl.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
-///  set sample rate (default &quot;44100&quot;)
+///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public AnullsrcFilterGen sample_rate(string sample_rate) => this.SetOption("sample_rate",sample_rate);
+public AnullsrcFilterGen sample_rate(int sample_rate) => this.SetOptionRange("sample_rate", sample_rate,1,INT_MAX);
 /// <summary>
-///  set sample rate (default &quot;44100&quot;)
+///  set sample rate (from 1 to INT_MAX) (default 44100)
 /// </summary>
-public AnullsrcFilterGen r(string r) => this.SetOption("r",r);
+public AnullsrcFilterGen r(int r) => this.SetOptionRange("r", r,1,INT_MAX);
 /// <summary>
 ///  set the number of samples per requested frame (from 1 to 65535) (default 1024)
 /// </summary>

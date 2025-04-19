@@ -42,6 +42,10 @@ public DdagrabFilterGen allow_fallback(bool allow_fallback) => this.SetOption("a
 ///  exclude BGRA from format list (experimental, discouraged by Microsoft) (default false)
 /// </summary>
 public DdagrabFilterGen force_fmt(bool force_fmt) => this.SetOption("force_fmt",force_fmt.ToFFmpegFlag());
+/// <summary>
+///  duplicate frames to maintain framerate (default true)
+/// </summary>
+public DdagrabFilterGen dup_frames(bool dup_frames) => this.SetOption("dup_frames",dup_frames.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

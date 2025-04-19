@@ -1,45 +1,49 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// TSC arls              AA-&gt;A      Apply Recursive Least Squares algorithm to first audio stream.
+/// TSC aap               AA-&gt;A      Apply Affine Projection algorithm to first audio stream.
 /// </summary>
-public class ArlsFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
+public class AapFilterGen : AudioToAudioFilter,ITimelineSupport,ISliceThreading,ICommandSupport
 {
-internal ArlsFilterGen(params AudioMap[] inputs) : base("arls",inputs) { AddMapOut(); }
+internal AapFilterGen(params AudioMap[] inputs) : base("aap",inputs) { AddMapOut(); }
 /// <summary>
 ///  set the filter order (from 1 to 32767) (default 16)
 /// </summary>
-public ArlsFilterGen order(int order) => this.SetOptionRange("order", order,1,32767);
+public AapFilterGen order(int order) => this.SetOptionRange("order", order,1,32767);
 /// <summary>
-///  set the filter lambda (from 0 to 1) (default 1)
+///  set the filter projection (from 1 to 256) (default 2)
 /// </summary>
-public ArlsFilterGen lambda(float lambda) => this.SetOptionRange("lambda", lambda,0,1);
+public AapFilterGen projection(int projection) => this.SetOptionRange("projection", projection,1,256);
 /// <summary>
-///  set the filter delta (from 0 to 32767) (default 2)
+///  set the filter mu (from 0 to 1) (default 0.0001)
 /// </summary>
-public ArlsFilterGen delta(float delta) => this.SetOptionRange("delta", delta,0,32767);
+public AapFilterGen mu(float mu) => this.SetOptionRange("mu", mu,0,1);
+/// <summary>
+///  set the filter delta (from 0 to 1) (default 0.001)
+/// </summary>
+public AapFilterGen delta(float delta) => this.SetOptionRange("delta", delta,0,1);
 /// <summary>
 ///  set output mode (from 0 to 4) (default o)
 /// </summary>
-public ArlsFilterGen out_mode(ArlsFilterGenOut_mode out_mode) => this.SetOption("out_mode", out_mode.GetEnumAttribute<NameAttribute>().Name);
+public AapFilterGen out_mode(AapFilterGenOut_mode out_mode) => this.SetOption("out_mode", out_mode.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  set processing precision (from 0 to 2) (default auto)
 /// </summary>
-public ArlsFilterGen precision(ArlsFilterGenPrecision precision) => this.SetOption("precision", precision.GetEnumAttribute<NameAttribute>().Name);
+public AapFilterGen precision(AapFilterGenPrecision precision) => this.SetOption("precision", precision.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>
 public static partial class FilterGeneratedExtensions
 {
 /// <summary>
-/// Apply Recursive Least Squares algorithm to first audio stream.
+/// Apply Affine Projection algorithm to first audio stream.
 /// </summary>
-public static ArlsFilterGen ArlsFilterGen(this AudioMap input0, AudioMap input1) => new ArlsFilterGen(input0, input1);
+public static AapFilterGen AapFilterGen(this AudioMap input0, AudioMap input1) => new AapFilterGen(input0, input1);
 }
 /// <summary>
 ///  set output mode (from 0 to 4) (default o)
 /// </summary>
-public enum ArlsFilterGenOut_mode
+public enum AapFilterGenOut_mode
 {
 /// <summary>
 /// i               0            ..F.A....T. input
@@ -66,7 +70,7 @@ public enum ArlsFilterGenOut_mode
 /// <summary>
 ///  set processing precision (from 0 to 2) (default auto)
 /// </summary>
-public enum ArlsFilterGenPrecision
+public enum AapFilterGenPrecision
 {
 /// <summary>
 /// auto            0            ..F.A...... set auto processing precision

@@ -1,4 +1,4 @@
-Hyper fast Audio and Video encoder
+Universal media converter
 usage: ffmpeg [options] [[infile options] -i infile]... {[outfile options] outfile}...
 
 Getting help:
@@ -8,224 +8,237 @@ Getting help:
     -h type=name -- print all options for the named decoder/encoder/demuxer/muxer/filter/bsf/protocol
     See man ffmpeg for detailed description of the options.
 
+Per-stream options can be followed by :<stream_spec> to apply that option to specific streams only. <stream_spec> can be a stream index, or v/a/s for video/audio/subtitle (see manual for full syntax).
+
 Print help / information / capabilities:
 -L                  show license
--h topic            show help
--? topic            show help
--help topic         show help
---help topic        show help
+-h <topic>          show help
 -version            show version
--buildconf          show build configuration
--formats            show available formats
 -muxers             show available muxers
 -demuxers           show available demuxers
 -devices            show available devices
--codecs             show available codecs
 -decoders           show available decoders
 -encoders           show available encoders
--bsfs               show available bit stream filters
--protocols          show available protocols
 -filters            show available filters
 -pix_fmts           show available pixel formats
 -layouts            show standard channel layouts
 -sample_fmts        show available audio sample formats
+
+Advanced information / capabilities:
+-? <topic>          show help
+-help <topic>       show help
+--help <topic>      show help
+-buildconf          show build configuration
+-formats            show available formats
+-codecs             show available codecs
+-bsfs               show available bit stream filters
+-protocols          show available protocols
 -dispositions       show available stream dispositions
 -colors             show available color names
--sources device     list sources of the input device
--sinks device       list sinks of the output device
+-sources <device>   list sources of the input device
+-sinks <device>     list sinks of the output device
 -hwaccels           show available HW acceleration methods
 
 Global options (affect whole program instead of just one file):
--loglevel loglevel  set logging level
--v loglevel         set logging level
--report             generate a report
--max_alloc bytes    set maximum size of a single allocated block
+-v <loglevel>       set logging level
 -y                  overwrite output files
 -n                  never overwrite output files
--ignore_unknown     Ignore unknown stream types
--filter_threads     number of non-complex filter threads
--filter_complex_threads  number of threads for -filter_complex
 -stats              print progress report during encoding
--max_error_rate maximum error rate  ratio of decoding errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success.
 
 Advanced global options:
--cpuflags flags     force specific cpu flags
--cpucount count     force specific cpu count
--hide_banner hide_banner  do not show program banner
+-loglevel <loglevel>  set logging level
+-report             generate a report
+-max_alloc <bytes>  set maximum size of a single allocated block
+-cpuflags <flags>   force specific cpu flags
+-cpucount <count>   force specific cpu count
+-hide_banner <hide_banner>  do not show program banner
+-ignore_unknown     Ignore unknown stream types
 -copy_unknown       Copy unknown stream types
 -recast_media       allow recasting stream type in order to force a decoder of different media type
 -benchmark          add timings for benchmarking
 -benchmark_all      add timings for each task
--progress url       write program-readable progress information
+-progress <url>     write program-readable progress information
 -stdin              enable or disable interaction on standard input
--timelimit limit    set max runtime in seconds in CPU user time
+-timelimit <limit>  set max runtime in seconds in CPU user time
 -dump               dump each input packet
 -hex                when dumping packets, also dump the payload
--vsync              set video sync method globally; deprecated, use -fps_mode
--frame_drop_threshold   frame drop threshold
--adrift_threshold threshold  deprecated, does nothing
+-frame_drop_threshold <>  frame drop threshold
 -copyts             copy timestamps
 -start_at_zero      shift input timestamps to start at 0 when using copyts
--copytb mode        copy input stream time base when stream copying
--dts_delta_threshold threshold  timestamp discontinuity delta threshold
--dts_error_threshold threshold  timestamp error delta threshold
--xerror error       exit on error
--abort_on flags     abort on the specified condition flags
--filter_complex graph_description  create a complex filtergraph
--lavfi graph_description  create a complex filtergraph
--filter_complex_script filename  read complex filtergraph description from a file
+-copytb <mode>      copy input stream time base when stream copying
+-dts_delta_threshold <threshold>  timestamp discontinuity delta threshold
+-dts_error_threshold <threshold>  timestamp error delta threshold
+-xerror <error>     exit on error
+-abort_on <flags>   abort on the specified condition flags
+-filter_threads     number of non-complex filter threads
+-filter_complex <graph_description>  create a complex filtergraph
+-filter_complex_threads  number of threads for -filter_complex
+-lavfi <graph_description>  create a complex filtergraph
+-filter_complex_script <filename>  deprecated, use -/filter_complex instead
 -auto_conversion_filters  enable automatic conversion filters globally
--stats_period time  set the period at which ffmpeg updates stats and -progress output
+-stats_period <time>  set the period at which ffmpeg updates stats and -progress output
 -debug_ts           print timestamp debugging info
--psnr               calculate PSNR of compressed frames (deprecated, use -flags +psnr)
+-max_error_rate <maximum error rate>  ratio of decoding errors (0.0: no errors, 1.0: 100% errors) above which ffmpeg returns an error instead of success.
 -vstats             dump video coding statistics to file
--vstats_file file   dump video coding statistics to file
+-vstats_file <file>  dump video coding statistics to file
 -vstats_version     Version of the vstats format to use.
+-sdp_file <file>    specify a file in which to print sdp information
+-vaapi_device <device>  set VAAPI hardware device (DirectX adapter index, DRM path or X11 display name)
+-qsv_device <device>  set QSV hardware device (DirectX adapter index, DRM path or X11 display name)
+-init_hw_device <args>  initialise hardware device
+-filter_hw_device <device>  set hardware device used when filtering
+-adrift_threshold <threshold>  deprecated, does nothing
 -qphist             deprecated, does nothing
--sdp_file file      specify a file in which to print sdp information
--vaapi_device device  set VAAPI hardware device (DirectX adapter index, DRM path or X11 display name)
--qsv_device device  set QSV hardware device (DirectX adapter index, DRM path or X11 display name)
--init_hw_device args  initialise hardware device
--filter_hw_device device  set hardware device used when filtering
+-vsync <>           set video sync method globally; deprecated, use -fps_mode
 
-Per-file main options:
--f fmt              force format
--c codec            codec name
--codec codec        codec name
--pre preset         preset name
--map_metadata outfile[,metadata]:infile[,metadata]  set metadata information of outfile from infile
--t duration         record or transcode "duration" seconds of audio/video
--to time_stop       record or transcode stop time
--fs limit_size      set the limit file size in bytes
--ss time_off        set the start time offset
--sseof time_off     set the start time offset relative to EOF
+Per-file options (input and output):
+-f <fmt>            force container format (auto-detected otherwise)
+-t <duration>       stop transcoding after specified duration
+-to <time_stop>     stop transcoding after specified time is reached
+-ss <time_off>      start transcoding at specified time
+
+Advanced per-file options (input and output):
+-bitexact           bitexact mode
+-thread_queue_size  set the maximum number of queued packets from the demuxer
+
+
+Advanced per-file options (input-only):
+-sseof <time_off>   set the start time offset relative to EOF
 -seek_timestamp     enable/disable seeking by timestamp with -ss
--timestamp time     set the recording timestamp ('now' to set the current time)
--metadata string=string  add metadata
--program title=string:st=number...  add program with specified streams
--target type        specify target file type ("vcd", "svcd", "dvd", "dv" or "dv50" with optional prefixes "pal-", "ntsc-" or "film-")
--apad               audio pad
--frames number      set the number of frames to output
--filter filter_graph  set stream filtergraph
--filter_script filename  read stream filtergraph description from a file
--reinit_filter      reinit filtergraph on input parameter changes
--discard            discard
--disposition        disposition
-
-Advanced per-file options:
--map [-]input_file_id[:stream_specifier][,sync_file_id[:stream_specifier]]  set input stream mapping
--map_channel file.stream.channel[:syncfile.syncstream]  map an audio channel from one stream to another (deprecated)
--map_chapters input_file_index  set chapters mapping
 -accurate_seek      enable/disable accurate seeking with -ss
--isync sync ref     Indicate the input index for sync reference
--itsoffset time_off  set the input ts offset
--itsscale scale     set the input ts scale
--dframes number     set the number of data frames to output
--re                 read input at native frame rate; equivalent to -readrate 1
--readrate speed     read input at specified rate
--readrate_initial_burst seconds  The initial amount of input to burst read before imposing any readrate
+-isync <sync ref>   Indicate the input index for sync reference
+-itsoffset <time_off>  set the input ts offset
+-re <>              read input at native frame rate; equivalent to -readrate 1
+-readrate <speed>   read input at specified rate
+-readrate_initial_burst <seconds>  The initial amount of input to burst read before imposing any readrate
+-dump_attachment[:<spec>] <filename>  extract an attachment into a file
+-stream_loop <loop count>  set number of times input stream shall be looped
+-find_stream_info   read and decode the streams to fill missing information with heuristics
+
+Per-file options (output-only):
+-metadata[:<spec>] <key=value>  add metadata
+
+Advanced per-file options (output-only):
+-map <[-]input_file_id[:stream_specifier][,sync_file_id[:stream_specifier]]>  set input stream mapping
+-map_metadata[:<spec>] <outfile[,metadata]:infile[,metadata]>  set metadata information of outfile from infile
+-map_chapters <input_file_index>  set chapters mapping
+-fs <limit_size>    set the limit file size in bytes
+-timestamp <time>   set the recording timestamp ('now' to set the current time)
+-program[:<spec>] <title=string:st=number...>  add program with specified streams
+-stream_group[:<spec>] <id=number:st=number...>  add stream group with specified streams and group type-specific arguments
+-dframes <number>   set the number of data frames to output
+-target <type>      specify target file type ("vcd", "svcd", "dvd", "dv" or "dv50" with optional prefixes "pal-", "ntsc-" or "film-")
 -shortest           finish encoding within shortest input
 -shortest_buf_duration  maximum buffering duration (in seconds) for the -shortest option
--bitexact           bitexact mode
--copyinkf           copy initial non-keyframes
--copypriorss        copy or discard frames before start time
--tag fourcc/tag     force codec tag/fourcc
--q q                use fixed quality scale (VBR)
--qscale q           use fixed quality scale (VBR)
--profile profile    set profile
--attach filename    add an attachment to the output file
--dump_attachment filename  extract an attachment into a file
--stream_loop loop count  set number of times input stream shall be looped
--thread_queue_size  set the maximum number of queued packets from the demuxer
--find_stream_info   read and decode the streams to fill missing information with heuristics
--bits_per_raw_sample number  set the number of bits per raw sample
--stats_enc_pre      write encoding stats before encoding
--stats_enc_post     write encoding stats after encoding
--stats_mux_pre      write packets stats before muxing
--stats_enc_pre_fmt  format of the stats written with -stats_enc_pre
--stats_enc_post_fmt  format of the stats written with -stats_enc_post
--stats_mux_pre_fmt  format of the stats written with -stats_mux_pre
--autorotate         automatically insert correct rotate filters
--autoscale          automatically insert a scale filter at the end of the filter graph
--muxdelay seconds   set the maximum demux-decode delay
--muxpreload seconds  set the initial demux-decode delay
--time_base ratio    set the desired time base hint for output stream (1:24, 1:48000 or 0.04166, 2.0833e-5)
--enc_time_base ratio  set the desired time base for the encoder (1:24, 1:48000 or 0.04166, 2.0833e-5). two special values are defined - 0 = use frame rate (video) or sample rate (audio),-1 = match source time base
--bsf bitstream_filters  A comma-separated list of bitstream filters
--fpre filename      set options from indicated preset file
--max_muxing_queue_size packets  maximum number of packets that can be buffered while waiting for all streams to initialize
--muxing_queue_data_threshold bytes  set the threshold after which max_muxing_queue_size is taken into account
--dcodec codec       force data codec ('copy' to copy stream)
+-qscale <q>         use fixed quality scale (VBR)
+-profile <profile>  set profile
+-attach <filename>  add an attachment to the output file
+-muxdelay <seconds>  set the maximum demux-decode delay
+-muxpreload <seconds>  set the initial demux-decode delay
+-fpre <filename>    set options from indicated preset file
+
+Per-stream options:
+-c[:<stream_spec>] <codec>  select encoder/decoder ('copy' to copy stream without reencoding)
+-filter[:<stream_spec>] <filter_graph>  apply specified filters to audio/video
+
+Advanced per-stream options:
+-codec[:<stream_spec>] <codec>  alias for -c (select encoder/decoder)
+-pre[:<stream_spec>] <preset>  preset name
+-itsscale[:<stream_spec>] <scale>  set the input ts scale
+-apad[:<stream_spec>] <>  audio pad
+-copyinkf[:<stream_spec>]  copy initial non-keyframes
+-copypriorss[:<stream_spec>]  copy or discard frames before start time
+-frames[:<stream_spec>] <number>  set the number of frames to output
+-tag[:<stream_spec>] <fourcc/tag>  force codec tag/fourcc
+-q[:<stream_spec>] <q>  use fixed quality scale (VBR)
+-filter_script[:<stream_spec>] <filename>  deprecated, use -/filter
+-reinit_filter[:<stream_spec>] <>  reinit filtergraph on input parameter changes
+-discard[:<stream_spec>] <>  discard
+-disposition[:<stream_spec>] <>  disposition
+-bits_per_raw_sample[:<stream_spec>] <number>  set the number of bits per raw sample
+-stats_enc_pre[:<stream_spec>]  write encoding stats before encoding
+-stats_enc_post[:<stream_spec>]  write encoding stats after encoding
+-stats_mux_pre[:<stream_spec>]  write packets stats before muxing
+-stats_enc_pre_fmt[:<stream_spec>]  format of the stats written with -stats_enc_pre
+-stats_enc_post_fmt[:<stream_spec>]  format of the stats written with -stats_enc_post
+-stats_mux_pre_fmt[:<stream_spec>]  format of the stats written with -stats_mux_pre
+-autorotate[:<stream_spec>]  automatically insert correct rotate filters
+-autoscale[:<stream_spec>]  automatically insert a scale filter at the end of the filter graph
+-time_base[:<stream_spec>] <ratio>  set the desired time base hint for output stream (1:24, 1:48000 or 0.04166, 2.0833e-5)
+-enc_time_base[:<stream_spec>] <ratio>  set the desired time base for the encoder (1:24, 1:48000 or 0.04166, 2.0833e-5). two special values are defined - 0 = use frame rate (video) or sample rate (audio),-1 = match source time base
+-bsf[:<stream_spec>] <bitstream_filters>  A comma-separated list of bitstream filters
+-max_muxing_queue_size[:<stream_spec>] <packets>  maximum number of packets that can be buffered while waiting for all streams to initialize
+-muxing_queue_data_threshold[:<stream_spec>] <bytes>  set the threshold after which max_muxing_queue_size is taken into account
 
 Video options:
--vframes number     set the number of video frames to output
--r rate             set frame rate (Hz value, fraction or abbreviation)
--fpsmax rate        set max frame rate (Hz value, fraction or abbreviation)
--s size             set frame size (WxH or abbreviation)
--aspect aspect      set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)
--display_rotation angle  set pure counter-clockwise rotation in degrees for stream(s)
--display_hflip      set display horizontal flip for stream(s) (overrides any display rotation if it is not set)
--display_vflip      set display vertical flip for stream(s) (overrides any display rotation if it is not set)
+-r[:<stream_spec>] <rate>  override input framerate/convert to given output framerate (Hz value, fraction or abbreviation)
+-aspect[:<stream_spec>] <aspect>  set aspect ratio (4:3, 16:9 or 1.3333, 1.7777)
 -vn                 disable video
--vcodec codec       force video codec ('copy' to copy stream)
--timecode hh:mm:ss[:;.]ff  set initial TimeCode value.
--pass n             select the pass number (1 to 3)
--vf filter_graph    set video filters
--b bitrate          video bitrate (please use -b:v)
--dn                 disable data
+-vcodec <codec>     alias for -c:v (select encoder/decoder for video streams)
+-vf <filter_graph>  alias for -filter:v (apply filters to video streams)
+-b <bitrate>        video bitrate (please use -b:v)
 
 Advanced Video options:
--pix_fmt format     set pixel format
--rc_override override  rate control override for specific intervals
--passlogfile prefix  select two pass log file name prefix
--psnr               calculate PSNR of compressed frames (deprecated, use -flags +psnr)
+-vframes <number>   set the number of video frames to output
+-fpsmax[:<stream_spec>] <rate>  set max frame rate (Hz value, fraction or abbreviation)
+-pix_fmt[:<stream_spec>] <format>  set pixel format
+-display_rotation[:<stream_spec>] <angle>  set pure counter-clockwise rotation in degrees for stream(s)
+-display_hflip[:<stream_spec>]  set display horizontal flip for stream(s) (overrides any display rotation if it is not set)
+-display_vflip[:<stream_spec>]  set display vertical flip for stream(s) (overrides any display rotation if it is not set)
+-rc_override[:<stream_spec>] <override>  rate control override for specific intervals
+-timecode <hh:mm:ss[:;.]ff>  set initial TimeCode value.
+-pass[:<stream_spec>] <n>  select the pass number (1 to 3)
+-passlogfile[:<stream_spec>] <prefix>  select two pass log file name prefix
 -vstats             dump video coding statistics to file
--vstats_file file   dump video coding statistics to file
+-vstats_file <file>  dump video coding statistics to file
 -vstats_version     Version of the vstats format to use.
--intra_matrix matrix  specify intra matrix coeffs
--inter_matrix matrix  specify inter matrix coeffs
--chroma_intra_matrix matrix  specify intra matrix coeffs
--top                deprecated, use the setfield video filter
--vtag fourcc/tag    force video tag/fourcc
+-intra_matrix[:<stream_spec>] <matrix>  specify intra matrix coeffs
+-inter_matrix[:<stream_spec>] <matrix>  specify inter matrix coeffs
+-chroma_intra_matrix[:<stream_spec>] <matrix>  specify intra matrix coeffs
+-vtag <fourcc/tag>  force video tag/fourcc
+-fps_mode[:<stream_spec>]  set framerate mode for matching video streams; overrides vsync
+-force_fps[:<stream_spec>]  force the selected framerate, disable the best supported framerate selection
+-streamid <streamIndex:value>  set the value of an outfile streamid
+-force_key_frames[:<stream_spec>] <timestamps>  force key frames at specified timestamps
+-hwaccel[:<stream_spec>] <hwaccel name>  use HW accelerated decoding
+-hwaccel_device[:<stream_spec>] <devicename>  select a device for HW acceleration
+-hwaccel_output_format[:<stream_spec>] <format>  select output format used with HW accelerated decoding
+-fix_sub_duration_heartbeat[:<stream_spec>]  set this video output stream to be a heartbeat stream for fix_sub_duration, according to which subtitles should be split at random access points
+-vpre <preset>      set the video options to the indicated preset
+-top[:<stream_spec>] <>  deprecated, use the setfield video filter
 -qphist             deprecated, does nothing
--fps_mode           set framerate mode for matching video streams; overrides vsync
--force_fps          force the selected framerate, disable the best supported framerate selection
--streamid streamIndex:value  set the value of an outfile streamid
--force_key_frames timestamps  force key frames at specified timestamps
--hwaccel hwaccel name  use HW accelerated decoding
--hwaccel_device devicename  select a device for HW acceleration
--hwaccel_output_format format  select output format used with HW accelerated decoding
--fix_sub_duration_heartbeat  set this video output stream to be a heartbeat stream for fix_sub_duration, according to which subtitles should be split at random access points
--vbsf video bitstream_filters  deprecated
--vpre preset        set the video options to the indicated preset
 
 Audio options:
--aframes number     set the number of audio frames to output
--aq quality         set audio quality (codec-specific)
--ar rate            set audio sampling rate (in Hz)
--ac channels        set number of audio channels
+-aq <quality>       set audio quality (codec-specific)
+-ar[:<stream_spec>] <rate>  set audio sampling rate (in Hz)
+-ac[:<stream_spec>] <channels>  set number of audio channels
 -an                 disable audio
--acodec codec       force audio codec ('copy' to copy stream)
--ab bitrate         audio bitrate (please use -b:a)
--af filter_graph    set audio filters
+-acodec <codec>     alias for -c:a (select encoder/decoder for audio streams)
+-ab <bitrate>       alias for -b:a (select bitrate for audio streams)
+-af <filter_graph>  alias for -filter:a (apply filters to audio streams)
 
 Advanced Audio options:
--atag fourcc/tag    force audio tag/fourcc
--sample_fmt format  set sample format
--channel_layout layout  set channel layout
--ch_layout layout   set channel layout
--guess_layout_max   set the maximum number of channels to try to guess the channel layout
--absf audio bitstream_filters  deprecated
--apre preset        set the audio options to the indicated preset
+-aframes <number>   set the number of audio frames to output
+-atag <fourcc/tag>  force audio tag/fourcc
+-sample_fmt[:<stream_spec>] <format>  set sample format
+-channel_layout[:<stream_spec>] <layout>  set channel layout
+-ch_layout[:<stream_spec>] <layout>  set channel layout
+-guess_layout_max[:<stream_spec>]  set the maximum number of channels to try to guess the channel layout
+-apre <preset>      set the audio options to the indicated preset
 
 Subtitle options:
--s size             set frame size (WxH or abbreviation)
 -sn                 disable subtitle
--scodec codec       force subtitle codec ('copy' to copy stream)
--stag fourcc/tag    force subtitle tag/fourcc
--fix_sub_duration   fix subtitles duration
--canvas_size size   set canvas size (WxH or abbreviation)
--spre preset        set the subtitle options to the indicated preset
+-scodec <codec>     alias for -c:s (select encoder/decoder for subtitle streams)
+
+Advanced Subtitle options:
+-stag <fourcc/tag>  force subtitle tag/fourcc
+-fix_sub_duration[:<stream_spec>]  fix subtitles duration
+-canvas_size[:<stream_spec>] <size>  set canvas size (WxH or abbreviation)
+-spre <preset>      set the subtitle options to the indicated preset
+
+Data stream options:
+-dcodec <codec>     alias for -c:d (select encoder/decoder for data streams)
+-dn                 disable data
 
 
 AVCodecContext AVOptions:
@@ -266,7 +279,6 @@ AVCodecContext AVOptions:
      film_grain                   .D.V....... export film grain parameters through frame side data
   -g                 <int>        E..V....... set the group of picture (GOP) size (from INT_MIN to INT_MAX) (default 12)
   -ar                <int>        ED..A...... set audio sampling rate (in Hz) (from 0 to INT_MAX) (default 0)
-  -ac                <int>        ED..A...... set number of audio channels (from 0 to INT_MAX) (default 0)
   -cutoff            <int>        E...A...... set cutoff bandwidth (from INT_MIN to INT_MAX) (default 0)
   -frame_size        <int>        E...A...... (from 0 to INT_MAX) (default 0)
   -qcomp             <float>      E..V....... video quantizer scale compression (VBR). Constant of ratecontrol equation. Recommended range for default rc_eq: 0.0-1.0 (from -FLT_MAX to FLT_MAX) (default 0.5)
@@ -503,8 +515,6 @@ AVCodecContext AVOptions:
   -mv0_threshold     <int>        E..V....... (from 0 to INT_MAX) (default 256)
   -compression_level <int>        E..VA...... (from INT_MIN to INT_MAX) (default -1)
   -ch_layout         <channel_layout> ED..A......
-  -channel_layout    <channel_layout> ED..A...... (default 0x0)
-  -request_channel_layout <channel_layout> .D..A...... (default 0x0)
   -rc_max_vbv_use    <float>      E..V....... (from 0 to FLT_MAX) (default 0)
   -rc_min_vbv_use    <float>      E..V....... (from 0 to FLT_MAX) (default 3)
   -ticks_per_frame   <int>        ED.VA...... (from 1 to INT_MAX) (default 1)
@@ -628,6 +638,15 @@ AVCodecContext AVOptions:
      unsafe_output                .D.V....... allow potentially unsafe hwaccel frame output that might require special care to process successfully
   -extra_hw_frames   <int>        .D.V....... Number of extra hardware frames to allocate for the user (from -1 to INT_MAX) (default -1)
   -discard_damaged_percentage <int>        .D.V....... Percentage of damaged samples to discard a frame (from 0 to 100) (default 95)
+  -side_data_prefer_packet [<int>     ].D.VAS..... Comma-separated list of side data types for which user-supplied (container) data is preferred over coded bytestream
+     replaygain      4            .D..A......
+     displaymatrix   5            .D..A......
+     spherical       21           .D..A......
+     stereo3d        6            .D..A......
+     audio_service_type 7            .D..A......
+     mastering_display_metadata 20           .D..A......
+     content_light_level 22           .D..A......
+     icc_profile     28           .D..A......
 
 amv encoder AVOptions:
   -mpv_flags         <flags>      E..V....... Flags common for all mpegvideo-based encoders. (default 0)
@@ -727,6 +746,10 @@ dnxhd AVOptions:
 
 dvvideo encoder AVOptions:
   -quant_deadzone    <int>        E..V....... Quantizer dead zone (from 0 to 1024) (default 7)
+
+DXV encoder AVOptions:
+  -format            <int>        E..V....... (from 1.14664e+09 to 1.14664e+09) (default dxt1)
+     dxt1            1146639409   E..V....... DXT1 (Normal Quality, No Alpha)
 
 exr AVOptions:
   -compression       <int>        E..V....... set compression type (from 0 to 3) (default none)
@@ -972,6 +995,16 @@ H.263p encoder AVOptions:
   -mepc              <int>        E..V....... Motion estimation bitrate penalty compensation (1.0 = 256) (from INT_MIN to INT_MAX) (default 256)
   -mepre             <int>        E..V....... pre motion estimation (from INT_MIN to INT_MAX) (default 0)
   -intra_penalty     <int>        E..V....... Penalty for intra blocks in block decision (from 0 to 1.07374e+09) (default 0)
+
+Hap encoder AVOptions:
+  -format            <int>        E..V....... (from 11 to 15) (default hap)
+     hap             11           E..V....... Hap 1 (DXT1 textures)
+     hap_alpha       14           E..V....... Hap Alpha (DXT5 textures)
+     hap_q           15           E..V....... Hap Q (DXT5-YCoCg textures)
+  -chunks            <int>        E..V....... chunk count (from 1 to 64) (default 1)
+  -compressor        <int>        E..V....... second-stage compressor (from 160 to 176) (default snappy)
+     none            160          E..V....... None
+     snappy          176          E..V....... Snappy
 
 huffyuv AVOptions:
   -non_deterministic <boolean>    E..V....... Allow multithreading for e.g. context=1 at the expense of determinism (default false)
@@ -2056,6 +2089,7 @@ libjxl AVOptions:
   -effort            <int>        E..V....... Encoding effort (from 1 to 9) (default 7)
   -distance          <float>      E..V....... Maximum Butteraugli distance (quality setting, lower = better, zero = lossless, default 1.0) (from -1 to 15) (default -1)
   -modular           <int>        E..V....... Force modular mode (from 0 to 1) (default 0)
+  -xyb               <int>        E..V....... Use XYB-encoding for lossy images (from 0 to 1) (default 1)
 
 libmp3lame encoder AVOptions:
   -reservoir         <boolean>    E...A...... use bit reservoir (default true)
@@ -2114,22 +2148,6 @@ librav1e AVOptions:
   -tile-columns      <int>        E..V....... number of tiles columns to encode with (from -1 to I64_MAX) (default 0)
   -rav1e-params      <dictionary> E..V....... set the rav1e configuration using a :-separated list of key=value parameters
 
-libsvtav1 AVOptions:
-  -hielevel          <int>        E..V......P Hierarchical prediction levels setting (Deprecated, use svtav1-params) (from -1 to 4) (default -1)
-     3level          3            E..V.......
-     4level          4            E..V.......
-  -la_depth          <int>        E..V......P Look ahead distance [0, 120] (Deprecated, use svtav1-params) (from -1 to 120) (default -1)
-  -tier              <int>        E..V......P Set operating point tier (Deprecated, use svtav1-params) (from -1 to 1) (default -1)
-     main            0            E..V.......
-     high            1            E..V.......
-  -preset            <int>        E..V....... Encoding preset (from -2 to 13) (default -2)
-  -crf               <int>        E..V....... Constant Rate Factor value (from 0 to 63) (default 0)
-  -qp                <int>        E..V....... Initial Quantizer level value (from 0 to 63) (default 0)
-  -sc_detection      <boolean>    E..V......P Scene change detection (Deprecated, use svtav1-params) (default auto)
-  -tile_columns      <int>        E..V......P Log2 of number of tile columns to use (Deprecated, use svtav1-params) (from -1 to 4) (default -1)
-  -tile_rows         <int>        E..V......P Log2 of number of tile rows to use (Deprecated, use svtav1-params) (from -1 to 6) (default -1)
-  -svtav1-params     <dictionary> E..V....... Set the SVT-AV1 configuration using a :-separated list of key=value parameters
-
 libtwolame encoder AVOptions:
   -mode              <int>        E...A...... Mpeg Mode (from -1 to 3) (default auto)
      auto            -1           E...A......
@@ -2175,6 +2193,7 @@ libvpx-vp8 encoder AVOptions:
   -ts-parameters     <dictionary> E..V....... Temporal scaling configuration using a :-separated list of key=value parameters
   -auto-alt-ref      <int>        E..V....... Enable use of alternate reference frames (2-pass only) (from -1 to 2) (default -1)
   -cpu-used          <int>        E..V....... Quality/Speed ratio modifier (from -16 to 16) (default 1)
+  -screen-content-mode <int>        E..V....... Encoder screen content mode (from -1 to 2) (default -1)
   -speed             <int>        E..V.......  (from -16 to 16) (default 1)
   -quality           <int>        E..V.......  (from INT_MIN to INT_MAX) (default good)
      best            0            E..V.......
@@ -2651,7 +2670,7 @@ av1_amf AVOptions:
      hqvbr           5            E..V....... High Quality Variable Bitrate
      hqcbr           6            E..V....... High Quality Constant Bitrate
   -qvbr_quality_level <int>        E..V....... Sets the QVBR quality level (from -1 to 51) (default -1)
-  -header_insertion_mode <int>        E..V....... Set header insertion mode (from 0 to 2) (default none)
+  -header_insertion_mode <int>        E..V....... Set header insertion mode (from -1 to 2) (default -1)
      none            0            E..V....... 
      gop             1            E..V....... 
      frame           2            E..V....... 
@@ -2719,6 +2738,7 @@ av1_vaapi AVOptions:
      ICQ             4            E..V....... Intelligent constant-quality
      QVBR            5            E..V....... Quality-defined variable-bitrate
      AVBR            6            E..V....... Average variable-bitrate
+  -blbrc             <boolean>    E..V....... Block level based bitrate control (default false)
   -profile           <int>        E..V....... Set profile (seq_profile) (from -99 to 255) (default -99)
      main            0            E..V.......
      high            1            E..V.......
@@ -2956,13 +2976,13 @@ h264_nvenc AVOptions:
      constqp         0            E..V....... Constant QP mode
      vbr             1            E..V....... Variable bitrate mode
      cbr             2            E..V....... Constant bitrate mode
-     vbr_minqp       8388612      E..V....... Variable bitrate mode with MinQP (deprecated)
-     ll_2pass_quality 8388616      E..V....... Multi-pass optimized for image quality (deprecated)
-     ll_2pass_size   8388624      E..V....... Multi-pass optimized for constant frame size (deprecated)
-     vbr_2pass       8388640      E..V....... Multi-pass variable bitrate mode (deprecated)
-     cbr_ld_hq       8388616      E..V....... Constant bitrate low delay high quality mode
-     cbr_hq          8388624      E..V....... Constant bitrate high quality mode
-     vbr_hq          8388640      E..V....... Variable bitrate high quality mode
+     vbr_minqp       8388609      E..V....... Variable bitrate mode with MinQP (deprecated)
+     ll_2pass_quality 8388609      E..V....... Multi-pass optimized for image quality (deprecated)
+     ll_2pass_size   8388610      E..V....... Multi-pass optimized for constant frame size (deprecated)
+     vbr_2pass       8388609      E..V....... Multi-pass variable bitrate mode (deprecated)
+     cbr_ld_hq       8388610      E..V....... Constant bitrate low delay high quality mode
+     cbr_hq          8388610      E..V....... Constant bitrate high quality mode
+     vbr_hq          8388609      E..V....... Variable bitrate high quality mode
   -rc-lookahead      <int>        E..V....... Number of frames to look ahead for rate-control (from 0 to INT_MAX) (default 0)
   -surfaces          <int>        E..V....... Number of concurrent surfaces (from 0 to 64) (default 0)
   -cbr               <boolean>    E..V....... Use cbr encoding mode (default false)
@@ -3120,6 +3140,7 @@ h264_vaapi AVOptions:
      ICQ             4            E..V....... Intelligent constant-quality
      QVBR            5            E..V....... Quality-defined variable-bitrate
      AVBR            6            E..V....... Average variable-bitrate
+  -blbrc             <boolean>    E..V....... Block level based bitrate control (default false)
   -qp                <int>        E..V....... Constant QP (for P-frames; scaled by qfactor/qoffset for I/B) (from 0 to 52) (default 0)
   -quality           <int>        E..V....... Set encode quality (trades off against speed, higher is faster) (from -1 to INT_MAX) (default -1)
   -coder             <int>        E..V....... Entropy coder type (from 0 to 1) (default cabac)
@@ -3335,13 +3356,13 @@ hevc_nvenc AVOptions:
      constqp         0            E..V....... Constant QP mode
      vbr             1            E..V....... Variable bitrate mode
      cbr             2            E..V....... Constant bitrate mode
-     vbr_minqp       8388612      E..V....... Variable bitrate mode with MinQP (deprecated)
-     ll_2pass_quality 8388616      E..V....... Multi-pass optimized for image quality (deprecated)
-     ll_2pass_size   8388624      E..V....... Multi-pass optimized for constant frame size (deprecated)
-     vbr_2pass       8388640      E..V....... Multi-pass variable bitrate mode (deprecated)
-     cbr_ld_hq       8388616      E..V....... Constant bitrate low delay high quality mode
-     cbr_hq          8388624      E..V....... Constant bitrate high quality mode
-     vbr_hq          8388640      E..V....... Variable bitrate high quality mode
+     vbr_minqp       8388609      E..V....... Variable bitrate mode with MinQP (deprecated)
+     ll_2pass_quality 8388609      E..V....... Multi-pass optimized for image quality (deprecated)
+     ll_2pass_size   8388610      E..V....... Multi-pass optimized for constant frame size (deprecated)
+     vbr_2pass       8388609      E..V....... Multi-pass variable bitrate mode (deprecated)
+     cbr_ld_hq       8388610      E..V....... Constant bitrate low delay high quality mode
+     cbr_hq          8388610      E..V....... Constant bitrate high quality mode
+     vbr_hq          8388609      E..V....... Variable bitrate high quality mode
   -rc-lookahead      <int>        E..V....... Number of frames to look ahead for rate-control (from 0 to INT_MAX) (default 0)
   -surfaces          <int>        E..V....... Number of concurrent surfaces (from 0 to 64) (default 0)
   -cbr               <boolean>    E..V....... Use cbr encoding mode (default false)
@@ -3493,6 +3514,7 @@ h265_vaapi AVOptions:
      ICQ             4            E..V....... Intelligent constant-quality
      QVBR            5            E..V....... Quality-defined variable-bitrate
      AVBR            6            E..V....... Average variable-bitrate
+  -blbrc             <boolean>    E..V....... Block level based bitrate control (default false)
   -qp                <int>        E..V....... Constant QP (for P-frames; scaled by qfactor/qoffset for I/B) (from 0 to 52) (default 0)
   -aud               <boolean>    E..V....... Include AUD (default false)
   -profile           <int>        E..V....... Set profile (general_profile_idc) (from -99 to 255) (default -99)
@@ -3569,6 +3591,7 @@ mpeg2_vaapi AVOptions:
      ICQ             4            E..V....... Intelligent constant-quality
      QVBR            5            E..V....... Quality-defined variable-bitrate
      AVBR            6            E..V....... Average variable-bitrate
+  -blbrc             <boolean>    E..V....... Block level based bitrate control (default false)
   -profile           <int>        E..V....... Set profile (in profile_and_level_indication) (from -99 to 7) (default -99)
      simple          5            E..V.......
      main            4            E..V.......
@@ -3592,6 +3615,7 @@ vp8_vaapi AVOptions:
      ICQ             4            E..V....... Intelligent constant-quality
      QVBR            5            E..V....... Quality-defined variable-bitrate
      AVBR            6            E..V....... Average variable-bitrate
+  -blbrc             <boolean>    E..V....... Block level based bitrate control (default false)
   -loop_filter_level <int>        E..V....... Loop filter level (from 0 to 63) (default 16)
   -loop_filter_sharpness <int>        E..V....... Loop filter sharpness (from 0 to 15) (default 4)
 
@@ -3609,6 +3633,7 @@ vp9_vaapi AVOptions:
      ICQ             4            E..V....... Intelligent constant-quality
      QVBR            5            E..V....... Quality-defined variable-bitrate
      AVBR            6            E..V....... Average variable-bitrate
+  -blbrc             <boolean>    E..V....... Block level based bitrate control (default false)
   -loop_filter_level <int>        E..V....... Loop filter level (from 0 to 63) (default 16)
   -loop_filter_sharpness <int>        E..V....... Loop filter sharpness (from 0 to 15) (default 4)
 
@@ -3672,6 +3697,8 @@ H264 Decoder AVOptions:
   -nal_length_size   <int>        .D.V..X.... nal_length_size (from 0 to 4) (default 0)
   -enable_er         <boolean>    .D.V....... Enable error resilience on damaged frames (unsafe) (default auto)
   -x264_build        <int>        .D.V....... Assume this x264 version if no x264 version found in any SEI (from -1 to INT_MAX) (default -1)
+  -skip_gray         <boolean>    .D.V....... Do not return gray gap frames (default false)
+  -noref_gray        <boolean>    .D.V....... Avoid using gray gap frames as references (default true)
 
 h264_qsv AVOptions:
   -async_depth       <int>        .D.V....... Internal parallelization depth, the higher the value the higher the latency. (from 1 to INT_MAX) (default 4)
@@ -3701,6 +3728,13 @@ jpeg2000 AVOptions:
 
 MJPEG decoder AVOptions:
   -extern_huff       <boolean>    .D.V....... Use external huffman table. (default false)
+
+MPEG-2 video AVOptions:
+  -cc_format         <int>        .D.V....... extract a specific Closed Captions format (from 0 to 3) (default auto)
+     auto            0            .D.V....... pick first seen CC substream
+     a53             1            .D.V....... pick A/53 Part 4 CC substream
+     scte20          2            .D.V....... pick SCTE-20 CC substream
+     dvd             3            .D.V....... pick DVD CC substream
 
 MPEG4 Video Decoder AVOptions:
 
@@ -3825,7 +3859,7 @@ TTA Decoder AVOptions:
 g722 decoder AVOptions:
   -bits_per_codeword <int>        .D..A...... Bits per G722 codeword (from 6 to 8) (default 8)
 
-Closed caption Decoder AVOptions:
+Closed Captions Decoder AVOptions:
   -real_time         <boolean>    .D...S..... emit subtitle events as they are decoded for real-time display (default false)
   -real_time_latency_msec <int>        .D...S..... minimum elapsed time between emitting real-time subtitle events (from 0 to 500) (default 200)
   -data_field        <int>        .D...S..... select data field (from -1 to 1) (default auto)
@@ -4202,7 +4236,7 @@ http AVOptions:
   -http_proxy        <string>     ED......... set HTTP proxy to tunnel through
   -headers           <string>     ED......... set custom HTTP headers, can override built in default headers
   -content_type      <string>     ED......... set a specific content type for the POST messages
-  -user_agent        <string>     .D......... override User-Agent header (default "Lavf/60.16.100")
+  -user_agent        <string>     .D......... override User-Agent header (default "Lavf/61.1.100")
   -referer           <string>     .D......... override referer header
   -multiple_requests <boolean>    ED......... use persistent connections (default false)
   -post_data         <binary>     ED......... set custom HTTP post data
@@ -4233,7 +4267,7 @@ https AVOptions:
   -http_proxy        <string>     ED......... set HTTP proxy to tunnel through
   -headers           <string>     ED......... set custom HTTP headers, can override built in default headers
   -content_type      <string>     ED......... set a specific content type for the POST messages
-  -user_agent        <string>     .D......... override User-Agent header (default "Lavf/60.16.100")
+  -user_agent        <string>     .D......... override User-Agent header (default "Lavf/61.1.100")
   -referer           <string>     .D......... override referer header
   -multiple_requests <boolean>    ED......... use persistent connections (default false)
   -post_data         <binary>     ED......... set custom HTTP post data
@@ -4576,6 +4610,9 @@ libssh AVOptions:
   -truncate          <int>        E.......... Truncate existing files on write (from 0 to 1) (default 1)
   -private_key       <string>     ED......... set path to private key
 
+zmq AVOptions:
+  -pkt_size          <int>        ED......... Maximum send/read packet size (from -1 to INT_MAX) (default 131072)
+
 IPFS Gateway AVOptions:
   -gateway           <string>     .D......... The gateway to ask for IPFS data.
 
@@ -4638,77 +4675,92 @@ avif muxer AVOptions:
 
 dash muxer AVOptions:
   -adaptation_sets   <string>     E.......... Adaptation sets. Syntax: id=0,streams=0,1,2 id=1,streams=3,4 and so on
-  -window_size       <int>        E.......... number of segments kept in the manifest (from 0 to INT_MAX) (default 0)
+  -dash_segment_type <int>        E.......... set dash segment files type (from 0 to 2) (default auto)
+     auto            0            E.......... select segment file format based on codec
+     mp4             1            E.......... make segment file in ISOBMFF format
+     webm            2            E.......... make segment file in WebM format
   -extra_window_size <int>        E.......... number of segments kept outside of the manifest before removing from disk (from 0 to INT_MAX) (default 5)
-  -seg_duration      <duration>   E.......... segment duration (in seconds, fractional value can be set) (default 5)
+  -format_options    <dictionary> E.......... set list of options for the container format (mp4/webm) used for dash
   -frag_duration     <duration>   E.......... fragment duration (in seconds, fractional value can be set) (default 0)
   -frag_type         <int>        E.......... set type of interval for fragments (from 0 to 3) (default none)
      none            0            E.......... one fragment per segment
      every_frame     1            E.......... fragment at every frame
      duration        2            E.......... fragment at specific time intervals
      pframes         3            E.......... fragment at keyframes and following P-Frame reordering (Video only, experimental)
-  -remove_at_exit    <boolean>    E.......... remove all segments when finished (default false)
-  -use_template      <boolean>    E.......... Use SegmentTemplate instead of SegmentList (default true)
-  -use_timeline      <boolean>    E.......... Use SegmentTimeline in SegmentTemplate (default true)
-  -single_file       <boolean>    E.......... Store all segments in one file, accessed using byte ranges (default false)
-  -single_file_name  <string>     E.......... DASH-templated name to be used for baseURL. Implies storing all segments in one file, accessed using byte ranges
-  -init_seg_name     <string>     E.......... DASH-templated name to used for the initialization segment (default "init-stream$RepresentationID$.$ext$")
-  -media_seg_name    <string>     E.......... DASH-templated name to used for the media segments (default "chunk-stream$RepresentationID$-$Number%05d$.$ext$")
-  -utc_timing_url    <string>     E.......... URL of the page that will return the UTC timestamp in ISO format
-  -method            <string>     E.......... set the HTTP method
-  -http_user_agent   <string>     E.......... override User-Agent field in HTTP header
-  -http_persistent   <boolean>    E.......... Use persistent HTTP connections (default false)
-  -hls_playlist      <boolean>    E.......... Generate HLS playlist files(master.m3u8, media_%d.m3u8) (default false)
-  -hls_master_name   <string>     E.......... HLS master playlist name (default "master.m3u8")
-  -streaming         <boolean>    E.......... Enable/Disable streaming mode of output. Each frame will be moof fragment (default false)
-  -timeout           <duration>   E.......... set timeout for socket I/O operations (default -0.000001)
-  -index_correction  <boolean>    E.......... Enable/Disable segment index correction logic (default false)
-  -format_options    <dictionary> E.......... set list of options for the container format (mp4/webm) used for dash
   -global_sidx       <boolean>    E.......... Write global SIDX atom. Applicable only for single file, mp4 output, non-streaming mode (default false)
-  -dash_segment_type <int>        E.......... set dash segment files type (from 0 to 2) (default auto)
-     auto            0            E.......... select segment file format based on codec
-     mp4             1            E.......... make segment file in ISOBMFF format
-     webm            2            E.......... make segment file in WebM format
+  -hls_master_name   <string>     E.......... HLS master playlist name (default "master.m3u8")
+  -hls_playlist      <boolean>    E.......... Generate HLS playlist files(master.m3u8, media_%d.m3u8) (default false)
+  -http_opts         <dictionary> E.......... HTTP protocol options
+  -http_persistent   <boolean>    E.......... Use persistent HTTP connections (default false)
+  -http_user_agent   <string>     E.......... override User-Agent field in HTTP header
   -ignore_io_errors  <boolean>    E.......... Ignore IO errors during open and write. Useful for long-duration runs with network output (default false)
-  -lhls              <boolean>    E.......... Enable Low-latency HLS(Experimental). Adds #EXT-X-PREFETCH tag with current segment's URI (default false)
+  -index_correction  <boolean>    E.......... Enable/Disable segment index correction logic (default false)
+  -init_seg_name     <string>     E.......... DASH-templated name to used for the initialization segment (default "init-stream$RepresentationID$.$ext$")
   -ldash             <boolean>    E.......... Enable Low-latency dash. Constrains the value of a few elements (default false)
+  -lhls              <boolean>    E.......... Enable Low-latency HLS(Experimental). Adds #EXT-X-PREFETCH tag with current segment's URI (default false)
   -master_m3u8_publish_rate <int>        E.......... Publish master playlist every after this many segment intervals (from 0 to UINT32_MAX) (default 0)
-  -write_prft        <boolean>    E.......... Write producer reference time element (default auto)
+  -max_playback_rate <rational>   E.......... Set desired maximum playback rate (from 0.5 to 1.5) (default 1/1)
+  -media_seg_name    <string>     E.......... DASH-templated name to used for the media segments (default "chunk-stream$RepresentationID$-$Number%05d$.$ext$")
+  -method            <string>     E.......... set the HTTP method
+  -min_playback_rate <rational>   E.......... Set desired minimum playback rate (from 0.5 to 1.5) (default 1/1)
   -mpd_profile       <flags>      E.......... Set profiles. Elements and values used in the manifest may be constrained by them (default dash)
      dash                         E.......... MPEG-DASH ISO Base media file format live profile
      dvb_dash                     E.......... DVB-DASH profile
-  -http_opts         <dictionary> E.......... HTTP protocol options
+  -remove_at_exit    <boolean>    E.......... remove all segments when finished (default false)
+  -seg_duration      <duration>   E.......... segment duration (in seconds, fractional value can be set) (default 5)
+  -single_file       <boolean>    E.......... Store all segments in one file, accessed using byte ranges (default false)
+  -single_file_name  <string>     E.......... DASH-templated name to be used for baseURL. Implies storing all segments in one file, accessed using byte ranges
+  -streaming         <boolean>    E.......... Enable/Disable streaming mode of output. Each frame will be moof fragment (default false)
   -target_latency    <duration>   E.......... Set desired target latency for Low-latency dash (default 0)
-  -min_playback_rate <rational>   E.......... Set desired minimum playback rate (from 0.5 to 1.5) (default 1/1)
-  -max_playback_rate <rational>   E.......... Set desired maximum playback rate (from 0.5 to 1.5) (default 1/1)
+  -timeout           <duration>   E.......... set timeout for socket I/O operations (default -0.000001)
   -update_period     <int64>      E.......... Set the mpd update interval (from 0 to I64_MAX) (default 0)
+  -use_template      <boolean>    E.......... Use SegmentTemplate instead of SegmentList (default true)
+  -use_timeline      <boolean>    E.......... Use SegmentTimeline in SegmentTemplate (default true)
+  -utc_timing_url    <string>     E.......... URL of the page that will return the UTC timestamp in ISO format
+  -window_size       <int>        E.......... number of segments kept in the manifest (from 0 to INT_MAX) (default 0)
+  -write_prft        <boolean>    E.......... Write producer reference time element (default auto)
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -4716,47 +4768,27 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 Fifo muxer AVOptions:
-  -fifo_format       <string>     E.......... Target muxer
-  -queue_size        <int>        E.......... Size of fifo queue (from 1 to INT_MAX) (default 60)
-  -format_opts       <dictionary> E.......... Options to be passed to underlying muxer
-  -drop_pkts_on_overflow <boolean>    E.......... Drop packets on fifo queue overflow not to block encoder (default false)
-  -restart_with_keyframe <boolean>    E.......... Wait for keyframe when restarting output (default false)
   -attempt_recovery  <boolean>    E.......... Attempt recovery in case of failure (default false)
+  -drop_pkts_on_overflow <boolean>    E.......... Drop packets on fifo queue overflow not to block encoder (default false)
+  -fifo_format       <string>     E.......... Target muxer
+  -format_opts       <dictionary> E.......... Options to be passed to underlying muxer
   -max_recovery_attempts <int>        E.......... Maximal number of recovery attempts (from 0 to INT_MAX) (default 0)
-  -recovery_wait_time <duration>   E.......... Waiting time between recovery attempts (default 5)
+  -queue_size        <int>        E.......... Size of fifo queue (from 1 to INT_MAX) (default 60)
   -recovery_wait_streamtime <boolean>    E.......... Use stream time instead of real time while waiting for recovery (default false)
+  -recovery_wait_time <duration>   E.......... Waiting time between recovery attempts (default 5)
   -recover_any_error <boolean>    E.......... Attempt recovery regardless of type of the error (default false)
+  -restart_with_keyframe <boolean>    E.......... Wait for keyframe when restarting output (default false)
   -timeshift         <duration>   E.......... Delay fifo output (default 0)
-
-Fifo test muxer AVOptions:
-  -write_header_ret  <int>        E.......... write_header() return value (from INT_MIN to INT_MAX) (default 0)
-  -write_trailer_ret <int>        E.......... write_trailer() return value (from INT_MIN to INT_MAX) (default 0)
-  -print_deinit_summary <boolean>    E.......... print summary when deinitializing muxer (default true)
 
 flac muxer AVOptions:
   -write_header      <boolean>    E.......... Write the file header (default true)
@@ -4859,31 +4891,46 @@ image2 muxer AVOptions:
   -protocol_opts     <dictionary> E.......... specify protocol options for the opened files
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -4891,56 +4938,56 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -4948,29 +4995,14 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 LATM/LOAS muxer AVOptions:
   -smc-interval      <int>        E.......... StreamMuxConfig interval. (from 1 to 65535) (default 20)
@@ -5011,31 +5043,46 @@ matroska/webm muxer AVOptions:
      passthrough     2            E.......... Use the disposition flag as-is
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -5043,29 +5090,14 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 MP3 muxer AVOptions:
   -id3v2_version     <int>        E.......... Select ID3v2 version to write. Currently 3 and 4 are supported. (from 0 to 4) (default 4)
@@ -5073,31 +5105,46 @@ MP3 muxer AVOptions:
   -write_xing        <boolean>    E.......... Write the Xing header containing file duration. (default true)
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -5105,49 +5152,34 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 mpeg/(s)vcd/vob/dvd muxer AVOptions:
-  -muxrate           <int>        E.......... (from 0 to 1.67772e+09) (default 0)
-  -preload           <int>        E.......... Initial demux-decode delay in microseconds. (from 0 to INT_MAX) (default 500000)
+  -muxrate           <int>        E.......... mux rate as bits/s (from 0 to 1.67772e+09) (default 0)
+  -preload           <int>        E.......... initial demux-decode delay in microseconds (from 0 to INT_MAX) (default 500000)
 
 mpeg/(s)vcd/vob/dvd muxer AVOptions:
-  -muxrate           <int>        E.......... (from 0 to 1.67772e+09) (default 0)
-  -preload           <int>        E.......... Initial demux-decode delay in microseconds. (from 0 to INT_MAX) (default 500000)
+  -muxrate           <int>        E.......... mux rate as bits/s (from 0 to 1.67772e+09) (default 0)
+  -preload           <int>        E.......... initial demux-decode delay in microseconds (from 0 to INT_MAX) (default 500000)
 
 mpeg/(s)vcd/vob/dvd muxer AVOptions:
-  -muxrate           <int>        E.......... (from 0 to 1.67772e+09) (default 0)
-  -preload           <int>        E.......... Initial demux-decode delay in microseconds. (from 0 to INT_MAX) (default 500000)
+  -muxrate           <int>        E.......... mux rate as bits/s (from 0 to 1.67772e+09) (default 0)
+  -preload           <int>        E.......... initial demux-decode delay in microseconds (from 0 to INT_MAX) (default 500000)
 
 mpeg/(s)vcd/vob/dvd muxer AVOptions:
-  -muxrate           <int>        E.......... (from 0 to 1.67772e+09) (default 0)
-  -preload           <int>        E.......... Initial demux-decode delay in microseconds. (from 0 to INT_MAX) (default 500000)
+  -muxrate           <int>        E.......... mux rate as bits/s (from 0 to 1.67772e+09) (default 0)
+  -preload           <int>        E.......... initial demux-decode delay in microseconds (from 0 to INT_MAX) (default 500000)
 
 mpeg/(s)vcd/vob/dvd muxer AVOptions:
-  -muxrate           <int>        E.......... (from 0 to 1.67772e+09) (default 0)
-  -preload           <int>        E.......... Initial demux-decode delay in microseconds. (from 0 to INT_MAX) (default 500000)
+  -muxrate           <int>        E.......... mux rate as bits/s (from 0 to 1.67772e+09) (default 0)
+  -preload           <int>        E.......... initial demux-decode delay in microseconds (from 0 to INT_MAX) (default 500000)
 
 MPEGTS muxer AVOptions:
   -mpegts_transport_stream_id <int>        E.......... Set transport_stream_id field. (from 1 to 65535) (default 1)
@@ -5253,31 +5285,46 @@ Ogg (audio/video/Speex/Opus) muxer AVOptions:
   -page_duration     <int64>      E.......... preferred page duration, in microseconds (from 0 to I64_MAX) (default 1000000)
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -5285,29 +5332,14 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 RTP muxer AVOptions:
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
@@ -5356,7 +5388,7 @@ RTSP muxer AVOptions:
   -reorder_queue_size <int>        .D......... set number of packets to buffer for handling of reordered packets (from -1 to INT_MAX) (default -1)
   -buffer_size       <int>        ED......... Underlying protocol send/receive buffer size (from -1 to INT_MAX) (default -1)
   -pkt_size          <int>        E.......... Underlying protocol send packet size (from -1 to INT_MAX) (default 1472)
-  -user_agent        <string>     .D......... override User-Agent header (default "Lavf60.16.100")
+  -user_agent        <string>     .D......... override User-Agent header (default "Lavf61.1.100")
 
 (stream) segment muxer AVOptions:
   -reference_stream  <string>     E.......... set reference stream (default "auto")
@@ -5461,31 +5493,46 @@ Tee muxer AVOptions:
   -fifo_options      <dictionary> E.......... fifo pseudo-muxer options
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -5493,56 +5540,56 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
+  -brand             <string>     E.......... Override major brand
+  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
+  -encryption_key    <binary>     E.......... The media encryption key (hex)
+  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
+  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
+  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
+  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
+  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
+  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
+  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
+  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
+  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
   -movflags          <flags>      E.......... MOV muxer flags (default 0)
-     rtphint                      E.......... Add RTP hint tracks
-     empty_moov                   E.......... Make the initial moov atom empty
-     frag_keyframe                E.......... Fragment at video keyframes
-     frag_every_frame              E.......... Fragment at every frame
-     separate_moof                E.......... Write separate moof/mdat atoms for each track
-     frag_custom                  E.......... Flush fragments on caller requests
-     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
-     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
-     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
-     disable_chpl                 E.......... Disable Nero chapter atom
-     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
-     dash                         E.......... Write DASH compatible fragmented MP4
      cmaf                         E.......... Write CMAF compatible fragmented MP4
-     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     dash                         E.......... Write DASH compatible fragmented MP4
+     default_base_moof              E.......... Set the default-base-is-moof flag in tfhd atoms
      delay_moov                   E.......... Delay writing the initial moov until the first fragment is cut, or until the first fragment flush
+     disable_chpl                 E.......... Disable Nero chapter atom
+     empty_moov                   E.......... Make the initial moov atom empty
+     faststart                    E.......... Run a second pass to put the index (moov atom) at the beginning of the file
+     frag_custom                  E.......... Flush fragments on caller requests
+     frag_discont                 E.......... Signal that the next fragment is discontinuous from earlier ones
+     frag_every_frame              E.......... Fragment at every frame
+     frag_keyframe                E.......... Fragment at video keyframes
      global_sidx                  E.......... Write a global sidx index at the start of the file
-     skip_sidx                    E.......... Skip writing of sidx atom
-     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
-     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
-     write_gama                   E.......... Write deprecated gama atom
-     use_metadata_tags              E.......... Use mdta atom for metadata.
-     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     isml                         E.......... Create a live smooth streaming feed (for pushing to a publishing point)
      negative_cts_offsets              E.......... Use negative CTS offsets (reducing the need for edit lists)
+     omit_tfhd_offset              E.......... Omit the base data offset in tfhd atoms
+     prefer_icc                   E.......... If writing colr atom prioritise usage of ICC profile if it exists in stream packet side data
+     rtphint                      E.......... Add RTP hint tracks
+     separate_moof                E.......... Write separate moof/mdat atoms for each track
+     skip_sidx                    E.......... Skip writing of sidx atom
+     skip_trailer                 E.......... Skip writing the mfra/tfra/mfro trailer for fragmented files
+     use_metadata_tags              E.......... Use mdta atom for metadata.
+     write_colr                   E.......... Write colr atom even if the color info is unspecified (Experimental, may be renamed or changed, do not use from scripts)
+     write_gama                   E.......... Write deprecated gama atom
   -moov_size         <int>        E.......... maximum moov size so it can be placed at the begin (from 0 to INT_MAX) (default 0)
+  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
+  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
+  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
   -rtpflags          <flags>      E.......... RTP muxer flags (default 0)
      latm                         E.......... Use MP4A-LATM packetization instead of MPEG4-GENERIC for AAC
      rfc2190                      E.......... Use RFC 2190 packetization instead of RFC 4629 for H.263
@@ -5550,29 +5597,14 @@ mov/mp4/tgp/psp/tg2/ipod/ismv/f4v muxer AVOptions:
      h264_mode0                   E.......... Use mode 0 for H.264 in RTP
      send_bye                     E.......... Send RTCP BYE packets when finishing
   -skip_iods         <boolean>    E.......... Skip writing iods atom. (default true)
-  -iods_audio_profile <int>        E.......... iods audio profile atom. (from -1 to 255) (default -1)
-  -iods_video_profile <int>        E.......... iods video profile atom. (from -1 to 255) (default -1)
-  -frag_duration     <int>        E.......... Maximum fragment duration (from 0 to INT_MAX) (default 0)
-  -min_frag_duration <int>        E.......... Minimum fragment duration (from 0 to INT_MAX) (default 0)
-  -frag_size         <int>        E.......... Maximum fragment size (from 0 to INT_MAX) (default 0)
-  -ism_lookahead     <int>        E.......... Number of lookahead entries for ISM files (from 0 to 255) (default 0)
-  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
-  -brand             <string>     E.......... Override major brand
   -use_editlist      <boolean>    E.......... use edit list (default auto)
-  -fragment_index    <int>        E.......... Fragment number of the next fragment (from 1 to INT_MAX) (default 1)
-  -mov_gamma         <float>      E.......... gamma value for gama atom (from 0 to 10) (default 0)
-  -frag_interleave   <int>        E.......... Interleave samples within fragments (max number of consecutive samples, lower is tighter interleaving, but with more overhead) (from 0 to INT_MAX) (default 0)
-  -encryption_scheme <string>     E.......... Configures the encryption scheme, allowed values are none, cenc-aes-ctr
-  -encryption_key    <binary>     E.......... The media encryption key (hex)
-  -encryption_kid    <binary>     E.......... The media encryption key identifier (hex)
   -use_stream_ids_as_track_ids <boolean>    E.......... use stream ids as track ids (default false)
+  -video_track_timescale <int>        E.......... set timescale of all video tracks (from 0 to INT_MAX) (default 0)
   -write_btrt        <boolean>    E.......... force or disable writing btrt (default auto)
-  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
   -write_prft        <int>        E.......... Write producer reference time box with specified time source (from 0 to 2) (default 0)
-     wallclock       1            E..........
      pts             2            E..........
-  -empty_hdlr_name   <boolean>    E.......... write zero-length name string in hdlr atoms within mdia and minf atoms (default false)
-  -movie_timescale   <int>        E.......... set movie timescale (from 1 to INT_MAX) (default 1000)
+     wallclock       1            E..........
+  -write_tmcd        <boolean>    E.......... force or disable writing tmcd (default auto)
 
 WAV muxer AVOptions:
   -write_bext        <boolean>    E.......... Write BEXT chunk. (default false)
@@ -5758,8 +5790,7 @@ generic raw demuxer AVOptions:
 
 dfpwm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 48000)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 generic raw video demuxer AVOptions:
   -framerate         <video_rate> .D.........  (default "25")
@@ -5777,6 +5808,20 @@ generic raw demuxer AVOptions:
 
 generic raw demuxer AVOptions:
   -raw_packet_size   <int>        .D.........  (from 1 to INT_MAX) (default 1024)
+
+DVD-Video demuxer AVOptions:
+  -angle             <int>        .D......... playback angle number (from 1 to 9) (default 1)
+  -chapter_end       <int>        .D......... exit chapter (PTT) number (0=end) (from 0 to 99) (default 0)
+  -chapter_start     <int>        .D......... entry chapter (PTT) number (from 1 to 99) (default 1)
+  -menu              <boolean>    .D......... demux menu domain (default false)
+  -menu_lu           <int>        .D......... menu language unit (0=auto) (from 0 to 99) (default 0)
+  -menu_vts          <int>        .D......... menu VTS (0=VMG main menu) (from 0 to 99) (default 0)
+  -pg                <int>        .D......... entry PG number (0=auto) (from 0 to 255) (default 0)
+  -pgc               <int>        .D......... entry PGC number (0=auto) (from 0 to 999) (default 0)
+  -preindex          <boolean>    .D......... enable for accurate chapter markers, slow (2-pass read) (default false)
+  -region            <int>        .D......... playback region number (0=free) (from 0 to 8) (default 0)
+  -title             <int>        .D......... title number (0=auto) (from 0 to 99) (default 0)
+  -trim              <boolean>    .D......... trim padding cells from start (default true)
 
 ea demuxer AVOptions:
   -merge_alpha       <boolean>    .D.V....... return VP6 alpha in the main video stream (default false)
@@ -5853,6 +5898,7 @@ hls demuxer AVOptions:
   -live_start_index  <int>        .D......... segment index to start live streams at (negative values are from the end) (from INT_MIN to INT_MAX) (default -3)
   -prefer_x_start    <boolean>    .D......... prefer to use #EXT-X-START if it's in playlist instead of live_start_index (default false)
   -allowed_extensions <string>     .D......... List of file extensions that hls is allowed to access (default "3gp,aac,avi,ac3,eac3,flac,mkv,m3u8,m4a,m4s,m4v,mpg,mov,mp2,mp3,mp4,mpeg,mpegts,ogg,ogv,oga,ts,vob,wav")
+  -extension_picky   <boolean>    .D......... Be picky with all extensions matching (default true)
   -max_reload        <int>        .D......... Maximum number of times a insufficient list is attempted to be reloaded (from 0 to INT_MAX) (default 3)
   -m3u8_hold_counters <int>        .D......... The maximum number of times to load m3u8 when it refreshes without new segments (from 0 to INT_MAX) (default 1000)
   -http_persistent   <boolean>    .D......... Use persistent HTTP connections (default true)
@@ -5992,7 +6038,6 @@ mp3 AVOptions:
 mpegts demuxer AVOptions:
   -resync_size       <int>        .D......... set size limit for looking up a new synchronization (from 0 to INT_MAX) (default 65536)
   -fix_teletext_pts  <boolean>    .D......... try to fix pts values of dvb teletext streams (default true)
-  -ts_packetsize     <int>        .D....XR... output option carrying the raw packet size (from 0 to 0) (default 0)
   -scan_all_pmts     <boolean>    .D......... scan and combine all PMTs (default auto)
   -skip_unknown_pmt  <boolean>    .D......... skip PMTs for programs not advertised in the PAT (default false)
   -merge_pmt_versions <boolean>    .D......... re-use streams when PMT's version/pids change (default false)
@@ -6001,7 +6046,6 @@ mpegts demuxer AVOptions:
 mpegtsraw demuxer AVOptions:
   -resync_size       <int>        .D......... set size limit for looking up a new synchronization (from 0 to INT_MAX) (default 65536)
   -compute_pcr       <boolean>    .D......... compute exact PCR for each transport stream packet (default false)
-  -ts_packetsize     <int>        .D....XR... output option carrying the raw packet size (from 0 to 0) (default 0)
 
 generic raw video demuxer AVOptions:
   -framerate         <video_rate> .D.........  (default "25")
@@ -6021,108 +6065,87 @@ generic raw demuxer AVOptions:
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 pcm demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 44100)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 rawvideo demuxer AVOptions:
   -pixel_format      <string>     .D......... set pixel format (default "yuv420p")
@@ -6174,7 +6197,7 @@ RTSP demuxer AVOptions:
   -reorder_queue_size <int>        .D......... set number of packets to buffer for handling of reordered packets (from -1 to INT_MAX) (default -1)
   -buffer_size       <int>        ED......... Underlying protocol send/receive buffer size (from -1 to INT_MAX) (default -1)
   -pkt_size          <int>        E.......... Underlying protocol send packet size (from -1 to INT_MAX) (default 1472)
-  -user_agent        <string>     .D......... override User-Agent header (default "Lavf60.16.100")
+  -user_agent        <string>     .D......... override User-Agent header (default "Lavf61.1.100")
 
 generic raw demuxer AVOptions:
   -raw_packet_size   <int>        .D.........  (from 1 to INT_MAX) (default 1024)
@@ -6208,8 +6231,7 @@ generic raw demuxer AVOptions:
 
 sln demuxer AVOptions:
   -sample_rate       <int>        .D.........  (from 0 to INT_MAX) (default 8000)
-  -channels          <int>        .D........P  (from 0 to INT_MAX) (default 1)
-  -ch_layout         <channel_layout> .D......... 
+  -ch_layout         <channel_layout> .D.........  (default "mono")
 
 generic raw demuxer AVOptions:
   -raw_packet_size   <int>        .D.........  (from 1 to INT_MAX) (default 1024)
@@ -6245,11 +6267,11 @@ generic raw video demuxer AVOptions:
   -raw_packet_size   <int>        .D.........  (from 1 to INT_MAX) (default 1024)
 
 W64 demuxer AVOptions:
-  -max_size          <int>        .D......... max size of single packet (from 1024 to 4.1943e+06) (default 4096)
+  -max_size          <int>        .D......... max size of single packet (from 0 to 4.1943e+06) (default 0)
 
 WAV demuxer AVOptions:
   -ignore_length     <boolean>    .D......... Ignore length (default false)
-  -max_size          <int>        .D......... max size of single packet (from 1024 to 4.1943e+06) (default 4096)
+  -max_size          <int>        .D......... max size of single packet (from 0 to 4.1943e+06) (default 0)
 
 WebM DASH Manifest demuxer AVOptions:
   -live              <boolean>    .D......... flag indicating that the input is a live file that only has the headers. (default false)
@@ -6635,12 +6657,6 @@ SWScaler AVOptions:
      auto            0            E..V.......
 
 SWResampler AVOptions:
-  -ich               <int>        ....A.....P set input channel count (Deprecated, use ichl) (from 0 to 64) (default 0)
-  -in_channel_count  <int>        ....A.....P set input channel count (Deprecated, use in_chlayout) (from 0 to 64) (default 0)
-  -och               <int>        ....A.....P set output channel count (Deprecated, use ochl) (from 0 to 64) (default 0)
-  -out_channel_count <int>        ....A.....P set output channel count (Deprecated, use out_chlayout) (from 0 to 64) (default 0)
-  -uch               <int>        ....A.....P set used channel count (from 0 to 64) (default 0)
-  -used_channel_count <int>        ....A.....P set used channel count (from 0 to 64) (default 0)
   -isr               <int>        ....A...... set input sample rate (from 0 to INT_MAX) (default 0)
   -in_sample_rate    <int>        ....A...... set input sample rate (from 0 to INT_MAX) (default 0)
   -osr               <int>        ....A...... set output sample rate (from 0 to INT_MAX) (default 0)
@@ -6651,10 +6667,6 @@ SWResampler AVOptions:
   -out_sample_fmt    <sample_fmt> ....A...... set output sample format (default none)
   -tsf               <sample_fmt> ....A...... set internal sample format (default none)
   -internal_sample_fmt <sample_fmt> ....A...... set internal sample format (default none)
-  -icl               <channel_layout> ....A.....P set input channel layout (Deprecated, use ichl) (default 0x0)
-  -in_channel_layout <channel_layout> ....A.....P set input channel layout (Deprecated, use in_chlayout) (default 0x0)
-  -ocl               <channel_layout> ....A.....P set output channel layout (Deprecated, use ochl) (default 0x0)
-  -out_channel_layout <channel_layout> ....A.....P set output channel layout (Deprecated, use out_chlayout) (default 0x0)
   -ichl              <channel_layout> ....A...... set input channel layout
   -in_chlayout       <channel_layout> ....A...... set input channel layout
   -ochl              <channel_layout> ....A...... set output channel layout
@@ -6719,6 +6731,22 @@ AVFilter AVOptions:
    enable            <string>     ..F......T. set enable expression
    threads           <int>        ..F........ Allowed number of threads (from 0 to INT_MAX) (default 0)
    extra_hw_frames   <int>        ..F........ Number of extra hardware frames to allocate for the user (from -1 to INT_MAX) (default -1)
+
+aap AVOptions:
+   order             <int>        ..F.A...... set the filter order (from 1 to 32767) (default 16)
+   projection        <int>        ..F.A...... set the filter projection (from 1 to 256) (default 2)
+   mu                <float>      ..F.A....T. set the filter mu (from 0 to 1) (default 0.0001)
+   delta             <float>      ..F.A....T. set the filter delta (from 0 to 1) (default 0.001)
+   out_mode          <int>        ..F.A....T. set output mode (from 0 to 4) (default o)
+     i               0            ..F.A....T. input
+     d               1            ..F.A....T. desired
+     o               2            ..F.A....T. output
+     n               3            ..F.A....T. noise
+     e               4            ..F.A....T. error
+   precision         <int>        ..F.A...... set processing precision (from 0 to 2) (default auto)
+     auto            0            ..F.A...... set auto processing precision
+     float           1            ..F.A...... set single-floating point processing precision
+     double          2            ..F.A...... set double-floating point processing precision
 
 abench AVOptions:
    action            <int>        ..F.A...... set action (from 0 to 1) (default start)
@@ -6970,15 +6998,17 @@ adynamicequalizer AVOptions:
    dqfactor          <double>     ..F.A....T. set detection Q factor (from 0.001 to 1000) (default 1)
    tfrequency        <double>     ..F.A....T. set target frequency (from 2 to 1e+06) (default 1000)
    tqfactor          <double>     ..F.A....T. set target Q factor (from 0.001 to 1000) (default 1)
-   attack            <double>     ..F.A....T. set attack duration (from 1 to 2000) (default 20)
-   release           <double>     ..F.A....T. set release duration (from 1 to 2000) (default 200)
+   attack            <double>     ..F.A....T. set detection attack duration (from 0.01 to 2000) (default 20)
+   release           <double>     ..F.A....T. set detection release duration (from 0.01 to 2000) (default 200)
    ratio             <double>     ..F.A....T. set ratio factor (from 0 to 30) (default 1)
-   makeup            <double>     ..F.A....T. set makeup gain (from 0 to 100) (default 0)
-   range             <double>     ..F.A....T. set max gain (from 1 to 200) (default 50)
-   mode              <int>        ..F.A....T. set mode (from -1 to 1) (default cut)
+   makeup            <double>     ..F.A....T. set makeup gain (from 0 to 1000) (default 0)
+   range             <double>     ..F.A....T. set max gain (from 1 to 2000) (default 50)
+   mode              <int>        ..F.A....T. set mode (from -1 to 3) (default cutbelow)
      listen          -1           ..F.A....T.
-     cut             0            ..F.A....T.
-     boost           1            ..F.A....T.
+     cutbelow        0            ..F.A....T.
+     cutabove        1            ..F.A....T.
+     boostbelow      2            ..F.A....T.
+     boostabove      3            ..F.A....T.
    dftype            <int>        ..F.A....T. set detection filter type (from 0 to 3) (default bandpass)
      bandpass        0            ..F.A....T.
      lowpass         1            ..F.A....T.
@@ -6988,13 +7018,11 @@ adynamicequalizer AVOptions:
      bell            0            ..F.A....T.
      lowshelf        1            ..F.A....T.
      highshelf       2            ..F.A....T.
-   direction         <int>        ..F.A....T. set direction (from 0 to 1) (default downward)
-     downward        0            ..F.A....T.
-     upward          1            ..F.A....T.
-   auto              <int>        ..F.A....T. set auto threshold (from -1 to 1) (default disabled)
-     disabled        -1           ..F.A....T.
-     off             0            ..F.A....T.
-     on              1            ..F.A....T.
+   auto              <int>        ..F.A....T. set auto threshold (from 1 to 4) (default off)
+     disabled        1            ..F.A....T.
+     off             2            ..F.A....T.
+     on              3            ..F.A....T.
+     adaptive        4            ..F.A....T.
    precision         <int>        ..F.A...... set processing precision (from 0 to 2) (default auto)
      auto            0            ..F.A...... set auto processing precision
      float           1            ..F.A...... set single-floating point processing precision
@@ -7219,22 +7247,24 @@ afir AVOptions:
    dry               <float>      ..F.A....T. set dry gain (from 0 to 10) (default 1)
    wet               <float>      ..F.A....T. set wet gain (from 0 to 10) (default 1)
    length            <float>      ..F.A...... set IR length (from 0 to 1) (default 1)
-   gtype             <int>        ..F.A...... set IR auto gain type (from -1 to 4) (default peak)
-     none            -1           ..F.A...... without auto gain
-     peak            0            ..F.A...... peak gain
-     dc              1            ..F.A...... DC gain
-     gn              2            ..F.A...... gain to noise
-     ac              3            ..F.A...... AC gain
-     rms             4            ..F.A...... RMS gain
+   gtype             <int>        ..F.A.....P set IR auto gain type (from -1 to 4) (default peak)
+     none            -1           ..F.A.....P without auto gain
+     peak            0            ..F.A.....P peak gain
+     dc              1            ..F.A.....P DC gain
+     gn              2            ..F.A.....P gain to noise
+     ac              3            ..F.A.....P AC gain
+     rms             4            ..F.A.....P RMS gain
+   irnorm            <float>      ..F.A...... set IR norm (from -1 to 2) (default 1)
+   irlink            <boolean>    ..F.A...... set IR link (default true)
    irgain            <float>      ..F.A...... set IR gain (from 0 to 1) (default 1)
    irfmt             <int>        ..F.A...... set IR format (from 0 to 1) (default input)
      mono            0            ..F.A...... single channel
      input           1            ..F.A...... same as input
    maxir             <float>      ..F.A...... set max IR length (from 0.1 to 60) (default 30)
-   response          <boolean>    ..FV....... show IR frequency response (default false)
-   channel           <int>        ..FV....... set IR channel to display frequency response (from 0 to 1024) (default 0)
-   size              <image_size> ..FV....... set video size (default "hd720")
-   rate              <video_rate> ..FV....... set video rate (default "25")
+   response          <boolean>    ..FV......P show IR frequency response (default false)
+   channel           <int>        ..FV......P set IR channel to display frequency response (from 0 to 1024) (default 0)
+   size              <image_size> ..FV......P set video size (default "hd720")
+   rate              <video_rate> ..FV......P set video rate (default "25")
    minp              <int>        ..F.A...... set min partition size (from 1 to 65536) (default 8192)
    maxp              <int>        ..F.A...... set max partition size (from 8 to 65536) (default 8192)
    nbirs             <int>        ..F.A...... set number of input IRs (from 1 to 32) (default 1)
@@ -7502,6 +7532,10 @@ anlm(f|s) AVOptions:
      o               2            ..F.A....T. output
      n               3            ..F.A....T. noise
      e               4            ..F.A....T. error
+   precision         <int>        ..F.A...... set processing precision (from 0 to 2) (default auto)
+     auto            0            ..F.A...... set auto processing precision
+     float           1            ..F.A...... set single-floating point processing precision
+     double          2            ..F.A...... set double-floating point processing precision
 
 anlm(f|s) AVOptions:
    order             <int>        ..F.A...... set the filter order (from 1 to 32767) (default 256)
@@ -7514,6 +7548,10 @@ anlm(f|s) AVOptions:
      o               2            ..F.A....T. output
      n               3            ..F.A....T. noise
      e               4            ..F.A....T. error
+   precision         <int>        ..F.A...... set processing precision (from 0 to 2) (default auto)
+     auto            0            ..F.A...... set auto processing precision
+     float           1            ..F.A...... set single-floating point processing precision
+     double          2            ..F.A...... set double-floating point processing precision
 
 apad AVOptions:
    packet_size       <int>        ..F.A...... set silence packet size (from 0 to INT_MAX) (default 4096)
@@ -7586,12 +7624,6 @@ aresample AVOptions:
    sample_rate       <int>        ..F.A...... (from 0 to INT_MAX) (default 0)
 
 SWResampler AVOptions:
-  -ich               <int>        ....A.....P set input channel count (Deprecated, use ichl) (from 0 to 64) (default 0)
-  -in_channel_count  <int>        ....A.....P set input channel count (Deprecated, use in_chlayout) (from 0 to 64) (default 0)
-  -och               <int>        ....A.....P set output channel count (Deprecated, use ochl) (from 0 to 64) (default 0)
-  -out_channel_count <int>        ....A.....P set output channel count (Deprecated, use out_chlayout) (from 0 to 64) (default 0)
-  -uch               <int>        ....A.....P set used channel count (from 0 to 64) (default 0)
-  -used_channel_count <int>        ....A.....P set used channel count (from 0 to 64) (default 0)
   -isr               <int>        ....A...... set input sample rate (from 0 to INT_MAX) (default 0)
   -in_sample_rate    <int>        ....A...... set input sample rate (from 0 to INT_MAX) (default 0)
   -osr               <int>        ....A...... set output sample rate (from 0 to INT_MAX) (default 0)
@@ -7602,10 +7634,6 @@ SWResampler AVOptions:
   -out_sample_fmt    <sample_fmt> ....A...... set output sample format (default none)
   -tsf               <sample_fmt> ....A...... set internal sample format (default none)
   -internal_sample_fmt <sample_fmt> ....A...... set internal sample format (default none)
-  -icl               <channel_layout> ....A.....P set input channel layout (Deprecated, use ichl) (default 0x0)
-  -in_channel_layout <channel_layout> ....A.....P set input channel layout (Deprecated, use in_chlayout) (default 0x0)
-  -ocl               <channel_layout> ....A.....P set output channel layout (Deprecated, use ochl) (default 0x0)
-  -out_channel_layout <channel_layout> ....A.....P set output channel layout (Deprecated, use out_chlayout) (default 0x0)
   -ichl              <channel_layout> ....A...... set input channel layout
   -in_chlayout       <channel_layout> ....A...... set input channel layout
   -ochl              <channel_layout> ....A...... set output channel layout
@@ -7674,6 +7702,10 @@ arls AVOptions:
      o               2            ..F.A....T. output
      n               3            ..F.A....T. noise
      e               4            ..F.A....T. error
+   precision         <int>        ..F.A...... set processing precision (from 0 to 2) (default auto)
+     auto            0            ..F.A...... set auto processing precision
+     float           1            ..F.A...... set single-floating point processing precision
+     double          2            ..F.A...... set double-floating point processing precision
 
 arnndn AVOptions:
    model             <string>     ..F.A....T. set model name
@@ -7931,6 +7963,10 @@ axcorrelate AVOptions:
      fast            1            ..F.A...... fast algorithm
      best            2            ..F.A...... best algorithm
 
+(a)zmq AVOptions:
+   bind_address      <string>     ..FVA...... set bind address (default "tcp://*:5555")
+   b                 <string>     ..FVA...... set bind address (default "tcp://*:5555")
+
 bandpass AVOptions:
    frequency         <double>     ..F.A....T. set central frequency (from 0 to 999999) (default 3000)
    f                 <double>     ..F.A....T. set central frequency (from 0 to 999999) (default 3000)
@@ -8144,10 +8180,10 @@ biquad AVOptions:
 
 channelmap AVOptions:
    map               <string>     ..F.A...... A comma-separated list of input channel numbers in output order.
-   channel_layout    <string>     ..F.A...... Output channel layout.
+   channel_layout    <channel_layout> ..F.A...... Output channel layout.
 
 channelsplit AVOptions:
-   channel_layout    <string>     ..F.A...... Input channel layout. (default "stereo")
+   channel_layout    <channel_layout> ..F.A...... Input channel layout. (default "stereo")
    channels          <string>     ..F.A...... Channels to extract. (default "all")
 
 chorus AVOptions:
@@ -8541,7 +8577,7 @@ treble/high/tiltshelf AVOptions:
 
 join AVOptions:
    inputs            <int>        ..F.A...... Number of input streams. (from 1 to INT_MAX) (default 2)
-   channel_layout    <string>     ..F.A...... Channel layout of the output stream. (default "stereo")
+   channel_layout    <channel_layout> ..F.A...... Channel layout of the output stream. (default "stereo")
    map               <string>     ..F.A...... A comma-separated list of channels maps in the format 'input_stream.input_channel-output_channel.
 
 loudnorm AVOptions:
@@ -8897,8 +8933,8 @@ superequalizer AVOptions:
    18b               <float>      ..F.A...... set 20000Hz band gain (from 0 to 20) (default 1)
 
 surround AVOptions:
-   chl_out           <string>     ..F.A...... set output channel layout (default "5.1")
-   chl_in            <string>     ..F.A...... set input channel layout (default "stereo")
+   chl_out           <channel_layout> ..F.A...... set output channel layout (default "5.1")
+   chl_in            <channel_layout> ..F.A...... set input channel layout (default "stereo")
    level_in          <float>      ..F.A....T. set input level (from 0 to 10) (default 1)
    level_out         <float>      ..F.A....T. set output level (from 0 to 10) (default 1)
    lfe               <boolean>    ..F.A....T. output LFE (default true)
@@ -8906,7 +8942,7 @@ surround AVOptions:
    lfe_high          <int>        ..F.A...... LFE high cut off (from 0 to 512) (default 256)
    lfe_mode          <int>        ..F.A....T. set LFE channel mode (from 0 to 1) (default add)
      add             0            ..F.A....T. just add LFE channel
-     sub             1            ..F.A....T. substract LFE channel with others
+     sub             1            ..F.A....T. subtract LFE channel with others
    smooth            <float>      ..F.A....T. set temporal smoothness strength (from 0 to 1) (default 0)
    angle             <float>      ..F.A....T. set soundfield transform angle (from 0 to 360) (default 90)
    focus             <float>      ..F.A....T. set soundfield transform focus (from -1 to 1) (default 0)
@@ -9137,8 +9173,8 @@ afdelaysrc AVOptions:
    n                 <int>        ..F.A...... set the number of samples per requested frame (from 1 to INT_MAX) (default 1024)
    taps              <int>        ..F.A...... set number of taps for delay filter (from 0 to 32768) (default 0)
    t                 <int>        ..F.A...... set number of taps for delay filter (from 0 to 32768) (default 0)
-   channel_layout    <string>     ..F.A...... set channel layout (default "stereo")
-   c                 <string>     ..F.A...... set channel layout (default "stereo")
+   channel_layout    <channel_layout> ..F.A...... set channel layout (default "stereo")
+   c                 <channel_layout> ..F.A...... set channel layout (default "stereo")
 
 afireqsrc AVOptions:
    preset            <int>        ..F.A...... set equalizer preset (from -1 to 17) (default flat)
@@ -9343,10 +9379,10 @@ anoisesrc AVOptions:
    density           <double>     ..F.A...... set density (from 0 to 1) (default 0.05)
 
 anullsrc AVOptions:
-   channel_layout    <string>     ..F.A...... set channel_layout (default "stereo")
-   cl                <string>     ..F.A...... set channel_layout (default "stereo")
-   sample_rate       <string>     ..F.A...... set sample rate (default "44100")
-   r                 <string>     ..F.A...... set sample rate (default "44100")
+   channel_layout    <channel_layout> ..F.A...... set channel_layout (default "stereo")
+   cl                <channel_layout> ..F.A...... set channel_layout (default "stereo")
+   sample_rate       <int>        ..F.A...... set sample rate (from 1 to INT_MAX) (default 44100)
+   r                 <int>        ..F.A...... set sample rate (from 1 to INT_MAX) (default 44100)
    nb_samples        <int>        ..F.A...... set the number of samples per requested frame (from 1 to 65535) (default 1024)
    n                 <int>        ..F.A...... set the number of samples per requested frame (from 1 to 65535) (default 1024)
    duration          <duration>   ..F.A...... set the audio duration (default -0.000001)
@@ -10251,7 +10287,7 @@ colorspace AVOptions:
      iec61966-2-4    11           ..FV....... 
      bt2020-10       14           ..FV....... 
      bt2020-12       15           ..FV....... 
-   format            <int>        ..FV....... Output pixel format (from -1 to 162) (default -1)
+   format            <int>        ..FV....... Output pixel format (from -1 to 161) (default -1)
      yuv420p         0            ..FV....... 
      yuv420p10       62           ..FV....... 
      yuv420p12       123          ..FV....... 
@@ -10721,6 +10757,15 @@ dnn_detect AVOptions:
    async             <boolean>    ..FV....... use DNN async inference (ignored, use backend_configs='async=1') (default true)
    confidence        <float>      ..FV....... threshold of confidence (from 0 to 1) (default 0.5)
    labels            <string>     ..FV....... path to labels file
+   model_type        <int>        ..FV....... DNN detection model type (from INT_MIN to INT_MAX) (default ssd)
+     ssd             0            ..FV....... output shape [1, 1, N, 7]
+     yolo            1            ..FV....... output shape [1, N*Cx*Cy*DetectionBox]
+     yolov3          2            ..FV....... outputs shape [1, N*D, Cx, Cy]
+     yolov4          3            ..FV....... outputs shape [1, N*D, Cx, Cy]
+   cell_w            <int>        ..FV....... cell width (from 0 to I64_MAX) (default 0)
+   cell_h            <int>        ..FV....... cell height (from 0 to I64_MAX) (default 0)
+   nb_classes        <int>        ..FV....... The number of class (from 0 to I64_MAX) (default 0)
+   anchors           <string>     ..FV....... anchors, splited by '&'
 
 dnn_processing AVOptions:
    dnn_backend       <int>        ..FV....... DNN backend (from INT_MIN to INT_MAX) (default 1)
@@ -11123,6 +11168,8 @@ floodfill AVOptions:
 
 (no)format AVOptions:
    pix_fmts          <string>     ..FV....... A '|'-separated list of pixel formats
+   color_spaces      <string>     ..FV....... A '|'-separated list of color spaces
+   color_ranges      <string>     ..FV....... A '|'-separated list of color ranges
 
 fps AVOptions:
    fps               <string>     ..FV....... A string describing desired output framerate (default "25")
@@ -11177,6 +11224,10 @@ fspp AVOptions:
    qp                <int>        ..FV....... force a constant quantizer parameter (from 0 to 64) (default 0)
    strength          <int>        ..FV....... set filter strength (from -15 to 32) (default 0)
    use_bframe_qp     <boolean>    ..FV....... use B-frames' QP (default false)
+
+fsync AVOptions:
+   file              <string>     ..FV....... set the file name to use for frame sync (default "")
+   f                 <string>     ..FV....... set the file name to use for frame sync (default "")
 
 gblur AVOptions:
    sigma             <float>      ..FV.....T. set sigma (from 0 to 1024) (default 0.5)
@@ -11703,24 +11754,6 @@ libplacebo AVOptions:
    tonemapping_lut_size <int>        ..FV.....T. Tone-mapping LUT size (from 2 to 1024) (default 256)
    contrast_recovery <float>      ..FV.....T. HDR contrast recovery strength (from 0 to 3) (default 0.3)
    contrast_smoothness <float>      ..FV.....T. HDR contrast recovery smoothness (from 1 to 32) (default 3.5)
-   desaturation_strength <float>      ..FV.....TP Desaturation strength (from -1 to 1) (default -1)
-   desaturation_exponent <float>      ..FV.....TP Desaturation exponent (from -1 to 10) (default -1)
-   gamut_warning     <boolean>    ..FV.....TP Highlight out-of-gamut colors (default false)
-   gamut_clipping    <boolean>    ..FV.....TP Enable desaturating colorimetric gamut clipping (default false)
-   intent            <int>        ..FV.....TP Rendering intent (from 0 to 3) (default perceptual)
-     perceptual      0            ..FV....... Perceptual
-     relative        1            ..FV....... Relative colorimetric
-     absolute        3            ..FV....... Absolute colorimetric
-     saturation      2            ..FV....... Saturation mapping
-   tonemapping_mode  <int>        ..FV.....TP Tone-mapping mode (from 0 to 4) (default auto)
-     auto            0            ..FV....... Automatic selection
-     rgb             1            ..FV....... Per-channel (RGB)
-     max             2            ..FV....... Maximum component
-     hybrid          3            ..FV....... Hybrid of Luma/RGB
-     luma            4            ..FV....... Luminance
-   tonemapping_crosstalk <float>      ..FV.....TP Crosstalk factor for tone-mapping (from 0 to 0.3) (default 0.04)
-   overshoot         <float>      ..FV.....TP Tone-mapping overshoot margin (from 0 to 1) (default 0.05)
-   hybrid_mix        <float>      ..FV.....T. Tone-mapping hybrid LMS mixing coefficient (from 0 to 1) (default 0.2)
    dithering         <int>        ..FV.....T. Dither method to use (from -1 to 3) (default blue)
      none            -1           ..FV....... Disable dithering
      blue            0            ..FV....... Blue noise
@@ -11740,7 +11773,6 @@ libplacebo AVOptions:
    polar_cutoff      <float>      ..FV.....T. Polar LUT cutoff (from 0 to 1) (default 0)
    disable_linear    <boolean>    ..FV.....T. Disable linear scaling (default false)
    disable_builtin   <boolean>    ..FV.....T. Disable built-in scalers (default false)
-   force_icc_lut     <boolean>    ..FV.....TP Deprecated, does nothing (default false)
    force_dither      <boolean>    ..FV.....T. Force dithering (default false)
    disable_fbos      <boolean>    ..FV.....T. Force-disable FBOs (default false)
 
@@ -12138,6 +12170,8 @@ nnedi AVOptions:
 
 (no)format AVOptions:
    pix_fmts          <string>     ..FV....... A '|'-separated list of pixel formats
+   color_spaces      <string>     ..FV....... A '|'-separated list of color spaces
+   color_ranges      <string>     ..FV....... A '|'-separated list of color ranges
 
 noise AVOptions:
    all_seed          <int>        ..FV....... set component #0 noise seed (from -1 to INT_MAX) (default -1)
@@ -12709,24 +12743,24 @@ scale(2ref) AVOptions:
    height            <string>     ..FV.....T. Output video height
    flags             <string>     ..FV....... Flags to pass to libswscale (default "")
    interl            <boolean>    ..FV....... set interlacing (default false)
-   in_color_matrix   <string>     ..FV....... set input YCbCr type (default "auto")
-     auto                         ..FV.......
-     bt601                        ..FV.......
-     bt470                        ..FV.......
-     smpte170m                    ..FV.......
-     bt709                        ..FV.......
-     fcc                          ..FV.......
-     smpte240m                    ..FV.......
-     bt2020                       ..FV.......
-   out_color_matrix  <string>     ..FV....... set output YCbCr type
-     auto                         ..FV.......
-     bt601                        ..FV.......
-     bt470                        ..FV.......
-     smpte170m                    ..FV.......
-     bt709                        ..FV.......
-     fcc                          ..FV.......
-     smpte240m                    ..FV.......
-     bt2020                       ..FV.......
+   in_color_matrix   <int>        ..FV....... set input YCbCr type (from -1 to 14) (default auto)
+     auto            -1           ..FV.......
+     bt601           5            ..FV.......
+     bt470           5            ..FV.......
+     smpte170m       5            ..FV.......
+     bt709           1            ..FV.......
+     fcc             4            ..FV.......
+     smpte240m       7            ..FV.......
+     bt2020          9            ..FV.......
+   out_color_matrix  <int>        ..FV....... set output YCbCr type (from 0 to 14) (default 2)
+     auto            -1           ..FV.......
+     bt601           5            ..FV.......
+     bt470           5            ..FV.......
+     smpte170m       5            ..FV.......
+     bt709           1            ..FV.......
+     fcc             4            ..FV.......
+     smpte240m       7            ..FV.......
+     bt2020          9            ..FV.......
    in_range          <int>        ..FV....... set input color range (from 0 to 2) (default auto)
      auto            0            ..FV.......
      unknown         0            ..FV.......
@@ -12883,24 +12917,24 @@ scale(2ref) AVOptions:
    height            <string>     ..FV.....T. Output video height
    flags             <string>     ..FV....... Flags to pass to libswscale (default "")
    interl            <boolean>    ..FV....... set interlacing (default false)
-   in_color_matrix   <string>     ..FV....... set input YCbCr type (default "auto")
-     auto                         ..FV.......
-     bt601                        ..FV.......
-     bt470                        ..FV.......
-     smpte170m                    ..FV.......
-     bt709                        ..FV.......
-     fcc                          ..FV.......
-     smpte240m                    ..FV.......
-     bt2020                       ..FV.......
-   out_color_matrix  <string>     ..FV....... set output YCbCr type
-     auto                         ..FV.......
-     bt601                        ..FV.......
-     bt470                        ..FV.......
-     smpte170m                    ..FV.......
-     bt709                        ..FV.......
-     fcc                          ..FV.......
-     smpte240m                    ..FV.......
-     bt2020                       ..FV.......
+   in_color_matrix   <int>        ..FV....... set input YCbCr type (from -1 to 14) (default auto)
+     auto            -1           ..FV.......
+     bt601           5            ..FV.......
+     bt470           5            ..FV.......
+     smpte170m       5            ..FV.......
+     bt709           1            ..FV.......
+     fcc             4            ..FV.......
+     smpte240m       7            ..FV.......
+     bt2020          9            ..FV.......
+   out_color_matrix  <int>        ..FV....... set output YCbCr type (from 0 to 14) (default 2)
+     auto            -1           ..FV.......
+     bt601           5            ..FV.......
+     bt470           5            ..FV.......
+     smpte170m       5            ..FV.......
+     bt709           1            ..FV.......
+     fcc             4            ..FV.......
+     smpte240m       7            ..FV.......
+     bt2020          9            ..FV.......
    in_range          <int>        ..FV....... set input color range (from 0 to 2) (default auto)
      auto            0            ..FV.......
      unknown         0            ..FV.......
@@ -13150,6 +13184,7 @@ shear AVOptions:
 
 showinfo AVOptions:
    checksum          <boolean>    ..FV....... calculate checksums (default true)
+   udu_sei_as_ascii  <boolean>    ..FV....... try to print user data unregistered SEI as ascii character when possible (default false)
 
 showpalette AVOptions:
    s                 <int>        ..FV....... set pixel box size (from 1 to 100) (default 30)
@@ -13743,6 +13778,19 @@ tile AVOptions:
    overlap           <int>        ..FV....... set how many frames to overlap for each render (from 0 to INT_MAX) (default 0)
    init_padding      <int>        ..FV....... set how many frames to initially pad (from 0 to INT_MAX) (default 0)
 
+tiltandshift AVOptions:
+  -tilt              <int>        ...V....... Tilt the video horizontally while shifting (from 0 to 1) (default 1)
+  -start             <int>        ...V....... Action at the start of input (from 0 to 3) (default none)
+     none            0            ...V....... Start immediately (default)
+     frame           1            ...V....... Use the first frames
+     black           2            ...V....... Fill with black
+  -end               <int>        ...V....... Action at the end of input (from 0 to 3) (default none)
+     none            0            ...V....... Do not pad at the end (default)
+     frame           1            ...V....... Use the last frame
+     black           2            ...V....... Fill with black
+  -hold              <int>        ...V....... Number of columns to hold at the start of the video (from 0 to INT_MAX) (default 0)
+  -pad               <int>        ...V....... Number of columns to pad at the end of the video (from 0 to INT_MAX) (default 0)
+
 tinterlace AVOptions:
    mode              <int>        ..FV....... select interlace mode (from 0 to 7) (default merge)
      merge           0            ..FV....... merge fields
@@ -14286,7 +14334,7 @@ vpp_qsv AVOptions:
    h                 <string>     ..FV....... Output video height(0=input video height, -1=keep input video aspect) (default "w*ch/cw")
    height            <string>     ..FV....... Output video height(0=input video height, -1=keep input video aspect) (default "w*ch/cw")
    format            <string>     ..FV....... Output pixel format (default "same")
-   async_depth       <int>        ..FV....... Internal parallelization depth, the higher the value the higher the latency. (from 0 to INT_MAX) (default 0)
+   async_depth       <int>        ..FV....... Internal parallelization depth, the higher the value the higher the latency. (from 0 to INT_MAX) (default 4)
    scale_mode        <int>        ..FV....... scaling & format conversion mode (mode compute(3), vd(4) and ve(5) are only available on some platforms) (from 0 to 5) (default auto)
      auto            0            ..FV....... auto mode
      low_power       1            ..FV....... low power mode
@@ -14608,6 +14656,10 @@ yaepblur AVOptions:
    p                 <int>        ..FV.....T. set planes to filter (from 0 to 15) (default 1)
    sigma             <int>        ..FV.....T. set blur strength (from 1 to INT_MAX) (default 128)
    s                 <int>        ..FV.....T. set blur strength (from 1 to INT_MAX) (default 128)
+
+(a)zmq AVOptions:
+   bind_address      <string>     ..FVA...... set bind address (default "tcp://*:5555")
+   b                 <string>     ..FVA...... set bind address (default "tcp://*:5555")
 
 zoompan AVOptions:
    zoom              <string>     ..FV....... set the zoom expression (default "1")
@@ -15124,6 +15176,7 @@ ddagrab AVOptions:
      rgbaf16         10           ..FV....... only output 16 Bit RGBAF16
    allow_fallback    <boolean>    ..FV....... don't error on fallback to default 8 Bit format (default false)
    force_fmt         <boolean>    ..FV....... exclude BGRA from format list (experimental, discouraged by Microsoft) (default false)
+   dup_frames        <boolean>    ..FV....... duplicate frames to maintain framerate (default true)
 
 frei0r_src AVOptions:
    size              <image_size> ..FV....... Dimensions of the generated video. (default "320x240")
@@ -15153,17 +15206,19 @@ gradients AVOptions:
    seed              <int64>      ..FV....... set the seed (from -1 to UINT32_MAX) (default -1)
    duration          <duration>   ..FV....... set video duration (default -0.000001)
    d                 <duration>   ..FV....... set video duration (default -0.000001)
-   speed             <float>      ..FV....... set gradients rotation speed (from 1e-05 to 1) (default 0.01)
-   type              <int>        ..FV....... set gradient type (from 0 to 3) (default linear)
-     linear          0            ..FV....... set gradient type
-     radial          1            ..FV....... set gradient type
-     circular        2            ..FV....... set gradient type
-     spiral          3            ..FV....... set gradient type
-   t                 <int>        ..FV....... set gradient type (from 0 to 3) (default linear)
-     linear          0            ..FV....... set gradient type
-     radial          1            ..FV....... set gradient type
-     circular        2            ..FV....... set gradient type
-     spiral          3            ..FV....... set gradient type
+   speed             <float>      ..FV.....T. set gradients rotation speed (from 0 to 1) (default 0.01)
+   type              <int>        ..FV.....T. set gradient type (from 0 to 4) (default linear)
+     linear          0            ..FV.....T. set linear gradient
+     radial          1            ..FV.....T. set radial gradient
+     circular        2            ..FV.....T. set circular gradient
+     spiral          3            ..FV.....T. set spiral gradient
+     square          4            ..FV.....T. set square gradient
+   t                 <int>        ..FV.....T. set gradient type (from 0 to 4) (default linear)
+     linear          0            ..FV.....T. set linear gradient
+     radial          1            ..FV.....T. set radial gradient
+     circular        2            ..FV.....T. set circular gradient
+     spiral          3            ..FV.....T. set spiral gradient
+     square          4            ..FV.....T. set square gradient
 
 haldclutsrc AVOptions:
    level             <int>        ..FV....... set level (from 2 to 16) (default 6)
@@ -15634,7 +15689,7 @@ showcwt AVOptions:
    s                 <image_size> ..FV....... set video size (default "640x512")
    rate              <string>     ..FV....... set video rate (default "25")
    r                 <string>     ..FV....... set video rate (default "25")
-   scale             <int>        ..FV....... set frequency scale (from 0 to 7) (default linear)
+   scale             <int>        ..FV....... set frequency scale (from 0 to 8) (default linear)
      linear          0            ..FV....... linear
      log             1            ..FV....... logarithmic
      bark            2            ..FV....... bark
@@ -15643,6 +15698,7 @@ showcwt AVOptions:
      sqrt            5            ..FV....... sqrt
      cbrt            6            ..FV....... cbrt
      qdrt            7            ..FV....... qdrt
+     fm              8            ..FV....... fm
    iscale            <int>        ..FV....... set intensity scale (from 0 to 4) (default log)
      linear          1            ..FV....... linear
      log             0            ..FV....... logarithmic
@@ -15671,7 +15727,7 @@ showcwt AVOptions:
      rl              1            ..FV....... right to left
      ud              2            ..FV....... up to down
      du              3            ..FV....... down to up
-   bar               <float>      ..FV....... set bar ratio (from 0 to 1) (default 0)
+   bar               <float>      ..FV....... set bargraph ratio (from 0 to 1) (default 0)
    rotation          <float>      ..FV....... set color rotation (from -1 to 1) (default 0)
 
 showfreqs AVOptions:
@@ -16076,17 +16132,41 @@ buffer AVOptions:
    pixel_aspect      <rational>   ..FV....... sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
    time_base         <rational>   ..FV....... (from 0 to DBL_MAX) (default 0/1)
    frame_rate        <rational>   ..FV....... (from 0 to DBL_MAX) (default 0/1)
+   colorspace        <int>        ..FV....... select colorspace (from 0 to 14) (default unknown)
+     gbr             0            ..FV.......
+     bt709           1            ..FV.......
+     unknown         2            ..FV.......
+     fcc             4            ..FV.......
+     bt470bg         5            ..FV.......
+     smpte170m       6            ..FV.......
+     smpte240m       7            ..FV.......
+     ycgco           8            ..FV.......
+     bt2020nc        9            ..FV.......
+     bt2020c         10           ..FV.......
+     smpte2085       11           ..FV.......
+     chroma-derived-nc 12           ..FV.......
+     chroma-derived-c 13           ..FV.......
+     ictcp           14           ..FV.......
+   range             <int>        ..FV....... select color range (from 0 to 2) (default unspecified)
+     unspecified     0            ..FV.......
+     unknown         0            ..FV.......
+     limited         1            ..FV.......
+     tv              1            ..FV.......
+     mpeg            1            ..FV.......
+     full            2            ..FV.......
+     pc              2            ..FV.......
+     jpeg            2            ..FV.......
 
 abuffersink AVOptions:
    sample_fmts       <binary>     ..F.A...... set the supported sample formats
    sample_rates      <binary>     ..F.A...... set the supported sample rates
-   channel_layouts   <binary>     ..F.A.....P set the supported channel layouts (deprecated, use ch_layouts)
-   channel_counts    <binary>     ..F.A.....P set the supported channel counts (deprecated, use ch_layouts)
    ch_layouts        <string>     ..F.A...... set a '|'-separated list of supported channel layouts
    all_channel_counts <boolean>    ..F.A...... accept all channel counts (default false)
 
 buffersink AVOptions:
    pix_fmts          <binary>     ..FV....... set the supported pixel formats
+   color_spaces      <binary>     ..FV....... set the supported color spaces
+   color_ranges      <binary>     ..FV....... set the supported color ranges
 
 av1_metadata_bsf AVOptions:
   -td                <int>        ...V....B.. Temporal Delimiter OBU (from 0 to 2) (default pass)

@@ -75,7 +75,7 @@ public Vpp_qsvFilterGen height(string height) => this.SetOption("height",height)
 /// </summary>
 public Vpp_qsvFilterGen format(string format) => this.SetOption("format",format);
 /// <summary>
-///  Internal parallelization depth, the higher the value the higher the latency. (from 0 to INT_MAX) (default 0)
+///  Internal parallelization depth, the higher the value the higher the latency. (from 0 to INT_MAX) (default 4)
 /// </summary>
 public Vpp_qsvFilterGen async_depth(int async_depth) => this.SetOptionRange("async_depth", async_depth,0,INT_MAX);
 /// <summary>

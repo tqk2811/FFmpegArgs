@@ -27,7 +27,7 @@ namespace Autogens.Filter
             IsSuccess = match_method.Success;
             if (IsSuccess)
             {
-                Name = match_method.Groups[1].Value;
+                Name = match_method.Groups[1].Value.TrimStart('-');
                 Type = match_method.Groups[2].Value;
                 Flag = match_method.Groups[3].Value;
                 Description = match_method.Groups[4].Value;

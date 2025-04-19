@@ -47,6 +47,12 @@ adts,
 adx,
 
 /// <summary>
+/// MD STUDIO audio
+/// </summary>
+[Name("aea")]
+aea,
+
+/// <summary>
 /// Audio IFF
 /// </summary>
 [Name("aiff")]
@@ -323,12 +329,6 @@ ffmetadata,
 fifo,
 
 /// <summary>
-/// Fifo test muxer
-/// </summary>
-[Name("fifo_test")]
-fifo_test,
-
-/// <summary>
 /// Sega FILM / CPK
 /// </summary>
 [Name("film_cpk")]
@@ -459,6 +459,12 @@ hevc,
 /// </summary>
 [Name("hls")]
 hls,
+
+/// <summary>
+/// Raw Immersive Audio Model and Formats
+/// </summary>
+[Name("iamf")]
+iamf,
 
 /// <summary>
 /// Microsoft Windows ICO
@@ -717,6 +723,12 @@ psp,
 /// </summary>
 [Name("rawvideo")]
 rawvideo,
+
+/// <summary>
+/// RCWT (Raw Captions With Time)
+/// </summary>
+[Name("rcwt")]
+rcwt,
 
 /// <summary>
 /// RealMedia

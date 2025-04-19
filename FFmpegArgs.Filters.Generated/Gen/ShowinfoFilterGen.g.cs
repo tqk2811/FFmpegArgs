@@ -10,6 +10,10 @@ internal ShowinfoFilterGen(ImageMap input) : base("showinfo",input) { AddMapOut(
 ///  calculate checksums (default true)
 /// </summary>
 public ShowinfoFilterGen checksum(bool checksum) => this.SetOption("checksum",checksum.ToFFmpegFlag());
+/// <summary>
+///  try to print user data unregistered SEI as ascii character when possible (default false)
+/// </summary>
+public ShowinfoFilterGen udu_sei_as_ascii(bool udu_sei_as_ascii) => this.SetOption("udu_sei_as_ascii",udu_sei_as_ascii.ToFFmpegFlag());
 }
 /// <summary>
 /// </summary>

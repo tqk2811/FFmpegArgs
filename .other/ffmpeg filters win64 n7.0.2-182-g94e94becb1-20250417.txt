@@ -6,6 +6,7 @@ Filters:
   V = Video input/output
   N = Dynamic number and/or type of input/output
   | = Source or sink filter
+ TSC aap               AA->A      Apply Affine Projection algorithm to first audio stream.
  ... abench            A->A       Benchmark part of a filtergraph.
  ..C acompressor       A->A       Audio compressor.
  ... acontrast         A->A       Simple audio dynamic range compression/expansion filter.
@@ -30,7 +31,7 @@ Filters:
  T.C afade             A->A       Fade in/out input audio.
  TSC afftdn            A->A       Denoise audio samples using FFT.
  TS. afftfilt          A->A       Apply arbitrary expressions to samples in frequency domain.
- .SC afir              N->N       Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).
+ TSC afir              N->A       Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).
  ... aformat           A->A       Convert the input audio to one of the specified formats.
  TSC afreqshift        A->A       Apply frequency shifting to input audio.
  TSC afwtdn            A->A       Denoise audio stream using Wavelets.
@@ -88,6 +89,7 @@ Filters:
  TSC atilt             A->A       Apply spectral tilt to audio.
  ... atrim             A->A       Pick one continuous section from the input, drop the rest.
  ... axcorrelate       AA->A      Cross-correlate two audio streams.
+ ... azmq              A->A       Receive commands through ZMQ and broker them to filters.
  TSC bandpass          A->A       Apply a two-pole Butterworth band-pass filter.
  TSC bandreject        A->A       Apply a two-pole Butterworth band-reject filter.
  TSC bass              A->A       Boost or cut lower frequencies.
@@ -205,7 +207,7 @@ Filters:
  ... convolution_opencl V->V       Apply convolution mask to input video
  TS. convolve          VV->V      Convolve first video stream with second video stream.
  ... copy              V->V       Copy the input video unchanged to the output.
- T.. corr              VV->V      Calculate the correlation between two video streams.
+ TS. corr              VV->V      Calculate the correlation between two video streams.
  ... cover_rect        V->V       Find and cover a user specified object.
  ..C crop              V->V       Crop the input video.
  T.C cropdetect        V->V       Auto-detect crop size.
@@ -253,7 +255,7 @@ Filters:
  TSC exposure          V->V       Adjust exposure of the video stream.
  ... extractplanes     V->N       Extract planes as grayscale frames.
  TS. fade              V->V       Fade in/out input video.
- ..C feedback          VV->VV     Apply feedback video filter.
+ T.C feedback          VV->VV     Apply feedback video filter.
  TSC fftdnoiz          V->V       Denoise frames using 3D FFT.
  TS. fftfilt           V->V       Apply arbitrary expressions to pixels in frequency domain.
  ... field             V->V       Extract a field from the input video.
@@ -273,6 +275,7 @@ Filters:
  ... freezeframes      VV->V      Freeze video frames.
  T.C frei0r            V->V       Apply a frei0r effect.
  T.. fspp              V->V       Apply Fast Simple Post-processing filter.
+ ... fsync             V->V       Synchronize video frames from external source.
  TSC gblur             V->V       Apply Gaussian Blur filter.
  ... gblur_vulkan      V->V       Gaussian Blur in Vulkan
  TS. geq               V->V       Apply generic equation to each pixel.
@@ -447,6 +450,7 @@ Filters:
  TS. thumbnail         V->V       Select the most representative frame in a given sequence of consecutive frames.
  ... thumbnail_cuda    V->V       Select the most representative frame in a given sequence of consecutive frames.
  ... tile              V->V       Tile several successive frames together.
+ ... tiltandshift      V->V       Generate a tilt-and-shift'd video.
  ... tinterlace        V->V       Perform temporal field interlacing.
  TSC tlut2             V->V       Compute and apply a lookup table from two successive frames.
  TSC tmedian           V->V       Pick median pixels from successive frames.
@@ -494,6 +498,7 @@ Filters:
  TS. yadif             V->V       Deinterlace the input image.
  T.. yadif_cuda        V->V       Deinterlace CUDA frames
  TSC yaepblur          V->V       Yet another edge preserving blur filter.
+ ... zmq               V->V       Receive commands through ZMQ and broker them to filters.
  ... zoompan           V->V       Apply Zoom & Pan effect.
  .SC zscale            V->V       Apply resizing, colorspace and bit depth conversion.
  ... hstack_vaapi      N->V       "VA-API" hstack
@@ -511,7 +516,7 @@ Filters:
  ... colorspectrum     |->V       Generate colors spectrum.
  ... ddagrab           |->V       Grab Windows Desktop images using Desktop Duplication API
  ... frei0r_src        |->V       Generate a frei0r source.
- .S. gradients         |->V       Draw a gradients.
+ .SC gradients         |->V       Draw a gradients.
  ... haldclutsrc       |->V       Provide an identity Hald CLUT.
  ... life              |->V       Create life.
  ... mandelbrot        |->V       Render a Mandelbrot fractal.
@@ -550,8 +555,6 @@ Filters:
  ..C avsynctest        |->AV      Generate an Audio Video Sync Test.
  ..C amovie            |->N       Read audio from a movie source.
  ..C movie             |->N       Read from a movie source.
- ... afifo             A->A       Buffer input frames and send them when they are requested.
- ... fifo              V->V       Buffer input images and send them when they are requested.
  ... abuffer           |->A       Buffer audio frames, and make them accessible to the filterchain.
  ... buffer            |->V       Buffer video frames, and make them accessible to the filterchain.
  ... abuffersink       A->|       Buffer audio frames, and make them available to the end of the filter graph.

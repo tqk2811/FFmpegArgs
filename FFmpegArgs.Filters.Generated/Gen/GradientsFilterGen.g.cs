@@ -1,9 +1,9 @@
 namespace FFmpegArgs.Filters.Generated
 {
 /// <summary>
-/// .S. gradients         |-&gt;V       Draw a gradients.
+/// .SC gradients         |-&gt;V       Draw a gradients.
 /// </summary>
-public class GradientsFilterGen : SourceToImageFilter,ISliceThreading
+public class GradientsFilterGen : SourceToImageFilter,ISliceThreading,ICommandSupport
 {
 internal GradientsFilterGen(IImageFilterGraph input) : base("gradients",input) { AddMapOut(); }
 /// <summary>
@@ -75,11 +75,11 @@ public GradientsFilterGen seed(long seed) => this.SetOptionRange("seed", seed,-1
 /// </summary>
 public GradientsFilterGen duration(TimeSpan duration) => this.SetOptionRange("duration",duration,TimeSpan.Zero,TimeSpan.MaxValue);
 /// <summary>
-///  set gradients rotation speed (from 1e-05 to 1) (default 0.01)
+///  set gradients rotation speed (from 0 to 1) (default 0.01)
 /// </summary>
-public GradientsFilterGen speed(float speed) => this.SetOptionRange("speed", speed,1e-05,1);
+public GradientsFilterGen speed(float speed) => this.SetOptionRange("speed", speed,0,1);
 /// <summary>
-///  set gradient type (from 0 to 3) (default linear)
+///  set gradient type (from 0 to 4) (default linear)
 /// </summary>
 public GradientsFilterGen type(GradientsFilterGenType type) => this.SetOption("type", type.GetEnumAttribute<NameAttribute>().Name);
 }
@@ -93,26 +93,30 @@ public static partial class FilterGeneratedExtensions
 public static GradientsFilterGen GradientsFilterGen(this IImageFilterGraph input0) => new GradientsFilterGen(input0);
 }
 /// <summary>
-///  set gradient type (from 0 to 3) (default linear)
+///  set gradient type (from 0 to 4) (default linear)
 /// </summary>
 public enum GradientsFilterGenType
 {
 /// <summary>
-/// linear          0            ..FV....... set gradient type
+/// linear          0            ..FV.....T. set linear gradient
 /// </summary>
 [Name("linear")] linear,
 /// <summary>
-/// radial          1            ..FV....... set gradient type
+/// radial          1            ..FV.....T. set radial gradient
 /// </summary>
 [Name("radial")] radial,
 /// <summary>
-/// circular        2            ..FV....... set gradient type
+/// circular        2            ..FV.....T. set circular gradient
 /// </summary>
 [Name("circular")] circular,
 /// <summary>
-/// spiral          3            ..FV....... set gradient type
+/// spiral          3            ..FV.....T. set spiral gradient
 /// </summary>
 [Name("spiral")] spiral,
+/// <summary>
+/// square          4            ..FV.....T. set square gradient
+/// </summary>
+[Name("square")] square,
 }
 
 }

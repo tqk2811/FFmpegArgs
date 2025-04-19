@@ -29,14 +29,13 @@ Codecs:
  DEVIL. asv2                 ASUS V2
  D.VIL. aura                 Auravision AURA
  D.VIL. aura2                Auravision Aura 2
- DEV.L. av1                  Alliance for Open Media AV1 (decoders: libdav1d libaom-av1 av1 av1_cuvid av1_qsv) (encoders: libaom-av1 librav1e libsvtav1 av1_nvenc av1_qsv av1_amf av1_vaapi)
+ DEV.L. av1                  Alliance for Open Media AV1 (decoders: libdav1d libaom-av1 av1 av1_cuvid av1_qsv) (encoders: libaom-av1 librav1e av1_nvenc av1_qsv av1_amf av1_vaapi)
  D.V... avrn                 Avid AVI Codec
  DEVI.S avrp                 Avid 1:1 10-bit RGB Packer
  D.V.L. avs                  AVS (Audio Video Standard) video
  DEV.L. avs2                 AVS2-P2/IEEE1857.4 (decoders: libdavs2) (encoders: libxavs2)
  D.V.L. avs3                 AVS3-P2/IEEE1857.10 (decoders: libuavs3d)
  DEVI.S avui                 Avid Meridien Uncompressed
- DEVI.S ayuv                 Uncompressed packed MS 4:4:4:4
  D.V.L. bethsoftvid          Bethesda VID video
  D.V.L. bfi                  Brute Force & Ignorance
  D.V.L. binkvideo            Bink video
@@ -70,7 +69,7 @@ Codecs:
  DEVIL. dvvideo              DV (Digital Video)
  D.V..S dxa                  Feeble Files/ScummVM DXA
  D.VI.S dxtory               Dxtory
- D.VIL. dxv                  Resolume DXV
+ DEVIL. dxv                  Resolume DXV
  D.V.L. escape124            Escape 124
  D.V.L. escape130            Escape 130
  ..V.L. evc                  MPEG-5 EVC (Essential Video Coding)
@@ -95,7 +94,7 @@ Codecs:
  D.V.L. h263i                Intel H.263
  DEV.L. h263p                H.263+ / H.263-1998 / H.263 version 2
  DEV.LS h264                 H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10 (decoders: h264 h264_qsv libopenh264 h264_cuvid) (encoders: libx264 libx264rgb libopenh264 h264_amf h264_mf h264_nvenc h264_qsv h264_vaapi)
- D.VIL. hap                  Vidvox Hap
+ DEVIL. hap                  Vidvox Hap
  DEVIL. hdr                  HDR (Radiance RGBE format) image
  DEV.L. hevc                 H.265 / HEVC (High Efficiency Video Coding) (decoders: hevc hevc_qsv hevc_cuvid) (encoders: libx265 hevc_amf hevc_mf hevc_nvenc hevc_qsv hevc_vaapi libkvazaar)
  D.V.L. hnm4video            HNM 4 video
@@ -121,6 +120,7 @@ Codecs:
  D.V.L. kgv1                 Kega Game Video
  D.V.L. kmvc                 Karl Morton's video codec
  D.VI.S lagarith             Lagarith lossless
+ D.VIL. lead                 LEAD MCMP
  .EVI.S ljpeg                Lossless JPEG
  D.VI.S loco                 LOCO
  D.V.L. lscr                 LEAD Screen Capture
@@ -259,7 +259,7 @@ Codecs:
  DEV.L. vp8                  On2 VP8 (decoders: vp8 libvpx vp8_cuvid vp8_qsv) (encoders: libvpx vp8_vaapi)
  DEV.L. vp9                  Google VP9 (decoders: vp9 libvpx-vp9 vp9_cuvid vp9_qsv) (encoders: libvpx-vp9 vp9_vaapi vp9_qsv)
  D.V.L. vqc                  ViewQuest VQC
- ..V.L. vvc                  H.266 / VVC (Versatile Video Coding)
+ D.V.L. vvc                  H.266 / VVC (Versatile Video Coding)
  DEVI.S wbmp                 WBMP (Wireless Application Protocol Bitmap) image
  D.V..S wcmv                 WinCAM Motion Video
  DEVILS webp                 WebP (encoders: libwebp_anim libwebp)
@@ -454,6 +454,7 @@ Codecs:
  D.AIL. qcelp                QCELP / PureVoice
  D.AIL. qdm2                 QDesign Music Codec 2
  D.AIL. qdmc                 QDesign Music
+ D.AIL. qoa                  QOA (Quite OK Audio)
  DEAIL. ra_144               RealAudio 1.0 (14.4K) (decoders: real_144) (encoders: real_144)
  D.AIL. ra_288               RealAudio 2.0 (28.8K) (decoders: real_288)
  D.AI.S ralf                 RealAudio Lossless

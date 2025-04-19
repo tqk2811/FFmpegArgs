@@ -13,7 +13,7 @@ public ChannelmapFilterGen map(string map) => this.SetOption("map",map);
 /// <summary>
 ///  Output channel layout.
 /// </summary>
-public ChannelmapFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
+public ChannelmapFilterGen channel_layout(ChannelLayout channel_layout) => this.SetOption("channel_layout",channel_layout.GetEnumAttribute<NameAttribute>().Name);
 }
 /// <summary>
 /// </summary>

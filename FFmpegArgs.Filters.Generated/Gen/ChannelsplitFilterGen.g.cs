@@ -9,7 +9,7 @@ internal ChannelsplitFilterGen(int outputCount, AudioMap input) : base("channels
 /// <summary>
 ///  Input channel layout. (default &quot;stereo&quot;)
 /// </summary>
-public ChannelsplitFilterGen channel_layout(string channel_layout) => this.SetOption("channel_layout",channel_layout);
+public ChannelsplitFilterGen channel_layout(ChannelLayout channel_layout) => this.SetOption("channel_layout",channel_layout.GetEnumAttribute<NameAttribute>().Name);
 /// <summary>
 ///  Channels to extract. (default &quot;all&quot;)
 /// </summary>

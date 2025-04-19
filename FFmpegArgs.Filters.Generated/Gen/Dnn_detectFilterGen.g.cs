@@ -43,6 +43,26 @@ public Dnn_detectFilterGen confidence(float confidence) => this.SetOptionRange("
 ///  path to labels file
 /// </summary>
 public Dnn_detectFilterGen labels(string labels) => this.SetOption("labels",labels);
+/// <summary>
+///  DNN detection model type (from INT_MIN to INT_MAX) (default ssd)
+/// </summary>
+public Dnn_detectFilterGen model_type(Dnn_detectFilterGenModel_type model_type) => this.SetOption("model_type", model_type.GetEnumAttribute<NameAttribute>().Name);
+/// <summary>
+///  cell width (from 0 to I64_MAX) (default 0)
+/// </summary>
+public Dnn_detectFilterGen cell_w(int cell_w) => this.SetOptionRange("cell_w", cell_w,0,I64_MAX);
+/// <summary>
+///  cell height (from 0 to I64_MAX) (default 0)
+/// </summary>
+public Dnn_detectFilterGen cell_h(int cell_h) => this.SetOptionRange("cell_h", cell_h,0,I64_MAX);
+/// <summary>
+///  The number of class (from 0 to I64_MAX) (default 0)
+/// </summary>
+public Dnn_detectFilterGen nb_classes(int nb_classes) => this.SetOptionRange("nb_classes", nb_classes,0,I64_MAX);
+/// <summary>
+///  anchors, splited by &#39;&amp;&#39;
+/// </summary>
+public Dnn_detectFilterGen anchors(string anchors) => this.SetOption("anchors",anchors);
 }
 /// <summary>
 /// </summary>
@@ -53,4 +73,27 @@ public static partial class FilterGeneratedExtensions
 /// </summary>
 public static Dnn_detectFilterGen Dnn_detectFilterGen(this ImageMap input0) => new Dnn_detectFilterGen(input0);
 }
+/// <summary>
+///  DNN detection model type (from INT_MIN to INT_MAX) (default ssd)
+/// </summary>
+public enum Dnn_detectFilterGenModel_type
+{
+/// <summary>
+/// ssd             0            ..FV....... output shape [1, 1, N, 7]
+/// </summary>
+[Name("ssd")] ssd,
+/// <summary>
+/// yolo            1            ..FV....... output shape [1, N*Cx*Cy*DetectionBox]
+/// </summary>
+[Name("yolo")] yolo,
+/// <summary>
+/// yolov3          2            ..FV....... outputs shape [1, N*D, Cx, Cy]
+/// </summary>
+[Name("yolov3")] yolov3,
+/// <summary>
+/// yolov4          3            ..FV....... outputs shape [1, N*D, Cx, Cy]
+/// </summary>
+[Name("yolov4")] yolov4,
+}
+
 }
