@@ -1,42 +1,82 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using FFmpegArgs.Cores.Attributes;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace Autogens.Codec
 {
     internal static class CodecGen
     {
         static readonly Regex regex_parse = new Regex("^ ([.DEVASDTILS]{6}) (.*?) +(.*?)$");
-
-
         internal static void Gen(List<string> lines)
         {
-            using StreamWriter codecs = new StreamWriter(Path.Combine("FFmpegArgs.Cores", "Enums", $"Codecs.g.cs"), false);
-            codecs.WriteNameSpace("FFmpegArgs", "Cores", "Enums");
-            codecs.WriteLine("{");
-            codecs.WriteSummary();
-            codecs.WriteLine("public enum Codecs");
-            codecs.WriteLine("{");
-
-            foreach (var line in lines.Skip(12))
+            var enumMembers = new List<EnumMemberDeclarationSyntax>();
+            foreach (string line in lines.Skip(12))
             {
                 Match match = regex_parse.Match(line);
-                if (match.Success)
+                if (!match.Success)
+                    continue;
+
+                string codecFlag = match.Groups[1].Value;
+                string originalName = match.Groups[2].Value;
+                string name = originalName.FixNameRule();
+                string description = match.Groups[3].Value;
+
+                // Attributes
+                var attributes = new List<AttributeListSyntax>
                 {
-                    codecs.WriteSummary(match.Groups[3].Value);
-                    codecs.Write($"[CodecFlag(\"{match.Groups[1].Value}\")]");
-                    codecs.Write($"[Name(\"{match.Groups[2].Value}\")]");
-                    codecs.WriteLine($"{match.Groups[2].Value.FixNameRule()},");
-                    codecs.WriteLine();
-                }
+                    AttributeList(SingletonSeparatedList(
+                        Attribute(IdentifierName(typeof(CodecFlagAttribute).FullName!))
+                            .WithArgumentList(AttributeArgumentList(SingletonSeparatedList(
+                                AttributeArgument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal(codecFlag)))
+                            )))
+                    )),
+                    AttributeList(SingletonSeparatedList(
+                        Attribute(IdentifierName(typeof(NameAttribute).FullName!))
+                            .WithArgumentList(AttributeArgumentList(SingletonSeparatedList(
+                                AttributeArgument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal(originalName)))
+                            )))
+                    ))
+                };
+                var trivia = TriviaList(
+                    Comment("/// <summary>"),
+                    Comment($"/// {description}"),
+                    Comment("/// </summary>")
+                );
+
+                var member = EnumMemberDeclaration(Identifier(name))
+                    .WithAttributeLists(List(attributes))
+                    .WithLeadingTrivia(trivia);
+
+                enumMembers.Add(member);
             }
 
-            codecs.WriteLine("}");
-            codecs.WriteLine("}");
+
+            // Enum declaration
+            var enumDecl = EnumDeclaration("Codecs")
+                .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
+                .WithMembers(SeparatedList(enumMembers))
+                .WithLeadingTrivia(TriviaList(
+                    Comment("/// <summary>"),
+                    Comment("/// </summary>")
+                ));
+            var ns = NamespaceDeclaration(ParseName("FFmpegArgs.Cores.Enums"))
+                .WithMembers(SingletonList<MemberDeclarationSyntax>(enumDecl))
+                .NormalizeWhitespace();
+
+            // Unit
+            var compilationUnit = CompilationUnit()
+                //.WithUsings(List(new[] { UsingDirective(ParseName("System")) }))
+                .WithMembers(SingletonList<MemberDeclarationSyntax>(ns))
+                .NormalizeWhitespace();
+
+            File.WriteAllText(Path.Combine("FFmpegArgs.Cores", "Enums", "Codecs.g.cs"), compilationUnit.ToFullString(),Encoding.UTF8);
         }
     }
 }

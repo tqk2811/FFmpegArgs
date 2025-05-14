@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using FFmpegArgs.Cores.Attributes;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace Autogens.Format
 {
@@ -13,56 +16,98 @@ namespace Autogens.Format
         static Regex format_filter { get; } = new Regex("^ ([DEd ]{3}) (.*?) +(.*?)$");
         internal static void Gen(List<string> lines)
         {
-            using StreamWriter DemuxingFileFormat = new StreamWriter(Path.Combine("FFmpegArgs.Cores", "Enums", $"DemuxingFileFormat.g.cs"), false);
-            DemuxingFileFormat.WriteNameSpace("FFmpegArgs", "Cores", "Enums");
-            DemuxingFileFormat.WriteLine("{");
-            DemuxingFileFormat.WriteSummary();
-            DemuxingFileFormat.WriteLine("public enum DemuxingFileFormat");
-            DemuxingFileFormat.WriteLine("{");
-
-            using StreamWriter MuxingFileFormat = new StreamWriter(Path.Combine("FFmpegArgs.Cores","Enums", $"MuxingFileFormat.g.cs"), false);
-            MuxingFileFormat.WriteNameSpace("FFmpegArgs", "Cores", "Enums");
-            MuxingFileFormat.WriteLine("{");
-            MuxingFileFormat.WriteSummary();
-            MuxingFileFormat.WriteLine("public enum MuxingFileFormat");
-            MuxingFileFormat.WriteLine("{");
-
-
-            foreach (var line in lines)
+            var demuxingEnumMembers = new List<EnumMemberDeclarationSyntax>();
+            var muxingEnumMembers = new List<EnumMemberDeclarationSyntax>();
+            foreach (string line in lines)
             {
                 Match match = format_filter.Match(line);
-                if(match.Success)
-                {
-                    if(match.Groups[1].Value.Contains("D"))
-                    {
-                        var split = match.Groups[2].Value.Split(',');
-                        foreach(var item in split)
-                        {
-                            DemuxingFileFormat.WriteSummary(match.Groups[3].Value);
-                            DemuxingFileFormat.WriteLine($"[Name(\"{item}\")]");
-                            DemuxingFileFormat.WriteLine($"{item.FixNameRule()},");
-                            DemuxingFileFormat.WriteLine();
-                        }
-                    }
+                if (!match.Success) continue;
 
-                    if(match.Groups[1].Value.Contains("E"))
+                string flag = match.Groups[1].Value;
+                string description = match.Groups[3].Value;
+
+                foreach (char c in flag)
+                {
+                    List<EnumMemberDeclarationSyntax>? enumMembers = c switch
+                    {
+                        'D' => demuxingEnumMembers,
+                        'E' => muxingEnumMembers,
+                        _ => null,
+                    };
+                    if (enumMembers is not null)
                     {
                         var split = match.Groups[2].Value.Split(',');
                         foreach (var item in split)
                         {
-                            MuxingFileFormat.WriteSummary(match.Groups[3].Value);
-                            MuxingFileFormat.WriteLine($"[Name(\"{item}\")]");
-                            MuxingFileFormat.WriteLine($"{item.FixNameRule()},");
-                            MuxingFileFormat.WriteLine();
+                            string name = item.FixNameRule();
+
+                            // Attributes
+                            var attributes = new List<AttributeListSyntax>
+                            {
+                                AttributeList(SingletonSeparatedList(
+                                    Attribute(IdentifierName(typeof(NameAttribute).FullName!))
+                                        .WithArgumentList(AttributeArgumentList(SingletonSeparatedList(
+                                            AttributeArgument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal(item)))
+                                        )))
+                                ))
+                            };
+
+                            var trivia = TriviaList(
+                                Comment("/// <summary>"),
+                                Comment($"/// {description}"),
+                                Comment("/// </summary>")
+                            );
+
+                            var member = EnumMemberDeclaration(Identifier(name))
+                                .WithAttributeLists(List(attributes))
+                                .WithLeadingTrivia(trivia);
+
+                            enumMembers.Add(member);
                         }
                     }
                 }
             }
 
-            DemuxingFileFormat.WriteLine("}");
-            DemuxingFileFormat.WriteLine("}");
-            MuxingFileFormat.WriteLine("}");
-            MuxingFileFormat.WriteLine("}");
+            {
+                var demuxingEnumDecl = EnumDeclaration("DemuxingFileFormat")
+                    .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
+                    .WithMembers(SeparatedList(demuxingEnumMembers))
+                    .WithLeadingTrivia(TriviaList(
+                        Comment("/// <summary>"),
+                        Comment("/// </summary>")
+                    ));
+                var demuxingNamespaceDecl = NamespaceDeclaration(ParseName("FFmpegArgs.Cores.Enums"))
+                    .WithMembers(SingletonList<MemberDeclarationSyntax>(demuxingEnumDecl))
+                    .NormalizeWhitespace();
+
+                var demuxingCompilationUnit = CompilationUnit()
+                    //.WithUsings(List(new[] { UsingDirective(ParseName("System")) }))
+                    .WithMembers(SingletonList<MemberDeclarationSyntax>(demuxingNamespaceDecl))
+                    .NormalizeWhitespace();
+
+                File.WriteAllText(Path.Combine("FFmpegArgs.Cores", "Enums", "DemuxingFileFormat.g.cs"), demuxingCompilationUnit.ToFullString(), Encoding.UTF8);
+            }
+
+            {
+                var muxingEnumDecl = EnumDeclaration("MuxingFileFormat")
+                .WithModifiers(TokenList(Token(SyntaxKind.PublicKeyword)))
+                .WithMembers(SeparatedList(muxingEnumMembers))
+                .WithLeadingTrivia(TriviaList(
+                    Comment("/// <summary>"),
+                    Comment("/// </summary>")
+                ));
+                var muxingNamespaceDecl = NamespaceDeclaration(ParseName("FFmpegArgs.Cores.Enums"))
+                    .WithMembers(SingletonList<MemberDeclarationSyntax>(muxingEnumDecl))
+                    .NormalizeWhitespace();
+
+                // Unit
+                var muxingCompilationUnit = CompilationUnit()
+                    //.WithUsings(List(new[] { UsingDirective(ParseName("System")) }))
+                    .WithMembers(SingletonList<MemberDeclarationSyntax>(muxingNamespaceDecl))
+                    .NormalizeWhitespace();
+
+                File.WriteAllText(Path.Combine("FFmpegArgs.Cores", "Enums", "MuxingFileFormat.g.cs"), muxingCompilationUnit.ToFullString(), Encoding.UTF8);
+            }
         }
     }
 }
