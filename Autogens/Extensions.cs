@@ -9,6 +9,10 @@ namespace Autogens
 {
     internal static class Extensions
     {
+        internal static string XmlEscape(this string input)
+        {
+            return System.Security.SecurityElement.Escape(input);
+        }
         internal static StreamWriter WriteSummary(this StreamWriter streamWriter, params string[] summarys)
         {
             streamWriter.WriteLine("/// <summary>");

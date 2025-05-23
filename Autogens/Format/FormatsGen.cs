@@ -54,7 +54,7 @@ namespace Autogens.Format
 
                             var trivia = TriviaList(
                                 Comment("/// <summary>"),
-                                Comment($"/// {description}"),
+                                Comment($"/// {description.XmlEscape()}"),
                                 Comment("/// </summary>")
                             );
 
