@@ -105,8 +105,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Set the video size
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public ScaleFilter Size(VideoSizeUtils videoSize)
@@ -114,8 +112,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Set the video size
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public ScaleFilter Size(Size videoSize)

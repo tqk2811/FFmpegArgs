@@ -36,7 +36,7 @@
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="y">Region distance in pixels from the top edge of the frame.</param>
+        /// <param name="b">Region distance in pixels from the top edge of the frame.</param>
         /// <returns></returns>
         public HueFilter b(ExpressionValue b) => this.SetOption("b", expression.Check(b));
     }

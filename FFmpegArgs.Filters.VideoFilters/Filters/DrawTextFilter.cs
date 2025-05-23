@@ -259,7 +259,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         public DrawTextFilter TimeCode(string timeCode)
             => this.SetOption("timecode", timeCode);
         /// <summary>
-        /// Set the timecode frame rate (timecode only). Value will be rounded to nearest integer. Minimum value is "1". Drop-frame timecode is supported for frame rates 30 & 60.
+        /// Set the timecode frame rate (timecode only). Value will be rounded to nearest integer. Minimum value is "1". Drop-frame timecode is supported for frame rates 30 &amp; 60.
         /// </summary>
         /// <param name="rational"></param>
         /// <returns></returns>

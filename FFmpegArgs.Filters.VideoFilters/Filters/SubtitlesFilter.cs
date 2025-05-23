@@ -12,8 +12,6 @@
         /// <summary>
         /// Set subtitles input character encoding. subtitles filter only. Only useful if not UTF-8.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
         /// <param name="charenc"></param>
         /// <returns></returns>
         public SubtitlesFilter Charenc(string charenc)
@@ -21,8 +19,6 @@
         /// <summary>
         /// Set subtitles stream index. subtitles filter only.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="t"></param>
         /// <param name="si"></param>
         /// <returns></returns>
         public SubtitlesFilter StreamIndex(int si)

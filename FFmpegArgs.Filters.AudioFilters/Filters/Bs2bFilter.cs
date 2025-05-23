@@ -1,6 +1,6 @@
-﻿///*
+﻿/*
 
-//*/
+*/
 //namespace FFmpegArgs.Filters.AudioFilters
 //{
 //    /// <summary>

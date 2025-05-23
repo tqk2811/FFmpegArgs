@@ -29,7 +29,7 @@
         /// Specify which frames to deinterlace.<br>
         /// </br>The default value is all.
         /// </summary>
-        /// <param name="deInt"></param>
+        /// <param name="deint"></param>
         /// <returns></returns>
         public BwdifFilter Deint(BwdifDeint deint)
           => this.SetOption("deint", deint);

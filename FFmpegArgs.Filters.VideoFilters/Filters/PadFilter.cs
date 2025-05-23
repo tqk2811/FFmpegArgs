@@ -39,7 +39,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// If x or y evaluate to a negative number, they’ll be changed so the input image is centered on the padded area.
         /// </summary>
         /// <param name="x"></param>
-        /// <param name="y"></param>
         /// <returns></returns>
         public PadFilter X(ExpressionValue x) => this.SetOption("x", expression.Check(x));
         /// <summary>
@@ -48,7 +47,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// The default value of x and y is 0.<br></br>
         /// If x or y evaluate to a negative number, they’ll be changed so the input image is centered on the padded area.
         /// </summary>
-        /// <param name="x"></param>
         /// <param name="y"></param>
         /// <returns></returns>
         public PadFilter Y(ExpressionValue y) => this.SetOption("y", expression.Check(y));

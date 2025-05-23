@@ -27,7 +27,7 @@
         /// <summary>
         /// Set what gamuts to draw.
         /// </summary>
-        /// <param name="system"></param>
+        /// <param name="gamuts"></param>
         /// <returns></returns>
         public CiescopeFilter Gamuts(CiescopeColorSystem gamuts)
           => this.SetOption("gamuts", gamuts.ToString().Substring(1));

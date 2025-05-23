@@ -89,7 +89,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         public VolumeFilter ReplaygainPreamp(double replaygain_preamp)
             => this.SetOptionRange("replaygain_preamp", replaygain_preamp, -15, 15);
         /// <summary>
-        /// Prevent clipping by limiting the gain applied.<br></Br>
+        /// Prevent clipping by limiting the gain applied.<br/>
         /// Default value for replaygain_noclip is 1.
         /// </summary>
         /// <param name="replaygain_noclip"></param>

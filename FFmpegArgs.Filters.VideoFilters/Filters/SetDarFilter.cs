@@ -62,7 +62,6 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </br>Keep in mind that the sample aspect ratio set by the setsar filter may be changed by later filters in the filterchain, e.g. if another "setsar" or a "setdar" filter is applied.
         /// </summary>
         /// <param name="imageMap"></param>
-        /// <param name="r"></param>
         /// <returns></returns>
         public static SetDarFilter SetDarFilter(this ImageMap imageMap) => new SetDarFilter(imageMap);
     }

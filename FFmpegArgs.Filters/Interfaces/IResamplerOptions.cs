@@ -138,7 +138,7 @@
         public static T Precision<T>(this T t, double precision) where T : BaseOption, IResamplerOptions
             => t.SetOptionRange("precision", precision, double.MinValue, double.MaxValue);
         /// <summary>
-        /// For soxr only, selects passband rolloff none (Chebyshev) & higher-precision approximation for ’irrational’ ratios. Default value is 0.
+        /// For soxr only, selects passband rolloff none (Chebyshev) &amp; higher-precision approximation for ’irrational’ ratios. Default value is 0.
         /// </summary>
         public static T Cheby<T>(this T t, double cheby) where T : BaseOption, IResamplerOptions
             => t.SetOptionRange("cheby", cheby, double.MinValue, double.MaxValue);
@@ -259,7 +259,7 @@
         /// </summary>
         swr,
         /// <summary>
-        /// select the SoX Resampler (where available); compensation, and filter options filter_size, phase_shift, exact_rational, filter_type & kaiser_beta, are not applicable in this case.
+        /// select the SoX Resampler (where available); compensation, and filter options filter_size, phase_shift, exact_rational, filter_type &amp; kaiser_beta, are not applicable in this case.
         /// </summary>
         soxr,
     }

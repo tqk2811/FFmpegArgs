@@ -40,7 +40,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <summary>
         /// Specify the number of the frame to start applying the fade effect at. (from 0 to INT_MAX) (default 0)
         /// </summary>
-        /// <param name="frame"></param>
+        /// <param name="s"></param>
         /// <returns></returns>
         public FadeFilter StartFrame(int s)
           => this.SetOptionRange("s", s, 0, int.MaxValue);

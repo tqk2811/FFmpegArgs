@@ -46,7 +46,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <summary>
         /// Set the life rule.<br></br>
         /// A rule can be specified with a code of the kind "SNS/BNB", where NS and NB are sequences of numbers in the range 0-8, NS specifies the number of alive neighbor cells which make a live cell stay alive, and NB the number of alive neighbor cells which make a dead cell to become alive(i.e.to "born"). "s" and "b" can be used in place of "S" and "B", respectively.<br></br>
-        /// Alternatively a rule can be specified by an 18-bits integer.The 9 high order bits are used to encode the next cell state if it is alive for each number of neighbor alive cells, the low order bits specify the rule for "borning" new cells.Higher order bits encode for an higher number of neighbor cells.For example the number 6153 = (12<<9)+9 specifies a stay alive rule of 12 and a born rule of 9, which corresponds to "S23/B03".<br></br>
+        /// Alternatively a rule can be specified by an 18-bits integer.The 9 high order bits are used to encode the next cell state if it is alive for each number of neighbor alive cells, the low order bits specify the rule for "borning" new cells.Higher order bits encode for an higher number of neighbor cells.For example the number 6153 = (12&lt;&lt;9)+9 specifies a stay alive rule of 12 and a born rule of 9, which corresponds to "S23/B03".<br></br>
         /// Default value is "S23/B3", which is the original Conway’s game of life rule, and will keep a cell alive if it has 2 or 3 neighbor alive cells, and will born a new cell if there are three alive cells around a dead cell.
         /// </summary>
         /// <param name="rule"></param>

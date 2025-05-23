@@ -16,7 +16,7 @@
         /// </br>(default "0 0 0 0 1 0 0 0 0")
         /// </summary>
         /// <param name="plane"></param>
-        /// <param name="val"></param>
+        /// <param name="vals"></param>
         /// <returns></returns>
         public ConvolutionFilter Matrix(ConvolutionPlane plane, params int[] vals)
             => this.SetOption($"{plane.ToString().Substring(1)}m", string.Join(" ", vals));
@@ -41,7 +41,7 @@
         /// Set matrix mode for each plane. Can be square, row or column. Default is square.
         /// </summary>
         /// <param name="plane"></param>
-        /// <param name="val"></param>
+        /// <param name="mode"></param>
         /// <returns></returns>
         public ConvolutionFilter MatrixMode(ConvolutionPlane plane, ConvolutionMatrixMode mode)
            => this.SetOption($"{plane.ToString().Substring(1)}mode", mode);

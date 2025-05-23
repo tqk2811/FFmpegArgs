@@ -64,7 +64,7 @@ namespace FFmpegArgs.Filters.AudioSources
         /// <summary>
         /// Set Kaiser window beta. (from -1 to 256) (default -1)
         /// </summary>
-        /// <param name="flag"></param>
+        /// <param name="beta"></param>
         /// <returns></returns>
         public SincFilter Beta(float beta)
           => this.SetOptionRange("beta", beta, -1, 256);

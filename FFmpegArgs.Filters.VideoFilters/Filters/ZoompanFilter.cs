@@ -11,7 +11,7 @@ zoompan AVOptions:
 namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
-    /// ... zoompan           V->V       Apply Zoom & Pan effect.<br></br>
+    /// ... zoompan           V->V       Apply Zoom &amp; Pan effect.<br></br>
     /// https://ffmpeg.org/ffmpeg-filters.html#zoompan
     /// </summary>
     public class ZoompanFilter : ImageToImageFilter

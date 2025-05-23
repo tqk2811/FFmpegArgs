@@ -45,7 +45,7 @@
         /// Set what variant of algorithm filter will use for averaging. Default is p parallel. Alternatively can be set to s serial.<br></br>
         /// Parallel can be faster then serial, while other way around is never true. Parallel will abort early on first change being greater then thresholds, while serial will continue processing other side of frames if they are equal or below thresholds.
         /// </summary>
-        /// <param name="a"></param>
+        /// <param name="voa"></param>
         /// <returns></returns>
         public AtadenoiseFilter VariantOfAlgorithm(AtadenoiseVariantOfAlgorithm voa)
           => this.SetOption("a", voa.ToString());
