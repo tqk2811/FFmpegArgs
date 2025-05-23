@@ -246,7 +246,8 @@
 
             //https://en.wikipedia.org/wiki/Shunting-yard_algorithm
             //check....
-            string[] tokens = Regex.Split(expression, @"([0-9]+\.[0-9]+|[0-9]+|[*+\-\/(),]|[A-z]+)").Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
+            string[] tokens = Regex.Split(expression, @"([0-9]+\.[0-9]+|[0-9]+|[*+\-\/(),]|[A-z_]+)");
+            tokens = tokens.Where(x => !string.IsNullOrWhiteSpace(x)).ToArray();
             Stack<string> stacks = new Stack<string>();
             Queue<string> outputs = new Queue<string>();
             for (int i = 0; i < tokens.Length; i++)
