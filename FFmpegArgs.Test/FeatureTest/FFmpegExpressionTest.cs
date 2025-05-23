@@ -7,8 +7,8 @@ namespace FFmpegArgs.Test.FeatureTest
         public void Test1()
         {
             FFmpegExpression expression = new FFmpegExpression(new List<string>() { });
-            expression.Check("sin(max(2.2,3)/3*PI)", out string shuntingYard);
-            Assert.AreEqual("2.2 3 max_2 3 / PI * sin_1", shuntingYard);
+            expression.Check("sin(max(2.2,3)/3*INT_MAX)", out string shuntingYard);
+            Assert.AreEqual("2.2 3 max_2 3 / INT_MAX * sin_1", shuntingYard);
         }
         [TestMethod]
         public void Test2()
