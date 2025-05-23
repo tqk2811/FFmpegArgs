@@ -13,9 +13,8 @@
         /// </summary>
         protected VideoInput(int imageStreamCount, int audioStreamCount)
         {
-            if (imageStreamCount < 0) throw new ArgumentOutOfRangeException(nameof(imageStreamCount));
-            if (audioStreamCount < 0) throw new ArgumentOutOfRangeException(nameof(audioStreamCount));
-
+            if (imageStreamCount < 1) throw new InvalidRangeException($"{nameof(imageStreamCount)} should large than 0");
+            if (audioStreamCount < 1) throw new InvalidRangeException($"{nameof(audioStreamCount)} should large than 0");
 
             for (int i = 0; i < imageStreamCount; i++)
             {
@@ -41,7 +40,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.FirstOrDefault();
+        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.First();
 
         /// <summary>
         /// 

@@ -13,7 +13,7 @@
         /// </summary>
         protected ImageInput(int streamCount)
         {
-            if (streamCount < 1) throw new ArgumentOutOfRangeException(nameof(streamCount));
+            if (streamCount < 1) throw new InvalidRangeException($"{nameof(streamCount)} should large than 0");
             for (int i = 0; i < streamCount; i++)
             {
                 _imageInputAVStreams.Add(new ImageInputAVStream(this, i));
@@ -33,6 +33,6 @@
         /// <summary>
         /// Image Stream Input
         /// </summary>
-        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.FirstOrDefault();
+        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.First();
     }
 }

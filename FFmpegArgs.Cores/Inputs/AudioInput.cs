@@ -12,7 +12,7 @@
         /// </summary>
         protected AudioInput(int streamCount)
         {
-            if (streamCount < 1) throw new ArgumentOutOfRangeException(nameof(streamCount));
+            if (streamCount < 1) throw new InvalidRangeException($"{nameof(streamCount)} should large than 0");
             for (int i = 0; i < streamCount; i++)
             {
                 _inputAudioFFStreams.Add(new AudioInputAVStream(this, i));
@@ -33,6 +33,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.FirstOrDefault();
+        public virtual AudioInputAVStream? AudioInputAVStream => AudioInputAVStreams.First();
     }
 }
