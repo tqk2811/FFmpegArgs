@@ -8,11 +8,11 @@
         /// <summary>
         /// The name of the Style. Case sensitive. Cannot include commas.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
         /// <summary>
         /// The fontname as used by Windows. Case-sensitive.
         /// </summary>
-        public string Fontname { get; set; }
+        public string? Fontname { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -63,7 +63,7 @@
         /// <summary>
         /// Extra space between characters. [pixels]
         /// </summary>
-        public int? Spacing { get; set; }
+        public float? Spacing { get; set; }
         /// <summary>
         /// The origin of the rotation is defined by the alignment. Can be a floating point number. [degrees]
         /// </summary>
@@ -76,12 +76,12 @@
         /// If BorderStyle is 1,  then this specifies the width of the outline around the text, in pixels.<br>
         /// </br>Values may be 0, 1, 2, 3 or 4.
         /// </summary>
-        public int? Outline { get; set; }
+        public float? Outline { get; set; }
         /// <summary>
         /// If BorderStyle is 1,  then this specifies the depth of the drop shadow behind the text, in pixels. <br>
         /// </br>Values may be 0, 1, 2, 3 or 4. Drop shadow is always used in addition to an outline - SSA will force an outline of 1 pixel if no outline width is given.
         /// </summary>
-        public int? Shadow { get; set; }
+        public float? Shadow { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -110,11 +110,11 @@
         /// </br> It is usually 0 (zero) for English (Western, ANSI) Windows.<br>
         /// </br>When the file is Unicode, this field is useful during file format conversions.
         /// </summary>
-        public string Encoding { get; set; }
+        public int? Encoding { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public Dictionary<string, string> OtherStyle { get; set; }
+        public Dictionary<string, string>? OtherStyle { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -122,8 +122,8 @@
         public override string ToString()
         {
             Dictionary<string, string> pairs = new Dictionary<string, string>();
-            if (!string.IsNullOrWhiteSpace(Name)) pairs[nameof(Name)] = Name;
-            if (!string.IsNullOrWhiteSpace(Fontname)) pairs[nameof(Fontname)] = Fontname;
+            if (!string.IsNullOrWhiteSpace(Name)) pairs[nameof(Name)] = Name!;
+            if (!string.IsNullOrWhiteSpace(Fontname)) pairs[nameof(Fontname)] = Fontname!;
             if (Fontsize != null) pairs[nameof(Fontsize)] = Fontsize.Value.ToString();
             if (PrimaryColour != null) pairs[nameof(PrimaryColour)] = PrimaryColour.Value.ToHexSubStringBGR();
             if (SecondaryColour != null) pairs[nameof(SecondaryColour)] = SecondaryColour.Value.ToHexSubStringBGR();
@@ -135,17 +135,17 @@
             if (Strikeout != null) pairs[nameof(Strikeout)] = (Strikeout.Value ? -1 : 0).ToString();
             if (ScaleX != null) pairs[nameof(ScaleX)] = ScaleX.Value.ToString();
             if (ScaleY != null) pairs[nameof(ScaleY)] = ScaleY.Value.ToString();
-            if (Spacing != null) pairs[nameof(Spacing)] = Spacing.Value.ToString();
+            if (Spacing != null) pairs[nameof(Spacing)] = Spacing.Value.ToString("F1");
             if (Angle != null) pairs[nameof(Angle)] = Angle.Value.ToString();
             if (BorderStyle != null) pairs[nameof(BorderStyle)] = ((int)BorderStyle.Value).ToString();
-            if (Outline != null) pairs[nameof(Outline)] = Outline.Value.ToString();
-            if (Shadow != null) pairs[nameof(Shadow)] = Shadow.Value.ToString();
+            if (Outline != null) pairs[nameof(Outline)] = Outline.Value.ToString("F1");
+            if (Shadow != null) pairs[nameof(Shadow)] = Shadow.Value.ToString("F1");
             if (Alignment != null) pairs[nameof(Alignment)] = ((int)Alignment.Value).ToString();
             if (MarginL != null) pairs[nameof(MarginL)] = MarginL.Value.ToString();
             if (MarginR != null) pairs[nameof(MarginR)] = MarginR.Value.ToString();
             if (MarginV != null) pairs[nameof(MarginV)] = MarginV.Value.ToString();
             if (AlphaLevel != null) pairs[nameof(AlphaLevel)] = AlphaLevel.Value.ToString();
-            if (!string.IsNullOrWhiteSpace(Encoding)) pairs[nameof(Encoding)] = Encoding;
+            if (Encoding.HasValue) pairs[nameof(Encoding)] = Encoding.Value.ToString()!;
             if (OtherStyle != null) foreach (var pair in OtherStyle) pairs[pair.Key] = pair.Value;
             return string.Join(",", pairs.Select(x => $"{x.Key}={x.Value}"));
         }
