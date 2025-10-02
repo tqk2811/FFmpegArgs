@@ -13,7 +13,7 @@
         /// </summary>
         /// <param name="progress"></param>
         /// <returns></returns>
-        public static RenderProgress FromProgressString(string progress)
+        public static RenderProgress? FromProgressString(string? progress)
         {
             if (!string.IsNullOrWhiteSpace(progress))
             {

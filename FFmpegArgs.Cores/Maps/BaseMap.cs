@@ -8,7 +8,7 @@
         /// <summary>
         /// Name
         /// </summary>
-        protected readonly string _name;
+        protected readonly string? _name;
 
         /// <summary>
         /// Unique name of map
@@ -18,6 +18,9 @@
         /// <summary>
         /// This map is output from input or filter output
         /// </summary>
+#if NET5_0_OR_GREATER
+        [MemberNotNullWhen(true, nameof(BaseFFArg),nameof(InputAVStream))]
+#endif
         public bool IsInput { get { return InputAVStream != null; } }
 
         /// <summary>
@@ -28,7 +31,7 @@
             get
             {
                 if (!IsInput) return -1;
-                return BaseFFArg.Inputs.ToList().IndexOf(InputAVStream.BaseInput);
+                return BaseFFArg!.Inputs.ToList().IndexOf(InputAVStream!.BaseInput);
             }
         }
 
@@ -40,17 +43,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public IBaseFFArg BaseFFArg { get; }
+        public IBaseFFArg? BaseFFArg { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public InputAVStream InputAVStream { get; }
+        public InputAVStream? InputAVStream { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public OutputAVStream OutputAVStream { get; internal set; }
+        public OutputAVStream? OutputAVStream { get; internal set; }
 
 
         /// <summary>

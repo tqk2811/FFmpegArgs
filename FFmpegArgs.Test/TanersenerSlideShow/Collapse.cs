@@ -44,7 +44,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     expr = $"if((gte(X,(W/2)*T/{TRANSITION_DURATION})*gte(Y,(H/2)*T/{TRANSITION_DURATION}))*(lte(X,W-(W/2)*T/{TRANSITION_DURATION})*lte(Y,H-(H/2)*T/{TRANSITION_DURATION})),B,A)";
                     break;
             }
-            ImageMap out_map = null;
+            ImageMap? out_map = null;
             switch (collapseMode)
             {
                 case CollapseExpandMode.Circular:

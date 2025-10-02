@@ -8,7 +8,7 @@
         /// <summary>
         /// Pipe for input/output
         /// </summary>
-        public virtual Stream PipeStream { get; }
+        public virtual Stream? PipeStream { get; }
 
         /// <summary>
         /// 

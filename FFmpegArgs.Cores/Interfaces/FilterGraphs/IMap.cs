@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FFmpegArgs.Cores.Interfaces
+﻿namespace FFmpegArgs.Cores.Interfaces
 {
     /// <summary>
     /// 
@@ -29,6 +23,9 @@ namespace FFmpegArgs.Cores.Interfaces
         /// <summary>
         /// This map is from input or not
         /// </summary>
+#if NET5_0_OR_GREATER
+        [MemberNotNullWhen(true, nameof(InputAVStream))]
+#endif
         bool IsInput { get; }
 
         /// <summary>
@@ -39,11 +36,11 @@ namespace FFmpegArgs.Cores.Interfaces
         /// <summary>
         /// 
         /// </summary>
-        InputAVStream InputAVStream { get; }
+        InputAVStream? InputAVStream { get; }
         
         /// <summary>
         /// 
         /// </summary>
-        OutputAVStream OutputAVStream { get; }
+        OutputAVStream? OutputAVStream { get; }
     }
 }

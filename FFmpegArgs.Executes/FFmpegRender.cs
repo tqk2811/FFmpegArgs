@@ -8,7 +8,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public event Action<RenderProgress> OnEncodingProgress;
+        public event Action<RenderProgress>? OnEncodingProgress;
 
         /// <summary>
         /// 
@@ -27,8 +27,8 @@
 
 
 
-        private Stream StdIn { get; set; }
-        private Stream StdOut { get; set; }
+        private Stream? StdIn { get; set; }
+        private Stream? StdOut { get; set; }
         private bool _isFromFFmpegArgs = false;
 
         private FFmpegRender(FFmpegRenderConfig config)
@@ -214,7 +214,7 @@
 
 #if !NET5_0_OR_GREATER
             //https://github.com/Tyrrrz/CliWrap/blob/8ff36a648d57b22497a7cb6feae14ef28bbb2be8/CliWrap/Utils/ProcessEx.cs#L41
-            var tcs = new TaskCompletionSource<object>(TaskCreationOptions.RunContinuationsAsynchronously);
+            var tcs = new TaskCompletionSource<object?>(TaskCreationOptions.RunContinuationsAsynchronously);
             process.EnableRaisingEvents = true;
             process.Exited += (sender, args) => tcs.TrySetResult(null);
 #endif
