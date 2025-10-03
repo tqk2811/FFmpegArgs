@@ -15,8 +15,8 @@ namespace FFmpegArgs.Test.FeatureTest
             using FileStream input = new FileStream(".\\Resources\\img0.jpg", FileMode.Open, FileAccess.Read, FileShare.Read);
             using FileStream output = new FileStream("img0_out.jpg", FileMode.Create, FileAccess.Write, FileShare.Read);
             FFmpegArg ffmpegArg = new FFmpegArg();
-            var videoMap = ffmpegArg.AddVideoInput(new VideoPipeInput(input, DemuxingFileFormat.mjpeg, 1, 0));
-            var imageMap = videoMap.ImageMaps.First().ScaleFilter().W("iw/2").H("ih/2").MapOut;
+            var imageMap = ffmpegArg.AddImagesInput(new ImagePipeInput(input, DemuxingFileFormat.mjpeg, 1)).First();
+            imageMap = imageMap.ScaleFilter().W("iw/2").H("ih/2").MapOut;
             ffmpegArg.AddOutput(new ImagePipeOutput(output, MuxingFileFormat.mjpeg, imageMap));
             var result = ffmpegArg.Render().Execute();
             Assert.AreEqual(0, result.ExitCode);
