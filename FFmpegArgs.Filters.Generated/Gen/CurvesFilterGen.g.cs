@@ -1,121 +1,137 @@
-namespace FFmpegArgs.Filters.Generated
+﻿namespace FFmpegArgs.Filters.Generated
 {
-/// <summary>
-/// TSC curves            V-&gt;V       Adjust components curves.
-/// </summary>
-public class CurvesFilterGen : ImageToImageFilter,ITimelineSupport,ISliceThreading,ICommandSupport
-{
-internal CurvesFilterGen(ImageMap input) : base("curves",input) { AddMapOut(); }
-/// <summary>
-///  select a color curves preset (from 0 to 10) (default none)
-/// </summary>
-public CurvesFilterGen preset(CurvesFilterGenPreset preset) => this.SetOption("preset", preset.GetEnumAttribute<NameAttribute>().Name);
-/// <summary>
-///  set master points coordinates
-/// </summary>
-public CurvesFilterGen master(string master) => this.SetOption("master",master);
-/// <summary>
-///  set red points coordinates
-/// </summary>
-public CurvesFilterGen red(string red) => this.SetOption("red",red);
-/// <summary>
-///  set green points coordinates
-/// </summary>
-public CurvesFilterGen green(string green) => this.SetOption("green",green);
-/// <summary>
-///  set blue points coordinates
-/// </summary>
-public CurvesFilterGen blue(string blue) => this.SetOption("blue",blue);
-/// <summary>
-///  set points coordinates for all components
-/// </summary>
-public CurvesFilterGen all(string all) => this.SetOption("all",all);
-/// <summary>
-///  set Photoshop curves file name
-/// </summary>
-public CurvesFilterGen psfile(string psfile) => this.SetOption("psfile",psfile);
-/// <summary>
-///  save Gnuplot script of the curves in specified file
-/// </summary>
-public CurvesFilterGen plot(string plot) => this.SetOption("plot",plot);
-/// <summary>
-///  specify the kind of interpolation (from 0 to 1) (default natural)
-/// </summary>
-public CurvesFilterGen interp(CurvesFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
-}
-/// <summary>
-/// </summary>
-public static partial class FilterGeneratedExtensions
-{
-/// <summary>
-/// Adjust components curves.
-/// </summary>
-public static CurvesFilterGen CurvesFilterGen(this ImageMap input0) => new CurvesFilterGen(input0);
-}
-/// <summary>
-///  select a color curves preset (from 0 to 10) (default none)
-/// </summary>
-public enum CurvesFilterGenPreset
-{
-/// <summary>
-/// none            0            ..FV.....T.
-/// </summary>
-[Name("none")] none,
-/// <summary>
-/// color_negative  1            ..FV.....T.
-/// </summary>
-[Name("color_negative")] color_negative,
-/// <summary>
-/// cross_process   2            ..FV.....T.
-/// </summary>
-[Name("cross_process")] cross_process,
-/// <summary>
-/// darker          3            ..FV.....T.
-/// </summary>
-[Name("darker")] darker,
-/// <summary>
-/// increase_contrast 4            ..FV.....T.
-/// </summary>
-[Name("increase_contrast")] increase_contrast,
-/// <summary>
-/// lighter         5            ..FV.....T.
-/// </summary>
-[Name("lighter")] lighter,
-/// <summary>
-/// linear_contrast 6            ..FV.....T.
-/// </summary>
-[Name("linear_contrast")] linear_contrast,
-/// <summary>
-/// medium_contrast 7            ..FV.....T.
-/// </summary>
-[Name("medium_contrast")] medium_contrast,
-/// <summary>
-/// negative        8            ..FV.....T.
-/// </summary>
-[Name("negative")] negative,
-/// <summary>
-/// strong_contrast 9            ..FV.....T.
-/// </summary>
-[Name("strong_contrast")] strong_contrast,
-/// <summary>
-/// vintage         10           ..FV.....T.
-/// </summary>
-[Name("vintage")] vintage,
-}
+    /// <summary>
+    /// TSC curves            V-&gt;V       Adjust components curves.
+    /// </summary>
+    public class CurvesFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    {
+        internal CurvesFilterGen(ImageMap input) : base("curves", input)
+        {
+            AddMapOut();
+        }
 
-/// <summary>
-///  specify the kind of interpolation (from 0 to 1) (default natural)
-/// </summary>
-public enum CurvesFilterGenInterp
-{
-/// <summary>
-/// natural         0            ..FV.....T. natural cubic spline
-/// </summary>
-[Name("natural")] natural,
-/// <summary>
-/// pchip           1            ..FV.....T. monotonically cubic interpolation
-/// </summary>
-[Name("pchip")] pchip,
-}
+        /// <summary>
+        ///  select a color curves preset (from 0 to 10) (default none)
+        /// </summary>
+        public CurvesFilterGen preset(CurvesFilterGenPreset preset) => this.SetOption("preset", preset.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
+        ///  set master points coordinates
+        /// </summary>
+        public CurvesFilterGen master(String master) => this.SetOption("master", master.ToString());
+        /// <summary>
+        ///  set red points coordinates
+        /// </summary>
+        public CurvesFilterGen red(String red) => this.SetOption("red", red.ToString());
+        /// <summary>
+        ///  set green points coordinates
+        /// </summary>
+        public CurvesFilterGen green(String green) => this.SetOption("green", green.ToString());
+        /// <summary>
+        ///  set blue points coordinates
+        /// </summary>
+        public CurvesFilterGen blue(String blue) => this.SetOption("blue", blue.ToString());
+        /// <summary>
+        ///  set points coordinates for all components
+        /// </summary>
+        public CurvesFilterGen all(String all) => this.SetOption("all", all.ToString());
+        /// <summary>
+        ///  set Photoshop curves file name
+        /// </summary>
+        public CurvesFilterGen psfile(String psfile) => this.SetOption("psfile", psfile.ToString());
+        /// <summary>
+        ///  save Gnuplot script of the curves in specified file
+        /// </summary>
+        public CurvesFilterGen plot(String plot) => this.SetOption("plot", plot.ToString());
+        /// <summary>
+        ///  specify the kind of interpolation (from 0 to 1) (default natural)
+        /// </summary>
+        public CurvesFilterGen interp(CurvesFilterGenInterp interp) => this.SetOption("interp", interp.GetEnumAttribute<NameAttribute>().Name);
+    }
 
+    /// <summary>
+    ///  select a color curves preset (from 0 to 10) (default none)
+    /// </summary>
+    public enum CurvesFilterGenPreset
+    {
+        /// <summary>
+        /// none            0            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("none")]
+        none = 0,
+        /// <summary>
+        /// color_negative  1            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("color_negative")]
+        color_negative = 1,
+        /// <summary>
+        /// cross_process   2            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("cross_process")]
+        cross_process = 2,
+        /// <summary>
+        /// darker          3            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("darker")]
+        darker = 3,
+        /// <summary>
+        /// increase_contrast 4            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("increase_contrast")]
+        increase_contrast = 4,
+        /// <summary>
+        /// lighter         5            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("lighter")]
+        lighter = 5,
+        /// <summary>
+        /// linear_contrast 6            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("linear_contrast")]
+        linear_contrast = 6,
+        /// <summary>
+        /// medium_contrast 7            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("medium_contrast")]
+        medium_contrast = 7,
+        /// <summary>
+        /// negative        8            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("negative")]
+        negative = 8,
+        /// <summary>
+        /// strong_contrast 9            ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("strong_contrast")]
+        strong_contrast = 9,
+        /// <summary>
+        /// vintage         10           ..FV.....T.
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("vintage")]
+        vintage = 10
+    }
+
+    /// <summary>
+    ///  specify the kind of interpolation (from 0 to 1) (default natural)
+    /// </summary>
+    public enum CurvesFilterGenInterp
+    {
+        /// <summary>
+        /// natural         0            ..FV.....T. natural cubic spline
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("natural")]
+        natural = 0,
+        /// <summary>
+        /// pchip           1            ..FV.....T. monotonically cubic interpolation
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("pchip")]
+        pchip = 1
+    }
+
+    public static partial class FilterGeneratedExtensions
+    {
+        /// <summary>
+        /// Adjust components curves.
+        /// </summary>
+        public static CurvesFilterGen CurvesFilterGen(this ImageMap input0) => new CurvesFilterGen(input0);
+    }
 }
