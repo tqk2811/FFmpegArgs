@@ -69,13 +69,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var phaseins = verticalDirection switch
             {
                 VerticalDirection.TopToBottom => pres.Select(x => x[0]//prephasein
-                                .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x)-1])//phaseouts.Last()
+                                .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x) - 1])//phaseouts.Last()
                                     .X("0")
                                     .Y($"-h+{config.Size.Height}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 VerticalDirection.BottomToTop => pres.Select(x => x[0]//prephasein
-                                .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x)-1])//phaseouts.Last()
+                                .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x) - 1])//phaseouts.Last()
                                     .X("0")
                                     .Y($"h-{config.Size.Height}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
@@ -93,7 +93,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .H("ih*5").MapOut
                 .ZoompanFilter()
                     .Zoom("min(pzoom+0.04,2)")
-                    .D(config.TransitionDuration)
+                    .D(1)
                     .Fps(config.Fps)
                     .X("iw/2-(iw/zoom/2)")
                     .Y("ih/2-(ih/zoom/2)")
@@ -105,14 +105,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .H("ih*5").MapOut
                 .ZoompanFilter()
                     .Zoom("2-in*0.04")
-                    .D(config.TransitionDuration)
+                    .D(1)
                     .Fps(config.Fps)
                     .X("iw/2-(iw/zoom/2)")
                     .Y("ih/2-(ih/zoom/2)")
                     .S(config.Size).MapOut
                 .SetPtsFilter("0.5*PTS").MapOut).ToList();
             List<ConcatGroup> concatGroups = new List<ConcatGroup>();
-            for(int i = 0; i< images_inputmap.Count; i++)
+            for (int i = 0; i < images_inputmap.Count; i++)
             {
                 concatGroups.Add(new ConcatGroup(phaseins[i]));//TRANSITION_PHASE_DURATION = TransitionDuration/2
                 concatGroups.Add(new ConcatGroup(checkins[i]));//CHECKPOINT_DURATION = TransitionDuration/5
@@ -229,7 +229,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .H("ih*5").MapOut
                 .ZoompanFilter()
                     .Zoom("min(pzoom+0.04,2)")
-                    .D(config.TransitionDuration)
+                    .D(1)
                     .Fps(config.Fps)
                     .X("iw/2-(iw/zoom/2)")
                     .Y("ih/2-(ih/zoom/2)")
@@ -241,7 +241,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .H("ih*5").MapOut
                 .ZoompanFilter()
                     .Zoom("2-in*0.04")
-                    .D(config.TransitionDuration)
+                    .D(1)
                     .Fps(config.Fps)
                     .X("iw/2-(iw/zoom/2)")
                     .Y("ih/2-(ih/zoom/2)")
@@ -269,7 +269,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
                 .Duration(TOTAL_DURATION)
-                
+
                 .ImageOutputAVStreams.First()
                 .Codec("libx264")
                 //.Fps(config.Fps)
