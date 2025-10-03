@@ -50,6 +50,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.FirstOrDefault();
+        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.First();
     }
 }

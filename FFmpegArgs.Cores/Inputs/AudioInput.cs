@@ -33,6 +33,6 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioInputAVStream? AudioInputAVStream => AudioInputAVStreams.First();
+        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.First();
     }
 }
