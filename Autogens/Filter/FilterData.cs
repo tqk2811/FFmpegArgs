@@ -20,32 +20,37 @@ namespace Autogens.Filter
         /// </summary>
         internal static Regex regex_DocLineMethod { get; } = new Regex("^(.*?) +(|[0-9A-z<>-]+) +([.EDFVASXRBTP]{11})(.*?|)$");
         static Regex regex_DocLineMethodFromTo { get; } = new Regex("from ([0-9A-Z-+._e]+) to ([0-9A-Z-+._e]+)");
-        internal FilterData(DocLine function)
+        private FilterData()
         {
-            this.Function = function;
-            Match match_method = regex_DocLineMethod.Match(function.LineData);
-            IsSuccess = match_method.Success;
-            if (IsSuccess)
-            {
-                Name = match_method.Groups[1].Value.TrimStart('-');
-                Type = match_method.Groups[2].Value;
-                Flag = match_method.Groups[3].Value;
-                Description = match_method.Groups[4].Value;
-                Match match_fromto = regex_DocLineMethodFromTo.Match(Description);
-                if (match_fromto.Success)
-                {
-                    Min = match_fromto.Groups[1].Value;
-                    Max = match_fromto.Groups[2].Value;
-                }
-            }
         }
-        public DocLine Function { get; }
-        public bool IsSuccess { get; }
-        public string Name { get; }
-        public string Type { get; }
-        public string Flag { get; }
-        public string Description { get; }
-        public string Min { get; }
-        public string Max { get; }
+        public static FilterData? Create(DocLine function)
+        {
+            Match match_method = regex_DocLineMethod.Match(function.LineData);
+            if (!match_method.Success) return null;
+
+            string description = match_method.Groups[4].Value;
+            FilterData filterData = new FilterData()
+            {
+                Function = function,
+                Name = match_method.Groups[1].Value.TrimStart('-'),
+                Type = match_method.Groups[2].Value,
+                Flag = match_method.Groups[3].Value,
+                Description = description,
+            };
+            Match match_fromto = regex_DocLineMethodFromTo.Match(description);
+            if (match_fromto.Success)
+            {
+                filterData.Min = match_fromto.Groups[1].Value;
+                filterData.Max = match_fromto.Groups[2].Value;
+            }
+            return filterData;
+        }
+        public required DocLine Function { get; init; }
+        public required string Name { get; init; }
+        public required string Type { get; init; }
+        public required string Flag { get; init; }
+        public required string Description { get; init; }
+        public string? Min { get; private set; }
+        public string? Max { get; private set; }
     }
 }
