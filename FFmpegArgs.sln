@@ -32,19 +32,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autogens", "Autogens\Autoge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Cores", "FFmpegArgs.Cores\FFmpegArgs.Cores.csproj", "{C0982E11-13D7-49C5-A452-CF5CECACA2B4}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".other", ".other", "{562D252C-5B41-4BD2-85EA-FB51EE94FB3B}"
-	ProjectSection(SolutionItems) = preProject
-		.other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt = .other\ffmpegFull-v_4.2.4-1ubuntu0.1.txt
-		.other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt = .other\ffmpegFull-v_window_x64_n4.4.1-20211027.txt
-		.other\ffmpegFull-v_window_x64_n5.0-4-g911d7f167c-20220327.txt = .other\ffmpegFull-v_window_x64_n5.0-4-g911d7f167c-20220327.txt
-		.other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt = .other\ffmpeg_Filters-v_4.2.4-1ubuntu0.1.txt
-		.other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt = .other\ffmpeg_Filters-v_window_x64_n4.4.1-20211027.txt
-		.other\ffmpeg_Filters-v_window_x64_n5.0-4-g911d7f167c-20220327.txt = .other\ffmpeg_Filters-v_window_x64_n5.0-4-g911d7f167c-20220327.txt
-		.other\ffmpeg_formats-v_window_x64_n4.4.1-20211027.txt = .other\ffmpeg_formats-v_window_x64_n4.4.1-20211027.txt
-		.other\ffmpeg_formats-v_window_x64_n5.0-4-g911d7f167c-20220327.txt = .other\ffmpeg_formats-v_window_x64_n5.0-4-g911d7f167c-20220327.txt
-		.other\NotAutoGen_window.txt = .other\NotAutoGen_window.txt
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Extensions", "FFmpegArgs.Extensions\FFmpegArgs.Extensions.csproj", "{52CF2546-18FC-4CA6-B8C5-EFEA93B711A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs.Filters.Generated", "FFmpegArgs.Filters.Generated\FFmpegArgs.Filters.Generated.csproj", "{6E46958E-A12A-4BA3-977B-935D415D364D}"
@@ -168,9 +155,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{562D252C-5B41-4BD2-85EA-FB51EE94FB3B} = {11F588CA-D063-48B8-8421-51AD13D9B7E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5A339D64-0E65-41C0-8295-38387985E977}
