@@ -69,7 +69,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="d"></param>
         /// <returns></returns>
-        public ZoompanFilter D(TimeSpan d) => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
+        [Obsolete("removed in ffmpeg 7")] public ZoompanFilter D(TimeSpan d) => this.SetOptionRange("d", d, TimeSpan.Zero, TimeSpan.MaxValue);
         /// <summary>
         /// Set the output image size
         /// </summary>
