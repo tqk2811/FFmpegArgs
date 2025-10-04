@@ -5,7 +5,7 @@
     /// </summary>
     public abstract class BaseOption : IOption
     {
-        internal const bool DEFAULT_ThrowIfDuplicate = true;
+        internal const bool DEFAULT_ThrowIfDuplicate = false;
         /// <summary>
         /// 
         /// </summary>
