@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using FFmpegArgs;
 namespace FFmpegArgs.Test.BuildTest
 {
-    internal class BuildTestExtension
+    [TestClass]
+    public class BuildTestExtension
     {
-        [Obsolete]
-        void Test()
+        [TestMethod]
+        public void Test()
         {
             FFmpegArg ffmpegArg = new FFmpegArg()
                 //GlobalOptionsExtension
@@ -118,7 +119,7 @@ namespace FFmpegArgs.Test.BuildTest
                 .BitsPerCodedSample(1)
                 .BlockAlign(1)
                 .Bufsize(2)
-                .Codec(Codecs.aasc).Codec("abc")
+                .Codec(Codecs.mlp).Codec("abc")
                 .CodecTag(1)
                 .CutOff(1)
                 .Delay(1)
@@ -141,7 +142,7 @@ namespace FFmpegArgs.Test.BuildTest
                 .BQfactor(1)
                 .BQoffset(1)
                 .Bufsize(1)
-                .Codec(Codecs.sami).Codec("abc")
+                .Codec(Codecs.qoi).Codec("abc")
                 .CodecTag(1)
                 .Delay(1)
                 .Fps(1)
