@@ -3,7 +3,7 @@ showinfo AVOptions:
    checksum          <boolean>    ..FV....... calculate checksums (default true)
    udu_sei_as_ascii  <boolean>    ..FV....... try to print user data unregistered SEI as ascii character when possible (default false)
 */
-namespace FFmpegArgs.Filters.VideoFilters.Filters
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     ///  ... showinfo          V->V       Show textual information for each video frame.<br></br>
