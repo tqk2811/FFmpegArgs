@@ -19,7 +19,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var images_inputmap = ffmpegArg.GetImagesInput();
             Config config = new Config();
             int MAX_IMAGE_ANGLE = 25;
-            double RPS = 1;//Revolutions per sec
+            double RPS = 1.1;//Revolutions per sec
             int WIDTH = config.Size.Width;
             int HEIGHT = config.Size.Height;
             int FPS = config.Fps;
@@ -51,7 +51,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .RotateFilter()
                         .Angle(  $"if(" +
                                         $"between(t,{start.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)},{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
-                                        $"{RPS}*2*PI*(t-{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
+                                        $"{RPS.ToString(BaseOption.DefaultCultureInfo)}*2*PI*(t-{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
                                         $"0)" +
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
                         .OW($"{WIDTH * 4}")
