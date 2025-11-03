@@ -27,7 +27,7 @@ namespace Autogens.Filter
         {
             //"concat"
         };
-        static Regex regex_filter { get; } = new Regex("^([TSC.]{3}) +([a-z0-9_]+) +([AVN|]{1,}->[AVN|]{1,}) +(.+)$");
+        static Regex regex_filter { get; } = new Regex("^([TS.]{2}) +([a-z0-9_]+) +([AVN|]{1,}->[AVN|]{1,}) +(.+)$");
         static readonly Regex regex_parseTypeConvert = new Regex("(\\||N|V+|A+)->(\\||N|V+|A+)");
 
 
@@ -350,7 +350,7 @@ namespace Autogens.Filter
         {
             if (support[0] == 'T') yield return typeof(ITimelineSupport);
             if (support[1] == 'S') yield return typeof(ISliceThreading);
-            if (support[2] == 'C') yield return typeof(ICommandSupport);
+            //if (support[2] == 'C') yield return typeof(ICommandSupport);
         }
     }
 }
