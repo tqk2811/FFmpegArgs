@@ -62,7 +62,15 @@ namespace FFmpegArgs.Cores.Utils
         /// <param name="rationalString"></param>
         /// <param name="rational"></param>
         /// <returns></returns>
-        public static bool TryParse(string rationalString, out Rational rational)
+
+        
+        public static bool TryParse(
+            string rationalString,
+#if NET5_0_OR_GREATER
+            [NotNullWhen(true)] 
+#endif
+            out Rational? rational
+            )
         {
             rational = _Parse(rationalString);
             return rational is not null;
