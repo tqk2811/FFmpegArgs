@@ -28,7 +28,7 @@
         /// </summary>
         public override string MapName
         {
-            get { return IsInput ? $"{IndexOfInput}:a:{InputAVStream.StreamIndex}" : _name; }
+            get { return IsInput ? Inv($"{IndexOfInput}:a:{InputAVStream.StreamIndex}") : _name; }
         }
     }
 }

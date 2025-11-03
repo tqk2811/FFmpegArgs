@@ -38,7 +38,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="r"></param>
         /// <returns></returns>
-        public SetDarFilter Ratio(Rational r) => this.SetOption("r", $"{r.Numerator}:{r.Denominator}");
+        public SetDarFilter Ratio(Rational r) => this.SetOption("r", Inv($"{r.Numerator}:{r.Denominator}"));
         /// <summary>
         /// Set the maximum integer value to use for expressing numerator and denominator when reducing the expressed aspect ratio to a rational. <br>
         /// </br>(from 1 to INT_MAX) (default 100)

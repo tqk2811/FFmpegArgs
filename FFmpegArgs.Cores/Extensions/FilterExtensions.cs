@@ -12,9 +12,9 @@
         internal static string FiltergraphEscapingLv1(this string input)
         {
             return input
-                .Replace(@"\", @"\\\\\\\\")
-                .Replace(@"'", @"\'")
-                .Replace(@":", @"\:");
+                .ReplaceOrd(@"\", @"\\\\\\\\")
+                .ReplaceOrd(@"'", @"\'")
+                .ReplaceOrd(@":", @"\:");
         }
         /// <summary>
         /// Filter level
@@ -24,13 +24,13 @@
         internal static string FiltergraphEscapingLv2(this string input)
         {
             return input
-              .Replace(@"\'", @"\\\'")
-              .Replace(@"\:", @"\\:")
-              .Replace(@"[", @"\[")
-              .Replace(@"]", @"\]")
-              .Replace(@";", @"\;")
-              .Replace(@",", @"\,")
-              .Replace("\"", "\\\"");
+              .ReplaceOrd(@"\'", @"\\\'")
+              .ReplaceOrd(@"\:", @"\\:")
+              .ReplaceOrd(@"[", @"\[")
+              .ReplaceOrd(@"]", @"\]")
+              .ReplaceOrd(@";", @"\;")
+              .ReplaceOrd(@",", @"\,")
+              .ReplaceOrd("\"", "\\\"");
         }
         ///// <summary>
         ///// process arg level

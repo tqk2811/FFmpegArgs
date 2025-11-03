@@ -115,14 +115,14 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public ScaleFilter Size(Size videoSize)
-          => this.SetOption("s", $"{videoSize.Width}x{videoSize.Height}");
+          => this.SetOption("s", Inv($"{videoSize.Width}x{videoSize.Height}"));
         /// <summary>
         /// Specify when to evaluate width and height expression.
         /// </summary>
         /// <param name="eval"></param>
         /// <returns></returns>
         public ScaleFilter Eval(ScaleEval eval)
-          => this.SetOption("eval", eval.ToString().ToLower());
+          => this.SetOption("eval", eval.ToString().ToLowerInvariant());
         /// <summary>
         /// Set the interlacing mode
         /// </summary>

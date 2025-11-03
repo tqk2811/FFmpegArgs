@@ -48,7 +48,7 @@
         /// <param name="size"></param>
         /// <returns></returns>
         public static T OriginalSize<T>(this T t, Size size) where T : BaseSubtitlesFilter
-         => t.SetOption("original_size", $"{size.Width}x{size.Height}");
+         => t.SetOption("original_size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         /// Set a directory path containing fonts that can be used by the filter.<br>
         /// </br> These fonts will be used in addition to whatever the font provider uses.
@@ -93,6 +93,6 @@
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static string ToHexSubStringBGR(this Color color) => $"&H{color.B.ToString("X2")}{color.G.ToString("X2")}{color.R.ToString("X2")}";
+        public static string ToHexSubStringBGR(this Color color) => Inv($"&H{color.B.ToStringInv("X2")}{color.G.ToStringInv("X2")}{color.R.ToStringInv("X2")}");
     }
 }

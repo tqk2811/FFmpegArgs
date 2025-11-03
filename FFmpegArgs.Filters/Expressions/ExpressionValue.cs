@@ -13,54 +13,54 @@
         }
         public ExpressionValue(UInt16 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
         public ExpressionValue(UInt32 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
         public ExpressionValue(UInt64 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
 #if NET7_0_OR_GREATER
         public ExpressionValue(UInt128 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
 #endif
 
 
         public ExpressionValue(Int16 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
         public ExpressionValue(Int32 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
         public ExpressionValue(Int64 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
 #if NET7_0_OR_GREATER
         public ExpressionValue(Int128 value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
 #endif
 
         public ExpressionValue(float value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
         public ExpressionValue(double value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
         public ExpressionValue(decimal value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToStringInv();
         }
         public ExpressionValue(Rational value)
         {

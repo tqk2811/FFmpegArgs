@@ -110,8 +110,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             return inputs.Select(x => x
                 .PadFilter()
-                    .W(config.Size.Width.ToString())
-                    .H(config.Size.Height.ToString())
+                    .W(config.Size.Width.ToStringInv())
+                    .H(config.Size.Height.ToStringInv())
                     .X($"({config.Size.Width}-iw)/2")
                     .Y($"({config.Size.Height}-ih)/2")
                     .Color(config.BackgroundColor).MapOut

@@ -252,38 +252,38 @@
             Queue<string> outputs = new Queue<string>();
             for (int i = 0; i < tokens.Length; i++)
             {
-                if (_adv_functionName.Any(x => x.Equals(tokens[i])))
+                if (_adv_functionName.Any(x => x.EqualsOrd(tokens[i])))
                 {
                     stacks.Push(tokens[i]);// if is function -> push to stack
                 }
-                else if ("(".Equals(tokens[i]))
+                else if ("(".EqualsOrd(tokens[i]))
                 {
                     stacks.Push(tokens[i]);      //if is ( -> push to stack
                 }
-                else if (_binaryOperators.Any(x => x.Equals(tokens[i])))
+                else if (_binaryOperators.Any(x => x.EqualsOrd(tokens[i])))
                 {
                     //Pop stack to output
                     //Push token to stack
-                    if (stacks.Count > 0 && !stacks.First().Equals("(") && !stacks.First().Equals(",")) outputs.Enqueue(stacks.Pop());
+                    if (stacks.Count > 0 && !stacks.First().EqualsOrd("(") && !stacks.First().EqualsOrd(",")) outputs.Enqueue(stacks.Pop());
                     stacks.Push(tokens[i]);
                 }
                 else if (                                         //if is number, const, variables
                   double.TryParse(tokens[i], out double n) ||     //number
-                  _adv_variables.Any(x => x.Equals(tokens[i])) ||     //variables
-                  _consts.Any(x => x.Equals(tokens[i])))          //const
+                  _adv_variables.Any(x => x.EqualsOrd(tokens[i])) ||     //variables
+                  _consts.Any(x => x.EqualsOrd(tokens[i])))          //const
                 {
                     outputs.Enqueue(tokens[i]);//-> push to queue
                 }
-                else if (",".Equals(tokens[i]))//comma, that mean is inside function
+                else if (",".EqualsOrd(tokens[i]))//comma, that mean is inside function
                 {
-                    while (!",".Equals(stacks.First()) && !"(".Equals(stacks.First()))//not , and (
+                    while (!",".EqualsOrd(stacks.First()) && !"(".EqualsOrd(stacks.First()))//not , and (
                     {
                         outputs.Enqueue(stacks.Pop());
                         if (stacks.Count == 0) throw new InvalidInputExpressionException($"Invalid comma (,) not inside function");//that mean not inside function, wrong input
                     }
                     stacks.Push(tokens[i]);
                 }
-                else if (")".Equals(tokens[i]))//pop stack to output & pop stack
+                else if (")".EqualsOrd(tokens[i]))//pop stack to output & pop stack
                 {
                     //pop stack to output
                     //Repeated until "(" is at the top of the stack
@@ -291,17 +291,17 @@
                     while (true)
                     {
                         if (stacks.Count == 0)
-                            throw new InvalidInputExpressionException($"Surplus )");
+                            throw new InvalidInputExpressionException("Surplus )");
                         string pop = stacks.Pop();
-                        if (pop.Equals("("))
+                        if (pop.EqualsOrd("("))
                         {
-                            if (stacks.Count > 0 && _adv_functionName.Any(x => x.Equals(stacks.First())))
+                            if (stacks.Count > 0 && _adv_functionName.Any(x => x.EqualsOrd(stacks.First())))
                             {
-                                outputs.Enqueue($"{stacks.Pop()}_{comma_count + 1}");
+                                outputs.Enqueue(Inv($"{stacks.Pop()}_{comma_count + 1}"));
                             }
                             break;
                         }
-                        else if (pop.Equals(","))
+                        else if (pop.EqualsOrd(","))
                         {
                             comma_count++;
                         }

@@ -13,7 +13,7 @@
         /// <summary>
         ///  set grid size (default &quot;6x5&quot;)
         /// </summary>
-        public TileFilterGen layout(Size layout) => this.SetOption("layout", $"{layout.Width}x{layout.Height}");
+        public TileFilterGen layout(Size layout) => this.SetOption("layout", Inv($"{layout.Width}x{layout.Height}"));
         /// <summary>
         ///  set maximum number of frame to render (from 0 to INT_MAX) (default 0)
         /// </summary>

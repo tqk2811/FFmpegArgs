@@ -14,7 +14,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         internal ChannelmapFilter(AudioMap audioMap, Tuple<ChannelLayout, ChannelLayout>[] maps) : base("channelmap", audioMap)
         {
             AddMapOut();
-            string _maps = string.Join("|", maps.Select(x => $"{x.Item1.GetEnumAttribute<NameAttribute>().Name}-{x.Item2.GetEnumAttribute<NameAttribute>().Name}"));
+            string _maps = string.Join("|", maps.Select(x => Inv($"{x.Item1.GetEnumAttribute<NameAttribute>().Name}-{x.Item2.GetEnumAttribute<NameAttribute>().Name}")));
             if (!string.IsNullOrEmpty(_maps)) this.SetOption("map", _maps);
         }
 

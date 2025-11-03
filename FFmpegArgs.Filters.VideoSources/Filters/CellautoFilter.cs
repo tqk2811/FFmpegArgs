@@ -74,7 +74,7 @@
         /// </summary>
         /// <returns></returns>
         public CellautoFilter Size(Size size)
-            => this.SetOption("s", $"{size.Width}x{size.Height}");
+            => this.SetOption("s", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         /// If set to 1, scroll the output upward when all the rows in the output have been already filled.<br>
         /// </br> If set to 0, the new generated row will be written over the top row just after the bottom row is filled. Defaults to 1.

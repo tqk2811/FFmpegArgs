@@ -55,7 +55,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="mode"></param>
         /// <returns></returns>
         public ApulsatorFilter Mode(ApulsatorMode mode)
-            => this.SetOption("mode", mode.ToString().ToLower());
+            => this.SetOption("mode", mode.ToString().ToLowerInvariant());
 
         /// <summary>
         /// set modulation (from 0 to 1) (default 1)
@@ -95,7 +95,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="timing"></param>
         /// <returns></returns>
         public ApulsatorFilter Timing(ApulsatorMode timing)
-            => this.SetOption("timing", timing.ToString().ToLower());
+            => this.SetOption("timing", timing.ToString().ToLowerInvariant());
 
         /// <summary>
         /// set BPM (from 30 to 300) (default 120)

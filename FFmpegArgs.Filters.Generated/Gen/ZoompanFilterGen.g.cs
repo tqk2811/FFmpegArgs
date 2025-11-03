@@ -29,7 +29,7 @@
         /// <summary>
         ///  set the output image size (default &quot;hd720&quot;)
         /// </summary>
-        public ZoompanFilterGen s(Size s) => this.SetOption("s", $"{s.Width}x{s.Height}");
+        public ZoompanFilterGen s(Size s) => this.SetOption("s", Inv($"{s.Width}x{s.Height}"));
         /// <summary>
         ///  set the output framerate (default &quot;25&quot;)
         /// </summary>

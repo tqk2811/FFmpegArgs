@@ -67,7 +67,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="eval"></param>
         /// <returns></returns>
         public OverlayFilter Eval(OverlayEval eval)
-          => this.SetOption("eval", eval.ToString().ToLower());
+          => this.SetOption("eval", eval.ToString().ToLowerInvariant());
         /// <summary>
         /// Set the format for the output video.
         /// </summary>
@@ -81,7 +81,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="alpha"></param>
         /// <returns></returns>
         public OverlayFilter Alpha(OverlayAlpha alpha)
-          => this.SetOption("alpha", alpha.ToString().ToLower());
+          => this.SetOption("alpha", alpha.ToString().ToLowerInvariant());
     }
     /// <summary>
     /// 

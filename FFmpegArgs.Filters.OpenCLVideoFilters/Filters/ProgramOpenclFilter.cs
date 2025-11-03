@@ -46,7 +46,7 @@ namespace FFmpegArgs.Filters.OpenCLVideoFilters
         /// <param name="size"></param>
         /// <returns></returns>
         public ProgramOpenclFilter Size(Size size)
-            => this.SetOption("size", $"{size.Width}x{size.Height}");
+            => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
     }
     /// <summary>
     /// 

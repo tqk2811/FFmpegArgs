@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video size (default &quot;320x240&quot;)
         /// </summary>
-        public TestsrcFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public TestsrcFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>

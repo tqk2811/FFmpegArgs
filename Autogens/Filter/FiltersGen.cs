@@ -50,7 +50,7 @@ namespace Autogens.Filter
                     string name = match.Groups[2].Value;
                     string type = match.Groups[3].Value;
                     string description = match.Groups[4].Value;
-                    DocLine? docLine = docLines.FirstOrDefault(x => x.LineData.StartsWith($"{name} AVOptions:"));
+                    DocLine? docLine = docLines.FirstOrDefault(x => x.LineData.StartsWithOrd($"{name} AVOptions:"));
                     if (docLine is null)
                     {
                         Console.WriteLine($"{"Filters.Gen not found",-40}: {filter}");
@@ -140,7 +140,7 @@ namespace Autogens.Filter
                             .GroupBy(x => x.Description)
                             .Where(x => x.Count() == 2)
                             .Select(x => x.OrderBy(y => y.Name.Length))
-                            .Where(x => x.Last().Name.StartsWith(x.First().Name))
+                            .Where(x => x.Last().Name.StartsWithOrd(x.First().Name))
                             .Select(x => x.First())
                             .ToList();
 

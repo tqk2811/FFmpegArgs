@@ -37,9 +37,9 @@
                 GetFlagArgs(),
                 GetOptionArgs(),
                 GetAVStreamArg(),
-                $"-i pipe:{StdIn}"
+                Inv($"-i pipe:{StdIn}")
             };
-            return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
     }
 }

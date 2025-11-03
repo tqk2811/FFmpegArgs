@@ -26,10 +26,10 @@
         /// <returns></returns>
         public override string ToString()
         {
-            List<string> options = base.Options.Select(x => $"{x.Key}:a:{StreamIndex} {x.Value}").ToList();
+            List<string> options = base.Options.Select(x => Inv($"{x.Key}:a:{StreamIndex} {x.Value}")).ToList();
             options.AddRange(base.Flags.Select(x => x));
-            if (this.AudioMap.IsInput) options.Add($"-map {this.AudioMap.MapName}");
-            else options.Add($"-map [{this.AudioMap.MapName}]");
+            if (this.AudioMap.IsInput) options.Add(Inv($"-map {this.AudioMap.MapName}"));
+            else options.Add(Inv($"-map [{this.AudioMap.MapName}]"));
             return string.Join(" ", options);
         }
     }

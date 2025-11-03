@@ -131,7 +131,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="mode"></param>
         /// <returns></returns>
         public AdynamicequalizerFilter Mode(AdynamicequalizerMode mode)
-          => this.SetOption("mode", mode.ToString().ToLower());
+          => this.SetOption("mode", mode.ToString().ToLowerInvariant());
     }
     /// <summary>
     /// 

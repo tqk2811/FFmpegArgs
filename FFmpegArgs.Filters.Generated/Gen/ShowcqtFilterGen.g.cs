@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video size (default &quot;1920x1080&quot;)
         /// </summary>
-        public ShowcqtFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public ShowcqtFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>

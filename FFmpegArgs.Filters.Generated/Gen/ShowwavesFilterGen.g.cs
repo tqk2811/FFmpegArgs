@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video size (default &quot;600x240&quot;)
         /// </summary>
-        public ShowwavesFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public ShowwavesFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  select display mode (from 0 to 3) (default point)
         /// </summary>

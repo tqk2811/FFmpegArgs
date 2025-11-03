@@ -25,11 +25,11 @@
         /// <summary>
         ///  set fixed size grid layout
         /// </summary>
-        public Xstack_qsvFilterGen grid(Size grid) => this.SetOption("grid", $"{grid.Width}x{grid.Height}");
+        public Xstack_qsvFilterGen grid(Size grid) => this.SetOption("grid", Inv($"{grid.Width}x{grid.Height}"));
         /// <summary>
         ///  set tile size in grid layout
         /// </summary>
-        public Xstack_qsvFilterGen grid_tile_size(Size grid_tile_size) => this.SetOption("grid_tile_size", $"{grid_tile_size.Width}x{grid_tile_size.Height}");
+        public Xstack_qsvFilterGen grid_tile_size(Size grid_tile_size) => this.SetOption("grid_tile_size", Inv($"{grid_tile_size.Width}x{grid_tile_size.Height}"));
         /// <summary>
         ///  Set the color for unused pixels (default &quot;none&quot;)
         /// </summary>

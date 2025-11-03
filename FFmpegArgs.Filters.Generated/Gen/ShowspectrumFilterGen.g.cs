@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video size (default &quot;640x512&quot;)
         /// </summary>
-        public ShowspectrumFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public ShowspectrumFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  set sliding mode (from 0 to 4) (default replace)
         /// </summary>

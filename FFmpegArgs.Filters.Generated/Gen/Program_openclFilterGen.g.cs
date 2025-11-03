@@ -25,7 +25,7 @@
         /// <summary>
         ///  Video size
         /// </summary>
-        public Program_openclFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public Program_openclFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
     }
 
     public static partial class FilterGeneratedExtensions
