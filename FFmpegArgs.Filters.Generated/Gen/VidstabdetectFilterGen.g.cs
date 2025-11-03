@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... vidstabdetect     V-&gt;V       Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).
+    /// .. vidstabdetect     V-&gt;V       Extract relative transformations, pass 1 of 2 for stabilization (see vidstabtransform for pass 2).
     /// </summary>
     public class VidstabdetectFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  path to the file used to write the transforms (default &quot;transforms.trf&quot;)
         /// </summary>
-        public VidstabdetectFilterGen result(String result) => this.SetOption("result", result.ToString());
+        public VidstabdetectFilterGen result(String result) => this.SetOption("result", result.ToStringInv());
         /// <summary>
         ///  how shaky is the video and how quick is the camera? 1: little (fast) 10: very strong/quick (slow) (from 1 to 10) (default 5)
         /// </summary>

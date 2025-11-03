@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC anequalizer       A-&gt;N       Apply high-order audio parametric multi band equalizer.
+    /// TS anequalizer       A-&gt;N       Apply high-order audio parametric multi band equalizer.
     /// </summary>
-    public class AnequalizerFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AnequalizerFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AnequalizerFilterGen(AudioMap input, int outputCount) : base("anequalizer", input)
         {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  (default &quot;&quot;)
         /// </summary>
-        public AnequalizerFilterGen _params(String _params) => this.SetOption("params", _params.ToString());
+        public AnequalizerFilterGen _params(String _params) => this.SetOption("params", _params.ToStringInv());
         /// <summary>
         ///  draw frequency response curves (default false)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set channels curves colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public AnequalizerFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
+        public AnequalizerFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
     }
 
     /// <summary>

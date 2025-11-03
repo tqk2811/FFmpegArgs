@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... deinterlace_vaapi V-&gt;V       Deinterlacing of VAAPI surfaces
+    /// .. deinterlace_vaapi V-&gt;V       Deinterlacing of VAAPI surfaces
     /// </summary>
     public class Deinterlace_vaapiFilterGen : ImageToImageFilter
     {

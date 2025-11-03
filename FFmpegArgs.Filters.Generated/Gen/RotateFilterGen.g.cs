@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC rotate            V-&gt;V       Rotate the input image.
+    /// TS rotate            V-&gt;V       Rotate the input image.
     /// </summary>
-    public class RotateFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class RotateFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal RotateFilterGen(ImageMap input) : base("rotate", input)
         {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set angle (in radians) (default &quot;0&quot;)
         /// </summary>
-        public RotateFilterGen angle(String angle) => this.SetOption("angle", angle.ToString());
+        public RotateFilterGen angle(String angle) => this.SetOption("angle", angle.ToStringInv());
         /// <summary>
         ///  set output width expression (default &quot;iw&quot;)
         /// </summary>
@@ -33,11 +33,11 @@
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public RotateFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToString());
+        public RotateFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToStringInv());
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public RotateFilterGen c(String c) => this.SetOption("c", c.ToString());
+        public RotateFilterGen c(String c) => this.SetOption("c", c.ToStringInv());
         /// <summary>
         ///  use bilinear interpolation (default true)
         /// </summary>

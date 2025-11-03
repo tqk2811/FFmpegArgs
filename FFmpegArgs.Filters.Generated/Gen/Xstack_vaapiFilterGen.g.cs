@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... xstack_vaapi      N-&gt;V       &quot;VA-API&quot; xstack
+    /// .. xstack_vaapi      N-&gt;V       &quot;VA-API&quot; xstack
     /// </summary>
     public class Xstack_vaapiFilterGen : ImageToImageFilter
     {
@@ -21,7 +21,7 @@
         /// <summary>
         ///  Set custom layout
         /// </summary>
-        public Xstack_vaapiFilterGen layout(String layout) => this.SetOption("layout", layout.ToString());
+        public Xstack_vaapiFilterGen layout(String layout) => this.SetOption("layout", layout.ToStringInv());
         /// <summary>
         ///  set fixed size grid layout
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  Set the color for unused pixels (default &quot;none&quot;)
         /// </summary>
-        public Xstack_vaapiFilterGen fill(String fill) => this.SetOption("fill", fill.ToString());
+        public Xstack_vaapiFilterGen fill(String fill) => this.SetOption("fill", fill.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... mergeplanes       N-&gt;V       Merge planes.
+    /// .. mergeplanes       N-&gt;V       Merge planes.
     /// </summary>
     public class MergeplanesFilterGen : ImageToImageFilter
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set output pixel format (default yuva444p)
         /// </summary>
-        public MergeplanesFilterGen format(PixFmt format) => this.SetOption("format", format.ToString());
+        public MergeplanesFilterGen format(PixFmt format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  set 1st input to output stream mapping (from 0 to 3) (default 0)
         /// </summary>

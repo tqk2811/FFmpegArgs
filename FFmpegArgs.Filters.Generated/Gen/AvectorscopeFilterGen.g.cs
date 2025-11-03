@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC avectorscope      A-&gt;V       Convert input audio to vectorscope video output.
+    /// .S avectorscope      A-&gt;V       Convert input audio to vectorscope video output.
     /// </summary>
-    public class AvectorscopeFilterGen : AudioToImageFilter, ISliceThreading, ICommandSupport
+    public class AvectorscopeFilterGen : AudioToImageFilter, ISliceThreading
     {
         internal AvectorscopeFilterGen(AudioMap input) : base("avectorscope", input)
         {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AvectorscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public AvectorscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video size (default &quot;400x400&quot;)
         /// </summary>

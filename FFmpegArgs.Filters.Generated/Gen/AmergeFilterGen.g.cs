@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... amerge            N-&gt;A       Merge two or more audio streams into a single multi-channel stream.
+    /// .. amerge            N-&gt;A       Merge two or more audio streams into a single multi-channel stream.
     /// </summary>
     public class AmergeFilterGen : AudioToAudioFilter
     {

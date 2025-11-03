@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC tmix              V-&gt;V       Mix successive video frames.
+    /// TS tmix              V-&gt;V       Mix successive video frames.
     /// </summary>
-    public class TmixFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class TmixFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal TmixFilterGen(ImageMap input) : base("tmix", input)
         {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set weight for each frame (default &quot;1 1 1&quot;)
         /// </summary>
-        public TmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToString());
+        public TmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToStringInv());
         /// <summary>
         ///  set scale (from 0 to 32767) (default 0)
         /// </summary>
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set what planes to filter (default F)
         /// </summary>
-        public TmixFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
+        public TmixFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

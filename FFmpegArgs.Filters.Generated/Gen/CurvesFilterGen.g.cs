@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC curves            V-&gt;V       Adjust components curves.
+    /// TS curves            V-&gt;V       Adjust components curves.
     /// </summary>
-    public class CurvesFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class CurvesFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal CurvesFilterGen(ImageMap input) : base("curves", input)
         {
@@ -17,31 +17,31 @@
         /// <summary>
         ///  set master points coordinates
         /// </summary>
-        public CurvesFilterGen master(String master) => this.SetOption("master", master.ToString());
+        public CurvesFilterGen master(String master) => this.SetOption("master", master.ToStringInv());
         /// <summary>
         ///  set red points coordinates
         /// </summary>
-        public CurvesFilterGen red(String red) => this.SetOption("red", red.ToString());
+        public CurvesFilterGen red(String red) => this.SetOption("red", red.ToStringInv());
         /// <summary>
         ///  set green points coordinates
         /// </summary>
-        public CurvesFilterGen green(String green) => this.SetOption("green", green.ToString());
+        public CurvesFilterGen green(String green) => this.SetOption("green", green.ToStringInv());
         /// <summary>
         ///  set blue points coordinates
         /// </summary>
-        public CurvesFilterGen blue(String blue) => this.SetOption("blue", blue.ToString());
+        public CurvesFilterGen blue(String blue) => this.SetOption("blue", blue.ToStringInv());
         /// <summary>
         ///  set points coordinates for all components
         /// </summary>
-        public CurvesFilterGen all(String all) => this.SetOption("all", all.ToString());
+        public CurvesFilterGen all(String all) => this.SetOption("all", all.ToStringInv());
         /// <summary>
         ///  set Photoshop curves file name
         /// </summary>
-        public CurvesFilterGen psfile(String psfile) => this.SetOption("psfile", psfile.ToString());
+        public CurvesFilterGen psfile(String psfile) => this.SetOption("psfile", psfile.ToStringInv());
         /// <summary>
         ///  save Gnuplot script of the curves in specified file
         /// </summary>
-        public CurvesFilterGen plot(String plot) => this.SetOption("plot", plot.ToString());
+        public CurvesFilterGen plot(String plot) => this.SetOption("plot", plot.ToStringInv());
         /// <summary>
         ///  specify the kind of interpolation (from 0 to 1) (default natural)
         /// </summary>

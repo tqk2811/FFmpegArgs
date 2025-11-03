@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC apsyclip          A-&gt;A       Audio Psychoacoustic Clipper.
+    /// TS apsyclip          A-&gt;A       Audio Psychoacoustic Clipper.
     /// </summary>
-    public class ApsyclipFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ApsyclipFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal ApsyclipFilterGen(AudioMap input) : base("apsyclip", input)
         {

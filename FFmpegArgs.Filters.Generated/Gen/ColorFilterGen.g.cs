@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C color             |-&gt;V       Provide an uniformly colored input.
+    /// .. color             |-&gt;V       Provide an uniformly colored input.
     /// </summary>
-    public class ColorFilterGen : SourceToImageFilter, ICommandSupport
+    public class ColorFilterGen : SourceToImageFilter
     {
         internal ColorFilterGen(IImageFilterGraph input) : base("color", input)
         {
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ColorFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ColorFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC adrc              A-&gt;A       Audio Spectral Dynamic Range Controller.
+    /// TS adrc              A-&gt;A       Audio Spectral Dynamic Range Controller.
     /// </summary>
-    public class AdrcFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AdrcFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AdrcFilterGen(AudioMap input) : base("adrc", input)
         {
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public AdrcFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public AdrcFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

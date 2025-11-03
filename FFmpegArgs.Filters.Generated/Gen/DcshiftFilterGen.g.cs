@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. dcshift           A-&gt;A       Apply a DC shift to the audio.
+    /// T. dcshift           A-&gt;A       Apply a DC shift to the audio.
     /// </summary>
     public class DcshiftFilterGen : AudioToAudioFilter, ITimelineSupport
     {

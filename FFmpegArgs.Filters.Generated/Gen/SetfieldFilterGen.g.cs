@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... setfield          V-&gt;V       Force field for the output video frame.
+    /// .. setfield          V-&gt;V       Force field for the output video frame.
     /// </summary>
     public class SetfieldFilterGen : ImageToImageFilter
     {

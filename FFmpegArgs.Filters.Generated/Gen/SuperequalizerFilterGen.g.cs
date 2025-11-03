@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... superequalizer    A-&gt;A       Apply 18 band equalization filter.
+    /// .. superequalizer    A-&gt;A       Apply 18 band equalization filter.
     /// </summary>
     public class SuperequalizerFilterGen : AudioToAudioFilter
     {

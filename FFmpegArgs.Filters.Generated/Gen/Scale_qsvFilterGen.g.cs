@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... scale_qsv         V-&gt;V       Quick Sync Video &quot;scaling and format conversion&quot;
+    /// .. scale_qsv         V-&gt;V       Quick Sync Video &quot;scaling and format conversion&quot;
     /// </summary>
     public class Scale_qsvFilterGen : ImageToImageFilter
     {
@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width(0=input video width, -1=keep input video aspect) (default &quot;iw&quot;)
         /// </summary>
-        public Scale_qsvFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public Scale_qsvFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  Output video height(0=input video height, -1=keep input video aspect) (default &quot;ih&quot;)
         /// </summary>
-        public Scale_qsvFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public Scale_qsvFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  Output pixel format (default &quot;same&quot;)
         /// </summary>
-        public Scale_qsvFilterGen format(String format) => this.SetOption("format", format.ToString());
+        public Scale_qsvFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  scaling &amp; format conversion mode (mode compute(3), vd(4) and ve(5) are only available on some platforms) (from 0 to 5) (default 0)
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... overlay_vaapi     VV-&gt;V      Overlay one video on top of another
+    /// .. overlay_vaapi     VV-&gt;V      Overlay one video on top of another
     /// </summary>
     public class Overlay_vaapiFilterGen : ImageToImageFilter
     {
@@ -13,19 +13,19 @@
         /// <summary>
         ///  Overlay x position (default &quot;0&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen x(String x) => this.SetOption("x", x.ToString());
+        public Overlay_vaapiFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
         /// <summary>
         ///  Overlay y position (default &quot;0&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen y(String y) => this.SetOption("y", y.ToString());
+        public Overlay_vaapiFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
         /// <summary>
         ///  Overlay width (default &quot;overlay_iw&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public Overlay_vaapiFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  Overlay height (default &quot;overlay_ih*w/overlay_iw&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public Overlay_vaapiFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  Overlay global alpha (from 0 to 1) (default 1)
         /// </summary>

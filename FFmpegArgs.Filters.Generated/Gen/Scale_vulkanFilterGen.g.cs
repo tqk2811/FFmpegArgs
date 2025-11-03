@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... scale_vulkan      V-&gt;V       Scale Vulkan frames
+    /// .. scale_vulkan      V-&gt;V       Scale Vulkan frames
     /// </summary>
     public class Scale_vulkanFilterGen : ImageToImageFilter
     {
@@ -13,19 +13,23 @@
         /// <summary>
         ///  Output video width (default &quot;iw&quot;)
         /// </summary>
-        public Scale_vulkanFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public Scale_vulkanFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  Output video height (default &quot;ih&quot;)
         /// </summary>
-        public Scale_vulkanFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public Scale_vulkanFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  Scaler function (from 0 to 2) (default bilinear)
         /// </summary>
         public Scale_vulkanFilterGen scaler(Scale_vulkanFilterGenScaler scaler) => this.SetOption("scaler", scaler.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
+        ///  Debayer algorithm to use (from 0 to 2) (default bilinear_hq)
+        /// </summary>
+        public Scale_vulkanFilterGen debayer(Scale_vulkanFilterGenDebayer debayer) => this.SetOption("debayer", debayer.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
         ///  Output video format (software format of hardware frames)
         /// </summary>
-        public Scale_vulkanFilterGen format(String format) => this.SetOption("format", format.ToString());
+        public Scale_vulkanFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
         /// </summary>
@@ -47,6 +51,23 @@
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("nearest")]
         nearest = 1
+    }
+
+    /// <summary>
+    ///  Debayer algorithm to use (from 0 to 2) (default bilinear_hq)
+    /// </summary>
+    public enum Scale_vulkanFilterGenDebayer
+    {
+        /// <summary>
+        /// bilinear        0            ..FV....... Bilinear debayering (fastest)
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("bilinear")]
+        bilinear = 0,
+        /// <summary>
+        /// bilinear_hq     1            ..FV....... Bilinear debayering (high quality)
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("bilinear_hq")]
+        bilinear_hq = 1
     }
 
     /// <summary>

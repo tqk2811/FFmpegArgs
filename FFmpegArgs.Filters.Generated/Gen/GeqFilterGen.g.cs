@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. geq               V-&gt;V       Apply generic equation to each pixel.
+    /// TS geq               V-&gt;V       Apply generic equation to each pixel.
     /// </summary>
     public class GeqFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

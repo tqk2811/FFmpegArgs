@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... compand           A-&gt;A       Compress or expand audio dynamic range.
+    /// .. compand           A-&gt;A       Compress or expand audio dynamic range.
     /// </summary>
     public class CompandFilterGen : AudioToAudioFilter
     {
@@ -13,15 +13,15 @@
         /// <summary>
         ///  set time over which increase of volume is determined (default &quot;0&quot;)
         /// </summary>
-        public CompandFilterGen attacks(String attacks) => this.SetOption("attacks", attacks.ToString());
+        public CompandFilterGen attacks(String attacks) => this.SetOption("attacks", attacks.ToStringInv());
         /// <summary>
         ///  set time over which decrease of volume is determined (default &quot;0.8&quot;)
         /// </summary>
-        public CompandFilterGen decays(String decays) => this.SetOption("decays", decays.ToString());
+        public CompandFilterGen decays(String decays) => this.SetOption("decays", decays.ToStringInv());
         /// <summary>
         ///  set points of transfer function (default &quot;-70/-70|-60/-20|1/0&quot;)
         /// </summary>
-        public CompandFilterGen points(String points) => this.SetOption("points", points.ToString());
+        public CompandFilterGen points(String points) => this.SetOption("points", points.ToStringInv());
         /// <summary>
         ///  set soft-knee (from 0.01 to 900) (default 0.01)
         /// </summary>

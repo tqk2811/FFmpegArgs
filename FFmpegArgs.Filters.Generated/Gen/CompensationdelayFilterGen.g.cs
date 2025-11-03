@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C compensationdelay A-&gt;A       Audio Compensation Delay Line.
+    /// T. compensationdelay A-&gt;A       Audio Compensation Delay Line.
     /// </summary>
-    public class CompensationdelayFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class CompensationdelayFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal CompensationdelayFilterGen(AudioMap input) : base("compensationdelay", input)
         {

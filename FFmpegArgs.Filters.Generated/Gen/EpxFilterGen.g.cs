@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. epx               V-&gt;V       Scale the input using EPX algorithm.
+    /// .S epx               V-&gt;V       Scale the input using EPX algorithm.
     /// </summary>
     public class EpxFilterGen : ImageToImageFilter, ISliceThreading
     {

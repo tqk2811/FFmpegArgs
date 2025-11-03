@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... vstack_vaapi      N-&gt;V       &quot;VA-API&quot; vstack
+    /// .. vstack_vaapi      N-&gt;V       &quot;VA-API&quot; vstack
     /// </summary>
     public class Vstack_vaapiFilterGen : ImageToImageFilter
     {

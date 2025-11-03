@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... channelmap        A-&gt;A       Remap audio channels.
+    /// .. channelmap        A-&gt;A       Remap audio channels.
     /// </summary>
     public class ChannelmapFilterGen : AudioToAudioFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  A comma-separated list of input channel numbers in output order.
         /// </summary>
-        public ChannelmapFilterGen map(String map) => this.SetOption("map", map.ToString());
+        public ChannelmapFilterGen map(String map) => this.SetOption("map", map.ToStringInv());
         /// <summary>
         ///  Output channel layout.
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... libvmaf           VV-&gt;V      Calculate the VMAF between two video streams.
+    /// .. libvmaf           VV-&gt;V      Calculate the VMAF between two video streams.
     /// </summary>
     public class LibvmafFilterGen : ImageToImageFilter
     {
@@ -13,15 +13,15 @@
         /// <summary>
         ///  Set the file path to be used to write log.
         /// </summary>
-        public LibvmafFilterGen log_path(String log_path) => this.SetOption("log_path", log_path.ToString());
+        public LibvmafFilterGen log_path(String log_path) => this.SetOption("log_path", log_path.ToStringInv());
         /// <summary>
         ///  Set the format of the log (csv, json, xml, or sub). (default &quot;xml&quot;)
         /// </summary>
-        public LibvmafFilterGen log_fmt(String log_fmt) => this.SetOption("log_fmt", log_fmt.ToString());
+        public LibvmafFilterGen log_fmt(String log_fmt) => this.SetOption("log_fmt", log_fmt.ToStringInv());
         /// <summary>
         ///  Set the pool method to be used for computing vmaf.
         /// </summary>
-        public LibvmafFilterGen pool(String pool) => this.SetOption("pool", pool.ToString());
+        public LibvmafFilterGen pool(String pool) => this.SetOption("pool", pool.ToStringInv());
         /// <summary>
         ///  Set number of threads to be used when computing vmaf. (from 0 to UINT32_MAX) (default 0)
         /// </summary>
@@ -33,11 +33,11 @@
         /// <summary>
         ///  Set the model to be used for computing vmaf. (default &quot;version=vmaf_v0.6.1&quot;)
         /// </summary>
-        public LibvmafFilterGen model(String model) => this.SetOption("model", model.ToString());
+        public LibvmafFilterGen model(String model) => this.SetOption("model", model.ToStringInv());
         /// <summary>
         ///  Set the feature to be used for computing vmaf.
         /// </summary>
-        public LibvmafFilterGen feature(String feature) => this.SetOption("feature", feature.ToString());
+        public LibvmafFilterGen feature(String feature) => this.SetOption("feature", feature.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

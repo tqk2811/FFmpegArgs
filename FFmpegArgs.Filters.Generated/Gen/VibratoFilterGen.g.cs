@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. vibrato           A-&gt;A       Apply vibrato effect.
+    /// T. vibrato           A-&gt;A       Apply vibrato effect.
     /// </summary>
     public class VibratoFilterGen : AudioToAudioFilter, ITimelineSupport
     {

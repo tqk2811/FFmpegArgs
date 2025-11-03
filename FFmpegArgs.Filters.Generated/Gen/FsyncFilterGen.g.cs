@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... fsync             V-&gt;V       Synchronize video frames from external source.
+    /// .. fsync             V-&gt;V       Synchronize video frames from external source.
     /// </summary>
     public class FsyncFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set the file name to use for frame sync (default &quot;&quot;)
         /// </summary>
-        public FsyncFilterGen file(String file) => this.SetOption("file", file.ToString());
+        public FsyncFilterGen file(String file) => this.SetOption("file", file.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

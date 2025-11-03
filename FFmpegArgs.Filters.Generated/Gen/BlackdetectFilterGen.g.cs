@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. blackdetect       V-&gt;V       Detect video intervals that are (almost) black.
+    /// .S blackdetect       V-&gt;V       Detect video intervals that are (almost) black.
     /// </summary>
     public class BlackdetectFilterGen : ImageToImageFilter, ISliceThreading
     {
@@ -34,6 +34,10 @@
         ///  set the pixel black threshold (from 0 to 1) (default 0.1)
         /// </summary>
         public BlackdetectFilterGen pix_th(double pix_th) => this.SetOptionRange("pix_th", pix_th, 0, 1);
+        /// <summary>
+        ///  check alpha instead of luma (default false)
+        /// </summary>
+        public BlackdetectFilterGen alpha(bool alpha) => this.SetOption("alpha", alpha.ToFFmpegFlag());
     }
 
     public static partial class FilterGeneratedExtensions

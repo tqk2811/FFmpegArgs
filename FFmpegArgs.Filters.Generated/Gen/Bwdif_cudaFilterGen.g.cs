@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. bwdif_cuda        V-&gt;V       Deinterlace CUDA frames
+    /// T. bwdif_cuda        V-&gt;V       Deinterlace CUDA frames
     /// </summary>
     public class Bwdif_cudaFilterGen : ImageToImageFilter, ITimelineSupport
     {

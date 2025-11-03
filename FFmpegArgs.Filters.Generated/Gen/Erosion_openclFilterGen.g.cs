@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... erosion_opencl    V-&gt;V       Apply erosion effect
+    /// .. erosion_opencl    V-&gt;V       Apply erosion effect
     /// </summary>
     public class Erosion_openclFilterGen : ImageToImageFilter
     {

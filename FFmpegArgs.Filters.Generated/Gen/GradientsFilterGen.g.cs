@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC gradients         |-&gt;V       Draw a gradients.
+    /// .S gradients         |-&gt;V       Draw a gradients.
     /// </summary>
-    public class GradientsFilterGen : SourceToImageFilter, ISliceThreading, ICommandSupport
+    public class GradientsFilterGen : SourceToImageFilter, ISliceThreading
     {
         internal GradientsFilterGen(IImageFilterGraph input) : base("gradients", input)
         {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;25&quot;)
         /// </summary>
-        public GradientsFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public GradientsFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set 1st color (default &quot;random&quot;)
         /// </summary>

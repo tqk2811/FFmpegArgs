@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... colorkey_opencl   V-&gt;V       Turns a certain color into transparency. Operates on RGB colors.
+    /// .. colorkey_opencl   V-&gt;V       Turns a certain color into transparency. Operates on RGB colors.
     /// </summary>
     public class Colorkey_openclFilterGen : ImageToImageFilter
     {

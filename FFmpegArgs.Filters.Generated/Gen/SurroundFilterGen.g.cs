@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC surround          A-&gt;A       Apply audio surround upmix filter.
+    /// .S surround          A-&gt;A       Apply audio surround upmix filter.
     /// </summary>
-    public class SurroundFilterGen : AudioToAudioFilter, ISliceThreading, ICommandSupport
+    public class SurroundFilterGen : AudioToAudioFilter, ISliceThreading
     {
         internal SurroundFilterGen(AudioMap input) : base("surround", input)
         {

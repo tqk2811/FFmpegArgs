@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... boxblur_opencl    V-&gt;V       Apply boxblur filter to input video
+    /// .. boxblur_opencl    V-&gt;V       Apply boxblur filter to input video
     /// </summary>
     public class Boxblur_openclFilterGen : ImageToImageFilter
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  Radius of the luma blurring box (default &quot;2&quot;)
         /// </summary>
-        public Boxblur_openclFilterGen luma_radius(String luma_radius) => this.SetOption("luma_radius", luma_radius.ToString());
+        public Boxblur_openclFilterGen luma_radius(String luma_radius) => this.SetOption("luma_radius", luma_radius.ToStringInv());
         /// <summary>
         ///  Radius of the luma blurring box (default &quot;2&quot;)
         /// </summary>
-        public Boxblur_openclFilterGen lr(String lr) => this.SetOption("lr", lr.ToString());
+        public Boxblur_openclFilterGen lr(String lr) => this.SetOption("lr", lr.ToStringInv());
         /// <summary>
         ///  How many times should the boxblur be applied to luma (from 0 to INT_MAX) (default 2)
         /// </summary>
@@ -29,11 +29,11 @@
         /// <summary>
         ///  Radius of the chroma blurring box
         /// </summary>
-        public Boxblur_openclFilterGen chroma_radius(String chroma_radius) => this.SetOption("chroma_radius", chroma_radius.ToString());
+        public Boxblur_openclFilterGen chroma_radius(String chroma_radius) => this.SetOption("chroma_radius", chroma_radius.ToStringInv());
         /// <summary>
         ///  Radius of the chroma blurring box
         /// </summary>
-        public Boxblur_openclFilterGen cr(String cr) => this.SetOption("cr", cr.ToString());
+        public Boxblur_openclFilterGen cr(String cr) => this.SetOption("cr", cr.ToStringInv());
         /// <summary>
         ///  How many times should the boxblur be applied to chroma (from -1 to INT_MAX) (default -1)
         /// </summary>
@@ -45,11 +45,11 @@
         /// <summary>
         ///  Radius of the alpha blurring box
         /// </summary>
-        public Boxblur_openclFilterGen alpha_radius(String alpha_radius) => this.SetOption("alpha_radius", alpha_radius.ToString());
+        public Boxblur_openclFilterGen alpha_radius(String alpha_radius) => this.SetOption("alpha_radius", alpha_radius.ToStringInv());
         /// <summary>
         ///  Radius of the alpha blurring box
         /// </summary>
-        public Boxblur_openclFilterGen ar(String ar) => this.SetOption("ar", ar.ToString());
+        public Boxblur_openclFilterGen ar(String ar) => this.SetOption("ar", ar.ToStringInv());
         /// <summary>
         ///  How many times should the boxblur be applied to alpha (from -1 to INT_MAX) (default -1)
         /// </summary>

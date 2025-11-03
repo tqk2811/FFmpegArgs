@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. hqx               V-&gt;V       Scale the input by 2, 3 or 4 using the hq*x magnification algorithm.
+    /// .S hqx               V-&gt;V       Scale the input by 2, 3 or 4 using the hq*x magnification algorithm.
     /// </summary>
     public class HqxFilterGen : ImageToImageFilter, ISliceThreading
     {

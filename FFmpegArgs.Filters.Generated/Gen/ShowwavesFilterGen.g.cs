@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... showwaves         A-&gt;V       Convert input audio to a video output.
+    /// .. showwaves         A-&gt;V       Convert input audio to a video output.
     /// </summary>
     public class ShowwavesFilterGen : AudioToImageFilter
     {
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowwavesFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ShowwavesFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  draw channels separately (default false)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public ShowwavesFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
+        public ShowwavesFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
         /// <summary>
         ///  set amplitude scale (from 0 to 3) (default lin)
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. afftfilt          A-&gt;A       Apply arbitrary expressions to samples in frequency domain.
+    /// TS afftfilt          A-&gt;A       Apply arbitrary expressions to samples in frequency domain.
     /// </summary>
     public class AfftfiltFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {

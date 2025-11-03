@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C rubberband        A-&gt;A       Apply time-stretching and pitch-shifting.
+    /// .. rubberband        A-&gt;A       Apply time-stretching and pitch-shifting.
     /// </summary>
-    public class RubberbandFilterGen : AudioToAudioFilter, ICommandSupport
+    public class RubberbandFilterGen : AudioToAudioFilter
     {
         internal RubberbandFilterGen(AudioMap input) : base("rubberband", input)
         {

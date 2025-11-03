@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... freezeframes      VV-&gt;V      Freeze video frames.
+    /// .. freezeframes      VV-&gt;V      Freeze video frames.
     /// </summary>
     public class FreezeframesFilterGen : ImageToImageFilter
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C crossfeed         A-&gt;A       Apply headphone crossfeed filter.
+    /// T. crossfeed         A-&gt;A       Apply headphone crossfeed filter.
     /// </summary>
-    public class CrossfeedFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class CrossfeedFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal CrossfeedFilterGen(AudioMap input) : base("crossfeed", input)
         {

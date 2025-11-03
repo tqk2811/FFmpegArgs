@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC colorlevels       V-&gt;V       Adjust the color levels.
+    /// TS colorlevels       V-&gt;V       Adjust the color levels.
     /// </summary>
-    public class ColorlevelsFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ColorlevelsFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ColorlevelsFilterGen(ImageMap input) : base("colorlevels", input)
         {

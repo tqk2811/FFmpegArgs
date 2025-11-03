@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... overlay_cuda      VV-&gt;V      Overlay one video on top of another using CUDA
+    /// T. overlay_cuda      VV-&gt;V      Overlay one video on top of another using CUDA
     /// </summary>
-    public class Overlay_cudaFilterGen : ImageToImageFilter
+    public class Overlay_cudaFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal Overlay_cudaFilterGen(params ImageMap[] inputs) : base("overlay_cuda", inputs)
         {

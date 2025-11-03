@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... deflicker         V-&gt;V       Remove temporal frame luminance variations.
+    /// .. deflicker         V-&gt;V       Remove temporal frame luminance variations.
     /// </summary>
     public class DeflickerFilterGen : ImageToImageFilter
     {

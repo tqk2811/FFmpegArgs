@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... overlay_vulkan    VV-&gt;V      Overlay a source on top of another
+    /// .. overlay_vulkan    VV-&gt;V      Overlay a source on top of another
     /// </summary>
     public class Overlay_vulkanFilterGen : ImageToImageFilter
     {

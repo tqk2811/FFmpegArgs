@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC datascope         V-&gt;V       Video data analysis.
+    /// .S datascope         V-&gt;V       Video data analysis.
     /// </summary>
-    public class DatascopeFilterGen : ImageToImageFilter, ISliceThreading, ICommandSupport
+    public class DatascopeFilterGen : ImageToImageFilter, ISliceThreading
     {
         internal DatascopeFilterGen(ImageMap input) : base("datascope", input)
         {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC limiter           V-&gt;V       Limit pixels components to the specified range.
+    /// TS limiter           V-&gt;V       Limit pixels components to the specified range.
     /// </summary>
-    public class LimiterFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class LimiterFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal LimiterFilterGen(ImageMap input) : base("limiter", input)
         {

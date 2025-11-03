@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... channelsplit      A-&gt;N       Split audio into per-channel streams.
+    /// .. channelsplit      A-&gt;N       Split audio into per-channel streams.
     /// </summary>
     public class ChannelsplitFilterGen : AudioToAudioFilter
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  Channels to extract. (default &quot;all&quot;)
         /// </summary>
-        public ChannelsplitFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public ChannelsplitFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. vaguedenoiser     V-&gt;V       Apply a Wavelet based Denoiser.
+    /// T. vaguedenoiser     V-&gt;V       Apply a Wavelet based Denoiser.
     /// </summary>
     public class VaguedenoiserFilterGen : ImageToImageFilter, ITimelineSupport
     {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... untile            V-&gt;V       Untile a frame into a sequence of frames.
+    /// .. untile            V-&gt;V       Untile a frame into a sequence of frames.
     /// </summary>
     public class UntileFilterGen : ImageToImageFilter
     {

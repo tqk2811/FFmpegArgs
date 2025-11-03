@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... showpalette       V-&gt;V       Display frame palette.
+    /// .. showpalette       V-&gt;V       Display frame palette.
     /// </summary>
     public class ShowpaletteFilterGen : ImageToImageFilter
     {

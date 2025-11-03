@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. remap             VVV-&gt;V     Remap pixels.
+    /// .S remap             VVV-&gt;V     Remap pixels.
     /// </summary>
     public class RemapFilterGen : ImageToImageFilter, ISliceThreading
     {

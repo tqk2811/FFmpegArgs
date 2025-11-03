@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. dctdnoiz          V-&gt;V       Denoise frames using 2D DCT.
+    /// TS dctdnoiz          V-&gt;V       Denoise frames using 2D DCT.
     /// </summary>
     public class DctdnoizFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

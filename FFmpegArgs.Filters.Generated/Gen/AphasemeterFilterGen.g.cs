@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... aphasemeter       A-&gt;N       Convert input audio to phase meter video output.
+    /// .. aphasemeter       A-&gt;N       Convert input audio to phase meter video output.
     /// </summary>
     public class AphasemeterFilterGen : AudioToAudioFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AphasemeterFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public AphasemeterFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video size (default &quot;800x400&quot;)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set median phase color (default &quot;none&quot;)
         /// </summary>
-        public AphasemeterFilterGen mpc(String mpc) => this.SetOption("mpc", mpc.ToString());
+        public AphasemeterFilterGen mpc(String mpc) => this.SetOption("mpc", mpc.ToStringInv());
         /// <summary>
         ///  set video output (default true)
         /// </summary>

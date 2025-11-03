@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... interlace         V-&gt;V       Convert progressive video into interlaced.
+    /// .. interlace         V-&gt;V       Convert progressive video into interlaced.
     /// </summary>
     public class InterlaceFilterGen : ImageToImageFilter
     {

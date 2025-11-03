@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC atadenoise        V-&gt;V       Apply an Adaptive Temporal Averaging Denoiser.
+    /// TS atadenoise        V-&gt;V       Apply an Adaptive Temporal Averaging Denoiser.
     /// </summary>
-    public class AtadenoiseFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AtadenoiseFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal AtadenoiseFilterGen(ImageMap input) : base("atadenoise", input)
         {
@@ -41,7 +41,7 @@
         /// <summary>
         ///  set what planes to filter (default 7)
         /// </summary>
-        public AtadenoiseFilterGen p(String p) => this.SetOption("p", p.ToString());
+        public AtadenoiseFilterGen p(String p) => this.SetOption("p", p.ToStringInv());
         /// <summary>
         ///  set variant of algorithm (from 0 to 1) (default p)
         /// </summary>

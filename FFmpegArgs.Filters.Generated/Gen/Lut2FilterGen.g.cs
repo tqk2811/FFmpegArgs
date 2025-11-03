@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC lut2              VV-&gt;V      Compute and apply a lookup table from two video inputs.
+    /// TS lut2              VV-&gt;V      Compute and apply a lookup table from two video inputs.
     /// </summary>
-    public class Lut2FilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class Lut2FilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal Lut2FilterGen(params ImageMap[] inputs) : base("lut2", inputs)
         {

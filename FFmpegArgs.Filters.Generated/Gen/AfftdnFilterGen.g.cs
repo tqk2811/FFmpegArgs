@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC afftdn            A-&gt;A       Denoise audio samples using FFT.
+    /// TS afftdn            A-&gt;A       Denoise audio samples using FFT.
     /// </summary>
-    public class AfftdnFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AfftdnFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AfftdnFilterGen(AudioMap input) : base("afftdn", input)
         {
@@ -37,11 +37,11 @@
         /// <summary>
         ///  set the custom bands noise
         /// </summary>
-        public AfftdnFilterGen band_noise(String band_noise) => this.SetOption("band_noise", band_noise.ToString());
+        public AfftdnFilterGen band_noise(String band_noise) => this.SetOption("band_noise", band_noise.ToStringInv());
         /// <summary>
         ///  set the custom bands noise
         /// </summary>
-        public AfftdnFilterGen bn(String bn) => this.SetOption("bn", bn.ToString());
+        public AfftdnFilterGen bn(String bn) => this.SetOption("bn", bn.ToStringInv());
         /// <summary>
         ///  set the residual floor (from -80 to -20) (default -38)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC maskfun           V-&gt;V       Create Mask.
+    /// TS maskfun           V-&gt;V       Create Mask.
     /// </summary>
-    public class MaskfunFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class MaskfunFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal MaskfunFilterGen(ImageMap input) : base("maskfun", input)
         {

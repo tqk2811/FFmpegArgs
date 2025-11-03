@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... settb             V-&gt;V       Set timebase for the video output link.
+    /// .. settb             V-&gt;V       Set timebase for the video output link.
     /// </summary>
     public class SettbFilterGen : ImageToImageFilter
     {

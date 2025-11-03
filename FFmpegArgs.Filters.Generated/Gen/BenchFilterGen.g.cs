@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... bench             V-&gt;V       Benchmark part of a filtergraph.
+    /// .. bench             V-&gt;V       Benchmark part of a filtergraph.
     /// </summary>
     public class BenchFilterGen : ImageToImageFilter
     {

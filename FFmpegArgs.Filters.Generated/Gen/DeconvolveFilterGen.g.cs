@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. deconvolve        VV-&gt;V      Deconvolve first video stream with second video stream.
+    /// TS deconvolve        VV-&gt;V      Deconvolve first video stream with second video stream.
     /// </summary>
     public class DeconvolveFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

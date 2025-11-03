@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... setrange          V-&gt;V       Force color range for the output video frame.
+    /// .. setrange          V-&gt;V       Force color range for the output video frame.
     /// </summary>
     public class SetrangeFilterGen : ImageToImageFilter
     {

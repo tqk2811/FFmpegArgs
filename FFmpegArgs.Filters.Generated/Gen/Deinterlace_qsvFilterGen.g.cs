@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... deinterlace_qsv   V-&gt;V       Quick Sync Video &quot;deinterlacing&quot;
+    /// .. deinterlace_qsv   V-&gt;V       Quick Sync Video &quot;deinterlacing&quot;
     /// </summary>
     public class Deinterlace_qsvFilterGen : ImageToImageFilter
     {

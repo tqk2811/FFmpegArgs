@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC asoftclip         A-&gt;A       Audio Soft Clipper.
+    /// TS asoftclip         A-&gt;A       Audio Soft Clipper.
     /// </summary>
-    public class AsoftclipFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AsoftclipFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AsoftclipFilterGen(AudioMap input) : base("asoftclip", input)
         {

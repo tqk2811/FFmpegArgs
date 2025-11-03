@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. adeclick          A-&gt;A       Remove impulsive noise from input audio.
+    /// TS adeclick          A-&gt;A       Remove impulsive noise from input audio.
     /// </summary>
     public class AdeclickFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {

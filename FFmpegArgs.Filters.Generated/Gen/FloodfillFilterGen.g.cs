@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. floodfill         V-&gt;V       Fill area with same color with another color.
+    /// T. floodfill         V-&gt;V       Fill area with same color with another color.
     /// </summary>
     public class FloodfillFilterGen : ImageToImageFilter, ITimelineSupport
     {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... framepack         VV-&gt;V      Generate a frame packed stereoscopic video.
+    /// .. framepack         VV-&gt;V      Generate a frame packed stereoscopic video.
     /// </summary>
     public class FramepackFilterGen : ImageToImageFilter
     {

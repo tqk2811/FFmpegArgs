@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. framerate         V-&gt;V       Upsamples or downsamples progressive source between specified frame rates.
+    /// .S framerate         V-&gt;V       Upsamples or downsamples progressive source between specified frame rates.
     /// </summary>
     public class FramerateFilterGen : ImageToImageFilter, ISliceThreading
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  required output frames per second rate (default &quot;50&quot;)
         /// </summary>
-        public FramerateFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToString());
+        public FramerateFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToStringInv());
         /// <summary>
         ///  point to start linear interpolation (from 0 to 255) (default 15)
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... showcqt           A-&gt;V       Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.
+    /// .. showcqt           A-&gt;V       Convert input audio to a CQT (Constant/Clamped Q Transform) spectrum video output.
     /// </summary>
     public class ShowcqtFilterGen : AudioToImageFilter
     {
@@ -17,15 +17,15 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowcqtFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToString());
+        public ShowcqtFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToStringInv());
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowcqtFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ShowcqtFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowcqtFilterGen r(Rational r) => this.SetOption("r", r.ToString());
+        public ShowcqtFilterGen r(Rational r) => this.SetOption("r", r.ToStringInv());
         /// <summary>
         ///  set bargraph height (from -1 to INT_MAX) (default -1)
         /// </summary>
@@ -45,19 +45,19 @@
         /// <summary>
         ///  set sonogram volume (default &quot;16&quot;)
         /// </summary>
-        public ShowcqtFilterGen sono_v(String sono_v) => this.SetOption("sono_v", sono_v.ToString());
+        public ShowcqtFilterGen sono_v(String sono_v) => this.SetOption("sono_v", sono_v.ToStringInv());
         /// <summary>
         ///  set sonogram volume (default &quot;16&quot;)
         /// </summary>
-        public ShowcqtFilterGen volume(String volume) => this.SetOption("volume", volume.ToString());
+        public ShowcqtFilterGen volume(String volume) => this.SetOption("volume", volume.ToStringInv());
         /// <summary>
         ///  set bargraph volume (default &quot;sono_v&quot;)
         /// </summary>
-        public ShowcqtFilterGen bar_v(String bar_v) => this.SetOption("bar_v", bar_v.ToString());
+        public ShowcqtFilterGen bar_v(String bar_v) => this.SetOption("bar_v", bar_v.ToStringInv());
         /// <summary>
         ///  set bargraph volume (default &quot;sono_v&quot;)
         /// </summary>
-        public ShowcqtFilterGen volume2(String volume2) => this.SetOption("volume2", volume2.ToString());
+        public ShowcqtFilterGen volume2(String volume2) => this.SetOption("volume2", volume2.ToStringInv());
         /// <summary>
         ///  set sonogram gamma (from 1 to 7) (default 3)
         /// </summary>
@@ -105,7 +105,7 @@
         /// <summary>
         ///  set tlength (default &quot;384*tc/(384+tc*f)&quot;)
         /// </summary>
-        public ShowcqtFilterGen tlength(String tlength) => this.SetOption("tlength", tlength.ToString());
+        public ShowcqtFilterGen tlength(String tlength) => this.SetOption("tlength", tlength.ToStringInv());
         /// <summary>
         ///  set transform count (from 1 to 30) (default 6)
         /// </summary>
@@ -117,19 +117,19 @@
         /// <summary>
         ///  set axis font file
         /// </summary>
-        public ShowcqtFilterGen fontfile(String fontfile) => this.SetOption("fontfile", fontfile.ToString());
+        public ShowcqtFilterGen fontfile(String fontfile) => this.SetOption("fontfile", fontfile.ToStringInv());
         /// <summary>
         ///  set axis font
         /// </summary>
-        public ShowcqtFilterGen font(String font) => this.SetOption("font", font.ToString());
+        public ShowcqtFilterGen font(String font) => this.SetOption("font", font.ToStringInv());
         /// <summary>
         ///  set font color (default &quot;st(0, (midi(f)-59.5)/12);st(1, if(between(ld(0),0,1), 0.5-0.5*cos(2*PI*ld(0)), 0));r(1-ld(1)) + b(ld(1))&quot;)
         /// </summary>
-        public ShowcqtFilterGen fontcolor(String fontcolor) => this.SetOption("fontcolor", fontcolor.ToString());
+        public ShowcqtFilterGen fontcolor(String fontcolor) => this.SetOption("fontcolor", fontcolor.ToStringInv());
         /// <summary>
         ///  set axis image
         /// </summary>
-        public ShowcqtFilterGen axisfile(String axisfile) => this.SetOption("axisfile", axisfile.ToString());
+        public ShowcqtFilterGen axisfile(String axisfile) => this.SetOption("axisfile", axisfile.ToStringInv());
         /// <summary>
         ///  draw axis (default true)
         /// </summary>
@@ -145,7 +145,7 @@
         /// <summary>
         ///  set color scheme (default &quot;1|0.5|0|0|0.5|1&quot;)
         /// </summary>
-        public ShowcqtFilterGen cscheme(String cscheme) => this.SetOption("cscheme", cscheme.ToString());
+        public ShowcqtFilterGen cscheme(String cscheme) => this.SetOption("cscheme", cscheme.ToStringInv());
     }
 
     /// <summary>

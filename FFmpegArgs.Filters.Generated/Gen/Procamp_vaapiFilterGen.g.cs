@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... procamp_vaapi     V-&gt;V       ProcAmp (color balance) adjustments for hue, saturation, brightness, contrast
+    /// .. procamp_vaapi     V-&gt;V       ProcAmp (color balance) adjustments for hue, saturation, brightness, contrast
     /// </summary>
     public class Procamp_vaapiFilterGen : ImageToImageFilter
     {

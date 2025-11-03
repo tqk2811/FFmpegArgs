@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... xfade_opencl      VV-&gt;V      Cross fade one video with another video.
+    /// .. xfade_opencl      VV-&gt;V      Cross fade one video with another video.
     /// </summary>
     public class Xfade_openclFilterGen : ImageToImageFilter
     {
@@ -17,11 +17,11 @@
         /// <summary>
         ///  set OpenCL program source file for custom transition
         /// </summary>
-        public Xfade_openclFilterGen source(String source) => this.SetOption("source", source.ToString());
+        public Xfade_openclFilterGen source(String source) => this.SetOption("source", source.ToStringInv());
         /// <summary>
         ///  set kernel name in program file for custom transition
         /// </summary>
-        public Xfade_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToString());
+        public Xfade_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToStringInv());
         /// <summary>
         ///  set cross fade duration (default 1)
         /// </summary>

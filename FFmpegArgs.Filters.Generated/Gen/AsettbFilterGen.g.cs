@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... asettb            A-&gt;A       Set timebase for the audio output link.
+    /// .. asettb            A-&gt;A       Set timebase for the audio output link.
     /// </summary>
     public class AsettbFilterGen : AudioToAudioFilter
     {

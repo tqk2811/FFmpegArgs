@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC lowpass           A-&gt;A       Apply a low-pass filter with 3dB point frequency.
+    /// TS lowpass           A-&gt;A       Apply a low-pass filter with 3dB point frequency.
     /// </summary>
-    public class LowpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class LowpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal LowpassFilterGen(AudioMap input) : base("lowpass", input)
         {
@@ -37,7 +37,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public LowpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public LowpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. sierpinski        |-&gt;V       Render a Sierpinski fractal.
+    /// .S sierpinski        |-&gt;V       Render a Sierpinski fractal.
     /// </summary>
     public class SierpinskiFilterGen : SourceToImageFilter, ISliceThreading
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;25&quot;)
         /// </summary>
-        public SierpinskiFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public SierpinskiFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set the seed (from -1 to UINT32_MAX) (default -1)
         /// </summary>

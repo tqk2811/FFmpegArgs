@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC w3fdif            V-&gt;V       Apply Martin Weston three field deinterlace.
+    /// TS w3fdif            V-&gt;V       Apply Martin Weston three field deinterlace.
     /// </summary>
-    public class W3fdifFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class W3fdifFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal W3fdifFilterGen(ImageMap input) : base("w3fdif", input)
         {

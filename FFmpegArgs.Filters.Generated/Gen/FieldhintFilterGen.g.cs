@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... fieldhint         V-&gt;V       Field matching using hints.
+    /// .. fieldhint         V-&gt;V       Field matching using hints.
     /// </summary>
     public class FieldhintFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set hint file
         /// </summary>
-        public FieldhintFilterGen hint(String hint) => this.SetOption("hint", hint.ToString());
+        public FieldhintFilterGen hint(String hint) => this.SetOption("hint", hint.ToStringInv());
         /// <summary>
         ///  set hint mode (from 0 to 2) (default absolute)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC despill           V-&gt;V       Despill video.
+    /// TS despill           V-&gt;V       Despill video.
     /// </summary>
-    public class DespillFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class DespillFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal DespillFilterGen(ImageMap input) : base("despill", input)
         {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC exposure          V-&gt;V       Adjust exposure of the video stream.
+    /// TS exposure          V-&gt;V       Adjust exposure of the video stream.
     /// </summary>
-    public class ExposureFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ExposureFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ExposureFilterGen(ImageMap input) : base("exposure", input)
         {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. bitplanenoise     V-&gt;V       Measure bit plane noise.
+    /// T. bitplanenoise     V-&gt;V       Measure bit plane noise.
     /// </summary>
     public class BitplanenoiseFilterGen : ImageToImageFilter, ITimelineSupport
     {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... spectrumsynth     VV-&gt;A      Convert input spectrum videos to audio output.
+    /// .. spectrumsynth     VV-&gt;A      Convert input spectrum videos to audio output.
     /// </summary>
     public class SpectrumsynthFilterGen : ImageToAudioFilter
     {

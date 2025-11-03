@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... remap_opencl      VVV-&gt;V     Remap pixels using OpenCL.
+    /// .. remap_opencl      VVV-&gt;V     Remap pixels using OpenCL.
     /// </summary>
     public class Remap_openclFilterGen : ImageToImageFilter
     {

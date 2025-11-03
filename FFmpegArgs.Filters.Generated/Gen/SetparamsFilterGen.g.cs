@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... setparams         V-&gt;V       Force field, or color property for the output video frame.
+    /// .. setparams         V-&gt;V       Force field, or color property for the output video frame.
     /// </summary>
     public class SetparamsFilterGen : ImageToImageFilter
     {
@@ -27,9 +27,13 @@
         /// </summary>
         public SetparamsFilterGen color_trc(SetparamsFilterGenColor_trc color_trc) => this.SetOption("color_trc", color_trc.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
-        ///  select colorspace (from -1 to 14) (default auto)
+        ///  select colorspace (from -1 to 17) (default auto)
         /// </summary>
         public SetparamsFilterGen colorspace(SetparamsFilterGenColorspace colorspace) => this.SetOption("colorspace", colorspace.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
+        ///  select chroma sample location (from -1 to 6) (default auto)
+        /// </summary>
+        public SetparamsFilterGen chroma_location(SetparamsFilterGenChroma_location chroma_location) => this.SetOption("chroma_location", chroma_location.GetEnumAttribute<NameAttribute>().Name);
     }
 
     /// <summary>
@@ -286,7 +290,7 @@
     }
 
     /// <summary>
-    ///  select colorspace (from -1 to 14) (default auto)
+    ///  select colorspace (from -1 to 17) (default auto)
     /// </summary>
     public enum SetparamsFilterGenColorspace
     {
@@ -336,6 +340,16 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("ycgco")]
         ycgco = 8,
         /// <summary>
+        /// ycgco-re        16           ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("ycgco-re")]
+        ycgco_re = 16,
+        /// <summary>
+        /// ycgco-ro        17           ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("ycgco-ro")]
+        ycgco_ro = 17,
+        /// <summary>
         /// bt2020nc        9            ..FV.......
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("bt2020nc")]
@@ -364,7 +378,64 @@
         /// ictcp           14           ..FV.......
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("ictcp")]
-        ictcp = 14
+        ictcp = 14,
+        /// <summary>
+        /// ipt-c2          15           ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("ipt-c2")]
+        ipt_c2 = 15
+    }
+
+    /// <summary>
+    ///  select chroma sample location (from -1 to 6) (default auto)
+    /// </summary>
+    public enum SetparamsFilterGenChroma_location
+    {
+        /// <summary>
+        /// auto            -1           ..FV....... keep the same chroma location
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("auto")]
+        auto = -1,
+        /// <summary>
+        /// unspecified     0            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("unspecified")]
+        unspecified = 0,
+        /// <summary>
+        /// unknown         0            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("unknown")]
+        unknown = 0,
+        /// <summary>
+        /// left            1            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("left")]
+        left = 1,
+        /// <summary>
+        /// center          2            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("center")]
+        center = 2,
+        /// <summary>
+        /// topleft         3            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("topleft")]
+        topleft = 3,
+        /// <summary>
+        /// top             4            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("top")]
+        top = 4,
+        /// <summary>
+        /// bottomleft      5            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("bottomleft")]
+        bottomleft = 5,
+        /// <summary>
+        /// bottom          6            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("bottom")]
+        bottom = 6
     }
 
     public static partial class FilterGeneratedExtensions

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC afir              N-&gt;A       Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).
+    /// TS afir              N-&gt;A       Apply Finite Impulse Response filter with supplied coefficients in additional stream(s).
     /// </summary>
-    public class AfirFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AfirFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AfirFilterGen(params AudioMap[] inputs) : base("afir", inputs)
         {
@@ -61,7 +61,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AfirFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public AfirFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set min partition size (from 1 to 65536) (default 8192)
         /// </summary>

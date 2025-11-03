@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC hqdn3d            V-&gt;V       Apply a High Quality 3D Denoiser.
+    /// TS hqdn3d            V-&gt;V       Apply a High Quality 3D Denoiser.
     /// </summary>
-    public class Hqdn3dFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class Hqdn3dFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal Hqdn3dFilterGen(ImageMap input) : base("hqdn3d", input)
         {

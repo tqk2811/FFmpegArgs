@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. aeval             A-&gt;A       Filter audio signal according to a specified expression.
+    /// T. aeval             A-&gt;A       Filter audio signal according to a specified expression.
     /// </summary>
     public class AevalFilterGen : AudioToAudioFilter, ITimelineSupport
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set channel layout
         /// </summary>
-        public AevalFilterGen channel_layout(String channel_layout) => this.SetOption("channel_layout", channel_layout.ToString());
+        public AevalFilterGen channel_layout(String channel_layout) => this.SetOption("channel_layout", channel_layout.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

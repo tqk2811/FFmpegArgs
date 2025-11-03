@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... ahistogram        A-&gt;V       Convert input audio to histogram video output.
+    /// .. ahistogram        A-&gt;V       Convert input audio to histogram video output.
     /// </summary>
     public class AhistogramFilterGen : AudioToImageFilter
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AhistogramFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public AhistogramFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video size (default &quot;hd720&quot;)
         /// </summary>

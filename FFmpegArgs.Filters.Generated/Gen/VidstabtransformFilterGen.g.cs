@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... vidstabtransform  V-&gt;V       Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).
+    /// .. vidstabtransform  V-&gt;V       Transform the frames, pass 2 of 2 for stabilization (see vidstabdetect for pass 1).
     /// </summary>
     public class VidstabtransformFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set path to the file storing the transforms (default &quot;transforms.trf&quot;)
         /// </summary>
-        public VidstabtransformFilterGen input(String input) => this.SetOption("input", input.ToString());
+        public VidstabtransformFilterGen input(String input) => this.SetOption("input", input.ToStringInv());
         /// <summary>
         ///  set number of frames*2 + 1 used for lowpass filtering (from 0 to 1000) (default 15)
         /// </summary>

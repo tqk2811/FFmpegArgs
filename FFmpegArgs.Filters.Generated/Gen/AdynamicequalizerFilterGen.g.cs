@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC adynamicequalizer A-&gt;A       Apply Dynamic Equalization of input audio.
+    /// TS adynamicequalizer A-&gt;A       Apply Dynamic Equalization of input audio.
     /// </summary>
-    public class AdynamicequalizerFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AdynamicequalizerFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AdynamicequalizerFilterGen(AudioMap input) : base("adynamicequalizer", input)
         {

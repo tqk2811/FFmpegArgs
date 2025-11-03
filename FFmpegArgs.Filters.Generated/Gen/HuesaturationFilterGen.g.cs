@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC huesaturation     V-&gt;V       Apply hue-saturation-intensity adjustments.
+    /// TS huesaturation     V-&gt;V       Apply hue-saturation-intensity adjustments.
     /// </summary>
-    public class HuesaturationFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class HuesaturationFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal HuesaturationFilterGen(ImageMap input) : base("huesaturation", input)
         {

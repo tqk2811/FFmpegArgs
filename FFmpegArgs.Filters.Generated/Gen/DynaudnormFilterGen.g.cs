@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC dynaudnorm        A-&gt;A       Dynamic Audio Normalizer.
+    /// TS dynaudnorm        A-&gt;A       Dynamic Audio Normalizer.
     /// </summary>
-    public class DynaudnormFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class DynaudnormFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal DynaudnormFilterGen(AudioMap input) : base("dynaudnorm", input)
         {
@@ -69,11 +69,11 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public DynaudnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public DynaudnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public DynaudnormFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public DynaudnormFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  set the frame overlap (from 0 to 1) (default 0)
         /// </summary>
@@ -81,11 +81,11 @@
         /// <summary>
         ///  set the custom peak mapping curve
         /// </summary>
-        public DynaudnormFilterGen curve(String curve) => this.SetOption("curve", curve.ToString());
+        public DynaudnormFilterGen curve(String curve) => this.SetOption("curve", curve.ToStringInv());
         /// <summary>
         ///  set the custom peak mapping curve
         /// </summary>
-        public DynaudnormFilterGen v(String v) => this.SetOption("v", v.ToString());
+        public DynaudnormFilterGen v(String v) => this.SetOption("v", v.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

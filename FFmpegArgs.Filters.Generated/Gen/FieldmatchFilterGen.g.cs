@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... fieldmatch        N-&gt;V       Field matching for inverse telecine.
+    /// .. fieldmatch        N-&gt;V       Field matching for inverse telecine.
     /// </summary>
     public class FieldmatchFilterGen : ImageToImageFilter
     {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. xstack            N-&gt;V       Stack video inputs into custom layout.
+    /// .S xstack            N-&gt;V       Stack video inputs into custom layout.
     /// </summary>
     public class XstackFilterGen : ImageToImageFilter, ISliceThreading
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set custom layout
         /// </summary>
-        public XstackFilterGen layout(String layout) => this.SetOption("layout", layout.ToString());
+        public XstackFilterGen layout(String layout) => this.SetOption("layout", layout.ToStringInv());
         /// <summary>
         ///  set fixed size grid layout
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  set the color for unused pixels (default &quot;none&quot;)
         /// </summary>
-        public XstackFilterGen fill(String fill) => this.SetOption("fill", fill.ToString());
+        public XstackFilterGen fill(String fill) => this.SetOption("fill", fill.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC chromashift       V-&gt;V       Shift chroma.
+    /// TS chromashift       V-&gt;V       Shift chroma.
     /// </summary>
-    public class ChromashiftFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ChromashiftFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ChromashiftFilterGen(ImageMap input) : base("chromashift", input)
         {

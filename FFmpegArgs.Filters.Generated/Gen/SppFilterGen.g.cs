@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C spp               V-&gt;V       Apply a simple post processing filter.
+    /// T. spp               V-&gt;V       Apply a simple post processing filter.
     /// </summary>
-    public class SppFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class SppFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal SppFilterGen(ImageMap input) : base("spp", input)
         {

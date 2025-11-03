@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... ass               V-&gt;V       Render ASS subtitles onto input video using the libass library.
+    /// .. ass               V-&gt;V       Render ASS subtitles onto input video using the libass library.
     /// </summary>
     public class AssFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set the filename of file to read
         /// </summary>
-        public AssFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
+        public AssFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
         /// <summary>
         ///  set the size of the original video (used to scale fonts)
         /// </summary>
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set the directory containing the fonts to read
         /// </summary>
-        public AssFilterGen fontsdir(String fontsdir) => this.SetOption("fontsdir", fontsdir.ToString());
+        public AssFilterGen fontsdir(String fontsdir) => this.SetOption("fontsdir", fontsdir.ToStringInv());
         /// <summary>
         ///  enable processing of alpha channel (default false)
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. nlmeans           V-&gt;V       Non-local means denoiser.
+    /// TS nlmeans           V-&gt;V       Non-local means denoiser.
     /// </summary>
     public class NlmeansFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

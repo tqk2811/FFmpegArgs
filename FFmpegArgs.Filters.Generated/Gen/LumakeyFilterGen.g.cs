@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC lumakey           V-&gt;V       Turns a certain luma into transparency.
+    /// TS lumakey           V-&gt;V       Turns a certain luma into transparency.
     /// </summary>
-    public class LumakeyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class LumakeyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal LumakeyFilterGen(ImageMap input) : base("lumakey", input)
         {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC bandpass          A-&gt;A       Apply a two-pole Butterworth band-pass filter.
+    /// TS bandpass          A-&gt;A       Apply a two-pole Butterworth band-pass filter.
     /// </summary>
-    public class BandpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class BandpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal BandpassFilterGen(AudioMap input) : base("bandpass", input)
         {
@@ -37,7 +37,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public BandpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public BandpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... deshake           V-&gt;V       Stabilize shaky video.
+    /// .. deshake           V-&gt;V       Stabilize shaky video.
     /// </summary>
     public class DeshakeFilterGen : ImageToImageFilter
     {
@@ -53,7 +53,7 @@
         /// <summary>
         ///  set motion search detailed log file name
         /// </summary>
-        public DeshakeFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
+        public DeshakeFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
         /// <summary>
         ///  ignored (default false)
         /// </summary>

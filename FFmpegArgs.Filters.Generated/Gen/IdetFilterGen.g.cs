@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... idet              V-&gt;V       Interlace detect Filter.
+    /// .. idet              V-&gt;V       Interlace detect Filter.
     /// </summary>
     public class IdetFilterGen : ImageToImageFilter
     {

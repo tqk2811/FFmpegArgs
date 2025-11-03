@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C acrusher          A-&gt;A       Reduce audio bit resolution.
+    /// T. acrusher          A-&gt;A       Reduce audio bit resolution.
     /// </summary>
-    public class AcrusherFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class AcrusherFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal AcrusherFilterGen(AudioMap input) : base("acrusher", input)
         {

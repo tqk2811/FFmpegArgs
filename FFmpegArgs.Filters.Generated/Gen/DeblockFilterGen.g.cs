@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C deblock           V-&gt;V       Deblock video.
+    /// T. deblock           V-&gt;V       Deblock video.
     /// </summary>
-    public class DeblockFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class DeblockFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal DeblockFilterGen(ImageMap input) : base("deblock", input)
         {

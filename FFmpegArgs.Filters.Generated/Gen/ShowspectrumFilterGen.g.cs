@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. showspectrum      A-&gt;V       Convert input audio to a spectrum video output.
+    /// .S showspectrum      A-&gt;V       Convert input audio to a spectrum video output.
     /// </summary>
     public class ShowspectrumFilterGen : AudioToImageFilter, ISliceThreading
     {
@@ -73,7 +73,7 @@
         /// <summary>
         ///  set video rate (default &quot;auto&quot;)
         /// </summary>
-        public ShowspectrumFilterGen fps(String fps) => this.SetOption("fps", fps.ToString());
+        public ShowspectrumFilterGen fps(String fps) => this.SetOption("fps", fps.ToStringInv());
         /// <summary>
         ///  draw legend (default false)
         /// </summary>

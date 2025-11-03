@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C lv2               N-&gt;A       Apply LV2 effect.
+    /// .. lv2               N-&gt;A       Apply LV2 effect.
     /// </summary>
-    public class Lv2FilterGen : AudioToAudioFilter, ICommandSupport
+    public class Lv2FilterGen : AudioToAudioFilter
     {
         internal Lv2FilterGen(params AudioMap[] inputs) : base("lv2", inputs)
         {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  set plugin uri
         /// </summary>
-        public Lv2FilterGen plugin(String plugin) => this.SetOption("plugin", plugin.ToString());
+        public Lv2FilterGen plugin(String plugin) => this.SetOption("plugin", plugin.ToStringInv());
         /// <summary>
         ///  set plugin options
         /// </summary>
-        public Lv2FilterGen controls(String controls) => this.SetOption("controls", controls.ToString());
+        public Lv2FilterGen controls(String controls) => this.SetOption("controls", controls.ToStringInv());
         /// <summary>
         ///  set sample rate (from 1 to INT_MAX) (default 44100)
         /// </summary>

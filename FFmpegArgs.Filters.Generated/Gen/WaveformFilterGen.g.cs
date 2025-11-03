@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC waveform          V-&gt;V       Video waveform monitor.
+    /// .S waveform          V-&gt;V       Video waveform monitor.
     /// </summary>
-    public class WaveformFilterGen : ImageToImageFilter, ISliceThreading, ICommandSupport
+    public class WaveformFilterGen : ImageToImageFilter, ISliceThreading
     {
         internal WaveformFilterGen(ImageMap input) : base("waveform", input)
         {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... paletteuse        VV-&gt;V      Use a palette to downsample an input video stream.
+    /// .. paletteuse        VV-&gt;V      Use a palette to downsample an input video stream.
     /// </summary>
     public class PaletteuseFilterGen : ImageToImageFilter
     {
@@ -33,7 +33,7 @@
         /// <summary>
         ///  save Graphviz graph of the kdtree in specified file
         /// </summary>
-        public PaletteuseFilterGen debug_kdtree(String debug_kdtree) => this.SetOption("debug_kdtree", debug_kdtree.ToString());
+        public PaletteuseFilterGen debug_kdtree(String debug_kdtree) => this.SetOption("debug_kdtree", debug_kdtree.ToStringInv());
     }
 
     /// <summary>

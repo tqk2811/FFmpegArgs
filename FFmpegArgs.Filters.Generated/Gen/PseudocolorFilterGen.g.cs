@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC pseudocolor       V-&gt;V       Make pseudocolored video frames.
+    /// TS pseudocolor       V-&gt;V       Make pseudocolored video frames.
     /// </summary>
-    public class PseudocolorFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class PseudocolorFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal PseudocolorFilterGen(ImageMap input) : base("pseudocolor", input)
         {

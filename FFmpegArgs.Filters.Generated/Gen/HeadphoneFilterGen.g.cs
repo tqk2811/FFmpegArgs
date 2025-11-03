@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. headphone         N-&gt;A       Apply headphone binaural spatialization with HRTFs in additional streams.
+    /// .S headphone         N-&gt;A       Apply headphone binaural spatialization with HRTFs in additional streams.
     /// </summary>
     public class HeadphoneFilterGen : AudioToAudioFilter, ISliceThreading
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set channels convolution mappings
         /// </summary>
-        public HeadphoneFilterGen map(String map) => this.SetOption("map", map.ToString());
+        public HeadphoneFilterGen map(String map) => this.SetOption("map", map.ToStringInv());
         /// <summary>
         ///  set gain in dB (from -20 to 40) (default 0)
         /// </summary>

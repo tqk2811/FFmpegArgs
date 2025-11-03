@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C fillborders       V-&gt;V       Fill borders of the input video.
+    /// T. fillborders       V-&gt;V       Fill borders of the input video.
     /// </summary>
-    public class FillbordersFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class FillbordersFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal FillbordersFilterGen(ImageMap input) : base("fillborders", input)
         {

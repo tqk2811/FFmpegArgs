@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... vmafmotion        V-&gt;V       Calculate the VMAF Motion score.
+    /// .. vmafmotion        V-&gt;V       Calculate the VMAF Motion score.
     /// </summary>
     public class VmafmotionFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public VmafmotionFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
+        public VmafmotionFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

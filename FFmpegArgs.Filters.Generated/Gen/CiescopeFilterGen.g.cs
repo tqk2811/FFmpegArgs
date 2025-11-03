@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... ciescope          V-&gt;V       Video CIE scope.
+    /// .. ciescope          V-&gt;V       Video CIE scope.
     /// </summary>
     public class CiescopeFilterGen : ImageToImageFilter
     {

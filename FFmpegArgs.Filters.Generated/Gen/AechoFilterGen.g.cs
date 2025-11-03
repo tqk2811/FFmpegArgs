@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... aecho             A-&gt;A       Add echoing to the audio.
+    /// .. aecho             A-&gt;A       Add echoing to the audio.
     /// </summary>
     public class AechoFilterGen : AudioToAudioFilter
     {
@@ -21,11 +21,11 @@
         /// <summary>
         ///  set list of signal delays (default &quot;1000&quot;)
         /// </summary>
-        public AechoFilterGen delays(String delays) => this.SetOption("delays", delays.ToString());
+        public AechoFilterGen delays(String delays) => this.SetOption("delays", delays.ToStringInv());
         /// <summary>
         ///  set list of signal decays (default &quot;0.5&quot;)
         /// </summary>
-        public AechoFilterGen decays(String decays) => this.SetOption("decays", decays.ToString());
+        public AechoFilterGen decays(String decays) => this.SetOption("decays", decays.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

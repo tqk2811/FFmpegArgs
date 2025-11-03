@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. fade              V-&gt;V       Fade in/out input video.
+    /// TS fade              V-&gt;V       Fade in/out input video.
     /// </summary>
     public class FadeFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

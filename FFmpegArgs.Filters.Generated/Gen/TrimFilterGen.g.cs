@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... trim              V-&gt;V       Pick one continuous section from the input, drop the rest.
+    /// .. trim              V-&gt;V       Pick one continuous section from the input, drop the rest.
     /// </summary>
     public class TrimFilterGen : ImageToImageFilter
     {

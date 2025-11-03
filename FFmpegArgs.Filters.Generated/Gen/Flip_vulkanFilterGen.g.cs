@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... flip_vulkan       V-&gt;V       Flip both horizontally and vertically
+    /// .. flip_vulkan       V-&gt;V       Flip both horizontally and vertically
     /// </summary>
     public class Flip_vulkanFilterGen : ImageToImageFilter
     {

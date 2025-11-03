@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... showvolume        A-&gt;V       Convert input audio volume to video output.
+    /// .. showvolume        A-&gt;V       Convert input audio volume to video output.
     /// </summary>
     public class ShowvolumeFilterGen : AudioToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowvolumeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ShowvolumeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set border width (from 0 to 5) (default 1)
         /// </summary>

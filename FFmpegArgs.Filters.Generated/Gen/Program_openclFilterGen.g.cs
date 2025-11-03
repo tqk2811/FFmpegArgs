@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... program_opencl    N-&gt;V       Filter video using an OpenCL program
+    /// .. program_opencl    N-&gt;V       Filter video using an OpenCL program
     /// </summary>
     public class Program_openclFilterGen : ImageToImageFilter
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  OpenCL program source file
         /// </summary>
-        public Program_openclFilterGen source(String source) => this.SetOption("source", source.ToString());
+        public Program_openclFilterGen source(String source) => this.SetOption("source", source.ToStringInv());
         /// <summary>
         ///  Kernel name in program
         /// </summary>
-        public Program_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToString());
+        public Program_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToStringInv());
         /// <summary>
         ///  Number of inputs (from 1 to INT_MAX) (default 1)
         /// </summary>

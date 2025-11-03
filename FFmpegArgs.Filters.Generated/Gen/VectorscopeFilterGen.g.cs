@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C vectorscope       V-&gt;V       Video vectorscope.
+    /// .. vectorscope       V-&gt;V       Video vectorscope.
     /// </summary>
-    public class VectorscopeFilterGen : ImageToImageFilter, ICommandSupport
+    public class VectorscopeFilterGen : ImageToImageFilter
     {
         internal VectorscopeFilterGen(ImageMap input) : base("vectorscope", input)
         {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C asetnsamples      A-&gt;A       Set the number of samples for each output audio frames.
+    /// T. asetnsamples      A-&gt;A       Set the number of samples for each output audio frames.
     /// </summary>
-    public class AsetnsamplesFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class AsetnsamplesFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal AsetnsamplesFilterGen(AudioMap input) : base("asetnsamples", input)
         {

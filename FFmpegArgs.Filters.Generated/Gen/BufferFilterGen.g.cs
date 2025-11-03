@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... buffer            |-&gt;V       Buffer video frames, and make them accessible to the filterchain.
+    /// .. buffer            |-&gt;V       Buffer video frames, and make them accessible to the filterchain.
     /// </summary>
     public class BufferFilterGen : SourceToImageFilter
     {
@@ -25,7 +25,7 @@
         /// <summary>
         ///  (default none)
         /// </summary>
-        public BufferFilterGen pix_fmt(PixFmt pix_fmt) => this.SetOption("pix_fmt", pix_fmt.ToString());
+        public BufferFilterGen pix_fmt(PixFmt pix_fmt) => this.SetOption("pix_fmt", pix_fmt.ToStringInv());
         /// <summary>
         ///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
         /// </summary>
@@ -43,7 +43,7 @@
         /// </summary>
         public BufferFilterGen frame_rate(Rational frame_rate) => this.SetOption("frame_rate", frame_rate.Check(0, DBL_MAX));
         /// <summary>
-        ///  select colorspace (from 0 to 14) (default unknown)
+        ///  select colorspace (from 0 to 17) (default unknown)
         /// </summary>
         public BufferFilterGen colorspace(BufferFilterGenColorspace colorspace) => this.SetOption("colorspace", colorspace.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
@@ -53,7 +53,7 @@
     }
 
     /// <summary>
-    ///  select colorspace (from 0 to 14) (default unknown)
+    ///  select colorspace (from 0 to 17) (default unknown)
     /// </summary>
     public enum BufferFilterGenColorspace
     {
@@ -98,6 +98,16 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("ycgco")]
         ycgco = 8,
         /// <summary>
+        /// ycgco-re        16           ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("ycgco-re")]
+        ycgco_re = 16,
+        /// <summary>
+        /// ycgco-ro        17           ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("ycgco-ro")]
+        ycgco_ro = 17,
+        /// <summary>
         /// bt2020nc        9            ..FV.......
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("bt2020nc")]
@@ -126,7 +136,12 @@
         /// ictcp           14           ..FV.......
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("ictcp")]
-        ictcp = 14
+        ictcp = 14,
+        /// <summary>
+        /// ipt-c2          15           ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("ipt-c2")]
+        ipt_c2 = 15
     }
 
     /// <summary>

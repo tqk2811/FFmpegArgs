@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC allpass           A-&gt;A       Apply a two-pole all-pass filter.
+    /// TS allpass           A-&gt;A       Apply a two-pole all-pass filter.
     /// </summary>
-    public class AllpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AllpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AllpassFilterGen(AudioMap input) : base("allpass", input)
         {
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public AllpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public AllpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C virtualbass       A-&gt;A       Audio Virtual Bass.
+    /// T. virtualbass       A-&gt;A       Audio Virtual Bass.
     /// </summary>
-    public class VirtualbassFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class VirtualbassFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal VirtualbassFilterGen(AudioMap input) : base("virtualbass", input)
         {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... select            V-&gt;N       Select video frames to pass in output.
+    /// .. select            V-&gt;N       Select video frames to pass in output.
     /// </summary>
     public class SelectFilterGen : ImageToImageFilter
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC equalizer         A-&gt;A       Apply two-pole peaking equalization (EQ) filter.
+    /// TS equalizer         A-&gt;A       Apply two-pole peaking equalization (EQ) filter.
     /// </summary>
-    public class EqualizerFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class EqualizerFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal EqualizerFilterGen(AudioMap input) : base("equalizer", input)
         {
@@ -37,7 +37,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public EqualizerFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public EqualizerFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

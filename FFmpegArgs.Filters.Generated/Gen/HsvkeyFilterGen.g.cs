@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC hsvkey            V-&gt;V       Turns a certain HSV range into transparency. Operates on YUV colors.
+    /// TS hsvkey            V-&gt;V       Turns a certain HSV range into transparency. Operates on YUV colors.
     /// </summary>
-    public class HsvkeyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class HsvkeyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal HsvkeyFilterGen(ImageMap input) : base("hsvkey", input)
         {

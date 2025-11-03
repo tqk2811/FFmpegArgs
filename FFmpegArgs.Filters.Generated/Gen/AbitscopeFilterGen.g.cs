@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... abitscope         A-&gt;V       Convert input audio to audio bit scope video output.
+    /// .. abitscope         A-&gt;V       Convert input audio to audio bit scope video output.
     /// </summary>
     public class AbitscopeFilterGen : AudioToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AbitscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public AbitscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video size (default &quot;1024x256&quot;)
         /// </summary>
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public AbitscopeFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
+        public AbitscopeFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
         /// <summary>
         ///  set output mode (from 0 to 1) (default bars)
         /// </summary>

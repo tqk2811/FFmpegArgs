@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. ssim              VV-&gt;V      Calculate the SSIM between two video streams.
+    /// TS ssim              VV-&gt;V      Calculate the SSIM between two video streams.
     /// </summary>
     public class SsimFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public SsimFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
+        public SsimFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public SsimFilterGen f(String f) => this.SetOption("f", f.ToString());
+        public SsimFilterGen f(String f) => this.SetOption("f", f.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

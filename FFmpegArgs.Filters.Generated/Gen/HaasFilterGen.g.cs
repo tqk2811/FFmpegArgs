@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... haas              A-&gt;A       Apply Haas Stereo Enhancer.
+    /// .. haas              A-&gt;A       Apply Haas Stereo Enhancer.
     /// </summary>
     public class HaasFilterGen : AudioToAudioFilter
     {

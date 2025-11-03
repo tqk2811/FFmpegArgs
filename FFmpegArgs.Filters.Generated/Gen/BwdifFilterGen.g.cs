@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. bwdif             V-&gt;V       Deinterlace the input image.
+    /// TS bwdif             V-&gt;V       Deinterlace the input image.
     /// </summary>
     public class BwdifFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

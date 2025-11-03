@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C feedback          VV-&gt;VV     Apply feedback video filter.
+    /// T. feedback          VV-&gt;VV     Apply feedback video filter.
     /// </summary>
-    public class FeedbackFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class FeedbackFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal FeedbackFilterGen(params ImageMap[] inputs) : base("feedback", inputs)
         {

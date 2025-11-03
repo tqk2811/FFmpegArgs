@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. owdenoise         V-&gt;V       Denoise using wavelets.
+    /// T. owdenoise         V-&gt;V       Denoise using wavelets.
     /// </summary>
     public class OwdenoiseFilterGen : ImageToImageFilter, ITimelineSupport
     {

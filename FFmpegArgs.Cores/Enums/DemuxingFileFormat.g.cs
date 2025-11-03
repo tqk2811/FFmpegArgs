@@ -165,6 +165,11 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("aptx_hd")]
         aptx_hd,
         /// <summary>
+        /// APV raw bitstream
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("apv")]
+        apv,
+        /// <summary>
         /// AQTitle subtitles
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("aqtitle")]
@@ -600,6 +605,11 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("g726le")]
         g726le,
         /// <summary>
+        /// raw G.728
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("g728")]
+        g728,
+        /// <summary>
         /// G.729 raw format demuxer
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("g729")]
@@ -834,6 +844,11 @@
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("lavfi")]
         lavfi,
+        /// <summary>
+        /// LC3 (Low Complexity Communication Codec)
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("lc3")]
+        lc3,
         /// <summary>
         /// Game Music Emu demuxer
         /// </summary>
@@ -1279,6 +1294,11 @@
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("rawvideo")]
         rawvideo,
+        /// <summary>
+        /// RCWT (Raw Captions With Time)
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("rcwt")]
+        rcwt,
         /// <summary>
         /// RealText subtitle format
         /// </summary>

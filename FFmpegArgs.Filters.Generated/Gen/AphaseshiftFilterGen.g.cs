@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC aphaseshift       A-&gt;A       Apply phase shifting to input audio.
+    /// TS aphaseshift       A-&gt;A       Apply phase shifting to input audio.
     /// </summary>
-    public class AphaseshiftFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AphaseshiftFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AphaseshiftFilterGen(AudioMap input) : base("aphaseshift", input)
         {

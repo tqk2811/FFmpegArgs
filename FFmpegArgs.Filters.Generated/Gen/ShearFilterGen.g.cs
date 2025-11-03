@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC shear             V-&gt;V       Shear transform the input image.
+    /// TS shear             V-&gt;V       Shear transform the input image.
     /// </summary>
-    public class ShearFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ShearFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ShearFilterGen(ImageMap input) : base("shear", input)
         {
@@ -21,11 +21,11 @@
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public ShearFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToString());
+        public ShearFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToStringInv());
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public ShearFilterGen c(String c) => this.SetOption("c", c.ToString());
+        public ShearFilterGen c(String c) => this.SetOption("c", c.ToStringInv());
         /// <summary>
         ///  set interpolation (from 0 to 1) (default bilinear)
         /// </summary>

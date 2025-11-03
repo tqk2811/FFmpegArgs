@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... atrim             A-&gt;A       Pick one continuous section from the input, drop the rest.
+    /// .. atrim             A-&gt;A       Pick one continuous section from the input, drop the rest.
     /// </summary>
     public class AtrimFilterGen : AudioToAudioFilter
     {

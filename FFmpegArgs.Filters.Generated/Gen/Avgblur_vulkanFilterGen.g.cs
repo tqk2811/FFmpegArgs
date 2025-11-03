@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... avgblur_vulkan    V-&gt;V       Apply avgblur mask to input video
+    /// .. avgblur_vulkan    V-&gt;V       Apply avgblur mask to input video
     /// </summary>
     public class Avgblur_vulkanFilterGen : ImageToImageFilter
     {

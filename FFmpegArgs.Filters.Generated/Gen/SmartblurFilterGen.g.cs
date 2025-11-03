@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. smartblur         V-&gt;V       Blur the input video without impacting the outlines.
+    /// T. smartblur         V-&gt;V       Blur the input video without impacting the outlines.
     /// </summary>
     public class SmartblurFilterGen : ImageToImageFilter, ITimelineSupport
     {
@@ -58,6 +58,30 @@
         ///  set chroma threshold (from -31 to 30) (default -31)
         /// </summary>
         public SmartblurFilterGen ct(int ct) => this.SetOptionRange("ct", ct, -31, 30);
+        /// <summary>
+        ///  set alpha radius (from -0.9 to 5) (default -0.9)
+        /// </summary>
+        public SmartblurFilterGen alpha_radius(float alpha_radius) => this.SetOptionRange("alpha_radius", alpha_radius, -0.9, 5);
+        /// <summary>
+        ///  set alpha radius (from -0.9 to 5) (default -0.9)
+        /// </summary>
+        public SmartblurFilterGen ar(float ar) => this.SetOptionRange("ar", ar, -0.9, 5);
+        /// <summary>
+        ///  set alpha strength (from -2 to 1) (default -2)
+        /// </summary>
+        public SmartblurFilterGen alpha_strength(float alpha_strength) => this.SetOptionRange("alpha_strength", alpha_strength, -2, 1);
+        /// <summary>
+        ///  set alpha strength (from -2 to 1) (default -2)
+        /// </summary>
+        public SmartblurFilterGen _as(float _as) => this.SetOptionRange("as", _as, -2, 1);
+        /// <summary>
+        ///  set alpha threshold (from -31 to 30) (default -31)
+        /// </summary>
+        public SmartblurFilterGen alpha_threshold(int alpha_threshold) => this.SetOptionRange("alpha_threshold", alpha_threshold, -31, 30);
+        /// <summary>
+        ///  set alpha threshold (from -31 to 30) (default -31)
+        /// </summary>
+        public SmartblurFilterGen at(int at) => this.SetOptionRange("at", at, -31, 30);
     }
 
     public static partial class FilterGeneratedExtensions

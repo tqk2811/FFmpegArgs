@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... find_rect         V-&gt;V       Find a user specified object.
+    /// .. find_rect         V-&gt;V       Find a user specified object.
     /// </summary>
     public class Find_rectFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  object bitmap filename
         /// </summary>
-        public Find_rectFilterGen _object(String _object) => this.SetOption("object", _object.ToString());
+        public Find_rectFilterGen _object(String _object) => this.SetOption("object", _object.ToStringInv());
         /// <summary>
         ///  set threshold (from 0 to 1) (default 0.5)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C adelay            A-&gt;A       Delay one or more audio channels.
+    /// T. adelay            A-&gt;A       Delay one or more audio channels.
     /// </summary>
-    public class AdelayFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class AdelayFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal AdelayFilterGen(AudioMap input) : base("adelay", input)
         {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set list of delays for each channel
         /// </summary>
-        public AdelayFilterGen delays(String delays) => this.SetOption("delays", delays.ToString());
+        public AdelayFilterGen delays(String delays) => this.SetOption("delays", delays.ToStringInv());
         /// <summary>
         ///  use last available delay for remained channels (default false)
         /// </summary>

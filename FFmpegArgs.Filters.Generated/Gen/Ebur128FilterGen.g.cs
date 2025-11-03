@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... ebur128           A-&gt;N       EBU R128 scanner.
+    /// .. ebur128           A-&gt;N       EBU R128 scanner.
     /// </summary>
     public class Ebur128FilterGen : AudioToAudioFilter
     {

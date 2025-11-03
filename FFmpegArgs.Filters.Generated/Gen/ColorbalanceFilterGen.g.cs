@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC colorbalance      V-&gt;V       Adjust the color balance.
+    /// TS colorbalance      V-&gt;V       Adjust the color balance.
     /// </summary>
-    public class ColorbalanceFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ColorbalanceFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ColorbalanceFilterGen(ImageMap input) : base("colorbalance", input)
         {

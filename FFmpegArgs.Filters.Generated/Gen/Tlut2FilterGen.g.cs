@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC tlut2             V-&gt;V       Compute and apply a lookup table from two successive frames.
+    /// TS tlut2             V-&gt;V       Compute and apply a lookup table from two successive frames.
     /// </summary>
-    public class Tlut2FilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class Tlut2FilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal Tlut2FilterGen(ImageMap input) : base("tlut2", input)
         {

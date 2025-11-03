@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C libplacebo        N-&gt;V       Apply various GPU filters from libplacebo
+    /// .. libplacebo        N-&gt;V       Apply various GPU filters from libplacebo
     /// </summary>
-    public class LibplaceboFilterGen : ImageToImageFilter, ICommandSupport
+    public class LibplaceboFilterGen : ImageToImageFilter
     {
         internal LibplaceboFilterGen(params ImageMap[] inputs) : base("libplacebo", inputs)
         {
@@ -17,51 +17,51 @@
         /// <summary>
         ///  Output video frame width (default &quot;iw&quot;)
         /// </summary>
-        public LibplaceboFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public LibplaceboFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  Output video frame height (default &quot;ih&quot;)
         /// </summary>
-        public LibplaceboFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public LibplaceboFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  Output video frame rate (default &quot;none&quot;)
         /// </summary>
-        public LibplaceboFilterGen fps(String fps) => this.SetOption("fps", fps.ToString());
+        public LibplaceboFilterGen fps(String fps) => this.SetOption("fps", fps.ToStringInv());
         /// <summary>
         ///  Input video crop x (default &quot;(iw-cw)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_x(String crop_x) => this.SetOption("crop_x", crop_x.ToString());
+        public LibplaceboFilterGen crop_x(String crop_x) => this.SetOption("crop_x", crop_x.ToStringInv());
         /// <summary>
         ///  Input video crop y (default &quot;(ih-ch)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_y(String crop_y) => this.SetOption("crop_y", crop_y.ToString());
+        public LibplaceboFilterGen crop_y(String crop_y) => this.SetOption("crop_y", crop_y.ToStringInv());
         /// <summary>
         ///  Input video crop w (default &quot;iw&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_w(String crop_w) => this.SetOption("crop_w", crop_w.ToString());
+        public LibplaceboFilterGen crop_w(String crop_w) => this.SetOption("crop_w", crop_w.ToStringInv());
         /// <summary>
         ///  Input video crop h (default &quot;ih&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_h(String crop_h) => this.SetOption("crop_h", crop_h.ToString());
+        public LibplaceboFilterGen crop_h(String crop_h) => this.SetOption("crop_h", crop_h.ToStringInv());
         /// <summary>
         ///  Output video placement x (default &quot;(ow-pw)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_x(String pos_x) => this.SetOption("pos_x", pos_x.ToString());
+        public LibplaceboFilterGen pos_x(String pos_x) => this.SetOption("pos_x", pos_x.ToStringInv());
         /// <summary>
         ///  Output video placement y (default &quot;(oh-ph)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_y(String pos_y) => this.SetOption("pos_y", pos_y.ToString());
+        public LibplaceboFilterGen pos_y(String pos_y) => this.SetOption("pos_y", pos_y.ToStringInv());
         /// <summary>
         ///  Output video placement w (default &quot;ow&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_w(String pos_w) => this.SetOption("pos_w", pos_w.ToString());
+        public LibplaceboFilterGen pos_w(String pos_w) => this.SetOption("pos_w", pos_w.ToStringInv());
         /// <summary>
         ///  Output video placement h (default &quot;oh&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_h(String pos_h) => this.SetOption("pos_h", pos_h.ToString());
+        public LibplaceboFilterGen pos_h(String pos_h) => this.SetOption("pos_h", pos_h.ToStringInv());
         /// <summary>
         ///  Output video format
         /// </summary>
-        public LibplaceboFilterGen format(String format) => this.SetOption("format", format.ToString());
+        public LibplaceboFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
         /// </summary>
@@ -73,25 +73,41 @@
         /// <summary>
         ///  force SAR normalization to 1:1 by adjusting pos_x/y/w/h (default false)
         /// </summary>
+        public LibplaceboFilterGen reset_sar(bool reset_sar) => this.SetOption("reset_sar", reset_sar.ToFFmpegFlag());
+        /// <summary>
+        ///  like reset_sar, but pad/crop instead of stretching the video (default false)
+        /// </summary>
         public LibplaceboFilterGen normalize_sar(bool normalize_sar) => this.SetOption("normalize_sar", normalize_sar.ToFFmpegFlag());
         /// <summary>
         ///  ratio between padding and cropping when normalizing SAR (0=pad, 1=crop) (from 0 to 1) (default 0)
         /// </summary>
         public LibplaceboFilterGen pad_crop_ratio(float pad_crop_ratio) => this.SetOptionRange("pad_crop_ratio", pad_crop_ratio, 0, 1);
         /// <summary>
-        ///  Background fill color (default &quot;black&quot;)
+        ///  Background fill color (default &quot;black@0&quot;)
         /// </summary>
-        public LibplaceboFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToString());
+        public LibplaceboFilterGen fillcolor(Color fillcolor) => this.SetOption("fillcolor", fillcolor.ToHexStringRGBA());
         /// <summary>
         ///  Corner rounding radius (from 0 to 1) (default 0)
         /// </summary>
         public LibplaceboFilterGen corner_rounding(float corner_rounding) => this.SetOptionRange("corner_rounding", corner_rounding, 0, 1);
         /// <summary>
+        ///  Path to custom LUT file to apply
+        /// </summary>
+        public LibplaceboFilterGen lut(String lut) => this.SetOption("lut", lut.ToStringInv());
+        /// <summary>
+        ///  Application mode of the custom LUT (from 0 to 3) (default auto)
+        /// </summary>
+        public LibplaceboFilterGen lut_type(LibplaceboFilterGenLut_type lut_type) => this.SetOption("lut_type", lut_type.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
         ///  Pass extra libplacebo-specific options using a :-separated list of key=value pairs
         /// </summary>
-        public LibplaceboFilterGen extra_opts(String extra_opts) => this.SetOption("extra_opts", extra_opts.ToString());
+        public LibplaceboFilterGen extra_opts(String extra_opts) => this.SetOption("extra_opts", extra_opts.ToStringInv());
         /// <summary>
-        ///  select colorspace (from -1 to 14) (default auto)
+        ///  Set shader cache path
+        /// </summary>
+        public LibplaceboFilterGen shader_cache(String shader_cache) => this.SetOption("shader_cache", shader_cache.ToStringInv());
+        /// <summary>
+        ///  select colorspace (from -1 to 17) (default auto)
         /// </summary>
         public LibplaceboFilterGen colorspace(LibplaceboFilterGenColorspace colorspace) => this.SetOption("colorspace", colorspace.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
@@ -107,21 +123,21 @@
         /// </summary>
         public LibplaceboFilterGen color_trc(LibplaceboFilterGenColor_trc color_trc) => this.SetOption("color_trc", color_trc.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
+        ///  rotate the input clockwise (from 0 to 4) (default 0)
+        /// </summary>
+        public LibplaceboFilterGen rotate(LibplaceboFilterGenRotate rotate) => this.SetOption("rotate", rotate.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
         ///  Upscaler function (default &quot;spline36&quot;)
         /// </summary>
-        public LibplaceboFilterGen upscaler(String upscaler) => this.SetOption("upscaler", upscaler.ToString());
+        public LibplaceboFilterGen upscaler(String upscaler) => this.SetOption("upscaler", upscaler.ToStringInv());
         /// <summary>
         ///  Downscaler function (default &quot;mitchell&quot;)
         /// </summary>
-        public LibplaceboFilterGen downscaler(String downscaler) => this.SetOption("downscaler", downscaler.ToString());
+        public LibplaceboFilterGen downscaler(String downscaler) => this.SetOption("downscaler", downscaler.ToStringInv());
         /// <summary>
         ///  Frame mixing function (default &quot;none&quot;)
         /// </summary>
-        public LibplaceboFilterGen frame_mixer(String frame_mixer) => this.SetOption("frame_mixer", frame_mixer.ToString());
-        /// <summary>
-        ///  Number of scaler LUT entries (from 0 to 256) (default 0)
-        /// </summary>
-        public LibplaceboFilterGen lut_entries(int lut_entries) => this.SetOptionRange("lut_entries", lut_entries, 0, 256);
+        public LibplaceboFilterGen frame_mixer(String frame_mixer) => this.SetOption("frame_mixer", frame_mixer.ToStringInv());
         /// <summary>
         ///  Antiringing strength (for non-EWA filters) (from 0 to 1) (default 0)
         /// </summary>
@@ -138,6 +154,18 @@
         ///  Apply Dolby Vision metadata (default true)
         /// </summary>
         public LibplaceboFilterGen apply_dolbyvision(bool apply_dolbyvision) => this.SetOption("apply_dolbyvision", apply_dolbyvision.ToFFmpegFlag());
+        /// <summary>
+        ///  Deinterlacing mode (from 0 to 3) (default weave)
+        /// </summary>
+        public LibplaceboFilterGen deinterlace(LibplaceboFilterGenDeinterlace deinterlace) => this.SetOption("deinterlace", deinterlace.GetEnumAttribute<NameAttribute>().Name);
+        /// <summary>
+        ///  Skip yadif spatial check (default false)
+        /// </summary>
+        public LibplaceboFilterGen skip_spatial_check(bool skip_spatial_check) => this.SetOption("skip_spatial_check", skip_spatial_check.ToFFmpegFlag());
+        /// <summary>
+        ///  Output a frame for each field (default false)
+        /// </summary>
+        public LibplaceboFilterGen send_fields(bool send_fields) => this.SetOption("send_fields", send_fields.ToFFmpegFlag());
         /// <summary>
         ///  Enable debanding (default false)
         /// </summary>
@@ -186,10 +214,6 @@
         ///  Peak detection smoothing period (from 0 to 1000) (default 100)
         /// </summary>
         public LibplaceboFilterGen smoothing_period(float smoothing_period) => this.SetOptionRange("smoothing_period", smoothing_period, 0, 1000);
-        /// <summary>
-        ///  Peak detection minimum peak (from 0 to 100) (default 1)
-        /// </summary>
-        public LibplaceboFilterGen minimum_peak(float minimum_peak) => this.SetOptionRange("minimum_peak", minimum_peak, 0, 100);
         /// <summary>
         ///  Scene change low threshold (from -1 to 100) (default 5.5)
         /// </summary>
@@ -253,19 +277,15 @@
         /// <summary>
         ///  Path to custom user shader (mpv .hook format)
         /// </summary>
-        public LibplaceboFilterGen custom_shader_path(String custom_shader_path) => this.SetOption("custom_shader_path", custom_shader_path.ToString());
+        public LibplaceboFilterGen custom_shader_path(String custom_shader_path) => this.SetOption("custom_shader_path", custom_shader_path.ToStringInv());
         /// <summary>
         ///  Custom user shader as binary (mpv .hook format)
         /// </summary>
-        public LibplaceboFilterGen custom_shader_bin(String custom_shader_bin) => this.SetOption("custom_shader_bin", custom_shader_bin.ToString());
+        public LibplaceboFilterGen custom_shader_bin(String custom_shader_bin) => this.SetOption("custom_shader_bin", custom_shader_bin.ToStringInv());
         /// <summary>
         ///  Skip anti-aliasing (default false)
         /// </summary>
         public LibplaceboFilterGen skip_aa(bool skip_aa) => this.SetOption("skip_aa", skip_aa.ToFFmpegFlag());
-        /// <summary>
-        ///  Polar LUT cutoff (from 0 to 1) (default 0)
-        /// </summary>
-        public LibplaceboFilterGen polar_cutoff(float polar_cutoff) => this.SetOptionRange("polar_cutoff", polar_cutoff, 0, 1);
         /// <summary>
         ///  Disable linear scaling (default false)
         /// </summary>
@@ -307,7 +327,34 @@
     }
 
     /// <summary>
-    ///  select colorspace (from -1 to 14) (default auto)
+    ///  Application mode of the custom LUT (from 0 to 3) (default auto)
+    /// </summary>
+    public enum LibplaceboFilterGenLut_type
+    {
+        /// <summary>
+        /// auto            0            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("auto")]
+        auto = 0,
+        /// <summary>
+        /// native          1            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("native")]
+        native = 1,
+        /// <summary>
+        /// normalized      2            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("normalized")]
+        normalized = 2,
+        /// <summary>
+        /// conversion      3            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("conversion")]
+        conversion = 3
+    }
+
+    /// <summary>
+    ///  select colorspace (from -1 to 17) (default auto)
     /// </summary>
     public enum LibplaceboFilterGenColorspace
     {
@@ -577,6 +624,60 @@
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("arib-std-b67")]
         arib_std_b67 = 18
+    }
+
+    /// <summary>
+    ///  rotate the input clockwise (from 0 to 4) (default 0)
+    /// </summary>
+    public enum LibplaceboFilterGenRotate
+    {
+        /// <summary>
+        /// 0               0            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("0")]
+        _0 = 0,
+        /// <summary>
+        /// 90              1            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("90")]
+        _90 = 1,
+        /// <summary>
+        /// 180             2            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("180")]
+        _180 = 2,
+        /// <summary>
+        /// 270             3            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("270")]
+        _270 = 3,
+        /// <summary>
+        /// 360             4            ..FV.......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("360")]
+        _360 = 4
+    }
+
+    /// <summary>
+    ///  Deinterlacing mode (from 0 to 3) (default weave)
+    /// </summary>
+    public enum LibplaceboFilterGenDeinterlace
+    {
+        /// <summary>
+        /// weave           0            ..FV....... Weave fields together (no-op)
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("weave")]
+        weave = 0,
+        /// <summary>
+        /// bob             1            ..FV....... Naive bob deinterlacing
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("bob")]
+        bob = 1,
+        /// <summary>
+        /// yadif           2            ..FV....... Yet another deinterlacing filter
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("yadif")]
+        yadif = 2
     }
 
     /// <summary>

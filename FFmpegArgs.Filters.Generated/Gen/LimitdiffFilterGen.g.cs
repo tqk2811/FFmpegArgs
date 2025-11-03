@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC limitdiff         N-&gt;V       Apply filtering with limiting difference.
+    /// TS limitdiff         N-&gt;V       Apply filtering with limiting difference.
     /// </summary>
-    public class LimitdiffFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class LimitdiffFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal LimitdiffFilterGen(params ImageMap[] inputs) : base("limitdiff", inputs)
         {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC biquad            A-&gt;A       Apply a biquad IIR filter with the given coefficients.
+    /// TS biquad            A-&gt;A       Apply a biquad IIR filter with the given coefficients.
     /// </summary>
-    public class BiquadFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class BiquadFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal BiquadFilterGen(AudioMap input) : base("biquad", input)
         {
@@ -41,7 +41,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public BiquadFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public BiquadFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

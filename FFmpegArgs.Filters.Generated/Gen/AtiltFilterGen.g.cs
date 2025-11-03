@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC atilt             A-&gt;A       Apply spectral tilt to audio.
+    /// TS atilt             A-&gt;A       Apply spectral tilt to audio.
     /// </summary>
-    public class AtiltFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AtiltFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AtiltFilterGen(AudioMap input) : base("atilt", input)
         {

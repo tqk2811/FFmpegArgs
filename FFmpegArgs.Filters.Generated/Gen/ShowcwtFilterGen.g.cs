@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. showcwt           A-&gt;V       Convert input audio to a CWT (Continuous Wavelet Transform) spectrum video output.
+    /// .S showcwt           A-&gt;V       Convert input audio to a CWT (Continuous Wavelet Transform) spectrum video output.
     /// </summary>
     public class ShowcwtFilterGen : AudioToImageFilter, ISliceThreading
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowcwtFilterGen rate(String rate) => this.SetOption("rate", rate.ToString());
+        public ShowcwtFilterGen rate(String rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set frequency scale (from 0 to 8) (default linear)
         /// </summary>

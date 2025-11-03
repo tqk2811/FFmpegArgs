@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C amix              N-&gt;A       Audio mixing.
+    /// .. amix              N-&gt;A       Audio mixing.
     /// </summary>
-    public class AmixFilterGen : AudioToAudioFilter, ICommandSupport
+    public class AmixFilterGen : AudioToAudioFilter
     {
         internal AmixFilterGen(params AudioMap[] inputs) : base("amix", inputs)
         {
@@ -25,7 +25,7 @@
         /// <summary>
         ///  Set weight for each input. (default &quot;1 1&quot;)
         /// </summary>
-        public AmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToString());
+        public AmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToStringInv());
         /// <summary>
         ///  Scale inputs (default true)
         /// </summary>

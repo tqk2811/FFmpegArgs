@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC colormap          VVV-&gt;V     Apply custom Color Maps to video stream.
+    /// TS colormap          VVV-&gt;V     Apply custom Color Maps to video stream.
     /// </summary>
-    public class ColormapFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ColormapFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ColormapFilterGen(params ImageMap[] inputs) : base("colormap", inputs)
         {

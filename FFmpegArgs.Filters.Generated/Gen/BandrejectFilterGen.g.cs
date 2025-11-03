@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC bandreject        A-&gt;A       Apply a two-pole Butterworth band-reject filter.
+    /// TS bandreject        A-&gt;A       Apply a two-pole Butterworth band-reject filter.
     /// </summary>
-    public class BandrejectFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class BandrejectFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal BandrejectFilterGen(AudioMap input) : base("bandreject", input)
         {
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public BandrejectFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public BandrejectFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

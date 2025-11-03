@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... thistogram        V-&gt;V       Compute and draw a temporal histogram.
+    /// .. thistogram        V-&gt;V       Compute and draw a temporal histogram.
     /// </summary>
     public class ThistogramFilterGen : ImageToImageFilter
     {

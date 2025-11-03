@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... scale_vaapi       V-&gt;V       Scale to/from VAAPI surfaces.
+    /// .. scale_vaapi       V-&gt;V       Scale to/from VAAPI surfaces.
     /// </summary>
     public class Scale_vaapiFilterGen : ImageToImageFilter
     {
@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width (default &quot;iw&quot;)
         /// </summary>
-        public Scale_vaapiFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public Scale_vaapiFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  Output video height (default &quot;ih&quot;)
         /// </summary>
-        public Scale_vaapiFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public Scale_vaapiFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  Output video format (software format of hardware frames)
         /// </summary>
-        public Scale_vaapiFilterGen format(String format) => this.SetOption("format", format.ToString());
+        public Scale_vaapiFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  Scaling mode (from 0 to 768) (default hq)
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  Output colour matrix coefficient set
         /// </summary>
-        public Scale_vaapiFilterGen out_color_matrix(String out_color_matrix) => this.SetOption("out_color_matrix", out_color_matrix.ToString());
+        public Scale_vaapiFilterGen out_color_matrix(String out_color_matrix) => this.SetOption("out_color_matrix", out_color_matrix.ToStringInv());
         /// <summary>
         ///  Output colour range (from 0 to 2) (default 0)
         /// </summary>
@@ -37,15 +37,15 @@
         /// <summary>
         ///  Output colour primaries
         /// </summary>
-        public Scale_vaapiFilterGen out_color_primaries(String out_color_primaries) => this.SetOption("out_color_primaries", out_color_primaries.ToString());
+        public Scale_vaapiFilterGen out_color_primaries(String out_color_primaries) => this.SetOption("out_color_primaries", out_color_primaries.ToStringInv());
         /// <summary>
         ///  Output colour transfer characteristics
         /// </summary>
-        public Scale_vaapiFilterGen out_color_transfer(String out_color_transfer) => this.SetOption("out_color_transfer", out_color_transfer.ToString());
+        public Scale_vaapiFilterGen out_color_transfer(String out_color_transfer) => this.SetOption("out_color_transfer", out_color_transfer.ToStringInv());
         /// <summary>
         ///  Output chroma sample location
         /// </summary>
-        public Scale_vaapiFilterGen out_chroma_location(String out_chroma_location) => this.SetOption("out_chroma_location", out_chroma_location.ToString());
+        public Scale_vaapiFilterGen out_chroma_location(String out_chroma_location) => this.SetOption("out_chroma_location", out_chroma_location.ToStringInv());
         /// <summary>
         ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
         /// </summary>
@@ -54,6 +54,10 @@
         ///  enforce that the output resolution is divisible by a defined integer when force_original_aspect_ratio is used (from 1 to 256) (default 1)
         /// </summary>
         public Scale_vaapiFilterGen force_divisible_by(int force_divisible_by) => this.SetOptionRange("force_divisible_by", force_divisible_by, 1, 256);
+        /// <summary>
+        ///  reset SAR to 1 and scale to square pixels if scaling proportionally (default false)
+        /// </summary>
+        public Scale_vaapiFilterGen reset_sar(bool reset_sar) => this.SetOption("reset_sar", reset_sar.ToFFmpegFlag());
     }
 
     /// <summary>

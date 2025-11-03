@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C silenceremove     A-&gt;A       Remove silence.
+    /// T. silenceremove     A-&gt;A       Remove silence.
     /// </summary>
-    public class SilenceremoveFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class SilenceremoveFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal SilenceremoveFilterGen(AudioMap input) : base("silenceremove", input)
         {

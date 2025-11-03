@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... tonemap_opencl    V-&gt;V       Perform HDR to SDR conversion with tonemapping.
+    /// .. tonemap_opencl    V-&gt;V       Perform HDR to SDR conversion with tonemapping.
     /// </summary>
     public class Tonemap_openclFilterGen : ImageToImageFilter
     {
@@ -33,7 +33,7 @@
         /// <summary>
         ///  output pixel format (default none)
         /// </summary>
-        public Tonemap_openclFilterGen format(PixFmt format) => this.SetOption("format", format.ToString());
+        public Tonemap_openclFilterGen format(PixFmt format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  signal peak override (from 0 to DBL_MAX) (default 0)
         /// </summary>

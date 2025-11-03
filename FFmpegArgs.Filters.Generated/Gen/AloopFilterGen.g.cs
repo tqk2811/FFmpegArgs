@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... aloop             A-&gt;A       Loop audio samples.
+    /// .. aloop             A-&gt;A       Loop audio samples.
     /// </summary>
     public class AloopFilterGen : AudioToAudioFilter
     {

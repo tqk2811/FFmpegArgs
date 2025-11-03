@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... flanger           A-&gt;A       Apply a flanging effect to the audio.
+    /// .. flanger           A-&gt;A       Apply a flanging effect to the audio.
     /// </summary>
     public class FlangerFilterGen : AudioToAudioFilter
     {

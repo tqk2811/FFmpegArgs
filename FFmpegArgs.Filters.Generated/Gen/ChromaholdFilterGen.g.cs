@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC chromahold        V-&gt;V       Turns a certain color range into gray.
+    /// TS chromahold        V-&gt;V       Turns a certain color range into gray.
     /// </summary>
-    public class ChromaholdFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ChromaholdFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ChromaholdFilterGen(ImageMap input) : base("chromahold", input)
         {

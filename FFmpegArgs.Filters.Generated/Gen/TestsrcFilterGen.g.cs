@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... testsrc           |-&gt;V       Generate test pattern.
+    /// .. testsrc           |-&gt;V       Generate test pattern.
     /// </summary>
     public class TestsrcFilterGen : SourceToImageFilter
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public TestsrcFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public TestsrcFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>

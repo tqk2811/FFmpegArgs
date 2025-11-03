@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. fspp              V-&gt;V       Apply Fast Simple Post-processing filter.
+    /// T. fspp              V-&gt;V       Apply Fast Simple Post-processing filter.
     /// </summary>
     public class FsppFilterGen : ImageToImageFilter, ITimelineSupport
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C aexciter          A-&gt;A       Enhance high frequency part of audio.
+    /// T. aexciter          A-&gt;A       Enhance high frequency part of audio.
     /// </summary>
-    public class AexciterFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class AexciterFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal AexciterFilterGen(AudioMap input) : base("aexciter", input)
         {

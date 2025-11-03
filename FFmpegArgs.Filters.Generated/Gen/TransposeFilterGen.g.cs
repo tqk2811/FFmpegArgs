@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. transpose         V-&gt;V       Transpose input video.
+    /// .S transpose         V-&gt;V       Transpose input video.
     /// </summary>
     public class TransposeFilterGen : ImageToImageFilter, ISliceThreading
     {

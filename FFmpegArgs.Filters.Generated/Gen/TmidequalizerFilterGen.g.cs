@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. tmidequalizer     V-&gt;V       Apply Temporal Midway Equalization.
+    /// T. tmidequalizer     V-&gt;V       Apply Temporal Midway Equalization.
     /// </summary>
     public class TmidequalizerFilterGen : ImageToImageFilter, ITimelineSupport
     {

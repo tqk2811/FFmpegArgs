@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... denoise_vaapi     V-&gt;V       VAAPI VPP for de-noise
+    /// .. denoise_vaapi     V-&gt;V       VAAPI VPP for de-noise
     /// </summary>
     public class Denoise_vaapiFilterGen : ImageToImageFilter
     {

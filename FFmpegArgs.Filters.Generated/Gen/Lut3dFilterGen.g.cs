@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC lut3d             V-&gt;V       Adjust colors using a 3D LUT.
+    /// TS lut3d             V-&gt;V       Adjust colors using a 3D LUT.
     /// </summary>
-    public class Lut3dFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class Lut3dFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal Lut3dFilterGen(ImageMap input) : base("lut3d", input)
         {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set 3D LUT file name
         /// </summary>
-        public Lut3dFilterGen file(String file) => this.SetOption("file", file.ToString());
+        public Lut3dFilterGen file(String file) => this.SetOption("file", file.ToStringInv());
         /// <summary>
         ///  when to process CLUT (from 0 to 1) (default all)
         /// </summary>

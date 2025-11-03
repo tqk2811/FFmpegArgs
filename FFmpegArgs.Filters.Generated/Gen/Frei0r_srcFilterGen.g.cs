@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... frei0r_src        |-&gt;V       Generate a frei0r source.
+    /// .. frei0r_src        |-&gt;V       Generate a frei0r source.
     /// </summary>
     public class Frei0r_srcFilterGen : SourceToImageFilter
     {
@@ -17,15 +17,15 @@
         /// <summary>
         ///  (default &quot;25&quot;)
         /// </summary>
-        public Frei0r_srcFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToString());
+        public Frei0r_srcFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToStringInv());
         /// <summary>
         /// 
         /// </summary>
-        public Frei0r_srcFilterGen filter_name(String filter_name) => this.SetOption("filter_name", filter_name.ToString());
+        public Frei0r_srcFilterGen filter_name(String filter_name) => this.SetOption("filter_name", filter_name.ToStringInv());
         /// <summary>
         /// 
         /// </summary>
-        public Frei0r_srcFilterGen filter_params(String filter_params) => this.SetOption("filter_params", filter_params.ToString());
+        public Frei0r_srcFilterGen filter_params(String filter_params) => this.SetOption("filter_params", filter_params.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

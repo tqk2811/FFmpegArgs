@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C speechnorm        A-&gt;A       Speech Normalizer.
+    /// T. speechnorm        A-&gt;A       Speech Normalizer.
     /// </summary>
-    public class SpeechnormFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class SpeechnormFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal SpeechnormFilterGen(AudioMap input) : base("speechnorm", input)
         {
@@ -37,11 +37,11 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public SpeechnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public SpeechnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public SpeechnormFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public SpeechnormFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  set inverted filtering (default false)
         /// </summary>

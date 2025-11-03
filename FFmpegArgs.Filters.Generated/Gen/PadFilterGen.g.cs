@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... pad               V-&gt;V       Pad the input video.
+    /// .. pad               V-&gt;V       Pad the input video.
     /// </summary>
     public class PadFilterGen : ImageToImageFilter
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC v360              V-&gt;V       Convert 360 projection of video.
+    /// .S v360              V-&gt;V       Convert 360 projection of video.
     /// </summary>
-    public class V360FilterGen : ImageToImageFilter, ISliceThreading, ICommandSupport
+    public class V360FilterGen : ImageToImageFilter, ISliceThreading
     {
         internal V360FilterGen(ImageMap input) : base("v360", input)
         {
@@ -41,19 +41,19 @@
         /// <summary>
         ///  input cubemap face order (default &quot;rludfb&quot;)
         /// </summary>
-        public V360FilterGen in_forder(String in_forder) => this.SetOption("in_forder", in_forder.ToString());
+        public V360FilterGen in_forder(String in_forder) => this.SetOption("in_forder", in_forder.ToStringInv());
         /// <summary>
         ///  output cubemap face order (default &quot;rludfb&quot;)
         /// </summary>
-        public V360FilterGen out_forder(String out_forder) => this.SetOption("out_forder", out_forder.ToString());
+        public V360FilterGen out_forder(String out_forder) => this.SetOption("out_forder", out_forder.ToStringInv());
         /// <summary>
         ///  input cubemap face rotation (default &quot;000000&quot;)
         /// </summary>
-        public V360FilterGen in_frot(String in_frot) => this.SetOption("in_frot", in_frot.ToString());
+        public V360FilterGen in_frot(String in_frot) => this.SetOption("in_frot", in_frot.ToStringInv());
         /// <summary>
         ///  output cubemap face rotation (default &quot;000000&quot;)
         /// </summary>
-        public V360FilterGen out_frot(String out_frot) => this.SetOption("out_frot", out_frot.ToString());
+        public V360FilterGen out_frot(String out_frot) => this.SetOption("out_frot", out_frot.ToStringInv());
         /// <summary>
         ///  percent input cubemap pads (from 0 to 0.1) (default 0)
         /// </summary>
@@ -85,7 +85,7 @@
         /// <summary>
         ///  rotation order (default &quot;ypr&quot;)
         /// </summary>
-        public V360FilterGen rorder(String rorder) => this.SetOption("rorder", rorder.ToString());
+        public V360FilterGen rorder(String rorder) => this.SetOption("rorder", rorder.ToStringInv());
         /// <summary>
         ///  output horizontal field of view (from 0 to 360) (default 0)
         /// </summary>

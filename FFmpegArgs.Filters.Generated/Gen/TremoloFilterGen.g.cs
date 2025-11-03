@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. tremolo           A-&gt;A       Apply tremolo effect.
+    /// T. tremolo           A-&gt;A       Apply tremolo effect.
     /// </summary>
     public class TremoloFilterGen : AudioToAudioFilter, ITimelineSupport
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC negate            V-&gt;V       Negate input video.
+    /// TS negate            V-&gt;V       Negate input video.
     /// </summary>
-    public class NegateFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class NegateFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal NegateFilterGen(ImageMap input) : base("negate", input)
         {

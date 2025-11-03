@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... ssim360           VV-&gt;V      Calculate the SSIM between two 360 video streams.
+    /// .. ssim360           VV-&gt;V      Calculate the SSIM between two 360 video streams.
     /// </summary>
     public class Ssim360FilterGen : ImageToImageFilter
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public Ssim360FilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
+        public Ssim360FilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public Ssim360FilterGen f(String f) => this.SetOption("f", f.ToString());
+        public Ssim360FilterGen f(String f) => this.SetOption("f", f.ToStringInv());
         /// <summary>
         ///  Specifies if non-luma channels must be computed (from 0 to 1) (default 1)
         /// </summary>
@@ -47,7 +47,7 @@
         /// </summary>
         public Ssim360FilterGen ref_pad(float ref_pad) => this.SetOptionRange("ref_pad", ref_pad, 0, 10);
         /// <summary>
-        ///  Expansion (padding) coeffiecient for each cube face of the main video (from 0 to 10) (default 0)
+        ///  Expansion (padding) coefficient for each cube face of the main video (from 0 to 10) (default 0)
         /// </summary>
         public Ssim360FilterGen main_pad(float main_pad) => this.SetOptionRange("main_pad", main_pad, 0, 10);
         /// <summary>
@@ -57,7 +57,7 @@
         /// <summary>
         ///  Heatmap data for view-based evaluation. For heatmap file format, please refer to EntSphericalVideoHeatmapData.
         /// </summary>
-        public Ssim360FilterGen heatmap_str(String heatmap_str) => this.SetOption("heatmap_str", heatmap_str.ToString());
+        public Ssim360FilterGen heatmap_str(String heatmap_str) => this.SetOption("heatmap_str", heatmap_str.ToStringInv());
         /// <summary>
         ///  Default heatmap dimension. Will be used when dimension is not specified in heatmap data. (from 1 to 4096) (default 32)
         /// </summary>

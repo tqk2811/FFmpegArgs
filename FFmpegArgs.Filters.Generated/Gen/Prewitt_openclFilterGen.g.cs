@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... prewitt_opencl    V-&gt;V       Apply prewitt operator
+    /// .. prewitt_opencl    V-&gt;V       Apply prewitt operator
     /// </summary>
     public class Prewitt_openclFilterGen : ImageToImageFilter
     {

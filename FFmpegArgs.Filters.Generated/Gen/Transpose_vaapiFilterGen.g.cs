@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... transpose_vaapi   V-&gt;V       VAAPI VPP for transpose
+    /// .. transpose_vaapi   V-&gt;V       VAAPI VPP for transpose
     /// </summary>
     public class Transpose_vaapiFilterGen : ImageToImageFilter
     {

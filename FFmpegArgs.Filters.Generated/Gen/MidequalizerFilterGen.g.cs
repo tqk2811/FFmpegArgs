@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. midequalizer      VV-&gt;V      Apply Midway Equalization.
+    /// T. midequalizer      VV-&gt;V      Apply Midway Equalization.
     /// </summary>
     public class MidequalizerFilterGen : ImageToImageFilter, ITimelineSupport
     {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... setsar            V-&gt;V       Set the pixel sample aspect ratio.
+    /// .. setsar            V-&gt;V       Set the pixel sample aspect ratio.
     /// </summary>
     public class SetsarFilterGen : ImageToImageFilter
     {
@@ -13,15 +13,15 @@
         /// <summary>
         ///  set sample (pixel) aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetsarFilterGen sar(String sar) => this.SetOption("sar", sar.ToString());
+        public SetsarFilterGen sar(String sar) => this.SetOption("sar", sar.ToStringInv());
         /// <summary>
         ///  set sample (pixel) aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetsarFilterGen ratio(String ratio) => this.SetOption("ratio", ratio.ToString());
+        public SetsarFilterGen ratio(String ratio) => this.SetOption("ratio", ratio.ToStringInv());
         /// <summary>
         ///  set sample (pixel) aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetsarFilterGen r(String r) => this.SetOption("r", r.ToString());
+        public SetsarFilterGen r(String r) => this.SetOption("r", r.ToStringInv());
         /// <summary>
         ///  set max value for nominator or denominator in the ratio (from 1 to INT_MAX) (default 100)
         /// </summary>

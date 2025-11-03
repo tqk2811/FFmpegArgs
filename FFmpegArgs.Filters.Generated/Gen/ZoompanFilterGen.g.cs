@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... zoompan           V-&gt;V       Apply Zoom &amp; Pan effect.
+    /// .. zoompan           V-&gt;V       Apply Zoom &amp; Pan effect.
     /// </summary>
     public class ZoompanFilterGen : ImageToImageFilter
     {
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set the output framerate (default &quot;25&quot;)
         /// </summary>
-        public ZoompanFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToString());
+        public ZoompanFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

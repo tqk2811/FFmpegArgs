@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... hdcd              A-&gt;A       Apply High Definition Compatible Digital (HDCD) decoding.
+    /// .. hdcd              A-&gt;A       Apply High Definition Compatible Digital (HDCD) decoding.
     /// </summary>
     public class HdcdFilterGen : AudioToAudioFilter
     {

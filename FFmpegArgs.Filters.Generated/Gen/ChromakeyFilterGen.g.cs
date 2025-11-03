@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC chromakey         V-&gt;V       Turns a certain color into transparency. Operates on YUV colors.
+    /// TS chromakey         V-&gt;V       Turns a certain color into transparency. Operates on YUV colors.
     /// </summary>
-    public class ChromakeyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ChromakeyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ChromakeyFilterGen(ImageMap input) : base("chromakey", input)
         {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC asupercut         A-&gt;A       Cut super frequencies.
+    /// TS asupercut         A-&gt;A       Cut super frequencies.
     /// </summary>
-    public class AsupercutFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AsupercutFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AsupercutFilterGen(AudioMap input) : base("asupercut", input)
         {

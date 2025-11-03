@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... tile              V-&gt;V       Tile several successive frames together.
+    /// .. tile              V-&gt;V       Tile several successive frames together.
     /// </summary>
     public class TileFilterGen : ImageToImageFilter
     {

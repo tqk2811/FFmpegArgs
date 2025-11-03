@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC zoneplate         |-&gt;V       Generate zone-plate.
+    /// .S zoneplate         |-&gt;V       Generate zone-plate.
     /// </summary>
-    public class ZoneplateFilterGen : SourceToImageFilter, ISliceThreading, ICommandSupport
+    public class ZoneplateFilterGen : SourceToImageFilter, ISliceThreading
     {
         internal ZoneplateFilterGen(IImageFilterGraph input) : base("zoneplate", input)
         {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ZoneplateFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ZoneplateFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>

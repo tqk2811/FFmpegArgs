@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... acontrast         A-&gt;A       Simple audio dynamic range compression/expansion filter.
+    /// .. acontrast         A-&gt;A       Simple audio dynamic range compression/expansion filter.
     /// </summary>
     public class AcontrastFilterGen : AudioToAudioFilter
     {

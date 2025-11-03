@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. acrossover        A-&gt;N       Split audio into per-bands streams.
+    /// .S acrossover        A-&gt;N       Split audio into per-bands streams.
     /// </summary>
     public class AcrossoverFilterGen : AudioToAudioFilter, ISliceThreading
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set split frequencies (default &quot;500&quot;)
         /// </summary>
-        public AcrossoverFilterGen split(String split) => this.SetOption("split", split.ToString());
+        public AcrossoverFilterGen split(String split) => this.SetOption("split", split.ToStringInv());
         /// <summary>
         ///  set filter order (from 0 to 9) (default 4th)
         /// </summary>
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set output bands gain (default &quot;1.f&quot;)
         /// </summary>
-        public AcrossoverFilterGen gain(String gain) => this.SetOption("gain", gain.ToString());
+        public AcrossoverFilterGen gain(String gain) => this.SetOption("gain", gain.ToStringInv());
         /// <summary>
         ///  set processing precision (from 0 to 2) (default auto)
         /// </summary>

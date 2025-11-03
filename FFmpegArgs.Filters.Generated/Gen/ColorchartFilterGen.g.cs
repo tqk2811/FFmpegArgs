@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... colorchart        |-&gt;V       Generate color checker chart.
+    /// .. colorchart        |-&gt;V       Generate color checker chart.
     /// </summary>
     public class ColorchartFilterGen : SourceToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ColorchartFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ColorchartFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>

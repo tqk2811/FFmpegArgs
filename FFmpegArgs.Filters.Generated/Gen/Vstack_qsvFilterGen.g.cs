@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... vstack_qsv        N-&gt;V       &quot;Quick Sync Video&quot; vstack
+    /// .. vstack_qsv        N-&gt;V       &quot;Quick Sync Video&quot; vstack
     /// </summary>
     public class Vstack_qsvFilterGen : ImageToImageFilter
     {

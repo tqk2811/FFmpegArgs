@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC chromanr          V-&gt;V       Reduce chrominance noise.
+    /// TS chromanr          V-&gt;V       Reduce chrominance noise.
     /// </summary>
-    public class ChromanrFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ChromanrFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ChromanrFilterGen(ImageMap input) : base("chromanr", input)
         {

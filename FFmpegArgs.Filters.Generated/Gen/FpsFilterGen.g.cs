@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... fps               V-&gt;V       Force constant framerate.
+    /// .. fps               V-&gt;V       Force constant framerate.
     /// </summary>
     public class FpsFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  A string describing desired output framerate (default &quot;25&quot;)
         /// </summary>
-        public FpsFilterGen fps(String fps) => this.SetOption("fps", fps.ToString());
+        public FpsFilterGen fps(String fps) => this.SetOption("fps", fps.ToStringInv());
         /// <summary>
         ///  Assume the first PTS should be this value. (from -DBL_MAX to DBL_MAX) (default DBL_MAX)
         /// </summary>

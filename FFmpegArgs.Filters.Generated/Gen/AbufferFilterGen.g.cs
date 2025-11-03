@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... abuffer           |-&gt;A       Buffer audio frames, and make them accessible to the filterchain.
+    /// .. abuffer           |-&gt;A       Buffer audio frames, and make them accessible to the filterchain.
     /// </summary>
     public class AbufferFilterGen : SourceToAudioFilter
     {
@@ -25,7 +25,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public AbufferFilterGen channel_layout(String channel_layout) => this.SetOption("channel_layout", channel_layout.ToString());
+        public AbufferFilterGen channel_layout(ChannelLayout channel_layout) => this.SetOption("channel_layout", channel_layout.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         ///  (from 0 to INT_MAX) (default 0)
         /// </summary>

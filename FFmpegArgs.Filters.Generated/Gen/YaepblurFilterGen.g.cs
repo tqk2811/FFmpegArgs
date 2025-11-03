@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC yaepblur          V-&gt;V       Yet another edge preserving blur filter.
+    /// TS yaepblur          V-&gt;V       Yet another edge preserving blur filter.
     /// </summary>
-    public class YaepblurFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class YaepblurFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal YaepblurFilterGen(ImageMap input) : base("yaepblur", input)
         {

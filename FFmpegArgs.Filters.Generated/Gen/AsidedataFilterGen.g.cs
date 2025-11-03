@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. asidedata         A-&gt;A       Manipulate audio frame side data.
+    /// T. asidedata         A-&gt;A       Manipulate audio frame side data.
     /// </summary>
     public class AsidedataFilterGen : AudioToAudioFilter, ITimelineSupport
     {
@@ -138,15 +138,55 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("REGIONS_OF_INTEREST")]
         REGIONS_OF_INTEREST = 18,
         /// <summary>
+        /// VIDEO_ENC_PARAMS 19           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("VIDEO_ENC_PARAMS")]
+        VIDEO_ENC_PARAMS = 19,
+        /// <summary>
+        /// SEI_UNREGISTERED 20           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("SEI_UNREGISTERED")]
+        SEI_UNREGISTERED = 20,
+        /// <summary>
+        /// FILM_GRAIN_PARAMS 21           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("FILM_GRAIN_PARAMS")]
+        FILM_GRAIN_PARAMS = 21,
+        /// <summary>
         /// DETECTION_BOUNDING_BOXES 22           ..F.A......
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("DETECTION_BOUNDING_BOXES")]
         DETECTION_BOUNDING_BOXES = 22,
         /// <summary>
-        /// SEI_UNREGISTERED 20           ..F.A......
+        /// DETECTION_BBOXES 22           ..F.A......
         /// </summary>
-        [FFmpegArgs.Cores.Attributes.NameAttribute("SEI_UNREGISTERED")]
-        SEI_UNREGISTERED = 20
+        [FFmpegArgs.Cores.Attributes.NameAttribute("DETECTION_BBOXES")]
+        DETECTION_BBOXES = 22,
+        /// <summary>
+        /// DOVI_RPU_BUFFER 23           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("DOVI_RPU_BUFFER")]
+        DOVI_RPU_BUFFER = 23,
+        /// <summary>
+        /// DOVI_METADATA   24           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("DOVI_METADATA")]
+        DOVI_METADATA = 24,
+        /// <summary>
+        /// DYNAMIC_HDR_VIVID 25           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("DYNAMIC_HDR_VIVID")]
+        DYNAMIC_HDR_VIVID = 25,
+        /// <summary>
+        /// AMBIENT_VIEWING_ENVIRONMENT 26           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("AMBIENT_VIEWING_ENVIRONMENT")]
+        AMBIENT_VIEWING_ENVIRONMENT = 26,
+        /// <summary>
+        /// VIDEO_HINT      27           ..F.A......
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("VIDEO_HINT")]
+        VIDEO_HINT = 27
     }
 
     public static partial class FilterGeneratedExtensions

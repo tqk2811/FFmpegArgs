@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C avsynctest        |-&gt;AV      Generate an Audio Video Sync Test.
+    /// .. avsynctest        |-&gt;AV      Generate an Audio Video Sync Test.
     /// </summary>
-    public class AvsynctestFilterGen : SourceToAudioFilter, ICommandSupport
+    public class AvsynctestFilterGen : SourceToAudioFilter
     {
         internal AvsynctestFilterGen(IAudioFilterGraph input) : base("avsynctest", input)
         {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;30&quot;)
         /// </summary>
-        public AvsynctestFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToString());
+        public AvsynctestFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToStringInv());
         /// <summary>
         ///  set sample rate (from 8000 to 384000) (default 44100)
         /// </summary>

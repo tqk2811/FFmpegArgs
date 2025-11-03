@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... detelecine        V-&gt;V       Apply an inverse telecine pattern.
+    /// .. detelecine        V-&gt;V       Apply an inverse telecine pattern.
     /// </summary>
     public class DetelecineFilterGen : ImageToImageFilter
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  pattern that describe for how many fields a frame is to be displayed (default &quot;23&quot;)
         /// </summary>
-        public DetelecineFilterGen pattern(String pattern) => this.SetOption("pattern", pattern.ToString());
+        public DetelecineFilterGen pattern(String pattern) => this.SetOption("pattern", pattern.ToStringInv());
         /// <summary>
         ///  position of first frame with respect to the pattern if stream is cut (from 0 to 13) (default 0)
         /// </summary>

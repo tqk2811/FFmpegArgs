@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C pixscope          V-&gt;V       Pixel data analysis.
+    /// T. pixscope          V-&gt;V       Pixel data analysis.
     /// </summary>
-    public class PixscopeFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class PixscopeFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal PixscopeFilterGen(ImageMap input) : base("pixscope", input)
         {

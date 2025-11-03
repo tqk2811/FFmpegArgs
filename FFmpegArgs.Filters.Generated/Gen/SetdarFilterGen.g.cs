@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... setdar            V-&gt;V       Set the frame display aspect ratio.
+    /// .. setdar            V-&gt;V       Set the frame display aspect ratio.
     /// </summary>
     public class SetdarFilterGen : ImageToImageFilter
     {
@@ -13,15 +13,15 @@
         /// <summary>
         ///  set display aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetdarFilterGen dar(String dar) => this.SetOption("dar", dar.ToString());
+        public SetdarFilterGen dar(String dar) => this.SetOption("dar", dar.ToStringInv());
         /// <summary>
         ///  set display aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetdarFilterGen ratio(String ratio) => this.SetOption("ratio", ratio.ToString());
+        public SetdarFilterGen ratio(String ratio) => this.SetOption("ratio", ratio.ToStringInv());
         /// <summary>
         ///  set display aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetdarFilterGen r(String r) => this.SetOption("r", r.ToString());
+        public SetdarFilterGen r(String r) => this.SetOption("r", r.ToStringInv());
         /// <summary>
         ///  set max value for nominator or denominator in the ratio (from 1 to INT_MAX) (default 100)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C asetpts           A-&gt;A       Set PTS for the output audio frame.
+    /// .. asetpts           A-&gt;A       Set PTS for the output audio frame.
     /// </summary>
-    public class AsetptsFilterGen : AudioToAudioFilter, ICommandSupport
+    public class AsetptsFilterGen : AudioToAudioFilter
     {
         internal AsetptsFilterGen(AudioMap input) : base("asetpts", input)
         {

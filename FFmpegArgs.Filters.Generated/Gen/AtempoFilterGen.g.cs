@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C atempo            A-&gt;A       Adjust audio tempo.
+    /// .. atempo            A-&gt;A       Adjust audio tempo.
     /// </summary>
-    public class AtempoFilterGen : AudioToAudioFilter, ICommandSupport
+    public class AtempoFilterGen : AudioToAudioFilter
     {
         internal AtempoFilterGen(AudioMap input) : base("atempo", input)
         {

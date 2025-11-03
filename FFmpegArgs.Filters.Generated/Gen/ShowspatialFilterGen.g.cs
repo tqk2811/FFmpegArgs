@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. showspatial       A-&gt;V       Convert input audio to a spatial video output.
+    /// .S showspatial       A-&gt;V       Convert input audio to a spatial video output.
     /// </summary>
     public class ShowspatialFilterGen : AudioToImageFilter, ISliceThreading
     {
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowspatialFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ShowspatialFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
     }
 
     /// <summary>

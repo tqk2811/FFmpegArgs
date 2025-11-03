@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... color_vulkan      |-&gt;V       Generate a constant color (Vulkan)
+    /// .. color_vulkan      |-&gt;V       Generate a constant color (Vulkan)
     /// </summary>
     public class Color_vulkanFilterGen : SourceToImageFilter
     {
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video rate (default &quot;60&quot;)
         /// </summary>
-        public Color_vulkanFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public Color_vulkanFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  Output video format (software format of hardware frames)
         /// </summary>
-        public Color_vulkanFilterGen format(String format) => this.SetOption("format", format.ToString());
+        public Color_vulkanFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
         /// </summary>

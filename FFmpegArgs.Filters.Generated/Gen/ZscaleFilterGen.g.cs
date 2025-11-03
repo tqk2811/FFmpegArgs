@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .SC zscale            V-&gt;V       Apply resizing, colorspace and bit depth conversion.
+    /// .S zscale            V-&gt;V       Apply resizing, colorspace and bit depth conversion.
     /// </summary>
-    public class ZscaleFilterGen : ImageToImageFilter, ISliceThreading, ICommandSupport
+    public class ZscaleFilterGen : ImageToImageFilter, ISliceThreading
     {
         internal ZscaleFilterGen(ImageMap input) : base("zscale", input)
         {
@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width
         /// </summary>
-        public ZscaleFilterGen width(String width) => this.SetOption("width", width.ToString());
+        public ZscaleFilterGen width(String width) => this.SetOption("width", width.ToStringInv());
         /// <summary>
         ///  Output video height
         /// </summary>
-        public ZscaleFilterGen height(String height) => this.SetOption("height", height.ToString());
+        public ZscaleFilterGen height(String height) => this.SetOption("height", height.ToStringInv());
         /// <summary>
         ///  set video size
         /// </summary>
-        public ZscaleFilterGen size(String size) => this.SetOption("size", size.ToString());
+        public ZscaleFilterGen size(String size) => this.SetOption("size", size.ToStringInv());
         /// <summary>
         ///  set dither type (from 0 to 3) (default none)
         /// </summary>

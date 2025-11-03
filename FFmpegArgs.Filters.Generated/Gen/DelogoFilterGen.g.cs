@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. delogo            V-&gt;V       Remove logo from input video.
+    /// T. delogo            V-&gt;V       Remove logo from input video.
     /// </summary>
     public class DelogoFilterGen : ImageToImageFilter, ITimelineSupport
     {
@@ -13,19 +13,19 @@
         /// <summary>
         ///  set logo x position (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen x(String x) => this.SetOption("x", x.ToString());
+        public DelogoFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
         /// <summary>
         ///  set logo y position (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen y(String y) => this.SetOption("y", y.ToString());
+        public DelogoFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
         /// <summary>
         ///  set logo width (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public DelogoFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  set logo height (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public DelogoFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  show delogo area (default false)
         /// </summary>

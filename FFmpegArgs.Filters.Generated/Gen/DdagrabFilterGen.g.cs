@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... ddagrab           |-&gt;V       Grab Windows Desktop images using Desktop Duplication API
+    /// .. ddagrab           |-&gt;V       Grab Windows Desktop images using Desktop Duplication API
     /// </summary>
     public class DdagrabFilterGen : SourceToImageFilter
     {
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video frame rate (default &quot;30&quot;)
         /// </summary>
-        public DdagrabFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToString());
+        public DdagrabFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToStringInv());
         /// <summary>
         ///  set video frame size
         /// </summary>

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... afireqsrc         |-&gt;A       Generate a FIR equalizer coefficients audio stream.
+    /// .. afireqsrc         |-&gt;A       Generate a FIR equalizer coefficients audio stream.
     /// </summary>
     public class AfireqsrcFilterGen : SourceToAudioFilter
     {
@@ -17,11 +17,11 @@
         /// <summary>
         ///  set gain values per band (default &quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0&quot;)
         /// </summary>
-        public AfireqsrcFilterGen gains(String gains) => this.SetOption("gains", gains.ToString());
+        public AfireqsrcFilterGen gains(String gains) => this.SetOption("gains", gains.ToStringInv());
         /// <summary>
         ///  set central frequency values per band (default &quot;25 40 63 100 160 250 400 630 1000 1600 2500 4000 6300 10000 16000 24000&quot;)
         /// </summary>
-        public AfireqsrcFilterGen bands(String bands) => this.SetOption("bands", bands.ToString());
+        public AfireqsrcFilterGen bands(String bands) => this.SetOption("bands", bands.ToStringInv());
         /// <summary>
         ///  set number of taps (from 16 to 65535) (default 4096)
         /// </summary>

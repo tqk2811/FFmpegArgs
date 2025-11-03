@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC maskedmerge       VVV-&gt;V     Merge first stream with second stream using third stream as mask.
+    /// TS maskedmerge       VVV-&gt;V     Merge first stream with second stream using third stream as mask.
     /// </summary>
-    public class MaskedmergeFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class MaskedmergeFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal MaskedmergeFilterGen(params ImageMap[] inputs) : base("maskedmerge", inputs)
         {

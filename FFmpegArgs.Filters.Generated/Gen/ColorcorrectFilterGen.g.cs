@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC colorcorrect      V-&gt;V       Adjust color white balance selectively for blacks and whites.
+    /// TS colorcorrect      V-&gt;V       Adjust color white balance selectively for blacks and whites.
     /// </summary>
-    public class ColorcorrectFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ColorcorrectFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ColorcorrectFilterGen(ImageMap input) : base("colorcorrect", input)
         {

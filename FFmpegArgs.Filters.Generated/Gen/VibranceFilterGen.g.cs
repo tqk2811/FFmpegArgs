@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC vibrance          V-&gt;V       Boost or alter saturation.
+    /// TS vibrance          V-&gt;V       Boost or alter saturation.
     /// </summary>
-    public class VibranceFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class VibranceFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal VibranceFilterGen(ImageMap input) : base("vibrance", input)
         {
@@ -27,7 +27,7 @@
         /// </summary>
         public VibranceFilterGen bbal(float bbal) => this.SetOptionRange("bbal", bbal, -10, 10);
         /// <summary>
-        ///  set the red luma coefficient (from 0 to 1) (default 0.072186)
+        ///  set the red luma coefficient (from 0 to 1) (default 0.212656)
         /// </summary>
         public VibranceFilterGen rlum(float rlum) => this.SetOptionRange("rlum", rlum, 0, 1);
         /// <summary>
@@ -35,7 +35,7 @@
         /// </summary>
         public VibranceFilterGen glum(float glum) => this.SetOptionRange("glum", glum, 0, 1);
         /// <summary>
-        ///  set the blue luma coefficient (from 0 to 1) (default 0.212656)
+        ///  set the blue luma coefficient (from 0 to 1) (default 0.072186)
         /// </summary>
         public VibranceFilterGen blum(float blum) => this.SetOptionRange("blum", blum, 0, 1);
         /// <summary>

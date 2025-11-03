@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC cas               V-&gt;V       Contrast Adaptive Sharpen.
+    /// TS cas               V-&gt;V       Contrast Adaptive Sharpen.
     /// </summary>
-    public class CasFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class CasFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal CasFilterGen(ImageMap input) : base("cas", input)
         {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set what planes to filter (default 7)
         /// </summary>
-        public CasFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
+        public CasFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

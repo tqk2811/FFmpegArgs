@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... pan               A-&gt;A       Remix channels with coefficients (panning).
+    /// .. pan               A-&gt;A       Remix channels with coefficients (panning).
     /// </summary>
     public class PanFilterGen : AudioToAudioFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public PanFilterGen args(String args) => this.SetOption("args", args.ToString());
+        public PanFilterGen args(String args) => this.SetOption("args", args.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

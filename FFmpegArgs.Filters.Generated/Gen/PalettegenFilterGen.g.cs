@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... palettegen        V-&gt;V       Find the optimal palette for a given stream.
+    /// .. palettegen        V-&gt;V       Find the optimal palette for a given stream.
     /// </summary>
     public class PalettegenFilterGen : ImageToImageFilter
     {

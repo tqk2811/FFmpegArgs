@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC maskedclamp       VVV-&gt;V     Clamp first stream with second stream and third stream.
+    /// TS maskedclamp       VVV-&gt;V     Clamp first stream with second stream and third stream.
     /// </summary>
-    public class MaskedclampFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class MaskedclampFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal MaskedclampFilterGen(params ImageMap[] inputs) : base("maskedclamp", inputs)
         {

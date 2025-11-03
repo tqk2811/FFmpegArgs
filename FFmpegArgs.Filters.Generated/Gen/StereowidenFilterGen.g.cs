@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C stereowiden       A-&gt;A       Apply stereo widening effect.
+    /// T. stereowiden       A-&gt;A       Apply stereo widening effect.
     /// </summary>
-    public class StereowidenFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class StereowidenFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal StereowidenFilterGen(AudioMap input) : base("stereowiden", input)
         {

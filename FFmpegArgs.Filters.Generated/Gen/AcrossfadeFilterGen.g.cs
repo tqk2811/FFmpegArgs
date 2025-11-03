@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... acrossfade        AA-&gt;A      Cross fade two input audio streams.
+    /// .. acrossfade        AA-&gt;A      Cross fade two input audio streams.
     /// </summary>
     public class AcrossfadeFilterGen : AudioToAudioFilter
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  set number of samples for cross fade duration (from 1 to 2.14748e+08) (default 44100)
         /// </summary>
-        public AcrossfadeFilterGen nb_samples(int nb_samples) => this.SetOptionRange("nb_samples", nb_samples, 1, 2.14748e+08);
+        public AcrossfadeFilterGen nb_samples(long nb_samples) => this.SetOptionRange("nb_samples", nb_samples, 1, 2.14748e+08);
         /// <summary>
         ///  set number of samples for cross fade duration (from 1 to 2.14748e+08) (default 44100)
         /// </summary>
-        public AcrossfadeFilterGen ns(int ns) => this.SetOptionRange("ns", ns, 1, 2.14748e+08);
+        public AcrossfadeFilterGen ns(long ns) => this.SetOptionRange("ns", ns, 1, 2.14748e+08);
         /// <summary>
         ///  set cross fade duration (default 0)
         /// </summary>

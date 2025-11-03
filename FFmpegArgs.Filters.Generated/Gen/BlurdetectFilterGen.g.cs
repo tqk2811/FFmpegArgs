@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... blurdetect        V-&gt;V       Blurdetect filter.
+    /// .. blurdetect        V-&gt;V       Blurdetect filter.
     /// </summary>
     public class BlurdetectFilterGen : ImageToImageFilter
     {

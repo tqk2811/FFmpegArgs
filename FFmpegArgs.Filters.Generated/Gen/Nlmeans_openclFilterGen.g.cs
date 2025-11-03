@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... nlmeans_opencl    V-&gt;V       Non-local means denoiser through OpenCL
+    /// .. nlmeans_opencl    V-&gt;V       Non-local means denoiser through OpenCL
     /// </summary>
     public class Nlmeans_openclFilterGen : ImageToImageFilter
     {

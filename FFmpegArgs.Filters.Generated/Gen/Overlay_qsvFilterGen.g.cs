@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... overlay_qsv       VV-&gt;V      Quick Sync Video overlay.
+    /// .. overlay_qsv       VV-&gt;V      Quick Sync Video overlay.
     /// </summary>
     public class Overlay_qsvFilterGen : ImageToImageFilter
     {
@@ -13,19 +13,19 @@
         /// <summary>
         ///  Overlay x position (default &quot;0&quot;)
         /// </summary>
-        public Overlay_qsvFilterGen x(String x) => this.SetOption("x", x.ToString());
+        public Overlay_qsvFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
         /// <summary>
         ///  Overlay y position (default &quot;0&quot;)
         /// </summary>
-        public Overlay_qsvFilterGen y(String y) => this.SetOption("y", y.ToString());
+        public Overlay_qsvFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
         /// <summary>
         ///  Overlay width (default &quot;overlay_iw&quot;)
         /// </summary>
-        public Overlay_qsvFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public Overlay_qsvFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  Overlay height (default &quot;overlay_ih*w/overlay_iw&quot;)
         /// </summary>
-        public Overlay_qsvFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public Overlay_qsvFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  Overlay global alpha (from 0 to 255) (default 255)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC arnndn            A-&gt;A       Reduce noise from speech using Recurrent Neural Networks.
+    /// TS arnndn            A-&gt;A       Reduce noise from speech using Recurrent Neural Networks.
     /// </summary>
-    public class ArnndnFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ArnndnFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal ArnndnFilterGen(AudioMap input) : base("arnndn", input)
         {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set model name
         /// </summary>
-        public ArnndnFilterGen model(String model) => this.SetOption("model", model.ToString());
+        public ArnndnFilterGen model(String model) => this.SetOption("model", model.ToStringInv());
         /// <summary>
         ///  set output vs input mix (from -1 to 1) (default 1)
         /// </summary>

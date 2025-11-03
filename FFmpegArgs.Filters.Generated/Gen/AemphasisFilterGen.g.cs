@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC aemphasis         A-&gt;A       Audio emphasis.
+    /// TS aemphasis         A-&gt;A       Audio emphasis.
     /// </summary>
-    public class AemphasisFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AemphasisFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AemphasisFilterGen(AudioMap input) : base("aemphasis", input)
         {

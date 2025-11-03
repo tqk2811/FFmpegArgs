@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... tiltandshift      V-&gt;V       Generate a tilt-and-shift&#39;d video.
+    /// .. tiltandshift      V-&gt;V       Generate a tilt-and-shift&#39;d video.
     /// </summary>
     public class TiltandshiftFilterGen : ImageToImageFilter
     {

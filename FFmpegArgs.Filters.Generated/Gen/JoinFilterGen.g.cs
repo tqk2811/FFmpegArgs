@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... join              N-&gt;A       Join multiple audio streams into multi-channel output.
+    /// .. join              N-&gt;A       Join multiple audio streams into multi-channel output.
     /// </summary>
     public class JoinFilterGen : AudioToAudioFilter
     {
@@ -21,7 +21,7 @@
         /// <summary>
         ///  A comma-separated list of channels maps in the format &#39;input_stream.input_channel-output_channel.
         /// </summary>
-        public JoinFilterGen map(String map) => this.SetOption("map", map.ToString());
+        public JoinFilterGen map(String map) => this.SetOption("map", map.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

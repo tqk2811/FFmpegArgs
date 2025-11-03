@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... showinfo          V-&gt;V       Show textual information for each video frame.
+    /// .. showinfo          V-&gt;V       Show textual information for each video frame.
     /// </summary>
     public class ShowinfoFilterGen : ImageToImageFilter
     {

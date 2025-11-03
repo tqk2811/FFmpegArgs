@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... colorspectrum     |-&gt;V       Generate colors spectrum.
+    /// .. colorspectrum     |-&gt;V       Generate colors spectrum.
     /// </summary>
     public class ColorspectrumFilterGen : SourceToImageFilter
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ColorspectrumFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public ColorspectrumFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>

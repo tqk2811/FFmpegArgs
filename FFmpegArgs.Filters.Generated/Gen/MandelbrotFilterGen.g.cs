@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... mandelbrot        |-&gt;V       Render a Mandelbrot fractal.
+    /// .. mandelbrot        |-&gt;V       Render a Mandelbrot fractal.
     /// </summary>
     public class MandelbrotFilterGen : SourceToImageFilter
     {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;25&quot;)
         /// </summary>
-        public MandelbrotFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public MandelbrotFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set max iterations number (from 1 to INT_MAX) (default 7189)
         /// </summary>

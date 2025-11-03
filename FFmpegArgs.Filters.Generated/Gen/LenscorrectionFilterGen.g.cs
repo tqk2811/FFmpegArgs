@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC lenscorrection    V-&gt;V       Rectify the image by correcting for lens distortion.
+    /// TS lenscorrection    V-&gt;V       Rectify the image by correcting for lens distortion.
     /// </summary>
-    public class LenscorrectionFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class LenscorrectionFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal LenscorrectionFilterGen(ImageMap input) : base("lenscorrection", input)
         {

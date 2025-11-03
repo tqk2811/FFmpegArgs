@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. showspectrumpic   A-&gt;V       Convert input audio to a spectrum video output single picture.
+    /// .S showspectrumpic   A-&gt;V       Convert input audio to a spectrum video output single picture.
     /// </summary>
     public class ShowspectrumpicFilterGen : AudioToImageFilter, ISliceThreading
     {

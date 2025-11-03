@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C hue               V-&gt;V       Adjust the hue and saturation of the input video.
+    /// T. hue               V-&gt;V       Adjust the hue and saturation of the input video.
     /// </summary>
-    public class HueFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class HueFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal HueFilterGen(ImageMap input) : base("hue", input)
         {

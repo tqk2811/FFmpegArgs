@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. shuffleplanes     V-&gt;V       Shuffle video planes.
+    /// T. shuffleplanes     V-&gt;V       Shuffle video planes.
     /// </summary>
     public class ShuffleplanesFilterGen : ImageToImageFilter, ITimelineSupport
     {

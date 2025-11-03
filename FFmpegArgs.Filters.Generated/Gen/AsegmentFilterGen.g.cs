@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... asegment          A-&gt;N       Segment audio stream.
+    /// .. asegment          A-&gt;N       Segment audio stream.
     /// </summary>
     public class AsegmentFilterGen : AudioToAudioFilter
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  timestamps of input at which to split input
         /// </summary>
-        public AsegmentFilterGen timestamps(String timestamps) => this.SetOption("timestamps", timestamps.ToString());
+        public AsegmentFilterGen timestamps(String timestamps) => this.SetOption("timestamps", timestamps.ToStringInv());
         /// <summary>
         ///  samples at which to split input
         /// </summary>
-        public AsegmentFilterGen samples(String samples) => this.SetOption("samples", samples.ToString());
+        public AsegmentFilterGen samples(String samples) => this.SetOption("samples", samples.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

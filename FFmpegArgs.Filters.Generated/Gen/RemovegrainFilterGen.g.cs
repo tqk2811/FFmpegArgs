@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. removegrain       V-&gt;V       Remove grain.
+    /// TS removegrain       V-&gt;V       Remove grain.
     /// </summary>
     public class RemovegrainFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C afade             A-&gt;A       Fade in/out input audio.
+    /// T. afade             A-&gt;A       Fade in/out input audio.
     /// </summary>
-    public class AfadeFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class AfadeFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal AfadeFilterGen(AudioMap input) : base("afade", input)
         {

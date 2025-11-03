@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. stereo3d          V-&gt;V       Convert video stereoscopic 3D view.
+    /// .S stereo3d          V-&gt;V       Convert video stereoscopic 3D view.
     /// </summary>
     public class Stereo3dFilterGen : ImageToImageFilter, ISliceThreading
     {

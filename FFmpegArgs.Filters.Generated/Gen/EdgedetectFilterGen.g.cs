@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. edgedetect        V-&gt;V       Detect and draw edge.
+    /// T. edgedetect        V-&gt;V       Detect and draw edge.
     /// </summary>
     public class EdgedetectFilterGen : ImageToImageFilter, ITimelineSupport
     {

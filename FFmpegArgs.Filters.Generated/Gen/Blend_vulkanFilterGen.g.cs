@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C blend_vulkan      VV-&gt;V      Blend two video frames in Vulkan
+    /// .. blend_vulkan      VV-&gt;V      Blend two video frames in Vulkan
     /// </summary>
-    public class Blend_vulkanFilterGen : ImageToImageFilter, ICommandSupport
+    public class Blend_vulkanFilterGen : ImageToImageFilter
     {
         internal Blend_vulkanFilterGen(params ImageMap[] inputs) : base("blend_vulkan", inputs)
         {

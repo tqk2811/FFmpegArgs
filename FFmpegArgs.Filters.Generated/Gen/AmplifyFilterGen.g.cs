@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC amplify           V-&gt;V       Amplify changes between successive video frames.
+    /// TS amplify           V-&gt;V       Amplify changes between successive video frames.
     /// </summary>
-    public class AmplifyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AmplifyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal AmplifyFilterGen(ImageMap input) : base("amplify", input)
         {
@@ -37,7 +37,7 @@
         /// <summary>
         ///  set what planes to filter (default 7)
         /// </summary>
-        public AmplifyFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
+        public AmplifyFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

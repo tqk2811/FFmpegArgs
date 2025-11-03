@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... vflip_vulkan      V-&gt;V       Vertically flip the input video in Vulkan
+    /// .. vflip_vulkan      V-&gt;V       Vertically flip the input video in Vulkan
     /// </summary>
     public class Vflip_vulkanFilterGen : ImageToImageFilter
     {

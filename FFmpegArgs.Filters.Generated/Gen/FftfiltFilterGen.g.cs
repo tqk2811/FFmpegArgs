@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. fftfilt           V-&gt;V       Apply arbitrary expressions to pixels in frequency domain.
+    /// TS fftfilt           V-&gt;V       Apply arbitrary expressions to pixels in frequency domain.
     /// </summary>
     public class FftfiltFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

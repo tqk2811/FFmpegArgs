@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. apad              A-&gt;A       Pad audio with silence.
+    /// T. apad              A-&gt;A       Pad audio with silence.
     /// </summary>
     public class ApadFilterGen : AudioToAudioFilter, ITimelineSupport
     {

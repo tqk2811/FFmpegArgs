@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... addroi            V-&gt;V       Add region of interest to frame.
+    /// .. addroi            V-&gt;V       Add region of interest to frame.
     /// </summary>
     public class AddroiFilterGen : ImageToImageFilter
     {
@@ -13,19 +13,19 @@
         /// <summary>
         ///  Region distance from left edge of frame. (default &quot;0&quot;)
         /// </summary>
-        public AddroiFilterGen x(String x) => this.SetOption("x", x.ToString());
+        public AddroiFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
         /// <summary>
         ///  Region distance from top edge of frame. (default &quot;0&quot;)
         /// </summary>
-        public AddroiFilterGen y(String y) => this.SetOption("y", y.ToString());
+        public AddroiFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
         /// <summary>
         ///  Region width. (default &quot;0&quot;)
         /// </summary>
-        public AddroiFilterGen w(String w) => this.SetOption("w", w.ToString());
+        public AddroiFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
         /// <summary>
         ///  Region height. (default &quot;0&quot;)
         /// </summary>
-        public AddroiFilterGen h(String h) => this.SetOption("h", h.ToString());
+        public AddroiFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
         /// <summary>
         ///  Quantisation offset to apply in the region. (from -1 to 1) (default -1/10)
         /// </summary>

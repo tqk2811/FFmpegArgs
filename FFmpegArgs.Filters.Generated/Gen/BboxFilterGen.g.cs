@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C bbox              V-&gt;V       Compute bounding box for each frame.
+    /// T. bbox              V-&gt;V       Compute bounding box for each frame.
     /// </summary>
-    public class BboxFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class BboxFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal BboxFilterGen(ImageMap input) : base("bbox", input)
         {

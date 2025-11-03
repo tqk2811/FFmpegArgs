@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC lagfun            V-&gt;V       Slowly update darker pixels.
+    /// TS lagfun            V-&gt;V       Slowly update darker pixels.
     /// </summary>
-    public class LagfunFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class LagfunFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal LagfunFilterGen(ImageMap input) : base("lagfun", input)
         {
@@ -17,7 +17,7 @@
         /// <summary>
         ///  set what planes to filter (default F)
         /// </summary>
-        public LagfunFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
+        public LagfunFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

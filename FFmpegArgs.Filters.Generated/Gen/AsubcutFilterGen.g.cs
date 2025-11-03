@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC asubcut           A-&gt;A       Cut subwoofer frequencies.
+    /// TS asubcut           A-&gt;A       Cut subwoofer frequencies.
     /// </summary>
-    public class AsubcutFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AsubcutFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AsubcutFilterGen(AudioMap input) : base("asubcut", input)
         {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. signalstats       V-&gt;V       Generate statistics from video analysis.
+    /// .S signalstats       V-&gt;V       Generate statistics from video analysis.
     /// </summary>
     public class SignalstatsFilterGen : ImageToImageFilter, ISliceThreading
     {

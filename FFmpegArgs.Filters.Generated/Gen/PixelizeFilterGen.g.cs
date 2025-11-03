@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC pixelize          V-&gt;V       Pixelize video.
+    /// TS pixelize          V-&gt;V       Pixelize video.
     /// </summary>
-    public class PixelizeFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class PixelizeFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal PixelizeFilterGen(ImageMap input) : base("pixelize", input)
         {
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set what planes to filter (default F)
         /// </summary>
-        public PixelizeFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
+        public PixelizeFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
     }
 
     /// <summary>

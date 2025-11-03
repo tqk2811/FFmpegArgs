@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C adynamicsmooth    A-&gt;A       Apply Dynamic Smoothing of input audio.
+    /// T. adynamicsmooth    A-&gt;A       Apply Dynamic Smoothing of input audio.
     /// </summary>
-    public class AdynamicsmoothFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class AdynamicsmoothFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal AdynamicsmoothFilterGen(AudioMap input) : base("adynamicsmooth", input)
         {

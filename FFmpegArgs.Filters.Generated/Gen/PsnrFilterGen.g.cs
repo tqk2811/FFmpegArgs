@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. psnr              VV-&gt;V      Calculate the PSNR between two video streams.
+    /// TS psnr              VV-&gt;V      Calculate the PSNR between two video streams.
     /// </summary>
     public class PsnrFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public PsnrFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
+        public PsnrFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public PsnrFilterGen f(String f) => this.SetOption("f", f.ToString());
+        public PsnrFilterGen f(String f) => this.SetOption("f", f.ToStringInv());
         /// <summary>
         ///  Set the format version for the stats file. (from 1 to 2) (default 1)
         /// </summary>

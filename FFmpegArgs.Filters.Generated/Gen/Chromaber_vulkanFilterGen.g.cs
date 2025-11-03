@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... chromaber_vulkan  V-&gt;V       Offset chroma of input video (chromatic aberration)
+    /// .. chromaber_vulkan  V-&gt;V       Offset chroma of input video (chromatic aberration)
     /// </summary>
     public class Chromaber_vulkanFilterGen : ImageToImageFilter
     {

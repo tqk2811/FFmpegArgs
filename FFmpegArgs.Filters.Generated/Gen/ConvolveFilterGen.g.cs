@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. convolve          VV-&gt;V      Convolve first video stream with second video stream.
+    /// TS convolve          VV-&gt;V      Convolve first video stream with second video stream.
     /// </summary>
     public class ConvolveFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

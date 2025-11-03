@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. tonemap           V-&gt;V       Conversion to/from different dynamic ranges.
+    /// .S tonemap           V-&gt;V       Conversion to/from different dynamic ranges.
     /// </summary>
     public class TonemapFilterGen : ImageToImageFilter, ISliceThreading
     {

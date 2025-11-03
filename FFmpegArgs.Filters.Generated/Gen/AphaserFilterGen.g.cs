@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... aphaser           A-&gt;A       Add a phasing effect to the audio.
+    /// .. aphaser           A-&gt;A       Add a phasing effect to the audio.
     /// </summary>
     public class AphaserFilterGen : AudioToAudioFilter
     {

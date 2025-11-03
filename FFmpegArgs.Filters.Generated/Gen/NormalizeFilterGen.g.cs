@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C normalize         V-&gt;V       Normalize RGB video.
+    /// T. normalize         V-&gt;V       Normalize RGB video.
     /// </summary>
-    public class NormalizeFilterGen : ImageToImageFilter, ITimelineSupport, ICommandSupport
+    public class NormalizeFilterGen : ImageToImageFilter, ITimelineSupport
     {
         internal NormalizeFilterGen(ImageMap input) : base("normalize", input)
         {

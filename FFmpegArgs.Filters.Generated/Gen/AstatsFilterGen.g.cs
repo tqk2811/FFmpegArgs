@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. astats            A-&gt;A       Show time domain statistics about audio frames.
+    /// .S astats            A-&gt;A       Show time domain statistics about audio frames.
     /// </summary>
     public class AstatsFilterGen : AudioToAudioFilter, ISliceThreading
     {

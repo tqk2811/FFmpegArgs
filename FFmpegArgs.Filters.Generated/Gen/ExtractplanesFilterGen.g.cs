@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... extractplanes     V-&gt;N       Extract planes as grayscale frames.
+    /// .. extractplanes     V-&gt;N       Extract planes as grayscale frames.
     /// </summary>
     public class ExtractplanesFilterGen : ImageToImageFilter
     {

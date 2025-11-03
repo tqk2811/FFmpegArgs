@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... showwavespic      A-&gt;V       Convert input audio to a video output single picture.
+    /// .. showwavespic      A-&gt;V       Convert input audio to a video output single picture.
     /// </summary>
     public class ShowwavespicFilterGen : AudioToImageFilter
     {
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public ShowwavespicFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
+        public ShowwavespicFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
         /// <summary>
         ///  set amplitude scale (from 0 to 3) (default lin)
         /// </summary>

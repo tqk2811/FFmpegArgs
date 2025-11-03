@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC morpho            VV-&gt;V      Apply Morphological filter.
+    /// TS morpho            VV-&gt;V      Apply Morphological filter.
     /// </summary>
-    public class MorphoFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class MorphoFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal MorphoFilterGen(params ImageMap[] inputs) : base("morpho", inputs)
         {

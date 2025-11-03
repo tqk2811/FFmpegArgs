@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC guided            N-&gt;V       Apply Guided filter.
+    /// TS guided            N-&gt;V       Apply Guided filter.
     /// </summary>
-    public class GuidedFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class GuidedFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal GuidedFilterGen(params ImageMap[] inputs) : base("guided", inputs)
         {

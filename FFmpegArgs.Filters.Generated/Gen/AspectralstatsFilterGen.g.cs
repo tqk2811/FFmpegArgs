@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// .S. aspectralstats    A-&gt;A       Show frequency domain statistics about audio frames.
+    /// .S aspectralstats    A-&gt;A       Show frequency domain statistics about audio frames.
     /// </summary>
     public class AspectralstatsFilterGen : AudioToAudioFilter, ISliceThreading
     {

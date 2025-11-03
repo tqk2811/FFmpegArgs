@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... mcdeint           V-&gt;V       Apply motion compensating deinterlacing.
+    /// .. mcdeint           V-&gt;V       Apply motion compensating deinterlacing.
     /// </summary>
     public class McdeintFilterGen : ImageToImageFilter
     {

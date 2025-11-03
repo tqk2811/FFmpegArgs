@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC lut1d             V-&gt;V       Adjust colors using a 1D LUT.
+    /// TS lut1d             V-&gt;V       Adjust colors using a 1D LUT.
     /// </summary>
-    public class Lut1dFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class Lut1dFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal Lut1dFilterGen(ImageMap input) : base("lut1d", input)
         {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set 1D LUT file name
         /// </summary>
-        public Lut1dFilterGen file(String file) => this.SetOption("file", file.ToString());
+        public Lut1dFilterGen file(String file) => this.SetOption("file", file.ToStringInv());
         /// <summary>
         ///  select interpolation mode (from 0 to 4) (default linear)
         /// </summary>

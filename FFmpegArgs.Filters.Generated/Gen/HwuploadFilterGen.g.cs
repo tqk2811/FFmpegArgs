@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... hwupload          V-&gt;V       Upload a normal frame to a hardware frame
+    /// .. hwupload          V-&gt;V       Upload a normal frame to a hardware frame
     /// </summary>
     public class HwuploadFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  Derive a new device of this type
         /// </summary>
-        public HwuploadFilterGen derive_device(String derive_device) => this.SetOption("derive_device", derive_device.ToString());
+        public HwuploadFilterGen derive_device(String derive_device) => this.SetOption("derive_device", derive_device.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... openclsrc         |-&gt;V       Generate video using an OpenCL program
+    /// .. openclsrc         |-&gt;V       Generate video using an OpenCL program
     /// </summary>
     public class OpenclsrcFilterGen : SourceToImageFilter
     {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  OpenCL program source file
         /// </summary>
-        public OpenclsrcFilterGen source(String source) => this.SetOption("source", source.ToString());
+        public OpenclsrcFilterGen source(String source) => this.SetOption("source", source.ToStringInv());
         /// <summary>
         ///  Kernel name in program
         /// </summary>
-        public OpenclsrcFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToString());
+        public OpenclsrcFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToStringInv());
         /// <summary>
         ///  Video size
         /// </summary>
@@ -25,11 +25,11 @@
         /// <summary>
         ///  Video format (default none)
         /// </summary>
-        public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format", format.ToString());
+        public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  Video frame rate (default &quot;25&quot;)
         /// </summary>
-        public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

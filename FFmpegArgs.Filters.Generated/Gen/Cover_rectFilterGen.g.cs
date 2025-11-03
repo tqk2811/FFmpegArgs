@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... cover_rect        V-&gt;V       Find and cover a user specified object.
+    /// .. cover_rect        V-&gt;V       Find and cover a user specified object.
     /// </summary>
     public class Cover_rectFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  cover bitmap filename
         /// </summary>
-        public Cover_rectFilterGen cover(String cover) => this.SetOption("cover", cover.ToString());
+        public Cover_rectFilterGen cover(String cover) => this.SetOption("cover", cover.ToStringInv());
         /// <summary>
         ///  set removal mode (from 0 to 1) (default blur)
         /// </summary>

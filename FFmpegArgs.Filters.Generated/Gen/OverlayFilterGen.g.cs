@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC overlay           VV-&gt;V      Overlay a video source on top of the input.
+    /// TS overlay           VV-&gt;V      Overlay a video source on top of the input.
     /// </summary>
-    public class OverlayFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class OverlayFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal OverlayFilterGen(params ImageMap[] inputs) : base("overlay", inputs)
         {

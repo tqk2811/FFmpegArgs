@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... aselect           A-&gt;N       Select audio frames to pass in output.
+    /// .. aselect           A-&gt;N       Select audio frames to pass in output.
     /// </summary>
     public class AselectFilterGen : AudioToAudioFilter
     {

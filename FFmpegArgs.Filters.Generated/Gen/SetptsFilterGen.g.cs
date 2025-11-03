@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C setpts            V-&gt;V       Set PTS for the output video frame.
+    /// .. setpts            V-&gt;V       Set PTS for the output video frame.
     /// </summary>
-    public class SetptsFilterGen : ImageToImageFilter, ICommandSupport
+    public class SetptsFilterGen : ImageToImageFilter
     {
         internal SetptsFilterGen(ImageMap input) : base("setpts", input)
         {
@@ -14,6 +14,10 @@
         ///  Expression determining the frame timestamp (default &quot;PTS&quot;)
         /// </summary>
         public SetptsFilterGen expr(ExpressionValue expr) => this.SetOption("expr", (string)expr);
+        /// <summary>
+        ///  Unset framerate metadata (default false)
+        /// </summary>
+        public SetptsFilterGen strip_fps(bool strip_fps) => this.SetOption("strip_fps", strip_fps.ToFFmpegFlag());
     }
 
     public static partial class FilterGeneratedExtensions

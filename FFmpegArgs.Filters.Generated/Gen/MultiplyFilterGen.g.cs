@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC multiply          VV-&gt;V      Multiply first video stream with second video stream.
+    /// TS multiply          VV-&gt;V      Multiply first video stream with second video stream.
     /// </summary>
-    public class MultiplyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class MultiplyFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal MultiplyFilterGen(params ImageMap[] inputs) : base("multiply", inputs)
         {
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set planes (default F)
         /// </summary>
-        public MultiplyFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
+        public MultiplyFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

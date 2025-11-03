@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C crop              V-&gt;V       Crop the input video.
+    /// .. crop              V-&gt;V       Crop the input video.
     /// </summary>
-    public class CropFilterGen : ImageToImageFilter, ICommandSupport
+    public class CropFilterGen : ImageToImageFilter
     {
         internal CropFilterGen(ImageMap input) : base("crop", input)
         {

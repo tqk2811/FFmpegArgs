@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC threshold         VVVV-&gt;V    Threshold first video stream using other video streams.
+    /// TS threshold         VVVV-&gt;V    Threshold first video stream using other video streams.
     /// </summary>
-    public class ThresholdFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ThresholdFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ThresholdFilterGen(params ImageMap[] inputs) : base("threshold", inputs)
         {

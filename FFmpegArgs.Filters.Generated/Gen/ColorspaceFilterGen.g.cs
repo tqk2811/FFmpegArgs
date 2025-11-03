@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. colorspace        V-&gt;V       Convert between colorspaces.
+    /// TS colorspace        V-&gt;V       Convert between colorspaces.
     /// </summary>
     public class ColorspaceFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
@@ -15,7 +15,7 @@
         /// </summary>
         public ColorspaceFilterGen all(ColorspaceFilterGenAll all) => this.SetOption("all", all.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
-        ///  Output colorspace (from 0 to 14) (default 2)
+        ///  Output colorspace (from 0 to 17) (default 2)
         /// </summary>
         public ColorspaceFilterGen space(ColorspaceFilterGenSpace space) => this.SetOption("space", space.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
@@ -116,7 +116,7 @@
     }
 
     /// <summary>
-    ///  Output colorspace (from 0 to 14) (default 2)
+    ///  Output colorspace (from 0 to 17) (default 2)
     /// </summary>
     public enum ColorspaceFilterGenSpace
     {

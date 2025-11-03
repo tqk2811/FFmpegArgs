@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... life              |-&gt;V       Create life.
+    /// .. life              |-&gt;V       Create life.
     /// </summary>
     public class LifeFilterGen : SourceToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set source file
         /// </summary>
-        public LifeFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
+        public LifeFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
         /// <summary>
         ///  set video size
         /// </summary>
@@ -21,11 +21,11 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public LifeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
+        public LifeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
         /// <summary>
         ///  set rule (default &quot;B3/S23&quot;)
         /// </summary>
-        public LifeFilterGen rule(String rule) => this.SetOption("rule", rule.ToString());
+        public LifeFilterGen rule(String rule) => this.SetOption("rule", rule.ToStringInv());
         /// <summary>
         ///  set fill ratio for filling initial grid randomly (from 0 to 1) (default 0.618034)
         /// </summary>

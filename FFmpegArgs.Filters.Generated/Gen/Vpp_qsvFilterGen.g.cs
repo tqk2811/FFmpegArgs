@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... vpp_qsv           V-&gt;V       Quick Sync Video &quot;VPP&quot;
+    /// .. vpp_qsv           V-&gt;V       Quick Sync Video &quot;VPP&quot;
     /// </summary>
     public class Vpp_qsvFilterGen : ImageToImageFilter
     {
@@ -69,15 +69,15 @@
         /// <summary>
         ///  Output video width(0=input video width, -1=keep input video aspect) (default &quot;cw&quot;)
         /// </summary>
-        public Vpp_qsvFilterGen width(String width) => this.SetOption("width", width.ToString());
+        public Vpp_qsvFilterGen width(String width) => this.SetOption("width", width.ToStringInv());
         /// <summary>
         ///  Output video height(0=input video height, -1=keep input video aspect) (default &quot;w*ch/cw&quot;)
         /// </summary>
-        public Vpp_qsvFilterGen height(String height) => this.SetOption("height", height.ToString());
+        public Vpp_qsvFilterGen height(String height) => this.SetOption("height", height.ToStringInv());
         /// <summary>
         ///  Output pixel format (default &quot;same&quot;)
         /// </summary>
-        public Vpp_qsvFilterGen format(String format) => this.SetOption("format", format.ToString());
+        public Vpp_qsvFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
         /// <summary>
         ///  Internal parallelization depth, the higher the value the higher the latency. (from 0 to INT_MAX) (default 4)
         /// </summary>
@@ -97,15 +97,15 @@
         /// <summary>
         ///  Output color matrix coefficient set
         /// </summary>
-        public Vpp_qsvFilterGen out_color_matrix(String out_color_matrix) => this.SetOption("out_color_matrix", out_color_matrix.ToString());
+        public Vpp_qsvFilterGen out_color_matrix(String out_color_matrix) => this.SetOption("out_color_matrix", out_color_matrix.ToStringInv());
         /// <summary>
         ///  Output color primaries
         /// </summary>
-        public Vpp_qsvFilterGen out_color_primaries(String out_color_primaries) => this.SetOption("out_color_primaries", out_color_primaries.ToString());
+        public Vpp_qsvFilterGen out_color_primaries(String out_color_primaries) => this.SetOption("out_color_primaries", out_color_primaries.ToStringInv());
         /// <summary>
         ///  Output color transfer characteristics
         /// </summary>
-        public Vpp_qsvFilterGen out_color_transfer(String out_color_transfer) => this.SetOption("out_color_transfer", out_color_transfer.ToString());
+        public Vpp_qsvFilterGen out_color_transfer(String out_color_transfer) => this.SetOption("out_color_transfer", out_color_transfer.ToStringInv());
         /// <summary>
         ///  Perform tonemapping (0=disable tonemapping, 1=perform tonemapping if the input has HDR metadata) (from 0 to 1) (default 0)
         /// </summary>

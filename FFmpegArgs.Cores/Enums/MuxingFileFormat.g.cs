@@ -90,6 +90,11 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("aptx_hd")]
         aptx_hd,
         /// <summary>
+        /// APV raw bitstream
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("apv")]
+        apv,
+        /// <summary>
         /// Argonaut Games ASF
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("argo_asf")]
@@ -445,6 +450,11 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("latm")]
         latm,
         /// <summary>
+        /// LC3 (Low Complexity Communication Codec)
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("lc3")]
+        lc3,
+        /// <summary>
         /// LRC lyrics
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("lrc")]
@@ -459,6 +469,11 @@
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("matroska")]
         matroska,
+        /// <summary>
+        /// MacCaption
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("mcc")]
+        mcc,
         /// <summary>
         /// MD5 testing
         /// </summary>
@@ -690,16 +705,6 @@
         [FFmpegArgs.Cores.Attributes.NameAttribute("scc")]
         scc,
         /// <summary>
-        /// SDL2 output device
-        /// </summary>
-        [FFmpegArgs.Cores.Attributes.NameAttribute("sdl")]
-        sdl,
-        /// <summary>
-        /// SDL2 output device
-        /// </summary>
-        [FFmpegArgs.Cores.Attributes.NameAttribute("sdl2")]
-        sdl2,
-        /// <summary>
         /// segment
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("segment")]
@@ -894,6 +899,11 @@
         /// </summary>
         [FFmpegArgs.Cores.Attributes.NameAttribute("webvtt")]
         webvtt,
+        /// <summary>
+        /// WHIP(WebRTC-HTTP ingestion protocol) muxer
+        /// </summary>
+        [FFmpegArgs.Cores.Attributes.NameAttribute("whip")]
+        whip,
         /// <summary>
         /// Westwood Studios audio
         /// </summary>

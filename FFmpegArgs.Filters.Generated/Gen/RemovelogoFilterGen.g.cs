@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. removelogo        V-&gt;V       Remove a TV logo based on a mask image.
+    /// T. removelogo        V-&gt;V       Remove a TV logo based on a mask image.
     /// </summary>
     public class RemovelogoFilterGen : ImageToImageFilter, ITimelineSupport
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set bitmap filename
         /// </summary>
-        public RemovelogoFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
+        public RemovelogoFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

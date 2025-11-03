@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. vif               VV-&gt;V      Calculate the VIF between two video streams.
+    /// TS vif               VV-&gt;V      Calculate the VIF between two video streams.
     /// </summary>
     public class VifFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC gblur             V-&gt;V       Apply Gaussian Blur filter.
+    /// TS gblur             V-&gt;V       Apply Gaussian Blur filter.
     /// </summary>
-    public class GblurFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class GblurFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal GblurFilterGen(ImageMap input) : base("gblur", input)
         {

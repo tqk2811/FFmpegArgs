@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C volume            A-&gt;A       Change input volume.
+    /// T. volume            A-&gt;A       Change input volume.
     /// </summary>
-    public class VolumeFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class VolumeFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal VolumeFilterGen(AudioMap input) : base("volume", input)
         {

@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TS. uspp              V-&gt;V       Apply Ultra Simple / Slow Post-processing filter.
+    /// TS uspp              V-&gt;V       Apply Ultra Simple / Slow Post-processing filter.
     /// </summary>
     public class UsppFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
@@ -25,7 +25,7 @@
         /// <summary>
         ///  Codec name (default &quot;snow&quot;)
         /// </summary>
-        public UsppFilterGen codec(String codec) => this.SetOption("codec", codec.ToString());
+        public UsppFilterGen codec(String codec) => this.SetOption("codec", codec.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

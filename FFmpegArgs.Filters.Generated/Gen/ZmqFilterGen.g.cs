@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... zmq               V-&gt;V       Receive commands through ZMQ and broker them to filters.
+    /// .. zmq               V-&gt;V       Receive commands through ZMQ and broker them to filters.
     /// </summary>
     public class ZmqFilterGen : ImageToImageFilter
     {

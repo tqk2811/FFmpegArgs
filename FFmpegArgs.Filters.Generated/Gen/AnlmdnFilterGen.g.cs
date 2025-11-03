@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC anlmdn            A-&gt;A       Reduce broadband noise from stream using Non-Local Means.
+    /// TS anlmdn            A-&gt;A       Reduce broadband noise from stream using Non-Local Means.
     /// </summary>
-    public class AnlmdnFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class AnlmdnFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal AnlmdnFilterGen(AudioMap input) : base("anlmdn", input)
         {

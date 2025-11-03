@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... chorus            A-&gt;A       Add a chorus effect to the audio.
+    /// .. chorus            A-&gt;A       Add a chorus effect to the audio.
     /// </summary>
     public class ChorusFilterGen : AudioToAudioFilter
     {
@@ -21,19 +21,19 @@
         /// <summary>
         ///  set delays
         /// </summary>
-        public ChorusFilterGen delays(String delays) => this.SetOption("delays", delays.ToString());
+        public ChorusFilterGen delays(String delays) => this.SetOption("delays", delays.ToStringInv());
         /// <summary>
         ///  set decays
         /// </summary>
-        public ChorusFilterGen decays(String decays) => this.SetOption("decays", decays.ToString());
+        public ChorusFilterGen decays(String decays) => this.SetOption("decays", decays.ToStringInv());
         /// <summary>
         ///  set speeds
         /// </summary>
-        public ChorusFilterGen speeds(String speeds) => this.SetOption("speeds", speeds.ToString());
+        public ChorusFilterGen speeds(String speeds) => this.SetOption("speeds", speeds.ToStringInv());
         /// <summary>
         ///  set depths
         /// </summary>
-        public ChorusFilterGen depths(String depths) => this.SetOption("depths", depths.ToString());
+        public ChorusFilterGen depths(String depths) => this.SetOption("depths", depths.ToStringInv());
     }
 
     public static partial class FilterGeneratedExtensions

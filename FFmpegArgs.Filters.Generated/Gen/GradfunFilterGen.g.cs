@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. gradfun           V-&gt;V       Debands video quickly using gradients.
+    /// T. gradfun           V-&gt;V       Debands video quickly using gradients.
     /// </summary>
     public class GradfunFilterGen : ImageToImageFilter, ITimelineSupport
     {

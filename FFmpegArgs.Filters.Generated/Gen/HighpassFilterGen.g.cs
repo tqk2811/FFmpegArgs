@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC highpass          A-&gt;A       Apply a high-pass filter with 3dB point frequency.
+    /// TS highpass          A-&gt;A       Apply a high-pass filter with 3dB point frequency.
     /// </summary>
-    public class HighpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class HighpassFilterGen : AudioToAudioFilter, ITimelineSupport, ISliceThreading
     {
         internal HighpassFilterGen(AudioMap input) : base("highpass", input)
         {
@@ -37,7 +37,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public HighpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
+        public HighpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

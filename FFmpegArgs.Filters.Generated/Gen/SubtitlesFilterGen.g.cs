@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... subtitles         V-&gt;V       Render text subtitles onto input video using the libass library.
+    /// .. subtitles         V-&gt;V       Render text subtitles onto input video using the libass library.
     /// </summary>
     public class SubtitlesFilterGen : ImageToImageFilter
     {
@@ -13,7 +13,7 @@
         /// <summary>
         ///  set the filename of file to read
         /// </summary>
-        public SubtitlesFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
+        public SubtitlesFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
         /// <summary>
         ///  set the size of the original video (used to scale fonts)
         /// </summary>
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set the directory containing the fonts to read
         /// </summary>
-        public SubtitlesFilterGen fontsdir(String fontsdir) => this.SetOption("fontsdir", fontsdir.ToString());
+        public SubtitlesFilterGen fontsdir(String fontsdir) => this.SetOption("fontsdir", fontsdir.ToStringInv());
         /// <summary>
         ///  enable processing of alpha channel (default false)
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  set input character encoding
         /// </summary>
-        public SubtitlesFilterGen charenc(String charenc) => this.SetOption("charenc", charenc.ToString());
+        public SubtitlesFilterGen charenc(String charenc) => this.SetOption("charenc", charenc.ToStringInv());
         /// <summary>
         ///  set stream index (from -1 to INT_MAX) (default -1)
         /// </summary>
@@ -41,7 +41,7 @@
         /// <summary>
         ///  force subtitle style
         /// </summary>
-        public SubtitlesFilterGen force_style(String force_style) => this.SetOption("force_style", force_style.ToString());
+        public SubtitlesFilterGen force_style(String force_style) => this.SetOption("force_style", force_style.ToStringInv());
         /// <summary>
         ///  break lines according to the Unicode Line Breaking Algorithm (default auto)
         /// </summary>

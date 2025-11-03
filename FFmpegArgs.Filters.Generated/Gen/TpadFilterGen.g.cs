@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... tpad              V-&gt;V       Temporarily pad video frames.
+    /// .. tpad              V-&gt;V       Temporarily pad video frames.
     /// </summary>
     public class TpadFilterGen : ImageToImageFilter
     {

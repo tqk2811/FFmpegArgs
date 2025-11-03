@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... anullsrc          |-&gt;A       Null audio source, return empty audio frames.
+    /// .. anullsrc          |-&gt;A       Null audio source, return empty audio frames.
     /// </summary>
     public class AnullsrcFilterGen : SourceToAudioFilter
     {

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ..C firequalizer      A-&gt;A       Finite Impulse Response Equalizer.
+    /// .. firequalizer      A-&gt;A       Finite Impulse Response Equalizer.
     /// </summary>
-    public class FirequalizerFilterGen : AudioToAudioFilter, ICommandSupport
+    public class FirequalizerFilterGen : AudioToAudioFilter
     {
         internal FirequalizerFilterGen(AudioMap input) : base("firequalizer", input)
         {
@@ -13,11 +13,11 @@
         /// <summary>
         ///  set gain curve (default &quot;gain_interpolate(f)&quot;)
         /// </summary>
-        public FirequalizerFilterGen gain(String gain) => this.SetOption("gain", gain.ToString());
+        public FirequalizerFilterGen gain(String gain) => this.SetOption("gain", gain.ToStringInv());
         /// <summary>
         ///  set gain entry
         /// </summary>
-        public FirequalizerFilterGen gain_entry(String gain_entry) => this.SetOption("gain_entry", gain_entry.ToString());
+        public FirequalizerFilterGen gain_entry(String gain_entry) => this.SetOption("gain_entry", gain_entry.ToStringInv());
         /// <summary>
         ///  set delay (from 0 to 1e+10) (default 0.01)
         /// </summary>
@@ -49,7 +49,7 @@
         /// <summary>
         ///  set dump file
         /// </summary>
-        public FirequalizerFilterGen dumpfile(String dumpfile) => this.SetOption("dumpfile", dumpfile.ToString());
+        public FirequalizerFilterGen dumpfile(String dumpfile) => this.SetOption("dumpfile", dumpfile.ToStringInv());
         /// <summary>
         ///  set dump scale (from 0 to 3) (default linlog)
         /// </summary>

@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.C stereotools       A-&gt;A       Apply various stereo tools.
+    /// T. stereotools       A-&gt;A       Apply various stereo tools.
     /// </summary>
-    public class StereotoolsFilterGen : AudioToAudioFilter, ITimelineSupport, ICommandSupport
+    public class StereotoolsFilterGen : AudioToAudioFilter, ITimelineSupport
     {
         internal StereotoolsFilterGen(AudioMap input) : base("stereotools", input)
         {

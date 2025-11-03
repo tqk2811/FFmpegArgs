@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// T.. bwdif_vulkan      V-&gt;V       Deinterlace Vulkan frames via bwdif
+    /// T. bwdif_vulkan      V-&gt;V       Deinterlace Vulkan frames via bwdif
     /// </summary>
     public class Bwdif_vulkanFilterGen : ImageToImageFilter, ITimelineSupport
     {

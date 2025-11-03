@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// ... afirsrc           |-&gt;A       Generate a FIR coefficients audio stream.
+    /// .. afirsrc           |-&gt;A       Generate a FIR coefficients audio stream.
     /// </summary>
     public class AfirsrcFilterGen : SourceToAudioFilter
     {
@@ -17,15 +17,15 @@
         /// <summary>
         ///  set frequency points (default &quot;0 1&quot;)
         /// </summary>
-        public AfirsrcFilterGen frequency(String frequency) => this.SetOption("frequency", frequency.ToString());
+        public AfirsrcFilterGen frequency(String frequency) => this.SetOption("frequency", frequency.ToStringInv());
         /// <summary>
         ///  set magnitude values (default &quot;1 1&quot;)
         /// </summary>
-        public AfirsrcFilterGen magnitude(String magnitude) => this.SetOption("magnitude", magnitude.ToString());
+        public AfirsrcFilterGen magnitude(String magnitude) => this.SetOption("magnitude", magnitude.ToStringInv());
         /// <summary>
         ///  set phase values (default &quot;0 0&quot;)
         /// </summary>
-        public AfirsrcFilterGen phase(String phase) => this.SetOption("phase", phase.ToString());
+        public AfirsrcFilterGen phase(String phase) => this.SetOption("phase", phase.ToStringInv());
         /// <summary>
         ///  set sample rate (from 1 to INT_MAX) (default 44100)
         /// </summary>

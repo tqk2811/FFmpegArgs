@@ -1,9 +1,9 @@
 ﻿namespace FFmpegArgs.Filters.Generated
 {
     /// <summary>
-    /// TSC convolution       V-&gt;V       Apply convolution filter.
+    /// TS convolution       V-&gt;V       Apply convolution filter.
     /// </summary>
-    public class ConvolutionFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading, ICommandSupport
+    public class ConvolutionFilterGen : ImageToImageFilter, ITimelineSupport, ISliceThreading
     {
         internal ConvolutionFilterGen(ImageMap input) : base("convolution", input)
         {
@@ -13,19 +13,19 @@
         /// <summary>
         ///  set matrix for 1st plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public ConvolutionFilterGen _0m(String _0m) => this.SetOption("0m", _0m.ToString());
+        public ConvolutionFilterGen _0m(String _0m) => this.SetOption("0m", _0m.ToStringInv());
         /// <summary>
         ///  set matrix for 2nd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public ConvolutionFilterGen _1m(String _1m) => this.SetOption("1m", _1m.ToString());
+        public ConvolutionFilterGen _1m(String _1m) => this.SetOption("1m", _1m.ToStringInv());
         /// <summary>
         ///  set matrix for 3rd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public ConvolutionFilterGen _2m(String _2m) => this.SetOption("2m", _2m.ToString());
+        public ConvolutionFilterGen _2m(String _2m) => this.SetOption("2m", _2m.ToStringInv());
         /// <summary>
         ///  set matrix for 4th plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public ConvolutionFilterGen _3m(String _3m) => this.SetOption("3m", _3m.ToString());
+        public ConvolutionFilterGen _3m(String _3m) => this.SetOption("3m", _3m.ToStringInv());
         /// <summary>
         ///  set rdiv for 1st plane (from 0 to INT_MAX) (default 0)
         /// </summary>
