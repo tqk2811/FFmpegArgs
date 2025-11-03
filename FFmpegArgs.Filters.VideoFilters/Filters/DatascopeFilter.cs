@@ -32,7 +32,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="size"></param>
         /// <returns></returns>
-        public DatascopeFilter Mode(Size size) => this.SetOption("s", $"{size.Width}x{size.Height}");
+        public DatascopeFilter Mode(Size size) => this.SetOption("s", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         /// Set x offset from where to pick pixels.(from 0 to INT_MAX) (default 0)
         /// </summary>

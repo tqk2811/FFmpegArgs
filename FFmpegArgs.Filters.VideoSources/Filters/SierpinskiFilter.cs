@@ -17,7 +17,7 @@
         /// <param name="size"></param>
         /// <returns></returns>
         public SierpinskiFilter Size(Size size)
-          => this.SetOption("s", $"{size.Width}x{size.Height}");
+          => this.SetOption("s", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         /// Set frame size. For the syntax of this option.<br>
         /// </br> Default value is "640x480".

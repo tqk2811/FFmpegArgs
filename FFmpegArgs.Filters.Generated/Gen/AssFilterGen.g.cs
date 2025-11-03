@@ -17,7 +17,7 @@
         /// <summary>
         ///  set the size of the original video (used to scale fonts)
         /// </summary>
-        public AssFilterGen original_size(Size original_size) => this.SetOption("original_size", $"{original_size.Width}x{original_size.Height}");
+        public AssFilterGen original_size(Size original_size) => this.SetOption("original_size", Inv($"{original_size.Width}x{original_size.Height}"));
         /// <summary>
         ///  set the directory containing the fonts to read
         /// </summary>

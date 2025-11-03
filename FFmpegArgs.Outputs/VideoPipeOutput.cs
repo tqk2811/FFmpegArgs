@@ -73,7 +73,7 @@
                 GetAVStreamArg(),
                 GetFlagArgs(),
                 GetOptionArgs(),
-                $"pipe:{StdOut}"
+                Inv($"pipe:{StdOut}")
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }

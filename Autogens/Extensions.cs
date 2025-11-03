@@ -16,14 +16,14 @@ namespace Autogens
         internal static StreamWriter WriteSummary(this StreamWriter streamWriter, params string[] summarys)
         {
             streamWriter.WriteLine("/// <summary>");
-            foreach (var summary in summarys) streamWriter.WriteLine($"/// {summary.FixSummaryRule()}");
+            foreach (var summary in summarys) streamWriter.WriteLine(Inv($"/// {summary.FixSummaryRule()}"));
             streamWriter.WriteLine("/// </summary>");
             return streamWriter;
         }
         internal static StringBuilder WriteSummary(this StringBuilder stringBuilder, params string[] summarys)
         {
             stringBuilder.AppendLine("/// <summary>");
-            foreach (var summary in summarys) stringBuilder.AppendLine($"/// {summary.FixSummaryRule()}");
+            foreach (var summary in summarys) stringBuilder.AppendLine(Inv($"/// {summary.FixSummaryRule()}"));
             stringBuilder.AppendLine("/// </summary>");
             return stringBuilder;
         }
@@ -41,7 +41,7 @@ namespace Autogens
         {
             if (string.IsNullOrWhiteSpace(input)) return input;
             if (int.TryParse(input.First().ToString(), out int r)) return $"_{input}";
-            return input.First().ToString().ToUpper() + input.Substring(1);
+            return input.First().ToString().ToUpperInvariant() + input.Substring(1);
         }
 
 
@@ -55,15 +55,15 @@ namespace Autogens
         {
             if (string.IsNullOrWhiteSpace(input)) return input;
             input = input
-                .Replace("-", "_")
-                .Replace("(", "_")
-                .Replace(")", "_")
-                .Replace(".", "Dot")
-                .Replace("+", "Plus")
-                .Replace("<", "LessThan")
-                .Replace(">", "GreaterThan")
-                .Replace("&", "_And_")
-                .Replace(" ", "_")
+                .ReplaceOrd("-", "_")
+                .ReplaceOrd("(", "_")
+                .ReplaceOrd(")", "_")
+                .ReplaceOrd(".", "Dot")
+                .ReplaceOrd("+", "Plus")
+                .ReplaceOrd("<", "LessThan")
+                .ReplaceOrd(">", "GreaterThan")
+                .ReplaceOrd("&", "_And_")
+                .ReplaceOrd(" ", "_")
                 ;
             if (int.TryParse(input.First().ToString(), out int r)) return $"_{input}";
             if (_NameRule.Contains(input)) return $"_{input}";

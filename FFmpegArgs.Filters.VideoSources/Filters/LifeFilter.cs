@@ -70,7 +70,7 @@ namespace FFmpegArgs.Filters.VideoSources
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public LifeFilter Size(Size videoSize)
-          => this.SetOption("size", $"{videoSize.Width}x{videoSize.Height}");
+          => this.SetOption("size", Inv($"{videoSize.Width}x{videoSize.Height}"));
         /// <summary>
         /// If set to 1, stitch the left and right grid edges together, and the top and bottom edges also. Defaults to 1.
         /// </summary>

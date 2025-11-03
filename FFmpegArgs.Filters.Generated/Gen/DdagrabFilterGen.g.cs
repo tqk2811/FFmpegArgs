@@ -25,7 +25,7 @@
         /// <summary>
         ///  set video frame size
         /// </summary>
-        public DdagrabFilterGen video_size(Size video_size) => this.SetOption("video_size", $"{video_size.Width}x{video_size.Height}");
+        public DdagrabFilterGen video_size(Size video_size) => this.SetOption("video_size", Inv($"{video_size.Width}x{video_size.Height}"));
         /// <summary>
         ///  capture area x offset (from INT_MIN to INT_MAX) (default 0)
         /// </summary>

@@ -54,7 +54,7 @@
                 GetAVStreamArg(),
                 GetFlagArgs(),
                 GetOptionArgs(),
-                _filePath.Contains(" ") ? $"\"{_filePath}\"" : _filePath
+                _filePath.ContainsOrd(" ") ? $"\"{_filePath}\"" : _filePath
             };
             return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }

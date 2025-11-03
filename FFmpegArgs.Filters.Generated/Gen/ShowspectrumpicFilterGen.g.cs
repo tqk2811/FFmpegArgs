@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video size (default &quot;4096x2048&quot;)
         /// </summary>
-        public ShowspectrumpicFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public ShowspectrumpicFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  set channel display mode (from 0 to 1) (default combined)
         /// </summary>

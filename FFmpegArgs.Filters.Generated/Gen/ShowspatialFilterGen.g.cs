@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video size (default &quot;512x512&quot;)
         /// </summary>
-        public ShowspatialFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public ShowspatialFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  set window size (from 1024 to 65536) (default 4096)
         /// </summary>

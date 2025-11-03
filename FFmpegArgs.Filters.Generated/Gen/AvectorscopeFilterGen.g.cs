@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video size (default &quot;400x400&quot;)
         /// </summary>
-        public AvectorscopeFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public AvectorscopeFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  set red contrast (from 0 to 255) (default 40)
         /// </summary>

@@ -16,20 +16,20 @@ namespace Autogens
             List<DocLine> docLines = new List<DocLine>();
             foreach (var line in lines.Where(x => !string.IsNullOrWhiteSpace(x)))
             {
-                if (line.StartsWith("     "))
+                if (line.StartsWithOrd("     "))
                 {
                     docLines.LastOrDefault()
                         ?.ChildLines?.LastOrDefault()
                         ?.ChildLines?.Add(new DocLine() { LineData = line.Trim() });
                 }
-                else if (line.StartsWith("  "))
+                else if (line.StartsWithOrd("  "))
                 {
                     docLines.LastOrDefault()
                         ?.ChildLines?.Add(new DocLine() { LineData = line.Trim() });
                 }
                 else
                 {
-                    if (line.StartsWith(" ")) Console.WriteLine($"Error line: {line}");
+                    if (line.StartsWithOrd(" ")) Console.WriteLine(Inv($"Error line: {line}"));
                     else docLines.Add(new DocLine() { LineData = line.Trim() });
                 }
             }

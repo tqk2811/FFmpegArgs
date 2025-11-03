@@ -128,7 +128,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToStringInv(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -157,7 +157,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (float.IsNaN(val) || val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToStringInv(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -186,7 +186,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (double.IsNaN(val) || val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToStringInv(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -215,7 +215,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToStringInv(), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -244,7 +244,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToStringInv(), throwIfDuplicate);
         }
         /// <summary>
         /// 

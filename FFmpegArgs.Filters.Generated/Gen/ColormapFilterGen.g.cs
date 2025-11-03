@@ -13,7 +13,7 @@
         /// <summary>
         ///  set patch size (default &quot;64x64&quot;)
         /// </summary>
-        public ColormapFilterGen patch_size(Size patch_size) => this.SetOption("patch_size", $"{patch_size.Width}x{patch_size.Height}");
+        public ColormapFilterGen patch_size(Size patch_size) => this.SetOption("patch_size", Inv($"{patch_size.Width}x{patch_size.Height}"));
         /// <summary>
         ///  set number of patches (from 0 to 64) (default 0)
         /// </summary>

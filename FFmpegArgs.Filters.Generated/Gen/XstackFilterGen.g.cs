@@ -21,7 +21,7 @@
         /// <summary>
         ///  set fixed size grid layout
         /// </summary>
-        public XstackFilterGen grid(Size grid) => this.SetOption("grid", $"{grid.Width}x{grid.Height}");
+        public XstackFilterGen grid(Size grid) => this.SetOption("grid", Inv($"{grid.Width}x{grid.Height}"));
         /// <summary>
         ///  force termination when the shortest input terminates (default false)
         /// </summary>

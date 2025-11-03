@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video size (default &quot;600x240&quot;)
         /// </summary>
-        public ShowwavespicFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
+        public ShowwavespicFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
         /// <summary>
         ///  draw channels separately (default false)
         /// </summary>

@@ -79,7 +79,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="eval"></param>
         /// <returns></returns>
         public PadFilter Eval(PadEval eval)
-          => this.SetOption("eval", eval.ToString().ToLower());
+          => this.SetOption("eval", eval.ToString().ToLowerInvariant());
         /// <summary>
         /// Pad to aspect instead to a resolution.
         /// </summary>

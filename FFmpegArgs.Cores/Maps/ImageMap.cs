@@ -30,7 +30,7 @@
         /// </summary>
         public override string MapName
         {
-            get { return IsInput ? $"{IndexOfInput}:v:{InputAVStream.StreamIndex}" : _name; }
+            get { return IsInput ? Inv($"{IndexOfInput}:v:{InputAVStream.StreamIndex}") : _name; }
         }
     }
 }

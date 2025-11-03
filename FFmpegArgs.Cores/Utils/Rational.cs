@@ -6,7 +6,7 @@ namespace FFmpegArgs.Cores.Utils
     /// <summary>
     /// 
     /// </summary>
-    public class Rational
+    public class Rational : IFormattable
     {
         /// <summary>
         /// 
@@ -78,7 +78,7 @@ namespace FFmpegArgs.Cores.Utils
 
 
         static readonly Regex regex_parse = new Regex("^(\\d+\\.\\d+|\\d+)[:/](\\d+\\.\\d+|\\d+)$", RegexOptions.Compiled);
-        static Rational _Parse(string rationalString)
+        static Rational? _Parse(string rationalString)
         {
             if (string.IsNullOrWhiteSpace(rationalString))
                 return null;
@@ -110,19 +110,30 @@ namespace FFmpegArgs.Cores.Utils
         /// Num:Den
         /// </summary>
         /// <returns></returns>
-        public string ToStringColon() => $"{Numerator}:{Denominator}";
+        public string ToStringColon() => Inv($"{Numerator}:{Denominator}");
 
         /// <summary>
         /// Num/Den
         /// </summary>
         /// <returns></returns>
-        public string ToStringSlash() => $"{Numerator}/{Denominator}";
+        public string ToStringSlash() => Inv($"{Numerator}/{Denominator}");
 
         /// <summary>
         /// Num/Den
         /// </summary>
         /// <returns></returns>
         public override string ToString() => ToStringSlash();
+
+        /// <inheritdoc />
+        public string ToString(string? format, IFormatProvider? formatProvider)
+        {
+            var f = format?.ToUpperInvariant() ?? string.Empty;
+            return f switch {
+                "C" => string.Format(formatProvider, "{0}:{1}", Numerator, Denominator),
+                "S" or "" => string.Format(formatProvider, "{0}/{1}", Numerator, Denominator),
+                _ => throw new ArgumentOutOfRangeException(nameof(format), "Format specifier for Rational must be 'C' or 'S'."),
+            };
+        }
 
         /// <summary>
         /// 

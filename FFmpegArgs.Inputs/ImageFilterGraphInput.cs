@@ -53,10 +53,10 @@
                 GetFlagArgs(),
                 GetOptionArgs(),
                 GetAVStreamArg(),
-                filter.Contains(" ") ? $"-i \"{filter}\"" : $"-i {filter}"
+                filter.ContainsOrd(" ") ? $"-i \"{filter}\"" : $"-i {filter}"
             };
 
-            return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
     }
 }

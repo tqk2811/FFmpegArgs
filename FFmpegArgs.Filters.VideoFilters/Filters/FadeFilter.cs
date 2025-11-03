@@ -36,7 +36,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// <param name="t"></param>
         /// <returns></returns>
         public FadeFilter Type(FadeType t)
-            => this.SetOption("t", t.ToString().ToLower());
+            => this.SetOption("t", t.ToString().ToLowerInvariant());
         /// <summary>
         /// Specify the number of the frame to start applying the fade effect at. (from 0 to INT_MAX) (default 0)
         /// </summary>

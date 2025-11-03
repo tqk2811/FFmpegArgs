@@ -21,7 +21,7 @@
         /// <returns></returns>
         public static T EofAction<T>(this T filter, EofAction action)
             where T : BaseOption, IFilter<BaseMap, BaseMap>, IFramesync
-          => filter.SetOption("eof_action", action.ToString().ToLower());
+          => filter.SetOption("eof_action", action.ToStringInv().ToLowerInvariant());
         /// <summary>
         /// If set to 1, force the output to terminate when the shortest input terminates. Default value is 0.
         /// </summary>

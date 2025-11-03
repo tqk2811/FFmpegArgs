@@ -66,9 +66,9 @@
                 GetFlagArgs(),
                 GetOptionArgs(),
                 GetAVStreamArg(),
-                _filesPath.Contains(" ") ? $"-i \"{_filesPath}\"" : $"-i {_filesPath}"
+                _filesPath.ContainsOrd(" ") ? $"-i \"{_filesPath}\"" : $"-i {_filesPath}"
             };
-            return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
     }
 }

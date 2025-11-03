@@ -34,7 +34,7 @@
                 GetAVStreamArg(),
                 $"-i \"{_url}\""
             };
-            return $"{string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)))}";
+            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
         }
     }
 }

@@ -19,13 +19,13 @@
         /// 
         /// </summary>
         protected override void AddMapOut()
-            => _mapsOut.Add(new AudioMap(FilterGraph, $"f_{FilterIndex}"));
+            => _mapsOut.Add(new AudioMap(FilterGraph, Inv($"f_{FilterIndex}")));
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="index"></param>
         protected override void AddMapOut(int index)
-            => _mapsOut.Add(new AudioMap(FilterGraph, $"f_{FilterIndex}_{index}"));
+            => _mapsOut.Add(new AudioMap(FilterGraph, Inv($"f_{FilterIndex}_{index}")));
     }
 }

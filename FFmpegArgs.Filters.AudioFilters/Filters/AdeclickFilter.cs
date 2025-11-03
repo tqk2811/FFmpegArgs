@@ -84,7 +84,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="method"></param>
         /// <returns></returns>
         public AdeclickFilter Method(AdeclickMethod method)
-          => this.SetOption("m", method.ToString().ToLower());
+          => this.SetOption("m", method.ToString().ToLowerInvariant());
     }
     /// <summary>
     /// 

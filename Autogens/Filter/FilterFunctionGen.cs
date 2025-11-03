@@ -72,16 +72,24 @@ namespace Autogens.Filter
                         .WithArgumentList(ArgumentList(SeparatedList(new[]
                         {
                             Argument(LiteralExpression(SyntaxKind.StringLiteralExpression, Literal(filterData.Name))),
-                            Argument(InterpolatedStringExpression(Token(SyntaxKind.InterpolatedStringStartToken))
-                                .WithContents(List(new InterpolatedStringContentSyntax[]
-                                {
-                                    // {<functionName>.Width}
-                                    Interpolation(MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, IdentifierName(paramName), IdentifierName(nameof(System.Drawing.Size.Width)))),
-                                    // x
-                                    InterpolatedStringText().WithTextToken(Token(TriviaList(),SyntaxKind.InterpolatedStringTextToken, "x", "x", TriviaList())),
-                                    // {<functionName>.Height}
-                                    Interpolation(MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression,IdentifierName(paramName),IdentifierName(nameof(System.Drawing.Size.Height))))
-                                }))
+                            Argument(
+                                InvocationExpression(IdentifierName(nameof(Inv)))
+                                .WithArgumentList(
+                                    ArgumentList(SingletonSeparatedList(
+                                        Argument(
+                                            InterpolatedStringExpression(Token(SyntaxKind.InterpolatedStringStartToken))
+                                            .WithContents(List(new InterpolatedStringContentSyntax[]
+                                            {
+                                                // {<paramName>.Width}
+                                                Interpolation(MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, IdentifierName(paramName), IdentifierName(nameof(System.Drawing.Size.Width)))),
+                                                // x
+                                                InterpolatedStringText().WithTextToken(Token(TriviaList(), SyntaxKind.InterpolatedStringTextToken, "x", "x", TriviaList())),
+                                                // {<paramName>.Height}
+                                                Interpolation(MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression, IdentifierName(paramName), IdentifierName(nameof(System.Drawing.Size.Height))))
+                                            }))
+                                        )
+                                    ))
+                                )
                             )
                         })))
                     )
@@ -130,7 +138,7 @@ namespace Autogens.Filter
                 .WithSemicolonToken(Token(SyntaxKind.SemicolonToken));
         }
 
-        //public <returnTypeName> <functionName>(T <paramName>) => this.SetOption("<filterData.Name>", <paramName>.ToString());
+        //public <returnTypeName> <functionName>(T <paramName>) => this.SetOption("<filterData.Name>", <paramName>.ToStringInv());
         static MethodDeclarationSyntax GenMethodSetOption_ToString<T>(this MethodDeclarationSyntax method, string paramName, FilterData filterData)
         {
             return method.WithParameterList(ParameterList(SingletonSeparatedList(Parameter(Identifier(paramName)).WithType(IdentifierName(typeof(T).Name)))))
@@ -143,7 +151,7 @@ namespace Autogens.Filter
                                 Argument(InvocationExpression(MemberAccessExpression(
                                         SyntaxKind.SimpleMemberAccessExpression,
                                         IdentifierName(paramName),
-                                        IdentifierName(nameof(Object.ToString))
+                                        IdentifierName(nameof(StringUtils.ToStringInv))
                                 )))
                             }))
                         )

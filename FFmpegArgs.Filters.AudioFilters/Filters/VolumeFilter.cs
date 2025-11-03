@@ -64,21 +64,21 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="precision"></param>
         /// <returns></returns>
         public VolumeFilter Precision(VolumePrecision precision)
-          => this.SetOption("precision", precision.ToString().ToLower());
+          => this.SetOption("precision", precision.ToString().ToLowerInvariant());
         /// <summary>
         /// Choose the behaviour on encountering ReplayGain side data in input frames.
         /// </summary>
         /// <param name="replayGain"></param>
         /// <returns></returns>
         public VolumeFilter ReplayGain(VolumeReplayGain replayGain)
-          => this.SetOption("replaygain", replayGain.ToString().ToLower());
+          => this.SetOption("replaygain", replayGain.ToString().ToLowerInvariant());
         /// <summary>
         /// Set when the volume expression is evaluated.
         /// </summary>
         /// <param name="eval"></param>
         /// <returns></returns>
         public VolumeFilter Eval(VolumeEval eval)
-           => this.SetOption("eval", eval.ToString().ToLower());
+           => this.SetOption("eval", eval.ToString().ToLowerInvariant());
         /// <summary>
         /// Pre-amplification gain in dB to apply to the selected replaygain gain.<br></br>
         /// Default value for replaygain_preamp is 0.0.<br>
