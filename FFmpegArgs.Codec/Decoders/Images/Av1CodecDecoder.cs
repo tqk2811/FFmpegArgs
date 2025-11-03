@@ -34,5 +34,10 @@ namespace FFmpegArgs.Codec.Decoders.Images
         /// <returns></returns>
         public static Av1CodecDecoder Av1Codec(this ImageInputAVStream stream)
             => new Av1CodecDecoder(stream);
+        public static T Av1Codec<T>(this T stream, Action<Av1CodecDecoder> action) where T : ImageInputAVStream
+        {
+            action.Invoke(stream.Av1Codec());
+            return stream;
+        }
     }
 }

@@ -146,5 +146,10 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <returns></returns>
         public static H264_mf_CodecEncoder H264_mf_Codec(this ImageOutputAVStream stream)
             => new H264_mf_CodecEncoder(stream);
+        public static T H264_mf_Codec<T>(this T stream, Action<H264_mf_CodecEncoder> action) where T : ImageOutputAVStream
+        {
+            action.Invoke(stream.H264_mf_Codec());
+            return stream;
+        }
     }
 }

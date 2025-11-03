@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs.Codec.Encoders.Images
+﻿using FFmpegArgs.Codec.Decoders.Images;
+
+namespace FFmpegArgs.Codec.Encoders.Images
 {
     /// <summary>
     /// 
@@ -23,5 +25,10 @@
         /// <returns></returns>
         public static H264_libx264rgb_CodecEncoder H264_libx264rgb_Codec(this ImageOutputAVStream stream)
             => new H264_libx264rgb_CodecEncoder(stream);
+        public static T H264_libx264rgb_Codec<T>(this T stream, Action<H264_libx264rgb_CodecEncoder> action) where T : ImageOutputAVStream
+        {
+            action.Invoke(stream.H264_libx264rgb_Codec());
+            return stream;
+        }
     }
 }

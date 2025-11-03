@@ -64,5 +64,10 @@ namespace FFmpegArgs.Codec.Decoders.Images
         /// <returns></returns>
         public static H264CodecDecoder H264Codec(this ImageInputAVStream stream)
             => new H264CodecDecoder(stream);
+        public static T H264Codec<T>(this T stream, Action<H264CodecDecoder> action) where T : ImageInputAVStream
+        {
+            action.Invoke(stream.H264Codec());
+            return stream;
+        }
     }
 }

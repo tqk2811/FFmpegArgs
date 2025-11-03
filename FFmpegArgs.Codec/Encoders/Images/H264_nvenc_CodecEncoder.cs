@@ -719,5 +719,10 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <returns></returns>
         public static H264_nvenc_CodecEncoder H264_nvenc_Codec(this ImageOutputAVStream stream)
             => new H264_nvenc_CodecEncoder(stream);
+        public static T H264_nvenc_Codec<T>(this T stream, Action<H264_nvenc_CodecEncoder> action) where T : ImageOutputAVStream
+        {
+            action.Invoke(stream.H264_nvenc_Codec());
+            return stream;
+        }
     }
 }

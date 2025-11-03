@@ -350,5 +350,10 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <returns></returns>
         public static H264_qsv_CodecEncoder H264_qsv_Codec(this ImageOutputAVStream stream)
             => new H264_qsv_CodecEncoder(stream);
+        public static T H264_qsv_Codec<T>(this T stream, Action<H264_qsv_CodecEncoder> action) where T : ImageOutputAVStream
+        {
+            action.Invoke(stream.H264_qsv_Codec());
+            return stream;
+        }
     }
 }
