@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs.Executes
+﻿using System.Globalization;
+
+namespace FFmpegArgs.Executes
 {
     /// <summary>
     /// 
@@ -24,15 +26,15 @@
                     {
                         RenderProgress renderProgress = new RenderProgress
                         {
-                            Size = match.Groups[4].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[4].Value.Replace("kB", string.Empty).Replace("KiB", string.Empty)),
+                            Size = match.Groups[4].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[4].Value.Replace("kB", string.Empty).Replace("KiB", string.Empty), CultureInfo.InvariantCulture),
                             Time = ParseDuration(match.Groups[5].Value),
-                            Bitrate = match.Groups[6].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[6].Value.Replace("kbits/s", string.Empty)),
-                            Speed = float.Parse(match.Groups[7].Value)
+                            Bitrate = match.Groups[6].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[6].Value.Replace("kbits/s", string.Empty), CultureInfo.InvariantCulture),
+                            Speed = float.Parse(match.Groups[7].Value, CultureInfo.InvariantCulture)
                         };
                         if (match.Groups[2].Success && !string.IsNullOrWhiteSpace(match.Groups[2].Value))
                             renderProgress.Frame = int.Parse(match.Groups[2].Value);
                         if (match.Groups[3].Success && !string.IsNullOrWhiteSpace(match.Groups[3].Value))
-                            renderProgress.Fps = double.Parse(match.Groups[3].Value);
+                            renderProgress.Fps = double.Parse(match.Groups[3].Value, CultureInfo.InvariantCulture);
                         return renderProgress;
                     }
                     catch (Exception)
