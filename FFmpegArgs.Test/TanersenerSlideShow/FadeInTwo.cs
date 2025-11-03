@@ -3,7 +3,7 @@
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class FadeInTwo
+    public class FadeInTwo : BaseTest
     {
         [TestMethod]
         public void FadeInTwoTest()

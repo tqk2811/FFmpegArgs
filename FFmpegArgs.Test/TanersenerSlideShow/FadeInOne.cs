@@ -1,9 +1,11 @@
 ﻿
 
+using System.Globalization;
+
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class FadeInOne
+    public class FadeInOne : BaseTest
     {
         /// <summary>
         /// Same as BlurredBackground
@@ -21,11 +23,12 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
+            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr(
-                    $"A*(if( gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})) + " +
-                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})))"));
+                    $"A*(if( gte(T,{TRANSITION_DURATION}),{TRANSITION_DURATION},T/{TRANSITION_DURATION})) + " +
+                    $"B*(1-(if(gte(T,{TRANSITION_DURATION}),{TRANSITION_DURATION},T/{TRANSITION_DURATION})))"));
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);

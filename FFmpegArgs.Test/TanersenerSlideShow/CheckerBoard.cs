@@ -1,10 +1,12 @@
 ﻿
 
 
+using System.Globalization;
+
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class CheckerBoard
+    public class CheckerBoard : BaseTest
     {
         [TestMethod]
         public void CheckerBoardTest()
@@ -20,17 +22,18 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
+            string TransitionDuration = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr(
                     $"if(" +
                         $"(" +
-                            $"lte(mod(X,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
-                            $"+lte(mod(Y,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
+                            $"lte(mod(X,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{TransitionDuration})" +
+                            $"+lte(mod(Y,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{TransitionDuration})" +
                         $")+" +
                         $"(" +
-                            $"gte(mod(X,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
-                            $"+gte(mod(Y,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
+                            $"gte(mod(X,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{TransitionDuration})" +
+                            $"+gte(mod(Y,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{TransitionDuration})" +
                         $")" +
                         $",B" +
                         $",A)"));
@@ -39,7 +42,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput.ImageOutputAVStreams.First()
               .Codec("libx264")
-              .SetOption("-c:v", "libx264")
               //.Fps(config.Fps)
               .SetOption("-g", "0")
               .SetOption("-rc-lookahead", "0");

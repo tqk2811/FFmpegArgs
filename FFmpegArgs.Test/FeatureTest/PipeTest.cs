@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FFmpegArgs.Test.FeatureTest
 {
     [TestClass]
-    public class PipeTest
+    public class PipeTest : BaseTest
     {
         [TestMethod]
         public void TestStdInOut()
