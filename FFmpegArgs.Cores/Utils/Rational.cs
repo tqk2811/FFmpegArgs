@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace FFmpegArgs.Cores.Utils
@@ -78,15 +78,15 @@ namespace FFmpegArgs.Cores.Utils
 
 
         static readonly Regex regex_parse = new Regex("^(\\d+\\.\\d+|\\d+)[:/](\\d+\\.\\d+|\\d+)$", RegexOptions.Compiled);
-        static Rational _Parse(string rationalString)
+        static Rational? _Parse(string rationalString)
         {
             if (string.IsNullOrWhiteSpace(rationalString))
                 return null;
 
             Match match = regex_parse.Match(rationalString.Trim());
             if (match.Success &&
-                double.TryParse(match.Groups[1].Value, out double num) &&
-                double.TryParse(match.Groups[2].Value, out double den))
+                double.TryParse(match.Groups[1].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out double num) &&
+                double.TryParse(match.Groups[2].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out double den))
             {
                 return new Rational(num, den);
             }

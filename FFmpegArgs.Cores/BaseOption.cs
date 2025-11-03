@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs.Cores
+﻿using System.Globalization;
+
+namespace FFmpegArgs.Cores
 {
     /// <summary>
     /// 
@@ -99,7 +101,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (val is null) 
                 throw new ArgumentNullException(nameof(val));
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToString()!, throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -157,7 +159,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (float.IsNaN(val) || val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToString(CultureInfo.InvariantCulture), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -186,7 +188,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (double.IsNaN(val) || val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToString(CultureInfo.InvariantCulture), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -244,7 +246,7 @@
                 throw new ArgumentNullException(nameof(key));
             if (val < min || val > max) 
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToString(CultureInfo.InvariantCulture), throwIfDuplicate);
         }
         /// <summary>
         /// 

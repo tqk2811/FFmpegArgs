@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs.Filters.Expressions
+﻿using System.Globalization;
+
+namespace FFmpegArgs.Filters.Expressions
 {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class ExpressionValue
@@ -52,15 +54,15 @@
 
         public ExpressionValue(float value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToString(CultureInfo.InvariantCulture);
         }
         public ExpressionValue(double value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToString(CultureInfo.InvariantCulture);
         }
         public ExpressionValue(decimal value)
         {
-            this.Value = value.ToString();
+            this.Value = value.ToString(CultureInfo.InvariantCulture);
         }
         public ExpressionValue(Rational value)
         {

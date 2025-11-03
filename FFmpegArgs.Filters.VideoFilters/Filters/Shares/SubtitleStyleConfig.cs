@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs.Filters.VideoFilters
+﻿using System.Globalization;
+
+namespace FFmpegArgs.Filters.VideoFilters
 {
     /// <summary>
     /// http://www.tcax.org/docs/ass-specs.htm
@@ -133,18 +135,18 @@
             if (Italic != null) pairs[nameof(Italic)] = (Italic.Value ? -1 : 0).ToString();
             if (Underline != null) pairs[nameof(Underline)] = (Underline.Value ? -1 : 0).ToString();
             if (Strikeout != null) pairs[nameof(Strikeout)] = (Strikeout.Value ? -1 : 0).ToString();
-            if (ScaleX != null) pairs[nameof(ScaleX)] = ScaleX.Value.ToString();
-            if (ScaleY != null) pairs[nameof(ScaleY)] = ScaleY.Value.ToString();
-            if (Spacing != null) pairs[nameof(Spacing)] = Spacing.Value.ToString("F1");
+            if (ScaleX != null) pairs[nameof(ScaleX)] = ScaleX.Value.ToString(CultureInfo.InvariantCulture);
+            if (ScaleY != null) pairs[nameof(ScaleY)] = ScaleY.Value.ToString(CultureInfo.InvariantCulture);
+            if (Spacing != null) pairs[nameof(Spacing)] = Spacing.Value.ToString("F1", CultureInfo.InvariantCulture);
             if (Angle != null) pairs[nameof(Angle)] = Angle.Value.ToString();
             if (BorderStyle != null) pairs[nameof(BorderStyle)] = ((int)BorderStyle.Value).ToString();
-            if (Outline != null) pairs[nameof(Outline)] = Outline.Value.ToString("F1");
-            if (Shadow != null) pairs[nameof(Shadow)] = Shadow.Value.ToString("F1");
+            if (Outline != null) pairs[nameof(Outline)] = Outline.Value.ToString("F1", CultureInfo.InvariantCulture);
+            if (Shadow != null) pairs[nameof(Shadow)] = Shadow.Value.ToString("F1", CultureInfo.InvariantCulture);
             if (Alignment != null) pairs[nameof(Alignment)] = ((int)Alignment.Value).ToString();
             if (MarginL != null) pairs[nameof(MarginL)] = MarginL.Value.ToString();
             if (MarginR != null) pairs[nameof(MarginR)] = MarginR.Value.ToString();
             if (MarginV != null) pairs[nameof(MarginV)] = MarginV.Value.ToString();
-            if (AlphaLevel != null) pairs[nameof(AlphaLevel)] = AlphaLevel.Value.ToString();
+            if (AlphaLevel != null) pairs[nameof(AlphaLevel)] = AlphaLevel.Value.ToString(CultureInfo.InvariantCulture);
             if (Encoding.HasValue) pairs[nameof(Encoding)] = Encoding.Value.ToString()!;
             if (OtherStyle != null) foreach (var pair in OtherStyle) pairs[pair.Key] = pair.Value;
             return string.Join(",", pairs.Select(x => $"{x.Key}={x.Value}"));

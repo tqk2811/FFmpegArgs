@@ -1,4 +1,6 @@
-﻿namespace FFmpegArgs.Filters.Expressions
+﻿using System.Globalization;
+
+namespace FFmpegArgs.Filters.Expressions
 {
     /// <summary>
     /// https://ffmpeg.org/ffmpeg-utils.html#Expression-Evaluation <br></br>
@@ -268,7 +270,7 @@
                     stacks.Push(tokens[i]);
                 }
                 else if (                                         //if is number, const, variables
-                  double.TryParse(tokens[i], out double n) ||     //number
+                  double.TryParse(tokens[i], NumberStyles.Float, CultureInfo.InvariantCulture, out double n) ||     //number
                   _adv_variables.Any(x => x.Equals(tokens[i])) ||     //variables
                   _consts.Any(x => x.Equals(tokens[i])))          //const
                 {
@@ -316,7 +318,7 @@
               .Except(_consts)
               .Except(_binaryOperators)
               .Except(_adv_variables)
-              .Where(x => !double.TryParse(x, out double y))
+              .Where(x => !double.TryParse(x, NumberStyles.Float, CultureInfo.InvariantCulture, out double y))
               .ToList();
             if (invalid_tokens.Count > 0) throw new InvalidTokenExpressionException(string.Join(" ", invalid_tokens));
             shuntingYard = string.Join(" ", outputs);
