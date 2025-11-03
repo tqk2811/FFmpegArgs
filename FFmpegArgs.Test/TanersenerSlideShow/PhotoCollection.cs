@@ -24,7 +24,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             int HEIGHT = config.Size.Height;
             int FPS = config.Fps;
             Color BACKGROUND_COLOR = config.BackgroundColor;
-            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            double TRANSITION_DURATION = config.TransitionDuration.TotalSeconds;
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
             Random random = new Random();
             var background = ffmpegArg.FilterGraph.ColorFilter()
@@ -49,17 +49,17 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
                     .RotateFilter()
-                        .Angle(  $"if(" +
-                                        $"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                        $"{RPS}*2*PI*(t-{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
+                        .Angle($"if(" +
+                                        Invariant($"between(t,{start.TotalSeconds},{end.TotalSeconds}),") +
+                                        Invariant($"{RPS}*2*PI*(t-{end.TotalSeconds}),") +
                                         $"0)" +
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
                         .OW($"{WIDTH * 4}")
                         .FillColor(BACKGROUND_COLOR).MapOut
                     .OverlayFilterOn(lastOverLay)
-                        .X($"if(gt(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                $"if(lt(t,{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                    $"{WIDTH}*3/2 -w+(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{TRANSITION_DURATION}*{WIDTH}," +
+                        .X(Invariant($"if(gt(t,{start.TotalSeconds}),") +
+                                Invariant($"if(lt(t,{end.TotalSeconds}),") +
+                                    Invariant($"{WIDTH}*3/2 -w+(t-{start.TotalSeconds})/{TRANSITION_DURATION}*{WIDTH},") +
                                     "(main_w-overlay_w)/2)," +
                                 "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;
@@ -87,7 +87,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             int MAX_IMAGE_ANGLE = 25;
             double RPS = 1.2;
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
-            
+
             Random random = new Random();
             var background = ffmpegArg.AddImagesInput(
                 new ImageFilterGraphInput().AddFilter(x => x
@@ -113,16 +113,16 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .SetPtsFilter("PTS-STARTPTS").MapOut
                     .RotateFilter()
                         .Angle($"if(" +
-                                        $"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                        $"{RPS.ToString(CultureInfo.InvariantCulture)}*2*PI*(t-{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                        $"0)" +
-                                    $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS.ToString(CultureInfo.InvariantCulture)}*2*PI/360")
+                                    Invariant($"between(t,{start.TotalSeconds},{end.TotalSeconds}),") +
+                                    Invariant($"{RPS}*2*PI*(t-{end.TotalSeconds}),") +
+                                    $"0)" +
+                                    Invariant($"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360"))
                         .OW($"{config.Size.Width * 4}")
                         .FillColor(config.BackgroundColor).MapOut
                     .OverlayFilterOn(lastOverLay)
-                        .X($"if(gt(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                            $"if(lt(t,{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                $"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}*{config.Size.Width}," +
+                        .X(Invariant($"if(gt(t,{start.TotalSeconds}),") +
+                            Invariant($"if(lt(t,{end.TotalSeconds}),") +
+                                Invariant($"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width},") +
                                 "(main_w-overlay_w)/2)," +
                             "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;

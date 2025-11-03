@@ -107,18 +107,18 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
-                                    .X($"-{config.Size.Width}+(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}*{config.Size.Width}")
+                                    .X((FormattableString)$"-{config.Size.Width}+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y("0")//from -WIDTH to +WIDTH
-                                    .Enable($"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})").MapOut;
+                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                     case HorizontalDirection.RightToLeft:
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
-                                    .X($"{config.Size.Width}-(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}*{config.Size.Width}")
+                                    .X((FormattableString)$"{config.Size.Width}-(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y("0")//from +WIDTH to -WIDTH
-                                    .Enable($"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})").MapOut;
+                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                 }
@@ -242,8 +242,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
                                     .X("0")
-                                    .Y($"-{config.Size.Height}+(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}*{config.Size.Height}")//from -HEIGHT to +HEIGHT
-                                    .Enable($"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})").MapOut;
+                                    .Y((FormattableString)$"-{config.Size.Height}+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")//from -HEIGHT to +HEIGHT
+                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                     case VerticalDirection.BottomToTop:
@@ -251,8 +251,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
                                     .X("0")
-                                    .Y($"{config.Size.Height}-(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}*{config.Size.Height}")//from +HEIGHT to -HEIGHT
-                                    .Enable($"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})").MapOut;
+                                    .Y((FormattableString)$"{config.Size.Height}-(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")//from +HEIGHT to -HEIGHT
+                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                 }

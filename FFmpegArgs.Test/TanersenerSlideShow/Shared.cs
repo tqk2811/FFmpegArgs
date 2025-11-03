@@ -65,8 +65,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             .FormatFilter(PixFmt.rgba).MapOut;
                     case ScreenMode.Blur:
                         return x.MakeBlurredBackground(config.Size.Width, config.Size.Height, config.Fps, lumaRadius);
+
+                    default:
+                        throw new NotImplementedException();
                 }
-                return null;
             }));
             return prepareInputs;
         }
@@ -110,8 +112,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
         {
             return inputs.Select(x => x
                 .PadFilter()
-                    .W(config.Size.Width.ToStringInv())
-                    .H(config.Size.Height.ToStringInv())
+                    .W(config.Size.Width)
+                    .H(config.Size.Height)
                     .X($"({config.Size.Width}-iw)/2")
                     .Y($"({config.Size.Height}-ih)/2")
                     .Color(config.BackgroundColor).MapOut

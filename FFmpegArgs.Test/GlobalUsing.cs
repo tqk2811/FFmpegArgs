@@ -38,3 +38,4 @@ global using FFmpegArgs.Filters.VideoSources;
 global using FFmpegArgs.Executes;
 global using FFmpegArgs.Inputs;
 global using FFmpegArgs.Outputs;
+global using static System.FormattableString;

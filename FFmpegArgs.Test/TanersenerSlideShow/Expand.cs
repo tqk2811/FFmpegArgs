@@ -27,22 +27,22 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             switch (collapseMode)
             {
                 case CollapseExpandMode.Vertical:
-                    expr = $"if(lte(Y,(H/2)-(H/2)*T/{TRANSITION_DURATION})+gte(Y,(H/2)+(H/2)*T/{TRANSITION_DURATION}),B,A)";
+                    expr = Invariant($"if(lte(Y,(H/2)-(H/2)*T/{TRANSITION_DURATION})+gte(Y,(H/2)+(H/2)*T/{TRANSITION_DURATION}),B,A)");
                     break;
                 case CollapseExpandMode.Horizontal:
-                    expr = $"if(lte(X,(W/2)-(W/2)*T/{TRANSITION_DURATION})+gte(X,(W/2)+(W/2)*T/{TRANSITION_DURATION}),B,A)";
+                    expr = Invariant($"if(lte(X,(W/2)-(W/2)*T/{TRANSITION_DURATION})+gte(X,(W/2)+(W/2)*T/{TRANSITION_DURATION}),B,A)");
                     break;
                 case CollapseExpandMode.Circular:
                     StartEnd _startEnd = new StartEnd();
                     _startEnd.Startings = startEnd.Startings.Select(x => x
                        .GeqFilter()
                            .Lum("p(X,Y)")
-                           .A($"if(lte(pow(sqrt(pow(T/{TRANSITION_DURATION}*W/2,2)+pow(T/{TRANSITION_DURATION}*H/2,2)),2),pow(X-(W/2),2)+pow(Y-(H/2),2)),0,255)").MapOut).ToList();
+                           .A((FormattableString)$"if(lte(pow(sqrt(pow(T/{TRANSITION_DURATION}*W/2,2)+pow(T/{TRANSITION_DURATION}*H/2,2)),2),pow(X-(W/2),2)+pow(Y-(H/2),2)),0,255)").MapOut).ToList();
                     _startEnd.Endings = startEnd.Endings;
                     startEnd = _startEnd;
                     break;
                 case CollapseExpandMode.Both:
-                    expr = $"if((lte(X,(W/2)-(W/2)*T/{TRANSITION_DURATION})+lte(Y,(H/2)-(H/2)*T/{TRANSITION_DURATION}))+(gte(X,(W/2)+(W/2)*T/{TRANSITION_DURATION})+gte(Y,(H/2)+(H/2)*T/{TRANSITION_DURATION})),B,A)";
+                    expr = Invariant($"if((lte(X,(W/2)-(W/2)*T/{TRANSITION_DURATION})+lte(Y,(H/2)-(H/2)*T/{TRANSITION_DURATION}))+(gte(X,(W/2)+(W/2)*T/{TRANSITION_DURATION})+gte(Y,(H/2)+(H/2)*T/{TRANSITION_DURATION})),B,A)");
                     break;
             }
             ImageMap? out_map = null;

@@ -23,14 +23,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
             string expr = string.Empty;
-            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            double TRANSITION_DURATION = config.TransitionDuration.TotalSeconds;
             switch (verticalDirection)
             {
                 case VerticalDirection.TopToBottom:
-                    expr = $"if(gte(Y,H*T/{TRANSITION_DURATION}),B,A)";
+                    expr = Invariant($"if(gte(Y,H*T/{TRANSITION_DURATION}),B,A)");
                     break;
                 case VerticalDirection.BottomToTop:
-                    expr = $"if(gte(Y,H - H*T/{TRANSITION_DURATION}),A,B)";
+                    expr = Invariant($"if(gte(Y,H - H*T/{TRANSITION_DURATION}),A,B)");
                     break;
             }
             var blendeds = startEnd.Blendeds(config, blend =>
@@ -66,14 +66,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
             string expr = string.Empty;
-            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            double TRANSITION_DURATION = config.TransitionDuration.TotalSeconds;
             switch (verticalDirection)
             {
                 case HorizontalDirection.LeftToRight:
-                    expr = $"if(gte(X,W*T/{TRANSITION_DURATION}),B,A)";
+                    expr = Invariant($"if(gte(X,W*T/{TRANSITION_DURATION}),B,A)");
                     break;
                 case HorizontalDirection.RightToLeft:
-                    expr = $"if(gte(X,W-W*T/{TRANSITION_DURATION}),A,B)";
+                    expr = Invariant($"if(gte(X,W-W*T/{TRANSITION_DURATION}),A,B)");
                     break;
             }
             var blendeds = startEnd.Blendeds(config, blend =>
