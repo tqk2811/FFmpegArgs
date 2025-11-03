@@ -134,10 +134,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             imageFileOutput
                 .Duration(TOTAL_DURATION)
                     .ImageOutputAVStreams.First()
-                    .Codec("libx264")
-                    //.Fps(config.Fps)
-                    .SetOption("-g", "0")
-                    .SetOption("-rc-lookahead", "0");
+                    .G(0)
+                    .H264_libx264_Codec(x => x.RCLookahead(0));
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
@@ -271,10 +269,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .Duration(TOTAL_DURATION)
 
                 .ImageOutputAVStreams.First()
-                .Codec("libx264")
-                //.Fps(config.Fps)
-                .SetOption("-g", "0")
-                .SetOption("-rc-lookahead", "0");
+                    .G(0)
+                    .H264_libx264_Codec(x => x.RCLookahead(0));
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
