@@ -38,11 +38,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput.ImageOutputAVStreams.First()
-              .Codec("libx264")
-              .SetOption("-c:v", "libx264")
-              //.Fps(config.Fps)
-              .SetOption("-g", "0")
-              .SetOption("-rc-lookahead", "0");
+                //.Fps(config.Fps)
+                .G(0)
+                .H264_libx264_Codec()
+                    .RCLookahead(0)
+                    ;
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }

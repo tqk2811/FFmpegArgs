@@ -18,6 +18,12 @@ global using FFmpegArgs.Cores.Filters;
 global using FFmpegArgs.Cores.Interfaces;
 global using FFmpegArgs.Cores.Maps;
 
+global using FFmpegArgs.Codec.Encoders.Images;
+global using FFmpegArgs.Codec.Encoders.Audios;
+global using FFmpegArgs.Codec.Decoders.Images;
+global using FFmpegArgs.Codec.Decoders.Audios;
+global using FFmpegArgs.Codec.Interfaces;
+
 global using FFmpegArgs.Filters;
 global using FFmpegArgs.Filters.Exceptions;
 global using FFmpegArgs.Filters.Attributes;

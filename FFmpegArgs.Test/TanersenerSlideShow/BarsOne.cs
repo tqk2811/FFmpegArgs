@@ -1,6 +1,8 @@
 ﻿
 
 
+using FFmpegArgs.Codec.Encoders.Images;
+
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
@@ -31,10 +33,11 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
                 .ImageOutputAVStreams.First()
-                .SetOption("-c:v", "libx264")
                 //.Fps(config.Fps)
-                .SetOption("-g", "0")
-                .SetOption("-rc-lookahead", "0");
+                .G(0)
+                .H264_libx264_Codec()
+                    .RCLookahead(0)
+                ;
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
@@ -63,10 +66,10 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
                 .ImageOutputAVStreams.First()
-                .Codec("libx264")
-                //.Fps(config.Fps)
-                .SetOption("-g", "0")
-                .SetOption("-rc-lookahead", "0");
+                .G(0)
+                .H264_libx264_Codec()
+                    .RCLookahead(0)
+                    ;
             ffmpegArg.AddOutput(imageFileOutput);
             ffmpegArg.TestRender(filterFileName, outputFileName);
         }
