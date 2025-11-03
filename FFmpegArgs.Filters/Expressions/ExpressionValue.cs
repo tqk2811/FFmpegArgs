@@ -71,6 +71,7 @@
 
 
         public static implicit operator ExpressionValue(string value) => new ExpressionValue(value);
+        public static implicit operator ExpressionValue(FormattableString value) => new ExpressionValue(FormattableString.Invariant(value));
         public static implicit operator ExpressionValue(Int16 value) => new ExpressionValue(value);
         public static implicit operator ExpressionValue(Int32 value) => new ExpressionValue(value);
         public static implicit operator ExpressionValue(Int64 value) => new ExpressionValue(value);
