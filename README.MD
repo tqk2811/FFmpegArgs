@@ -36,16 +36,23 @@ var image_maps = green_video.ImageMaps.First()
 
 var overlay_map = image_maps.First()
     //overlay color_key on-center background_video
-    .OverlayFilterOn(background_videoMap.ImageMaps.First()).X("(W-w)/2").Y("(H-h)/2").MapOut;
+    .OverlayFilterOn(background_videoMap.ImageMaps.First())
+        .X("(W-w)/2")
+        .Y("(H-h)/2")
+        //.X((FormattableString)$"{100.6}")//use FormattableString for InvariantCulture
+        //.Y(Invariant($"{100.6}"))//use FormattableString for InvariantCulture, Invariant from using static System.FormattableString;
+        .MapOut;
 
-ffmpegArg.AddOutput(
-    new VideoFileOutput(@"out.mp4", overlay_map, background_videoMap.AudioMaps.First())
+VideoFileOutput videoFileOutput = new VideoFileOutput(@"out.mp4", overlay_map, background_videoMap.AudioMaps.First())
     .T(TimeSpan.FromSeconds(5))//output extension ( -t )
-    .AndSet(
-        x => x.ImageOutputAVStream//output video stream
-            .R(24)//output, video, per-stream extension ( -r )
-        )
-    );
+    ;
+videoFileOutput.ImageOutputAVStream
+    .R(24)//output, video, per-stream extension ( -r )
+    .G(0)//output, video, per-stream extension
+    .H264_libx264_Codec(x => x.RCLookahead(0));//codec
+
+ffmpegArg.AddOutput(videoFileOutput);
+
 ffmpegArg.AddOutput(
     new VideoFileOutput(@"out2.mp4", image_maps.Last(), background_videoMap.AudioMaps.First())
     .AndSet(x => x.ImageOutputAVStream.R(30)));
@@ -87,6 +94,12 @@ using FFmpegArgs.Cores.Interfaces;
 using FFmpegArgs.Cores.Maps;
 using FFmpegArgs.Cores.Streams;
 
+using FFmpegArgs.Codec.Encoders.Images;
+using FFmpegArgs.Codec.Encoders.Audios;
+using FFmpegArgs.Codec.Decoders.Images;
+using FFmpegArgs.Codec.Decoders.Audios;
+using FFmpegArgs.Codec.Interfaces;
+
 using FFmpegArgs.Filters;
 using FFmpegArgs.Filters.Exceptions;
 using FFmpegArgs.Filters.Attributes;
@@ -103,6 +116,7 @@ using FFmpegArgs.Executes;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
 
+using static System.FormattableString;
 ```
 ________________________________________
 
