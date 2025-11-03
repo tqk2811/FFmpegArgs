@@ -1,9 +1,11 @@
 ﻿
 
+using System.Globalization;
+
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class BlurredBackground
+    public class BlurredBackground : BaseTest
     {
         /// <summary>
         /// https://github.com/tanersener/ffmpeg-video-slideshow-scripts/blob/master/advanced_scripts/blurred_background.sh
@@ -23,8 +25,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr(
-                    $"A*(if( gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})) + " +
-                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds}),{config.TransitionDuration.TotalSeconds},T/{config.TransitionDuration.TotalSeconds})))"));
+                    $"A*(if( gte(T,{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}),{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)},T/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)})) + " +
+                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}),{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)},T/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)})))"));
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);

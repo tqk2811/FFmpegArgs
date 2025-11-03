@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FFmpegArgs.Test.FeatureTest
 {
     [TestClass]
-    public class AVStreamOptionTest
+    public class AVStreamOptionTest : BaseTest
     {
         [TestMethod]
         public void Test1()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FFmpegArgs.Test
 {
     [TestClass]
-    public class CodecExtensionTest
+    public class CodecExtensionTest : BaseTest
     {
         [TestMethod]
         [ExpectedException(typeof(InvalidException))]

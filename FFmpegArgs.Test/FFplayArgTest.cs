@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Test
 {
     [TestClass]
-    public class FFplayArgTest
+    public class FFplayArgTest : BaseTest
     {
         [TestMethod]
         public void TestStringEscape()
