@@ -8,10 +8,12 @@ namespace FFmpegArgs.Test
         static BaseTest()
         {
             CultureInfo viVN = new CultureInfo("vi-VN");
-            CultureInfo.DefaultThreadCurrentCulture = viVN;
-            CultureInfo.DefaultThreadCurrentUICulture = viVN;
-            Thread.CurrentThread.CurrentCulture = viVN;
-            Thread.CurrentThread.CurrentUICulture = viVN;
+            CultureInfo Turkish = new CultureInfo("tr-TR");
+            CultureInfo cultureInfo = Turkish;
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
         }
     }
 }
