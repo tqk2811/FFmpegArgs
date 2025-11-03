@@ -24,7 +24,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             int HEIGHT = config.Size.Height;
             int FPS = config.Fps;
             Color BACKGROUND_COLOR = config.BackgroundColor;
-            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo);
             TimeSpan TOTAL_DURATION = (config.ImageDuration + config.TransitionDuration) * images_inputmap.Count;
             Random random = new Random();
             var background = ffmpegArg.FilterGraph.ColorFilter()
@@ -50,16 +50,16 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .SetPtsFilter("PTS-STARTPTS").MapOut
                     .RotateFilter()
                         .Angle(  $"if(" +
-                                        $"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                        $"{RPS}*2*PI*(t-{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
+                                        $"between(t,{start.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)},{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
+                                        $"{RPS}*2*PI*(t-{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
                                         $"0)" +
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
                         .OW($"{WIDTH * 4}")
                         .FillColor(BACKGROUND_COLOR).MapOut
                     .OverlayFilterOn(lastOverLay)
-                        .X($"if(gt(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                $"if(lt(t,{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                    $"{WIDTH}*3/2 -w+(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{TRANSITION_DURATION}*{WIDTH}," +
+                        .X($"if(gt(t,{start.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
+                                $"if(lt(t,{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
+                                    $"{WIDTH}*3/2 -w+(t-{start.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})/{TRANSITION_DURATION}*{WIDTH}," +
                                     "(main_w-overlay_w)/2)," +
                                 "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;
@@ -113,16 +113,16 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .SetPtsFilter("PTS-STARTPTS").MapOut
                     .RotateFilter()
                         .Angle($"if(" +
-                                        $"between(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)},{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                        $"{RPS.ToString(CultureInfo.InvariantCulture)}*2*PI*(t-{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
+                                        $"between(t,{start.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)},{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
+                                        $"{RPS.ToString(BaseOption.DefaultCultureInfo)}*2*PI*(t-{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
                                         $"0)" +
-                                    $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS.ToString(CultureInfo.InvariantCulture)}*2*PI/360")
+                                    $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS.ToString(BaseOption.DefaultCultureInfo)}*2*PI/360")
                         .OW($"{config.Size.Width * 4}")
                         .FillColor(config.BackgroundColor).MapOut
                     .OverlayFilterOn(lastOverLay)
-                        .X($"if(gt(t,{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                            $"if(lt(t,{end.TotalSeconds.ToString(CultureInfo.InvariantCulture)})," +
-                                $"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds.ToString(CultureInfo.InvariantCulture)})/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}*{config.Size.Width}," +
+                        .X($"if(gt(t,{start.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
+                            $"if(lt(t,{end.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})," +
+                                $"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})/{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)}*{config.Size.Width}," +
                                 "(main_w-overlay_w)/2)," +
                             "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;

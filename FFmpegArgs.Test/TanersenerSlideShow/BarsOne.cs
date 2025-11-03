@@ -27,7 +27,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
-                .All_Expr($"if((lte(mod(X,({config.Size.Width}/{BAR_COUNT})),({config.Size.Width}/{BAR_COUNT})*T/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)})),A,B)"));
+                .All_Expr($"if((lte(mod(X,({config.Size.Width}/{BAR_COUNT})),({config.Size.Width}/{BAR_COUNT})*T/{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})),A,B)"));
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
@@ -59,7 +59,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
-                .All_Expr($"if((lte(mod(Y,({config.Size.Height}/{BAR_COUNT})),({config.Size.Height}/{BAR_COUNT})*T/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)})),A,B)"));
+                .All_Expr($"if((lte(mod(Y,({config.Size.Height}/{BAR_COUNT})),({config.Size.Height}/{BAR_COUNT})*T/{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})),A,B)"));
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);

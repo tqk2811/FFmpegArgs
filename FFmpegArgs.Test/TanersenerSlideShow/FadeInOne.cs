@@ -23,7 +23,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
-            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo);
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr(

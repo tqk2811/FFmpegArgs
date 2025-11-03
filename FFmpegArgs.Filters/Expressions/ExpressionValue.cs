@@ -54,15 +54,15 @@ namespace FFmpegArgs.Filters.Expressions
 
         public ExpressionValue(float value)
         {
-            this.Value = value.ToString(CultureInfo.InvariantCulture);
+            this.Value = value.ToString(BaseOption.DefaultCultureInfo);
         }
         public ExpressionValue(double value)
         {
-            this.Value = value.ToString(CultureInfo.InvariantCulture);
+            this.Value = value.ToString(BaseOption.DefaultCultureInfo);
         }
         public ExpressionValue(decimal value)
         {
-            this.Value = value.ToString(CultureInfo.InvariantCulture);
+            this.Value = value.ToString(BaseOption.DefaultCultureInfo);
         }
         public ExpressionValue(Rational value)
         {

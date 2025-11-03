@@ -41,9 +41,9 @@
             double imageDuration = 2;
             double animationDuration = 1;
             double rotateSpeed = 2;//2 * 2PI radian/sec
-            string imageDuration_str = imageDuration.ToString(CultureInfo.InvariantCulture);
-            string animationDuration_str = animationDuration.ToString(CultureInfo.InvariantCulture);
-            string rotateSpeed_str = rotateSpeed.ToString(CultureInfo.InvariantCulture);
+            string imageDuration_str = imageDuration.ToString(BaseOption.DefaultCultureInfo);
+            string animationDuration_str = animationDuration.ToString(BaseOption.DefaultCultureInfo);
+            string rotateSpeed_str = rotateSpeed.ToString(BaseOption.DefaultCultureInfo);
             FFmpegArg ffmpegArg = new FFmpegArg();
             ffmpegArg.OverWriteOutput();
             var background = ffmpegArg.FilterGraph.ColorFilter()

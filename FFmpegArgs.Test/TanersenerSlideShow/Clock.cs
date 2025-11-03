@@ -100,7 +100,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
-            string TransitionDuration = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            string TransitionDuration = config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo);
             // (0.5W, 0.5H) -> (0.5W, 0) => vecto v1 = (0.5W-0.5W,0-0.5H)   = (0        ,    -0.5*H)
             // (0.5W, 0.5H) -> (X, Y) => vecto v2                           = (X - 0.5*W ,   Y - 0.5*H);
             // cos(v1,v2) = (a1*a2 + b1*b2)/[sqrt(a1*a1 + b1*b1) * sqrt(a2*a2 + b2*b2)]

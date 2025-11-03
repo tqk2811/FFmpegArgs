@@ -85,8 +85,8 @@ namespace FFmpegArgs.Cores.Utils
 
             Match match = regex_parse.Match(rationalString.Trim());
             if (match.Success &&
-                double.TryParse(match.Groups[1].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out double num) &&
-                double.TryParse(match.Groups[2].Value, NumberStyles.Float, CultureInfo.InvariantCulture, out double den))
+                double.TryParse(match.Groups[1].Value, NumberStyles.Float, BaseOption.DefaultCultureInfo, out double num) &&
+                double.TryParse(match.Groups[2].Value, NumberStyles.Float, BaseOption.DefaultCultureInfo, out double den))
             {
                 return new Rational(num, den);
             }

@@ -25,8 +25,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr(
-                    $"A*(if( gte(T,{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}),{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)},T/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)})) + " +
-                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)}),{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)},T/{config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture)})))"));
+                    $"A*(if( gte(T,{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)}),{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)},T/{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})) + " +
+                    $"B*(1-(if(gte(T,{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)}),{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)},T/{config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo)})))"));
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);

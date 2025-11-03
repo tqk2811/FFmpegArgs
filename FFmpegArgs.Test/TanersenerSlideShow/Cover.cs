@@ -23,7 +23,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
             string expr = string.Empty;
-            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo);
             switch (verticalDirection)
             {
                 case VerticalDirection.TopToBottom:
@@ -66,7 +66,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
             string expr = string.Empty;
-            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            string TRANSITION_DURATION = config.TransitionDuration.TotalSeconds.ToString(BaseOption.DefaultCultureInfo);
             switch (verticalDirection)
             {
                 case HorizontalDirection.LeftToRight:

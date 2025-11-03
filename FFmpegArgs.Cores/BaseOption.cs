@@ -7,6 +7,8 @@ namespace FFmpegArgs.Cores
     /// </summary>
     public abstract class BaseOption : IOption
     {
+        public static CultureInfo DefaultCultureInfo { get; set; } = CultureInfo.InvariantCulture;
+
         internal const bool DEFAULT_ThrowIfDuplicate = false;
         /// <summary>
         /// 
@@ -64,15 +66,15 @@ namespace FFmpegArgs.Cores
         /// <exception cref="ArgumentNullException"></exception>
         public static T SetOption<T>(
             this T baseOption,
-            string key, 
+            string key,
             string val,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (string.IsNullOrEmpty(val)) 
+            if (string.IsNullOrEmpty(val))
                 throw new ArgumentNullException(nameof(val));
             if (throwIfDuplicate && baseOption._options.ContainsKey(key))
                 throw new InvalidOperationException($"Option '{key}' already exists with value {baseOption._options[key]}");
@@ -91,15 +93,15 @@ namespace FFmpegArgs.Cores
         /// <exception cref="ArgumentNullException"></exception>
         public static T SetOption<T>(
             this T baseOption,
-            string key, 
+            string key,
             object val,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (val is null) 
+            if (val is null)
                 throw new ArgumentNullException(nameof(val));
             return baseOption.SetOption(key, val.ToString()!, throwIfDuplicate);
         }
@@ -117,18 +119,18 @@ namespace FFmpegArgs.Cores
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
         public static T SetOptionRange<T>(
-            this T baseOption, 
-            string key, 
-            int val, 
-            int min, 
-            int max, 
+            this T baseOption,
+            string key,
+            int val,
+            int min,
+            int max,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) 
+            if (val < min || val > max)
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
             return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
@@ -146,20 +148,20 @@ namespace FFmpegArgs.Cores
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
         public static T SetOptionRange<T>(
-            this T baseOption, 
-            string key, 
-            float val, 
-            float min, 
-            float max, 
+            this T baseOption,
+            string key,
+            float val,
+            float min,
+            float max,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (float.IsNaN(val) || val < min || val > max) 
+            if (float.IsNaN(val) || val < min || val > max)
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(CultureInfo.InvariantCulture), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToString(BaseOption.DefaultCultureInfo), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -175,20 +177,20 @@ namespace FFmpegArgs.Cores
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
         public static T SetOptionRange<T>(
-            this T baseOption, 
-            string key, 
-            double val, 
-            double min, 
-            double max, 
+            this T baseOption,
+            string key,
+            double val,
+            double min,
+            double max,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (double.IsNaN(val) || val < min || val > max) 
+            if (double.IsNaN(val) || val < min || val > max)
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(CultureInfo.InvariantCulture), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToString(BaseOption.DefaultCultureInfo), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -204,18 +206,18 @@ namespace FFmpegArgs.Cores
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
         public static T SetOptionRange<T>(
-            this T baseOption, 
-            string key, 
-            long val, 
-            long min, 
-            long max, 
+            this T baseOption,
+            string key,
+            long val,
+            long min,
+            long max,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) 
+            if (val < min || val > max)
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
             return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
@@ -233,20 +235,20 @@ namespace FFmpegArgs.Cores
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
         public static T SetOptionRange<T>(
-            this T baseOption, 
-            string key, 
-            decimal val, 
-            decimal min, 
-            decimal max, 
+            this T baseOption,
+            string key,
+            decimal val,
+            decimal min,
+            decimal max,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) 
+            if (val < min || val > max)
                 throw new InvalidRangeException($"Range Required: {min} <= {key} <= {max}");
-            return baseOption.SetOption(key, val.ToString(CultureInfo.InvariantCulture), throwIfDuplicate);
+            return baseOption.SetOption(key, val.ToString(BaseOption.DefaultCultureInfo), throwIfDuplicate);
         }
         /// <summary>
         /// 
@@ -265,15 +267,15 @@ namespace FFmpegArgs.Cores
             this T baseOption,
             string key,
             TimeSpan val,
-            TimeSpan min, 
+            TimeSpan min,
             TimeSpan max,
             bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate
-            ) 
+            )
             where T : BaseOption
         {
-            if (string.IsNullOrEmpty(key)) 
+            if (string.IsNullOrEmpty(key))
                 throw new ArgumentNullException(nameof(key));
-            if (val < min || val > max) 
+            if (val < min || val > max)
                 throw new InvalidRangeException($"Range Required: {min:hh\\:mm\\:ss\\.fff} <= {key:hh\\:mm\\:ss\\.fff} <= {max:hh\\:mm\\:ss\\.fff}");
             return baseOption.SetOption(key, val.ToString(), throwIfDuplicate);
         }
