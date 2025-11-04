@@ -21,7 +21,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.FirstOrDefault();
+        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.First();
 
         /// <summary>
         /// 
@@ -31,7 +31,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageMap ImageMap => ImageMaps.FirstOrDefault();
+        public virtual ImageMap ImageMap => ImageMaps.First();
 
         /// <summary>
         /// 

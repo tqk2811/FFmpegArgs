@@ -23,7 +23,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.FirstOrDefault();
+        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.First();
 
         /// <summary>
         /// 
@@ -33,7 +33,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioMap AudioMap => AudioMaps.FirstOrDefault();
+        public virtual AudioMap AudioMap => AudioMaps.First();
 
         /// <summary>
         /// 

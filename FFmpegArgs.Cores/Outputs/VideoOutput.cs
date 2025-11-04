@@ -26,7 +26,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.FirstOrDefault();
+        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.First();
 
         /// <summary>
         /// 
@@ -36,7 +36,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.FirstOrDefault();
+        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.First();
 
 
 
@@ -49,7 +49,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageMap ImageMap => ImageMaps.FirstOrDefault();
+        public virtual ImageMap ImageMap => ImageMaps.First();
 
         /// <summary>
         /// 
@@ -59,7 +59,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioMap AudioMap => AudioMaps.FirstOrDefault();
+        public virtual AudioMap AudioMap => AudioMaps.First();
 
 
         /// <summary>
