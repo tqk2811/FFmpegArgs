@@ -10,11 +10,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public string Arguments { get; internal set; }
+        public string Arguments { get; internal set; } = string.Empty;
         /// <summary>
         /// 
         /// </summary>
-        public IReadOnlyList<string> ArgumentList { get; internal set; }
+        public IReadOnlyList<string> ArgumentList { get; internal set; } = new string[0];
         /// <summary>
         /// 
         /// </summary>

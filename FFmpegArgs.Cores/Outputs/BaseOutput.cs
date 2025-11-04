@@ -19,16 +19,12 @@
         /// 
         /// </summary>
         public abstract IEnumerable<OutputAVStream> OutputAVStreams { get; }
-        
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public string GetAVStreamArg()
+
+        public override IEnumerable<string> GetAVStreamArgs()
         {
-            return string.Join(" ", OutputAVStreams);
+            return OutputAVStreams.SelectMany(x => x.GetAllArgs());
         }
+
         /// <summary>
         /// 
         /// </summary>

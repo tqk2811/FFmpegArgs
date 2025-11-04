@@ -43,20 +43,19 @@
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NullReferenceException"></exception>
-        public override string ToString()
+        public override IEnumerable<string> GetAllArgs()
         {
             string filter = FilterGraph.GetFiltersInputArgs();
             if (string.IsNullOrWhiteSpace(filter)) throw new NullReferenceException($"{nameof(ImageFilterGraphInput)}.{nameof(FilterGraph)} is empty");
-
-            List<string> args = new List<string>()
-            {
-                GetFlagArgs(),
-                GetOptionArgs(),
-                GetAVStreamArg(),
-                filter.ContainsOrd(" ") ? $"-i \"{filter}\"" : $"-i {filter}"
-            };
-
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            List<string> args =
+            [
+                .. GetFlagArgs(),
+                .. GetOptionArgs(),
+                .. GetAVStreamArgs(),
+                "-i",
+                filter
+            ];
+            return args;
         }
     }
 }

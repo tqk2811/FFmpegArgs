@@ -21,17 +21,6 @@
             this.ImageMap = imageMap;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            List<string> options = base.Options.Select(x => Inv($"{x.Key}:v:{StreamIndex} {x.Value}")).ToList();
-            options.AddRange(base.Flags.Select(x => x));
-            if (this.ImageMap.IsInput) options.Add(Inv($"-map {this.ImageMap.MapName}"));
-            else options.Add(Inv($"-map [{this.ImageMap.MapName}]"));
-            return string.Join(" ", options);
-        }
+        protected override string StreamSymbol => "v";
     }
 }

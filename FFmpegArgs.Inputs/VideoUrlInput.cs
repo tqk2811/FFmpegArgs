@@ -21,20 +21,17 @@
             this.Format(format);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public override IEnumerable<string> GetAllArgs()
         {
-            List<string> args = new List<string>()
-            {
-                GetFlagArgs(),
-                GetOptionArgs(),
-                GetAVStreamArg(),
-                $"-i \"{_url}\""
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            List<string> args =
+            [
+                .. GetFlagArgs(),
+                .. GetOptionArgs(),
+                .. GetAVStreamArgs(),
+                "-i",
+                _url.ToString()
+            ];
+            return args;
         }
     }
 }

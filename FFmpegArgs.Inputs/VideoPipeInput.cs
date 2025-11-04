@@ -26,20 +26,17 @@
         /// </summary>
         public override Stream PipeStream { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public override IEnumerable<string> GetAllArgs()
         {
-            List<string> args = new List<string>()
-            {
-                GetFlagArgs(),
-                GetOptionArgs(),
-                GetAVStreamArg(),
-                Inv($"-i pipe:{StdIn}")
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            List<string> args =
+            [
+                .. GetFlagArgs(),
+                .. GetOptionArgs(),
+                .. GetAVStreamArgs(),
+                "-i",
+                Inv($"pipe:{StdIn}")
+            ];
+            return args;
         }
     }
 }

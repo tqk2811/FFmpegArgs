@@ -24,9 +24,13 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        public virtual string GetOptionArgs()
+        public virtual IEnumerable<string> GetOptionArgs()
         {
-            return string.Join(" ", Options.Select(x => $"{x.Key} {x.Value}"));
+            foreach (var item in Options)
+            {
+                yield return item.Key;
+                yield return item.Value;
+            }
         }
     }
 }
