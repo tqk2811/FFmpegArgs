@@ -96,18 +96,18 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        public string GetGlobalArgs()
+        public IEnumerable<string> GetGlobalArgs()
         {
-            return string.Join(" ", GetFlagArgs(), GetOptionArgs());
+            return GetFlagArgs().Concat(GetOptionArgs());
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public string GetInputsArgs()
+        public IEnumerable<string> GetInputsArgs()
         {
-            return string.Join(" ", _inputs);
+            return _inputs.SelectMany(x => x.GetAllArgs());
         }
 
         /// <summary>
@@ -115,17 +115,27 @@
         /// </summary>
         /// <param name="useChain"></param>
         /// <returns></returns>
-        public string GetFullCommandline(bool useChain = true)
+        public IEnumerable<string> GetFullCommandline(bool useChain = true)
         {
             string filter = FilterGraph.GetFiltersArgs(false, useChain);
-            string filter_complex = string.IsNullOrEmpty(filter) ? filter : $"-filter_complex \"{filter}\"";
-            List<string> args = new List<string>()
+            string[] filter_complex;
+            if (!string.IsNullOrWhiteSpace(filter))
             {
-                GetGlobalArgs(),
-                GetInputsArgs(),
-                filter_complex
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+                filter_complex = new string[]
+                {
+                    "-filter_complex",
+                    filter
+                };
+            }
+            else filter_complex = new string[0];
+
+            List<string> args =
+            [
+                .. GetGlobalArgs(),
+                .. GetInputsArgs(),
+                .. filter_complex
+            ];
+            return args;
         }
 
         /// <summary>
@@ -133,15 +143,18 @@
         /// </summary>
         /// <param name="script_name_or_path"></param>
         /// <returns></returns>
-        public string GetFullCommandlineWithFilterScript(string script_name_or_path)
+        public IEnumerable<string> GetFullCommandlineWithFilterScript(string script_name_or_path)
         {
-            List<string> args = new List<string>()
-            {
-                GetGlobalArgs(),
-                GetInputsArgs(),
-                $"-filter_complex_script \"{script_name_or_path}\""
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            List<string> args =
+            [
+                .. GetGlobalArgs(),
+                .. GetInputsArgs(),
+                "filter_complex_script",
+                script_name_or_path,
+            ];
+            return args;
         }
+
+        public override IEnumerable<string> GetAllArgs() => GetFullCommandline(true);
     }
 }

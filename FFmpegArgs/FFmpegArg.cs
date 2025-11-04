@@ -173,7 +173,7 @@ namespace FFmpegArgs
                 filter_complex = new string[]
                 {
                     "-filter_complex",
-                    $"\"{filter}\""
+                    filter,
                 };
             }
             else
@@ -202,7 +202,7 @@ namespace FFmpegArgs
                 .. GetGlobalArgs(),
                 .. GetInputsArgs(),
                 "-filter_complex_script",
-                $"\"{script_name_or_path}\"",
+                script_name_or_path,
                 .. GetOutputsArgs()
             ];
             return args;
