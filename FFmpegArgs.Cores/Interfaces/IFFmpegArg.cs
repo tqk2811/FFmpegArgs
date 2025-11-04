@@ -50,33 +50,33 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        string GetGlobalArgs();
+        IEnumerable<string> GetGlobalArgs();
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        string GetInputsArgs();
+        IEnumerable<string> GetInputsArgs();
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        string GetOutputsArgs();
+        IEnumerable<string> GetOutputsArgs();
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="useChain"></param>
         /// <returns></returns>
-        string GetFullCommandline(bool useChain = true);
+        IEnumerable<string> GetFullCommandline(bool useChain = true);
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="script_name_or_path"></param>
         /// <returns></returns>
-        string GetFullCommandlineWithFilterScript(string script_name_or_path);
+        IEnumerable<string> GetFullCommandlineWithFilterScript(string script_name_or_path);
 
     }
 }
