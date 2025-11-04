@@ -14,14 +14,14 @@
         /// 
         /// </summary>
         public abstract IEnumerable<InputAVStream> InputAVStreams { get; }
-        
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public string GetAVStreamArg()
+        public override IEnumerable<string> GetAVStreamArgs()
         {
-            return string.Join(" ", InputAVStreams);
+            return InputAVStreams.SelectMany(x => x.GetAllArgs());
         }
     }
 }
