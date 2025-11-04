@@ -55,20 +55,16 @@
         /// </summary>
         public override Stream PipeStream { get; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public override IEnumerable<string> GetAllArgs()
         {
-            List<string> args = new List<string>()
-            {
-                GetAVStreamArg(),
-                GetFlagArgs(),
-                GetOptionArgs(),
+            List<string> args =
+            [
+                .. GetFlagArgs(),
+                .. GetOptionArgs(),
+                .. GetAVStreamArgs(),
                 Inv($"pipe:{StdOut}")
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            ];
+            return args;
         }
     }
 }

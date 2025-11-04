@@ -45,21 +45,17 @@
             this._url = url ?? throw new ArgumentNullException(nameof(url));
             this.Format(format);
         }
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+
+        public override IEnumerable<string> GetAllArgs()
         {
-            List<string> args = new List<string>()
-            {
-                GetAVStreamArg(),
-                GetFlagArgs(),
-                GetOptionArgs(),
+            List<string> args =
+            [
+                .. GetFlagArgs(),
+                .. GetOptionArgs(),
+                .. GetAVStreamArgs(),
                 _url.ToString()
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            ];
+            return args;
         }
     }
 }
