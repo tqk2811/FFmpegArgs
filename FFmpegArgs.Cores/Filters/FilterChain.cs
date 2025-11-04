@@ -7,8 +7,8 @@
         {
             this.chain = chain ?? throw new ArgumentNullException(nameof(chain));
         }
-        public override string ToString() => BuildChain(true, true);
-        internal string BuildChain(bool useMapIn, bool useMapOut)
+        public override string ToString() => GetChainValue(true, true);
+        internal string GetChainValue(bool useMapIn = true, bool useMapOut = true)
         {
             var first = chain.First();
             var last = chain.Last();

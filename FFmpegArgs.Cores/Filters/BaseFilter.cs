@@ -56,12 +56,14 @@
         }
 
 
+        public override string ToString() => GetFilterValue();
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         /// <exception cref="NullReferenceException"></exception>
-        public override string ToString()
+        public string GetFilterValue()
         {
             if (string.IsNullOrEmpty(FilterName)) throw new NullReferenceException(nameof(FilterName));
             if (_mapsOut.Count == 0) throw new NullReferenceException($"{FilterName} is empty output");

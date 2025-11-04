@@ -51,16 +51,15 @@ namespace FFmpegArgs.Cores.Filters
             var filter_not_bind = Filters.FirstOrDefault(x => x.MapsOut.Any(y => !y.IsMapped));
             if (filter_not_bind != null)
                 throw new InvalidOperationException($"Have Map in filter \"{filter_not_bind.FilterName}\" are not bind");
+            string joinValue = withNewLine ? $";{Environment.NewLine}" : ";";
             if (useChain)
             {
                 var chains = FilterChain.BuildChains(Filters, true);
-                if (withNewLine) return string.Join($";{Environment.NewLine}", chains);
-                else return string.Join(";", chains);
+                return string.Join(joinValue, chains.Select(x => x.GetChainValue(true, true)));
             }
             else
             {
-                if (withNewLine) return string.Join($";{Environment.NewLine}", Filters);
-                else return string.Join(";", Filters);
+                return string.Join(joinValue, Filters.Select(x => x.GetFilterValue()));
             }
         }
         /// <summary>
@@ -72,7 +71,7 @@ namespace FFmpegArgs.Cores.Filters
         {
             var chains = FilterChain.BuildChains(Filters, false);
             if (chains.Count() != 1) throw new InvalidOperationException($"Filter input allow only one chain");
-            return chains.First().BuildChain(false, false);
+            return chains.First().GetChainValue(false, false);
         }
 
     }

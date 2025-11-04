@@ -25,6 +25,7 @@
         /// </summary>
         /// <returns></returns>
         string GetFilterOptions();
+        string GetFilterValue();
 
         /// <summary>
         /// 
