@@ -15,25 +15,28 @@
         /// </summary>
         public FFmpegRenderConfig Config { get; }
 
+        public string Arguments { get; }
         /// <summary>
         /// 
         /// </summary>
-        public string Arguments { get; private set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IReadOnlyList<string> ArgumentsList { get; private set; }
-
+        public IReadOnlyList<string> ArgumentsList { get; }
 
 
         private Stream? StdIn { get; set; }
         private Stream? StdOut { get; set; }
         private bool _isFromFFmpegArgs = false;
 
-        private FFmpegRender(FFmpegRenderConfig config)
+        private FFmpegRender(FFmpegRenderConfig config, IReadOnlyList<string> argumentList)
         {
-            Config = config;
+            this.Config = config;
+            this.ArgumentsList = argumentList;
+            this.Arguments = string.Empty;
+        }
+        private FFmpegRender(FFmpegRenderConfig config, string arguments)
+        {
+            this.Config = config;
+            this.ArgumentsList = new string[0];
+            this.Arguments = arguments;
         }
 
 
@@ -48,28 +51,34 @@
                 RedirectStandardError = true,
                 WorkingDirectory = this.Config.WorkingDirectory
             };
+            if (ArgumentsList.Any())
+            {
 #if NET5_0_OR_GREATER
-            if (!string.IsNullOrWhiteSpace(this.Arguments))
-            {
-                info.Arguments = this.Arguments;
-                renderResult.Arguments = this.Arguments;
-            }
-            else
-            {
                 foreach (var item in this.ArgumentsList)
                 {
                     info.ArgumentList.Add(item);
                 }
                 renderResult.ArgumentList = info.ArgumentList;
-            }
 #else
-            info.Arguments = this.Arguments;
-            renderResult.Arguments = this.Arguments;
+                string arguments = string.Join(" ", ArgumentsList.Select(x =>
+                {
+                    if (x.ContainsOrd(" ")) return Inv($"\"{x}\"");
+                    return x;
+                }));
+
+                info.Arguments = arguments;
+                renderResult.Arguments = arguments;
 #endif
+            }
+            else
+            {
+                info.Arguments = this.Arguments;
+                renderResult.Arguments = this.Arguments;
+            }
             Process process = new Process();
             process.ErrorDataReceived += (s, e) =>
             {
-                RenderProgress progress = RenderProgress.FromProgressString(e?.Data);
+                RenderProgress? progress = RenderProgress.FromProgressString(e?.Data);
                 if (progress is not null)
                 {
                     OnEncodingProgress?.Invoke(progress);
@@ -275,21 +284,20 @@
         {
             if (ffmpegArg == null) throw new ArgumentNullException(nameof(ffmpegArg));
             if (config == null) throw new ArgumentNullException(nameof(config));
-            FFmpegRender ffmpegBuild = new FFmpegRender(config);
-            ffmpegBuild._isFromFFmpegArgs = true;
-            ffmpegBuild.StdIn = ffmpegArg.Inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
-            ffmpegBuild.StdOut = ffmpegArg.Outputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
-            string args = ffmpegArg.GetFullCommandline(config.IsUseFilterChain);
-            if (config.IsForceUseScript || (config.ArgumentsMaxLength > 0 && args.Length > config.ArgumentsMaxLength))
+            string[] args = ffmpegArg.GetFullCommandline(config.IsUseFilterChain).ToArray();
+            if (config.IsForceUseScript || (config.ArgumentsMaxLength > 0 && args.Sum(x => x.Length) > config.ArgumentsMaxLength))
             {
                 string scripts = ffmpegArg.FilterGraph.GetFiltersArgs(true, true);
                 if (string.IsNullOrWhiteSpace(scripts)) throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
                 File.WriteAllText(Path.Combine(config.WorkingDirectory, config.FilterScriptName), scripts);
-                ffmpegBuild.Arguments = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName);
-                if (config.ArgumentsMaxLength > 0 && ffmpegBuild.Arguments.Length > config.ArgumentsMaxLength)
+                args = ffmpegArg.GetFullCommandlineWithFilterScript(config.FilterScriptName).ToArray();
+                if (config.ArgumentsMaxLength > 0 && args.Sum(x => x.Length) > config.ArgumentsMaxLength)
                     throw new ProcessArgumentOutOfRangeException($"{nameof(IFFmpegArg)} argument too long");
             }
-            else ffmpegBuild.Arguments = args;
+            FFmpegRender ffmpegBuild = new FFmpegRender(config, args);
+            ffmpegBuild._isFromFFmpegArgs = true;
+            ffmpegBuild.StdIn = ffmpegArg.Inputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
+            ffmpegBuild.StdOut = ffmpegArg.Outputs.FirstOrDefault(x => x.PipeStream != null)?.PipeStream;
             return ffmpegBuild;
         }
 
@@ -307,10 +315,7 @@
             if (config == null) throw new ArgumentNullException(nameof(config));
             if (config.ArgumentsMaxLength > 0 && commands.Length > config.ArgumentsMaxLength)
                 throw new ProcessArgumentOutOfRangeException($"{nameof(commands)} too long");
-            return new FFmpegRender(config)
-            {
-                Arguments = commands
-            };
+            return new FFmpegRender(config, commands);
         }
 
         /// <summary>
@@ -344,10 +349,7 @@
             if (config is null) throw new ArgumentNullException(nameof(config));
             if (config.ArgumentsMaxLength > 0 && args.Sum(x => x.Length + 1) > config.ArgumentsMaxLength)
                 throw new ProcessArgumentOutOfRangeException($"{nameof(args)} too long");
-            return new FFmpegRender(config)
-            {
-                ArgumentsList = args.ToList()
-            };
+            return new FFmpegRender(config, args);
         }
         /// <summary>
         /// 
