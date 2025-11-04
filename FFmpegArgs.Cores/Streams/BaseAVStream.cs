@@ -21,11 +21,6 @@
         /// Index of image/audio stream of input/output
         /// </summary>
         public int StreamIndex { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public abstract override string ToString();
+        protected abstract string StreamSymbol { get; }
     }
 }
