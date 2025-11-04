@@ -55,20 +55,17 @@
             this._filesPath = input;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public override IEnumerable<string> GetAllArgs()
         {
-            List<string> args = new List<string>()
-            {
-                GetFlagArgs(),
-                GetOptionArgs(),
-                GetAVStreamArg(),
-                _filesPath.ContainsOrd(" ") ? $"-i \"{_filesPath}\"" : $"-i {_filesPath}"
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            List<string> args =
+            [
+                .. GetFlagArgs(),
+                .. GetOptionArgs(),
+                .. GetAVStreamArgs(),
+                "-i",
+                _filesPath
+            ];
+            return args;
         }
     }
 }

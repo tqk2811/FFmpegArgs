@@ -17,20 +17,17 @@
             this._filePath = filePath;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
+        public override IEnumerable<string> GetAllArgs()
         {
-            List<string> args = new List<string>()
-            {
-                GetFlagArgs(),
-                GetOptionArgs(),
-                GetAVStreamArg(),
-                _filePath.ContainsOrd(" ") ? $"-i \"{_filePath}\"" : $"-i {_filePath}"
-            };
-            return string.Join(" ", args.Where(x => !string.IsNullOrWhiteSpace(x)));
+            List<string> args =
+            [
+                .. GetFlagArgs(),
+                .. GetOptionArgs(),
+                .. GetAVStreamArgs(),
+                "-i",
+                _filePath
+            ];
+            return args;
         }
     }
 }
