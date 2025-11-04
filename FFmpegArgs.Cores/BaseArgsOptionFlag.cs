@@ -30,9 +30,21 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        public virtual string GetFlagArgs()
+        public virtual IEnumerable<string> GetFlagArgs()
         {
-            return string.Join(" ", Flags);
+            return Flags;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public abstract IEnumerable<string> GetAllArgs();
+
+        [Obsolete]
+        public override string ToString()
+        {
+            return string.Join(" ", GetAllArgs());
         }
     }
 
@@ -50,7 +62,7 @@
         /// <param name="throwIfDuplicate"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public static T SetFlag<T>(this T baseOptionFlag, string flag, bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate) 
+        public static T SetFlag<T>(this T baseOptionFlag, string flag, bool throwIfDuplicate = BaseOption.DEFAULT_ThrowIfDuplicate)
             where T : BaseArgsOptionFlag
         {
             if (string.IsNullOrEmpty(flag)) throw new ArgumentNullException(nameof(flag));
