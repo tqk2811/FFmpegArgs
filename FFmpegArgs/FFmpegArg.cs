@@ -197,6 +197,7 @@ namespace FFmpegArgs
         /// <returns></returns>
         public IEnumerable<string> GetFullCommandlineWithFilterScript(string script_name_or_path)
         {
+            if (string.IsNullOrWhiteSpace(script_name_or_path)) throw new ArgumentNullException(nameof(script_name_or_path));
             List<string> args =
             [
                 .. GetGlobalArgs(),
