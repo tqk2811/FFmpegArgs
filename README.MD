@@ -36,18 +36,13 @@ var image_maps = green_video.ImageMaps.First()
 
 var overlay_map = image_maps.First()
     //overlay color_key on-center background_video
-    .OverlayFilterOn(background_videoMap.ImageMaps.First())
-        .X("(W-w)/2")
-        .Y("(H-h)/2")
-        //.X((FormattableString)$"{100.6}")//use FormattableString for InvariantCulture
-        //.Y(Invariant($"{100.6}"))//use FormattableString for InvariantCulture, Invariant from using static System.FormattableString;
-        .MapOut;
+    .OverlayFilterOn(background_videoMap.ImageMaps.First()).X("(W-w)/2").Y("(H-h)/2").MapOut;
 
 VideoFileOutput videoFileOutput = new VideoFileOutput(@"out.mp4", overlay_map, background_videoMap.AudioMaps.First())
     .T(TimeSpan.FromSeconds(5))//output extension ( -t )
     ;
 videoFileOutput.ImageOutputAVStream
-    .R(24)//output, video, per-stream extension ( -r )
+            .R(24)//output, video, per-stream extension ( -r )
     .G(0)//output, video, per-stream extension
     .H264_libx264_Codec(x => x.RCLookahead(0));//codec
 
@@ -116,7 +111,6 @@ using FFmpegArgs.Executes;
 using FFmpegArgs.Inputs;
 using FFmpegArgs.Outputs;
 
-using static System.FormattableString;
 ```
 ________________________________________
 
