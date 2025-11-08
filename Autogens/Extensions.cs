@@ -16,14 +16,14 @@ namespace Autogens
         internal static StreamWriter WriteSummary(this StreamWriter streamWriter, params string[] summarys)
         {
             streamWriter.WriteLine("/// <summary>");
-            foreach (var summary in summarys) streamWriter.WriteLine(Inv($"/// {summary.FixSummaryRule()}"));
+            foreach (var summary in summarys) streamWriter.WriteLine($"/// {summary.FixSummaryRule()}");
             streamWriter.WriteLine("/// </summary>");
             return streamWriter;
         }
         internal static StringBuilder WriteSummary(this StringBuilder stringBuilder, params string[] summarys)
         {
             stringBuilder.AppendLine("/// <summary>");
-            foreach (var summary in summarys) stringBuilder.AppendLine(Inv($"/// {summary.FixSummaryRule()}"));
+            foreach (var summary in summarys) stringBuilder.AppendLine($"/// {summary.FixSummaryRule()}");
             stringBuilder.AppendLine("/// </summary>");
             return stringBuilder;
         }

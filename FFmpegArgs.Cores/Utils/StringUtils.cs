@@ -18,9 +18,6 @@ namespace FFmpegArgs.Cores.Utils
 
         // String
 
-        public static string ToStringInv(this string @this) =>
-            @this;
-
         public static string ToStringInv<T>(this T @this) where T : IFormattable =>
             @this.ToString(null, Invariant);
 
