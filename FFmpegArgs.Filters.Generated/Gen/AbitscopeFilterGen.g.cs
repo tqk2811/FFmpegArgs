@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video size (default &quot;1024x256&quot;)
         /// </summary>
-        public AbitscopeFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public AbitscopeFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>

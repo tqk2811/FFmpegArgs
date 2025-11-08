@@ -13,7 +13,7 @@
         /// <summary>
         ///  set grid size (default &quot;6x5&quot;)
         /// </summary>
-        public UntileFilterGen layout(Size layout) => this.SetOption("layout", Inv($"{layout.Width}x{layout.Height}"));
+        public UntileFilterGen layout(Size layout) => this.SetOption("layout", $"{layout.Width}x{layout.Height}");
     }
 
     public static partial class FilterGeneratedExtensions

@@ -25,7 +25,7 @@
         /// <summary>
         ///  set video size
         /// </summary>
-        public CellautoFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public CellautoFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set rule (from 0 to 255) (default 110)
         /// </summary>

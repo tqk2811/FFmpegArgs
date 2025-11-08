@@ -166,7 +166,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="size"></param>
         /// <returns></returns>
         public AiirFilter Size(Size size)
-           => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+           => this.SetOption("size", $"{size.Width}x{size.Height}");
 
         /// <summary>
         /// Set video stream size. This option is used only when response is enabled. (default "hd720")

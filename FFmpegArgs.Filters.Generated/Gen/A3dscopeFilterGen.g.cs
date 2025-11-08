@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video size (default &quot;hd720&quot;)
         /// </summary>
-        public A3dscopeFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public A3dscopeFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set camera FoV (from 40 to 150) (default 90)
         /// </summary>

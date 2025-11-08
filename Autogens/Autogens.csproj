@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
@@ -14,11 +14,6 @@
 	<ItemGroup>
 		<ProjectReference Include="..\FFmpegArgs.Cores\FFmpegArgs.Cores.csproj" />
 		<ProjectReference Include="..\FFmpegArgs.Filters\FFmpegArgs.Filters.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Using Include="FFmpegArgs.Cores.Utils" />
-		<Using Include="FFmpegArgs.Cores.Utils.StringUtils" Static="True" />
 	</ItemGroup>
 
 </Project>

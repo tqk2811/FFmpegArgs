@@ -53,7 +53,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="size"></param>
         /// <returns></returns>
         public AnequalizerFilter Size(Size size)
-            => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+            => this.SetOption("size", $"{size.Width}x{size.Height}");
 
         /// <summary>
         /// Set max gain that will be displayed. Only useful if curves option is activated. Setting this to a reasonable value makes it possible to display gain which is derived from neighbour bands which are too close to each other and thus produce higher gain when both are activated.<br>

@@ -13,7 +13,7 @@
         /// <summary>
         ///  Dimensions of the generated video. (default &quot;320x240&quot;)
         /// </summary>
-        public Frei0r_srcFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public Frei0r_srcFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  (default &quot;25&quot;)
         /// </summary>

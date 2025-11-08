@@ -24,7 +24,7 @@ namespace FFmpegArgs.Filters.Multimedia
             "concatdec_select"
         };
         readonly FFmpegExpression expression = new FFmpegExpression(_variables);
-        internal ASelectFilter(ExpressionValue e, int n, AudioMap audioMap) : base("aselect", audioMap)
+        internal ASelectFilter(ExpressionValue e, int n, AudioMap audioMap) : base($"aselect", audioMap)
         {
             if (n < 1) throw new InvalidRangeException(nameof(n));
             AddMultiMapOut(n);

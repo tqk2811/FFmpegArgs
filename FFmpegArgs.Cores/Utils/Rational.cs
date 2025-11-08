@@ -110,13 +110,13 @@ namespace FFmpegArgs.Cores.Utils
         /// Num:Den
         /// </summary>
         /// <returns></returns>
-        public string ToStringColon() => Inv($"{Numerator}:{Denominator}");
+        public string ToStringColon() => $"{Numerator}:{Denominator}";
 
         /// <summary>
         /// Num/Den
         /// </summary>
         /// <returns></returns>
-        public string ToStringSlash() => Inv($"{Numerator}/{Denominator}");
+        public string ToStringSlash() => $"{Numerator}/{Denominator}";
 
         /// <summary>
         /// Num/Den

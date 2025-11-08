@@ -13,7 +13,7 @@
         /// <summary>
         ///  set frame size (default &quot;hd720&quot;)
         /// </summary>
-        public AvsynctestFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public AvsynctestFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set frame rate (default &quot;30&quot;)
         /// </summary>

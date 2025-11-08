@@ -74,7 +74,7 @@
         /// <param name="s"></param>
         /// <returns></returns>
         public MandelbrotFilter Size(Size s)
-          => this.SetOption("s", Inv($"{s.Width}x{s.Height}"));
+          => this.SetOption("s", $"{s.Width}x{s.Height}");
         /// <summary>
         /// Set the initial scale value. from 0 to FLT_MAX) (default 3)
         /// </summary>

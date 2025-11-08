@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video size (default &quot;hd720&quot;)
         /// </summary>
-        public AhistogramFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public AhistogramFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set display scale (from 0 to 4) (default log)
         /// </summary>

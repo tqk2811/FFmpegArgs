@@ -25,7 +25,7 @@
         /// <param name="s"></param>
         /// <returns></returns>
         public GradientsFilter Size(Size s)
-          => this.SetOption("s", Inv($"{s.Width}x{s.Height}"));
+          => this.SetOption("s", $"{s.Width}x{s.Height}");
         /// <summary>
         /// Set frame rate, expressed as number of frames per second. Default value is "25".
         /// </summary>

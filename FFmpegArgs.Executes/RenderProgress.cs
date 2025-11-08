@@ -24,15 +24,15 @@
                     {
                         RenderProgress renderProgress = new RenderProgress
                         {
-                            Size = match.Groups[4].Value.EqualsOrd("N/A") ? double.NaN : ParseDouble(match.Groups[4].Value.ReplaceOrd("kB", string.Empty).ReplaceOrd("KiB", string.Empty)),
+                            Size = match.Groups[4].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[4].Value.Replace("kB", string.Empty).Replace("KiB", string.Empty)),
                             Time = ParseDuration(match.Groups[5].Value),
-                            Bitrate = match.Groups[6].Value.EqualsOrd("N/A") ? double.NaN : ParseDouble(match.Groups[6].Value.ReplaceOrd("kbits/s", string.Empty)),
-                            Speed = ParseSingle(match.Groups[7].Value)
+                            Bitrate = match.Groups[6].Value.Equals("N/A") ? double.NaN : double.Parse(match.Groups[6].Value.Replace("kbits/s", string.Empty)),
+                            Speed = float.Parse(match.Groups[7].Value)
                         };
                         if (match.Groups[2].Success && !string.IsNullOrWhiteSpace(match.Groups[2].Value))
-                            renderProgress.Frame = ParseInt32(match.Groups[2].Value);
+                            renderProgress.Frame = int.Parse(match.Groups[2].Value);
                         if (match.Groups[3].Success && !string.IsNullOrWhiteSpace(match.Groups[3].Value))
-                            renderProgress.Fps = ParseDouble(match.Groups[3].Value);
+                            renderProgress.Fps = double.Parse(match.Groups[3].Value);
                         return renderProgress;
                     }
                     catch (Exception)
@@ -60,10 +60,10 @@
                         millisecondsPart = millisecondsPart.PadRight(3, '0');
                     }
 
-                    var hours = ParseInt32(match.Groups[1].Value);
-                    var minutes = ParseInt32(match.Groups[2].Value);
-                    var seconds = ParseInt32(match.Groups[3].Value);
-                    var milliseconds = ParseInt32(millisecondsPart);
+                    var hours = int.Parse(match.Groups[1].Value);
+                    var minutes = int.Parse(match.Groups[2].Value);
+                    var seconds = int.Parse(match.Groups[3].Value);
+                    var milliseconds = int.Parse(millisecondsPart);
                     return new TimeSpan(0, hours, minutes, seconds, milliseconds);
                 }
                 else

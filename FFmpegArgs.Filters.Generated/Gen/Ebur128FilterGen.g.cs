@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video size (default &quot;640x480&quot;)
         /// </summary>
-        public Ebur128FilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public Ebur128FilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set scale meter (+9 to +18) (from 9 to 18) (default 9)
         /// </summary>

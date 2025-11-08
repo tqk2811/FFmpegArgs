@@ -38,7 +38,7 @@ namespace FFmpegArgs
         /// <param name="input"></param>
         /// <returns></returns>
         public static T Input<T>(this T t, string input) where T : BaseInput
-            => t.SetOption("-i", input.ContainsOrd(" ") ? $"\"{input}\"" : input);
+            => t.SetOption("-i", input.Contains(" ") ? $"\"{input}\"" : input);
 
         /// <summary>
         /// Set number of times input stream shall be looped. Loop 0 means no loop, loop -1 means infinite loop.
@@ -118,7 +118,7 @@ namespace FFmpegArgs
         /// <param name="date"></param>
         /// <returns></returns>
         public static T Timestamp<T>(this T t, DateTime date) where T : BaseOutput
-            => t.SetOption("-timestamp", Inv($"\"{date.ToFFmpegDate()}\""));
+            => t.SetOption("-timestamp", $"\"{date.ToFFmpegDate()}\"");
 
         /// <summary>
         /// Specify target file type (vcd, svcd, dvd, dv, dv50, .....). type may be prefixed with pal-, ntsc- or film- to use the corresponding standard. All the format options (bitrate, codecs, buffer sizes) are then set automatically.

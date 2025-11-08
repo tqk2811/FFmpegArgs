@@ -75,7 +75,7 @@ namespace FFmpegArgs.Filters.VideoFilters
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        public ZoompanFilter S(Size s) => this.SetOption("s", Inv($"{s.Width}x{s.Height}"));
+        public ZoompanFilter S(Size s) => this.SetOption("s", $"{s.Width}x{s.Height}");
         /// <summary>
         /// Set the output frame rate, default is ’25’.
         /// </summary>

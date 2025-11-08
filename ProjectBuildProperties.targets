@@ -10,10 +10,4 @@
 		<PathMap>$(MSBuildProjectDirectory)=$(MSBuildProjectName)</PathMap>
 		<AssemblyVersion>2.1</AssemblyVersion>
 	</PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="../FFmpegArgs.Cores/FFmpegArgs.Cores.csproj"
-				Condition="'$(MSBuildProjectName)' != 'FFmpegArgs.Cores'" />
-		<Using Include="FFmpegArgs.Cores.Utils" />
-		<Using Include="FFmpegArgs.Cores.Utils.StringUtils" Static="True" />
-	</ItemGroup>
 </Project>

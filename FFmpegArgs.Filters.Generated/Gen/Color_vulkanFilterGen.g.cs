@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video size (default &quot;1920x1080&quot;)
         /// </summary>
-        public Color_vulkanFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public Color_vulkanFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set video rate (default &quot;60&quot;)
         /// </summary>

@@ -17,7 +17,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public BufferFilterGen video_size(Size video_size) => this.SetOption("video_size", Inv($"{video_size.Width}x{video_size.Height}"));
+        public BufferFilterGen video_size(Size video_size) => this.SetOption("video_size", $"{video_size.Width}x{video_size.Height}");
         /// <summary>
         ///  (from 0 to INT_MAX) (default 0)
         /// </summary>

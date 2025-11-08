@@ -106,7 +106,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="size"></param>
         /// <returns></returns>
         public AfirFilter Size(Size size)
-          => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+          => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         /// Set video stream frame rate. This option is used only when response is enabled.
         /// </summary>

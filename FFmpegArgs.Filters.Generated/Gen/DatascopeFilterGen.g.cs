@@ -13,7 +13,7 @@
         /// <summary>
         ///  set output size (default &quot;hd720&quot;)
         /// </summary>
-        public DatascopeFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public DatascopeFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set x offset (from 0 to INT_MAX) (default 0)
         /// </summary>

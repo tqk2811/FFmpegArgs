@@ -13,13 +13,13 @@
      .....S = Lossless compression
     */
     /// <summary>
-    ///
+    /// 
     /// </summary>
     [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Field)]
     public class CodecFlagAttribute : Attribute
     {
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <param name="flag"></param>
         public CodecFlagAttribute(string flag)
@@ -27,12 +27,12 @@
             this.Flag = flag;
         }
         /// <summary>
-        ///
+        /// 
         /// </summary>
         public string Flag { get; }
 
         /// <summary>
-        ///
+        /// 
         /// </summary>
         /// <param name="flags"></param>
         /// <returns></returns>
@@ -40,7 +40,7 @@
         {
             foreach (char c in flags)
             {
-                if(!Flag.ContainsOrd(c))
+                if(!Flag.Contains(c))
                 {
                     return false;
                 }

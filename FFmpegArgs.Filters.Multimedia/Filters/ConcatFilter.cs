@@ -53,7 +53,7 @@ namespace FFmpegArgs.Filters.Multimedia
             int index = 0;
             foreach (var img in concatGroups.First().ImageMaps)
             {
-                ImageMap imageMap = new ImageMap(img.FilterGraph, Inv($"f_{FilterIndex}_v{index++}"));
+                ImageMap imageMap = new ImageMap(img.FilterGraph, $"f_{FilterIndex}_v{index++}");
                 _mapsOut.Add(imageMap);
                 _imageMapsOut.Add(imageMap);
             }
@@ -61,7 +61,7 @@ namespace FFmpegArgs.Filters.Multimedia
             index = 0;
             foreach (var img in concatGroups.First().AudioMaps)
             {
-                AudioMap audioMap = new AudioMap(img.FilterGraph, Inv($"f_{FilterIndex}_a{index++}"));
+                AudioMap audioMap = new AudioMap(img.FilterGraph, $"f_{FilterIndex}_a{index++}");
                 _mapsOut.Add(audioMap);
                 _audioMapsOut.Add(audioMap);
             }

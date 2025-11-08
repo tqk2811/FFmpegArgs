@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video size (default &quot;hd720&quot;)
         /// </summary>
-        public AnequalizerFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public AnequalizerFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set max gain (from -900 to 900) (default 60)
         /// </summary>

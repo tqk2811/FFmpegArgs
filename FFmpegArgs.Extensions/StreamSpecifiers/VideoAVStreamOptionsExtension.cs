@@ -16,7 +16,7 @@
         /// <returns></returns>
         [Obsolete("This is an obsolete alias for -frames:v, which you should use instead.")]
         public static T Vframes<T>(this T t, int vframes) where T : BaseOutput, IImage // (output)
-            => t.SetOption("-vframes", vframes.ToStringInv());
+            => t.SetOption("-vframes", vframes.ToString());
 
         /// <summary>
         /// As an input option, ignore any timestamps stored in the file and instead generate timestamps assuming constant frame rate fps. This is not the same as the -framerate option used for some input formats like image2 or v4l2 (it used to be the same in older versions of FFmpeg). If in doubt use -framerate instead of the input option -r.<br>
@@ -27,7 +27,7 @@
         /// <param name="fps"></param>
         /// <returns></returns>
         public static T R<T>(this T t, Rational fps) where T : BaseAVStream, IImage // (input/output,per-stream)
-            => t.SetOption("-r", fps.ToStringSlash());
+            => t.SetOption($"-r", fps.ToStringSlash());
 
         /// <summary>
         /// As an input option, ignore any timestamps stored in the file and instead generate timestamps assuming constant frame rate fps. This is not the same as the -framerate option used for some input formats like image2 or v4l2 (it used to be the same in older versions of FFmpeg). If in doubt use -framerate instead of the input option -r.<br>
@@ -38,7 +38,7 @@
         /// <param name="fps"></param>
         /// <returns></returns>
         public static T Fps<T>(this T t, Rational fps) where T : BaseAVStream, IImage // (input/output,per-stream)
-            => t.SetOption("-r", fps.ToStringSlash());
+            => t.SetOption($"-r", fps.ToStringSlash());
 
         /// <summary>
         /// Set maximum frame rate (Hz value, fraction or abbreviation).<br>
@@ -49,7 +49,7 @@
         /// <param name="fps"></param>
         /// <returns></returns>
         public static T FpsMax<T>(this T t, Rational fps) where T : ImageOutputAVStream, IImage // (output,per-stream)
-            => t.SetOption("-fpsmax", fps.ToStringSlash());
+            => t.SetOption($"-fpsmax", fps.ToStringSlash());
 
         /// <summary>
         /// As an input option, this is a shortcut for the video_size private option, recognized by some demuxers for which the frame size is either not stored in the file or is configurable – e.g. raw video or video grabbers.<br>
@@ -61,7 +61,7 @@
         /// <param name="size"></param>
         /// <returns></returns>
         public static T S<T>(this T t, Size size) where T : BaseAVStream, IImage // (input/output,per-stream)
-            => t.SetOption("-s", Inv($"{size.Width}x{size.Height}"));
+            => t.SetOption($"-s", $"{size.Width}x{size.Height}");
 
         /// <summary>
         /// Set the video display aspect ratio specified by aspect.<br>
@@ -73,7 +73,7 @@
         /// <param name="rational"></param>
         /// <returns></returns>
         public static T Aspect<T>(this T t, Rational rational) where T : BaseAVStream, IImage // (output,per-stream)
-            => t.SetOption("-aspect", rational.ToStringColon());
+            => t.SetOption($"-aspect", rational.ToStringColon());
 
         /// <summary>
         /// As an input option, blocks all video streams of a file from being filtered or being automatically selected or mapped for any output. See -discard option to disable streams individually.<br>
@@ -105,7 +105,7 @@
         /// <param name="pass"></param>
         /// <returns></returns>
         public static T Pass<T>(this T t, int pass) where T : ImageOutputAVStream, IImage // (output,per-stream)
-            => t.SetOptionRange("-pass", pass, 1, 2);
+            => t.SetOptionRange($"-pass", pass, 1, 2);
 
         /// <summary>
         /// Set two-pass log file name prefix to prefix, the default file name prefix is “ffmpeg2pass”. The complete file name will be PREFIX-N.log, where N is a number specific to the output stream
@@ -115,7 +115,7 @@
         /// <param name="prefix"></param>
         /// <returns></returns>
         public static T PassLogFile<T>(this T t, string prefix) where T : ImageOutputAVStream, IImage // (output,per-stream)
-            => t.SetOption("-passlogfile", prefix);
+            => t.SetOption($"-passlogfile", prefix);
 
         // -vf filtergraph (output)
 

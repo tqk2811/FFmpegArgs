@@ -23,7 +23,7 @@
         /// <param name="videoSize"></param>
         /// <returns></returns>
         public BufferFilter VideoSize(Size videoSize)
-          => this.SetOption("video_size", Inv($"{videoSize.Width}x{videoSize.Height}"));
+          => this.SetOption("video_size", $"{videoSize.Width}x{videoSize.Height}");
         /// <summary>
         /// The input video width.
         /// </summary>

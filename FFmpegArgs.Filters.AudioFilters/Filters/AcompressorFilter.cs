@@ -44,7 +44,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="mode"></param>
         /// <returns></returns>
         public AcompressorFilter Mode(AcompressorMode mode)
-            => this.SetOption("mode", mode.ToString().ToLowerInvariant());
+            => this.SetOption("mode", mode.ToString().ToLower());
         /// <summary>
         /// If a signal of stream rises above this level it will affect the gain reduction.<br></br> 
         /// By default it is 0.125. Range is between 0.00097563 and 1.
@@ -102,7 +102,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="link"></param>
         /// <returns></returns>
         public AcompressorFilter Link(AcompressorLink link)
-            => this.SetOption("link", link.ToString().ToLowerInvariant());
+            => this.SetOption("link", link.ToString().ToLower());
         /// <summary>
         /// Should the exact signal be taken in case of peak or an RMS one in case of rms.<br>
         /// </br> Default is rms which is mostly smoother.
@@ -110,7 +110,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="detection"></param>
         /// <returns></returns>
         public AcompressorFilter Detection(AcompressorDetection detection)
-            => this.SetOption("detection", detection.ToString().ToLowerInvariant());
+            => this.SetOption("detection", detection.ToString().ToLower());
         /// <summary>
         /// How much to use compressed signal in output.<br>
         /// </br> Default is 1. Range is between 0 and 1.

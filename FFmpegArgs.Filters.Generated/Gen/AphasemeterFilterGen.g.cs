@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video size (default &quot;800x400&quot;)
         /// </summary>
-        public AphasemeterFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public AphasemeterFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set red contrast (from 0 to 255) (default 2)
         /// </summary>

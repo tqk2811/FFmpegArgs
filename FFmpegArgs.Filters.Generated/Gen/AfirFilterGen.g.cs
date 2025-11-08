@@ -57,7 +57,7 @@
         /// <summary>
         ///  set video size (default &quot;hd720&quot;)
         /// </summary>
-        public AfirFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public AfirFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>

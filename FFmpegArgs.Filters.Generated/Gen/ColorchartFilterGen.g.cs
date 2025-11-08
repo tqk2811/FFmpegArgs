@@ -25,7 +25,7 @@
         /// <summary>
         ///  set the single patch size (default &quot;64x64&quot;)
         /// </summary>
-        public ColorchartFilterGen patch_size(Size patch_size) => this.SetOption("patch_size", Inv($"{patch_size.Width}x{patch_size.Height}"));
+        public ColorchartFilterGen patch_size(Size patch_size) => this.SetOption("patch_size", $"{patch_size.Width}x{patch_size.Height}");
         /// <summary>
         ///  set the color checker chart preset (from 0 to 1) (default reference)
         /// </summary>

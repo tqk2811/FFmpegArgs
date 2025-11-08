@@ -60,7 +60,7 @@
         /// <param name="size"></param>
         /// <returns></returns>
         public static T Size<T>(this T t, Size size) where T : BaseVideoSource, IBaseVideoSourceSize
-          => t.SetOption("s", Inv($"{size.Width}x{size.Height}"));
+          => t.SetOption("s", $"{size.Width}x{size.Height}");
         /// <summary>
         /// Specify the size of the sourced video.<br></br>
         /// The default value is 320x240.

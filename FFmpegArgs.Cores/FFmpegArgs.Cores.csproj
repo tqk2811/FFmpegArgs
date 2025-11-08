@@ -1,31 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<Import Project="..\ProjectBuildProperties.targets" />
 	<PropertyGroup>
 		<FileVersion>2.1.0.0</FileVersion>
 	</PropertyGroup>
-	<ItemGroup>
-		<InternalsVisibleTo Include="Autogens" />
-		<InternalsVisibleTo Include="FFmpegArgs" />
-		<InternalsVisibleTo Include="FFmpegArgs.Codec" />
-		<InternalsVisibleTo Include="FFmpegArgs.Executes" />
-		<InternalsVisibleTo Include="FFmpegArgs.Extensions" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.AudioFilters" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.AudioSinks" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.AudioSources" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.Generated" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.Multimedia" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.MultimediaSources" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.OpenCLVideoFilters" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.VAAPIVideoFilters" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.VideoFilters" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.VideoSinks" />
-		<InternalsVisibleTo Include="FFmpegArgs.Filters.VideoSources" />
-		<InternalsVisibleTo Include="FFmpegArgs.Inputs" />
-		<InternalsVisibleTo Include="FFmpegArgs.Outputs" />
-		<InternalsVisibleTo Include="FFmpegArgs.Test" />
-		<InternalsVisibleTo Include="FFplayArgs" />
-	</ItemGroup>
 
 </Project>

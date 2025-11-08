@@ -21,7 +21,7 @@
         /// <summary>
         ///  Video size
         /// </summary>
-        public OpenclsrcFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public OpenclsrcFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  Video format (default none)
         /// </summary>

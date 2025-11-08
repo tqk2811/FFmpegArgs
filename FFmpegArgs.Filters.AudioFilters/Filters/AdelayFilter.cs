@@ -22,7 +22,7 @@ namespace FFmpegArgs.Filters.AudioFilters
         /// <param name="delays"></param>
         /// <returns></returns>
         public AdelayFilter Delays(params TimeSpan[] delays)
-            => this.SetOption("delays", string.Join("|", delays.Select(x => x.TotalMilliseconds.ToStringInv())));
+            => this.SetOption("delays", string.Join("|", delays.Select(x => x.TotalMilliseconds.ToString())));
 
         /// <summary>
         /// Set list of delays in milliseconds for each channel. Unused delays will be silently ignored. If number of given delays is smaller than number of channels all remaining channels will not be delayed.<br>

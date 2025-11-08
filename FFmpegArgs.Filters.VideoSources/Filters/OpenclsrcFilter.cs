@@ -16,7 +16,7 @@
         /// </summary>
         /// <param name="size"></param>
         /// <returns></returns>
-        public OpenclsrcFilter Size(Size size) => this.SetOption("s", Inv($"{size.Width}x{size.Height}"));
+        public OpenclsrcFilter Size(Size size) => this.SetOption("s", $"{size.Width}x{size.Height}");
 
         /// <summary>
         /// Pixel format to use for the generated frames
