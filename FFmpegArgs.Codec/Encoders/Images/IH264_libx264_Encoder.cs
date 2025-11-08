@@ -365,7 +365,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="x264opts"></param>
         /// <returns></returns>
         public static T X264Opts<T>(this T t, IReadOnlyDictionary<string, string> x264opts) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
-            => t.SetOption("-x264opts", string.Join(":", x264opts.Select(pair => Inv($"{pair.Key}={pair.Value}"))));
+            => t.SetOption("-x264opts", string.Join(":", x264opts.Select(pair => $"{pair.Key}={pair.Value}")));
         /// <summary>
         /// Select the quality for constant quality mode (from -1 to FLT_MAX) (default -1)
         /// </summary>
@@ -677,7 +677,7 @@ namespace FFmpegArgs.Codec.Encoders.Images
         /// <param name="x264Params"></param>
         /// <returns></returns>
         public static T X264Params<T>(this T t, IReadOnlyDictionary<string, string> x264Params) where T : BaseImageCodecEncoder, IH264_libx264_Encoder
-            => t.SetOption("-x264-params", string.Join(":", x264Params.Select(pair => Inv($"{pair.Key}={pair.Value}"))));
+            => t.SetOption("-x264-params", string.Join(":", x264Params.Select(pair => $"{pair.Key}={pair.Value}")));
         /// <summary>
         /// Set mb_info data through AVSideData, only useful when used from the API (default false)
         /// </summary>
