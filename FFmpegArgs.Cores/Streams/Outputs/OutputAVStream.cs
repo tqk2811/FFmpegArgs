@@ -25,7 +25,7 @@
         {
             foreach (var option in base.Options)
             {
-                yield return Inv($"{option.Key}:{StreamSymbol}:{StreamIndex}");
+                yield return $"{option.Key}:{StreamSymbol}:{StreamIndex}";
                 yield return option.Value;
             }
             foreach (var flag in base.Flags)
@@ -34,7 +34,7 @@
             }
             yield return "-map";
             if (this.BaseMap.IsInput) yield return this.BaseMap.MapName;
-            else yield return Inv($"[{this.BaseMap.MapName}]");
+            else yield return $"[{this.BaseMap.MapName}]";
         }
     }
 }

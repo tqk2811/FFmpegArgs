@@ -27,7 +27,7 @@
                 .. GetOptionArgs(),
                 .. GetAVStreamArgs(),
                 "-i",
-                Inv($"pipe:{StdIn}")
+                $"pipe:{StdIn}"
             ];
             return args;
         }

@@ -62,7 +62,7 @@
 #else
                 string arguments = string.Join(" ", ArgumentsList.Select(x =>
                 {
-                    if (x.ContainsOrd(" ")) return Inv($"\"{x}\"");
+                    if (x.Contains(" ")) return $"\"{x}\"";
                     return x;
                 }));
 

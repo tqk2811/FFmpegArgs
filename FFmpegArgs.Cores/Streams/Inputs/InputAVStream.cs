@@ -24,7 +24,7 @@
         {
             foreach (var option in base.Options)
             {
-                yield return Inv($"{option.Key}:{StreamSymbol}:{StreamIndex}");
+                yield return $"{option.Key}:{StreamSymbol}:{StreamIndex}";
                 yield return option.Value;
             }
             foreach (var flag in base.Flags)

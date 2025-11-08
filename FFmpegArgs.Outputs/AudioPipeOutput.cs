@@ -62,7 +62,7 @@
                 .. GetFlagArgs(),
                 .. GetOptionArgs(),
                 .. GetAVStreamArgs(),
-                Inv($"pipe:{StdOut}")
+                $"pipe:{StdOut}"
             ];
             return args;
         }

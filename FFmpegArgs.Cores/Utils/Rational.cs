@@ -78,7 +78,7 @@ namespace FFmpegArgs.Cores.Utils
 
 
         static readonly Regex regex_parse = new Regex("^(\\d+\\.\\d+|\\d+)[:/](\\d+\\.\\d+|\\d+)$", RegexOptions.Compiled);
-        static Rational _Parse(string rationalString)
+        static Rational? _Parse(string rationalString)
         {
             if (string.IsNullOrWhiteSpace(rationalString))
                 return null;
