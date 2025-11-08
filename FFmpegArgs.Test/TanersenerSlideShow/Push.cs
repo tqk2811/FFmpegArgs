@@ -1,12 +1,10 @@
 ﻿
 
 
-using System.Globalization;
-
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class Push : BaseTest
+    public class Push
     {
         [TestMethod]
         public void PushVerticalTopToBottomTest()
@@ -78,14 +76,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             var moving = endings[i]
                                 .OverlayFilterOn(transparent)
                                     .X("0")
-                                    .Y((FormattableString)$"t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}").MapOut
+                                    .Y($"t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}").MapOut
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
                                     .X("0")
-                                    .Y((FormattableString)$"-h+t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")
+                                    .Y($"-h+t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")
                                     .Shortest(true).MapOut
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
@@ -97,14 +95,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             var moving = endings[i]
                                 .OverlayFilterOn(transparent)
                                     .X("0")
-                                    .Y((FormattableString)$"-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}").MapOut
+                                    .Y($"-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}").MapOut
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
                                     .X("0")
-                                    .Y((FormattableString)$"h-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")
+                                    .Y($"h-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")
                                     .Shortest(true).MapOut
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
@@ -195,14 +193,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         {
                             var moving = endings[i]
                                 .OverlayFilterOn(transparent)
-                                    .X((FormattableString)$"t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
+                                    .X($"t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y($"0").MapOut
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount})").MapOut;
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
-                                    .X((FormattableString)$"-w+t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
+                                    .X($"-w+t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y($"0")
                                     .Shortest(true).MapOut
                                 .TrimFilter()
@@ -214,7 +212,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         {
                             var moving = endings[i]
                                 .OverlayFilterOn(transparent)
-                                    .X((FormattableString)$"-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
+                                    .X($"-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y("0").MapOut
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut
@@ -222,7 +220,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             blendeds.Add(startings[i]
                                 .OverlayFilterOn(moving)
                                     .Y("0")
-                                    .X((FormattableString)$"w-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
+                                    .X($"w-t/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Shortest(true).MapOut
                                 .TrimFilter()
                                     .Duration(config.TransitionDuration).MapOut

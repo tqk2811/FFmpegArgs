@@ -3,7 +3,7 @@
 namespace FFmpegArgs.Test.FiltersTest
 {
     [TestClass]
-    public class DrawTextTest : BaseTest
+    public class DrawTextTest
     {
         [TestMethod]
         public void DrawText()

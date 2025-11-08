@@ -7,7 +7,7 @@ using FFmpegArgs;
 namespace FFmpegArgs.Test.BuildTest
 {
     [TestClass]
-    public class BuildTestExtension : BaseTest
+    public class BuildTestExtension
     {
         [TestMethod]
         public void Test()

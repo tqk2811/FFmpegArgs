@@ -1,12 +1,10 @@
 ﻿
 
 
-using System.Globalization;
-
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class Collapse : BaseTest
+    public class Collapse
     {
         [TestMethod]
         public void CollapseTest()
@@ -24,7 +22,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
             string expr = string.Empty;
             double TRANSITION_DURATION = config.TransitionDuration.TotalSeconds;
-
+            
             switch (collapseMode)
             {
                 case CollapseExpandMode.Vertical:

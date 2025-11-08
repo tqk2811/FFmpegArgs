@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace FFmpegArgs.Test
 {
     [TestClass]
-    public class RenderProgressTest : BaseTest
+    public class RenderProgressTest
     {
         [TestMethod]
         public void Test0()

@@ -4,7 +4,7 @@
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class PushBox : BaseTest
+    public class PushBox
     {
         [TestMethod]
         public void PushBoxVerticalTopToBottomTest()
@@ -55,13 +55,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 VerticalDirection.TopToBottom => pres.Select(x => x[4]//prephaseout
                                 .OverlayFilterOn(background)
                                     .X("0")
-                                    .Y((FormattableString)$"t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Height}").MapOut
+                                    .Y($"t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Height}").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 VerticalDirection.BottomToTop => pres.Select(x => x[4]//prephaseout
                                 .OverlayFilterOn(background)
                                     .X("0")
-                                    .Y((FormattableString)$"-t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Height}").MapOut
+                                    .Y($"-t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Height}").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()
@@ -71,13 +71,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 VerticalDirection.TopToBottom => pres.Select(x => x[0]//prephasein
                                 .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x) - 1])//phaseouts.Last()
                                     .X("0")
-                                    .Y((FormattableString)$"-h+{config.Size.Height}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
+                                    .Y($"-h+{config.Size.Height}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 VerticalDirection.BottomToTop => pres.Select(x => x[0]//prephasein
                                 .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x) - 1])//phaseouts.Last()
                                     .X("0")
-                                    .Y((FormattableString)$"h-{config.Size.Height}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
+                                    .Y($"h-{config.Size.Height}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()
@@ -189,13 +189,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 HorizontalDirection.LeftToRight => pres.Select(x => x[4]//prephaseout
                                 .OverlayFilterOn(background)
                                     .Y("0")
-                                    .X((FormattableString)$"t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Width}").MapOut
+                                    .X($"t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Width}").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 HorizontalDirection.RightToLeft => pres.Select(x => x[4]//prephaseout
                                 .OverlayFilterOn(background)
                                     .Y("0")
-                                    .X((FormattableString)$"-t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Width}").MapOut
+                                    .X($"-t/({config.TransitionDuration.TotalSeconds}/2)*{config.Size.Width}").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()
@@ -205,13 +205,13 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 HorizontalDirection.LeftToRight => pres.Select(x => x[0]//prephasein
                                 .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x) - 1])//phaseouts.Last()
                                     .Y("0")
-                                    .X((FormattableString)$"-{config.Size.Width}+{config.Size.Width}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
+                                    .X($"-{config.Size.Width}+{config.Size.Width}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 HorizontalDirection.RightToLeft => pres.Select(x => x[0]//prephasein
                                 .OverlayFilterOn(pres.IndexOf(x) == 0 ? background : phaseouts[pres.IndexOf(x) - 1])//phaseouts.Last()
                                     .Y("0")
-                                    .X((FormattableString)$"{config.Size.Width}-{config.Size.Width}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
+                                    .X($"{config.Size.Width}-{config.Size.Width}*t/({config.TransitionDuration.TotalSeconds}/2)").MapOut
                                 .TrimFilter().Duration(TRANSITION_PHASE_DURATION).MapOut
                                 .SelectFilter($"lte(n,{config.TransitionFrameCount}/2)").MapOut).ToList(),
                 _ => throw new NotImplementedException()

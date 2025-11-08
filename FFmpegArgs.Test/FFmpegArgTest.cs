@@ -1,7 +1,7 @@
 ﻿namespace FFmpegArgs.Test
 {
     [TestClass]
-    public class FFmpegArgTest : BaseTest
+    public class FFmpegArgTest
     {
         [TestMethod]
         public void Test1()
@@ -41,9 +41,6 @@
             double imageDuration = 2;
             double animationDuration = 1;
             double rotateSpeed = 2;//2 * 2PI radian/sec
-            string imageDuration_str = imageDuration.ToString(CultureInfo.InvariantCulture);
-            string animationDuration_str = animationDuration.ToString(CultureInfo.InvariantCulture);
-            string rotateSpeed_str = rotateSpeed.ToString(CultureInfo.InvariantCulture);
             FFmpegArg ffmpegArg = new FFmpegArg();
             ffmpegArg.OverWriteOutput();
             var background = ffmpegArg.FilterGraph.ColorFilter()
@@ -56,12 +53,12 @@
             var format = pad.MapOut.FormatFilter(PixFmt.rgba);
             var scale = format.MapOut.ScaleFilter().W($"if(gte(iw/ih,{out_w}/{out_h}),min(iw,{out_w}),-1)").H($"if(gte(iw/ih,{out_w}/{out_h}),-1,min(ih,{out_h}))");
             //rotate {animationDuration} sec and stop rotate {imageDuration} sec
-            string _whenRotate = $"between(t,n*({imageDuration_str} + {animationDuration_str}),n *({imageDuration_str} + {animationDuration_str})+{animationDuration_str})";
-            string _rotate = $"2*PI*t*{rotateSpeed_str}";
-            string _nonRotate = $"2*PI*{rotateSpeed_str}*(n+{animationDuration_str})";
+            string _whenRotate = $"between(t,n*({imageDuration} + {animationDuration}),n *({imageDuration} + {animationDuration})+{animationDuration})";
+            string _rotate = $"2*PI*t*{rotateSpeed}";
+            string _nonRotate = $"2*PI*{rotateSpeed}*(n+{animationDuration})";
             var rotate = scale.MapOut.RotateFilter().Angle($"if({_whenRotate},{_rotate},{_nonRotate})");
-            string _whenMove = $"between(t,n*({imageDuration_str} + {animationDuration_str}),n *({imageDuration_str} + {animationDuration_str})+{animationDuration_str})";
-            string _move = $"-main_w/2 + main_w * (t - n*({imageDuration_str} + {animationDuration_str}))/({imageDuration_str} + {animationDuration_str})";
+            string _whenMove = $"between(t,n*({imageDuration} + {animationDuration}),n *({imageDuration} + {animationDuration})+{animationDuration})";
+            string _move = $"-main_w/2 + main_w * (t - n*({imageDuration} + {animationDuration}))/({imageDuration} + {animationDuration})";
             string _stopMove = $"main_w/2";
             var overlay = rotate.MapOut.OverlayFilterOn(background.MapOut).X($"if({_whenMove},{_move},{_stopMove})").Y($"main_h/2");
             overlay.EofAction(EofAction.EndAll);

@@ -3,7 +3,7 @@
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class PushFilm : BaseTest
+    public class PushFilm
     {
         [TestMethod]
         public void PushHorizontalFilm_Blur_LeftToRight()
@@ -107,18 +107,18 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
-                                    .X((FormattableString)$"-{config.Size.Width}+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
+                                    .X($"-{config.Size.Width}+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y("0")//from -WIDTH to +WIDTH
-                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
+                                    .Enable($"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                     case HorizontalDirection.RightToLeft:
                         {
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
-                                    .X((FormattableString)$"{config.Size.Width}-(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
+                                    .X($"{config.Size.Width}-(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}")
                                     .Y("0")//from +WIDTH to -WIDTH
-                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
+                                    .Enable($"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                 }
@@ -242,8 +242,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
                                     .X("0")
-                                    .Y((FormattableString)$"-{config.Size.Height}+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")//from -HEIGHT to +HEIGHT
-                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
+                                    .Y($"-{config.Size.Height}+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")//from -HEIGHT to +HEIGHT
+                                    .Enable($"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                     case VerticalDirection.BottomToTop:
@@ -251,8 +251,8 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                             lastOverLay = image_overlay_on_strips[i].SetPtsFilter("PTS-STARTPTS").MapOut
                                 .OverlayFilterOn(lastOverLay)
                                     .X("0")
-                                    .Y((FormattableString)$"{config.Size.Height}-(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")//from +HEIGHT to -HEIGHT
-                                    .Enable((FormattableString)$"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
+                                    .Y($"{config.Size.Height}-(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Height}")//from +HEIGHT to -HEIGHT
+                                    .Enable($"between(t,{start.TotalSeconds},{end.TotalSeconds})").MapOut;
                             break;
                         }
                 }

@@ -1,11 +1,9 @@
 ﻿
 
-using System.Globalization;
-
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class PhotoCollection : BaseTest
+    public class PhotoCollection
     {
         /// <summary>
         /// https://github.com/tanersener/ffmpeg-video-slideshow-scripts/blob/master/advanced_scripts/photo_collection.sh
@@ -49,17 +47,17 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .TrimFilter().Duration((c + 1) * (config.TransitionDuration + config.ImageDuration)).MapOut
                     .SetPtsFilter("PTS-STARTPTS").MapOut
                     .RotateFilter()
-                        .Angle($"if(" +
-                                        Invariant($"between(t,{start.TotalSeconds},{end.TotalSeconds}),") +
-                                        Invariant($"{RPS}*2*PI*(t-{end.TotalSeconds}),") +
+                        .Angle(  $"if(" +
+                                        $"between(t,{start.TotalSeconds},{end.TotalSeconds})," +
+                                        $"{RPS}*2*PI*(t-{end.TotalSeconds})," +
                                         $"0)" +
                                     $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
                         .OW($"{WIDTH * 4}")
                         .FillColor(BACKGROUND_COLOR).MapOut
                     .OverlayFilterOn(lastOverLay)
-                        .X(Invariant($"if(gt(t,{start.TotalSeconds}),") +
-                                Invariant($"if(lt(t,{end.TotalSeconds}),") +
-                                    Invariant($"{WIDTH}*3/2 -w+(t-{start.TotalSeconds})/{TRANSITION_DURATION}*{WIDTH},") +
+                        .X($"if(gt(t,{start.TotalSeconds})," +
+                                $"if(lt(t,{end.TotalSeconds})," +
+                                    $"{WIDTH}*3/2 -w+(t-{start.TotalSeconds})/{TRANSITION_DURATION}*{WIDTH}," +
                                     "(main_w-overlay_w)/2)," +
                                 "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;
@@ -113,16 +111,16 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                     .SetPtsFilter("PTS-STARTPTS").MapOut
                     .RotateFilter()
                         .Angle($"if(" +
-                                    Invariant($"between(t,{start.TotalSeconds},{end.TotalSeconds}),") +
-                                    Invariant($"{RPS}*2*PI*(t-{end.TotalSeconds}),") +
-                                    $"0)" +
-                                    Invariant($"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360"))
+                                        $"between(t,{start.TotalSeconds},{end.TotalSeconds})," +
+                                        $"{RPS}*2*PI*(t-{end.TotalSeconds})," +
+                                        $"0)" +
+                                    $"+if(eq(mod({c},2),0),1,-1)*{ANGLE_RANDOMNESS}*2*PI/360")
                         .OW($"{config.Size.Width * 4}")
                         .FillColor(config.BackgroundColor).MapOut
                     .OverlayFilterOn(lastOverLay)
-                        .X(Invariant($"if(gt(t,{start.TotalSeconds}),") +
-                            Invariant($"if(lt(t,{end.TotalSeconds}),") +
-                                Invariant($"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width},") +
+                        .X($"if(gt(t,{start.TotalSeconds})," +
+                            $"if(lt(t,{end.TotalSeconds})," +
+                                $"{config.Size.Width}*3/2 -w+(t-{start.TotalSeconds})/{config.TransitionDuration.TotalSeconds}*{config.Size.Width}," +
                                 "(main_w-overlay_w)/2)," +
                             "-w)")
                         .Y("(main_h-overlay_h)/2").MapOut;

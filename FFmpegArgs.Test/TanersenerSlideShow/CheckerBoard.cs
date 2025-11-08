@@ -1,7 +1,10 @@
-﻿namespace FFmpegArgs.Test.TanersenerSlideShow
+﻿
+
+
+namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class CheckerBoard : BaseTest
+    public class CheckerBoard
     {
         [TestMethod]
         public void CheckerBoardTest()
@@ -17,18 +20,17 @@
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
-            double TransitionDuration = config.TransitionDuration.TotalSeconds;
             var blendeds = startEnd.Blendeds(config, blend => blend
                 .Shortest(true)
                 .All_Expr(
                     $"if(" +
                         $"(" +
-                            Invariant($"lte(mod(X,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{TransitionDuration})") +
-                            Invariant($"+lte(mod(Y,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{TransitionDuration})") +
+                            $"lte(mod(X,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
+                            $"+lte(mod(Y,{CELL_SIZE}),{CELL_SIZE}/2-({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
                         $")+" +
                         $"(" +
-                            Invariant($"gte(mod(X,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{TransitionDuration})") +
-                            Invariant($"+gte(mod(Y,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{TransitionDuration})") +
+                            $"gte(mod(X,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
+                            $"+gte(mod(Y,{CELL_SIZE}),({CELL_SIZE}/2)+({CELL_SIZE}/2)*T/{config.TransitionDuration.TotalSeconds})" +
                         $")" +
                         $",B" +
                         $",A)"

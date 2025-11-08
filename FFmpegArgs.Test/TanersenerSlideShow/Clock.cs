@@ -1,12 +1,10 @@
 ﻿
 
 
-using System.Globalization;
-
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class Clock : BaseTest
+    public class Clock
     {
         [TestMethod]
         public void ClockTest_Blur()
@@ -100,7 +98,6 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             List<IEnumerable<ImageMap>> prepareInputs = images_inputmap.InputScreenModes(screenMode, config);
             var overlaids = prepareInputs.Select(x => x.First()).Overlaids(config);
             var startEnd = prepareInputs.Select(x => x.Last()).ToList().StartEnd(config);
-            double TransitionDuration = config.TransitionDuration.TotalSeconds;
             // (0.5W, 0.5H) -> (0.5W, 0) => vecto v1 = (0.5W-0.5W,0-0.5H)   = (0        ,    -0.5*H)
             // (0.5W, 0.5H) -> (X, Y) => vecto v2                           = (X - 0.5*W ,   Y - 0.5*H);
             // cos(v1,v2) = (a1*a2 + b1*b2)/[sqrt(a1*a1 + b1*b1) * sqrt(a2*a2 + b2*b2)]
@@ -109,14 +106,14 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //                                                      cos range -1 -> 1, acos PI -> 0
             var cos_result = "((-0.5*H * (Y - 0.5*H))/(0.5*H * sqrt((X - 0.5*W)*(X - 0.5*W) + (Y - 0.5*H)*(Y - 0.5*H))))";
             var expr = $"if(" +
-                            Invariant($"lt(T,{TransitionDuration}),") +
+                            $"lt(T,{config.TransitionDuration.TotalSeconds})," +
                             $"if(" +
                                 $"lte(" +
                                     $"if(" +
                                         $"gte(X,W/2)," +
                                         $"acos({cos_result})," +// 0 -> PI
                                         $"2*PI-acos({cos_result}))," +// PI -> 0 => 2PI -  (PI -> 0) = PI -> 2PI
-                                        Invariant($"T*2*PI/{TransitionDuration}),") +//0 -> 2 PI
+                                        $"T*2*PI/{config.TransitionDuration.TotalSeconds})," +//0 -> 2 PI
                                 $"A," +
                                 $"B)," +
                             $"B)";

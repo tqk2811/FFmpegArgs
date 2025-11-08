@@ -1,12 +1,10 @@
 ﻿
 
 
-using System.Globalization;
-
 namespace FFmpegArgs.Test.TanersenerSlideShow
 {
     [TestClass]
-    public class Cover : BaseTest
+    public class Cover
     {
         [TestMethod]
         public void CoverVerticalTest()

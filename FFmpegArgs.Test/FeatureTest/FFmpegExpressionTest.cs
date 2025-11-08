@@ -1,7 +1,7 @@
 namespace FFmpegArgs.Test.FeatureTest
 {
     [TestClass]
-    public class FFmpegExpressionTest : BaseTest
+    public class FFmpegExpressionTest
     {
         [TestMethod]
         public void Test1()
