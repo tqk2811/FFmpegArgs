@@ -17,7 +17,7 @@
         /// <summary>
         ///  set weight for each frame (default &quot;1 1 1&quot;)
         /// </summary>
-        public TmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToStringInv());
+        public TmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToString());
         /// <summary>
         ///  set scale (from 0 to 32767) (default 0)
         /// </summary>
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set what planes to filter (default F)
         /// </summary>
-        public TmixFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
+        public TmixFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

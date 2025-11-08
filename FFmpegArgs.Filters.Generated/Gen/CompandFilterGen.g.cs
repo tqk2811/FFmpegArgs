@@ -13,15 +13,15 @@
         /// <summary>
         ///  set time over which increase of volume is determined (default &quot;0&quot;)
         /// </summary>
-        public CompandFilterGen attacks(String attacks) => this.SetOption("attacks", attacks.ToStringInv());
+        public CompandFilterGen attacks(String attacks) => this.SetOption("attacks", attacks.ToString());
         /// <summary>
         ///  set time over which decrease of volume is determined (default &quot;0.8&quot;)
         /// </summary>
-        public CompandFilterGen decays(String decays) => this.SetOption("decays", decays.ToStringInv());
+        public CompandFilterGen decays(String decays) => this.SetOption("decays", decays.ToString());
         /// <summary>
         ///  set points of transfer function (default &quot;-70/-70|-60/-20|1/0&quot;)
         /// </summary>
-        public CompandFilterGen points(String points) => this.SetOption("points", points.ToStringInv());
+        public CompandFilterGen points(String points) => this.SetOption("points", points.ToString());
         /// <summary>
         ///  set soft-knee (from 0.01 to 900) (default 0.01)
         /// </summary>

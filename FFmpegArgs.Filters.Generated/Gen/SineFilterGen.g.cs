@@ -33,7 +33,7 @@
         /// <summary>
         ///  set the number of samples per frame (default &quot;1024&quot;)
         /// </summary>
-        public SineFilterGen samples_per_frame(String samples_per_frame) => this.SetOption("samples_per_frame", samples_per_frame.ToStringInv());
+        public SineFilterGen samples_per_frame(String samples_per_frame) => this.SetOption("samples_per_frame", samples_per_frame.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

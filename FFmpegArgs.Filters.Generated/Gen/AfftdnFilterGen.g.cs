@@ -37,11 +37,11 @@
         /// <summary>
         ///  set the custom bands noise
         /// </summary>
-        public AfftdnFilterGen band_noise(String band_noise) => this.SetOption("band_noise", band_noise.ToStringInv());
+        public AfftdnFilterGen band_noise(String band_noise) => this.SetOption("band_noise", band_noise.ToString());
         /// <summary>
         ///  set the custom bands noise
         /// </summary>
-        public AfftdnFilterGen bn(String bn) => this.SetOption("bn", bn.ToStringInv());
+        public AfftdnFilterGen bn(String bn) => this.SetOption("bn", bn.ToString());
         /// <summary>
         ///  set the residual floor (from -80 to -20) (default -38)
         /// </summary>

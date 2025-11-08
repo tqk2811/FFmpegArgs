@@ -13,7 +13,7 @@
         /// <summary>
         ///  set channels convolution mappings
         /// </summary>
-        public HeadphoneFilterGen map(String map) => this.SetOption("map", map.ToStringInv());
+        public HeadphoneFilterGen map(String map) => this.SetOption("map", map.ToString());
         /// <summary>
         ///  set gain in dB (from -20 to 40) (default 0)
         /// </summary>

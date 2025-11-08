@@ -17,15 +17,15 @@
         /// <summary>
         ///  (default &quot;25&quot;)
         /// </summary>
-        public Frei0r_srcFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToStringInv());
+        public Frei0r_srcFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToString());
         /// <summary>
         /// 
         /// </summary>
-        public Frei0r_srcFilterGen filter_name(String filter_name) => this.SetOption("filter_name", filter_name.ToStringInv());
+        public Frei0r_srcFilterGen filter_name(String filter_name) => this.SetOption("filter_name", filter_name.ToString());
         /// <summary>
         /// 
         /// </summary>
-        public Frei0r_srcFilterGen filter_params(String filter_params) => this.SetOption("filter_params", filter_params.ToStringInv());
+        public Frei0r_srcFilterGen filter_params(String filter_params) => this.SetOption("filter_params", filter_params.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

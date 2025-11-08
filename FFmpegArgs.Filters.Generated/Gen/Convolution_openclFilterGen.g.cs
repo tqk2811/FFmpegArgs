@@ -13,19 +13,19 @@
         /// <summary>
         ///  set matrix for 2nd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public Convolution_openclFilterGen _0m(String _0m) => this.SetOption("0m", _0m.ToStringInv());
+        public Convolution_openclFilterGen _0m(String _0m) => this.SetOption("0m", _0m.ToString());
         /// <summary>
         ///  set matrix for 2nd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public Convolution_openclFilterGen _1m(String _1m) => this.SetOption("1m", _1m.ToStringInv());
+        public Convolution_openclFilterGen _1m(String _1m) => this.SetOption("1m", _1m.ToString());
         /// <summary>
         ///  set matrix for 3rd plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public Convolution_openclFilterGen _2m(String _2m) => this.SetOption("2m", _2m.ToStringInv());
+        public Convolution_openclFilterGen _2m(String _2m) => this.SetOption("2m", _2m.ToString());
         /// <summary>
         ///  set matrix for 4th plane (default &quot;0 0 0 0 1 0 0 0 0&quot;)
         /// </summary>
-        public Convolution_openclFilterGen _3m(String _3m) => this.SetOption("3m", _3m.ToStringInv());
+        public Convolution_openclFilterGen _3m(String _3m) => this.SetOption("3m", _3m.ToString());
         /// <summary>
         ///  set rdiv for 1st plane (from 0 to INT_MAX) (default 1)
         /// </summary>

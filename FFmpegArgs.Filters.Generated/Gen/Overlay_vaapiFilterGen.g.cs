@@ -13,19 +13,19 @@
         /// <summary>
         ///  Overlay x position (default &quot;0&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
+        public Overlay_vaapiFilterGen x(String x) => this.SetOption("x", x.ToString());
         /// <summary>
         ///  Overlay y position (default &quot;0&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
+        public Overlay_vaapiFilterGen y(String y) => this.SetOption("y", y.ToString());
         /// <summary>
         ///  Overlay width (default &quot;overlay_iw&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public Overlay_vaapiFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  Overlay height (default &quot;overlay_ih*w/overlay_iw&quot;)
         /// </summary>
-        public Overlay_vaapiFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public Overlay_vaapiFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  Overlay global alpha (from 0 to 1) (default 1)
         /// </summary>

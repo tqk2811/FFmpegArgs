@@ -13,19 +13,19 @@
         /// <summary>
         ///  set logo x position (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
+        public DelogoFilterGen x(String x) => this.SetOption("x", x.ToString());
         /// <summary>
         ///  set logo y position (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
+        public DelogoFilterGen y(String y) => this.SetOption("y", y.ToString());
         /// <summary>
         ///  set logo width (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public DelogoFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  set logo height (default &quot;-1&quot;)
         /// </summary>
-        public DelogoFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public DelogoFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  show delogo area (default false)
         /// </summary>

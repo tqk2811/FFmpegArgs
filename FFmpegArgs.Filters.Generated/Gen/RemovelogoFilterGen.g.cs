@@ -13,7 +13,7 @@
         /// <summary>
         ///  set bitmap filename
         /// </summary>
-        public RemovelogoFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
+        public RemovelogoFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

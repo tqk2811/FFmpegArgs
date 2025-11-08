@@ -13,11 +13,11 @@
         /// <summary>
         ///  Radius of the luma blurring box (default &quot;2&quot;)
         /// </summary>
-        public BoxblurFilterGen luma_radius(String luma_radius) => this.SetOption("luma_radius", luma_radius.ToStringInv());
+        public BoxblurFilterGen luma_radius(String luma_radius) => this.SetOption("luma_radius", luma_radius.ToString());
         /// <summary>
         ///  Radius of the luma blurring box (default &quot;2&quot;)
         /// </summary>
-        public BoxblurFilterGen lr(String lr) => this.SetOption("lr", lr.ToStringInv());
+        public BoxblurFilterGen lr(String lr) => this.SetOption("lr", lr.ToString());
         /// <summary>
         ///  How many times should the boxblur be applied to luma (from 0 to INT_MAX) (default 2)
         /// </summary>
@@ -29,11 +29,11 @@
         /// <summary>
         ///  Radius of the chroma blurring box
         /// </summary>
-        public BoxblurFilterGen chroma_radius(String chroma_radius) => this.SetOption("chroma_radius", chroma_radius.ToStringInv());
+        public BoxblurFilterGen chroma_radius(String chroma_radius) => this.SetOption("chroma_radius", chroma_radius.ToString());
         /// <summary>
         ///  Radius of the chroma blurring box
         /// </summary>
-        public BoxblurFilterGen cr(String cr) => this.SetOption("cr", cr.ToStringInv());
+        public BoxblurFilterGen cr(String cr) => this.SetOption("cr", cr.ToString());
         /// <summary>
         ///  How many times should the boxblur be applied to chroma (from -1 to INT_MAX) (default -1)
         /// </summary>
@@ -45,11 +45,11 @@
         /// <summary>
         ///  Radius of the alpha blurring box
         /// </summary>
-        public BoxblurFilterGen alpha_radius(String alpha_radius) => this.SetOption("alpha_radius", alpha_radius.ToStringInv());
+        public BoxblurFilterGen alpha_radius(String alpha_radius) => this.SetOption("alpha_radius", alpha_radius.ToString());
         /// <summary>
         ///  Radius of the alpha blurring box
         /// </summary>
-        public BoxblurFilterGen ar(String ar) => this.SetOption("ar", ar.ToStringInv());
+        public BoxblurFilterGen ar(String ar) => this.SetOption("ar", ar.ToString());
         /// <summary>
         ///  How many times should the boxblur be applied to alpha (from -1 to INT_MAX) (default -1)
         /// </summary>

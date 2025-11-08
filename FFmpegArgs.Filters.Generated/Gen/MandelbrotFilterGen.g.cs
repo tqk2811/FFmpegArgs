@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;25&quot;)
         /// </summary>
-        public MandelbrotFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public MandelbrotFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set max iterations number (from 1 to INT_MAX) (default 7189)
         /// </summary>

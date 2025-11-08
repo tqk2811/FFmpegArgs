@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width (default &quot;iw&quot;)
         /// </summary>
-        public Sr_amfFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public Sr_amfFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  Output video height (default &quot;ih&quot;)
         /// </summary>
-        public Sr_amfFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public Sr_amfFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  Output pixel format (default &quot;same&quot;)
         /// </summary>
-        public Sr_amfFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public Sr_amfFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Sharpness (from -1 to 2) (default -1)
         /// </summary>

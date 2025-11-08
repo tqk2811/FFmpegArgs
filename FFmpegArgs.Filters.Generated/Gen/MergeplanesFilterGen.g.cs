@@ -17,7 +17,7 @@
         /// <summary>
         ///  set output pixel format (default yuva444p)
         /// </summary>
-        public MergeplanesFilterGen format(PixFmt format) => this.SetOption("format", format.ToStringInv());
+        public MergeplanesFilterGen format(PixFmt format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  set 1st input to output stream mapping (from 0 to 3) (default 0)
         /// </summary>

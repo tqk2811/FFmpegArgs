@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AbitscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public AbitscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set video size (default &quot;1024x256&quot;)
         /// </summary>
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public AbitscopeFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
+        public AbitscopeFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
         /// <summary>
         ///  set output mode (from 0 to 1) (default bars)
         /// </summary>

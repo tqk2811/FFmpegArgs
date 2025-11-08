@@ -17,11 +17,11 @@
         /// <summary>
         ///  set gain values per band (default &quot;0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0&quot;)
         /// </summary>
-        public AfireqsrcFilterGen gains(String gains) => this.SetOption("gains", gains.ToStringInv());
+        public AfireqsrcFilterGen gains(String gains) => this.SetOption("gains", gains.ToString());
         /// <summary>
         ///  set central frequency values per band (default &quot;25 40 63 100 160 250 400 630 1000 1600 2500 4000 6300 10000 16000 24000&quot;)
         /// </summary>
-        public AfireqsrcFilterGen bands(String bands) => this.SetOption("bands", bands.ToStringInv());
+        public AfireqsrcFilterGen bands(String bands) => this.SetOption("bands", bands.ToString());
         /// <summary>
         ///  set number of taps (from 16 to 65535) (default 4096)
         /// </summary>

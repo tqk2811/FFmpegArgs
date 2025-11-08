@@ -17,7 +17,7 @@
         /// <summary>
         ///  set custom layout
         /// </summary>
-        public XstackFilterGen layout(String layout) => this.SetOption("layout", layout.ToStringInv());
+        public XstackFilterGen layout(String layout) => this.SetOption("layout", layout.ToString());
         /// <summary>
         ///  set fixed size grid layout
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  set the color for unused pixels (default &quot;none&quot;)
         /// </summary>
-        public XstackFilterGen fill(String fill) => this.SetOption("fill", fill.ToStringInv());
+        public XstackFilterGen fill(String fill) => this.SetOption("fill", fill.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

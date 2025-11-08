@@ -13,7 +13,7 @@
         /// <summary>
         ///  set destination indexes of input frames (default &quot;0&quot;)
         /// </summary>
-        public ShuffleframesFilterGen mapping(String mapping) => this.SetOption("mapping", mapping.ToStringInv());
+        public ShuffleframesFilterGen mapping(String mapping) => this.SetOption("mapping", mapping.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

@@ -17,7 +17,7 @@
         /// <summary>
         ///  Channels to extract. (default &quot;all&quot;)
         /// </summary>
-        public ChannelsplitFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
+        public ChannelsplitFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

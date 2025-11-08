@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width (default &quot;iw&quot;)
         /// </summary>
-        public Scale_vaapiFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public Scale_vaapiFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  Output video height (default &quot;ih&quot;)
         /// </summary>
-        public Scale_vaapiFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public Scale_vaapiFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  Output video format (software format of hardware frames)
         /// </summary>
-        public Scale_vaapiFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public Scale_vaapiFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Scaling mode (from 0 to 768) (default hq)
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  Output colour matrix coefficient set
         /// </summary>
-        public Scale_vaapiFilterGen out_color_matrix(String out_color_matrix) => this.SetOption("out_color_matrix", out_color_matrix.ToStringInv());
+        public Scale_vaapiFilterGen out_color_matrix(String out_color_matrix) => this.SetOption("out_color_matrix", out_color_matrix.ToString());
         /// <summary>
         ///  Output colour range (from 0 to 2) (default 0)
         /// </summary>
@@ -37,15 +37,15 @@
         /// <summary>
         ///  Output colour primaries
         /// </summary>
-        public Scale_vaapiFilterGen out_color_primaries(String out_color_primaries) => this.SetOption("out_color_primaries", out_color_primaries.ToStringInv());
+        public Scale_vaapiFilterGen out_color_primaries(String out_color_primaries) => this.SetOption("out_color_primaries", out_color_primaries.ToString());
         /// <summary>
         ///  Output colour transfer characteristics
         /// </summary>
-        public Scale_vaapiFilterGen out_color_transfer(String out_color_transfer) => this.SetOption("out_color_transfer", out_color_transfer.ToStringInv());
+        public Scale_vaapiFilterGen out_color_transfer(String out_color_transfer) => this.SetOption("out_color_transfer", out_color_transfer.ToString());
         /// <summary>
         ///  Output chroma sample location
         /// </summary>
-        public Scale_vaapiFilterGen out_chroma_location(String out_chroma_location) => this.SetOption("out_chroma_location", out_chroma_location.ToStringInv());
+        public Scale_vaapiFilterGen out_chroma_location(String out_chroma_location) => this.SetOption("out_chroma_location", out_chroma_location.ToString());
         /// <summary>
         ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
         /// </summary>

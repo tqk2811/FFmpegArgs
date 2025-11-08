@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width (default &quot;iw&quot;)
         /// </summary>
-        public Scale_d3d11FilterGen width(String width) => this.SetOption("width", width.ToStringInv());
+        public Scale_d3d11FilterGen width(String width) => this.SetOption("width", width.ToString());
         /// <summary>
         ///  Output video height (default &quot;ih&quot;)
         /// </summary>
-        public Scale_d3d11FilterGen height(String height) => this.SetOption("height", height.ToStringInv());
+        public Scale_d3d11FilterGen height(String height) => this.SetOption("height", height.ToString());
         /// <summary>
         ///  Output video pixel format (default none)
         /// </summary>
-        public Scale_d3d11FilterGen format(PixFmt format) => this.SetOption("format", format.ToStringInv());
+        public Scale_d3d11FilterGen format(PixFmt format) => this.SetOption("format", format.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

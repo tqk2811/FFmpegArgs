@@ -33,7 +33,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public AllpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
+        public AllpassFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
         /// <summary>
         ///  normalize coefficients (default false)
         /// </summary>

@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowfreqsFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public ShowfreqsFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set display mode (from 0 to 2) (default bar)
         /// </summary>
@@ -49,7 +49,7 @@
         /// <summary>
         ///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public ShowfreqsFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
+        public ShowfreqsFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
         /// <summary>
         ///  set channel mode (from 0 to 1) (default combined)
         /// </summary>
@@ -65,7 +65,7 @@
         /// <summary>
         ///  set channels to draw (default &quot;all&quot;)
         /// </summary>
-        public ShowfreqsFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
+        public ShowfreqsFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
     }
 
     /// <summary>

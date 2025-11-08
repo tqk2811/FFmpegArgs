@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video rate (default &quot;60&quot;)
         /// </summary>
-        public Color_vulkanFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public Color_vulkanFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  Output video format (software format of hardware frames)
         /// </summary>
-        public Color_vulkanFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public Color_vulkanFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
         /// </summary>

@@ -17,7 +17,7 @@
         /// <summary>
         ///  Derive a new device of this type
         /// </summary>
-        public HwmapFilterGen derive_device(String derive_device) => this.SetOption("derive_device", derive_device.ToStringInv());
+        public HwmapFilterGen derive_device(String derive_device) => this.SetOption("derive_device", derive_device.ToString());
         /// <summary>
         ///  Map in reverse (create and allocate in the sink) (from 0 to 1) (default 0)
         /// </summary>

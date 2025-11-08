@@ -25,7 +25,7 @@
         /// <summary>
         ///  Set weight for each input. (default &quot;1 1&quot;)
         /// </summary>
-        public AmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToStringInv());
+        public AmixFilterGen weights(String weights) => this.SetOption("weights", weights.ToString());
         /// <summary>
         ///  Scale inputs (default true)
         /// </summary>

@@ -17,43 +17,43 @@
         /// <summary>
         ///  adjust red regions
         /// </summary>
-        public SelectivecolorFilterGen reds(String reds) => this.SetOption("reds", reds.ToStringInv());
+        public SelectivecolorFilterGen reds(String reds) => this.SetOption("reds", reds.ToString());
         /// <summary>
         ///  adjust yellow regions
         /// </summary>
-        public SelectivecolorFilterGen yellows(String yellows) => this.SetOption("yellows", yellows.ToStringInv());
+        public SelectivecolorFilterGen yellows(String yellows) => this.SetOption("yellows", yellows.ToString());
         /// <summary>
         ///  adjust green regions
         /// </summary>
-        public SelectivecolorFilterGen greens(String greens) => this.SetOption("greens", greens.ToStringInv());
+        public SelectivecolorFilterGen greens(String greens) => this.SetOption("greens", greens.ToString());
         /// <summary>
         ///  adjust cyan regions
         /// </summary>
-        public SelectivecolorFilterGen cyans(String cyans) => this.SetOption("cyans", cyans.ToStringInv());
+        public SelectivecolorFilterGen cyans(String cyans) => this.SetOption("cyans", cyans.ToString());
         /// <summary>
         ///  adjust blue regions
         /// </summary>
-        public SelectivecolorFilterGen blues(String blues) => this.SetOption("blues", blues.ToStringInv());
+        public SelectivecolorFilterGen blues(String blues) => this.SetOption("blues", blues.ToString());
         /// <summary>
         ///  adjust magenta regions
         /// </summary>
-        public SelectivecolorFilterGen magentas(String magentas) => this.SetOption("magentas", magentas.ToStringInv());
+        public SelectivecolorFilterGen magentas(String magentas) => this.SetOption("magentas", magentas.ToString());
         /// <summary>
         ///  adjust white regions
         /// </summary>
-        public SelectivecolorFilterGen whites(String whites) => this.SetOption("whites", whites.ToStringInv());
+        public SelectivecolorFilterGen whites(String whites) => this.SetOption("whites", whites.ToString());
         /// <summary>
         ///  adjust neutral regions
         /// </summary>
-        public SelectivecolorFilterGen neutrals(String neutrals) => this.SetOption("neutrals", neutrals.ToStringInv());
+        public SelectivecolorFilterGen neutrals(String neutrals) => this.SetOption("neutrals", neutrals.ToString());
         /// <summary>
         ///  adjust black regions
         /// </summary>
-        public SelectivecolorFilterGen blacks(String blacks) => this.SetOption("blacks", blacks.ToStringInv());
+        public SelectivecolorFilterGen blacks(String blacks) => this.SetOption("blacks", blacks.ToString());
         /// <summary>
         ///  set Photoshop selectivecolor file name
         /// </summary>
-        public SelectivecolorFilterGen psfile(String psfile) => this.SetOption("psfile", psfile.ToStringInv());
+        public SelectivecolorFilterGen psfile(String psfile) => this.SetOption("psfile", psfile.ToString());
     }
 
     /// <summary>

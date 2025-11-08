@@ -13,27 +13,27 @@
         /// <summary>
         ///  Output pixel format set
         /// </summary>
-        public Tonemap_vaapiFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public Tonemap_vaapiFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Output color matrix coefficient set
         /// </summary>
-        public Tonemap_vaapiFilterGen matrix(String matrix) => this.SetOption("matrix", matrix.ToStringInv());
+        public Tonemap_vaapiFilterGen matrix(String matrix) => this.SetOption("matrix", matrix.ToString());
         /// <summary>
         ///  Output color primaries set
         /// </summary>
-        public Tonemap_vaapiFilterGen primaries(String primaries) => this.SetOption("primaries", primaries.ToStringInv());
+        public Tonemap_vaapiFilterGen primaries(String primaries) => this.SetOption("primaries", primaries.ToString());
         /// <summary>
         ///  Output color transfer characteristics set
         /// </summary>
-        public Tonemap_vaapiFilterGen transfer(String transfer) => this.SetOption("transfer", transfer.ToStringInv());
+        public Tonemap_vaapiFilterGen transfer(String transfer) => this.SetOption("transfer", transfer.ToString());
         /// <summary>
         ///  set mastering display colour volume
         /// </summary>
-        public Tonemap_vaapiFilterGen display(String display) => this.SetOption("display", display.ToStringInv());
+        public Tonemap_vaapiFilterGen display(String display) => this.SetOption("display", display.ToString());
         /// <summary>
         ///  set content light level information
         /// </summary>
-        public Tonemap_vaapiFilterGen light(String light) => this.SetOption("light", light.ToStringInv());
+        public Tonemap_vaapiFilterGen light(String light) => this.SetOption("light", light.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

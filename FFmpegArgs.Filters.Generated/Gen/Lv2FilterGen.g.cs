@@ -13,11 +13,11 @@
         /// <summary>
         ///  set plugin uri
         /// </summary>
-        public Lv2FilterGen plugin(String plugin) => this.SetOption("plugin", plugin.ToStringInv());
+        public Lv2FilterGen plugin(String plugin) => this.SetOption("plugin", plugin.ToString());
         /// <summary>
         ///  set plugin options
         /// </summary>
-        public Lv2FilterGen controls(String controls) => this.SetOption("controls", controls.ToStringInv());
+        public Lv2FilterGen controls(String controls) => this.SetOption("controls", controls.ToString());
         /// <summary>
         ///  set sample rate (from 1 to INT_MAX) (default 44100)
         /// </summary>

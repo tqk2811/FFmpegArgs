@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public A3dscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public A3dscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set video size (default &quot;hd720&quot;)
         /// </summary>

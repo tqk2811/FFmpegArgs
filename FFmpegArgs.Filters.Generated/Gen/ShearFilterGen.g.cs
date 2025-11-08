@@ -21,11 +21,11 @@
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public ShearFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToStringInv());
+        public ShearFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToString());
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public ShearFilterGen c(String c) => this.SetOption("c", c.ToStringInv());
+        public ShearFilterGen c(String c) => this.SetOption("c", c.ToString());
         /// <summary>
         ///  set interpolation (from 0 to 1) (default bilinear)
         /// </summary>

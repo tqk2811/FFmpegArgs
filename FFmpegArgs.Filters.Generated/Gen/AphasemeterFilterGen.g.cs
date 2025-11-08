@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AphasemeterFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public AphasemeterFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set video size (default &quot;800x400&quot;)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set median phase color (default &quot;none&quot;)
         /// </summary>
-        public AphasemeterFilterGen mpc(String mpc) => this.SetOption("mpc", mpc.ToStringInv());
+        public AphasemeterFilterGen mpc(String mpc) => this.SetOption("mpc", mpc.ToString());
         /// <summary>
         ///  set video output (default true)
         /// </summary>

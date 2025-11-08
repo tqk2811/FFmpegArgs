@@ -21,19 +21,19 @@
         /// <summary>
         ///  set delays
         /// </summary>
-        public ChorusFilterGen delays(String delays) => this.SetOption("delays", delays.ToStringInv());
+        public ChorusFilterGen delays(String delays) => this.SetOption("delays", delays.ToString());
         /// <summary>
         ///  set decays
         /// </summary>
-        public ChorusFilterGen decays(String decays) => this.SetOption("decays", decays.ToStringInv());
+        public ChorusFilterGen decays(String decays) => this.SetOption("decays", decays.ToString());
         /// <summary>
         ///  set speeds
         /// </summary>
-        public ChorusFilterGen speeds(String speeds) => this.SetOption("speeds", speeds.ToStringInv());
+        public ChorusFilterGen speeds(String speeds) => this.SetOption("speeds", speeds.ToString());
         /// <summary>
         ///  set depths
         /// </summary>
-        public ChorusFilterGen depths(String depths) => this.SetOption("depths", depths.ToStringInv());
+        public ChorusFilterGen depths(String depths) => this.SetOption("depths", depths.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

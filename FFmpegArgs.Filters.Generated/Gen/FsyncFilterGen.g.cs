@@ -13,7 +13,7 @@
         /// <summary>
         ///  set the file name to use for frame sync (default &quot;&quot;)
         /// </summary>
-        public FsyncFilterGen file(String file) => this.SetOption("file", file.ToStringInv());
+        public FsyncFilterGen file(String file) => this.SetOption("file", file.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

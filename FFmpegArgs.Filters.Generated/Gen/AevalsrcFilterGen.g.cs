@@ -21,7 +21,7 @@
         /// <summary>
         ///  set the sample rate (default &quot;44100&quot;)
         /// </summary>
-        public AevalsrcFilterGen sample_rate(String sample_rate) => this.SetOption("sample_rate", sample_rate.ToStringInv());
+        public AevalsrcFilterGen sample_rate(String sample_rate) => this.SetOption("sample_rate", sample_rate.ToString());
         /// <summary>
         ///  set audio duration (default -0.000001)
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  set channel layout
         /// </summary>
-        public AevalsrcFilterGen channel_layout(String channel_layout) => this.SetOption("channel_layout", channel_layout.ToStringInv());
+        public AevalsrcFilterGen channel_layout(String channel_layout) => this.SetOption("channel_layout", channel_layout.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

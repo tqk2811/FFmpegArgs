@@ -25,7 +25,7 @@
         /// <summary>
         ///  set what planes to filter (default F)
         /// </summary>
-        public PixelizeFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
+        public PixelizeFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
     }
 
     /// <summary>

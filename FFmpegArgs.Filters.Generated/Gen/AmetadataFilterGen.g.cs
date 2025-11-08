@@ -17,11 +17,11 @@
         /// <summary>
         ///  set metadata key
         /// </summary>
-        public AmetadataFilterGen key(String key) => this.SetOption("key", key.ToStringInv());
+        public AmetadataFilterGen key(String key) => this.SetOption("key", key.ToString());
         /// <summary>
         ///  set metadata value
         /// </summary>
-        public AmetadataFilterGen value(String value) => this.SetOption("value", value.ToStringInv());
+        public AmetadataFilterGen value(String value) => this.SetOption("value", value.ToString());
         /// <summary>
         ///  function for comparing values (from 0 to 6) (default same_str)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set file where to print metadata information
         /// </summary>
-        public AmetadataFilterGen file(String file) => this.SetOption("file", file.ToStringInv());
+        public AmetadataFilterGen file(String file) => this.SetOption("file", file.ToString());
         /// <summary>
         ///  reduce buffering when printing to user-set file or pipe (default false)
         /// </summary>

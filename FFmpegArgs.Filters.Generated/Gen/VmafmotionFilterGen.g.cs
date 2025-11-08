@@ -13,7 +13,7 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public VmafmotionFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
+        public VmafmotionFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

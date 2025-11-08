@@ -13,7 +13,7 @@
         /// <summary>
         ///  set 1D LUT file name
         /// </summary>
-        public Lut1dFilterGen file(String file) => this.SetOption("file", file.ToStringInv());
+        public Lut1dFilterGen file(String file) => this.SetOption("file", file.ToString());
         /// <summary>
         ///  select interpolation mode (from 0 to 4) (default linear)
         /// </summary>

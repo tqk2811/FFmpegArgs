@@ -25,7 +25,7 @@
         /// <summary>
         ///  Codec name (default &quot;snow&quot;)
         /// </summary>
-        public UsppFilterGen codec(String codec) => this.SetOption("codec", codec.ToStringInv());
+        public UsppFilterGen codec(String codec) => this.SetOption("codec", codec.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

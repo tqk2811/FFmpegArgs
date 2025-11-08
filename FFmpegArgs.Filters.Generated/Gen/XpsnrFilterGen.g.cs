@@ -13,11 +13,11 @@
         /// <summary>
         ///  Set file where to store per-frame XPSNR information
         /// </summary>
-        public XpsnrFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
+        public XpsnrFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
         /// <summary>
         ///  Set file where to store per-frame XPSNR information
         /// </summary>
-        public XpsnrFilterGen f(String f) => this.SetOption("f", f.ToStringInv());
+        public XpsnrFilterGen f(String f) => this.SetOption("f", f.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

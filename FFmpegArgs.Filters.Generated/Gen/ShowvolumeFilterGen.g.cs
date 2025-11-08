@@ -13,7 +13,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowvolumeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public ShowvolumeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set border width (from 0 to 5) (default 1)
         /// </summary>

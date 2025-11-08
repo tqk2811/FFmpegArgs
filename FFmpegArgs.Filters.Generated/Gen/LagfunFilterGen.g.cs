@@ -17,7 +17,7 @@
         /// <summary>
         ///  set what planes to filter (default F)
         /// </summary>
-        public LagfunFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
+        public LagfunFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

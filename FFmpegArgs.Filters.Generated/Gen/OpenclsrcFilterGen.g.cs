@@ -13,11 +13,11 @@
         /// <summary>
         ///  OpenCL program source file
         /// </summary>
-        public OpenclsrcFilterGen source(String source) => this.SetOption("source", source.ToStringInv());
+        public OpenclsrcFilterGen source(String source) => this.SetOption("source", source.ToString());
         /// <summary>
         ///  Kernel name in program
         /// </summary>
-        public OpenclsrcFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToStringInv());
+        public OpenclsrcFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToString());
         /// <summary>
         ///  Video size
         /// </summary>
@@ -25,11 +25,11 @@
         /// <summary>
         ///  Video format (default none)
         /// </summary>
-        public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format", format.ToStringInv());
+        public OpenclsrcFilterGen format(PixFmt format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Video frame rate (default &quot;25&quot;)
         /// </summary>
-        public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public OpenclsrcFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

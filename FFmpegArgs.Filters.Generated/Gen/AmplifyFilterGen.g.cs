@@ -37,7 +37,7 @@
         /// <summary>
         ///  set what planes to filter (default 7)
         /// </summary>
-        public AmplifyFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
+        public AmplifyFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

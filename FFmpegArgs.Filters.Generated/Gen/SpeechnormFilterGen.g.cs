@@ -37,11 +37,11 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public SpeechnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
+        public SpeechnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public SpeechnormFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public SpeechnormFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  set inverted filtering (default false)
         /// </summary>

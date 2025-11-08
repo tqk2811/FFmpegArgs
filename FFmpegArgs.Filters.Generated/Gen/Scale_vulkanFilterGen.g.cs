@@ -13,11 +13,11 @@
         /// <summary>
         ///  Output video width (default &quot;iw&quot;)
         /// </summary>
-        public Scale_vulkanFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public Scale_vulkanFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  Output video height (default &quot;ih&quot;)
         /// </summary>
-        public Scale_vulkanFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public Scale_vulkanFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  Scaler function (from 0 to 2) (default bilinear)
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  Output video format (software format of hardware frames)
         /// </summary>
-        public Scale_vulkanFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public Scale_vulkanFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Output colour range (from 0 to 2) (default 0) (from 0 to 2) (default 0)
         /// </summary>

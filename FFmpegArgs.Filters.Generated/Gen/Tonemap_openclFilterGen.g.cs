@@ -33,7 +33,7 @@
         /// <summary>
         ///  output pixel format (default none)
         /// </summary>
-        public Tonemap_openclFilterGen format(PixFmt format) => this.SetOption("format", format.ToStringInv());
+        public Tonemap_openclFilterGen format(PixFmt format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  signal peak override (from 0 to DBL_MAX) (default 0)
         /// </summary>

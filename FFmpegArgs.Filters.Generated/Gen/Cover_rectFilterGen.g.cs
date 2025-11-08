@@ -13,7 +13,7 @@
         /// <summary>
         ///  cover bitmap filename
         /// </summary>
-        public Cover_rectFilterGen cover(String cover) => this.SetOption("cover", cover.ToStringInv());
+        public Cover_rectFilterGen cover(String cover) => this.SetOption("cover", cover.ToString());
         /// <summary>
         ///  set removal mode (from 0 to 1) (default blur)
         /// </summary>

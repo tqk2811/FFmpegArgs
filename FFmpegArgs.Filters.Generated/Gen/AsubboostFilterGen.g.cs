@@ -45,7 +45,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public AsubboostFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
+        public AsubboostFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

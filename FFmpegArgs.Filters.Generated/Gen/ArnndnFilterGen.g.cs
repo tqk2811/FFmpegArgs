@@ -13,7 +13,7 @@
         /// <summary>
         ///  set model name
         /// </summary>
-        public ArnndnFilterGen model(String model) => this.SetOption("model", model.ToStringInv());
+        public ArnndnFilterGen model(String model) => this.SetOption("model", model.ToString());
         /// <summary>
         ///  set output vs input mix (from -1 to 1) (default 1)
         /// </summary>

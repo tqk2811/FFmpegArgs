@@ -13,11 +13,11 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public PsnrFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
+        public PsnrFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public PsnrFilterGen f(String f) => this.SetOption("f", f.ToStringInv());
+        public PsnrFilterGen f(String f) => this.SetOption("f", f.ToString());
         /// <summary>
         ///  Set the format version for the stats file. (from 1 to 2) (default 1)
         /// </summary>

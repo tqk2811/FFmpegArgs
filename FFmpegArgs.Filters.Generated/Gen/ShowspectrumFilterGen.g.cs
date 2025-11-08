@@ -73,7 +73,7 @@
         /// <summary>
         ///  set video rate (default &quot;auto&quot;)
         /// </summary>
-        public ShowspectrumFilterGen fps(String fps) => this.SetOption("fps", fps.ToStringInv());
+        public ShowspectrumFilterGen fps(String fps) => this.SetOption("fps", fps.ToString());
         /// <summary>
         ///  draw legend (default false)
         /// </summary>

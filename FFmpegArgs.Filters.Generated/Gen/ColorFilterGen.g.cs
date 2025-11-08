@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ColorFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public ColorFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set video duration (default -0.000001)
         /// </summary>

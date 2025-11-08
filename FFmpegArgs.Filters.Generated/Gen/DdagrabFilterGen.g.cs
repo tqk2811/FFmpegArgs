@@ -21,7 +21,7 @@
         /// <summary>
         ///  set video frame rate (default &quot;30&quot;)
         /// </summary>
-        public DdagrabFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToStringInv());
+        public DdagrabFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToString());
         /// <summary>
         ///  set video frame size
         /// </summary>

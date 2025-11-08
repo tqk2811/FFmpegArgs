@@ -13,7 +13,7 @@
         /// <summary>
         ///  A comma-separated list of input channel numbers in output order.
         /// </summary>
-        public ChannelmapFilterGen map(String map) => this.SetOption("map", map.ToStringInv());
+        public ChannelmapFilterGen map(String map) => this.SetOption("map", map.ToString());
         /// <summary>
         ///  Output channel layout.
         /// </summary>

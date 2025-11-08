@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;30&quot;)
         /// </summary>
-        public AvsynctestFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToStringInv());
+        public AvsynctestFilterGen framerate(Rational framerate) => this.SetOption("framerate", framerate.ToString());
         /// <summary>
         ///  set sample rate (from 8000 to 384000) (default 44100)
         /// </summary>

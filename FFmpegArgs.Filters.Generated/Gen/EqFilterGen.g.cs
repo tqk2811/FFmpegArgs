@@ -13,35 +13,35 @@
         /// <summary>
         ///  set the contrast adjustment, negative values give a negative image (default &quot;1.0&quot;)
         /// </summary>
-        public EqFilterGen contrast(String contrast) => this.SetOption("contrast", contrast.ToStringInv());
+        public EqFilterGen contrast(String contrast) => this.SetOption("contrast", contrast.ToString());
         /// <summary>
         ///  set the brightness adjustment (default &quot;0.0&quot;)
         /// </summary>
-        public EqFilterGen brightness(String brightness) => this.SetOption("brightness", brightness.ToStringInv());
+        public EqFilterGen brightness(String brightness) => this.SetOption("brightness", brightness.ToString());
         /// <summary>
         ///  set the saturation adjustment (default &quot;1.0&quot;)
         /// </summary>
-        public EqFilterGen saturation(String saturation) => this.SetOption("saturation", saturation.ToStringInv());
+        public EqFilterGen saturation(String saturation) => this.SetOption("saturation", saturation.ToString());
         /// <summary>
         ///  set the initial gamma value (default &quot;1.0&quot;)
         /// </summary>
-        public EqFilterGen gamma(String gamma) => this.SetOption("gamma", gamma.ToStringInv());
+        public EqFilterGen gamma(String gamma) => this.SetOption("gamma", gamma.ToString());
         /// <summary>
         ///  gamma value for red (default &quot;1.0&quot;)
         /// </summary>
-        public EqFilterGen gamma_r(String gamma_r) => this.SetOption("gamma_r", gamma_r.ToStringInv());
+        public EqFilterGen gamma_r(String gamma_r) => this.SetOption("gamma_r", gamma_r.ToString());
         /// <summary>
         ///  gamma value for green (default &quot;1.0&quot;)
         /// </summary>
-        public EqFilterGen gamma_g(String gamma_g) => this.SetOption("gamma_g", gamma_g.ToStringInv());
+        public EqFilterGen gamma_g(String gamma_g) => this.SetOption("gamma_g", gamma_g.ToString());
         /// <summary>
         ///  gamma value for blue (default &quot;1.0&quot;)
         /// </summary>
-        public EqFilterGen gamma_b(String gamma_b) => this.SetOption("gamma_b", gamma_b.ToStringInv());
+        public EqFilterGen gamma_b(String gamma_b) => this.SetOption("gamma_b", gamma_b.ToString());
         /// <summary>
         ///  set the gamma weight which reduces the effect of gamma on bright areas (default &quot;1.0&quot;)
         /// </summary>
-        public EqFilterGen gamma_weight(String gamma_weight) => this.SetOption("gamma_weight", gamma_weight.ToStringInv());
+        public EqFilterGen gamma_weight(String gamma_weight) => this.SetOption("gamma_weight", gamma_weight.ToString());
         /// <summary>
         ///  specify when to evaluate expressions (from 0 to 1) (default init)
         /// </summary>

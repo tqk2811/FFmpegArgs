@@ -17,11 +17,11 @@
         /// <summary>
         ///  set OpenCL program source file for custom transition
         /// </summary>
-        public Xfade_openclFilterGen source(String source) => this.SetOption("source", source.ToStringInv());
+        public Xfade_openclFilterGen source(String source) => this.SetOption("source", source.ToString());
         /// <summary>
         ///  set kernel name in program file for custom transition
         /// </summary>
-        public Xfade_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToStringInv());
+        public Xfade_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToString());
         /// <summary>
         ///  set cross fade duration (default 1)
         /// </summary>

@@ -13,7 +13,7 @@
         /// <summary>
         ///  set 3D LUT file name
         /// </summary>
-        public Lut3dFilterGen file(String file) => this.SetOption("file", file.ToStringInv());
+        public Lut3dFilterGen file(String file) => this.SetOption("file", file.ToString());
         /// <summary>
         ///  when to process CLUT (from 0 to 1) (default all)
         /// </summary>

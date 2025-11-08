@@ -13,15 +13,15 @@
         /// <summary>
         ///  set display aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetdarFilterGen dar(String dar) => this.SetOption("dar", dar.ToStringInv());
+        public SetdarFilterGen dar(String dar) => this.SetOption("dar", dar.ToString());
         /// <summary>
         ///  set display aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetdarFilterGen ratio(String ratio) => this.SetOption("ratio", ratio.ToStringInv());
+        public SetdarFilterGen ratio(String ratio) => this.SetOption("ratio", ratio.ToString());
         /// <summary>
         ///  set display aspect ratio (default &quot;0&quot;)
         /// </summary>
-        public SetdarFilterGen r(String r) => this.SetOption("r", r.ToStringInv());
+        public SetdarFilterGen r(String r) => this.SetOption("r", r.ToString());
         /// <summary>
         ///  set max value for nominator or denominator in the ratio (from 1 to INT_MAX) (default 100)
         /// </summary>

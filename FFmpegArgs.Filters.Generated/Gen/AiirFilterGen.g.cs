@@ -13,19 +13,19 @@
         /// <summary>
         ///  set B/numerator/zeros/reflection coefficients (default &quot;1+0i 1-0i&quot;)
         /// </summary>
-        public AiirFilterGen zeros(String zeros) => this.SetOption("zeros", zeros.ToStringInv());
+        public AiirFilterGen zeros(String zeros) => this.SetOption("zeros", zeros.ToString());
         /// <summary>
         ///  set A/denominator/poles/ladder coefficients (default &quot;1+0i 1-0i&quot;)
         /// </summary>
-        public AiirFilterGen poles(String poles) => this.SetOption("poles", poles.ToStringInv());
+        public AiirFilterGen poles(String poles) => this.SetOption("poles", poles.ToString());
         /// <summary>
         ///  set channels gains (default &quot;1|1&quot;)
         /// </summary>
-        public AiirFilterGen gains(String gains) => this.SetOption("gains", gains.ToStringInv());
+        public AiirFilterGen gains(String gains) => this.SetOption("gains", gains.ToString());
         /// <summary>
         ///  set channels gains (default &quot;1|1&quot;)
         /// </summary>
-        public AiirFilterGen k(String k) => this.SetOption("k", k.ToStringInv());
+        public AiirFilterGen k(String k) => this.SetOption("k", k.ToString());
         /// <summary>
         ///  set dry gain (from 0 to 1) (default 1)
         /// </summary>
@@ -77,7 +77,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AiirFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public AiirFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
     }
 
     /// <summary>

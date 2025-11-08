@@ -69,11 +69,11 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public DynaudnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
+        public DynaudnormFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public DynaudnormFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public DynaudnormFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  set the frame overlap (from 0 to 1) (default 0)
         /// </summary>
@@ -81,11 +81,11 @@
         /// <summary>
         ///  set the custom peak mapping curve
         /// </summary>
-        public DynaudnormFilterGen curve(String curve) => this.SetOption("curve", curve.ToStringInv());
+        public DynaudnormFilterGen curve(String curve) => this.SetOption("curve", curve.ToString());
         /// <summary>
         ///  set the custom peak mapping curve
         /// </summary>
-        public DynaudnormFilterGen v(String v) => this.SetOption("v", v.ToStringInv());
+        public DynaudnormFilterGen v(String v) => this.SetOption("v", v.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

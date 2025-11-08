@@ -13,7 +13,7 @@
         /// <summary>
         ///  set list of delays for each channel
         /// </summary>
-        public AdelayFilterGen delays(String delays) => this.SetOption("delays", delays.ToStringInv());
+        public AdelayFilterGen delays(String delays) => this.SetOption("delays", delays.ToString());
         /// <summary>
         ///  use last available delay for remained channels (default false)
         /// </summary>

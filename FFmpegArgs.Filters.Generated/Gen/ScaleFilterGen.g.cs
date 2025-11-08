@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width
         /// </summary>
-        public ScaleFilterGen width(String width) => this.SetOption("width", width.ToStringInv());
+        public ScaleFilterGen width(String width) => this.SetOption("width", width.ToString());
         /// <summary>
         ///  Output video height
         /// </summary>
-        public ScaleFilterGen height(String height) => this.SetOption("height", height.ToStringInv());
+        public ScaleFilterGen height(String height) => this.SetOption("height", height.ToString());
         /// <summary>
         ///  Flags to pass to libswscale (default &quot;&quot;)
         /// </summary>
-        public ScaleFilterGen flags(String flags) => this.SetOption("flags", flags.ToStringInv());
+        public ScaleFilterGen flags(String flags) => this.SetOption("flags", flags.ToString());
         /// <summary>
         ///  set interlacing (default false)
         /// </summary>
@@ -29,7 +29,7 @@
         /// <summary>
         ///  set video size
         /// </summary>
-        public ScaleFilterGen size(String size) => this.SetOption("size", size.ToStringInv());
+        public ScaleFilterGen size(String size) => this.SetOption("size", size.ToString());
         /// <summary>
         ///  set input YCbCr type (from -1 to 17) (default auto)
         /// </summary>

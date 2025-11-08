@@ -61,7 +61,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AfirFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public AfirFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set min partition size (from 1 to 65536) (default 8192)
         /// </summary>

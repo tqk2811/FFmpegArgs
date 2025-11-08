@@ -13,7 +13,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public PanFilterGen args(String args) => this.SetOption("args", args.ToStringInv());
+        public PanFilterGen args(String args) => this.SetOption("args", args.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

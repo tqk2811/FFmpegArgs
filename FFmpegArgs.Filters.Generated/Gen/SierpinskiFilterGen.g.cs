@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;25&quot;)
         /// </summary>
-        public SierpinskiFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public SierpinskiFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set the seed (from -1 to UINT32_MAX) (default -1)
         /// </summary>

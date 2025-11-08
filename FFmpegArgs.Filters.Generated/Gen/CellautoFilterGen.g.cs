@@ -13,15 +13,15 @@
         /// <summary>
         ///  read initial pattern from file
         /// </summary>
-        public CellautoFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
+        public CellautoFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
         /// <summary>
         ///  set initial pattern
         /// </summary>
-        public CellautoFilterGen pattern(String pattern) => this.SetOption("pattern", pattern.ToStringInv());
+        public CellautoFilterGen pattern(String pattern) => this.SetOption("pattern", pattern.ToString());
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public CellautoFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public CellautoFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set video size
         /// </summary>

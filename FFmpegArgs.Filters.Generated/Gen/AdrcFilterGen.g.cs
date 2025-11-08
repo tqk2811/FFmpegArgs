@@ -25,7 +25,7 @@
         /// <summary>
         ///  set channels to filter (default &quot;all&quot;)
         /// </summary>
-        public AdrcFilterGen channels(String channels) => this.SetOption("channels", channels.ToStringInv());
+        public AdrcFilterGen channels(String channels) => this.SetOption("channels", channels.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

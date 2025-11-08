@@ -21,7 +21,7 @@
         /// <summary>
         ///  set planes (default F)
         /// </summary>
-        public MultiplyFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
+        public MultiplyFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

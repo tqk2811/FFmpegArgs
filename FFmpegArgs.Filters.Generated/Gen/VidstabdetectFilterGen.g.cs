@@ -13,7 +13,7 @@
         /// <summary>
         ///  path to the file used to write the transforms (default &quot;transforms.trf&quot;)
         /// </summary>
-        public VidstabdetectFilterGen result(String result) => this.SetOption("result", result.ToStringInv());
+        public VidstabdetectFilterGen result(String result) => this.SetOption("result", result.ToString());
         /// <summary>
         ///  how shaky is the video and how quick is the camera? 1: little (fast) 10: very strong/quick (slow) (from 1 to 10) (default 5)
         /// </summary>

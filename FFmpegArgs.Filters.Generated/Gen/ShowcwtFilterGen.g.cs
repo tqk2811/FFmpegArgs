@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public ShowcwtFilterGen rate(String rate) => this.SetOption("rate", rate.ToStringInv());
+        public ShowcwtFilterGen rate(String rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set frequency scale (from 0 to 8) (default linear)
         /// </summary>

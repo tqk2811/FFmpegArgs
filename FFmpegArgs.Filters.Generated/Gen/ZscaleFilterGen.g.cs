@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width
         /// </summary>
-        public ZscaleFilterGen width(String width) => this.SetOption("width", width.ToStringInv());
+        public ZscaleFilterGen width(String width) => this.SetOption("width", width.ToString());
         /// <summary>
         ///  Output video height
         /// </summary>
-        public ZscaleFilterGen height(String height) => this.SetOption("height", height.ToStringInv());
+        public ZscaleFilterGen height(String height) => this.SetOption("height", height.ToString());
         /// <summary>
         ///  set video size
         /// </summary>
-        public ZscaleFilterGen size(String size) => this.SetOption("size", size.ToStringInv());
+        public ZscaleFilterGen size(String size) => this.SetOption("size", size.ToString());
         /// <summary>
         ///  set dither type (from 0 to 3) (default none)
         /// </summary>

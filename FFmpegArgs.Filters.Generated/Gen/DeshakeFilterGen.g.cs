@@ -53,7 +53,7 @@
         /// <summary>
         ///  set motion search detailed log file name
         /// </summary>
-        public DeshakeFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
+        public DeshakeFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
         /// <summary>
         ///  ignored (default false)
         /// </summary>

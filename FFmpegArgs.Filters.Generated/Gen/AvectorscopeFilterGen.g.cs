@@ -17,7 +17,7 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public AvectorscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public AvectorscopeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set video size (default &quot;400x400&quot;)
         /// </summary>

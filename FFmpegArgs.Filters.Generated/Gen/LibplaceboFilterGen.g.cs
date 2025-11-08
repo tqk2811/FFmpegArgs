@@ -17,51 +17,51 @@
         /// <summary>
         ///  Output video frame width (default &quot;iw&quot;)
         /// </summary>
-        public LibplaceboFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public LibplaceboFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  Output video frame height (default &quot;ih&quot;)
         /// </summary>
-        public LibplaceboFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public LibplaceboFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  Output video frame rate (default &quot;none&quot;)
         /// </summary>
-        public LibplaceboFilterGen fps(String fps) => this.SetOption("fps", fps.ToStringInv());
+        public LibplaceboFilterGen fps(String fps) => this.SetOption("fps", fps.ToString());
         /// <summary>
         ///  Input video crop x (default &quot;(iw-cw)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_x(String crop_x) => this.SetOption("crop_x", crop_x.ToStringInv());
+        public LibplaceboFilterGen crop_x(String crop_x) => this.SetOption("crop_x", crop_x.ToString());
         /// <summary>
         ///  Input video crop y (default &quot;(ih-ch)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_y(String crop_y) => this.SetOption("crop_y", crop_y.ToStringInv());
+        public LibplaceboFilterGen crop_y(String crop_y) => this.SetOption("crop_y", crop_y.ToString());
         /// <summary>
         ///  Input video crop w (default &quot;iw&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_w(String crop_w) => this.SetOption("crop_w", crop_w.ToStringInv());
+        public LibplaceboFilterGen crop_w(String crop_w) => this.SetOption("crop_w", crop_w.ToString());
         /// <summary>
         ///  Input video crop h (default &quot;ih&quot;)
         /// </summary>
-        public LibplaceboFilterGen crop_h(String crop_h) => this.SetOption("crop_h", crop_h.ToStringInv());
+        public LibplaceboFilterGen crop_h(String crop_h) => this.SetOption("crop_h", crop_h.ToString());
         /// <summary>
         ///  Output video placement x (default &quot;(ow-pw)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_x(String pos_x) => this.SetOption("pos_x", pos_x.ToStringInv());
+        public LibplaceboFilterGen pos_x(String pos_x) => this.SetOption("pos_x", pos_x.ToString());
         /// <summary>
         ///  Output video placement y (default &quot;(oh-ph)/2&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_y(String pos_y) => this.SetOption("pos_y", pos_y.ToStringInv());
+        public LibplaceboFilterGen pos_y(String pos_y) => this.SetOption("pos_y", pos_y.ToString());
         /// <summary>
         ///  Output video placement w (default &quot;ow&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_w(String pos_w) => this.SetOption("pos_w", pos_w.ToStringInv());
+        public LibplaceboFilterGen pos_w(String pos_w) => this.SetOption("pos_w", pos_w.ToString());
         /// <summary>
         ///  Output video placement h (default &quot;oh&quot;)
         /// </summary>
-        public LibplaceboFilterGen pos_h(String pos_h) => this.SetOption("pos_h", pos_h.ToStringInv());
+        public LibplaceboFilterGen pos_h(String pos_h) => this.SetOption("pos_h", pos_h.ToString());
         /// <summary>
         ///  Output video format
         /// </summary>
-        public LibplaceboFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public LibplaceboFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  decrease or increase w/h if necessary to keep the original AR (from 0 to 2) (default disable)
         /// </summary>
@@ -93,7 +93,7 @@
         /// <summary>
         ///  Path to custom LUT file to apply
         /// </summary>
-        public LibplaceboFilterGen lut(String lut) => this.SetOption("lut", lut.ToStringInv());
+        public LibplaceboFilterGen lut(String lut) => this.SetOption("lut", lut.ToString());
         /// <summary>
         ///  Application mode of the custom LUT (from 0 to 3) (default auto)
         /// </summary>
@@ -101,11 +101,11 @@
         /// <summary>
         ///  Pass extra libplacebo-specific options using a :-separated list of key=value pairs
         /// </summary>
-        public LibplaceboFilterGen extra_opts(String extra_opts) => this.SetOption("extra_opts", extra_opts.ToStringInv());
+        public LibplaceboFilterGen extra_opts(String extra_opts) => this.SetOption("extra_opts", extra_opts.ToString());
         /// <summary>
         ///  Set shader cache path
         /// </summary>
-        public LibplaceboFilterGen shader_cache(String shader_cache) => this.SetOption("shader_cache", shader_cache.ToStringInv());
+        public LibplaceboFilterGen shader_cache(String shader_cache) => this.SetOption("shader_cache", shader_cache.ToString());
         /// <summary>
         ///  select colorspace (from -1 to 17) (default auto)
         /// </summary>
@@ -129,15 +129,15 @@
         /// <summary>
         ///  Upscaler function (default &quot;spline36&quot;)
         /// </summary>
-        public LibplaceboFilterGen upscaler(String upscaler) => this.SetOption("upscaler", upscaler.ToStringInv());
+        public LibplaceboFilterGen upscaler(String upscaler) => this.SetOption("upscaler", upscaler.ToString());
         /// <summary>
         ///  Downscaler function (default &quot;mitchell&quot;)
         /// </summary>
-        public LibplaceboFilterGen downscaler(String downscaler) => this.SetOption("downscaler", downscaler.ToStringInv());
+        public LibplaceboFilterGen downscaler(String downscaler) => this.SetOption("downscaler", downscaler.ToString());
         /// <summary>
         ///  Frame mixing function (default &quot;none&quot;)
         /// </summary>
-        public LibplaceboFilterGen frame_mixer(String frame_mixer) => this.SetOption("frame_mixer", frame_mixer.ToStringInv());
+        public LibplaceboFilterGen frame_mixer(String frame_mixer) => this.SetOption("frame_mixer", frame_mixer.ToString());
         /// <summary>
         ///  Antiringing strength (for non-EWA filters) (from 0 to 1) (default 0)
         /// </summary>
@@ -277,11 +277,11 @@
         /// <summary>
         ///  Path to custom user shader (mpv .hook format)
         /// </summary>
-        public LibplaceboFilterGen custom_shader_path(String custom_shader_path) => this.SetOption("custom_shader_path", custom_shader_path.ToStringInv());
+        public LibplaceboFilterGen custom_shader_path(String custom_shader_path) => this.SetOption("custom_shader_path", custom_shader_path.ToString());
         /// <summary>
         ///  Custom user shader as binary (mpv .hook format)
         /// </summary>
-        public LibplaceboFilterGen custom_shader_bin(String custom_shader_bin) => this.SetOption("custom_shader_bin", custom_shader_bin.ToStringInv());
+        public LibplaceboFilterGen custom_shader_bin(String custom_shader_bin) => this.SetOption("custom_shader_bin", custom_shader_bin.ToString());
         /// <summary>
         ///  Skip anti-aliasing (default false)
         /// </summary>

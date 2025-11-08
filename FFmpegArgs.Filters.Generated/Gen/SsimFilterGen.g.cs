@@ -13,11 +13,11 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public SsimFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
+        public SsimFilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public SsimFilterGen f(String f) => this.SetOption("f", f.ToStringInv());
+        public SsimFilterGen f(String f) => this.SetOption("f", f.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

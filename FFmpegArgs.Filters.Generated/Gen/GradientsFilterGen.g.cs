@@ -17,7 +17,7 @@
         /// <summary>
         ///  set frame rate (default &quot;25&quot;)
         /// </summary>
-        public GradientsFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public GradientsFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set 1st color (default &quot;random&quot;)
         /// </summary>

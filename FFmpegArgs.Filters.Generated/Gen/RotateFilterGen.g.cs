@@ -13,7 +13,7 @@
         /// <summary>
         ///  set angle (in radians) (default &quot;0&quot;)
         /// </summary>
-        public RotateFilterGen angle(String angle) => this.SetOption("angle", angle.ToStringInv());
+        public RotateFilterGen angle(String angle) => this.SetOption("angle", angle.ToString());
         /// <summary>
         ///  set output width expression (default &quot;iw&quot;)
         /// </summary>
@@ -33,11 +33,11 @@
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public RotateFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToStringInv());
+        public RotateFilterGen fillcolor(String fillcolor) => this.SetOption("fillcolor", fillcolor.ToString());
         /// <summary>
         ///  set background fill color (default &quot;black&quot;)
         /// </summary>
-        public RotateFilterGen c(String c) => this.SetOption("c", c.ToStringInv());
+        public RotateFilterGen c(String c) => this.SetOption("c", c.ToString());
         /// <summary>
         ///  use bilinear interpolation (default true)
         /// </summary>

@@ -13,19 +13,19 @@
         /// <summary>
         ///  set the pad area width (default &quot;iw&quot;)
         /// </summary>
-        public Pad_vaapiFilterGen width(String width) => this.SetOption("width", width.ToStringInv());
+        public Pad_vaapiFilterGen width(String width) => this.SetOption("width", width.ToString());
         /// <summary>
         ///  set the pad area height (default &quot;ih&quot;)
         /// </summary>
-        public Pad_vaapiFilterGen height(String height) => this.SetOption("height", height.ToStringInv());
+        public Pad_vaapiFilterGen height(String height) => this.SetOption("height", height.ToString());
         /// <summary>
         ///  set the x offset for the input image position (default &quot;0&quot;)
         /// </summary>
-        public Pad_vaapiFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
+        public Pad_vaapiFilterGen x(String x) => this.SetOption("x", x.ToString());
         /// <summary>
         ///  set the y offset for the input image position (default &quot;0&quot;)
         /// </summary>
-        public Pad_vaapiFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
+        public Pad_vaapiFilterGen y(String y) => this.SetOption("y", y.ToString());
         /// <summary>
         ///  set the color of the padded area border (default &quot;black&quot;)
         /// </summary>

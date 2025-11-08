@@ -21,7 +21,7 @@
         /// <summary>
         ///  Set custom layout
         /// </summary>
-        public Xstack_vaapiFilterGen layout(String layout) => this.SetOption("layout", layout.ToStringInv());
+        public Xstack_vaapiFilterGen layout(String layout) => this.SetOption("layout", layout.ToString());
         /// <summary>
         ///  set fixed size grid layout
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  Set the color for unused pixels (default &quot;none&quot;)
         /// </summary>
-        public Xstack_vaapiFilterGen fill(String fill) => this.SetOption("fill", fill.ToStringInv());
+        public Xstack_vaapiFilterGen fill(String fill) => this.SetOption("fill", fill.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

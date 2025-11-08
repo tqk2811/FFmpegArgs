@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width (default &quot;iw&quot;)
         /// </summary>
-        public Vpp_amfFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public Vpp_amfFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  Output video height (default &quot;ih&quot;)
         /// </summary>
-        public Vpp_amfFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public Vpp_amfFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  Output pixel format (default &quot;same&quot;)
         /// </summary>
-        public Vpp_amfFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public Vpp_amfFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Scale type (from 0 to 1) (default bilinear)
         /// </summary>

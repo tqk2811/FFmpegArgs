@@ -13,15 +13,15 @@
         /// <summary>
         ///  set font file
         /// </summary>
-        public DrawtextFilterGen fontfile(String fontfile) => this.SetOption("fontfile", fontfile.ToStringInv());
+        public DrawtextFilterGen fontfile(String fontfile) => this.SetOption("fontfile", fontfile.ToString());
         /// <summary>
         ///  set text
         /// </summary>
-        public DrawtextFilterGen text(String text) => this.SetOption("text", text.ToStringInv());
+        public DrawtextFilterGen text(String text) => this.SetOption("text", text.ToString());
         /// <summary>
         ///  set text file
         /// </summary>
-        public DrawtextFilterGen textfile(String textfile) => this.SetOption("textfile", textfile.ToStringInv());
+        public DrawtextFilterGen textfile(String textfile) => this.SetOption("textfile", textfile.ToString());
         /// <summary>
         ///  set foreground color (default &quot;black&quot;)
         /// </summary>
@@ -49,7 +49,7 @@
         /// <summary>
         ///  set box borders width (default &quot;0&quot;)
         /// </summary>
-        public DrawtextFilterGen boxborderw(String boxborderw) => this.SetOption("boxborderw", boxborderw.ToStringInv());
+        public DrawtextFilterGen boxborderw(String boxborderw) => this.SetOption("boxborderw", boxborderw.ToString());
         /// <summary>
         ///  set line spacing in pixels (from INT_MIN to INT_MAX) (default 0)
         /// </summary>
@@ -57,7 +57,7 @@
         /// <summary>
         ///  set font size
         /// </summary>
-        public DrawtextFilterGen fontsize(String fontsize) => this.SetOption("fontsize", fontsize.ToStringInv());
+        public DrawtextFilterGen fontsize(String fontsize) => this.SetOption("fontsize", fontsize.ToString());
         /// <summary>
         ///  set text alignment (default 0)
         /// </summary>
@@ -101,7 +101,7 @@
         /// <summary>
         ///  Font name (default &quot;Sans&quot;)
         /// </summary>
-        public DrawtextFilterGen font(String font) => this.SetOption("font", font.ToStringInv());
+        public DrawtextFilterGen font(String font) => this.SetOption("font", font.ToString());
         /// <summary>
         ///  set the expansion mode (from 0 to 2) (default normal)
         /// </summary>
@@ -113,7 +113,7 @@
         /// <summary>
         ///  set initial timecode
         /// </summary>
-        public DrawtextFilterGen timecode(String timecode) => this.SetOption("timecode", timecode.ToStringInv());
+        public DrawtextFilterGen timecode(String timecode) => this.SetOption("timecode", timecode.ToString());
         /// <summary>
         ///  set 24 hours max (timecode only) (default false)
         /// </summary>
@@ -137,7 +137,7 @@
         /// <summary>
         ///  apply alpha while rendering (default &quot;1&quot;)
         /// </summary>
-        public DrawtextFilterGen alpha(String alpha) => this.SetOption("alpha", alpha.ToStringInv());
+        public DrawtextFilterGen alpha(String alpha) => this.SetOption("alpha", alpha.ToString());
         /// <summary>
         ///  check and fix text coords to avoid clipping (default false)
         /// </summary>
@@ -149,7 +149,7 @@
         /// <summary>
         ///  the source of text
         /// </summary>
-        public DrawtextFilterGen text_source(String text_source) => this.SetOption("text_source", text_source.ToStringInv());
+        public DrawtextFilterGen text_source(String text_source) => this.SetOption("text_source", text_source.ToString());
         /// <summary>
         ///  attempt to shape text before drawing (default true)
         /// </summary>

@@ -25,7 +25,7 @@
         /// <summary>
         ///  (default none)
         /// </summary>
-        public BufferFilterGen pix_fmt(PixFmt pix_fmt) => this.SetOption("pix_fmt", pix_fmt.ToStringInv());
+        public BufferFilterGen pix_fmt(PixFmt pix_fmt) => this.SetOption("pix_fmt", pix_fmt.ToString());
         /// <summary>
         ///  sample aspect ratio (from 0 to DBL_MAX) (default 0/1)
         /// </summary>

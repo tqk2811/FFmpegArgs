@@ -13,7 +13,7 @@
         /// <summary>
         ///  set weights file (default &quot;nnedi3_weights.bin&quot;)
         /// </summary>
-        public NnediFilterGen weights(String weights) => this.SetOption("weights", weights.ToStringInv());
+        public NnediFilterGen weights(String weights) => this.SetOption("weights", weights.ToString());
         /// <summary>
         ///  set which frames to deinterlace (from 0 to 1) (default all)
         /// </summary>

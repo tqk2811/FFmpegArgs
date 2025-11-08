@@ -13,15 +13,15 @@
         /// <summary>
         ///  Output video width(0=input video width, -1=keep input video aspect) (default &quot;iw&quot;)
         /// </summary>
-        public Scale_qsvFilterGen w(String w) => this.SetOption("w", w.ToStringInv());
+        public Scale_qsvFilterGen w(String w) => this.SetOption("w", w.ToString());
         /// <summary>
         ///  Output video height(0=input video height, -1=keep input video aspect) (default &quot;ih&quot;)
         /// </summary>
-        public Scale_qsvFilterGen h(String h) => this.SetOption("h", h.ToStringInv());
+        public Scale_qsvFilterGen h(String h) => this.SetOption("h", h.ToString());
         /// <summary>
         ///  Output pixel format (default &quot;same&quot;)
         /// </summary>
-        public Scale_qsvFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public Scale_qsvFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  scaling &amp; format conversion mode (mode compute(3), vd(4) and ve(5) are only available on some platforms) (from 0 to 5) (default 0)
         /// </summary>

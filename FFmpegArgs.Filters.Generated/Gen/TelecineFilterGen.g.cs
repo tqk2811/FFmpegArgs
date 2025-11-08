@@ -17,7 +17,7 @@
         /// <summary>
         ///  pattern that describe for how many fields a frame is to be displayed (default &quot;23&quot;)
         /// </summary>
-        public TelecineFilterGen pattern(String pattern) => this.SetOption("pattern", pattern.ToStringInv());
+        public TelecineFilterGen pattern(String pattern) => this.SetOption("pattern", pattern.ToString());
     }
 
     /// <summary>

@@ -21,7 +21,7 @@
         /// <summary>
         ///  set channels colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public ShowwavespicFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
+        public ShowwavespicFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
         /// <summary>
         ///  set amplitude scale (from 0 to 3) (default lin)
         /// </summary>

@@ -13,7 +13,7 @@
         /// <summary>
         ///  set hint file
         /// </summary>
-        public FieldhintFilterGen hint(String hint) => this.SetOption("hint", hint.ToStringInv());
+        public FieldhintFilterGen hint(String hint) => this.SetOption("hint", hint.ToString());
         /// <summary>
         ///  set hint mode (from 0 to 2) (default absolute)
         /// </summary>

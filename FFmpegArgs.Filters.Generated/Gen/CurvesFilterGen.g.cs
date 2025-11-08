@@ -17,31 +17,31 @@
         /// <summary>
         ///  set master points coordinates
         /// </summary>
-        public CurvesFilterGen master(String master) => this.SetOption("master", master.ToStringInv());
+        public CurvesFilterGen master(String master) => this.SetOption("master", master.ToString());
         /// <summary>
         ///  set red points coordinates
         /// </summary>
-        public CurvesFilterGen red(String red) => this.SetOption("red", red.ToStringInv());
+        public CurvesFilterGen red(String red) => this.SetOption("red", red.ToString());
         /// <summary>
         ///  set green points coordinates
         /// </summary>
-        public CurvesFilterGen green(String green) => this.SetOption("green", green.ToStringInv());
+        public CurvesFilterGen green(String green) => this.SetOption("green", green.ToString());
         /// <summary>
         ///  set blue points coordinates
         /// </summary>
-        public CurvesFilterGen blue(String blue) => this.SetOption("blue", blue.ToStringInv());
+        public CurvesFilterGen blue(String blue) => this.SetOption("blue", blue.ToString());
         /// <summary>
         ///  set points coordinates for all components
         /// </summary>
-        public CurvesFilterGen all(String all) => this.SetOption("all", all.ToStringInv());
+        public CurvesFilterGen all(String all) => this.SetOption("all", all.ToString());
         /// <summary>
         ///  set Photoshop curves file name
         /// </summary>
-        public CurvesFilterGen psfile(String psfile) => this.SetOption("psfile", psfile.ToStringInv());
+        public CurvesFilterGen psfile(String psfile) => this.SetOption("psfile", psfile.ToString());
         /// <summary>
         ///  save Gnuplot script of the curves in specified file
         /// </summary>
-        public CurvesFilterGen plot(String plot) => this.SetOption("plot", plot.ToStringInv());
+        public CurvesFilterGen plot(String plot) => this.SetOption("plot", plot.ToString());
         /// <summary>
         ///  specify the kind of interpolation (from 0 to 1) (default natural)
         /// </summary>

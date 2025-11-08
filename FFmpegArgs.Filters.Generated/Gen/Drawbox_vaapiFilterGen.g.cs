@@ -13,19 +13,19 @@
         /// <summary>
         ///  set horizontal position of the left box edge (default &quot;0&quot;)
         /// </summary>
-        public Drawbox_vaapiFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
+        public Drawbox_vaapiFilterGen x(String x) => this.SetOption("x", x.ToString());
         /// <summary>
         ///  set vertical position of the top box edge (default &quot;0&quot;)
         /// </summary>
-        public Drawbox_vaapiFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
+        public Drawbox_vaapiFilterGen y(String y) => this.SetOption("y", y.ToString());
         /// <summary>
         ///  set width of the box (default &quot;0&quot;)
         /// </summary>
-        public Drawbox_vaapiFilterGen width(String width) => this.SetOption("width", width.ToStringInv());
+        public Drawbox_vaapiFilterGen width(String width) => this.SetOption("width", width.ToString());
         /// <summary>
         ///  set height of the box (default &quot;0&quot;)
         /// </summary>
-        public Drawbox_vaapiFilterGen height(String height) => this.SetOption("height", height.ToStringInv());
+        public Drawbox_vaapiFilterGen height(String height) => this.SetOption("height", height.ToString());
         /// <summary>
         ///  set color of the box (default &quot;black&quot;)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set the box thickness (default &quot;3&quot;)
         /// </summary>
-        public Drawbox_vaapiFilterGen thickness(String thickness) => this.SetOption("thickness", thickness.ToStringInv());
+        public Drawbox_vaapiFilterGen thickness(String thickness) => this.SetOption("thickness", thickness.ToString());
         /// <summary>
         ///  replace color (default false)
         /// </summary>

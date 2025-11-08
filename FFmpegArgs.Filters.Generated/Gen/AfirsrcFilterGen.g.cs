@@ -17,15 +17,15 @@
         /// <summary>
         ///  set frequency points (default &quot;0 1&quot;)
         /// </summary>
-        public AfirsrcFilterGen frequency(String frequency) => this.SetOption("frequency", frequency.ToStringInv());
+        public AfirsrcFilterGen frequency(String frequency) => this.SetOption("frequency", frequency.ToString());
         /// <summary>
         ///  set magnitude values (default &quot;1 1&quot;)
         /// </summary>
-        public AfirsrcFilterGen magnitude(String magnitude) => this.SetOption("magnitude", magnitude.ToStringInv());
+        public AfirsrcFilterGen magnitude(String magnitude) => this.SetOption("magnitude", magnitude.ToString());
         /// <summary>
         ///  set phase values (default &quot;0 0&quot;)
         /// </summary>
-        public AfirsrcFilterGen phase(String phase) => this.SetOption("phase", phase.ToStringInv());
+        public AfirsrcFilterGen phase(String phase) => this.SetOption("phase", phase.ToString());
         /// <summary>
         ///  set sample rate (from 1 to INT_MAX) (default 44100)
         /// </summary>

@@ -13,11 +13,11 @@
         /// <summary>
         ///  timestamps of input at which to split input
         /// </summary>
-        public SegmentFilterGen timestamps(String timestamps) => this.SetOption("timestamps", timestamps.ToStringInv());
+        public SegmentFilterGen timestamps(String timestamps) => this.SetOption("timestamps", timestamps.ToString());
         /// <summary>
         ///  frames at which to split input
         /// </summary>
-        public SegmentFilterGen frames(String frames) => this.SetOption("frames", frames.ToStringInv());
+        public SegmentFilterGen frames(String frames) => this.SetOption("frames", frames.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

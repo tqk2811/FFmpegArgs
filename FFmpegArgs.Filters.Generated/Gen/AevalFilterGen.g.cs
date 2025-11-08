@@ -17,7 +17,7 @@
         /// <summary>
         ///  set channel layout
         /// </summary>
-        public AevalFilterGen channel_layout(String channel_layout) => this.SetOption("channel_layout", channel_layout.ToStringInv());
+        public AevalFilterGen channel_layout(String channel_layout) => this.SetOption("channel_layout", channel_layout.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

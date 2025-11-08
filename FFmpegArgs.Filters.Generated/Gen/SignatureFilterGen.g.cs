@@ -21,7 +21,7 @@
         /// <summary>
         ///  filename for output files (default &quot;&quot;)
         /// </summary>
-        public SignatureFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
+        public SignatureFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
         /// <summary>
         ///  set output format (from 0 to 1) (default binary)
         /// </summary>

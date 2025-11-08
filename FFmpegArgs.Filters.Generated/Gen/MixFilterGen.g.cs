@@ -17,7 +17,7 @@
         /// <summary>
         ///  set weight for each input (default &quot;1 1&quot;)
         /// </summary>
-        public MixFilterGen weights(String weights) => this.SetOption("weights", weights.ToStringInv());
+        public MixFilterGen weights(String weights) => this.SetOption("weights", weights.ToString());
         /// <summary>
         ///  set scale (from 0 to 32767) (default 0)
         /// </summary>
@@ -25,7 +25,7 @@
         /// <summary>
         ///  set what planes to filter (default F)
         /// </summary>
-        public MixFilterGen planes(String planes) => this.SetOption("planes", planes.ToStringInv());
+        public MixFilterGen planes(String planes) => this.SetOption("planes", planes.ToString());
         /// <summary>
         ///  how to determine end of stream (from 0 to 2) (default longest)
         /// </summary>

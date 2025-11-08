@@ -13,7 +13,7 @@
         /// <summary>
         ///  required output frames per second rate (default &quot;50&quot;)
         /// </summary>
-        public FramerateFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToStringInv());
+        public FramerateFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToString());
         /// <summary>
         ///  point to start linear interpolation (from 0 to 255) (default 15)
         /// </summary>

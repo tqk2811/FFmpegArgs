@@ -13,7 +13,7 @@
         /// <summary>
         ///  object bitmap filename
         /// </summary>
-        public Find_rectFilterGen _object(String _object) => this.SetOption("object", _object.ToStringInv());
+        public Find_rectFilterGen _object(String _object) => this.SetOption("object", _object.ToString());
         /// <summary>
         ///  set threshold (from 0 to 1) (default 0.5)
         /// </summary>

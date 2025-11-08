@@ -13,7 +13,7 @@
         /// <summary>
         ///  (default &quot;&quot;)
         /// </summary>
-        public AnequalizerFilterGen _params(String _params) => this.SetOption("params", _params.ToStringInv());
+        public AnequalizerFilterGen _params(String _params) => this.SetOption("params", _params.ToString());
         /// <summary>
         ///  draw frequency response curves (default false)
         /// </summary>
@@ -33,7 +33,7 @@
         /// <summary>
         ///  set channels curves colors (default &quot;red|green|blue|yellow|orange|lime|pink|magenta|brown&quot;)
         /// </summary>
-        public AnequalizerFilterGen colors(String colors) => this.SetOption("colors", colors.ToStringInv());
+        public AnequalizerFilterGen colors(String colors) => this.SetOption("colors", colors.ToString());
     }
 
     /// <summary>

@@ -13,11 +13,11 @@
         /// <summary>
         ///  OpenCL program source file
         /// </summary>
-        public Program_openclFilterGen source(String source) => this.SetOption("source", source.ToStringInv());
+        public Program_openclFilterGen source(String source) => this.SetOption("source", source.ToString());
         /// <summary>
         ///  Kernel name in program
         /// </summary>
-        public Program_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToStringInv());
+        public Program_openclFilterGen kernel(String kernel) => this.SetOption("kernel", kernel.ToString());
         /// <summary>
         ///  Number of inputs (from 1 to INT_MAX) (default 1)
         /// </summary>

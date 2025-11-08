@@ -13,27 +13,27 @@
         /// <summary>
         ///  set horizontal offset (default &quot;0&quot;)
         /// </summary>
-        public DrawgridFilterGen x(String x) => this.SetOption("x", x.ToStringInv());
+        public DrawgridFilterGen x(String x) => this.SetOption("x", x.ToString());
         /// <summary>
         ///  set vertical offset (default &quot;0&quot;)
         /// </summary>
-        public DrawgridFilterGen y(String y) => this.SetOption("y", y.ToStringInv());
+        public DrawgridFilterGen y(String y) => this.SetOption("y", y.ToString());
         /// <summary>
         ///  set width of grid cell (default &quot;0&quot;)
         /// </summary>
-        public DrawgridFilterGen width(String width) => this.SetOption("width", width.ToStringInv());
+        public DrawgridFilterGen width(String width) => this.SetOption("width", width.ToString());
         /// <summary>
         ///  set height of grid cell (default &quot;0&quot;)
         /// </summary>
-        public DrawgridFilterGen height(String height) => this.SetOption("height", height.ToStringInv());
+        public DrawgridFilterGen height(String height) => this.SetOption("height", height.ToString());
         /// <summary>
         ///  set color of the grid (default &quot;black&quot;)
         /// </summary>
-        public DrawgridFilterGen color(String color) => this.SetOption("color", color.ToStringInv());
+        public DrawgridFilterGen color(String color) => this.SetOption("color", color.ToString());
         /// <summary>
         ///  set grid line thickness (default &quot;1&quot;)
         /// </summary>
-        public DrawgridFilterGen thickness(String thickness) => this.SetOption("thickness", thickness.ToStringInv());
+        public DrawgridFilterGen thickness(String thickness) => this.SetOption("thickness", thickness.ToString());
         /// <summary>
         ///  replace color &amp; alpha (default false)
         /// </summary>

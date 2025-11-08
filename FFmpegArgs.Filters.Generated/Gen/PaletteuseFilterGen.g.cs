@@ -33,7 +33,7 @@
         /// <summary>
         ///  save Graphviz graph of the kdtree in specified file
         /// </summary>
-        public PaletteuseFilterGen debug_kdtree(String debug_kdtree) => this.SetOption("debug_kdtree", debug_kdtree.ToStringInv());
+        public PaletteuseFilterGen debug_kdtree(String debug_kdtree) => this.SetOption("debug_kdtree", debug_kdtree.ToString());
     }
 
     /// <summary>

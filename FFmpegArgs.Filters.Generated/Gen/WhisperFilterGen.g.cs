@@ -13,11 +13,11 @@
         /// <summary>
         ///  Path to the whisper.cpp model file
         /// </summary>
-        public WhisperFilterGen model(String model) => this.SetOption("model", model.ToStringInv());
+        public WhisperFilterGen model(String model) => this.SetOption("model", model.ToString());
         /// <summary>
         ///  Language for transcription (&#39;auto&#39; for auto-detect) (default &quot;auto&quot;)
         /// </summary>
-        public WhisperFilterGen language(String language) => this.SetOption("language", language.ToStringInv());
+        public WhisperFilterGen language(String language) => this.SetOption("language", language.ToString());
         /// <summary>
         ///  Audio queue size (default 3)
         /// </summary>
@@ -33,15 +33,15 @@
         /// <summary>
         ///  Output destination (default &quot;&quot;)
         /// </summary>
-        public WhisperFilterGen destination(String destination) => this.SetOption("destination", destination.ToStringInv());
+        public WhisperFilterGen destination(String destination) => this.SetOption("destination", destination.ToString());
         /// <summary>
         ///  Output format (text|srt|json) (default &quot;text&quot;)
         /// </summary>
-        public WhisperFilterGen format(String format) => this.SetOption("format", format.ToStringInv());
+        public WhisperFilterGen format(String format) => this.SetOption("format", format.ToString());
         /// <summary>
         ///  Path to the VAD model file
         /// </summary>
-        public WhisperFilterGen vad_model(String vad_model) => this.SetOption("vad_model", vad_model.ToStringInv());
+        public WhisperFilterGen vad_model(String vad_model) => this.SetOption("vad_model", vad_model.ToString());
         /// <summary>
         ///  VAD threshold (from 0 to 1) (default 0.5)
         /// </summary>

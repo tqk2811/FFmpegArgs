@@ -13,11 +13,11 @@
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public Ssim360FilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToStringInv());
+        public Ssim360FilterGen stats_file(String stats_file) => this.SetOption("stats_file", stats_file.ToString());
         /// <summary>
         ///  Set file where to store per-frame difference information
         /// </summary>
-        public Ssim360FilterGen f(String f) => this.SetOption("f", f.ToStringInv());
+        public Ssim360FilterGen f(String f) => this.SetOption("f", f.ToString());
         /// <summary>
         ///  Specifies if non-luma channels must be computed (from 0 to 1) (default 1)
         /// </summary>
@@ -57,7 +57,7 @@
         /// <summary>
         ///  Heatmap data for view-based evaluation. For heatmap file format, please refer to EntSphericalVideoHeatmapData.
         /// </summary>
-        public Ssim360FilterGen heatmap_str(String heatmap_str) => this.SetOption("heatmap_str", heatmap_str.ToStringInv());
+        public Ssim360FilterGen heatmap_str(String heatmap_str) => this.SetOption("heatmap_str", heatmap_str.ToString());
         /// <summary>
         ///  Default heatmap dimension. Will be used when dimension is not specified in heatmap data. (from 1 to 4096) (default 32)
         /// </summary>

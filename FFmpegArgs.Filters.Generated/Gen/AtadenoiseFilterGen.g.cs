@@ -41,7 +41,7 @@
         /// <summary>
         ///  set what planes to filter (default 7)
         /// </summary>
-        public AtadenoiseFilterGen p(String p) => this.SetOption("p", p.ToStringInv());
+        public AtadenoiseFilterGen p(String p) => this.SetOption("p", p.ToString());
         /// <summary>
         ///  set variant of algorithm (from 0 to 1) (default p)
         /// </summary>

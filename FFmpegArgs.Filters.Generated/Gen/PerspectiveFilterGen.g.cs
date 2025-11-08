@@ -13,35 +13,35 @@
         /// <summary>
         ///  set top left x coordinate (default &quot;0&quot;)
         /// </summary>
-        public PerspectiveFilterGen x0(String x0) => this.SetOption("x0", x0.ToStringInv());
+        public PerspectiveFilterGen x0(String x0) => this.SetOption("x0", x0.ToString());
         /// <summary>
         ///  set top left y coordinate (default &quot;0&quot;)
         /// </summary>
-        public PerspectiveFilterGen y0(String y0) => this.SetOption("y0", y0.ToStringInv());
+        public PerspectiveFilterGen y0(String y0) => this.SetOption("y0", y0.ToString());
         /// <summary>
         ///  set top right x coordinate (default &quot;W&quot;)
         /// </summary>
-        public PerspectiveFilterGen x1(String x1) => this.SetOption("x1", x1.ToStringInv());
+        public PerspectiveFilterGen x1(String x1) => this.SetOption("x1", x1.ToString());
         /// <summary>
         ///  set top right y coordinate (default &quot;0&quot;)
         /// </summary>
-        public PerspectiveFilterGen y1(String y1) => this.SetOption("y1", y1.ToStringInv());
+        public PerspectiveFilterGen y1(String y1) => this.SetOption("y1", y1.ToString());
         /// <summary>
         ///  set bottom left x coordinate (default &quot;0&quot;)
         /// </summary>
-        public PerspectiveFilterGen x2(String x2) => this.SetOption("x2", x2.ToStringInv());
+        public PerspectiveFilterGen x2(String x2) => this.SetOption("x2", x2.ToString());
         /// <summary>
         ///  set bottom left y coordinate (default &quot;H&quot;)
         /// </summary>
-        public PerspectiveFilterGen y2(String y2) => this.SetOption("y2", y2.ToStringInv());
+        public PerspectiveFilterGen y2(String y2) => this.SetOption("y2", y2.ToString());
         /// <summary>
         ///  set bottom right x coordinate (default &quot;W&quot;)
         /// </summary>
-        public PerspectiveFilterGen x3(String x3) => this.SetOption("x3", x3.ToStringInv());
+        public PerspectiveFilterGen x3(String x3) => this.SetOption("x3", x3.ToString());
         /// <summary>
         ///  set bottom right y coordinate (default &quot;H&quot;)
         /// </summary>
-        public PerspectiveFilterGen y3(String y3) => this.SetOption("y3", y3.ToStringInv());
+        public PerspectiveFilterGen y3(String y3) => this.SetOption("y3", y3.ToString());
         /// <summary>
         ///  set interpolation (from 0 to 1) (default linear)
         /// </summary>

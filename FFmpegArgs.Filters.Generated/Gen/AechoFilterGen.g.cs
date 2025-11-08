@@ -21,11 +21,11 @@
         /// <summary>
         ///  set list of signal delays (default &quot;1000&quot;)
         /// </summary>
-        public AechoFilterGen delays(String delays) => this.SetOption("delays", delays.ToStringInv());
+        public AechoFilterGen delays(String delays) => this.SetOption("delays", delays.ToString());
         /// <summary>
         ///  set list of signal decays (default &quot;0.5&quot;)
         /// </summary>
-        public AechoFilterGen decays(String decays) => this.SetOption("decays", decays.ToStringInv());
+        public AechoFilterGen decays(String decays) => this.SetOption("decays", decays.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

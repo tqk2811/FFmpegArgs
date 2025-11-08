@@ -13,7 +13,7 @@
         /// <summary>
         ///  Derive a new device of this type
         /// </summary>
-        public HwuploadFilterGen derive_device(String derive_device) => this.SetOption("derive_device", derive_device.ToStringInv());
+        public HwuploadFilterGen derive_device(String derive_device) => this.SetOption("derive_device", derive_device.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

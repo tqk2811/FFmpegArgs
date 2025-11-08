@@ -33,7 +33,7 @@
         /// <summary>
         ///  set the output framerate (default &quot;25&quot;)
         /// </summary>
-        public ZoompanFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToStringInv());
+        public ZoompanFilterGen fps(Rational fps) => this.SetOption("fps", fps.ToString());
     }
 
     public static partial class FilterGeneratedExtensions

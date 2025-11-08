@@ -13,11 +13,11 @@
         /// <summary>
         ///  set gain curve (default &quot;gain_interpolate(f)&quot;)
         /// </summary>
-        public FirequalizerFilterGen gain(String gain) => this.SetOption("gain", gain.ToStringInv());
+        public FirequalizerFilterGen gain(String gain) => this.SetOption("gain", gain.ToString());
         /// <summary>
         ///  set gain entry
         /// </summary>
-        public FirequalizerFilterGen gain_entry(String gain_entry) => this.SetOption("gain_entry", gain_entry.ToStringInv());
+        public FirequalizerFilterGen gain_entry(String gain_entry) => this.SetOption("gain_entry", gain_entry.ToString());
         /// <summary>
         ///  set delay (from 0 to 1e+10) (default 0.01)
         /// </summary>
@@ -49,7 +49,7 @@
         /// <summary>
         ///  set dump file
         /// </summary>
-        public FirequalizerFilterGen dumpfile(String dumpfile) => this.SetOption("dumpfile", dumpfile.ToStringInv());
+        public FirequalizerFilterGen dumpfile(String dumpfile) => this.SetOption("dumpfile", dumpfile.ToString());
         /// <summary>
         ///  set dump scale (from 0 to 3) (default linlog)
         /// </summary>

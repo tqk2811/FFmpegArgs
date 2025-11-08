@@ -13,7 +13,7 @@
         /// <summary>
         ///  set the filename of file to read
         /// </summary>
-        public AssFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
+        public AssFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
         /// <summary>
         ///  set the size of the original video (used to scale fonts)
         /// </summary>
@@ -21,7 +21,7 @@
         /// <summary>
         ///  set the directory containing the fonts to read
         /// </summary>
-        public AssFilterGen fontsdir(String fontsdir) => this.SetOption("fontsdir", fontsdir.ToStringInv());
+        public AssFilterGen fontsdir(String fontsdir) => this.SetOption("fontsdir", fontsdir.ToString());
         /// <summary>
         ///  enable processing of alpha channel (default false)
         /// </summary>

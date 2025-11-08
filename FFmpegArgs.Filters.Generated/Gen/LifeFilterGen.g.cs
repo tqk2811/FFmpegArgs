@@ -13,7 +13,7 @@
         /// <summary>
         ///  set source file
         /// </summary>
-        public LifeFilterGen filename(String filename) => this.SetOption("filename", filename.ToStringInv());
+        public LifeFilterGen filename(String filename) => this.SetOption("filename", filename.ToString());
         /// <summary>
         ///  set video size
         /// </summary>
@@ -21,11 +21,11 @@
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public LifeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public LifeFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set rule (default &quot;B3/S23&quot;)
         /// </summary>
-        public LifeFilterGen rule(String rule) => this.SetOption("rule", rule.ToStringInv());
+        public LifeFilterGen rule(String rule) => this.SetOption("rule", rule.ToString());
         /// <summary>
         ///  set fill ratio for filling initial grid randomly (from 0 to 1) (default 0.618034)
         /// </summary>

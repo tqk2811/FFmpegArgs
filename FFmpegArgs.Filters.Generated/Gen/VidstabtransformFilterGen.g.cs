@@ -13,7 +13,7 @@
         /// <summary>
         ///  set path to the file storing the transforms (default &quot;transforms.trf&quot;)
         /// </summary>
-        public VidstabtransformFilterGen input(String input) => this.SetOption("input", input.ToStringInv());
+        public VidstabtransformFilterGen input(String input) => this.SetOption("input", input.ToString());
         /// <summary>
         ///  set number of frames*2 + 1 used for lowpass filtering (from 0 to 1000) (default 15)
         /// </summary>

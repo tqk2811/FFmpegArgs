@@ -13,11 +13,11 @@
         /// <summary>
         ///  set video size (default &quot;320x240&quot;)
         /// </summary>
-        public PerlinFilterGen size(Size size) => this.SetOption("size", Inv($"{size.Width}x{size.Height}"));
+        public PerlinFilterGen size(Size size) => this.SetOption("size", $"{size.Width}x{size.Height}");
         /// <summary>
         ///  set video rate (default &quot;25&quot;)
         /// </summary>
-        public PerlinFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToStringInv());
+        public PerlinFilterGen rate(Rational rate) => this.SetOption("rate", rate.ToString());
         /// <summary>
         ///  set the number of components to use to generate the noise (from 1 to INT_MAX) (default 1)
         /// </summary>
@@ -45,11 +45,11 @@
         /// <summary>
         ///  set the seed for filling the initial pattern (from 0 to UINT32_MAX) (default 0)
         /// </summary>
-        public PerlinFilterGen random_seed(String random_seed) => this.SetOption("random_seed", random_seed.ToStringInv());
+        public PerlinFilterGen random_seed(String random_seed) => this.SetOption("random_seed", random_seed.ToString());
         /// <summary>
         ///  set the seed for filling the initial pattern (from 0 to UINT32_MAX) (default 0)
         /// </summary>
-        public PerlinFilterGen seed(String seed) => this.SetOption("seed", seed.ToStringInv());
+        public PerlinFilterGen seed(String seed) => this.SetOption("seed", seed.ToString());
     }
 
     /// <summary>
