@@ -42,7 +42,7 @@ VideoFileOutput videoFileOutput = new VideoFileOutput(@"out.mp4", overlay_map, b
     .T(TimeSpan.FromSeconds(5))//output extension ( -t )
     ;
 videoFileOutput.ImageOutputAVStream
-            .R(24)//output, video, per-stream extension ( -r )
+    .R(24)//output, video, per-stream extension ( -r )
     .G(0)//output, video, per-stream extension
     .H264_libx264_Codec(x => x.RCLookahead(0));//codec
 
@@ -75,6 +75,45 @@ We can extend for `FFmpegArg`, `Filter`, `Input`, `Output`, `AVStream` by extens
 We can write new Filter class, so much example in `FFmpegArgs.Filters`  
 
 Pull request or request missing feature are welcome.
+
+----------------------------------------
+For non-English locales. Please swap to English before using FFmpegArgs  
+Reason:   
++ float/double/....ToString or Parse has decimal separators different from English.  
++ In `Turkish`, `FadeType.In.ToString().ToLower()` result `ın` not `in`  
+
+There are two ways to do this  
+```csharp
+public class CultureScope : IDisposable
+{
+    private readonly CultureInfo _oldCulture;
+    public CultureScope(CultureInfo? culture = null)
+    {
+        _oldCulture = CultureInfo.CurrentCulture;
+        CultureInfo.CurrentCulture = culture ?? new("en-US");
+    }
+    public void Dispose() 
+    { 
+        CultureInfo.CurrentCulture = _oldCulture; 
+    }
+}
+void Work()//or async Task/void WorkAsync()
+{
+    //prepare data can be affected by Culture
+    using var culScope = new CultureScope()
+    //FFmpegArgs code
+}
+```
+```csharp
+async Task WorkAsync()//or async void WorkAsync()
+{
+    //prepare data can be affected by Culture
+    CultureInfo.CurrentCulture = new ("en-US");
+    //FFmpegArgs code
+   //When exit this "task", It automatically returns to the old Culture through
+}
+```
+[#8](https://github.com/tqk2811/FFmpegArgs/pull/8#issuecomment-3507839616)
 
 ----------------------------------------
 Recommend namespace 
