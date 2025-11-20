@@ -16,7 +16,7 @@ namespace FFmpegArgs
         /// <param name="t"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        public static T F<T>(this T t, DemuxingFileFormat format) where T : BaseInput
+        public static T F<T>(this T t, DemuxingFileFormat format) where T : BaseOption, IDemux
            => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
         /// <summary>
         /// -f<br>
@@ -26,7 +26,7 @@ namespace FFmpegArgs
         /// <param name="t"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        public static T Format<T>(this T t, DemuxingFileFormat format) where T : BaseInput
+        public static T Format<T>(this T t, DemuxingFileFormat format) where T : BaseOption, IDemux
             => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace FFmpegArgs
         /// <param name="t"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        public static T F<T>(this T t, MuxingFileFormat format) where T : BaseOutput
+        public static T F<T>(this T t, MuxingFileFormat format) where T : BaseOption, IMux
             => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace FFmpegArgs
         /// <param name="t"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        public static T Format<T>(this T t, MuxingFileFormat format) where T : BaseOutput
+        public static T Format<T>(this T t, MuxingFileFormat format) where T : BaseOption, IMux
             => t.SetOption("-f", format.GetEnumAttribute<NameAttribute>().Name);
 
         /// <summary>
