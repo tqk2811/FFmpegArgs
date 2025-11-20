@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11205.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FFmpegArgs", "FFmpegArgs\FFmpegArgs.csproj", "{EE9D823B-2B73-442D-8322-F3DD225E201C}"
 EndProject
@@ -57,6 +57,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.VideoSinks", "FFmpegArgs.Filters.VideoSinks\FFmpegArgs.Filters.VideoSinks.csproj", "{F398F010-B88D-4D8A-A313-D39EF5687E5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Filters.VideoSources", "FFmpegArgs.Filters.VideoSources\FFmpegArgs.Filters.VideoSources.csproj", "{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Inputs.Demuxers", "FFmpegArgs.Inputs.Demuxers\FFmpegArgs.Inputs.Demuxers.csproj", "{BCCF14E8-1C18-ABEE-4CD3-BD6B07478BB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFmpegArgs.Outputs.Muxers", "FFmpegArgs.Outputs.Muxers\FFmpegArgs.Outputs.Muxers.csproj", "{A9CF4CBC-90BB-A0C7-3484-9DCF2043AA15}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -152,6 +156,14 @@ Global
 		{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3AF4DCA9-D8E1-47E7-8880-45630C2BCC75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCF14E8-1C18-ABEE-4CD3-BD6B07478BB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCF14E8-1C18-ABEE-4CD3-BD6B07478BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCF14E8-1C18-ABEE-4CD3-BD6B07478BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCF14E8-1C18-ABEE-4CD3-BD6B07478BB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9CF4CBC-90BB-A0C7-3484-9DCF2043AA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CF4CBC-90BB-A0C7-3484-9DCF2043AA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CF4CBC-90BB-A0C7-3484-9DCF2043AA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CF4CBC-90BB-A0C7-3484-9DCF2043AA15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
