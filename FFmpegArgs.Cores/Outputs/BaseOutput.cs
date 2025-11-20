@@ -18,11 +18,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public abstract IEnumerable<OutputAVStream> OutputAVStreams { get; }
+        public abstract IEnumerable<OutputAVStream> Streams { get; }
 
         public override IEnumerable<string> GetAVStreamArgs()
         {
-            return OutputAVStreams.SelectMany(x => x.GetAllArgs());
+            return Streams.SelectMany(x => x.GetAllArgs());
         }
 
         /// <summary>

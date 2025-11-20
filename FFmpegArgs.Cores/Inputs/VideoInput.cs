@@ -29,27 +29,27 @@
         /// <summary>
         /// 
         /// </summary>
-        public override IEnumerable<InputAVStream> InputAVStreams
+        public override IEnumerable<InputAVStream> Streams
             => _imageInputAVStreams.Cast<InputAVStream>().Concat(_audioInputAVStreams);
 
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<ImageInputAVStream> ImageInputAVStreams { get { return _imageInputAVStreams; } }
+        public virtual IEnumerable<ImageInputAVStream> ImageStreams { get { return _imageInputAVStreams; } }
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.First();
+        public virtual ImageInputAVStream ImageStream => ImageStreams.First();
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<AudioInputAVStream> AudioInputAVStreams { get { return _audioInputAVStreams; } }
+        public virtual IEnumerable<AudioInputAVStream> AudioStreams { get { return _audioInputAVStreams; } }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.First();
+        public virtual AudioInputAVStream AudioStream => AudioStreams.First();
     }
 }

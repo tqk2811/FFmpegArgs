@@ -8,11 +8,11 @@
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<AudioInputAVStream> AudioInputAVStreams { get; }
+        IEnumerable<AudioInputAVStream> AudioStreams { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        AudioInputAVStream AudioInputAVStream { get; }
+        AudioInputAVStream AudioStream { get; }
     }
 }

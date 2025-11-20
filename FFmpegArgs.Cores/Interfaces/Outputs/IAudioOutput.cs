@@ -8,12 +8,12 @@
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<AudioOutputAVStream> AudioOutputAVStreams { get; }
+        IEnumerable<AudioOutputAVStream> AudioStreams { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        AudioOutputAVStream AudioOutputAVStream { get; }
+        AudioOutputAVStream AudioStream { get; }
 
         /// <summary>
         /// 

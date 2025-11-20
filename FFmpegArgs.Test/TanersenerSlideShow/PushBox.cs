@@ -133,7 +133,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
                 .Duration(TOTAL_DURATION)
-                    .ImageOutputAVStreams.First()
+                    .ImageStreams.First()
                     .G(0)
                     .H264_libx264_Codec(x => x.RCLookahead(0));
             ffmpegArg.AddOutput(imageFileOutput);
@@ -268,7 +268,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             imageFileOutput
                 .Duration(TOTAL_DURATION)
 
-                .ImageOutputAVStreams.First()
+                .ImageStreams.First()
                     .G(0)
                     .H264_libx264_Codec(x => x.RCLookahead(0));
             ffmpegArg.AddOutput(imageFileOutput);

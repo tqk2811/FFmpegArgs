@@ -128,7 +128,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .FpsFilter().Fps(config.Fps).MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
             var videoOut = new ImageFileOutput(outputFileName, out_map);
-            videoOut.ImageOutputAVStreams.First()
+            videoOut.ImageStreams.First()
                 .Codec("libx264")
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
@@ -262,7 +262,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
                 .FpsFilter().Fps(config.Fps).MapOut
                 .FormatFilter(PixFmt.yuv420p).MapOut;
             var videoOut = new ImageFileOutput(outputFileName, out_map);
-            videoOut.ImageOutputAVStreams.First()                
+            videoOut.ImageStreams.First()                
                 .SetOption("-rc-lookahead", 0)
                 .SetOption("-g", 0)
                 .Codec("libx264")

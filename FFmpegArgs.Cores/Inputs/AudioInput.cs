@@ -22,17 +22,17 @@
         /// <summary>
         /// Streams Input
         /// </summary>
-        public override IEnumerable<InputAVStream> InputAVStreams => _inputAudioFFStreams;
+        public override IEnumerable<InputAVStream> Streams => _inputAudioFFStreams;
 
 
         /// <summary>
         /// Audios Stream Input
         /// </summary>
-        public virtual IEnumerable<AudioInputAVStream> AudioInputAVStreams { get { return _inputAudioFFStreams; } }
+        public virtual IEnumerable<AudioInputAVStream> AudioStreams { get { return _inputAudioFFStreams; } }
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioInputAVStream AudioInputAVStream => AudioInputAVStreams.First();
+        public virtual AudioInputAVStream AudioStream => AudioStreams.First();
     }
 }

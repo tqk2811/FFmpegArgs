@@ -8,6 +8,6 @@
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<OutputAVStream> OutputAVStreams { get; }
+        IEnumerable<OutputAVStream> Streams { get; }
     }
 }

@@ -12,18 +12,18 @@
         /// <summary>
         /// 
         /// </summary>
-        public override IEnumerable<OutputAVStream> OutputAVStreams => _audioOutputAVStreams;
+        public override IEnumerable<OutputAVStream> Streams => _audioOutputAVStreams;
 
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<AudioOutputAVStream> AudioOutputAVStreams => _audioOutputAVStreams;
+        public virtual IEnumerable<AudioOutputAVStream> AudioStreams => _audioOutputAVStreams;
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.First();
+        public virtual AudioOutputAVStream AudioStream => AudioStreams.First();
 
         /// <summary>
         /// 

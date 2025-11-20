@@ -8,12 +8,12 @@
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<ImageOutputAVStream> ImageOutputAVStreams { get; }
+        IEnumerable<ImageOutputAVStream> ImageStreams { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        ImageOutputAVStream ImageOutputAVStream { get; }
+        ImageOutputAVStream ImageStream { get; }
 
         /// <summary>
         /// 

@@ -51,7 +51,7 @@ namespace FFmpegArgs
             _inputs.Add(audio);
 
             List<AudioMap> results = new List<AudioMap>();
-            foreach (var inputStream in audio.AudioInputAVStreams)
+            foreach (var inputStream in audio.AudioStreams)
             {
                 results.Add(new AudioMap(this, FilterGraph, inputStream));
             }
@@ -76,7 +76,7 @@ namespace FFmpegArgs
             _inputs.Add(image);
 
             List<ImageMap> results = new List<ImageMap>();
-            foreach (var inputStream in image.ImageInputAVStreams)
+            foreach (var inputStream in image.ImageStreams)
             {
                 results.Add(new ImageMap(this, FilterGraph, inputStream));
             }
@@ -102,11 +102,11 @@ namespace FFmpegArgs
 
             List<ImageMap> imageMaps = new List<ImageMap>();
             List<AudioMap> audioMaps = new List<AudioMap>();
-            foreach (var inputStream in video.ImageInputAVStreams)
+            foreach (var inputStream in video.ImageStreams)
             {
                 imageMaps.Add(new ImageMap(this, FilterGraph, inputStream));
             }
-            foreach (var inputStream in video.AudioInputAVStreams)
+            foreach (var inputStream in video.AudioStreams)
             {
                 audioMaps.Add(new AudioMap(this, FilterGraph, inputStream));
             }

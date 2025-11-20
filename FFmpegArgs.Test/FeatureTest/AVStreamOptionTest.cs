@@ -35,10 +35,10 @@ namespace FFmpegArgs.Test.FeatureTest
 
             ffmpegArg.AddOutput(
                 new VideoFileOutput(fileName, imageMaps, audioMaps)
-                .AndSet(x => x.AudioOutputAVStreams.First().B(64000).Codec("aac"))
-                .AndSet(x => x.AudioOutputAVStreams.Last().B(256000).Codec("libmp3lame"))
-                .AndSet(x => x.ImageOutputAVStreams.First().B(3000000).Codec("libx264"))
-                .AndSet(x => x.ImageOutputAVStreams.Last().B(1000000).Codec("libx265")));
+                .AndSet(x => x.AudioStreams.First().B(64000).Codec("aac"))
+                .AndSet(x => x.AudioStreams.Last().B(256000).Codec("libmp3lame"))
+                .AndSet(x => x.ImageStreams.First().B(3000000).Codec("libx264"))
+                .AndSet(x => x.ImageStreams.Last().B(1000000).Codec("libx265")));
 
             ffmpegArg.TestRender(filterName, fileName);
             //ffprobe -print_format json -show_format -show_streams AVStreamOptionTest_Test1.mp4

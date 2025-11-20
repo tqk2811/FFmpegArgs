@@ -13,7 +13,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public abstract IEnumerable<InputAVStream> InputAVStreams { get; }
+        public abstract IEnumerable<InputAVStream> Streams { get; }
 
         /// <summary>
         /// 
@@ -21,7 +21,7 @@
         /// <returns></returns>
         public override IEnumerable<string> GetAVStreamArgs()
         {
-            return InputAVStreams.SelectMany(x => x.GetAllArgs());
+            return Streams.SelectMany(x => x.GetAllArgs());
         }
     }
 }

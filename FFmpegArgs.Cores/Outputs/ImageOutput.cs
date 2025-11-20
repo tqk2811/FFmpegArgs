@@ -11,17 +11,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public override IEnumerable<OutputAVStream> OutputAVStreams => _imageOutputAVStreams;
+        public override IEnumerable<OutputAVStream> Streams => _imageOutputAVStreams;
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
+        public virtual IEnumerable<ImageOutputAVStream> ImageStreams => _imageOutputAVStreams;
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.First();
+        public virtual ImageOutputAVStream ImageStream => ImageStreams.First();
 
         /// <summary>
         /// 

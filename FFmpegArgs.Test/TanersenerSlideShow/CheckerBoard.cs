@@ -38,7 +38,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             var out_map = overlaids.ConcatOverlaidsAndBlendeds(blendeds);
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
-            imageFileOutput.ImageOutputAVStreams.First()
+            imageFileOutput.ImageStreams.First()
                 //.Fps(config.Fps)
                 .G(0)
                 .H264_libx264_Codec()

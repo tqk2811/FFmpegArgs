@@ -13,7 +13,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public override IEnumerable<OutputAVStream> OutputAVStreams
+        public override IEnumerable<OutputAVStream> Streams
             => _imageOutputAVStreams.Cast<OutputAVStream>().Concat(_audioOutputAVStreams);
 
 
@@ -21,22 +21,22 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<ImageOutputAVStream> ImageOutputAVStreams => _imageOutputAVStreams;
+        public virtual IEnumerable<ImageOutputAVStream> ImageStreams => _imageOutputAVStreams;
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual ImageOutputAVStream ImageOutputAVStream => ImageOutputAVStreams.First();
+        public virtual ImageOutputAVStream ImageStream => ImageStreams.First();
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual IEnumerable<AudioOutputAVStream> AudioOutputAVStreams => _audioOutputAVStreams;
+        public virtual IEnumerable<AudioOutputAVStream> AudioStreams => _audioOutputAVStreams;
 
         /// <summary>
         /// 
         /// </summary>
-        public virtual AudioOutputAVStream AudioOutputAVStream => AudioOutputAVStreams.First();
+        public virtual AudioOutputAVStream AudioStream => AudioStreams.First();
 
 
 

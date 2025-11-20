@@ -66,7 +66,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-                .ImageOutputAVStreams.First()
+                .ImageStreams.First()
                     .Codec("libx264")
                     //.Fps(config.Fps)
                     .SetOption("-g", "0")
@@ -129,7 +129,7 @@ namespace FFmpegArgs.Test.TanersenerSlideShow
             //Output
             ImageFileOutput imageFileOutput = new ImageFileOutput(outputFileName, out_map);
             imageFileOutput
-                .ImageOutputAVStreams.First()
+                .ImageStreams.First()
                 .Codec("libx264")
                 //.Fps(config.Fps)
                 .SetOption("-g", "0")

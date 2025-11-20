@@ -23,16 +23,16 @@
         /// <summary>
         /// Streams Input
         /// </summary>
-        public override IEnumerable<InputAVStream> InputAVStreams => _imageInputAVStreams;
+        public override IEnumerable<InputAVStream> Streams => _imageInputAVStreams;
 
         /// <summary>
         /// Images Stream Input
         /// </summary>
-        public virtual IEnumerable<ImageInputAVStream> ImageInputAVStreams { get { return _imageInputAVStreams; } }
+        public virtual IEnumerable<ImageInputAVStream> ImageStreams { get { return _imageInputAVStreams; } }
 
         /// <summary>
         /// Image Stream Input
         /// </summary>
-        public virtual ImageInputAVStream ImageInputAVStream => ImageInputAVStreams.First();
+        public virtual ImageInputAVStream ImageStream => ImageStreams.First();
     }
 }

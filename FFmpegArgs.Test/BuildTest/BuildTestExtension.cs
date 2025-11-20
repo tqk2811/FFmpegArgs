@@ -53,7 +53,7 @@ namespace FFmpegArgs.Test.BuildTest
                 .ToPosition(TimeSpan.Zero)
                 .Vn()
                 ;
-            videoFileInput.AudioInputAVStream
+            videoFileInput.AudioStream
                 .Ac(1)
                 .Ar(1)
                 .BitsPerCodedSample(1)
@@ -67,7 +67,7 @@ namespace FFmpegArgs.Test.BuildTest
                 .RcOverrideCount(1)
                 .SliceCount(1)
                 ;
-            videoFileInput.ImageInputAVStream
+            videoFileInput.ImageStream
                .Aspect(1)
                .BitsPerCodedSample(1)
                .BlockAlign(1)
@@ -112,7 +112,7 @@ namespace FFmpegArgs.Test.BuildTest
                 .Vn()
                 ;
 
-            videoFileOutput.AudioOutputAVStream
+            videoFileOutput.AudioStream
                 .Ar(1)
                 .Ac(1)
                 .B(1)
@@ -133,7 +133,7 @@ namespace FFmpegArgs.Test.BuildTest
                 .SliceCount(1)
                 ;
 
-            videoFileOutput.ImageOutputAVStream
+            videoFileOutput.ImageStream
                 .Aspect(1)
                 .B(1)
                 .Bf(1)

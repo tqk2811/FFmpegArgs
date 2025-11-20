@@ -8,11 +8,11 @@
         /// <summary>
         /// 
         /// </summary>
-        IEnumerable<ImageInputAVStream> ImageInputAVStreams { get; }
+        IEnumerable<ImageInputAVStream> ImageStreams { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        ImageInputAVStream ImageInputAVStream { get; }
+        ImageInputAVStream ImageStream { get; }
     }
 }

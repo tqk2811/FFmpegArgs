@@ -34,7 +34,7 @@
             _inputs.Add(audio);
 
             List<AudioMap> results = new List<AudioMap>();
-            foreach (var streamInput in audio.AudioInputAVStreams)
+            foreach (var streamInput in audio.AudioStreams)
             {
                 results.Add(new AudioMap(this, FilterGraph, streamInput));
             }
@@ -56,7 +56,7 @@
             //if (count <= 0) throw new InvalidRangeException($"{nameof(count)} <= 0");
             _inputs.Add(image);
             List<ImageMap> results = new List<ImageMap>();
-            foreach (var streamInput in image.ImageInputAVStreams)
+            foreach (var streamInput in image.ImageStreams)
             {
                 results.Add(new ImageMap(this, FilterGraph, streamInput));
             }
@@ -77,11 +77,11 @@
             int inputIndex = _inputs.IndexOf(video);
             List<ImageMap> imageMaps = new List<ImageMap>();
             List<AudioMap> audioMaps = new List<AudioMap>();
-            foreach (var streamInput in video.ImageInputAVStreams)
+            foreach (var streamInput in video.ImageStreams)
             {
                 imageMaps.Add(new ImageMap(this, FilterGraph, streamInput));
             }
-            foreach (var streamInput in video.AudioInputAVStreams)
+            foreach (var streamInput in video.AudioStreams)
             {
                 audioMaps.Add(new AudioMap(this, FilterGraph, streamInput));
             }
