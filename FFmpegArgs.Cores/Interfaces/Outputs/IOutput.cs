@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IOutput
+    public interface IOutput : IMux
     {
         /// <summary>
         /// 

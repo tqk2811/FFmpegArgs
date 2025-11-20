@@ -3,7 +3,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IInput
+    public interface IInput : IDemux
     {
         /// <summary>
         /// 
