@@ -17,6 +17,26 @@
         /// </summary>
         FilterGraph FilterGraph { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="audio"></param>
+        /// <returns></returns>
+        IEnumerable<AudioMap> AddInput(AudioInput audio);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
+        IEnumerable<ImageMap> AddInput(ImageInput image);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="video"></param>
+        /// <returns></returns>
+        VideoMap AddInput(VideoInput video);
 
         /// <summary>
         /// 

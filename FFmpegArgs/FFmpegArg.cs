@@ -38,6 +38,27 @@ namespace FFmpegArgs
         /// </summary>
         /// <param name="audio"></param>
         /// <returns></returns>
+        public IEnumerable<AudioMap> AddInput(AudioInput audio) => AddAudiosInput(audio);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
+        public IEnumerable<ImageMap> AddInput(ImageInput image) => AddImagesInput(image);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="video"></param>
+        /// <returns></returns>
+        public VideoMap AddInput(VideoInput video) => AddVideoInput(video);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="audio"></param>
+        /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
         /// <exception cref="InvalidRangeException"></exception>
