@@ -3,7 +3,7 @@
 	<!--https://docs.microsoft.com/en-us/nuget/reference/nuspec-->
 	<metadata>
 		<id>$id$</id>
-		<version>2.1.0$build$</version>
+		<version>2.2.0$build$</version>
 		<description>Filters.MultimediaSources for FFmpegArgs</description>
 		<authors>tqk2811</authors>
 		<projectUrl>https://github.com/tqk2811/FFmpegArgs</projectUrl>
@@ -13,13 +13,13 @@
 		<repository type="git" url="https://github.com/tqk2811/FFmpegArgs.git"/>
 		<dependencies>
 			<group targetFramework="netstandard2.0">
-				<dependency id="FFmpegArgs.Filters" version="[2.1,2.2)"/>
+				<dependency id="FFmpegArgs.Filters" version="[2.2,2.3)"/>
 			</group>
 			<group targetFramework="net6.0">
-				<dependency id="FFmpegArgs.Filters" version="[2.1,2.2)"/>
+				<dependency id="FFmpegArgs.Filters" version="[2.2,2.3)"/>
 			</group>
 			<group targetFramework="net8.0">
-				<dependency id="FFmpegArgs.Filters" version="[2.1,2.2)"/>
+				<dependency id="FFmpegArgs.Filters" version="[2.2,2.3)"/>
 			</group>
 		</dependencies>
 	</metadata>
