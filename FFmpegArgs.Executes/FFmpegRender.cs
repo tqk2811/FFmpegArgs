@@ -189,7 +189,17 @@
                 this.StdIn.CopyTo(process.StandardInput.BaseStream);
                 process.StandardInput.BaseStream.Close();
             }
-            if (this.StdOut != null) process.StandardOutput.BaseStream.CopyTo(this.StdOut);
+            if (this.StdOut != null)
+            {
+                try
+                {
+                    process.StandardOutput.BaseStream.CopyTo(this.StdOut);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"{ex.GetType().FullName}: {ex.Message}{Environment.NewLine}{ex.StackTrace}");
+                }
+            }
             process.WaitForExit();
             renderResult.ExitCode = process.ExitCode;
             return renderResult;
@@ -239,7 +249,17 @@
                 await this.StdIn.CopyToAsync(process.StandardInput.BaseStream, 81920, token);
                 process.StandardInput.BaseStream.Close();
             }
-            if (this.StdOut != null) await process.StandardOutput.BaseStream.CopyToAsync(this.StdOut, 81920, token);
+            if (this.StdOut != null)
+            {
+                try
+                {
+                    await process.StandardOutput.BaseStream.CopyToAsync(this.StdOut, 81920, token);
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine($"{ex.GetType().FullName}: {ex.Message}{Environment.NewLine}{ex.StackTrace}");
+                }
+            }
 #if NET5_0_OR_GREATER
             await process.WaitForExitAsync();
 #else
